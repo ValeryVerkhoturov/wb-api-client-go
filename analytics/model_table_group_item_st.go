@@ -32,7 +32,7 @@ type TableGroupItemSt struct {
 	// Метрики группы
 	Metrics *TableCommonMetrics `json:"metrics,omitempty"`
 	// Товары группы
-	Items []TableItemItemSt `json:"items,omitempty"`
+	Items []TableItemSt `json:"items,omitempty"`
 }
 
 // NewTableGroupItemSt instantiates a new TableGroupItemSt object
@@ -245,9 +245,9 @@ func (o *TableGroupItemSt) SetMetrics(v TableCommonMetrics) {
 }
 
 // GetItems returns the Items field value if set, zero value otherwise.
-func (o *TableGroupItemSt) GetItems() []TableItemItemSt {
+func (o *TableGroupItemSt) GetItems() []TableItemSt {
 	if o == nil || IsNil(o.Items) {
-		var ret []TableItemItemSt
+		var ret []TableItemSt
 		return ret
 	}
 	return o.Items
@@ -255,7 +255,7 @@ func (o *TableGroupItemSt) GetItems() []TableItemItemSt {
 
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableGroupItemSt) GetItemsOk() ([]TableItemItemSt, bool) {
+func (o *TableGroupItemSt) GetItemsOk() ([]TableItemSt, bool) {
 	if o == nil || IsNil(o.Items) {
 		return nil, false
 	}
@@ -271,8 +271,8 @@ func (o *TableGroupItemSt) HasItems() bool {
 	return false
 }
 
-// SetItems gets a reference to the given []TableItemItemSt and assigns it to the Items field.
-func (o *TableGroupItemSt) SetItems(v []TableItemItemSt) {
+// SetItems gets a reference to the given []TableItemSt and assigns it to the Items field.
+func (o *TableGroupItemSt) SetItems(v []TableItemSt) {
 	o.Items = v
 }
 

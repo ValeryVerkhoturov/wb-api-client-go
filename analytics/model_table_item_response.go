@@ -20,7 +20,7 @@ var _ MappedNullable = &TableItemResponse{}
 // TableItemResponse struct for TableItemResponse
 type TableItemResponse struct {
 	// Множество данных по товарам
-	Items []TableItemItemSt `json:"items,omitempty"`
+	Items []TableItemSt `json:"items,omitempty"`
 	// Валюта отчёта
 	Currency *string `json:"currency,omitempty"`
 }
@@ -43,9 +43,9 @@ func NewTableItemResponseWithDefaults() *TableItemResponse {
 }
 
 // GetItems returns the Items field value if set, zero value otherwise.
-func (o *TableItemResponse) GetItems() []TableItemItemSt {
+func (o *TableItemResponse) GetItems() []TableItemSt {
 	if o == nil || IsNil(o.Items) {
-		var ret []TableItemItemSt
+		var ret []TableItemSt
 		return ret
 	}
 	return o.Items
@@ -53,7 +53,7 @@ func (o *TableItemResponse) GetItems() []TableItemItemSt {
 
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableItemResponse) GetItemsOk() ([]TableItemItemSt, bool) {
+func (o *TableItemResponse) GetItemsOk() ([]TableItemSt, bool) {
 	if o == nil || IsNil(o.Items) {
 		return nil, false
 	}
@@ -69,8 +69,8 @@ func (o *TableItemResponse) HasItems() bool {
 	return false
 }
 
-// SetItems gets a reference to the given []TableItemItemSt and assigns it to the Items field.
-func (o *TableItemResponse) SetItems(v []TableItemItemSt) {
+// SetItems gets a reference to the given []TableItemSt and assigns it to the Items field.
+func (o *TableItemResponse) SetItems(v []TableItemSt) {
 	o.Items = v
 }
 

@@ -51,8 +51,8 @@ type TableSizeResponseSizesInnerMetrics struct {
 	// Упущенные выкупы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
 	LostBuyoutsCount *float32 `json:"lostBuyoutsCount,omitempty"`
 	// Упущенные выкупы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
-	LostBuyoutsSum *float32                                 `json:"lostBuyoutsSum,omitempty"`
-	CurrentPrice   *TableItemItemStMetricsAllOfCurrentPrice `json:"currentPrice,omitempty"`
+	LostBuyoutsSum *float32                             `json:"lostBuyoutsSum,omitempty"`
+	CurrentPrice   *TableItemStMetricsAllOfCurrentPrice `json:"currentPrice,omitempty"`
 }
 
 // NewTableSizeResponseSizesInnerMetrics instantiates a new TableSizeResponseSizesInnerMetrics object
@@ -649,9 +649,9 @@ func (o *TableSizeResponseSizesInnerMetrics) SetLostBuyoutsSum(v float32) {
 }
 
 // GetCurrentPrice returns the CurrentPrice field value if set, zero value otherwise.
-func (o *TableSizeResponseSizesInnerMetrics) GetCurrentPrice() TableItemItemStMetricsAllOfCurrentPrice {
+func (o *TableSizeResponseSizesInnerMetrics) GetCurrentPrice() TableItemStMetricsAllOfCurrentPrice {
 	if o == nil || IsNil(o.CurrentPrice) {
-		var ret TableItemItemStMetricsAllOfCurrentPrice
+		var ret TableItemStMetricsAllOfCurrentPrice
 		return ret
 	}
 	return *o.CurrentPrice
@@ -659,7 +659,7 @@ func (o *TableSizeResponseSizesInnerMetrics) GetCurrentPrice() TableItemItemStMe
 
 // GetCurrentPriceOk returns a tuple with the CurrentPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableSizeResponseSizesInnerMetrics) GetCurrentPriceOk() (*TableItemItemStMetricsAllOfCurrentPrice, bool) {
+func (o *TableSizeResponseSizesInnerMetrics) GetCurrentPriceOk() (*TableItemStMetricsAllOfCurrentPrice, bool) {
 	if o == nil || IsNil(o.CurrentPrice) {
 		return nil, false
 	}
@@ -675,8 +675,8 @@ func (o *TableSizeResponseSizesInnerMetrics) HasCurrentPrice() bool {
 	return false
 }
 
-// SetCurrentPrice gets a reference to the given TableItemItemStMetricsAllOfCurrentPrice and assigns it to the CurrentPrice field.
-func (o *TableSizeResponseSizesInnerMetrics) SetCurrentPrice(v TableItemItemStMetricsAllOfCurrentPrice) {
+// SetCurrentPrice gets a reference to the given TableItemStMetricsAllOfCurrentPrice and assigns it to the CurrentPrice field.
+func (o *TableSizeResponseSizesInnerMetrics) SetCurrentPrice(v TableItemStMetricsAllOfCurrentPrice) {
 	o.CurrentPrice = &v
 }
 

@@ -37,7 +37,7 @@ type TableSearchTextItem struct {
 	Rating *float32 `json:"rating,omitempty"`
 	// Рейтинг по отзывам
 	FeedbackRating *float32                           `json:"feedbackRating,omitempty"`
-	Price          *TableItemItemAllOfPrice           `json:"price,omitempty"`
+	Price          *TableItemAllOfPrice               `json:"price,omitempty"`
 	Frequency      *TableSearchTextItemAllOfFrequency `json:"frequency,omitempty"`
 	// Количество обращений с поисковым запросом за неделю
 	WeekFrequency  *int32                                  `json:"weekFrequency,omitempty"`
@@ -357,9 +357,9 @@ func (o *TableSearchTextItem) SetFeedbackRating(v float32) {
 }
 
 // GetPrice returns the Price field value if set, zero value otherwise.
-func (o *TableSearchTextItem) GetPrice() TableItemItemAllOfPrice {
+func (o *TableSearchTextItem) GetPrice() TableItemAllOfPrice {
 	if o == nil || IsNil(o.Price) {
-		var ret TableItemItemAllOfPrice
+		var ret TableItemAllOfPrice
 		return ret
 	}
 	return *o.Price
@@ -367,7 +367,7 @@ func (o *TableSearchTextItem) GetPrice() TableItemItemAllOfPrice {
 
 // GetPriceOk returns a tuple with the Price field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableSearchTextItem) GetPriceOk() (*TableItemItemAllOfPrice, bool) {
+func (o *TableSearchTextItem) GetPriceOk() (*TableItemAllOfPrice, bool) {
 	if o == nil || IsNil(o.Price) {
 		return nil, false
 	}
@@ -383,8 +383,8 @@ func (o *TableSearchTextItem) HasPrice() bool {
 	return false
 }
 
-// SetPrice gets a reference to the given TableItemItemAllOfPrice and assigns it to the Price field.
-func (o *TableSearchTextItem) SetPrice(v TableItemItemAllOfPrice) {
+// SetPrice gets a reference to the given TableItemAllOfPrice and assigns it to the Price field.
+func (o *TableSearchTextItem) SetPrice(v TableItemAllOfPrice) {
 	o.Price = &v
 }
 

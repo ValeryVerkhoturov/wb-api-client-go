@@ -14,36 +14,36 @@ import (
 	"encoding/json"
 )
 
-// checks if the TableItemItemStMetricsAllOfCurrentPrice type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &TableItemItemStMetricsAllOfCurrentPrice{}
+// checks if the TableItemAllOfPrice type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &TableItemAllOfPrice{}
 
-// TableItemItemStMetricsAllOfCurrentPrice Текущая цена
-type TableItemItemStMetricsAllOfCurrentPrice struct {
+// TableItemAllOfPrice Цена
+type TableItemAllOfPrice struct {
 	// Минимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)
 	MinPrice *int32 `json:"minPrice,omitempty"`
 	// Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)
 	MaxPrice *int32 `json:"maxPrice,omitempty"`
 }
 
-// NewTableItemItemStMetricsAllOfCurrentPrice instantiates a new TableItemItemStMetricsAllOfCurrentPrice object
+// NewTableItemAllOfPrice instantiates a new TableItemAllOfPrice object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableItemItemStMetricsAllOfCurrentPrice() *TableItemItemStMetricsAllOfCurrentPrice {
-	this := TableItemItemStMetricsAllOfCurrentPrice{}
+func NewTableItemAllOfPrice() *TableItemAllOfPrice {
+	this := TableItemAllOfPrice{}
 	return &this
 }
 
-// NewTableItemItemStMetricsAllOfCurrentPriceWithDefaults instantiates a new TableItemItemStMetricsAllOfCurrentPrice object
+// NewTableItemAllOfPriceWithDefaults instantiates a new TableItemAllOfPrice object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewTableItemItemStMetricsAllOfCurrentPriceWithDefaults() *TableItemItemStMetricsAllOfCurrentPrice {
-	this := TableItemItemStMetricsAllOfCurrentPrice{}
+func NewTableItemAllOfPriceWithDefaults() *TableItemAllOfPrice {
+	this := TableItemAllOfPrice{}
 	return &this
 }
 
 // GetMinPrice returns the MinPrice field value if set, zero value otherwise.
-func (o *TableItemItemStMetricsAllOfCurrentPrice) GetMinPrice() int32 {
+func (o *TableItemAllOfPrice) GetMinPrice() int32 {
 	if o == nil || IsNil(o.MinPrice) {
 		var ret int32
 		return ret
@@ -53,7 +53,7 @@ func (o *TableItemItemStMetricsAllOfCurrentPrice) GetMinPrice() int32 {
 
 // GetMinPriceOk returns a tuple with the MinPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableItemItemStMetricsAllOfCurrentPrice) GetMinPriceOk() (*int32, bool) {
+func (o *TableItemAllOfPrice) GetMinPriceOk() (*int32, bool) {
 	if o == nil || IsNil(o.MinPrice) {
 		return nil, false
 	}
@@ -61,7 +61,7 @@ func (o *TableItemItemStMetricsAllOfCurrentPrice) GetMinPriceOk() (*int32, bool)
 }
 
 // HasMinPrice returns a boolean if a field has been set.
-func (o *TableItemItemStMetricsAllOfCurrentPrice) HasMinPrice() bool {
+func (o *TableItemAllOfPrice) HasMinPrice() bool {
 	if o != nil && !IsNil(o.MinPrice) {
 		return true
 	}
@@ -70,12 +70,12 @@ func (o *TableItemItemStMetricsAllOfCurrentPrice) HasMinPrice() bool {
 }
 
 // SetMinPrice gets a reference to the given int32 and assigns it to the MinPrice field.
-func (o *TableItemItemStMetricsAllOfCurrentPrice) SetMinPrice(v int32) {
+func (o *TableItemAllOfPrice) SetMinPrice(v int32) {
 	o.MinPrice = &v
 }
 
 // GetMaxPrice returns the MaxPrice field value if set, zero value otherwise.
-func (o *TableItemItemStMetricsAllOfCurrentPrice) GetMaxPrice() int32 {
+func (o *TableItemAllOfPrice) GetMaxPrice() int32 {
 	if o == nil || IsNil(o.MaxPrice) {
 		var ret int32
 		return ret
@@ -85,7 +85,7 @@ func (o *TableItemItemStMetricsAllOfCurrentPrice) GetMaxPrice() int32 {
 
 // GetMaxPriceOk returns a tuple with the MaxPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableItemItemStMetricsAllOfCurrentPrice) GetMaxPriceOk() (*int32, bool) {
+func (o *TableItemAllOfPrice) GetMaxPriceOk() (*int32, bool) {
 	if o == nil || IsNil(o.MaxPrice) {
 		return nil, false
 	}
@@ -93,7 +93,7 @@ func (o *TableItemItemStMetricsAllOfCurrentPrice) GetMaxPriceOk() (*int32, bool)
 }
 
 // HasMaxPrice returns a boolean if a field has been set.
-func (o *TableItemItemStMetricsAllOfCurrentPrice) HasMaxPrice() bool {
+func (o *TableItemAllOfPrice) HasMaxPrice() bool {
 	if o != nil && !IsNil(o.MaxPrice) {
 		return true
 	}
@@ -102,11 +102,11 @@ func (o *TableItemItemStMetricsAllOfCurrentPrice) HasMaxPrice() bool {
 }
 
 // SetMaxPrice gets a reference to the given int32 and assigns it to the MaxPrice field.
-func (o *TableItemItemStMetricsAllOfCurrentPrice) SetMaxPrice(v int32) {
+func (o *TableItemAllOfPrice) SetMaxPrice(v int32) {
 	o.MaxPrice = &v
 }
 
-func (o TableItemItemStMetricsAllOfCurrentPrice) MarshalJSON() ([]byte, error) {
+func (o TableItemAllOfPrice) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -114,7 +114,7 @@ func (o TableItemItemStMetricsAllOfCurrentPrice) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o TableItemItemStMetricsAllOfCurrentPrice) ToMap() (map[string]interface{}, error) {
+func (o TableItemAllOfPrice) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.MinPrice) {
 		toSerialize["minPrice"] = o.MinPrice
@@ -125,38 +125,38 @@ func (o TableItemItemStMetricsAllOfCurrentPrice) ToMap() (map[string]interface{}
 	return toSerialize, nil
 }
 
-type NullableTableItemItemStMetricsAllOfCurrentPrice struct {
-	value *TableItemItemStMetricsAllOfCurrentPrice
+type NullableTableItemAllOfPrice struct {
+	value *TableItemAllOfPrice
 	isSet bool
 }
 
-func (v NullableTableItemItemStMetricsAllOfCurrentPrice) Get() *TableItemItemStMetricsAllOfCurrentPrice {
+func (v NullableTableItemAllOfPrice) Get() *TableItemAllOfPrice {
 	return v.value
 }
 
-func (v *NullableTableItemItemStMetricsAllOfCurrentPrice) Set(val *TableItemItemStMetricsAllOfCurrentPrice) {
+func (v *NullableTableItemAllOfPrice) Set(val *TableItemAllOfPrice) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableTableItemItemStMetricsAllOfCurrentPrice) IsSet() bool {
+func (v NullableTableItemAllOfPrice) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableTableItemItemStMetricsAllOfCurrentPrice) Unset() {
+func (v *NullableTableItemAllOfPrice) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableTableItemItemStMetricsAllOfCurrentPrice(val *TableItemItemStMetricsAllOfCurrentPrice) *NullableTableItemItemStMetricsAllOfCurrentPrice {
-	return &NullableTableItemItemStMetricsAllOfCurrentPrice{value: val, isSet: true}
+func NewNullableTableItemAllOfPrice(val *TableItemAllOfPrice) *NullableTableItemAllOfPrice {
+	return &NullableTableItemAllOfPrice{value: val, isSet: true}
 }
 
-func (v NullableTableItemItemStMetricsAllOfCurrentPrice) MarshalJSON() ([]byte, error) {
+func (v NullableTableItemAllOfPrice) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableTableItemItemStMetricsAllOfCurrentPrice) UnmarshalJSON(src []byte) error {
+func (v *NullableTableItemAllOfPrice) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

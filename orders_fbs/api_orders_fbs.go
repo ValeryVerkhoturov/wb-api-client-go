@@ -652,6 +652,31 @@ type OrdersFbsAPI interface {
 	PatchV3FbsSuppliesShippingMethodExecute(r ApiPatchV3FbsSuppliesShippingMethodRequest) (*UpdateSuppliesShippingMethodResponse, *http.Response, error)
 
 	/*
+			PatchV3FbsSuppliesSupplyIdOrdersTransfer Перевести сборочные задания из доставки на сборку
+
+			Метод переводит сборочные задания из статуса `complete` — в доставке в статус `confirm` — на сборке.
+
+		Используйте метод, чтобы переместить сборочное задание из закрытой поставки в открытую.
+
+		Сборочное задание можно перевести из доставки на сборку, если выполнены все условия:
+		- сборочное задание находится в статусе `complete` — в доставке
+		- поставка, в которую нужно перенести сборочное задание, [не передана в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver)
+		- сборочное задание ранее не переносили из доставки на сборку
+		Чтобы проверить, можно ли перевести сборочное задание из доставки на сборку, используйте [статусы сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus), поле `isTransferable`.
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-supplies-supplyid-orders-transfer
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param supplyId ID поставки, из которой будут перемещены заказы
+			@return ApiPatchV3FbsSuppliesSupplyIdOrdersTransferRequest
+	*/
+	PatchV3FbsSuppliesSupplyIdOrdersTransfer(ctx context.Context, supplyId string) ApiPatchV3FbsSuppliesSupplyIdOrdersTransferRequest
+
+	// PatchV3FbsSuppliesSupplyIdOrdersTransferExecute executes the request
+	//  @return V3TransferOrdersToAssemblyResponse
+	PatchV3FbsSuppliesSupplyIdOrdersTransferExecute(r ApiPatchV3FbsSuppliesSupplyIdOrdersTransferRequest) (*V3TransferOrdersToAssemblyResponse, *http.Response, error)
+
+	/*
 			PatchV3OrdersOrderIdCancel Отменить сборочное задание
 
 			Метод отменяет [сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) и переводит в [статус](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `cancel` — отменено продавцом.
@@ -877,6 +902,7 @@ type OrdersFbsAPI interface {
 		|-------|----------------------|--------------------------------------|
 		| `new` | \*\*Новое сборочное задание\*\* | |
 		| `confirm` | \*\*На сборке\*\* |[Добавить сборочное задание к поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders)
+		 [Перевести сборочные задания из доставки на сборку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer)|
 		| `complete` | \*\*В доставке\*\* | [Передать поставку в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) |
 		| `cancel` | \*\*Отменено продавцом\*\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)|
 		| `cancel\_carrier` | \*\*Отменено перевозчиком\*\*
@@ -5411,6 +5437,163 @@ func (a *OrdersFbsAPIService) PatchV3FbsSuppliesShippingMethodExecute(r ApiPatch
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiPatchV3FbsSuppliesSupplyIdOrdersTransferRequest struct {
+	ctx                                             context.Context
+	ApiService                                      OrdersFbsAPI
+	supplyId                                        string
+	patchV3FbsSuppliesSupplyIdOrdersTransferRequest *PatchV3FbsSuppliesSupplyIdOrdersTransferRequest
+}
+
+func (r ApiPatchV3FbsSuppliesSupplyIdOrdersTransferRequest) PatchV3FbsSuppliesSupplyIdOrdersTransferRequest(patchV3FbsSuppliesSupplyIdOrdersTransferRequest PatchV3FbsSuppliesSupplyIdOrdersTransferRequest) ApiPatchV3FbsSuppliesSupplyIdOrdersTransferRequest {
+	r.patchV3FbsSuppliesSupplyIdOrdersTransferRequest = &patchV3FbsSuppliesSupplyIdOrdersTransferRequest
+	return r
+}
+
+func (r ApiPatchV3FbsSuppliesSupplyIdOrdersTransferRequest) Execute() (*V3TransferOrdersToAssemblyResponse, *http.Response, error) {
+	return r.ApiService.PatchV3FbsSuppliesSupplyIdOrdersTransferExecute(r)
+}
+
+/*
+PatchV3FbsSuppliesSupplyIdOrdersTransfer Перевести сборочные задания из доставки на сборку
+
+Метод переводит сборочные задания из статуса `complete` — в доставке в статус `confirm` — на сборке.
+
+Используйте метод, чтобы переместить сборочное задание из закрытой поставки в открытую.
+
+Сборочное задание можно перевести из доставки на сборку, если выполнены все условия:
+- сборочное задание находится в статусе `complete` — в доставке
+- поставка, в которую нужно перенести сборочное задание, [не передана в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver)
+- сборочное задание ранее не переносили из доставки на сборку
+Чтобы проверить, можно ли перевести сборочное задание из доставки на сборку, используйте [статусы сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus), поле `isTransferable`.
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-supplies-supplyid-orders-transfer
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param supplyId ID поставки, из которой будут перемещены заказы
+	@return ApiPatchV3FbsSuppliesSupplyIdOrdersTransferRequest
+*/
+func (a *OrdersFbsAPIService) PatchV3FbsSuppliesSupplyIdOrdersTransfer(ctx context.Context, supplyId string) ApiPatchV3FbsSuppliesSupplyIdOrdersTransferRequest {
+	return ApiPatchV3FbsSuppliesSupplyIdOrdersTransferRequest{
+		ApiService: a,
+		ctx:        ctx,
+		supplyId:   supplyId,
+	}
+}
+
+// Execute executes the request
+//
+//	@return V3TransferOrdersToAssemblyResponse
+func (a *OrdersFbsAPIService) PatchV3FbsSuppliesSupplyIdOrdersTransferExecute(r ApiPatchV3FbsSuppliesSupplyIdOrdersTransferRequest) (*V3TransferOrdersToAssemblyResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *V3TransferOrdersToAssemblyResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersFbsAPIService.PatchV3FbsSuppliesSupplyIdOrdersTransfer")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/marketplace/v3/fbs/supplies/{supplyId}/orders/transfer"
+	localVarPath = strings.Replace(localVarPath, "{"+"supplyId"+"}", url.PathEscape(parameterValueToString(r.supplyId, "supplyId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.patchV3FbsSuppliesSupplyIdOrdersTransferRequest == nil {
+		return localVarReturnValue, nil, reportError("patchV3FbsSuppliesSupplyIdOrdersTransferRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.patchV3FbsSuppliesSupplyIdOrdersTransferRequest
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV3PassesOffices401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiPatchV3OrdersOrderIdCancelRequest struct {
 	ctx        context.Context
 	ApiService OrdersFbsAPI
@@ -6726,6 +6909,9 @@ PostV3OrdersStatus Получить статусы сборочных задан
 |-------|----------------------|--------------------------------------|
 | `new` | \*\*Новое сборочное задание\*\* | |
 | `confirm` | \*\*На сборке\*\* |[Добавить сборочное задание к поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders)
+
+	[Перевести сборочные задания из доставки на сборку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer)|
+
 | `complete` | \*\*В доставке\*\* | [Передать поставку в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) |
 | `cancel` | \*\*Отменено продавцом\*\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)|
 | `cancel\_carrier` | \*\*Отменено перевозчиком\*\*

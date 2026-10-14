@@ -20,7 +20,7 @@ var _ MappedNullable = &TableDetailsResponse{}
 // TableDetailsResponse struct for TableDetailsResponse
 type TableDetailsResponse struct {
 	// Список товаров в группе по фильтру
-	Products []TableItemItem `json:"products,omitempty"`
+	Products []TableItem `json:"products,omitempty"`
 	// Валюта отчёта
 	Currency *string `json:"currency,omitempty"`
 }
@@ -43,9 +43,9 @@ func NewTableDetailsResponseWithDefaults() *TableDetailsResponse {
 }
 
 // GetProducts returns the Products field value if set, zero value otherwise.
-func (o *TableDetailsResponse) GetProducts() []TableItemItem {
+func (o *TableDetailsResponse) GetProducts() []TableItem {
 	if o == nil || IsNil(o.Products) {
-		var ret []TableItemItem
+		var ret []TableItem
 		return ret
 	}
 	return o.Products
@@ -53,7 +53,7 @@ func (o *TableDetailsResponse) GetProducts() []TableItemItem {
 
 // GetProductsOk returns a tuple with the Products field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableDetailsResponse) GetProductsOk() ([]TableItemItem, bool) {
+func (o *TableDetailsResponse) GetProductsOk() ([]TableItem, bool) {
 	if o == nil || IsNil(o.Products) {
 		return nil, false
 	}
@@ -69,8 +69,8 @@ func (o *TableDetailsResponse) HasProducts() bool {
 	return false
 }
 
-// SetProducts gets a reference to the given []TableItemItem and assigns it to the Products field.
-func (o *TableDetailsResponse) SetProducts(v []TableItemItem) {
+// SetProducts gets a reference to the given []TableItem and assigns it to the Products field.
+func (o *TableDetailsResponse) SetProducts(v []TableItem) {
 	o.Products = v
 }
 

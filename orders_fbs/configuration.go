@@ -293,6 +293,12 @@ func NewConfiguration() *Configuration {
 					Description: "No description provided",
 				},
 			},
+			"OrdersFbsAPIService.PatchV3FbsSuppliesSupplyIdOrdersTransfer": {
+				{
+					URL:         "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+			},
 			"OrdersFbsAPIService.PatchV3OrdersOrderIdCancel": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
