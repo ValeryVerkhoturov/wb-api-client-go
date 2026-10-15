@@ -21,7 +21,7 @@ var _ MappedNullable = &PatchV1BidsResponse200BidsInnerNmBidsInner{}
 type PatchV1BidsResponse200BidsInnerNmBidsInner struct {
 	// Артикул WB
 	NmId *int64 `json:"nm_id,omitempty"`
-	// Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	BidKopecks *int64 `json:"bid_kopecks,omitempty"`
 	// Место размещения:   - `search` — в поиске   - `recommendations`— в рекомендациях
 	Placement *string `json:"placement,omitempty"`

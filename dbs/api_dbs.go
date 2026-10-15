@@ -27,7 +27,7 @@ type DbsAPI interface {
 
 		Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.
 
-		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**:
+		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий DBS**:
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -53,7 +53,7 @@ type DbsAPI interface {
 
 			Метод возвращает список всех новых [сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders), которые есть у продавца на момент запроса.
 
-		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**:
+		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий DBS**:
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -79,7 +79,7 @@ type DbsAPI interface {
 
 			Метод возвращает информацию о платной доставке сборочных заданий, которые поступили на один склад (`warehouseId`) в рамках одной транзакции покупателя (`orderUid`).
 
-		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**:
+		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий DBS**:
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -108,7 +108,7 @@ type DbsAPI interface {
 		- КПП
 		- Наименование организации
 
-		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**:
+		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий DBS**:
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -130,7 +130,7 @@ type DbsAPI interface {
 
 			Метод возвращает информацию о покупателе по ID сборочных заданий.
 
-		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**:
+		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий DBS**:
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -156,7 +156,7 @@ type DbsAPI interface {
 
 			Метод возвращает информацию о выбранных покупателем дате и времени доставки заказов.
 
-		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**:
+		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий DBS**:
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -184,7 +184,7 @@ type DbsAPI interface {
 		- цены продавца без учёта скидок
 		- суммы к оплате покупателем с учетом всех скидок и кэшбека
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки DBS**:
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **получения и удаления идентификаторов маркировки DBS**:
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 мин | 150 запросов | 400 мс | 20 запросов |
@@ -210,7 +210,7 @@ type DbsAPI interface {
 		- сборочное задание находится в [статусах](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` или `deliver`
 		- поле `customsDeclaration` есть в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails)
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки DBS**:
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **закрепления идентификаторов маркировки DBS**:
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 мин | 500 запросов | 120 мс | 20 запросов |
@@ -243,7 +243,7 @@ type DbsAPI interface {
 		- `sgtin` — [код маркировки Честного знака](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin)
 		- `customsDeclaration` — [номер ДТ](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration). При удалении номера ДТ также удаляется код страны происхождения товара — `originCountryCode`
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки DBS**:
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **получения и удаления идентификаторов маркировки DBS**:
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 мин | 150 запросов | 400 мс | 20 запросов |
@@ -278,7 +278,7 @@ type DbsAPI interface {
 		- `customsDeclaration` — [номер ДТ](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration)
 		- `originCountryCode` — [числовой код страны происхождения товара](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки DBS**:
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **получения и удаления идентификаторов маркировки DBS**:
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -301,7 +301,7 @@ type DbsAPI interface {
 			Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). У одного сборочного задания может быть только один GTIN.
 		Закрепить GTIN можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `gtin`.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки DBS**:
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **закрепления идентификаторов маркировки DBS**:
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 мин | 500 запросов | 120 мс | 20 запросов |
@@ -329,7 +329,7 @@ type DbsAPI interface {
 		У одного сборочного задания может быть только один IMEI. Если у устройства два IMEI — \*\*IMEI\*\* и \*\*IMEI2\*\* или \*\*IMEI1\*\* и \*\*IMEI2\*\* — укажите только \*\*IMEI\*\* или \*\*IMEI1\*\*. \*\*IMEI2\*\* указывать не нужно.
 		Закрепить IMEI можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `imei`.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки DBS**:
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **закрепления идентификаторов маркировки DBS**:
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 мин | 500 запросов | 120 мс | 20 запросов |
@@ -358,7 +358,7 @@ type DbsAPI interface {
 
 		Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки DBS**:
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **закрепления идентификаторов маркировки DBS**:
 		| Тип | Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- | --- |
 		| Персональный | 1 мин | 500 запросов | 120 мс | 20 запросов |
@@ -389,7 +389,7 @@ type DbsAPI interface {
 		У одного сборочного задания может быть только один УИН.
 		Закрепить УИН можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `uin`.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки DBS**:
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **закрепления идентификаторов маркировки DBS**:
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 мин | 500 запросов | 120 мс | 20 запросов |
@@ -416,7 +416,7 @@ type DbsAPI interface {
 			Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) из [статусов](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `new` и `confirm` в статус `cancel` — отменено продавцом.
 		Отменить сборочные задания в статусе `deliver` невозможно.
 
-		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 сек | 1 запрос | 1 сек | 10 запросов |
@@ -442,7 +442,7 @@ type DbsAPI interface {
 
 			Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `new` в статус `confirm` — на сборке.
 
-		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 сек | 1 запрос | 1 сек | 10 запросов |
@@ -468,7 +468,7 @@ type DbsAPI interface {
 
 			Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` в статус `deliver` — в доставке.
 
-		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 сек | 1 запрос | 1 сек | 10 запросов |
@@ -519,7 +519,7 @@ type DbsAPI interface {
 		- `ready\_for\_pickup` — заказ прибыл на ПВЗ
 		- `canceled\_by\_missed\_call` — отмена по причине недозвона
 
-		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**:
+		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий DBS**:
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -545,7 +545,7 @@ type DbsAPI interface {
 
 			Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `deliver` в статус `receive` — получено покупателем.
 
-		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 сек | 1 запрос | 1 сек | 10 запросов |
@@ -571,7 +571,7 @@ type DbsAPI interface {
 
 			Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `deliver` в статус `reject` — отказ покупателя при получении.
 
-		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 сек | 1 запрос | 1 сек | 10 запросов |
@@ -605,7 +605,7 @@ type DbsAPI interface {
 		- `deliver` — в доставке
 		Получить стикеры можно только в размере 580x400 px в формате PDF.
 
-		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**:
+		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий DBS**:
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -670,7 +670,7 @@ GetV3DbsOrders Получить информацию о завершенных �
 
 Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.
 
-[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**:
+[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий DBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -858,7 +858,7 @@ GetV3DbsOrdersNew Получить список новых сборочных з
 
 Метод возвращает список всех новых [сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders), которые есть у продавца на момент запроса.
 
-[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**:
+[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий DBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -1019,7 +1019,7 @@ PostV3DbsGroupsInfo Получить информацию о платной до
 
 Метод возвращает информацию о платной доставке сборочных заданий, которые поступили на один склад (`warehouseId`) в рамках одной транзакции покупателя (`orderUid`).
 
-[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**:
+[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий DBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -1199,7 +1199,7 @@ PostV3DbsOrdersB2bInfo Информация о покупателе B2B
 - КПП
 - Наименование организации
 
-[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**:
+[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий DBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -1372,7 +1372,7 @@ PostV3DbsOrdersClient Информация о покупателе
 
 Метод возвращает информацию о покупателе по ID сборочных заданий.
 
-[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**:
+[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий DBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -1560,7 +1560,7 @@ PostV3DbsOrdersDeliveryDate Получить дату и время достав
 
 Метод возвращает информацию о выбранных покупателем дате и времени доставки заказов.
 
-[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**:
+[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий DBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -1739,7 +1739,7 @@ PostV3DbsOrdersFinalPrice Получить цены продавца и сумм
 - цены продавца без учёта скидок
 - суммы к оплате покупателем с учетом всех скидок и кэшбека
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки DBS**:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **получения и удаления идентификаторов маркировки DBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 150 запросов | 400 мс | 20 запросов |
@@ -1902,7 +1902,7 @@ PostV3DbsOrdersMetaCustomsDeclaration Закрепить номера ДТ за 
 - сборочное задание находится в [статусах](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` или `deliver`
 - поле `customsDeclaration` есть в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails)
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки DBS**:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **закрепления идентификаторов маркировки DBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 500 запросов | 120 мс | 20 запросов |
@@ -2108,7 +2108,7 @@ PostV3DbsOrdersMetaDelete Удалить идентификаторы марки
 - `sgtin` — [код маркировки Честного знака](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin)
 - `customsDeclaration` — [номер ДТ](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration). При удалении номера ДТ также удаляется код страны происхождения товара — `originCountryCode`
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки DBS**:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **получения и удаления идентификаторов маркировки DBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 150 запросов | 400 мс | 20 запросов |
@@ -2305,7 +2305,7 @@ PostV3DbsOrdersMetaDetails Получить идентификаторы мар�
 - `customsDeclaration` — [номер ДТ](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration)
 - `originCountryCode` — [числовой код страны происхождения товара](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки DBS**:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **получения и удаления идентификаторов маркировки DBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -2479,7 +2479,7 @@ PostV3DbsOrdersMetaGtin Закрепить GTIN за сборочными зад
 Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). У одного сборочного задания может быть только один GTIN.
 Закрепить GTIN можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `gtin`.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки DBS**:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **закрепления идентификаторов маркировки DBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 500 запросов | 120 мс | 20 запросов |
@@ -2669,7 +2669,7 @@ PostV3DbsOrdersMetaImei Закрепить IMEI за сборочными зад
 У одного сборочного задания может быть только один IMEI. Если у устройства два IMEI — \*\*IMEI\*\* и \*\*IMEI2\*\* или \*\*IMEI1\*\* и \*\*IMEI2\*\* — укажите только \*\*IMEI\*\* или \*\*IMEI1\*\*. \*\*IMEI2\*\* указывать не нужно.
 Закрепить IMEI можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `imei`.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки DBS**:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **закрепления идентификаторов маркировки DBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 500 запросов | 120 мс | 20 запросов |
@@ -2860,7 +2860,7 @@ PostV3DbsOrdersMetaSgtin Закрепить коды маркировки Чес
 
 Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки DBS**:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **закрепления идентификаторов маркировки DBS**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 500 запросов | 120 мс | 20 запросов |
@@ -3042,7 +3042,7 @@ PostV3DbsOrdersMetaUin Закрепить УИН за сборочными за�
 У одного сборочного задания может быть только один УИН.
 Закрепить УИН можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `uin`.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки DBS**:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **закрепления идентификаторов маркировки DBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 500 запросов | 120 мс | 20 запросов |
@@ -3231,7 +3231,7 @@ PostV3DbsOrdersStatusCancel Отменить сборочные задания
 Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) из [статусов](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `new` и `confirm` в статус `cancel` — отменено продавцом.
 Отменить сборочные задания в статусе `deliver` невозможно.
 
-[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 сек | 1 запрос | 1 сек | 10 запросов |
@@ -3408,7 +3408,7 @@ PostV3DbsOrdersStatusConfirm Перевести сборочные задани�
 
 Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `new` в статус `confirm` — на сборке.
 
-[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 сек | 1 запрос | 1 сек | 10 запросов |
@@ -3585,7 +3585,7 @@ PostV3DbsOrdersStatusDeliver Перевести сборочные задани�
 
 Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` в статус `deliver` — в доставке.
 
-[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 сек | 1 запрос | 1 сек | 10 запросов |
@@ -3788,7 +3788,7 @@ PostV3DbsOrdersStatusInfo Получить статусы сборочных з�
 - `ready\_for\_pickup` — заказ прибыл на ПВЗ
 - `canceled\_by\_missed\_call` — отмена по причине недозвона
 
-[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**:
+[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий DBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -3976,7 +3976,7 @@ PostV3DbsOrdersStatusReceive Сообщить о получении заказо
 
 Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `deliver` в статус `receive` — получено покупателем.
 
-[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 сек | 1 запрос | 1 сек | 10 запросов |
@@ -4150,7 +4150,7 @@ PostV3DbsOrdersStatusReject Сообщить об отказе от заказо
 
 Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `deliver` в статус `reject` — отказ покупателя при получении.
 
-[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 сек | 1 запрос | 1 сек | 10 запросов |
@@ -4353,7 +4353,7 @@ PostV3DbsOrdersStickers Получить стикеры для сборочны�
 - `deliver` — в доставке
 Получить стикеры можно только в размере 580x400 px в формате PDF.
 
-[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**:
+[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий DBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |

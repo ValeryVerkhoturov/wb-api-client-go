@@ -29,7 +29,7 @@ type FullStatsItemDaysInner struct {
 	Date *string `json:"date,omitempty"`
 	// Количество кликов
 	Clicks *int32 `json:"clicks,omitempty"`
-	// Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Средняя стоимость клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Cpc *float32 `json:"cpc,omitempty"`
 	// CR (conversion rate) — отношение количества заказов к общему количеству посещений кампании
 	Cr *float32 `json:"cr,omitempty"`
@@ -39,9 +39,9 @@ type FullStatsItemDaysInner struct {
 	Orders *int32 `json:"orders,omitempty"`
 	// Количество заказанных товаров, шт.
 	Shks *int32 `json:"shks,omitempty"`
-	// Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Затраты в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Sum *float32 `json:"sum,omitempty"`
-	// Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Заказов на сумму в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	SumPrice *float32 `json:"sum_price,omitempty"`
 	// Количество просмотров
 	Views *int32 `json:"views,omitempty"`

@@ -30,7 +30,7 @@ type OrdersFbwAPI interface {
 
 		Метод удаляет черновик поставки по его ID.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -57,7 +57,7 @@ type OrdersFbwAPI interface {
 
 		Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -83,7 +83,7 @@ type OrdersFbwAPI interface {
 
 		Метод возвращает список черновиков поставок.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -108,7 +108,7 @@ type OrdersFbwAPI interface {
 
 		Метод возвращает список товаров черновика.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -130,7 +130,7 @@ type OrdersFbwAPI interface {
 
 			Метод возвращает детали поставки по ID.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 		| Тип | Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- | --- |
 		| Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -155,7 +155,7 @@ type OrdersFbwAPI interface {
 
 			Метод возвращает информацию о товарах в поставке.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 		| Тип | Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- | --- |
 		| Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -180,7 +180,7 @@ type OrdersFbwAPI interface {
 
 			Метод возвращает информацию об упаковке поставки.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 		| Тип | Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- | --- |
 		| Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -230,7 +230,7 @@ type OrdersFbwAPI interface {
 		- `"discrepancyType": "shortage"`
 		- `"discrepancyLabel": "re-sorting"`
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 мин | 1 запрос | 1 мин | 1 запрос |
@@ -252,7 +252,7 @@ type OrdersFbwAPI interface {
 
 			Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 		| Тип | Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- | --- |
 		| Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов |
@@ -276,7 +276,7 @@ type OrdersFbwAPI interface {
 
 			Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 		| Тип | Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- | --- |
 		| Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов |
@@ -304,7 +304,7 @@ type OrdersFbwAPI interface {
 
 			Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 		| Тип | Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- | --- |
 		| Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов |
@@ -336,7 +336,7 @@ type OrdersFbwAPI interface {
 
 		Метод создаёт пустой черновик поставки.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -365,7 +365,7 @@ type OrdersFbwAPI interface {
 		- если все баркоды прошли валидацию успешно, то все товары добавятся в черновик. В ответе вернётся `{"results":[]}`
 		- если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 		| Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- |
 		| 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -387,7 +387,7 @@ type OrdersFbwAPI interface {
 
 			Метод возвращает список поставок, по умолчанию — последние 1000 поставок.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 		| Тип | Период | Лимит | Интервал | Всплеск |
 		| --- | --- | --- | --- | --- |
 		| Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -429,7 +429,7 @@ DeleteV1DraftsDraftId Удалить черновик
 
 Метод удаляет черновик поставки по его ID.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -594,7 +594,7 @@ DeleteV1DraftsDraftIdItems Удалить товары из черновика
 
 Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -795,7 +795,7 @@ GetV1Drafts Список черновиков
 
 Метод возвращает список черновиков поставок.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -974,7 +974,7 @@ GetV1DraftsDraftIdItems Список товаров в черновике
 
 Метод возвращает список товаров черновика.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -1146,7 +1146,7 @@ GetV1SuppliesId Детали поставки
 
 Метод возвращает детали поставки по ID.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -1352,7 +1352,7 @@ GetV1SuppliesIdGoods Товары поставки
 
 Метод возвращает информацию о товарах в поставке.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -1538,7 +1538,7 @@ GetV1SuppliesIdPackage Упаковка поставки
 
 Метод возвращает информацию об упаковке поставки.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -1731,7 +1731,7 @@ GetV1SuppliesSupplyIdDiscrepanciesQuantity Расхождения в поста�
 - `"discrepancyType": "shortage"`
 - `"discrepancyLabel": "re-sorting"`
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 1 запрос |
@@ -1895,7 +1895,7 @@ GetV1TransitTariffs Транзитные направления
 
 Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов |
@@ -2037,7 +2037,7 @@ GetV1Warehouses Список складов
 
 Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов |
@@ -2196,7 +2196,7 @@ PostV1AcceptanceOptions Опции приёмки
 
 Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов |
@@ -2379,7 +2379,7 @@ PostV1Drafts Создать черновик
 
 Метод создаёт пустой черновик поставки.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -2533,7 +2533,7 @@ PostV1DraftsDraftIdItems Добавить товары в черновик
 - если все баркоды прошли валидацию успешно, то все товары добавятся в черновик. В ответе вернётся `{"results":[]}`
 - если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -2722,7 +2722,7 @@ PostV1Supplies Список поставок
 
 Метод возвращает список поставок, по умолчанию — последние 1000 поставок.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов |

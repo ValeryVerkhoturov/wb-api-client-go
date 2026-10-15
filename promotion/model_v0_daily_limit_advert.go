@@ -23,9 +23,9 @@ type V0DailyLimitAdvert struct {
 	AdvertId *int64 `json:"advertId,omitempty"`
 	// - `true` — дневной лимит включен - `false` — дневной лимит отключен
 	Enabled *bool `json:"enabled,omitempty"`
-	// Размер дневного лимита в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Размер дневного лимита в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	DailyLimit *int64 `json:"dailyLimit,omitempty"`
-	// Потрачено сегодня в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Потрачено сегодня в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	SpentToday *int64 `json:"spentToday,omitempty"`
 	// Код валюты
 	Currency *string `json:"currency,omitempty"`
@@ -33,7 +33,7 @@ type V0DailyLimitAdvert struct {
 	CarryOverEnabled *bool `json:"carryOverEnabled,omitempty"`
 	// Хватает ли текущего размера лимита на установку ставок кампании:   - `true` — да   - `false` — нет, рекомендуем повысить лимит, иначе бюджет кампании может расходоваться неравномерно
 	Valid *bool `json:"valid,omitempty"`
-	// Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	RequiredLimit *int64 `json:"requiredLimit,omitempty"`
 }
 

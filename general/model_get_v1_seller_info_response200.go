@@ -27,6 +27,8 @@ type GetV1SellerInfoResponse200 struct {
 	Tin *string `json:"tin,omitempty"`
 	// Торговое наименование продавца
 	TradeMark *string `json:"tradeMark,omitempty"`
+	// Страна регистрации профиля продавца
+	Country *string `json:"country,omitempty"`
 }
 
 // NewGetV1SellerInfoResponse200 instantiates a new GetV1SellerInfoResponse200 object
@@ -174,6 +176,38 @@ func (o *GetV1SellerInfoResponse200) SetTradeMark(v string) {
 	o.TradeMark = &v
 }
 
+// GetCountry returns the Country field value if set, zero value otherwise.
+func (o *GetV1SellerInfoResponse200) GetCountry() string {
+	if o == nil || IsNil(o.Country) {
+		var ret string
+		return ret
+	}
+	return *o.Country
+}
+
+// GetCountryOk returns a tuple with the Country field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetV1SellerInfoResponse200) GetCountryOk() (*string, bool) {
+	if o == nil || IsNil(o.Country) {
+		return nil, false
+	}
+	return o.Country, true
+}
+
+// HasCountry returns a boolean if a field has been set.
+func (o *GetV1SellerInfoResponse200) HasCountry() bool {
+	if o != nil && !IsNil(o.Country) {
+		return true
+	}
+
+	return false
+}
+
+// SetCountry gets a reference to the given string and assigns it to the Country field.
+func (o *GetV1SellerInfoResponse200) SetCountry(v string) {
+	o.Country = &v
+}
+
 func (o GetV1SellerInfoResponse200) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -195,6 +229,9 @@ func (o GetV1SellerInfoResponse200) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.TradeMark) {
 		toSerialize["tradeMark"] = o.TradeMark
+	}
+	if !IsNil(o.Country) {
+		toSerialize["country"] = o.Country
 	}
 	return toSerialize, nil
 }

@@ -21,9 +21,9 @@ var _ MappedNullable = &V1BudgetAdvert{}
 type V1BudgetAdvert struct {
 	// ID кампании
 	AdvertId *int32 `json:"advertId,omitempty"`
-	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Currency *string `json:"currency,omitempty"`
-	// Бюджет кампании в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Бюджет кампании в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Total *int32 `json:"total,omitempty"`
 }
 

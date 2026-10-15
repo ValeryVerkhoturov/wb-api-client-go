@@ -19,9 +19,9 @@ var _ MappedNullable = &PutV3StocksWarehouseIdResponse409InnerDataInner{}
 
 // PutV3StocksWarehouseIdResponse409InnerDataInner struct for PutV3StocksWarehouseIdResponse409InnerDataInner
 type PutV3StocksWarehouseIdResponse409InnerDataInner struct {
-	// Баркод
+	// Не используется
 	Sku *string `json:"sku,omitempty"`
-	// ID размера товара
+	// ID размера
 	ChrtId *int32 `json:"chrtId,omitempty"`
 	// Остаток
 	Amount *int32 `json:"amount,omitempty"`

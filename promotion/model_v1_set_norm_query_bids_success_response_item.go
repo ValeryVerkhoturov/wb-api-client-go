@@ -25,7 +25,7 @@ type V1SetNormQueryBidsSuccessResponseItem struct {
 	NmId *int32 `json:"nmId,omitempty"`
 	// Поисковый кластер — это группа похожих поисковых запросов, по которым покупатели находят товары
 	NormQuery *string `json:"normQuery,omitempty"`
-	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Currency *string `json:"currency,omitempty"`
 }
 

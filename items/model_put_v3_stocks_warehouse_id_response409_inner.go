@@ -23,7 +23,7 @@ type PutV3StocksWarehouseIdResponse409Inner struct {
 	Data []PutV3StocksWarehouseIdResponse409InnerDataInner `json:"data,omitempty"`
 	// Код ошибки
 	Code *string `json:"code,omitempty"`
-	// Описание ошибки
+	// Детали ошибки
 	Message *string `json:"message,omitempty"`
 }
 
@@ -44,9 +44,9 @@ func NewPutV3StocksWarehouseIdResponse409InnerWithDefaults() *PutV3StocksWarehou
 	return &this
 }
 
-// GetData returns the Data field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetData returns the Data field value if set, zero value otherwise.
 func (o *PutV3StocksWarehouseIdResponse409Inner) GetData() []PutV3StocksWarehouseIdResponse409InnerDataInner {
-	if o == nil {
+	if o == nil || IsNil(o.Data) {
 		var ret []PutV3StocksWarehouseIdResponse409InnerDataInner
 		return ret
 	}
@@ -55,7 +55,6 @@ func (o *PutV3StocksWarehouseIdResponse409Inner) GetData() []PutV3StocksWarehous
 
 // GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PutV3StocksWarehouseIdResponse409Inner) GetDataOk() ([]PutV3StocksWarehouseIdResponse409InnerDataInner, bool) {
 	if o == nil || IsNil(o.Data) {
 		return nil, false
@@ -151,7 +150,7 @@ func (o PutV3StocksWarehouseIdResponse409Inner) MarshalJSON() ([]byte, error) {
 
 func (o PutV3StocksWarehouseIdResponse409Inner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Data != nil {
+	if !IsNil(o.Data) {
 		toSerialize["data"] = o.Data
 	}
 	if !IsNil(o.Code) {
