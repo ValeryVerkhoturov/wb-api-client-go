@@ -20,9 +20,9 @@ var _ MappedNullable = &GetV1AnalyticsAntifraudDetails200ResponseDetailsInner{}
 // GetV1AnalyticsAntifraudDetails200ResponseDetailsInner struct for GetV1AnalyticsAntifraudDetails200ResponseDetailsInner
 type GetV1AnalyticsAntifraudDetails200ResponseDetailsInner struct {
 	// Артикул WB
-	NmID *int32 `json:"nmID,omitempty"`
+	NmID *int64 `json:"nmID,omitempty"`
 	// Сумма заказа
-	Sum *int32 `json:"sum,omitempty"`
+	Sum *int64 `json:"sum,omitempty"`
 	// Валюта заказа
 	Currency *string `json:"currency,omitempty"`
 	// Начало отчётного периода
@@ -49,9 +49,9 @@ func NewGetV1AnalyticsAntifraudDetails200ResponseDetailsInnerWithDefaults() *Get
 }
 
 // GetNmID returns the NmID field value if set, zero value otherwise.
-func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) GetNmID() int32 {
+func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) GetNmID() int64 {
 	if o == nil || IsNil(o.NmID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmID
@@ -59,7 +59,7 @@ func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) GetNmID() int32 
 
 // GetNmIDOk returns a tuple with the NmID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) GetNmIDOk() (*int32, bool) {
+func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) GetNmIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmID) {
 		return nil, false
 	}
@@ -75,15 +75,15 @@ func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) HasNmID() bool {
 	return false
 }
 
-// SetNmID gets a reference to the given int32 and assigns it to the NmID field.
-func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) SetNmID(v int32) {
+// SetNmID gets a reference to the given int64 and assigns it to the NmID field.
+func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) SetNmID(v int64) {
 	o.NmID = &v
 }
 
 // GetSum returns the Sum field value if set, zero value otherwise.
-func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) GetSum() int32 {
+func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) GetSum() int64 {
 	if o == nil || IsNil(o.Sum) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Sum
@@ -91,7 +91,7 @@ func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) GetSum() int32 {
 
 // GetSumOk returns a tuple with the Sum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) GetSumOk() (*int32, bool) {
+func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) GetSumOk() (*int64, bool) {
 	if o == nil || IsNil(o.Sum) {
 		return nil, false
 	}
@@ -107,8 +107,8 @@ func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) HasSum() bool {
 	return false
 }
 
-// SetSum gets a reference to the given int32 and assigns it to the Sum field.
-func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) SetSum(v int32) {
+// SetSum gets a reference to the given int64 and assigns it to the Sum field.
+func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) SetSum(v int64) {
 	o.Sum = &v
 }
 

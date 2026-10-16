@@ -22,7 +22,7 @@ var _ MappedNullable = &PostV1SalesReportsDetailedReportId404Response{}
 // PostV1SalesReportsDetailedReportId404Response struct for PostV1SalesReportsDetailedReportId404Response
 type PostV1SalesReportsDetailedReportId404Response struct {
 	// HTTP статус-код
-	Status int32 `json:"status"`
+	Status int64 `json:"status"`
 	// Заголовок ошибки
 	Title string `json:"title"`
 	// Детали ошибки
@@ -39,7 +39,7 @@ type _PostV1SalesReportsDetailedReportId404Response PostV1SalesReportsDetailedRe
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostV1SalesReportsDetailedReportId404Response(status int32, title string, detail string, requestId string, origin string) *PostV1SalesReportsDetailedReportId404Response {
+func NewPostV1SalesReportsDetailedReportId404Response(status int64, title string, detail string, requestId string, origin string) *PostV1SalesReportsDetailedReportId404Response {
 	this := PostV1SalesReportsDetailedReportId404Response{}
 	this.Status = status
 	this.Title = title
@@ -58,9 +58,9 @@ func NewPostV1SalesReportsDetailedReportId404ResponseWithDefaults() *PostV1Sales
 }
 
 // GetStatus returns the Status field value
-func (o *PostV1SalesReportsDetailedReportId404Response) GetStatus() int32 {
+func (o *PostV1SalesReportsDetailedReportId404Response) GetStatus() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -69,7 +69,7 @@ func (o *PostV1SalesReportsDetailedReportId404Response) GetStatus() int32 {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *PostV1SalesReportsDetailedReportId404Response) GetStatusOk() (*int32, bool) {
+func (o *PostV1SalesReportsDetailedReportId404Response) GetStatusOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -77,7 +77,7 @@ func (o *PostV1SalesReportsDetailedReportId404Response) GetStatusOk() (*int32, b
 }
 
 // SetStatus sets field value
-func (o *PostV1SalesReportsDetailedReportId404Response) SetStatus(v int32) {
+func (o *PostV1SalesReportsDetailedReportId404Response) SetStatus(v int64) {
 	o.Status = v
 }
 

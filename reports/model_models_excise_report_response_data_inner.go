@@ -30,17 +30,17 @@ type ModelsExciseReportResponseDataInner struct {
 	// Баркод
 	Barcode *string `json:"barcode,omitempty"`
 	// Артикул WB
-	NmId *int32 `json:"nm_id,omitempty"`
+	NmId *int64 `json:"nm_id,omitempty"`
 	// Тип операции, если есть:    * `1` — вывод из оборота   * `2` — возврат в оборот
-	OperationTypeId *int32 `json:"operation_type_id,omitempty"`
+	OperationTypeId *int64 `json:"operation_type_id,omitempty"`
 	// Номер фискального документа (чека полного расчёта), если есть
-	FiscalDocNumber *int32 `json:"fiscal_doc_number,omitempty"`
+	FiscalDocNumber *int64 `json:"fiscal_doc_number,omitempty"`
 	// Дата фискализации (дата в чеке), если есть, `ГГГГ-ММ-ДД`
 	FiscalDt *string `json:"fiscal_dt,omitempty"`
 	// Номер фискального накопителя, если есть
 	FiscalDriveNumber *string `json:"fiscal_drive_number,omitempty"`
 	// `Rid`
-	Rid *int32 `json:"rid,omitempty"`
+	Rid *int64 `json:"rid,omitempty"`
 	// `Srid`
 	Srid *string `json:"srid,omitempty"`
 }
@@ -223,9 +223,9 @@ func (o *ModelsExciseReportResponseDataInner) SetBarcode(v string) {
 }
 
 // GetNmId returns the NmId field value if set, zero value otherwise.
-func (o *ModelsExciseReportResponseDataInner) GetNmId() int32 {
+func (o *ModelsExciseReportResponseDataInner) GetNmId() int64 {
 	if o == nil || IsNil(o.NmId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmId
@@ -233,7 +233,7 @@ func (o *ModelsExciseReportResponseDataInner) GetNmId() int32 {
 
 // GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsExciseReportResponseDataInner) GetNmIdOk() (*int32, bool) {
+func (o *ModelsExciseReportResponseDataInner) GetNmIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
@@ -249,15 +249,15 @@ func (o *ModelsExciseReportResponseDataInner) HasNmId() bool {
 	return false
 }
 
-// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
-func (o *ModelsExciseReportResponseDataInner) SetNmId(v int32) {
+// SetNmId gets a reference to the given int64 and assigns it to the NmId field.
+func (o *ModelsExciseReportResponseDataInner) SetNmId(v int64) {
 	o.NmId = &v
 }
 
 // GetOperationTypeId returns the OperationTypeId field value if set, zero value otherwise.
-func (o *ModelsExciseReportResponseDataInner) GetOperationTypeId() int32 {
+func (o *ModelsExciseReportResponseDataInner) GetOperationTypeId() int64 {
 	if o == nil || IsNil(o.OperationTypeId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OperationTypeId
@@ -265,7 +265,7 @@ func (o *ModelsExciseReportResponseDataInner) GetOperationTypeId() int32 {
 
 // GetOperationTypeIdOk returns a tuple with the OperationTypeId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsExciseReportResponseDataInner) GetOperationTypeIdOk() (*int32, bool) {
+func (o *ModelsExciseReportResponseDataInner) GetOperationTypeIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.OperationTypeId) {
 		return nil, false
 	}
@@ -281,15 +281,15 @@ func (o *ModelsExciseReportResponseDataInner) HasOperationTypeId() bool {
 	return false
 }
 
-// SetOperationTypeId gets a reference to the given int32 and assigns it to the OperationTypeId field.
-func (o *ModelsExciseReportResponseDataInner) SetOperationTypeId(v int32) {
+// SetOperationTypeId gets a reference to the given int64 and assigns it to the OperationTypeId field.
+func (o *ModelsExciseReportResponseDataInner) SetOperationTypeId(v int64) {
 	o.OperationTypeId = &v
 }
 
 // GetFiscalDocNumber returns the FiscalDocNumber field value if set, zero value otherwise.
-func (o *ModelsExciseReportResponseDataInner) GetFiscalDocNumber() int32 {
+func (o *ModelsExciseReportResponseDataInner) GetFiscalDocNumber() int64 {
 	if o == nil || IsNil(o.FiscalDocNumber) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.FiscalDocNumber
@@ -297,7 +297,7 @@ func (o *ModelsExciseReportResponseDataInner) GetFiscalDocNumber() int32 {
 
 // GetFiscalDocNumberOk returns a tuple with the FiscalDocNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsExciseReportResponseDataInner) GetFiscalDocNumberOk() (*int32, bool) {
+func (o *ModelsExciseReportResponseDataInner) GetFiscalDocNumberOk() (*int64, bool) {
 	if o == nil || IsNil(o.FiscalDocNumber) {
 		return nil, false
 	}
@@ -313,8 +313,8 @@ func (o *ModelsExciseReportResponseDataInner) HasFiscalDocNumber() bool {
 	return false
 }
 
-// SetFiscalDocNumber gets a reference to the given int32 and assigns it to the FiscalDocNumber field.
-func (o *ModelsExciseReportResponseDataInner) SetFiscalDocNumber(v int32) {
+// SetFiscalDocNumber gets a reference to the given int64 and assigns it to the FiscalDocNumber field.
+func (o *ModelsExciseReportResponseDataInner) SetFiscalDocNumber(v int64) {
 	o.FiscalDocNumber = &v
 }
 
@@ -383,9 +383,9 @@ func (o *ModelsExciseReportResponseDataInner) SetFiscalDriveNumber(v string) {
 }
 
 // GetRid returns the Rid field value if set, zero value otherwise.
-func (o *ModelsExciseReportResponseDataInner) GetRid() int32 {
+func (o *ModelsExciseReportResponseDataInner) GetRid() int64 {
 	if o == nil || IsNil(o.Rid) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Rid
@@ -393,7 +393,7 @@ func (o *ModelsExciseReportResponseDataInner) GetRid() int32 {
 
 // GetRidOk returns a tuple with the Rid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsExciseReportResponseDataInner) GetRidOk() (*int32, bool) {
+func (o *ModelsExciseReportResponseDataInner) GetRidOk() (*int64, bool) {
 	if o == nil || IsNil(o.Rid) {
 		return nil, false
 	}
@@ -409,8 +409,8 @@ func (o *ModelsExciseReportResponseDataInner) HasRid() bool {
 	return false
 }
 
-// SetRid gets a reference to the given int32 and assigns it to the Rid field.
-func (o *ModelsExciseReportResponseDataInner) SetRid(v int32) {
+// SetRid gets a reference to the given int64 and assigns it to the Rid field.
+func (o *ModelsExciseReportResponseDataInner) SetRid(v int64) {
 	o.Rid = &v
 }
 

@@ -22,9 +22,9 @@ type PutV3StocksWarehouseIdResponse409InnerDataInner struct {
 	// Не используется
 	Sku *string `json:"sku,omitempty"`
 	// ID размера
-	ChrtId *int32 `json:"chrtId,omitempty"`
+	ChrtId *int64 `json:"chrtId,omitempty"`
 	// Остаток
-	Amount *int32 `json:"amount,omitempty"`
+	Amount *int64 `json:"amount,omitempty"`
 }
 
 // NewPutV3StocksWarehouseIdResponse409InnerDataInner instantiates a new PutV3StocksWarehouseIdResponse409InnerDataInner object
@@ -77,9 +77,9 @@ func (o *PutV3StocksWarehouseIdResponse409InnerDataInner) SetSku(v string) {
 }
 
 // GetChrtId returns the ChrtId field value if set, zero value otherwise.
-func (o *PutV3StocksWarehouseIdResponse409InnerDataInner) GetChrtId() int32 {
+func (o *PutV3StocksWarehouseIdResponse409InnerDataInner) GetChrtId() int64 {
 	if o == nil || IsNil(o.ChrtId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ChrtId
@@ -87,7 +87,7 @@ func (o *PutV3StocksWarehouseIdResponse409InnerDataInner) GetChrtId() int32 {
 
 // GetChrtIdOk returns a tuple with the ChrtId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PutV3StocksWarehouseIdResponse409InnerDataInner) GetChrtIdOk() (*int32, bool) {
+func (o *PutV3StocksWarehouseIdResponse409InnerDataInner) GetChrtIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.ChrtId) {
 		return nil, false
 	}
@@ -103,15 +103,15 @@ func (o *PutV3StocksWarehouseIdResponse409InnerDataInner) HasChrtId() bool {
 	return false
 }
 
-// SetChrtId gets a reference to the given int32 and assigns it to the ChrtId field.
-func (o *PutV3StocksWarehouseIdResponse409InnerDataInner) SetChrtId(v int32) {
+// SetChrtId gets a reference to the given int64 and assigns it to the ChrtId field.
+func (o *PutV3StocksWarehouseIdResponse409InnerDataInner) SetChrtId(v int64) {
 	o.ChrtId = &v
 }
 
 // GetAmount returns the Amount field value if set, zero value otherwise.
-func (o *PutV3StocksWarehouseIdResponse409InnerDataInner) GetAmount() int32 {
+func (o *PutV3StocksWarehouseIdResponse409InnerDataInner) GetAmount() int64 {
 	if o == nil || IsNil(o.Amount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Amount
@@ -119,7 +119,7 @@ func (o *PutV3StocksWarehouseIdResponse409InnerDataInner) GetAmount() int32 {
 
 // GetAmountOk returns a tuple with the Amount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PutV3StocksWarehouseIdResponse409InnerDataInner) GetAmountOk() (*int32, bool) {
+func (o *PutV3StocksWarehouseIdResponse409InnerDataInner) GetAmountOk() (*int64, bool) {
 	if o == nil || IsNil(o.Amount) {
 		return nil, false
 	}
@@ -135,8 +135,8 @@ func (o *PutV3StocksWarehouseIdResponse409InnerDataInner) HasAmount() bool {
 	return false
 }
 
-// SetAmount gets a reference to the given int32 and assigns it to the Amount field.
-func (o *PutV3StocksWarehouseIdResponse409InnerDataInner) SetAmount(v int32) {
+// SetAmount gets a reference to the given int64 and assigns it to the Amount field.
+func (o *PutV3StocksWarehouseIdResponse409InnerDataInner) SetAmount(v int64) {
 	o.Amount = &v
 }
 

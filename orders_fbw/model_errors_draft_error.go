@@ -20,7 +20,7 @@ var _ MappedNullable = &ErrorsDraftError{}
 // ErrorsDraftError struct for ErrorsDraftError
 type ErrorsDraftError struct {
 	// HTTP статус-код
-	Status *int32 `json:"status,omitempty"`
+	Status *int64 `json:"status,omitempty"`
 	// Заголовок ошибки
 	Title *string `json:"title,omitempty"`
 	// Детали ошибки
@@ -49,9 +49,9 @@ func NewErrorsDraftErrorWithDefaults() *ErrorsDraftError {
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
-func (o *ErrorsDraftError) GetStatus() int32 {
+func (o *ErrorsDraftError) GetStatus() int64 {
 	if o == nil || IsNil(o.Status) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Status
@@ -59,7 +59,7 @@ func (o *ErrorsDraftError) GetStatus() int32 {
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ErrorsDraftError) GetStatusOk() (*int32, bool) {
+func (o *ErrorsDraftError) GetStatusOk() (*int64, bool) {
 	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
@@ -75,8 +75,8 @@ func (o *ErrorsDraftError) HasStatus() bool {
 	return false
 }
 
-// SetStatus gets a reference to the given int32 and assigns it to the Status field.
-func (o *ErrorsDraftError) SetStatus(v int32) {
+// SetStatus gets a reference to the given int64 and assigns it to the Status field.
+func (o *ErrorsDraftError) SetStatus(v int64) {
 	o.Status = &v
 }
 

@@ -22,7 +22,7 @@ var _ MappedNullable = &PostV0RenameRequest{}
 // PostV0RenameRequest struct for PostV0RenameRequest
 type PostV0RenameRequest struct {
 	// ID кампании, в которой меняется название
-	AdvertId int32 `json:"advertId"`
+	AdvertId int64 `json:"advertId"`
 	// Новое название (максимум 100 символов)
 	Name string `json:"name"`
 }
@@ -33,7 +33,7 @@ type _PostV0RenameRequest PostV0RenameRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostV0RenameRequest(advertId int32, name string) *PostV0RenameRequest {
+func NewPostV0RenameRequest(advertId int64, name string) *PostV0RenameRequest {
 	this := PostV0RenameRequest{}
 	this.AdvertId = advertId
 	this.Name = name
@@ -49,9 +49,9 @@ func NewPostV0RenameRequestWithDefaults() *PostV0RenameRequest {
 }
 
 // GetAdvertId returns the AdvertId field value
-func (o *PostV0RenameRequest) GetAdvertId() int32 {
+func (o *PostV0RenameRequest) GetAdvertId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -60,7 +60,7 @@ func (o *PostV0RenameRequest) GetAdvertId() int32 {
 
 // GetAdvertIdOk returns a tuple with the AdvertId field value
 // and a boolean to check if the value has been set.
-func (o *PostV0RenameRequest) GetAdvertIdOk() (*int32, bool) {
+func (o *PostV0RenameRequest) GetAdvertIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,7 +68,7 @@ func (o *PostV0RenameRequest) GetAdvertIdOk() (*int32, bool) {
 }
 
 // SetAdvertId sets field value
-func (o *PostV0RenameRequest) SetAdvertId(v int32) {
+func (o *PostV0RenameRequest) SetAdvertId(v int64) {
 	o.AdvertId = v
 }
 

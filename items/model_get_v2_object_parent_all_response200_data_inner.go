@@ -22,7 +22,7 @@ type GetV2ObjectParentAllResponse200DataInner struct {
 	// Название категории
 	Name *string `json:"name,omitempty"`
 	// ID родительской категории
-	Id *int32 `json:"id,omitempty"`
+	Id *int64 `json:"id,omitempty"`
 	// Виден на сайте
 	IsVisible *bool `json:"isVisible,omitempty"`
 }
@@ -77,9 +77,9 @@ func (o *GetV2ObjectParentAllResponse200DataInner) SetName(v string) {
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *GetV2ObjectParentAllResponse200DataInner) GetId() int32 {
+func (o *GetV2ObjectParentAllResponse200DataInner) GetId() int64 {
 	if o == nil || IsNil(o.Id) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Id
@@ -87,7 +87,7 @@ func (o *GetV2ObjectParentAllResponse200DataInner) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV2ObjectParentAllResponse200DataInner) GetIdOk() (*int32, bool) {
+func (o *GetV2ObjectParentAllResponse200DataInner) GetIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -103,8 +103,8 @@ func (o *GetV2ObjectParentAllResponse200DataInner) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *GetV2ObjectParentAllResponse200DataInner) SetId(v int32) {
+// SetId gets a reference to the given int64 and assigns it to the Id field.
+func (o *GetV2ObjectParentAllResponse200DataInner) SetId(v int64) {
 	o.Id = &v
 }
 

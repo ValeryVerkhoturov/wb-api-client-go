@@ -20,9 +20,9 @@ var _ MappedNullable = &ModelsListDraftItemsResponse{}
 // ModelsListDraftItemsResponse struct for ModelsListDraftItemsResponse
 type ModelsListDraftItemsResponse struct {
 	// Количество баркодов
-	SkuQuantity *int32 `json:"skuQuantity,omitempty"`
+	SkuQuantity *int64 `json:"skuQuantity,omitempty"`
 	// Количество единиц товара
-	ItemQuantity *int32 `json:"itemQuantity,omitempty"`
+	ItemQuantity *int64 `json:"itemQuantity,omitempty"`
 	// Список товаров
 	Items []ModelsDraftItemItem `json:"items,omitempty"`
 }
@@ -45,9 +45,9 @@ func NewModelsListDraftItemsResponseWithDefaults() *ModelsListDraftItemsResponse
 }
 
 // GetSkuQuantity returns the SkuQuantity field value if set, zero value otherwise.
-func (o *ModelsListDraftItemsResponse) GetSkuQuantity() int32 {
+func (o *ModelsListDraftItemsResponse) GetSkuQuantity() int64 {
 	if o == nil || IsNil(o.SkuQuantity) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SkuQuantity
@@ -55,7 +55,7 @@ func (o *ModelsListDraftItemsResponse) GetSkuQuantity() int32 {
 
 // GetSkuQuantityOk returns a tuple with the SkuQuantity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsListDraftItemsResponse) GetSkuQuantityOk() (*int32, bool) {
+func (o *ModelsListDraftItemsResponse) GetSkuQuantityOk() (*int64, bool) {
 	if o == nil || IsNil(o.SkuQuantity) {
 		return nil, false
 	}
@@ -71,15 +71,15 @@ func (o *ModelsListDraftItemsResponse) HasSkuQuantity() bool {
 	return false
 }
 
-// SetSkuQuantity gets a reference to the given int32 and assigns it to the SkuQuantity field.
-func (o *ModelsListDraftItemsResponse) SetSkuQuantity(v int32) {
+// SetSkuQuantity gets a reference to the given int64 and assigns it to the SkuQuantity field.
+func (o *ModelsListDraftItemsResponse) SetSkuQuantity(v int64) {
 	o.SkuQuantity = &v
 }
 
 // GetItemQuantity returns the ItemQuantity field value if set, zero value otherwise.
-func (o *ModelsListDraftItemsResponse) GetItemQuantity() int32 {
+func (o *ModelsListDraftItemsResponse) GetItemQuantity() int64 {
 	if o == nil || IsNil(o.ItemQuantity) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ItemQuantity
@@ -87,7 +87,7 @@ func (o *ModelsListDraftItemsResponse) GetItemQuantity() int32 {
 
 // GetItemQuantityOk returns a tuple with the ItemQuantity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsListDraftItemsResponse) GetItemQuantityOk() (*int32, bool) {
+func (o *ModelsListDraftItemsResponse) GetItemQuantityOk() (*int64, bool) {
 	if o == nil || IsNil(o.ItemQuantity) {
 		return nil, false
 	}
@@ -103,8 +103,8 @@ func (o *ModelsListDraftItemsResponse) HasItemQuantity() bool {
 	return false
 }
 
-// SetItemQuantity gets a reference to the given int32 and assigns it to the ItemQuantity field.
-func (o *ModelsListDraftItemsResponse) SetItemQuantity(v int32) {
+// SetItemQuantity gets a reference to the given int64 and assigns it to the ItemQuantity field.
+func (o *ModelsListDraftItemsResponse) SetItemQuantity(v int64) {
 	o.ItemQuantity = &v
 }
 

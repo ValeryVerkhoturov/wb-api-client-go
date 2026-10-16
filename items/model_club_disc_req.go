@@ -22,9 +22,9 @@ var _ MappedNullable = &ClubDiscReq{}
 // ClubDiscReq struct for ClubDiscReq
 type ClubDiscReq struct {
 	// Артикул WB
-	NmID int32 `json:"nmID"`
+	NmID int64 `json:"nmID"`
 	// Скидка WB Клуба, %
-	ClubDiscount int32 `json:"clubDiscount"`
+	ClubDiscount int64 `json:"clubDiscount"`
 }
 
 type _ClubDiscReq ClubDiscReq
@@ -33,7 +33,7 @@ type _ClubDiscReq ClubDiscReq
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewClubDiscReq(nmID int32, clubDiscount int32) *ClubDiscReq {
+func NewClubDiscReq(nmID int64, clubDiscount int64) *ClubDiscReq {
 	this := ClubDiscReq{}
 	this.NmID = nmID
 	this.ClubDiscount = clubDiscount
@@ -49,9 +49,9 @@ func NewClubDiscReqWithDefaults() *ClubDiscReq {
 }
 
 // GetNmID returns the NmID field value
-func (o *ClubDiscReq) GetNmID() int32 {
+func (o *ClubDiscReq) GetNmID() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -60,7 +60,7 @@ func (o *ClubDiscReq) GetNmID() int32 {
 
 // GetNmIDOk returns a tuple with the NmID field value
 // and a boolean to check if the value has been set.
-func (o *ClubDiscReq) GetNmIDOk() (*int32, bool) {
+func (o *ClubDiscReq) GetNmIDOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,14 +68,14 @@ func (o *ClubDiscReq) GetNmIDOk() (*int32, bool) {
 }
 
 // SetNmID sets field value
-func (o *ClubDiscReq) SetNmID(v int32) {
+func (o *ClubDiscReq) SetNmID(v int64) {
 	o.NmID = v
 }
 
 // GetClubDiscount returns the ClubDiscount field value
-func (o *ClubDiscReq) GetClubDiscount() int32 {
+func (o *ClubDiscReq) GetClubDiscount() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -84,7 +84,7 @@ func (o *ClubDiscReq) GetClubDiscount() int32 {
 
 // GetClubDiscountOk returns a tuple with the ClubDiscount field value
 // and a boolean to check if the value has been set.
-func (o *ClubDiscReq) GetClubDiscountOk() (*int32, bool) {
+func (o *ClubDiscReq) GetClubDiscountOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -92,7 +92,7 @@ func (o *ClubDiscReq) GetClubDiscountOk() (*int32, bool) {
 }
 
 // SetClubDiscount sets field value
-func (o *ClubDiscReq) SetClubDiscount(v int32) {
+func (o *ClubDiscReq) SetClubDiscount(v int64) {
 	o.ClubDiscount = v
 }
 

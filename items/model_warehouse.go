@@ -26,9 +26,9 @@ type Warehouse struct {
 	// ID склада продавца
 	Id *int64 `json:"id,omitempty"`
 	// Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+)
-	CargoType *int32 `json:"cargoType,omitempty"`
+	CargoType *int64 `json:"cargoType,omitempty"`
 	// Тип доставки, который принимает склад:   - `1` — доставка на склад WB (FBS)   - `2` — доставка силами продавца (DBS)   - `3` — Деливери WB (DBW)   - `5` — самовывоз (C&C)   - `6` — экспресс-доставка силами продавца (ЕDBS)
-	DeliveryType *int32 `json:"deliveryType,omitempty"`
+	DeliveryType *int64 `json:"deliveryType,omitempty"`
 	// Склад удаляется:   - `false` — нет   - `true` — да  После удаления склад пропадёт из списка
 	IsDeleting *bool `json:"isDeleting,omitempty"`
 	// Данные склада обновляются:   - `false` — нет   - `true` — да, обновление и удаление остатков недоступно  Обновление данных может занимать несколько минут
@@ -149,9 +149,9 @@ func (o *Warehouse) SetId(v int64) {
 }
 
 // GetCargoType returns the CargoType field value if set, zero value otherwise.
-func (o *Warehouse) GetCargoType() int32 {
+func (o *Warehouse) GetCargoType() int64 {
 	if o == nil || IsNil(o.CargoType) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CargoType
@@ -159,7 +159,7 @@ func (o *Warehouse) GetCargoType() int32 {
 
 // GetCargoTypeOk returns a tuple with the CargoType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Warehouse) GetCargoTypeOk() (*int32, bool) {
+func (o *Warehouse) GetCargoTypeOk() (*int64, bool) {
 	if o == nil || IsNil(o.CargoType) {
 		return nil, false
 	}
@@ -175,15 +175,15 @@ func (o *Warehouse) HasCargoType() bool {
 	return false
 }
 
-// SetCargoType gets a reference to the given int32 and assigns it to the CargoType field.
-func (o *Warehouse) SetCargoType(v int32) {
+// SetCargoType gets a reference to the given int64 and assigns it to the CargoType field.
+func (o *Warehouse) SetCargoType(v int64) {
 	o.CargoType = &v
 }
 
 // GetDeliveryType returns the DeliveryType field value if set, zero value otherwise.
-func (o *Warehouse) GetDeliveryType() int32 {
+func (o *Warehouse) GetDeliveryType() int64 {
 	if o == nil || IsNil(o.DeliveryType) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.DeliveryType
@@ -191,7 +191,7 @@ func (o *Warehouse) GetDeliveryType() int32 {
 
 // GetDeliveryTypeOk returns a tuple with the DeliveryType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Warehouse) GetDeliveryTypeOk() (*int32, bool) {
+func (o *Warehouse) GetDeliveryTypeOk() (*int64, bool) {
 	if o == nil || IsNil(o.DeliveryType) {
 		return nil, false
 	}
@@ -207,8 +207,8 @@ func (o *Warehouse) HasDeliveryType() bool {
 	return false
 }
 
-// SetDeliveryType gets a reference to the given int32 and assigns it to the DeliveryType field.
-func (o *Warehouse) SetDeliveryType(v int32) {
+// SetDeliveryType gets a reference to the given int64 and assigns it to the DeliveryType field.
+func (o *Warehouse) SetDeliveryType(v int64) {
 	o.DeliveryType = &v
 }
 

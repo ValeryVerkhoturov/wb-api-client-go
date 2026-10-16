@@ -22,9 +22,9 @@ type VisibilityInfoByDayInner struct {
 	// Дата
 	Dt *string `json:"dt,omitempty"`
 	// Видимость карточки в результатах поиска, %
-	Visibility *int32 `json:"visibility,omitempty"`
+	Visibility *int64 `json:"visibility,omitempty"`
 	// Количество переходов в карточку
-	Open *int32 `json:"open,omitempty"`
+	Open *int64 `json:"open,omitempty"`
 }
 
 // NewVisibilityInfoByDayInner instantiates a new VisibilityInfoByDayInner object
@@ -77,9 +77,9 @@ func (o *VisibilityInfoByDayInner) SetDt(v string) {
 }
 
 // GetVisibility returns the Visibility field value if set, zero value otherwise.
-func (o *VisibilityInfoByDayInner) GetVisibility() int32 {
+func (o *VisibilityInfoByDayInner) GetVisibility() int64 {
 	if o == nil || IsNil(o.Visibility) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Visibility
@@ -87,7 +87,7 @@ func (o *VisibilityInfoByDayInner) GetVisibility() int32 {
 
 // GetVisibilityOk returns a tuple with the Visibility field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *VisibilityInfoByDayInner) GetVisibilityOk() (*int32, bool) {
+func (o *VisibilityInfoByDayInner) GetVisibilityOk() (*int64, bool) {
 	if o == nil || IsNil(o.Visibility) {
 		return nil, false
 	}
@@ -103,15 +103,15 @@ func (o *VisibilityInfoByDayInner) HasVisibility() bool {
 	return false
 }
 
-// SetVisibility gets a reference to the given int32 and assigns it to the Visibility field.
-func (o *VisibilityInfoByDayInner) SetVisibility(v int32) {
+// SetVisibility gets a reference to the given int64 and assigns it to the Visibility field.
+func (o *VisibilityInfoByDayInner) SetVisibility(v int64) {
 	o.Visibility = &v
 }
 
 // GetOpen returns the Open field value if set, zero value otherwise.
-func (o *VisibilityInfoByDayInner) GetOpen() int32 {
+func (o *VisibilityInfoByDayInner) GetOpen() int64 {
 	if o == nil || IsNil(o.Open) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Open
@@ -119,7 +119,7 @@ func (o *VisibilityInfoByDayInner) GetOpen() int32 {
 
 // GetOpenOk returns a tuple with the Open field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *VisibilityInfoByDayInner) GetOpenOk() (*int32, bool) {
+func (o *VisibilityInfoByDayInner) GetOpenOk() (*int64, bool) {
 	if o == nil || IsNil(o.Open) {
 		return nil, false
 	}
@@ -135,8 +135,8 @@ func (o *VisibilityInfoByDayInner) HasOpen() bool {
 	return false
 }
 
-// SetOpen gets a reference to the given int32 and assigns it to the Open field.
-func (o *VisibilityInfoByDayInner) SetOpen(v int32) {
+// SetOpen gets a reference to the given int64 and assigns it to the Open field.
+func (o *VisibilityInfoByDayInner) SetOpen(v int64) {
 	o.Open = &v
 }
 

@@ -22,7 +22,7 @@ var _ MappedNullable = &V2BudgetRequest{}
 // V2BudgetRequest struct for V2BudgetRequest
 type V2BudgetRequest struct {
 	// Список ID кампаний
-	AdvertIds []int32 `json:"advertIds"`
+	AdvertIds []int64 `json:"advertIds"`
 }
 
 type _V2BudgetRequest V2BudgetRequest
@@ -31,7 +31,7 @@ type _V2BudgetRequest V2BudgetRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV2BudgetRequest(advertIds []int32) *V2BudgetRequest {
+func NewV2BudgetRequest(advertIds []int64) *V2BudgetRequest {
 	this := V2BudgetRequest{}
 	this.AdvertIds = advertIds
 	return &this
@@ -46,9 +46,9 @@ func NewV2BudgetRequestWithDefaults() *V2BudgetRequest {
 }
 
 // GetAdvertIds returns the AdvertIds field value
-func (o *V2BudgetRequest) GetAdvertIds() []int32 {
+func (o *V2BudgetRequest) GetAdvertIds() []int64 {
 	if o == nil {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 
@@ -57,7 +57,7 @@ func (o *V2BudgetRequest) GetAdvertIds() []int32 {
 
 // GetAdvertIdsOk returns a tuple with the AdvertIds field value
 // and a boolean to check if the value has been set.
-func (o *V2BudgetRequest) GetAdvertIdsOk() ([]int32, bool) {
+func (o *V2BudgetRequest) GetAdvertIdsOk() ([]int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,7 +65,7 @@ func (o *V2BudgetRequest) GetAdvertIdsOk() ([]int32, bool) {
 }
 
 // SetAdvertIds sets field value
-func (o *V2BudgetRequest) SetAdvertIds(v []int32) {
+func (o *V2BudgetRequest) SetAdvertIds(v []int64) {
 	o.AdvertIds = v
 }
 

@@ -20,9 +20,9 @@ var _ MappedNullable = &QuarantineItems{}
 // QuarantineItems struct for QuarantineItems
 type QuarantineItems struct {
 	// Артикул WB
-	NmID *int32 `json:"nmID,omitempty"`
+	NmID *int64 `json:"nmID,omitempty"`
 	// Не используется
-	SizeID NullableInt32 `json:"sizeID,omitempty"`
+	SizeID NullableInt64 `json:"sizeID,omitempty"`
 	// Не используется
 	TechSizeName *string `json:"techSizeName,omitempty"`
 	// Валюта по стандарту ISO 4217
@@ -32,9 +32,9 @@ type QuarantineItems struct {
 	// Текущая цена продавца до скидки
 	OldPrice *float32 `json:"oldPrice,omitempty"`
 	// Новая скидка продавца, %
-	NewDiscount NullableInt32 `json:"newDiscount,omitempty"`
+	NewDiscount NullableInt64 `json:"newDiscount,omitempty"`
 	// Текущая скидка продавца, %
-	OldDiscount *int32 `json:"oldDiscount,omitempty"`
+	OldDiscount *int64 `json:"oldDiscount,omitempty"`
 	// Разница: `newPrice` * (1 - `newDiscount` / 100) - `oldPrice` * (1 - `oldDiscount` / 100)
 	PriceDiff *float32 `json:"priceDiff,omitempty"`
 }
@@ -57,9 +57,9 @@ func NewQuarantineItemsWithDefaults() *QuarantineItems {
 }
 
 // GetNmID returns the NmID field value if set, zero value otherwise.
-func (o *QuarantineItems) GetNmID() int32 {
+func (o *QuarantineItems) GetNmID() int64 {
 	if o == nil || IsNil(o.NmID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmID
@@ -67,7 +67,7 @@ func (o *QuarantineItems) GetNmID() int32 {
 
 // GetNmIDOk returns a tuple with the NmID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *QuarantineItems) GetNmIDOk() (*int32, bool) {
+func (o *QuarantineItems) GetNmIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmID) {
 		return nil, false
 	}
@@ -83,15 +83,15 @@ func (o *QuarantineItems) HasNmID() bool {
 	return false
 }
 
-// SetNmID gets a reference to the given int32 and assigns it to the NmID field.
-func (o *QuarantineItems) SetNmID(v int32) {
+// SetNmID gets a reference to the given int64 and assigns it to the NmID field.
+func (o *QuarantineItems) SetNmID(v int64) {
 	o.NmID = &v
 }
 
 // GetSizeID returns the SizeID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *QuarantineItems) GetSizeID() int32 {
+func (o *QuarantineItems) GetSizeID() int64 {
 	if o == nil || IsNil(o.SizeID.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SizeID.Get()
@@ -100,7 +100,7 @@ func (o *QuarantineItems) GetSizeID() int32 {
 // GetSizeIDOk returns a tuple with the SizeID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *QuarantineItems) GetSizeIDOk() (*int32, bool) {
+func (o *QuarantineItems) GetSizeIDOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -116,8 +116,8 @@ func (o *QuarantineItems) HasSizeID() bool {
 	return false
 }
 
-// SetSizeID gets a reference to the given NullableInt32 and assigns it to the SizeID field.
-func (o *QuarantineItems) SetSizeID(v int32) {
+// SetSizeID gets a reference to the given NullableInt64 and assigns it to the SizeID field.
+func (o *QuarantineItems) SetSizeID(v int64) {
 	o.SizeID.Set(&v)
 }
 
@@ -271,9 +271,9 @@ func (o *QuarantineItems) SetOldPrice(v float32) {
 }
 
 // GetNewDiscount returns the NewDiscount field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *QuarantineItems) GetNewDiscount() int32 {
+func (o *QuarantineItems) GetNewDiscount() int64 {
 	if o == nil || IsNil(o.NewDiscount.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NewDiscount.Get()
@@ -282,7 +282,7 @@ func (o *QuarantineItems) GetNewDiscount() int32 {
 // GetNewDiscountOk returns a tuple with the NewDiscount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *QuarantineItems) GetNewDiscountOk() (*int32, bool) {
+func (o *QuarantineItems) GetNewDiscountOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -298,8 +298,8 @@ func (o *QuarantineItems) HasNewDiscount() bool {
 	return false
 }
 
-// SetNewDiscount gets a reference to the given NullableInt32 and assigns it to the NewDiscount field.
-func (o *QuarantineItems) SetNewDiscount(v int32) {
+// SetNewDiscount gets a reference to the given NullableInt64 and assigns it to the NewDiscount field.
+func (o *QuarantineItems) SetNewDiscount(v int64) {
 	o.NewDiscount.Set(&v)
 }
 
@@ -314,9 +314,9 @@ func (o *QuarantineItems) UnsetNewDiscount() {
 }
 
 // GetOldDiscount returns the OldDiscount field value if set, zero value otherwise.
-func (o *QuarantineItems) GetOldDiscount() int32 {
+func (o *QuarantineItems) GetOldDiscount() int64 {
 	if o == nil || IsNil(o.OldDiscount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OldDiscount
@@ -324,7 +324,7 @@ func (o *QuarantineItems) GetOldDiscount() int32 {
 
 // GetOldDiscountOk returns a tuple with the OldDiscount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *QuarantineItems) GetOldDiscountOk() (*int32, bool) {
+func (o *QuarantineItems) GetOldDiscountOk() (*int64, bool) {
 	if o == nil || IsNil(o.OldDiscount) {
 		return nil, false
 	}
@@ -340,8 +340,8 @@ func (o *QuarantineItems) HasOldDiscount() bool {
 	return false
 }
 
-// SetOldDiscount gets a reference to the given int32 and assigns it to the OldDiscount field.
-func (o *QuarantineItems) SetOldDiscount(v int32) {
+// SetOldDiscount gets a reference to the given int64 and assigns it to the OldDiscount field.
+func (o *QuarantineItems) SetOldDiscount(v int64) {
 	o.OldDiscount = &v
 }
 

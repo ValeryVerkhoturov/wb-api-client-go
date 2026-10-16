@@ -20,7 +20,7 @@ var _ MappedNullable = &SupplierRatingModel{}
 // SupplierRatingModel struct for SupplierRatingModel
 type SupplierRatingModel struct {
 	// Количество отзывов
-	FeedbackCount *int32 `json:"feedbackCount,omitempty"`
+	FeedbackCount *int64 `json:"feedbackCount,omitempty"`
 	// Рейтинг продавца
 	Valuation *float32 `json:"valuation,omitempty"`
 }
@@ -43,9 +43,9 @@ func NewSupplierRatingModelWithDefaults() *SupplierRatingModel {
 }
 
 // GetFeedbackCount returns the FeedbackCount field value if set, zero value otherwise.
-func (o *SupplierRatingModel) GetFeedbackCount() int32 {
+func (o *SupplierRatingModel) GetFeedbackCount() int64 {
 	if o == nil || IsNil(o.FeedbackCount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.FeedbackCount
@@ -53,7 +53,7 @@ func (o *SupplierRatingModel) GetFeedbackCount() int32 {
 
 // GetFeedbackCountOk returns a tuple with the FeedbackCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SupplierRatingModel) GetFeedbackCountOk() (*int32, bool) {
+func (o *SupplierRatingModel) GetFeedbackCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.FeedbackCount) {
 		return nil, false
 	}
@@ -69,8 +69,8 @@ func (o *SupplierRatingModel) HasFeedbackCount() bool {
 	return false
 }
 
-// SetFeedbackCount gets a reference to the given int32 and assigns it to the FeedbackCount field.
-func (o *SupplierRatingModel) SetFeedbackCount(v int32) {
+// SetFeedbackCount gets a reference to the given int64 and assigns it to the FeedbackCount field.
+func (o *SupplierRatingModel) SetFeedbackCount(v int64) {
 	o.FeedbackCount = &v
 }
 

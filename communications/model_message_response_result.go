@@ -20,7 +20,7 @@ var _ MappedNullable = &MessageResponseResult{}
 // MessageResponseResult struct for MessageResponseResult
 type MessageResponseResult struct {
 	// Дата и время создания чата
-	AddTime *int32 `json:"addTime,omitempty"`
+	AddTime *int64 `json:"addTime,omitempty"`
 	// ID чата
 	ChatID *string `json:"chatID,omitempty"`
 	// Подпись чата
@@ -45,9 +45,9 @@ func NewMessageResponseResultWithDefaults() *MessageResponseResult {
 }
 
 // GetAddTime returns the AddTime field value if set, zero value otherwise.
-func (o *MessageResponseResult) GetAddTime() int32 {
+func (o *MessageResponseResult) GetAddTime() int64 {
 	if o == nil || IsNil(o.AddTime) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.AddTime
@@ -55,7 +55,7 @@ func (o *MessageResponseResult) GetAddTime() int32 {
 
 // GetAddTimeOk returns a tuple with the AddTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MessageResponseResult) GetAddTimeOk() (*int32, bool) {
+func (o *MessageResponseResult) GetAddTimeOk() (*int64, bool) {
 	if o == nil || IsNil(o.AddTime) {
 		return nil, false
 	}
@@ -71,8 +71,8 @@ func (o *MessageResponseResult) HasAddTime() bool {
 	return false
 }
 
-// SetAddTime gets a reference to the given int32 and assigns it to the AddTime field.
-func (o *MessageResponseResult) SetAddTime(v int32) {
+// SetAddTime gets a reference to the given int64 and assigns it to the AddTime field.
+func (o *MessageResponseResult) SetAddTime(v int64) {
 	o.AddTime = &v
 }
 

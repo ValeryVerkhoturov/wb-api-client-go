@@ -21,9 +21,9 @@ var _ MappedNullable = &BrandsResponse{}
 type BrandsResponse struct {
 	Brands []BrandsResponseBrandsInner `json:"brands,omitempty"`
 	// Параметр пагинации. Укажите это значение в запросе, чтобы получить следующий пакет данных. Если поле отсутствует, вы получили все данные
-	Next *int32 `json:"next,omitempty"`
+	Next *int64 `json:"next,omitempty"`
 	// Общее количество брендов предмета
-	Total *int32 `json:"total,omitempty"`
+	Total *int64 `json:"total,omitempty"`
 }
 
 // NewBrandsResponse instantiates a new BrandsResponse object
@@ -76,9 +76,9 @@ func (o *BrandsResponse) SetBrands(v []BrandsResponseBrandsInner) {
 }
 
 // GetNext returns the Next field value if set, zero value otherwise.
-func (o *BrandsResponse) GetNext() int32 {
+func (o *BrandsResponse) GetNext() int64 {
 	if o == nil || IsNil(o.Next) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Next
@@ -86,7 +86,7 @@ func (o *BrandsResponse) GetNext() int32 {
 
 // GetNextOk returns a tuple with the Next field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *BrandsResponse) GetNextOk() (*int32, bool) {
+func (o *BrandsResponse) GetNextOk() (*int64, bool) {
 	if o == nil || IsNil(o.Next) {
 		return nil, false
 	}
@@ -102,15 +102,15 @@ func (o *BrandsResponse) HasNext() bool {
 	return false
 }
 
-// SetNext gets a reference to the given int32 and assigns it to the Next field.
-func (o *BrandsResponse) SetNext(v int32) {
+// SetNext gets a reference to the given int64 and assigns it to the Next field.
+func (o *BrandsResponse) SetNext(v int64) {
 	o.Next = &v
 }
 
 // GetTotal returns the Total field value if set, zero value otherwise.
-func (o *BrandsResponse) GetTotal() int32 {
+func (o *BrandsResponse) GetTotal() int64 {
 	if o == nil || IsNil(o.Total) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Total
@@ -118,7 +118,7 @@ func (o *BrandsResponse) GetTotal() int32 {
 
 // GetTotalOk returns a tuple with the Total field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *BrandsResponse) GetTotalOk() (*int32, bool) {
+func (o *BrandsResponse) GetTotalOk() (*int64, bool) {
 	if o == nil || IsNil(o.Total) {
 		return nil, false
 	}
@@ -134,8 +134,8 @@ func (o *BrandsResponse) HasTotal() bool {
 	return false
 }
 
-// SetTotal gets a reference to the given int32 and assigns it to the Total field.
-func (o *BrandsResponse) SetTotal(v int32) {
+// SetTotal gets a reference to the given int64 and assigns it to the Total field.
+func (o *BrandsResponse) SetTotal(v int64) {
 	o.Total = &v
 }
 

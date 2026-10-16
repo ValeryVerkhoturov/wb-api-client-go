@@ -22,7 +22,7 @@ var _ MappedNullable = &RequestWithCampaignID{}
 // RequestWithCampaignID struct for RequestWithCampaignID
 type RequestWithCampaignID struct {
 	// ID кампании
-	Id int32 `json:"id"`
+	Id int64 `json:"id"`
 }
 
 type _RequestWithCampaignID RequestWithCampaignID
@@ -31,7 +31,7 @@ type _RequestWithCampaignID RequestWithCampaignID
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRequestWithCampaignID(id int32) *RequestWithCampaignID {
+func NewRequestWithCampaignID(id int64) *RequestWithCampaignID {
 	this := RequestWithCampaignID{}
 	this.Id = id
 	return &this
@@ -46,9 +46,9 @@ func NewRequestWithCampaignIDWithDefaults() *RequestWithCampaignID {
 }
 
 // GetId returns the Id field value
-func (o *RequestWithCampaignID) GetId() int32 {
+func (o *RequestWithCampaignID) GetId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -57,7 +57,7 @@ func (o *RequestWithCampaignID) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *RequestWithCampaignID) GetIdOk() (*int32, bool) {
+func (o *RequestWithCampaignID) GetIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,7 +65,7 @@ func (o *RequestWithCampaignID) GetIdOk() (*int32, bool) {
 }
 
 // SetId sets field value
-func (o *RequestWithCampaignID) SetId(v int32) {
+func (o *RequestWithCampaignID) SetId(v int64) {
 	o.Id = v
 }
 

@@ -22,7 +22,7 @@ type PostV1CalendarPromotionsUpload200ResponseData struct {
 	// Загрузка с такими данными уже существует
 	AlreadyExists *bool `json:"alreadyExists,omitempty"`
 	// ID загрузки
-	UploadID *int32 `json:"uploadID,omitempty"`
+	UploadID *int64 `json:"uploadID,omitempty"`
 }
 
 // NewPostV1CalendarPromotionsUpload200ResponseData instantiates a new PostV1CalendarPromotionsUpload200ResponseData object
@@ -75,9 +75,9 @@ func (o *PostV1CalendarPromotionsUpload200ResponseData) SetAlreadyExists(v bool)
 }
 
 // GetUploadID returns the UploadID field value if set, zero value otherwise.
-func (o *PostV1CalendarPromotionsUpload200ResponseData) GetUploadID() int32 {
+func (o *PostV1CalendarPromotionsUpload200ResponseData) GetUploadID() int64 {
 	if o == nil || IsNil(o.UploadID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.UploadID
@@ -85,7 +85,7 @@ func (o *PostV1CalendarPromotionsUpload200ResponseData) GetUploadID() int32 {
 
 // GetUploadIDOk returns a tuple with the UploadID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV1CalendarPromotionsUpload200ResponseData) GetUploadIDOk() (*int32, bool) {
+func (o *PostV1CalendarPromotionsUpload200ResponseData) GetUploadIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.UploadID) {
 		return nil, false
 	}
@@ -101,8 +101,8 @@ func (o *PostV1CalendarPromotionsUpload200ResponseData) HasUploadID() bool {
 	return false
 }
 
-// SetUploadID gets a reference to the given int32 and assigns it to the UploadID field.
-func (o *PostV1CalendarPromotionsUpload200ResponseData) SetUploadID(v int32) {
+// SetUploadID gets a reference to the given int64 and assigns it to the UploadID field.
+func (o *PostV1CalendarPromotionsUpload200ResponseData) SetUploadID(v int64) {
 	o.UploadID = &v
 }
 

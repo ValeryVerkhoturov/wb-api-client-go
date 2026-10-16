@@ -20,9 +20,9 @@ var _ MappedNullable = &GetV2CardsLimitsResponse200Data{}
 // GetV2CardsLimitsResponse200Data struct for GetV2CardsLimitsResponse200Data
 type GetV2CardsLimitsResponse200Data struct {
 	// Количество бесплатных лимитов
-	FreeLimits *int32 `json:"freeLimits,omitempty"`
+	FreeLimits *int64 `json:"freeLimits,omitempty"`
 	// Количество оплаченных лимитов
-	PaidLimits *int32 `json:"paidLimits,omitempty"`
+	PaidLimits *int64 `json:"paidLimits,omitempty"`
 }
 
 // NewGetV2CardsLimitsResponse200Data instantiates a new GetV2CardsLimitsResponse200Data object
@@ -43,9 +43,9 @@ func NewGetV2CardsLimitsResponse200DataWithDefaults() *GetV2CardsLimitsResponse2
 }
 
 // GetFreeLimits returns the FreeLimits field value if set, zero value otherwise.
-func (o *GetV2CardsLimitsResponse200Data) GetFreeLimits() int32 {
+func (o *GetV2CardsLimitsResponse200Data) GetFreeLimits() int64 {
 	if o == nil || IsNil(o.FreeLimits) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.FreeLimits
@@ -53,7 +53,7 @@ func (o *GetV2CardsLimitsResponse200Data) GetFreeLimits() int32 {
 
 // GetFreeLimitsOk returns a tuple with the FreeLimits field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV2CardsLimitsResponse200Data) GetFreeLimitsOk() (*int32, bool) {
+func (o *GetV2CardsLimitsResponse200Data) GetFreeLimitsOk() (*int64, bool) {
 	if o == nil || IsNil(o.FreeLimits) {
 		return nil, false
 	}
@@ -69,15 +69,15 @@ func (o *GetV2CardsLimitsResponse200Data) HasFreeLimits() bool {
 	return false
 }
 
-// SetFreeLimits gets a reference to the given int32 and assigns it to the FreeLimits field.
-func (o *GetV2CardsLimitsResponse200Data) SetFreeLimits(v int32) {
+// SetFreeLimits gets a reference to the given int64 and assigns it to the FreeLimits field.
+func (o *GetV2CardsLimitsResponse200Data) SetFreeLimits(v int64) {
 	o.FreeLimits = &v
 }
 
 // GetPaidLimits returns the PaidLimits field value if set, zero value otherwise.
-func (o *GetV2CardsLimitsResponse200Data) GetPaidLimits() int32 {
+func (o *GetV2CardsLimitsResponse200Data) GetPaidLimits() int64 {
 	if o == nil || IsNil(o.PaidLimits) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.PaidLimits
@@ -85,7 +85,7 @@ func (o *GetV2CardsLimitsResponse200Data) GetPaidLimits() int32 {
 
 // GetPaidLimitsOk returns a tuple with the PaidLimits field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV2CardsLimitsResponse200Data) GetPaidLimitsOk() (*int32, bool) {
+func (o *GetV2CardsLimitsResponse200Data) GetPaidLimitsOk() (*int64, bool) {
 	if o == nil || IsNil(o.PaidLimits) {
 		return nil, false
 	}
@@ -101,8 +101,8 @@ func (o *GetV2CardsLimitsResponse200Data) HasPaidLimits() bool {
 	return false
 }
 
-// SetPaidLimits gets a reference to the given int32 and assigns it to the PaidLimits field.
-func (o *GetV2CardsLimitsResponse200Data) SetPaidLimits(v int32) {
+// SetPaidLimits gets a reference to the given int64 and assigns it to the PaidLimits field.
+func (o *GetV2CardsLimitsResponse200Data) SetPaidLimits(v int64) {
 	o.PaidLimits = &v
 }
 

@@ -20,13 +20,13 @@ var _ MappedNullable = &PostV2GetCardsTrashResponse200CardsInner{}
 // PostV2GetCardsTrashResponse200CardsInner struct for PostV2GetCardsTrashResponse200CardsInner
 type PostV2GetCardsTrashResponse200CardsInner struct {
 	// Артикул WB
-	NmID *int32 `json:"nmID,omitempty"`
+	NmID *int64 `json:"nmID,omitempty"`
 	// Артикул продавца
 	VendorCode *string `json:"vendorCode,omitempty"`
 	// Подтверждение, что на товар нанесён обязательный код маркировки [Честного знака](https://честныйзнак.рф/):   - `true` — продавец подтверждает, что на товар нанесён обязательный код маркировки.   - `false` — продавец не подтверждает, что на товар нанесён обязательный код маркировки. Передайте в запросе `true`, чтобы подтвердить наличие обязательного кода маркировки на товаре. Карточка товара не пройдёт проверку, если от продавца нет подтверждения о том, что на товар нанесён обязательный код маркировки.  Чтобы проверить, является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, используйте метод [Список карточек товаров](./item-management#tag/listings/operation/postV2GetCardsList), поле ответа `needKiz`
 	KizMarked *bool `json:"kizMarked,omitempty"`
 	// ID предмета
-	SubjectID *int32 `json:"subjectID,omitempty"`
+	SubjectID *int64 `json:"subjectID,omitempty"`
 	// Название предмета
 	SubjectName *string `json:"subjectName,omitempty"`
 	// Массив фото
@@ -67,9 +67,9 @@ func NewPostV2GetCardsTrashResponse200CardsInnerWithDefaults() *PostV2GetCardsTr
 }
 
 // GetNmID returns the NmID field value if set, zero value otherwise.
-func (o *PostV2GetCardsTrashResponse200CardsInner) GetNmID() int32 {
+func (o *PostV2GetCardsTrashResponse200CardsInner) GetNmID() int64 {
 	if o == nil || IsNil(o.NmID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmID
@@ -77,7 +77,7 @@ func (o *PostV2GetCardsTrashResponse200CardsInner) GetNmID() int32 {
 
 // GetNmIDOk returns a tuple with the NmID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2GetCardsTrashResponse200CardsInner) GetNmIDOk() (*int32, bool) {
+func (o *PostV2GetCardsTrashResponse200CardsInner) GetNmIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmID) {
 		return nil, false
 	}
@@ -93,8 +93,8 @@ func (o *PostV2GetCardsTrashResponse200CardsInner) HasNmID() bool {
 	return false
 }
 
-// SetNmID gets a reference to the given int32 and assigns it to the NmID field.
-func (o *PostV2GetCardsTrashResponse200CardsInner) SetNmID(v int32) {
+// SetNmID gets a reference to the given int64 and assigns it to the NmID field.
+func (o *PostV2GetCardsTrashResponse200CardsInner) SetNmID(v int64) {
 	o.NmID = &v
 }
 
@@ -163,9 +163,9 @@ func (o *PostV2GetCardsTrashResponse200CardsInner) SetKizMarked(v bool) {
 }
 
 // GetSubjectID returns the SubjectID field value if set, zero value otherwise.
-func (o *PostV2GetCardsTrashResponse200CardsInner) GetSubjectID() int32 {
+func (o *PostV2GetCardsTrashResponse200CardsInner) GetSubjectID() int64 {
 	if o == nil || IsNil(o.SubjectID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SubjectID
@@ -173,7 +173,7 @@ func (o *PostV2GetCardsTrashResponse200CardsInner) GetSubjectID() int32 {
 
 // GetSubjectIDOk returns a tuple with the SubjectID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2GetCardsTrashResponse200CardsInner) GetSubjectIDOk() (*int32, bool) {
+func (o *PostV2GetCardsTrashResponse200CardsInner) GetSubjectIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.SubjectID) {
 		return nil, false
 	}
@@ -189,8 +189,8 @@ func (o *PostV2GetCardsTrashResponse200CardsInner) HasSubjectID() bool {
 	return false
 }
 
-// SetSubjectID gets a reference to the given int32 and assigns it to the SubjectID field.
-func (o *PostV2GetCardsTrashResponse200CardsInner) SetSubjectID(v int32) {
+// SetSubjectID gets a reference to the given int64 and assigns it to the SubjectID field.
+func (o *PostV2GetCardsTrashResponse200CardsInner) SetSubjectID(v int64) {
 	o.SubjectID = &v
 }
 

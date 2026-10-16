@@ -20,9 +20,9 @@ var _ MappedNullable = &GetUsersResponse{}
 // GetUsersResponse struct for GetUsersResponse
 type GetUsersResponse struct {
 	// Общее количество активных или приглашённых пользователей
-	Total *int32 `json:"total,omitempty"`
+	Total *int64 `json:"total,omitempty"`
 	// Количество активных или приглашённых пользователей на текущей странице
-	CountInResponse *int32 `json:"countInResponse,omitempty"`
+	CountInResponse *int64 `json:"countInResponse,omitempty"`
 	// Информация о пользователях
 	Users []GetUsersResponseUsersInner `json:"users,omitempty"`
 }
@@ -45,9 +45,9 @@ func NewGetUsersResponseWithDefaults() *GetUsersResponse {
 }
 
 // GetTotal returns the Total field value if set, zero value otherwise.
-func (o *GetUsersResponse) GetTotal() int32 {
+func (o *GetUsersResponse) GetTotal() int64 {
 	if o == nil || IsNil(o.Total) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Total
@@ -55,7 +55,7 @@ func (o *GetUsersResponse) GetTotal() int32 {
 
 // GetTotalOk returns a tuple with the Total field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetUsersResponse) GetTotalOk() (*int32, bool) {
+func (o *GetUsersResponse) GetTotalOk() (*int64, bool) {
 	if o == nil || IsNil(o.Total) {
 		return nil, false
 	}
@@ -71,15 +71,15 @@ func (o *GetUsersResponse) HasTotal() bool {
 	return false
 }
 
-// SetTotal gets a reference to the given int32 and assigns it to the Total field.
-func (o *GetUsersResponse) SetTotal(v int32) {
+// SetTotal gets a reference to the given int64 and assigns it to the Total field.
+func (o *GetUsersResponse) SetTotal(v int64) {
 	o.Total = &v
 }
 
 // GetCountInResponse returns the CountInResponse field value if set, zero value otherwise.
-func (o *GetUsersResponse) GetCountInResponse() int32 {
+func (o *GetUsersResponse) GetCountInResponse() int64 {
 	if o == nil || IsNil(o.CountInResponse) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CountInResponse
@@ -87,7 +87,7 @@ func (o *GetUsersResponse) GetCountInResponse() int32 {
 
 // GetCountInResponseOk returns a tuple with the CountInResponse field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetUsersResponse) GetCountInResponseOk() (*int32, bool) {
+func (o *GetUsersResponse) GetCountInResponseOk() (*int64, bool) {
 	if o == nil || IsNil(o.CountInResponse) {
 		return nil, false
 	}
@@ -103,8 +103,8 @@ func (o *GetUsersResponse) HasCountInResponse() bool {
 	return false
 }
 
-// SetCountInResponse gets a reference to the given int32 and assigns it to the CountInResponse field.
-func (o *GetUsersResponse) SetCountInResponse(v int32) {
+// SetCountInResponse gets a reference to the given int64 and assigns it to the CountInResponse field.
+func (o *GetUsersResponse) SetCountInResponse(v int64) {
 	o.CountInResponse = &v
 }
 

@@ -30,7 +30,7 @@ type GetV1FeedbackResponse200Data struct {
 	// Соответствие заявленного размера реальному.  Возможные значения: - ` ` - для безразмерных товаров - `ок` - соответствует размеру - `smaller` - маломерит - `bigger` - большемерит
 	MatchingSize *string `json:"matchingSize,omitempty"`
 	// Оценка товара
-	ProductValuation *int32 `json:"productValuation,omitempty"`
+	ProductValuation *int64 `json:"productValuation,omitempty"`
 	// Дата и время создания отзыва
 	CreatedDate *string                                    `json:"createdDate,omitempty"`
 	Answer      NullableGetV1FeedbackResponse200DataAnswer `json:"answer,omitempty"`
@@ -49,11 +49,11 @@ type GetV1FeedbackResponse200Data struct {
 	// Доступна ли продавцу возможность оставить жалобу на отзыв:   - `true`— да   - `false` — нет
 	IsAbleSupplierFeedbackValuation *bool `json:"isAbleSupplierFeedbackValuation,omitempty"`
 	// Ключ причины жалобы на отзыв
-	SupplierFeedbackValuation *int32 `json:"supplierFeedbackValuation,omitempty"`
+	SupplierFeedbackValuation *int64 `json:"supplierFeedbackValuation,omitempty"`
 	// Доступна ли продавцу возможность сообщить о проблеме с товаром  (`true` - доступна, `false` - не доступна)
 	IsAbleSupplierProductValuation *bool `json:"isAbleSupplierProductValuation,omitempty"`
 	// Ключ проблемы с товаром
-	SupplierProductValuation *int32 `json:"supplierProductValuation,omitempty"`
+	SupplierProductValuation *int64 `json:"supplierProductValuation,omitempty"`
 	// Опция возврата товара:   - `true` — доступна   - `false` — недоступна
 	IsAbleReturnProductOrders *bool `json:"isAbleReturnProductOrders,omitempty"`
 	// Дата и время, когда на запрос возврата был получен ответ со статус-кодом 200.
@@ -61,13 +61,13 @@ type GetV1FeedbackResponse200Data struct {
 	// Список тегов покупателя
 	Bables []string `json:"bables,omitempty"`
 	// Штрихкод единицы товара
-	LastOrderShkId *int32 `json:"lastOrderShkId,omitempty"`
+	LastOrderShkId *int64 `json:"lastOrderShkId,omitempty"`
 	// Дата покупки
 	LastOrderCreatedAt *string `json:"lastOrderCreatedAt,omitempty"`
 	// Цвет товара
 	Color *string `json:"color,omitempty"`
 	// ID предмета
-	SubjectId *int32 `json:"subjectId,omitempty"`
+	SubjectId *int64 `json:"subjectId,omitempty"`
 	// Название предмета
 	SubjectName *string `json:"subjectName,omitempty"`
 	// ID начального отзыва (`null`, если этот отзыв начальный)
@@ -254,9 +254,9 @@ func (o *GetV1FeedbackResponse200Data) SetMatchingSize(v string) {
 }
 
 // GetProductValuation returns the ProductValuation field value if set, zero value otherwise.
-func (o *GetV1FeedbackResponse200Data) GetProductValuation() int32 {
+func (o *GetV1FeedbackResponse200Data) GetProductValuation() int64 {
 	if o == nil || IsNil(o.ProductValuation) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ProductValuation
@@ -264,7 +264,7 @@ func (o *GetV1FeedbackResponse200Data) GetProductValuation() int32 {
 
 // GetProductValuationOk returns a tuple with the ProductValuation field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1FeedbackResponse200Data) GetProductValuationOk() (*int32, bool) {
+func (o *GetV1FeedbackResponse200Data) GetProductValuationOk() (*int64, bool) {
 	if o == nil || IsNil(o.ProductValuation) {
 		return nil, false
 	}
@@ -280,8 +280,8 @@ func (o *GetV1FeedbackResponse200Data) HasProductValuation() bool {
 	return false
 }
 
-// SetProductValuation gets a reference to the given int32 and assigns it to the ProductValuation field.
-func (o *GetV1FeedbackResponse200Data) SetProductValuation(v int32) {
+// SetProductValuation gets a reference to the given int64 and assigns it to the ProductValuation field.
+func (o *GetV1FeedbackResponse200Data) SetProductValuation(v int64) {
 	o.ProductValuation = &v
 }
 
@@ -629,9 +629,9 @@ func (o *GetV1FeedbackResponse200Data) SetIsAbleSupplierFeedbackValuation(v bool
 }
 
 // GetSupplierFeedbackValuation returns the SupplierFeedbackValuation field value if set, zero value otherwise.
-func (o *GetV1FeedbackResponse200Data) GetSupplierFeedbackValuation() int32 {
+func (o *GetV1FeedbackResponse200Data) GetSupplierFeedbackValuation() int64 {
 	if o == nil || IsNil(o.SupplierFeedbackValuation) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SupplierFeedbackValuation
@@ -639,7 +639,7 @@ func (o *GetV1FeedbackResponse200Data) GetSupplierFeedbackValuation() int32 {
 
 // GetSupplierFeedbackValuationOk returns a tuple with the SupplierFeedbackValuation field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1FeedbackResponse200Data) GetSupplierFeedbackValuationOk() (*int32, bool) {
+func (o *GetV1FeedbackResponse200Data) GetSupplierFeedbackValuationOk() (*int64, bool) {
 	if o == nil || IsNil(o.SupplierFeedbackValuation) {
 		return nil, false
 	}
@@ -655,8 +655,8 @@ func (o *GetV1FeedbackResponse200Data) HasSupplierFeedbackValuation() bool {
 	return false
 }
 
-// SetSupplierFeedbackValuation gets a reference to the given int32 and assigns it to the SupplierFeedbackValuation field.
-func (o *GetV1FeedbackResponse200Data) SetSupplierFeedbackValuation(v int32) {
+// SetSupplierFeedbackValuation gets a reference to the given int64 and assigns it to the SupplierFeedbackValuation field.
+func (o *GetV1FeedbackResponse200Data) SetSupplierFeedbackValuation(v int64) {
 	o.SupplierFeedbackValuation = &v
 }
 
@@ -693,9 +693,9 @@ func (o *GetV1FeedbackResponse200Data) SetIsAbleSupplierProductValuation(v bool)
 }
 
 // GetSupplierProductValuation returns the SupplierProductValuation field value if set, zero value otherwise.
-func (o *GetV1FeedbackResponse200Data) GetSupplierProductValuation() int32 {
+func (o *GetV1FeedbackResponse200Data) GetSupplierProductValuation() int64 {
 	if o == nil || IsNil(o.SupplierProductValuation) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SupplierProductValuation
@@ -703,7 +703,7 @@ func (o *GetV1FeedbackResponse200Data) GetSupplierProductValuation() int32 {
 
 // GetSupplierProductValuationOk returns a tuple with the SupplierProductValuation field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1FeedbackResponse200Data) GetSupplierProductValuationOk() (*int32, bool) {
+func (o *GetV1FeedbackResponse200Data) GetSupplierProductValuationOk() (*int64, bool) {
 	if o == nil || IsNil(o.SupplierProductValuation) {
 		return nil, false
 	}
@@ -719,8 +719,8 @@ func (o *GetV1FeedbackResponse200Data) HasSupplierProductValuation() bool {
 	return false
 }
 
-// SetSupplierProductValuation gets a reference to the given int32 and assigns it to the SupplierProductValuation field.
-func (o *GetV1FeedbackResponse200Data) SetSupplierProductValuation(v int32) {
+// SetSupplierProductValuation gets a reference to the given int64 and assigns it to the SupplierProductValuation field.
+func (o *GetV1FeedbackResponse200Data) SetSupplierProductValuation(v int64) {
 	o.SupplierProductValuation = &v
 }
 
@@ -833,9 +833,9 @@ func (o *GetV1FeedbackResponse200Data) SetBables(v []string) {
 }
 
 // GetLastOrderShkId returns the LastOrderShkId field value if set, zero value otherwise.
-func (o *GetV1FeedbackResponse200Data) GetLastOrderShkId() int32 {
+func (o *GetV1FeedbackResponse200Data) GetLastOrderShkId() int64 {
 	if o == nil || IsNil(o.LastOrderShkId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.LastOrderShkId
@@ -843,7 +843,7 @@ func (o *GetV1FeedbackResponse200Data) GetLastOrderShkId() int32 {
 
 // GetLastOrderShkIdOk returns a tuple with the LastOrderShkId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1FeedbackResponse200Data) GetLastOrderShkIdOk() (*int32, bool) {
+func (o *GetV1FeedbackResponse200Data) GetLastOrderShkIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.LastOrderShkId) {
 		return nil, false
 	}
@@ -859,8 +859,8 @@ func (o *GetV1FeedbackResponse200Data) HasLastOrderShkId() bool {
 	return false
 }
 
-// SetLastOrderShkId gets a reference to the given int32 and assigns it to the LastOrderShkId field.
-func (o *GetV1FeedbackResponse200Data) SetLastOrderShkId(v int32) {
+// SetLastOrderShkId gets a reference to the given int64 and assigns it to the LastOrderShkId field.
+func (o *GetV1FeedbackResponse200Data) SetLastOrderShkId(v int64) {
 	o.LastOrderShkId = &v
 }
 
@@ -929,9 +929,9 @@ func (o *GetV1FeedbackResponse200Data) SetColor(v string) {
 }
 
 // GetSubjectId returns the SubjectId field value if set, zero value otherwise.
-func (o *GetV1FeedbackResponse200Data) GetSubjectId() int32 {
+func (o *GetV1FeedbackResponse200Data) GetSubjectId() int64 {
 	if o == nil || IsNil(o.SubjectId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SubjectId
@@ -939,7 +939,7 @@ func (o *GetV1FeedbackResponse200Data) GetSubjectId() int32 {
 
 // GetSubjectIdOk returns a tuple with the SubjectId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1FeedbackResponse200Data) GetSubjectIdOk() (*int32, bool) {
+func (o *GetV1FeedbackResponse200Data) GetSubjectIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.SubjectId) {
 		return nil, false
 	}
@@ -955,8 +955,8 @@ func (o *GetV1FeedbackResponse200Data) HasSubjectId() bool {
 	return false
 }
 
-// SetSubjectId gets a reference to the given int32 and assigns it to the SubjectId field.
-func (o *GetV1FeedbackResponse200Data) SetSubjectId(v int32) {
+// SetSubjectId gets a reference to the given int64 and assigns it to the SubjectId field.
+func (o *GetV1FeedbackResponse200Data) SetSubjectId(v int64) {
 	o.SubjectId = &v
 }
 

@@ -20,29 +20,29 @@ var _ MappedNullable = &MeasurementPenaltiesDataReportsInner{}
 // MeasurementPenaltiesDataReportsInner struct for MeasurementPenaltiesDataReportsInner
 type MeasurementPenaltiesDataReportsInner struct {
 	// Артикул WB
-	NmId *int32 `json:"nmId,omitempty"`
+	NmId *int64 `json:"nmId,omitempty"`
 	// Предмет
 	SubjectName *string `json:"subjectName,omitempty"`
 	// ID замера
-	DimId *int32 `json:"dimId,omitempty"`
+	DimId *int64 `json:"dimId,omitempty"`
 	// Разница в габаритах, %
 	PrcOver *float32 `json:"prcOver,omitempty"`
 	// Объём, л (фактические габариты по замеру на складе)
 	Volume *float32 `json:"volume,omitempty"`
 	// Ширина, см (фактические габариты по замеру на складе)
-	Width *int32 `json:"width,omitempty"`
+	Width *int64 `json:"width,omitempty"`
 	// Длина, см (фактические габариты по замеру на складе)
-	Length *int32 `json:"length,omitempty"`
+	Length *int64 `json:"length,omitempty"`
 	// Высота, см (фактические габариты по замеру на складе)
-	Height *int32 `json:"height,omitempty"`
+	Height *int64 `json:"height,omitempty"`
 	// Объём, л (габариты карточки товара)
 	VolumeSup *float32 `json:"volumeSup,omitempty"`
 	// Ширина, см (габариты карточки товара)
-	WidthSup *int32 `json:"widthSup,omitempty"`
+	WidthSup *int64 `json:"widthSup,omitempty"`
 	// Длина, см (габариты карточки товара)
-	LengthSup *int32 `json:"lengthSup,omitempty"`
+	LengthSup *int64 `json:"lengthSup,omitempty"`
 	// Высота, см (габариты карточки товара)
-	HeightSup *int32 `json:"heightSup,omitempty"`
+	HeightSup *int64 `json:"heightSup,omitempty"`
 	// Фото замеров
 	PhotoUrls []string `json:"photoUrls,omitempty"`
 	// Дата штрафа
@@ -79,9 +79,9 @@ func NewMeasurementPenaltiesDataReportsInnerWithDefaults() *MeasurementPenalties
 }
 
 // GetNmId returns the NmId field value if set, zero value otherwise.
-func (o *MeasurementPenaltiesDataReportsInner) GetNmId() int32 {
+func (o *MeasurementPenaltiesDataReportsInner) GetNmId() int64 {
 	if o == nil || IsNil(o.NmId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmId
@@ -89,7 +89,7 @@ func (o *MeasurementPenaltiesDataReportsInner) GetNmId() int32 {
 
 // GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MeasurementPenaltiesDataReportsInner) GetNmIdOk() (*int32, bool) {
+func (o *MeasurementPenaltiesDataReportsInner) GetNmIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
@@ -105,8 +105,8 @@ func (o *MeasurementPenaltiesDataReportsInner) HasNmId() bool {
 	return false
 }
 
-// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
-func (o *MeasurementPenaltiesDataReportsInner) SetNmId(v int32) {
+// SetNmId gets a reference to the given int64 and assigns it to the NmId field.
+func (o *MeasurementPenaltiesDataReportsInner) SetNmId(v int64) {
 	o.NmId = &v
 }
 
@@ -143,9 +143,9 @@ func (o *MeasurementPenaltiesDataReportsInner) SetSubjectName(v string) {
 }
 
 // GetDimId returns the DimId field value if set, zero value otherwise.
-func (o *MeasurementPenaltiesDataReportsInner) GetDimId() int32 {
+func (o *MeasurementPenaltiesDataReportsInner) GetDimId() int64 {
 	if o == nil || IsNil(o.DimId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.DimId
@@ -153,7 +153,7 @@ func (o *MeasurementPenaltiesDataReportsInner) GetDimId() int32 {
 
 // GetDimIdOk returns a tuple with the DimId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MeasurementPenaltiesDataReportsInner) GetDimIdOk() (*int32, bool) {
+func (o *MeasurementPenaltiesDataReportsInner) GetDimIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.DimId) {
 		return nil, false
 	}
@@ -169,8 +169,8 @@ func (o *MeasurementPenaltiesDataReportsInner) HasDimId() bool {
 	return false
 }
 
-// SetDimId gets a reference to the given int32 and assigns it to the DimId field.
-func (o *MeasurementPenaltiesDataReportsInner) SetDimId(v int32) {
+// SetDimId gets a reference to the given int64 and assigns it to the DimId field.
+func (o *MeasurementPenaltiesDataReportsInner) SetDimId(v int64) {
 	o.DimId = &v
 }
 
@@ -239,9 +239,9 @@ func (o *MeasurementPenaltiesDataReportsInner) SetVolume(v float32) {
 }
 
 // GetWidth returns the Width field value if set, zero value otherwise.
-func (o *MeasurementPenaltiesDataReportsInner) GetWidth() int32 {
+func (o *MeasurementPenaltiesDataReportsInner) GetWidth() int64 {
 	if o == nil || IsNil(o.Width) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Width
@@ -249,7 +249,7 @@ func (o *MeasurementPenaltiesDataReportsInner) GetWidth() int32 {
 
 // GetWidthOk returns a tuple with the Width field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MeasurementPenaltiesDataReportsInner) GetWidthOk() (*int32, bool) {
+func (o *MeasurementPenaltiesDataReportsInner) GetWidthOk() (*int64, bool) {
 	if o == nil || IsNil(o.Width) {
 		return nil, false
 	}
@@ -265,15 +265,15 @@ func (o *MeasurementPenaltiesDataReportsInner) HasWidth() bool {
 	return false
 }
 
-// SetWidth gets a reference to the given int32 and assigns it to the Width field.
-func (o *MeasurementPenaltiesDataReportsInner) SetWidth(v int32) {
+// SetWidth gets a reference to the given int64 and assigns it to the Width field.
+func (o *MeasurementPenaltiesDataReportsInner) SetWidth(v int64) {
 	o.Width = &v
 }
 
 // GetLength returns the Length field value if set, zero value otherwise.
-func (o *MeasurementPenaltiesDataReportsInner) GetLength() int32 {
+func (o *MeasurementPenaltiesDataReportsInner) GetLength() int64 {
 	if o == nil || IsNil(o.Length) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Length
@@ -281,7 +281,7 @@ func (o *MeasurementPenaltiesDataReportsInner) GetLength() int32 {
 
 // GetLengthOk returns a tuple with the Length field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MeasurementPenaltiesDataReportsInner) GetLengthOk() (*int32, bool) {
+func (o *MeasurementPenaltiesDataReportsInner) GetLengthOk() (*int64, bool) {
 	if o == nil || IsNil(o.Length) {
 		return nil, false
 	}
@@ -297,15 +297,15 @@ func (o *MeasurementPenaltiesDataReportsInner) HasLength() bool {
 	return false
 }
 
-// SetLength gets a reference to the given int32 and assigns it to the Length field.
-func (o *MeasurementPenaltiesDataReportsInner) SetLength(v int32) {
+// SetLength gets a reference to the given int64 and assigns it to the Length field.
+func (o *MeasurementPenaltiesDataReportsInner) SetLength(v int64) {
 	o.Length = &v
 }
 
 // GetHeight returns the Height field value if set, zero value otherwise.
-func (o *MeasurementPenaltiesDataReportsInner) GetHeight() int32 {
+func (o *MeasurementPenaltiesDataReportsInner) GetHeight() int64 {
 	if o == nil || IsNil(o.Height) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Height
@@ -313,7 +313,7 @@ func (o *MeasurementPenaltiesDataReportsInner) GetHeight() int32 {
 
 // GetHeightOk returns a tuple with the Height field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MeasurementPenaltiesDataReportsInner) GetHeightOk() (*int32, bool) {
+func (o *MeasurementPenaltiesDataReportsInner) GetHeightOk() (*int64, bool) {
 	if o == nil || IsNil(o.Height) {
 		return nil, false
 	}
@@ -329,8 +329,8 @@ func (o *MeasurementPenaltiesDataReportsInner) HasHeight() bool {
 	return false
 }
 
-// SetHeight gets a reference to the given int32 and assigns it to the Height field.
-func (o *MeasurementPenaltiesDataReportsInner) SetHeight(v int32) {
+// SetHeight gets a reference to the given int64 and assigns it to the Height field.
+func (o *MeasurementPenaltiesDataReportsInner) SetHeight(v int64) {
 	o.Height = &v
 }
 
@@ -367,9 +367,9 @@ func (o *MeasurementPenaltiesDataReportsInner) SetVolumeSup(v float32) {
 }
 
 // GetWidthSup returns the WidthSup field value if set, zero value otherwise.
-func (o *MeasurementPenaltiesDataReportsInner) GetWidthSup() int32 {
+func (o *MeasurementPenaltiesDataReportsInner) GetWidthSup() int64 {
 	if o == nil || IsNil(o.WidthSup) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.WidthSup
@@ -377,7 +377,7 @@ func (o *MeasurementPenaltiesDataReportsInner) GetWidthSup() int32 {
 
 // GetWidthSupOk returns a tuple with the WidthSup field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MeasurementPenaltiesDataReportsInner) GetWidthSupOk() (*int32, bool) {
+func (o *MeasurementPenaltiesDataReportsInner) GetWidthSupOk() (*int64, bool) {
 	if o == nil || IsNil(o.WidthSup) {
 		return nil, false
 	}
@@ -393,15 +393,15 @@ func (o *MeasurementPenaltiesDataReportsInner) HasWidthSup() bool {
 	return false
 }
 
-// SetWidthSup gets a reference to the given int32 and assigns it to the WidthSup field.
-func (o *MeasurementPenaltiesDataReportsInner) SetWidthSup(v int32) {
+// SetWidthSup gets a reference to the given int64 and assigns it to the WidthSup field.
+func (o *MeasurementPenaltiesDataReportsInner) SetWidthSup(v int64) {
 	o.WidthSup = &v
 }
 
 // GetLengthSup returns the LengthSup field value if set, zero value otherwise.
-func (o *MeasurementPenaltiesDataReportsInner) GetLengthSup() int32 {
+func (o *MeasurementPenaltiesDataReportsInner) GetLengthSup() int64 {
 	if o == nil || IsNil(o.LengthSup) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.LengthSup
@@ -409,7 +409,7 @@ func (o *MeasurementPenaltiesDataReportsInner) GetLengthSup() int32 {
 
 // GetLengthSupOk returns a tuple with the LengthSup field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MeasurementPenaltiesDataReportsInner) GetLengthSupOk() (*int32, bool) {
+func (o *MeasurementPenaltiesDataReportsInner) GetLengthSupOk() (*int64, bool) {
 	if o == nil || IsNil(o.LengthSup) {
 		return nil, false
 	}
@@ -425,15 +425,15 @@ func (o *MeasurementPenaltiesDataReportsInner) HasLengthSup() bool {
 	return false
 }
 
-// SetLengthSup gets a reference to the given int32 and assigns it to the LengthSup field.
-func (o *MeasurementPenaltiesDataReportsInner) SetLengthSup(v int32) {
+// SetLengthSup gets a reference to the given int64 and assigns it to the LengthSup field.
+func (o *MeasurementPenaltiesDataReportsInner) SetLengthSup(v int64) {
 	o.LengthSup = &v
 }
 
 // GetHeightSup returns the HeightSup field value if set, zero value otherwise.
-func (o *MeasurementPenaltiesDataReportsInner) GetHeightSup() int32 {
+func (o *MeasurementPenaltiesDataReportsInner) GetHeightSup() int64 {
 	if o == nil || IsNil(o.HeightSup) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.HeightSup
@@ -441,7 +441,7 @@ func (o *MeasurementPenaltiesDataReportsInner) GetHeightSup() int32 {
 
 // GetHeightSupOk returns a tuple with the HeightSup field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MeasurementPenaltiesDataReportsInner) GetHeightSupOk() (*int32, bool) {
+func (o *MeasurementPenaltiesDataReportsInner) GetHeightSupOk() (*int64, bool) {
 	if o == nil || IsNil(o.HeightSup) {
 		return nil, false
 	}
@@ -457,8 +457,8 @@ func (o *MeasurementPenaltiesDataReportsInner) HasHeightSup() bool {
 	return false
 }
 
-// SetHeightSup gets a reference to the given int32 and assigns it to the HeightSup field.
-func (o *MeasurementPenaltiesDataReportsInner) SetHeightSup(v int32) {
+// SetHeightSup gets a reference to the given int64 and assigns it to the HeightSup field.
+func (o *MeasurementPenaltiesDataReportsInner) SetHeightSup(v int64) {
 	o.HeightSup = &v
 }
 

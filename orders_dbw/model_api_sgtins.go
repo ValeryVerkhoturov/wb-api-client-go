@@ -22,7 +22,7 @@ var _ MappedNullable = &ApiSGTINs{}
 // ApiSGTINs struct for ApiSGTINs
 type ApiSGTINs struct {
 	// ID сборочного задания
-	OrderId int32 `json:"orderId"`
+	OrderId int64 `json:"orderId"`
 	// Массив кодов маркировки. Допускается от 16 до 135 символов для кода одной маркировки
 	Sgtins []string `json:"sgtins"`
 }
@@ -33,7 +33,7 @@ type _ApiSGTINs ApiSGTINs
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiSGTINs(orderId int32, sgtins []string) *ApiSGTINs {
+func NewApiSGTINs(orderId int64, sgtins []string) *ApiSGTINs {
 	this := ApiSGTINs{}
 	this.OrderId = orderId
 	this.Sgtins = sgtins
@@ -49,9 +49,9 @@ func NewApiSGTINsWithDefaults() *ApiSGTINs {
 }
 
 // GetOrderId returns the OrderId field value
-func (o *ApiSGTINs) GetOrderId() int32 {
+func (o *ApiSGTINs) GetOrderId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -60,7 +60,7 @@ func (o *ApiSGTINs) GetOrderId() int32 {
 
 // GetOrderIdOk returns a tuple with the OrderId field value
 // and a boolean to check if the value has been set.
-func (o *ApiSGTINs) GetOrderIdOk() (*int32, bool) {
+func (o *ApiSGTINs) GetOrderIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,7 +68,7 @@ func (o *ApiSGTINs) GetOrderIdOk() (*int32, bool) {
 }
 
 // SetOrderId sets field value
-func (o *ApiSGTINs) SetOrderId(v int32) {
+func (o *ApiSGTINs) SetOrderId(v int64) {
 	o.OrderId = v
 }
 

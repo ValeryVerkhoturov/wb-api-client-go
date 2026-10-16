@@ -22,9 +22,9 @@ type PostV2GetCardsListResponse200Cursor struct {
 	// Дата и время, с которых надо запрашивать следующий список карточек товаров
 	UpdatedAt *string `json:"updatedAt,omitempty"`
 	// Артикул WB, с которого надо запрашивать следующий список карточек товаров
-	NmID *int32 `json:"nmID,omitempty"`
+	NmID *int64 `json:"nmID,omitempty"`
 	// Количество возвращённых карточек товаров
-	Total *int32 `json:"total,omitempty"`
+	Total *int64 `json:"total,omitempty"`
 }
 
 // NewPostV2GetCardsListResponse200Cursor instantiates a new PostV2GetCardsListResponse200Cursor object
@@ -77,9 +77,9 @@ func (o *PostV2GetCardsListResponse200Cursor) SetUpdatedAt(v string) {
 }
 
 // GetNmID returns the NmID field value if set, zero value otherwise.
-func (o *PostV2GetCardsListResponse200Cursor) GetNmID() int32 {
+func (o *PostV2GetCardsListResponse200Cursor) GetNmID() int64 {
 	if o == nil || IsNil(o.NmID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmID
@@ -87,7 +87,7 @@ func (o *PostV2GetCardsListResponse200Cursor) GetNmID() int32 {
 
 // GetNmIDOk returns a tuple with the NmID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2GetCardsListResponse200Cursor) GetNmIDOk() (*int32, bool) {
+func (o *PostV2GetCardsListResponse200Cursor) GetNmIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmID) {
 		return nil, false
 	}
@@ -103,15 +103,15 @@ func (o *PostV2GetCardsListResponse200Cursor) HasNmID() bool {
 	return false
 }
 
-// SetNmID gets a reference to the given int32 and assigns it to the NmID field.
-func (o *PostV2GetCardsListResponse200Cursor) SetNmID(v int32) {
+// SetNmID gets a reference to the given int64 and assigns it to the NmID field.
+func (o *PostV2GetCardsListResponse200Cursor) SetNmID(v int64) {
 	o.NmID = &v
 }
 
 // GetTotal returns the Total field value if set, zero value otherwise.
-func (o *PostV2GetCardsListResponse200Cursor) GetTotal() int32 {
+func (o *PostV2GetCardsListResponse200Cursor) GetTotal() int64 {
 	if o == nil || IsNil(o.Total) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Total
@@ -119,7 +119,7 @@ func (o *PostV2GetCardsListResponse200Cursor) GetTotal() int32 {
 
 // GetTotalOk returns a tuple with the Total field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2GetCardsListResponse200Cursor) GetTotalOk() (*int32, bool) {
+func (o *PostV2GetCardsListResponse200Cursor) GetTotalOk() (*int64, bool) {
 	if o == nil || IsNil(o.Total) {
 		return nil, false
 	}
@@ -135,8 +135,8 @@ func (o *PostV2GetCardsListResponse200Cursor) HasTotal() bool {
 	return false
 }
 
-// SetTotal gets a reference to the given int32 and assigns it to the Total field.
-func (o *PostV2GetCardsListResponse200Cursor) SetTotal(v int32) {
+// SetTotal gets a reference to the given int64 and assigns it to the Total field.
+func (o *PostV2GetCardsListResponse200Cursor) SetTotal(v int64) {
 	o.Total = &v
 }
 

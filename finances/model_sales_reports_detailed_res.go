@@ -30,11 +30,11 @@ type SalesReportsDetailedRes struct {
 	// Валюта отчёта
 	Currency *string `json:"currency,omitempty"`
 	// Тип отчёта:   - `1` — основной   - `2` — по выкупам
-	ReportType *int32 `json:"reportType,omitempty"`
+	ReportType *int64 `json:"reportType,omitempty"`
 	// ID строки
-	RrdId *int32 `json:"rrdId,omitempty"`
+	RrdId *int64 `json:"rrdId,omitempty"`
 	// ID поставки
-	GiId *int32 `json:"giId,omitempty"`
+	GiId *int64 `json:"giId,omitempty"`
 	// Фиксированный коэффициент склада по поставке
 	DlvPrc *float32 `json:"dlvPrc,omitempty"`
 	// Дата начала действия фиксации
@@ -44,7 +44,7 @@ type SalesReportsDetailedRes struct {
 	// Предмет
 	SubjectName *string `json:"subjectName,omitempty"`
 	// Артикул WB
-	NmId *int32 `json:"nmId,omitempty"`
+	NmId *int64 `json:"nmId,omitempty"`
 	// Бренд
 	BrandName *string `json:"brandName,omitempty"`
 	// Артикул продавца
@@ -58,13 +58,13 @@ type SalesReportsDetailedRes struct {
 	// Тип документа
 	DocTypeName *string `json:"docTypeName,omitempty"`
 	// Количество
-	Quantity *int32 `json:"quantity,omitempty"`
+	Quantity *int64 `json:"quantity,omitempty"`
 	// Цена розничная
 	RetailPrice *string `json:"retailPrice,omitempty"`
 	// Wildberries реализовал Товар (Пр)
 	RetailAmount *string `json:"retailAmount,omitempty"`
 	// Согласованный продуктовый дисконт, %
-	SalePercent *int32 `json:"salePercent,omitempty"`
+	SalePercent *int64 `json:"salePercent,omitempty"`
 	// Размер кВВ, %
 	CommissionPercent *float32 `json:"commissionPercent,omitempty"`
 	// Склад
@@ -78,13 +78,13 @@ type SalesReportsDetailedRes struct {
 	// Дата операции
 	RrDate *string `json:"rrDate,omitempty"`
 	// Штрихкод
-	ShkId *int32 `json:"shkId,omitempty"`
+	ShkId *int64 `json:"shkId,omitempty"`
 	// Цена розничная с учётом согласованной скидки
 	RetailPriceWithDisc *string `json:"retailPriceWithDisc,omitempty"`
 	// Количество доставок
-	DeliveryAmount *int32 `json:"deliveryAmount,omitempty"`
+	DeliveryAmount *int64 `json:"deliveryAmount,omitempty"`
 	// Количество возврата
-	ReturnAmount *int32 `json:"returnAmount,omitempty"`
+	ReturnAmount *int64 `json:"returnAmount,omitempty"`
 	// Услуги по доставке товара покупателю
 	DeliveryService *string `json:"deliveryService,omitempty"`
 	// Тип коробов
@@ -124,7 +124,7 @@ type SalesReportsDetailedRes struct {
 	// Наименование офиса доставки
 	PpvzOfficeName *string `json:"ppvzOfficeName,omitempty"`
 	// ID офиса доставки
-	PpvzOfficeId *int32 `json:"ppvzOfficeId,omitempty"`
+	PpvzOfficeId *int64 `json:"ppvzOfficeId,omitempty"`
 	// Партнёр
 	PpvzSupplierName *string `json:"ppvzSupplierName,omitempty"`
 	// ИНН партнёра
@@ -154,7 +154,7 @@ type SalesReportsDetailedRes struct {
 	// Операции на приёмке
 	PaidAcceptance *string `json:"paidAcceptance,omitempty"`
 	// ID сборочного задания
-	OrderId *int32 `json:"orderId,omitempty"`
+	OrderId *int64 `json:"orderId,omitempty"`
 	// Код маркировки [Честного знака](https://честныйзнак.рф)
 	Kiz *string `json:"kiz,omitempty"`
 	// Признак B2B-продажи
@@ -176,11 +176,11 @@ type SalesReportsDetailedRes struct {
 	// Способ продажи и тип товара
 	DeliveryMethod *string `json:"deliveryMethod,omitempty"`
 	// ID собственной акции продавца с дополнительной скидкой
-	SellerPromoId *int32 `json:"sellerPromoId,omitempty"`
+	SellerPromoId *int64 `json:"sellerPromoId,omitempty"`
 	// Размер дополнительной скидки по собственной акции продавца, %
 	SellerPromoDiscount *float32 `json:"sellerPromoDiscount,omitempty"`
 	// ID скидки лояльности от продавца
-	LoyaltyId *int32 `json:"loyaltyId,omitempty"`
+	LoyaltyId *int64 `json:"loyaltyId,omitempty"`
 	// Размер скидки лояльности от продавца, %
 	LoyaltyDiscount *float32 `json:"loyaltyDiscount,omitempty"`
 	// ID промокода
@@ -391,9 +391,9 @@ func (o *SalesReportsDetailedRes) SetCurrency(v string) {
 }
 
 // GetReportType returns the ReportType field value if set, zero value otherwise.
-func (o *SalesReportsDetailedRes) GetReportType() int32 {
+func (o *SalesReportsDetailedRes) GetReportType() int64 {
 	if o == nil || IsNil(o.ReportType) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ReportType
@@ -401,7 +401,7 @@ func (o *SalesReportsDetailedRes) GetReportType() int32 {
 
 // GetReportTypeOk returns a tuple with the ReportType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SalesReportsDetailedRes) GetReportTypeOk() (*int32, bool) {
+func (o *SalesReportsDetailedRes) GetReportTypeOk() (*int64, bool) {
 	if o == nil || IsNil(o.ReportType) {
 		return nil, false
 	}
@@ -417,15 +417,15 @@ func (o *SalesReportsDetailedRes) HasReportType() bool {
 	return false
 }
 
-// SetReportType gets a reference to the given int32 and assigns it to the ReportType field.
-func (o *SalesReportsDetailedRes) SetReportType(v int32) {
+// SetReportType gets a reference to the given int64 and assigns it to the ReportType field.
+func (o *SalesReportsDetailedRes) SetReportType(v int64) {
 	o.ReportType = &v
 }
 
 // GetRrdId returns the RrdId field value if set, zero value otherwise.
-func (o *SalesReportsDetailedRes) GetRrdId() int32 {
+func (o *SalesReportsDetailedRes) GetRrdId() int64 {
 	if o == nil || IsNil(o.RrdId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.RrdId
@@ -433,7 +433,7 @@ func (o *SalesReportsDetailedRes) GetRrdId() int32 {
 
 // GetRrdIdOk returns a tuple with the RrdId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SalesReportsDetailedRes) GetRrdIdOk() (*int32, bool) {
+func (o *SalesReportsDetailedRes) GetRrdIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.RrdId) {
 		return nil, false
 	}
@@ -449,15 +449,15 @@ func (o *SalesReportsDetailedRes) HasRrdId() bool {
 	return false
 }
 
-// SetRrdId gets a reference to the given int32 and assigns it to the RrdId field.
-func (o *SalesReportsDetailedRes) SetRrdId(v int32) {
+// SetRrdId gets a reference to the given int64 and assigns it to the RrdId field.
+func (o *SalesReportsDetailedRes) SetRrdId(v int64) {
 	o.RrdId = &v
 }
 
 // GetGiId returns the GiId field value if set, zero value otherwise.
-func (o *SalesReportsDetailedRes) GetGiId() int32 {
+func (o *SalesReportsDetailedRes) GetGiId() int64 {
 	if o == nil || IsNil(o.GiId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.GiId
@@ -465,7 +465,7 @@ func (o *SalesReportsDetailedRes) GetGiId() int32 {
 
 // GetGiIdOk returns a tuple with the GiId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SalesReportsDetailedRes) GetGiIdOk() (*int32, bool) {
+func (o *SalesReportsDetailedRes) GetGiIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.GiId) {
 		return nil, false
 	}
@@ -481,8 +481,8 @@ func (o *SalesReportsDetailedRes) HasGiId() bool {
 	return false
 }
 
-// SetGiId gets a reference to the given int32 and assigns it to the GiId field.
-func (o *SalesReportsDetailedRes) SetGiId(v int32) {
+// SetGiId gets a reference to the given int64 and assigns it to the GiId field.
+func (o *SalesReportsDetailedRes) SetGiId(v int64) {
 	o.GiId = &v
 }
 
@@ -615,9 +615,9 @@ func (o *SalesReportsDetailedRes) SetSubjectName(v string) {
 }
 
 // GetNmId returns the NmId field value if set, zero value otherwise.
-func (o *SalesReportsDetailedRes) GetNmId() int32 {
+func (o *SalesReportsDetailedRes) GetNmId() int64 {
 	if o == nil || IsNil(o.NmId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmId
@@ -625,7 +625,7 @@ func (o *SalesReportsDetailedRes) GetNmId() int32 {
 
 // GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SalesReportsDetailedRes) GetNmIdOk() (*int32, bool) {
+func (o *SalesReportsDetailedRes) GetNmIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
@@ -641,8 +641,8 @@ func (o *SalesReportsDetailedRes) HasNmId() bool {
 	return false
 }
 
-// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
-func (o *SalesReportsDetailedRes) SetNmId(v int32) {
+// SetNmId gets a reference to the given int64 and assigns it to the NmId field.
+func (o *SalesReportsDetailedRes) SetNmId(v int64) {
 	o.NmId = &v
 }
 
@@ -839,9 +839,9 @@ func (o *SalesReportsDetailedRes) SetDocTypeName(v string) {
 }
 
 // GetQuantity returns the Quantity field value if set, zero value otherwise.
-func (o *SalesReportsDetailedRes) GetQuantity() int32 {
+func (o *SalesReportsDetailedRes) GetQuantity() int64 {
 	if o == nil || IsNil(o.Quantity) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Quantity
@@ -849,7 +849,7 @@ func (o *SalesReportsDetailedRes) GetQuantity() int32 {
 
 // GetQuantityOk returns a tuple with the Quantity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SalesReportsDetailedRes) GetQuantityOk() (*int32, bool) {
+func (o *SalesReportsDetailedRes) GetQuantityOk() (*int64, bool) {
 	if o == nil || IsNil(o.Quantity) {
 		return nil, false
 	}
@@ -865,8 +865,8 @@ func (o *SalesReportsDetailedRes) HasQuantity() bool {
 	return false
 }
 
-// SetQuantity gets a reference to the given int32 and assigns it to the Quantity field.
-func (o *SalesReportsDetailedRes) SetQuantity(v int32) {
+// SetQuantity gets a reference to the given int64 and assigns it to the Quantity field.
+func (o *SalesReportsDetailedRes) SetQuantity(v int64) {
 	o.Quantity = &v
 }
 
@@ -935,9 +935,9 @@ func (o *SalesReportsDetailedRes) SetRetailAmount(v string) {
 }
 
 // GetSalePercent returns the SalePercent field value if set, zero value otherwise.
-func (o *SalesReportsDetailedRes) GetSalePercent() int32 {
+func (o *SalesReportsDetailedRes) GetSalePercent() int64 {
 	if o == nil || IsNil(o.SalePercent) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SalePercent
@@ -945,7 +945,7 @@ func (o *SalesReportsDetailedRes) GetSalePercent() int32 {
 
 // GetSalePercentOk returns a tuple with the SalePercent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SalesReportsDetailedRes) GetSalePercentOk() (*int32, bool) {
+func (o *SalesReportsDetailedRes) GetSalePercentOk() (*int64, bool) {
 	if o == nil || IsNil(o.SalePercent) {
 		return nil, false
 	}
@@ -961,8 +961,8 @@ func (o *SalesReportsDetailedRes) HasSalePercent() bool {
 	return false
 }
 
-// SetSalePercent gets a reference to the given int32 and assigns it to the SalePercent field.
-func (o *SalesReportsDetailedRes) SetSalePercent(v int32) {
+// SetSalePercent gets a reference to the given int64 and assigns it to the SalePercent field.
+func (o *SalesReportsDetailedRes) SetSalePercent(v int64) {
 	o.SalePercent = &v
 }
 
@@ -1159,9 +1159,9 @@ func (o *SalesReportsDetailedRes) SetRrDate(v string) {
 }
 
 // GetShkId returns the ShkId field value if set, zero value otherwise.
-func (o *SalesReportsDetailedRes) GetShkId() int32 {
+func (o *SalesReportsDetailedRes) GetShkId() int64 {
 	if o == nil || IsNil(o.ShkId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ShkId
@@ -1169,7 +1169,7 @@ func (o *SalesReportsDetailedRes) GetShkId() int32 {
 
 // GetShkIdOk returns a tuple with the ShkId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SalesReportsDetailedRes) GetShkIdOk() (*int32, bool) {
+func (o *SalesReportsDetailedRes) GetShkIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.ShkId) {
 		return nil, false
 	}
@@ -1185,8 +1185,8 @@ func (o *SalesReportsDetailedRes) HasShkId() bool {
 	return false
 }
 
-// SetShkId gets a reference to the given int32 and assigns it to the ShkId field.
-func (o *SalesReportsDetailedRes) SetShkId(v int32) {
+// SetShkId gets a reference to the given int64 and assigns it to the ShkId field.
+func (o *SalesReportsDetailedRes) SetShkId(v int64) {
 	o.ShkId = &v
 }
 
@@ -1223,9 +1223,9 @@ func (o *SalesReportsDetailedRes) SetRetailPriceWithDisc(v string) {
 }
 
 // GetDeliveryAmount returns the DeliveryAmount field value if set, zero value otherwise.
-func (o *SalesReportsDetailedRes) GetDeliveryAmount() int32 {
+func (o *SalesReportsDetailedRes) GetDeliveryAmount() int64 {
 	if o == nil || IsNil(o.DeliveryAmount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.DeliveryAmount
@@ -1233,7 +1233,7 @@ func (o *SalesReportsDetailedRes) GetDeliveryAmount() int32 {
 
 // GetDeliveryAmountOk returns a tuple with the DeliveryAmount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SalesReportsDetailedRes) GetDeliveryAmountOk() (*int32, bool) {
+func (o *SalesReportsDetailedRes) GetDeliveryAmountOk() (*int64, bool) {
 	if o == nil || IsNil(o.DeliveryAmount) {
 		return nil, false
 	}
@@ -1249,15 +1249,15 @@ func (o *SalesReportsDetailedRes) HasDeliveryAmount() bool {
 	return false
 }
 
-// SetDeliveryAmount gets a reference to the given int32 and assigns it to the DeliveryAmount field.
-func (o *SalesReportsDetailedRes) SetDeliveryAmount(v int32) {
+// SetDeliveryAmount gets a reference to the given int64 and assigns it to the DeliveryAmount field.
+func (o *SalesReportsDetailedRes) SetDeliveryAmount(v int64) {
 	o.DeliveryAmount = &v
 }
 
 // GetReturnAmount returns the ReturnAmount field value if set, zero value otherwise.
-func (o *SalesReportsDetailedRes) GetReturnAmount() int32 {
+func (o *SalesReportsDetailedRes) GetReturnAmount() int64 {
 	if o == nil || IsNil(o.ReturnAmount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ReturnAmount
@@ -1265,7 +1265,7 @@ func (o *SalesReportsDetailedRes) GetReturnAmount() int32 {
 
 // GetReturnAmountOk returns a tuple with the ReturnAmount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SalesReportsDetailedRes) GetReturnAmountOk() (*int32, bool) {
+func (o *SalesReportsDetailedRes) GetReturnAmountOk() (*int64, bool) {
 	if o == nil || IsNil(o.ReturnAmount) {
 		return nil, false
 	}
@@ -1281,8 +1281,8 @@ func (o *SalesReportsDetailedRes) HasReturnAmount() bool {
 	return false
 }
 
-// SetReturnAmount gets a reference to the given int32 and assigns it to the ReturnAmount field.
-func (o *SalesReportsDetailedRes) SetReturnAmount(v int32) {
+// SetReturnAmount gets a reference to the given int64 and assigns it to the ReturnAmount field.
+func (o *SalesReportsDetailedRes) SetReturnAmount(v int64) {
 	o.ReturnAmount = &v
 }
 
@@ -1895,9 +1895,9 @@ func (o *SalesReportsDetailedRes) SetPpvzOfficeName(v string) {
 }
 
 // GetPpvzOfficeId returns the PpvzOfficeId field value if set, zero value otherwise.
-func (o *SalesReportsDetailedRes) GetPpvzOfficeId() int32 {
+func (o *SalesReportsDetailedRes) GetPpvzOfficeId() int64 {
 	if o == nil || IsNil(o.PpvzOfficeId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.PpvzOfficeId
@@ -1905,7 +1905,7 @@ func (o *SalesReportsDetailedRes) GetPpvzOfficeId() int32 {
 
 // GetPpvzOfficeIdOk returns a tuple with the PpvzOfficeId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SalesReportsDetailedRes) GetPpvzOfficeIdOk() (*int32, bool) {
+func (o *SalesReportsDetailedRes) GetPpvzOfficeIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.PpvzOfficeId) {
 		return nil, false
 	}
@@ -1921,8 +1921,8 @@ func (o *SalesReportsDetailedRes) HasPpvzOfficeId() bool {
 	return false
 }
 
-// SetPpvzOfficeId gets a reference to the given int32 and assigns it to the PpvzOfficeId field.
-func (o *SalesReportsDetailedRes) SetPpvzOfficeId(v int32) {
+// SetPpvzOfficeId gets a reference to the given int64 and assigns it to the PpvzOfficeId field.
+func (o *SalesReportsDetailedRes) SetPpvzOfficeId(v int64) {
 	o.PpvzOfficeId = &v
 }
 
@@ -2375,9 +2375,9 @@ func (o *SalesReportsDetailedRes) SetPaidAcceptance(v string) {
 }
 
 // GetOrderId returns the OrderId field value if set, zero value otherwise.
-func (o *SalesReportsDetailedRes) GetOrderId() int32 {
+func (o *SalesReportsDetailedRes) GetOrderId() int64 {
 	if o == nil || IsNil(o.OrderId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OrderId
@@ -2385,7 +2385,7 @@ func (o *SalesReportsDetailedRes) GetOrderId() int32 {
 
 // GetOrderIdOk returns a tuple with the OrderId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SalesReportsDetailedRes) GetOrderIdOk() (*int32, bool) {
+func (o *SalesReportsDetailedRes) GetOrderIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.OrderId) {
 		return nil, false
 	}
@@ -2401,8 +2401,8 @@ func (o *SalesReportsDetailedRes) HasOrderId() bool {
 	return false
 }
 
-// SetOrderId gets a reference to the given int32 and assigns it to the OrderId field.
-func (o *SalesReportsDetailedRes) SetOrderId(v int32) {
+// SetOrderId gets a reference to the given int64 and assigns it to the OrderId field.
+func (o *SalesReportsDetailedRes) SetOrderId(v int64) {
 	o.OrderId = &v
 }
 
@@ -2727,9 +2727,9 @@ func (o *SalesReportsDetailedRes) SetDeliveryMethod(v string) {
 }
 
 // GetSellerPromoId returns the SellerPromoId field value if set, zero value otherwise.
-func (o *SalesReportsDetailedRes) GetSellerPromoId() int32 {
+func (o *SalesReportsDetailedRes) GetSellerPromoId() int64 {
 	if o == nil || IsNil(o.SellerPromoId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SellerPromoId
@@ -2737,7 +2737,7 @@ func (o *SalesReportsDetailedRes) GetSellerPromoId() int32 {
 
 // GetSellerPromoIdOk returns a tuple with the SellerPromoId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SalesReportsDetailedRes) GetSellerPromoIdOk() (*int32, bool) {
+func (o *SalesReportsDetailedRes) GetSellerPromoIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.SellerPromoId) {
 		return nil, false
 	}
@@ -2753,8 +2753,8 @@ func (o *SalesReportsDetailedRes) HasSellerPromoId() bool {
 	return false
 }
 
-// SetSellerPromoId gets a reference to the given int32 and assigns it to the SellerPromoId field.
-func (o *SalesReportsDetailedRes) SetSellerPromoId(v int32) {
+// SetSellerPromoId gets a reference to the given int64 and assigns it to the SellerPromoId field.
+func (o *SalesReportsDetailedRes) SetSellerPromoId(v int64) {
 	o.SellerPromoId = &v
 }
 
@@ -2791,9 +2791,9 @@ func (o *SalesReportsDetailedRes) SetSellerPromoDiscount(v float32) {
 }
 
 // GetLoyaltyId returns the LoyaltyId field value if set, zero value otherwise.
-func (o *SalesReportsDetailedRes) GetLoyaltyId() int32 {
+func (o *SalesReportsDetailedRes) GetLoyaltyId() int64 {
 	if o == nil || IsNil(o.LoyaltyId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.LoyaltyId
@@ -2801,7 +2801,7 @@ func (o *SalesReportsDetailedRes) GetLoyaltyId() int32 {
 
 // GetLoyaltyIdOk returns a tuple with the LoyaltyId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SalesReportsDetailedRes) GetLoyaltyIdOk() (*int32, bool) {
+func (o *SalesReportsDetailedRes) GetLoyaltyIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.LoyaltyId) {
 		return nil, false
 	}
@@ -2817,8 +2817,8 @@ func (o *SalesReportsDetailedRes) HasLoyaltyId() bool {
 	return false
 }
 
-// SetLoyaltyId gets a reference to the given int32 and assigns it to the LoyaltyId field.
-func (o *SalesReportsDetailedRes) SetLoyaltyId(v int32) {
+// SetLoyaltyId gets a reference to the given int64 and assigns it to the LoyaltyId field.
+func (o *SalesReportsDetailedRes) SetLoyaltyId(v int64) {
 	o.LoyaltyId = &v
 }
 

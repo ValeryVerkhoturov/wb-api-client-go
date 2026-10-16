@@ -22,9 +22,9 @@ type ModelsSupply struct {
 	// Телефон пользователя, создавшего поставку
 	Phone *string `json:"phone,omitempty"`
 	// ID поставки. Если `null`, это заказ, тогда используйте значение поля `preorderID`
-	SupplyID NullableInt32 `json:"supplyID,omitempty"`
+	SupplyID NullableInt64 `json:"supplyID,omitempty"`
 	// ID заказа (незапланированная поставка). Для всех виртуальных поставок будет `0`
-	PreorderID *int32 `json:"preorderID,omitempty"`
+	PreorderID *int64 `json:"preorderID,omitempty"`
 	// Дата и время создания поставки
 	CreateDate *string `json:"createDate,omitempty"`
 	// Плановая дата отгрузки поставки
@@ -34,7 +34,7 @@ type ModelsSupply struct {
 	// Дата изменения поставки
 	UpdatedDate NullableString `json:"updatedDate,omitempty"`
 	// ID статуса поставки:   - `1` — Не запланировано   - `2` — Запланировано   - `3` — Отгрузка разрешена   - `4` — Идёт приёмка   - `5` — Принято   - `6` — Отгружено на воротах
-	StatusID *int32 `json:"statusID,omitempty"`
+	StatusID *int64 `json:"statusID,omitempty"`
 	// ID типа поставки:   - `0` — Без коробов (виртуальная поставка)   - `1` и `2` — Короба   - `5` — Монопаллеты   - `6` — Суперсейф
 	BoxTypeID interface{} `json:"boxTypeID,omitempty"`
 	// Тип поставки — **Поштучная палета**:   - `true` — да   - `false` — нет    Поле возвращается только при `\"boxTypeID\": 2`
@@ -91,9 +91,9 @@ func (o *ModelsSupply) SetPhone(v string) {
 }
 
 // GetSupplyID returns the SupplyID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ModelsSupply) GetSupplyID() int32 {
+func (o *ModelsSupply) GetSupplyID() int64 {
 	if o == nil || IsNil(o.SupplyID.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SupplyID.Get()
@@ -102,7 +102,7 @@ func (o *ModelsSupply) GetSupplyID() int32 {
 // GetSupplyIDOk returns a tuple with the SupplyID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelsSupply) GetSupplyIDOk() (*int32, bool) {
+func (o *ModelsSupply) GetSupplyIDOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -118,8 +118,8 @@ func (o *ModelsSupply) HasSupplyID() bool {
 	return false
 }
 
-// SetSupplyID gets a reference to the given NullableInt32 and assigns it to the SupplyID field.
-func (o *ModelsSupply) SetSupplyID(v int32) {
+// SetSupplyID gets a reference to the given NullableInt64 and assigns it to the SupplyID field.
+func (o *ModelsSupply) SetSupplyID(v int64) {
 	o.SupplyID.Set(&v)
 }
 
@@ -134,9 +134,9 @@ func (o *ModelsSupply) UnsetSupplyID() {
 }
 
 // GetPreorderID returns the PreorderID field value if set, zero value otherwise.
-func (o *ModelsSupply) GetPreorderID() int32 {
+func (o *ModelsSupply) GetPreorderID() int64 {
 	if o == nil || IsNil(o.PreorderID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.PreorderID
@@ -144,7 +144,7 @@ func (o *ModelsSupply) GetPreorderID() int32 {
 
 // GetPreorderIDOk returns a tuple with the PreorderID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsSupply) GetPreorderIDOk() (*int32, bool) {
+func (o *ModelsSupply) GetPreorderIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.PreorderID) {
 		return nil, false
 	}
@@ -160,8 +160,8 @@ func (o *ModelsSupply) HasPreorderID() bool {
 	return false
 }
 
-// SetPreorderID gets a reference to the given int32 and assigns it to the PreorderID field.
-func (o *ModelsSupply) SetPreorderID(v int32) {
+// SetPreorderID gets a reference to the given int64 and assigns it to the PreorderID field.
+func (o *ModelsSupply) SetPreorderID(v int64) {
 	o.PreorderID = &v
 }
 
@@ -327,9 +327,9 @@ func (o *ModelsSupply) UnsetUpdatedDate() {
 }
 
 // GetStatusID returns the StatusID field value if set, zero value otherwise.
-func (o *ModelsSupply) GetStatusID() int32 {
+func (o *ModelsSupply) GetStatusID() int64 {
 	if o == nil || IsNil(o.StatusID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.StatusID
@@ -337,7 +337,7 @@ func (o *ModelsSupply) GetStatusID() int32 {
 
 // GetStatusIDOk returns a tuple with the StatusID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsSupply) GetStatusIDOk() (*int32, bool) {
+func (o *ModelsSupply) GetStatusIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.StatusID) {
 		return nil, false
 	}
@@ -353,8 +353,8 @@ func (o *ModelsSupply) HasStatusID() bool {
 	return false
 }
 
-// SetStatusID gets a reference to the given int32 and assigns it to the StatusID field.
-func (o *ModelsSupply) SetStatusID(v int32) {
+// SetStatusID gets a reference to the given int64 and assigns it to the StatusID field.
+func (o *ModelsSupply) SetStatusID(v int64) {
 	o.StatusID = &v
 }
 

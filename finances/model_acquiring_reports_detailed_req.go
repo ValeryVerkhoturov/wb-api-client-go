@@ -26,9 +26,9 @@ type AcquiringReportsDetailedReq struct {
 	// Конечная дата отчёта. Дата в формате [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339). Можно передать дату или дату со временем. Время можно указывать с точностью до секунд или миллисекунд. Время передаётся в часовом поясе Москва `UTC+3`. Примеры: - `2025-06-20` - `2025-06-20T23:59:59` - `2025-06-20T00:00:00.12345` - `2025-06-20T00:00:00`
 	DateTo string `json:"dateTo"`
 	// Количество строк в ответе
-	Limit *int32 `json:"limit,omitempty"`
+	Limit *int64 `json:"limit,omitempty"`
 	// ID строки ответа. Необходим для получения отчёта частями. Начинайте загрузку отчёта с `\"rrdid\":0`. В последующих запросах передавайте значение `rrdId` из последней строки предыдущего ответа. Повторяйте запрос, пока не получите ответ `204`
-	RrdId *int32 `json:"rrdId,omitempty"`
+	RrdId *int64 `json:"rrdId,omitempty"`
 	// Список полей, которые вернутся в ответе. Если параметр не указан, возвращаются все поля
 	Fields []string `json:"fields,omitempty"`
 }
@@ -43,9 +43,9 @@ func NewAcquiringReportsDetailedReq(dateFrom string, dateTo string) *AcquiringRe
 	this := AcquiringReportsDetailedReq{}
 	this.DateFrom = dateFrom
 	this.DateTo = dateTo
-	var limit int32 = 100000
+	var limit int64 = 100000
 	this.Limit = &limit
-	var rrdId int32 = 0
+	var rrdId int64 = 0
 	this.RrdId = &rrdId
 	return &this
 }
@@ -55,9 +55,9 @@ func NewAcquiringReportsDetailedReq(dateFrom string, dateTo string) *AcquiringRe
 // but it doesn't guarantee that properties required by API are set
 func NewAcquiringReportsDetailedReqWithDefaults() *AcquiringReportsDetailedReq {
 	this := AcquiringReportsDetailedReq{}
-	var limit int32 = 100000
+	var limit int64 = 100000
 	this.Limit = &limit
-	var rrdId int32 = 0
+	var rrdId int64 = 0
 	this.RrdId = &rrdId
 	return &this
 }
@@ -111,9 +111,9 @@ func (o *AcquiringReportsDetailedReq) SetDateTo(v string) {
 }
 
 // GetLimit returns the Limit field value if set, zero value otherwise.
-func (o *AcquiringReportsDetailedReq) GetLimit() int32 {
+func (o *AcquiringReportsDetailedReq) GetLimit() int64 {
 	if o == nil || IsNil(o.Limit) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Limit
@@ -121,7 +121,7 @@ func (o *AcquiringReportsDetailedReq) GetLimit() int32 {
 
 // GetLimitOk returns a tuple with the Limit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AcquiringReportsDetailedReq) GetLimitOk() (*int32, bool) {
+func (o *AcquiringReportsDetailedReq) GetLimitOk() (*int64, bool) {
 	if o == nil || IsNil(o.Limit) {
 		return nil, false
 	}
@@ -137,15 +137,15 @@ func (o *AcquiringReportsDetailedReq) HasLimit() bool {
 	return false
 }
 
-// SetLimit gets a reference to the given int32 and assigns it to the Limit field.
-func (o *AcquiringReportsDetailedReq) SetLimit(v int32) {
+// SetLimit gets a reference to the given int64 and assigns it to the Limit field.
+func (o *AcquiringReportsDetailedReq) SetLimit(v int64) {
 	o.Limit = &v
 }
 
 // GetRrdId returns the RrdId field value if set, zero value otherwise.
-func (o *AcquiringReportsDetailedReq) GetRrdId() int32 {
+func (o *AcquiringReportsDetailedReq) GetRrdId() int64 {
 	if o == nil || IsNil(o.RrdId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.RrdId
@@ -153,7 +153,7 @@ func (o *AcquiringReportsDetailedReq) GetRrdId() int32 {
 
 // GetRrdIdOk returns a tuple with the RrdId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AcquiringReportsDetailedReq) GetRrdIdOk() (*int32, bool) {
+func (o *AcquiringReportsDetailedReq) GetRrdIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.RrdId) {
 		return nil, false
 	}
@@ -169,8 +169,8 @@ func (o *AcquiringReportsDetailedReq) HasRrdId() bool {
 	return false
 }
 
-// SetRrdId gets a reference to the given int32 and assigns it to the RrdId field.
-func (o *AcquiringReportsDetailedReq) SetRrdId(v int32) {
+// SetRrdId gets a reference to the given int64 and assigns it to the RrdId field.
+func (o *AcquiringReportsDetailedReq) SetRrdId(v int64) {
 	o.RrdId = &v
 }
 

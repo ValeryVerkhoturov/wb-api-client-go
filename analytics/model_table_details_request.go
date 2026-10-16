@@ -30,7 +30,7 @@ type TableDetailsRequest struct {
 	// ID ярлыка
 	TagId *int64 `json:"tagId,omitempty"`
 	// Список артикулов WB
-	NmIds   []int32               `json:"nmIds,omitempty"`
+	NmIds   []int64               `json:"nmIds,omitempty"`
 	OrderBy OrderByMainAndDetails `json:"orderBy"`
 	// Товары с какой средней позицией в поиске показывать в отчёте:   - `all` — все   - `firstHundred` — от 1 до 100   - `secondHundred` — от 101 до 200   - `below` — от 201 и ниже
 	PositionCluster string `json:"positionCluster"`
@@ -39,9 +39,9 @@ type TableDetailsRequest struct {
 	// Показать данные по поисковым запросам без учёта подменного артикула
 	IncludeSearchTexts *bool `json:"includeSearchTexts,omitempty"`
 	// Количество товаров в ответе
-	Limit int32 `json:"limit"`
+	Limit int64 `json:"limit"`
 	// После какого элемента выдавать данные
-	Offset int32 `json:"offset"`
+	Offset int64 `json:"offset"`
 }
 
 type _TableDetailsRequest TableDetailsRequest
@@ -50,7 +50,7 @@ type _TableDetailsRequest TableDetailsRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableDetailsRequest(currentPeriod Period, orderBy OrderByMainAndDetails, positionCluster string, limit int32, offset int32) *TableDetailsRequest {
+func NewTableDetailsRequest(currentPeriod Period, orderBy OrderByMainAndDetails, positionCluster string, limit int64, offset int64) *TableDetailsRequest {
 	this := TableDetailsRequest{}
 	this.CurrentPeriod = currentPeriod
 	this.OrderBy = orderBy
@@ -229,9 +229,9 @@ func (o *TableDetailsRequest) SetTagId(v int64) {
 }
 
 // GetNmIds returns the NmIds field value if set, zero value otherwise.
-func (o *TableDetailsRequest) GetNmIds() []int32 {
+func (o *TableDetailsRequest) GetNmIds() []int64 {
 	if o == nil || IsNil(o.NmIds) {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.NmIds
@@ -239,7 +239,7 @@ func (o *TableDetailsRequest) GetNmIds() []int32 {
 
 // GetNmIdsOk returns a tuple with the NmIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableDetailsRequest) GetNmIdsOk() ([]int32, bool) {
+func (o *TableDetailsRequest) GetNmIdsOk() ([]int64, bool) {
 	if o == nil || IsNil(o.NmIds) {
 		return nil, false
 	}
@@ -255,8 +255,8 @@ func (o *TableDetailsRequest) HasNmIds() bool {
 	return false
 }
 
-// SetNmIds gets a reference to the given []int32 and assigns it to the NmIds field.
-func (o *TableDetailsRequest) SetNmIds(v []int32) {
+// SetNmIds gets a reference to the given []int64 and assigns it to the NmIds field.
+func (o *TableDetailsRequest) SetNmIds(v []int64) {
 	o.NmIds = v
 }
 
@@ -373,9 +373,9 @@ func (o *TableDetailsRequest) SetIncludeSearchTexts(v bool) {
 }
 
 // GetLimit returns the Limit field value
-func (o *TableDetailsRequest) GetLimit() int32 {
+func (o *TableDetailsRequest) GetLimit() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -384,7 +384,7 @@ func (o *TableDetailsRequest) GetLimit() int32 {
 
 // GetLimitOk returns a tuple with the Limit field value
 // and a boolean to check if the value has been set.
-func (o *TableDetailsRequest) GetLimitOk() (*int32, bool) {
+func (o *TableDetailsRequest) GetLimitOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -392,14 +392,14 @@ func (o *TableDetailsRequest) GetLimitOk() (*int32, bool) {
 }
 
 // SetLimit sets field value
-func (o *TableDetailsRequest) SetLimit(v int32) {
+func (o *TableDetailsRequest) SetLimit(v int64) {
 	o.Limit = v
 }
 
 // GetOffset returns the Offset field value
-func (o *TableDetailsRequest) GetOffset() int32 {
+func (o *TableDetailsRequest) GetOffset() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -408,7 +408,7 @@ func (o *TableDetailsRequest) GetOffset() int32 {
 
 // GetOffsetOk returns a tuple with the Offset field value
 // and a boolean to check if the value has been set.
-func (o *TableDetailsRequest) GetOffsetOk() (*int32, bool) {
+func (o *TableDetailsRequest) GetOffsetOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -416,7 +416,7 @@ func (o *TableDetailsRequest) GetOffsetOk() (*int32, bool) {
 }
 
 // SetOffset sets field value
-func (o *TableDetailsRequest) SetOffset(v int32) {
+func (o *TableDetailsRequest) SetOffset(v int64) {
 	o.Offset = v
 }
 

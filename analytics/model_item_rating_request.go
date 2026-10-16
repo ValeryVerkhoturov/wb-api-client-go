@@ -37,9 +37,9 @@ type ItemRatingRequest struct {
 	OnlyShadowedNms *bool             `json:"onlyShadowedNms,omitempty"`
 	OrderBy         OrderByItemRating `json:"orderBy"`
 	// Количество товаров в ответе
-	Limit *int32 `json:"limit,omitempty"`
+	Limit *int64 `json:"limit,omitempty"`
 	// Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента
-	Offset int32 `json:"offset"`
+	Offset int64 `json:"offset"`
 }
 
 type _ItemRatingRequest ItemRatingRequest
@@ -48,7 +48,7 @@ type _ItemRatingRequest ItemRatingRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemRatingRequest(currentPeriod PeriodItemRating, orderBy OrderByItemRating, offset int32) *ItemRatingRequest {
+func NewItemRatingRequest(currentPeriod PeriodItemRating, orderBy OrderByItemRating, offset int64) *ItemRatingRequest {
 	this := ItemRatingRequest{}
 	this.CurrentPeriod = currentPeriod
 	var isNotIncludeNmsWithoutSales bool = false
@@ -56,7 +56,7 @@ func NewItemRatingRequest(currentPeriod PeriodItemRating, orderBy OrderByItemRat
 	var onlyShadowedNms bool = false
 	this.OnlyShadowedNms = &onlyShadowedNms
 	this.OrderBy = orderBy
-	var limit int32 = 100
+	var limit int64 = 100
 	this.Limit = &limit
 	this.Offset = offset
 	return &this
@@ -71,7 +71,7 @@ func NewItemRatingRequestWithDefaults() *ItemRatingRequest {
 	this.IsNotIncludeNmsWithoutSales = &isNotIncludeNmsWithoutSales
 	var onlyShadowedNms bool = false
 	this.OnlyShadowedNms = &onlyShadowedNms
-	var limit int32 = 100
+	var limit int64 = 100
 	this.Limit = &limit
 	return &this
 }
@@ -349,9 +349,9 @@ func (o *ItemRatingRequest) SetOrderBy(v OrderByItemRating) {
 }
 
 // GetLimit returns the Limit field value if set, zero value otherwise.
-func (o *ItemRatingRequest) GetLimit() int32 {
+func (o *ItemRatingRequest) GetLimit() int64 {
 	if o == nil || IsNil(o.Limit) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Limit
@@ -359,7 +359,7 @@ func (o *ItemRatingRequest) GetLimit() int32 {
 
 // GetLimitOk returns a tuple with the Limit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ItemRatingRequest) GetLimitOk() (*int32, bool) {
+func (o *ItemRatingRequest) GetLimitOk() (*int64, bool) {
 	if o == nil || IsNil(o.Limit) {
 		return nil, false
 	}
@@ -375,15 +375,15 @@ func (o *ItemRatingRequest) HasLimit() bool {
 	return false
 }
 
-// SetLimit gets a reference to the given int32 and assigns it to the Limit field.
-func (o *ItemRatingRequest) SetLimit(v int32) {
+// SetLimit gets a reference to the given int64 and assigns it to the Limit field.
+func (o *ItemRatingRequest) SetLimit(v int64) {
 	o.Limit = &v
 }
 
 // GetOffset returns the Offset field value
-func (o *ItemRatingRequest) GetOffset() int32 {
+func (o *ItemRatingRequest) GetOffset() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -392,7 +392,7 @@ func (o *ItemRatingRequest) GetOffset() int32 {
 
 // GetOffsetOk returns a tuple with the Offset field value
 // and a boolean to check if the value has been set.
-func (o *ItemRatingRequest) GetOffsetOk() (*int32, bool) {
+func (o *ItemRatingRequest) GetOffsetOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -400,7 +400,7 @@ func (o *ItemRatingRequest) GetOffsetOk() (*int32, bool) {
 }
 
 // SetOffset sets field value
-func (o *ItemRatingRequest) SetOffset(v int32) {
+func (o *ItemRatingRequest) SetOffset(v int64) {
 	o.Offset = v
 }
 

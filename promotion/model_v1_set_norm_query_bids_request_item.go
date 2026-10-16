@@ -22,13 +22,13 @@ var _ MappedNullable = &V1SetNormQueryBidsRequestItem{}
 // V1SetNormQueryBidsRequestItem struct for V1SetNormQueryBidsRequestItem
 type V1SetNormQueryBidsRequestItem struct {
 	// ID кампании
-	AdvertId int32 `json:"advertId"`
+	AdvertId int64 `json:"advertId"`
 	// Артикул WB
-	NmId int32 `json:"nmId"`
+	NmId int64 `json:"nmId"`
 	// Поисковый кластер
 	NormQuery string `json:"normQuery"`
 	// Ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances). Допустимый шаг ставки указан в ответе метода [GET /api/advert/v1/config](./promotion#tag/campaignManagement/operation/getV1Config)
-	BidMinorUnits int32 `json:"bidMinorUnits"`
+	BidMinorUnits int64 `json:"bidMinorUnits"`
 }
 
 type _V1SetNormQueryBidsRequestItem V1SetNormQueryBidsRequestItem
@@ -37,7 +37,7 @@ type _V1SetNormQueryBidsRequestItem V1SetNormQueryBidsRequestItem
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV1SetNormQueryBidsRequestItem(advertId int32, nmId int32, normQuery string, bidMinorUnits int32) *V1SetNormQueryBidsRequestItem {
+func NewV1SetNormQueryBidsRequestItem(advertId int64, nmId int64, normQuery string, bidMinorUnits int64) *V1SetNormQueryBidsRequestItem {
 	this := V1SetNormQueryBidsRequestItem{}
 	this.AdvertId = advertId
 	this.NmId = nmId
@@ -55,9 +55,9 @@ func NewV1SetNormQueryBidsRequestItemWithDefaults() *V1SetNormQueryBidsRequestIt
 }
 
 // GetAdvertId returns the AdvertId field value
-func (o *V1SetNormQueryBidsRequestItem) GetAdvertId() int32 {
+func (o *V1SetNormQueryBidsRequestItem) GetAdvertId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -66,7 +66,7 @@ func (o *V1SetNormQueryBidsRequestItem) GetAdvertId() int32 {
 
 // GetAdvertIdOk returns a tuple with the AdvertId field value
 // and a boolean to check if the value has been set.
-func (o *V1SetNormQueryBidsRequestItem) GetAdvertIdOk() (*int32, bool) {
+func (o *V1SetNormQueryBidsRequestItem) GetAdvertIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -74,14 +74,14 @@ func (o *V1SetNormQueryBidsRequestItem) GetAdvertIdOk() (*int32, bool) {
 }
 
 // SetAdvertId sets field value
-func (o *V1SetNormQueryBidsRequestItem) SetAdvertId(v int32) {
+func (o *V1SetNormQueryBidsRequestItem) SetAdvertId(v int64) {
 	o.AdvertId = v
 }
 
 // GetNmId returns the NmId field value
-func (o *V1SetNormQueryBidsRequestItem) GetNmId() int32 {
+func (o *V1SetNormQueryBidsRequestItem) GetNmId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -90,7 +90,7 @@ func (o *V1SetNormQueryBidsRequestItem) GetNmId() int32 {
 
 // GetNmIdOk returns a tuple with the NmId field value
 // and a boolean to check if the value has been set.
-func (o *V1SetNormQueryBidsRequestItem) GetNmIdOk() (*int32, bool) {
+func (o *V1SetNormQueryBidsRequestItem) GetNmIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -98,7 +98,7 @@ func (o *V1SetNormQueryBidsRequestItem) GetNmIdOk() (*int32, bool) {
 }
 
 // SetNmId sets field value
-func (o *V1SetNormQueryBidsRequestItem) SetNmId(v int32) {
+func (o *V1SetNormQueryBidsRequestItem) SetNmId(v int64) {
 	o.NmId = v
 }
 
@@ -127,9 +127,9 @@ func (o *V1SetNormQueryBidsRequestItem) SetNormQuery(v string) {
 }
 
 // GetBidMinorUnits returns the BidMinorUnits field value
-func (o *V1SetNormQueryBidsRequestItem) GetBidMinorUnits() int32 {
+func (o *V1SetNormQueryBidsRequestItem) GetBidMinorUnits() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -138,7 +138,7 @@ func (o *V1SetNormQueryBidsRequestItem) GetBidMinorUnits() int32 {
 
 // GetBidMinorUnitsOk returns a tuple with the BidMinorUnits field value
 // and a boolean to check if the value has been set.
-func (o *V1SetNormQueryBidsRequestItem) GetBidMinorUnitsOk() (*int32, bool) {
+func (o *V1SetNormQueryBidsRequestItem) GetBidMinorUnitsOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -146,7 +146,7 @@ func (o *V1SetNormQueryBidsRequestItem) GetBidMinorUnitsOk() (*int32, bool) {
 }
 
 // SetBidMinorUnits sets field value
-func (o *V1SetNormQueryBidsRequestItem) SetBidMinorUnits(v int32) {
+func (o *V1SetNormQueryBidsRequestItem) SetBidMinorUnits(v int64) {
 	o.BidMinorUnits = v
 }
 

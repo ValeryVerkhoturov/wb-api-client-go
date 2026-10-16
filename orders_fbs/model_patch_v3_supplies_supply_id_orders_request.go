@@ -20,7 +20,7 @@ var _ MappedNullable = &PatchV3SuppliesSupplyIdOrdersRequest{}
 // PatchV3SuppliesSupplyIdOrdersRequest struct for PatchV3SuppliesSupplyIdOrdersRequest
 type PatchV3SuppliesSupplyIdOrdersRequest struct {
 	// ID сборочных заданий
-	Orders []int32 `json:"orders,omitempty"`
+	Orders []int64 `json:"orders,omitempty"`
 }
 
 // NewPatchV3SuppliesSupplyIdOrdersRequest instantiates a new PatchV3SuppliesSupplyIdOrdersRequest object
@@ -41,9 +41,9 @@ func NewPatchV3SuppliesSupplyIdOrdersRequestWithDefaults() *PatchV3SuppliesSuppl
 }
 
 // GetOrders returns the Orders field value if set, zero value otherwise.
-func (o *PatchV3SuppliesSupplyIdOrdersRequest) GetOrders() []int32 {
+func (o *PatchV3SuppliesSupplyIdOrdersRequest) GetOrders() []int64 {
 	if o == nil || IsNil(o.Orders) {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.Orders
@@ -51,7 +51,7 @@ func (o *PatchV3SuppliesSupplyIdOrdersRequest) GetOrders() []int32 {
 
 // GetOrdersOk returns a tuple with the Orders field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PatchV3SuppliesSupplyIdOrdersRequest) GetOrdersOk() ([]int32, bool) {
+func (o *PatchV3SuppliesSupplyIdOrdersRequest) GetOrdersOk() ([]int64, bool) {
 	if o == nil || IsNil(o.Orders) {
 		return nil, false
 	}
@@ -67,8 +67,8 @@ func (o *PatchV3SuppliesSupplyIdOrdersRequest) HasOrders() bool {
 	return false
 }
 
-// SetOrders gets a reference to the given []int32 and assigns it to the Orders field.
-func (o *PatchV3SuppliesSupplyIdOrdersRequest) SetOrders(v []int32) {
+// SetOrders gets a reference to the given []int64 and assigns it to the Orders field.
+func (o *PatchV3SuppliesSupplyIdOrdersRequest) SetOrders(v []int64) {
 	o.Orders = v
 }
 

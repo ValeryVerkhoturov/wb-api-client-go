@@ -23,7 +23,7 @@ var _ MappedNullable = &ItemOrdersRequest{}
 type ItemOrdersRequest struct {
 	Period PeriodOrdersRequest `json:"period"`
 	// Артикул WB
-	NmId int32 `json:"nmId"`
+	NmId int64 `json:"nmId"`
 	// Поисковые запросы. Для тарифов [Джема](https://seller.wildberries.ru/monetization/tariffs) **Продвинутый** и **Премиальный** максимум — 100
 	SearchTexts []string `json:"searchTexts"`
 }
@@ -34,7 +34,7 @@ type _ItemOrdersRequest ItemOrdersRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemOrdersRequest(period PeriodOrdersRequest, nmId int32, searchTexts []string) *ItemOrdersRequest {
+func NewItemOrdersRequest(period PeriodOrdersRequest, nmId int64, searchTexts []string) *ItemOrdersRequest {
 	this := ItemOrdersRequest{}
 	this.Period = period
 	this.NmId = nmId
@@ -75,9 +75,9 @@ func (o *ItemOrdersRequest) SetPeriod(v PeriodOrdersRequest) {
 }
 
 // GetNmId returns the NmId field value
-func (o *ItemOrdersRequest) GetNmId() int32 {
+func (o *ItemOrdersRequest) GetNmId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -86,7 +86,7 @@ func (o *ItemOrdersRequest) GetNmId() int32 {
 
 // GetNmIdOk returns a tuple with the NmId field value
 // and a boolean to check if the value has been set.
-func (o *ItemOrdersRequest) GetNmIdOk() (*int32, bool) {
+func (o *ItemOrdersRequest) GetNmIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -94,7 +94,7 @@ func (o *ItemOrdersRequest) GetNmIdOk() (*int32, bool) {
 }
 
 // SetNmId sets field value
-func (o *ItemOrdersRequest) SetNmId(v int32) {
+func (o *ItemOrdersRequest) SetNmId(v int64) {
 	o.NmId = v
 }
 

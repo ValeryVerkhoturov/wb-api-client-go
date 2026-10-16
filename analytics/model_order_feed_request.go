@@ -23,13 +23,13 @@ var _ MappedNullable = &OrderFeedRequest{}
 type OrderFeedRequest struct {
 	SelectedPeriod OrderFeedRequestSelectedPeriod `json:"selectedPeriod"`
 	// Список артикулов WB для фильтрации
-	NmIds []int32 `json:"nmIds,omitempty"`
+	NmIds []int64 `json:"nmIds,omitempty"`
 	// Список ID предметов для фильтрации
-	SubjectIds []int32 `json:"subjectIds,omitempty"`
+	SubjectIds []int64 `json:"subjectIds,omitempty"`
 	// Список брендов для фильтрации
 	BrandNames []string `json:"brandNames,omitempty"`
 	// Список ID ярлыков для фильтрации
-	TagIds     []int32                     `json:"tagIds,omitempty"`
+	TagIds     []int64                     `json:"tagIds,omitempty"`
 	Pagination *OrderFeedRequestPagination `json:"pagination,omitempty"`
 }
 
@@ -78,9 +78,9 @@ func (o *OrderFeedRequest) SetSelectedPeriod(v OrderFeedRequestSelectedPeriod) {
 }
 
 // GetNmIds returns the NmIds field value if set, zero value otherwise.
-func (o *OrderFeedRequest) GetNmIds() []int32 {
+func (o *OrderFeedRequest) GetNmIds() []int64 {
 	if o == nil || IsNil(o.NmIds) {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.NmIds
@@ -88,7 +88,7 @@ func (o *OrderFeedRequest) GetNmIds() []int32 {
 
 // GetNmIdsOk returns a tuple with the NmIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OrderFeedRequest) GetNmIdsOk() ([]int32, bool) {
+func (o *OrderFeedRequest) GetNmIdsOk() ([]int64, bool) {
 	if o == nil || IsNil(o.NmIds) {
 		return nil, false
 	}
@@ -104,15 +104,15 @@ func (o *OrderFeedRequest) HasNmIds() bool {
 	return false
 }
 
-// SetNmIds gets a reference to the given []int32 and assigns it to the NmIds field.
-func (o *OrderFeedRequest) SetNmIds(v []int32) {
+// SetNmIds gets a reference to the given []int64 and assigns it to the NmIds field.
+func (o *OrderFeedRequest) SetNmIds(v []int64) {
 	o.NmIds = v
 }
 
 // GetSubjectIds returns the SubjectIds field value if set, zero value otherwise.
-func (o *OrderFeedRequest) GetSubjectIds() []int32 {
+func (o *OrderFeedRequest) GetSubjectIds() []int64 {
 	if o == nil || IsNil(o.SubjectIds) {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.SubjectIds
@@ -120,7 +120,7 @@ func (o *OrderFeedRequest) GetSubjectIds() []int32 {
 
 // GetSubjectIdsOk returns a tuple with the SubjectIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OrderFeedRequest) GetSubjectIdsOk() ([]int32, bool) {
+func (o *OrderFeedRequest) GetSubjectIdsOk() ([]int64, bool) {
 	if o == nil || IsNil(o.SubjectIds) {
 		return nil, false
 	}
@@ -136,8 +136,8 @@ func (o *OrderFeedRequest) HasSubjectIds() bool {
 	return false
 }
 
-// SetSubjectIds gets a reference to the given []int32 and assigns it to the SubjectIds field.
-func (o *OrderFeedRequest) SetSubjectIds(v []int32) {
+// SetSubjectIds gets a reference to the given []int64 and assigns it to the SubjectIds field.
+func (o *OrderFeedRequest) SetSubjectIds(v []int64) {
 	o.SubjectIds = v
 }
 
@@ -174,9 +174,9 @@ func (o *OrderFeedRequest) SetBrandNames(v []string) {
 }
 
 // GetTagIds returns the TagIds field value if set, zero value otherwise.
-func (o *OrderFeedRequest) GetTagIds() []int32 {
+func (o *OrderFeedRequest) GetTagIds() []int64 {
 	if o == nil || IsNil(o.TagIds) {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.TagIds
@@ -184,7 +184,7 @@ func (o *OrderFeedRequest) GetTagIds() []int32 {
 
 // GetTagIdsOk returns a tuple with the TagIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OrderFeedRequest) GetTagIdsOk() ([]int32, bool) {
+func (o *OrderFeedRequest) GetTagIdsOk() ([]int64, bool) {
 	if o == nil || IsNil(o.TagIds) {
 		return nil, false
 	}
@@ -200,8 +200,8 @@ func (o *OrderFeedRequest) HasTagIds() bool {
 	return false
 }
 
-// SetTagIds gets a reference to the given []int32 and assigns it to the TagIds field.
-func (o *OrderFeedRequest) SetTagIds(v []int32) {
+// SetTagIds gets a reference to the given []int64 and assigns it to the TagIds field.
+func (o *OrderFeedRequest) SetTagIds(v []int64) {
 	o.TagIds = v
 }
 

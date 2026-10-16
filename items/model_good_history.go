@@ -20,23 +20,23 @@ var _ MappedNullable = &GoodHistory{}
 // GoodHistory struct for GoodHistory
 type GoodHistory struct {
 	// Артикул WB
-	NmID *int32 `json:"nmID,omitempty"`
+	NmID *int64 `json:"nmID,omitempty"`
 	// Артикул продавца
 	VendorCode *string `json:"vendorCode,omitempty"`
 	// ID размера. В методах Контента это поле `chrtID`
-	SizeID NullableInt32 `json:"sizeID,omitempty"`
+	SizeID NullableInt64 `json:"sizeID,omitempty"`
 	// Размер
 	TechSizeName *string `json:"techSizeName,omitempty"`
 	// Цена
-	Price NullableInt32 `json:"price,omitempty"`
+	Price NullableInt64 `json:"price,omitempty"`
 	// Валюта, по стандарту ISO 4217
 	CurrencyIsoCode4217 *string `json:"currencyIsoCode4217,omitempty"`
 	// Скидка, %
-	Discount *int32 `json:"discount,omitempty"`
+	Discount *int64 `json:"discount,omitempty"`
 	// Скидка WB Клуба, %
-	ClubDiscount NullableInt32 `json:"clubDiscount,omitempty"`
+	ClubDiscount NullableInt64 `json:"clubDiscount,omitempty"`
 	// Статус товара:   * `2` — товар без ошибок, цена и/или скидка обновилась   * `3` — есть ошибки, данные не обновились
-	Status *int32 `json:"status,omitempty"`
+	Status *int64 `json:"status,omitempty"`
 	// Описание ошибки. Например:   - `New price is several times lower than the current price. Item has been moved to Price Quarantine` — ошибка возникает, если новая цена со скидкой меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1). Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine).
 	ErrorText NullableString `json:"errorText,omitempty"`
 }
@@ -59,9 +59,9 @@ func NewGoodHistoryWithDefaults() *GoodHistory {
 }
 
 // GetNmID returns the NmID field value if set, zero value otherwise.
-func (o *GoodHistory) GetNmID() int32 {
+func (o *GoodHistory) GetNmID() int64 {
 	if o == nil || IsNil(o.NmID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmID
@@ -69,7 +69,7 @@ func (o *GoodHistory) GetNmID() int32 {
 
 // GetNmIDOk returns a tuple with the NmID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GoodHistory) GetNmIDOk() (*int32, bool) {
+func (o *GoodHistory) GetNmIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmID) {
 		return nil, false
 	}
@@ -85,8 +85,8 @@ func (o *GoodHistory) HasNmID() bool {
 	return false
 }
 
-// SetNmID gets a reference to the given int32 and assigns it to the NmID field.
-func (o *GoodHistory) SetNmID(v int32) {
+// SetNmID gets a reference to the given int64 and assigns it to the NmID field.
+func (o *GoodHistory) SetNmID(v int64) {
 	o.NmID = &v
 }
 
@@ -123,9 +123,9 @@ func (o *GoodHistory) SetVendorCode(v string) {
 }
 
 // GetSizeID returns the SizeID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GoodHistory) GetSizeID() int32 {
+func (o *GoodHistory) GetSizeID() int64 {
 	if o == nil || IsNil(o.SizeID.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SizeID.Get()
@@ -134,7 +134,7 @@ func (o *GoodHistory) GetSizeID() int32 {
 // GetSizeIDOk returns a tuple with the SizeID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GoodHistory) GetSizeIDOk() (*int32, bool) {
+func (o *GoodHistory) GetSizeIDOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -150,8 +150,8 @@ func (o *GoodHistory) HasSizeID() bool {
 	return false
 }
 
-// SetSizeID gets a reference to the given NullableInt32 and assigns it to the SizeID field.
-func (o *GoodHistory) SetSizeID(v int32) {
+// SetSizeID gets a reference to the given NullableInt64 and assigns it to the SizeID field.
+func (o *GoodHistory) SetSizeID(v int64) {
 	o.SizeID.Set(&v)
 }
 
@@ -198,9 +198,9 @@ func (o *GoodHistory) SetTechSizeName(v string) {
 }
 
 // GetPrice returns the Price field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GoodHistory) GetPrice() int32 {
+func (o *GoodHistory) GetPrice() int64 {
 	if o == nil || IsNil(o.Price.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Price.Get()
@@ -209,7 +209,7 @@ func (o *GoodHistory) GetPrice() int32 {
 // GetPriceOk returns a tuple with the Price field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GoodHistory) GetPriceOk() (*int32, bool) {
+func (o *GoodHistory) GetPriceOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -225,8 +225,8 @@ func (o *GoodHistory) HasPrice() bool {
 	return false
 }
 
-// SetPrice gets a reference to the given NullableInt32 and assigns it to the Price field.
-func (o *GoodHistory) SetPrice(v int32) {
+// SetPrice gets a reference to the given NullableInt64 and assigns it to the Price field.
+func (o *GoodHistory) SetPrice(v int64) {
 	o.Price.Set(&v)
 }
 
@@ -273,9 +273,9 @@ func (o *GoodHistory) SetCurrencyIsoCode4217(v string) {
 }
 
 // GetDiscount returns the Discount field value if set, zero value otherwise.
-func (o *GoodHistory) GetDiscount() int32 {
+func (o *GoodHistory) GetDiscount() int64 {
 	if o == nil || IsNil(o.Discount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Discount
@@ -283,7 +283,7 @@ func (o *GoodHistory) GetDiscount() int32 {
 
 // GetDiscountOk returns a tuple with the Discount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GoodHistory) GetDiscountOk() (*int32, bool) {
+func (o *GoodHistory) GetDiscountOk() (*int64, bool) {
 	if o == nil || IsNil(o.Discount) {
 		return nil, false
 	}
@@ -299,15 +299,15 @@ func (o *GoodHistory) HasDiscount() bool {
 	return false
 }
 
-// SetDiscount gets a reference to the given int32 and assigns it to the Discount field.
-func (o *GoodHistory) SetDiscount(v int32) {
+// SetDiscount gets a reference to the given int64 and assigns it to the Discount field.
+func (o *GoodHistory) SetDiscount(v int64) {
 	o.Discount = &v
 }
 
 // GetClubDiscount returns the ClubDiscount field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GoodHistory) GetClubDiscount() int32 {
+func (o *GoodHistory) GetClubDiscount() int64 {
 	if o == nil || IsNil(o.ClubDiscount.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ClubDiscount.Get()
@@ -316,7 +316,7 @@ func (o *GoodHistory) GetClubDiscount() int32 {
 // GetClubDiscountOk returns a tuple with the ClubDiscount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GoodHistory) GetClubDiscountOk() (*int32, bool) {
+func (o *GoodHistory) GetClubDiscountOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -332,8 +332,8 @@ func (o *GoodHistory) HasClubDiscount() bool {
 	return false
 }
 
-// SetClubDiscount gets a reference to the given NullableInt32 and assigns it to the ClubDiscount field.
-func (o *GoodHistory) SetClubDiscount(v int32) {
+// SetClubDiscount gets a reference to the given NullableInt64 and assigns it to the ClubDiscount field.
+func (o *GoodHistory) SetClubDiscount(v int64) {
 	o.ClubDiscount.Set(&v)
 }
 
@@ -348,9 +348,9 @@ func (o *GoodHistory) UnsetClubDiscount() {
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
-func (o *GoodHistory) GetStatus() int32 {
+func (o *GoodHistory) GetStatus() int64 {
 	if o == nil || IsNil(o.Status) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Status
@@ -358,7 +358,7 @@ func (o *GoodHistory) GetStatus() int32 {
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GoodHistory) GetStatusOk() (*int32, bool) {
+func (o *GoodHistory) GetStatusOk() (*int64, bool) {
 	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
@@ -374,8 +374,8 @@ func (o *GoodHistory) HasStatus() bool {
 	return false
 }
 
-// SetStatus gets a reference to the given int32 and assigns it to the Status field.
-func (o *GoodHistory) SetStatus(v int32) {
+// SetStatus gets a reference to the given int64 and assigns it to the Status field.
+func (o *GoodHistory) SetStatus(v int64) {
 	o.Status = &v
 }
 

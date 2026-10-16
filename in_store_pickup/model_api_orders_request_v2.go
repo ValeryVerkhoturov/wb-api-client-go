@@ -22,7 +22,7 @@ var _ MappedNullable = &ApiOrdersRequestV2{}
 // ApiOrdersRequestV2 struct for ApiOrdersRequestV2
 type ApiOrdersRequestV2 struct {
 	// Список ID сборочных заданий
-	OrdersIds []int32 `json:"ordersIds"`
+	OrdersIds []int64 `json:"ordersIds"`
 }
 
 type _ApiOrdersRequestV2 ApiOrdersRequestV2
@@ -31,7 +31,7 @@ type _ApiOrdersRequestV2 ApiOrdersRequestV2
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiOrdersRequestV2(ordersIds []int32) *ApiOrdersRequestV2 {
+func NewApiOrdersRequestV2(ordersIds []int64) *ApiOrdersRequestV2 {
 	this := ApiOrdersRequestV2{}
 	this.OrdersIds = ordersIds
 	return &this
@@ -46,9 +46,9 @@ func NewApiOrdersRequestV2WithDefaults() *ApiOrdersRequestV2 {
 }
 
 // GetOrdersIds returns the OrdersIds field value
-func (o *ApiOrdersRequestV2) GetOrdersIds() []int32 {
+func (o *ApiOrdersRequestV2) GetOrdersIds() []int64 {
 	if o == nil {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 
@@ -57,7 +57,7 @@ func (o *ApiOrdersRequestV2) GetOrdersIds() []int32 {
 
 // GetOrdersIdsOk returns a tuple with the OrdersIds field value
 // and a boolean to check if the value has been set.
-func (o *ApiOrdersRequestV2) GetOrdersIdsOk() ([]int32, bool) {
+func (o *ApiOrdersRequestV2) GetOrdersIdsOk() ([]int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,7 +65,7 @@ func (o *ApiOrdersRequestV2) GetOrdersIdsOk() ([]int32, bool) {
 }
 
 // SetOrdersIds sets field value
-func (o *ApiOrdersRequestV2) SetOrdersIds(v []int32) {
+func (o *ApiOrdersRequestV2) SetOrdersIds(v []int64) {
 	o.OrdersIds = v
 }
 

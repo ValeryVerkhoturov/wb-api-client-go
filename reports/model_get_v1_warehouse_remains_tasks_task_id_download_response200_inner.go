@@ -26,7 +26,7 @@ type GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner struct {
 	// Артикул продавца
 	VendorCode *string `json:"vendorCode,omitempty"`
 	// Артикул WB
-	NmId *int32 `json:"nmId,omitempty"`
+	NmId *int64 `json:"nmId,omitempty"`
 	// Баркод
 	Barcode *string `json:"barcode,omitempty"`
 	// Размер
@@ -151,9 +151,9 @@ func (o *GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner) SetVendorCode
 }
 
 // GetNmId returns the NmId field value if set, zero value otherwise.
-func (o *GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner) GetNmId() int32 {
+func (o *GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner) GetNmId() int64 {
 	if o == nil || IsNil(o.NmId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmId
@@ -161,7 +161,7 @@ func (o *GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner) GetNmId() int
 
 // GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner) GetNmIdOk() (*int32, bool) {
+func (o *GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner) GetNmIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
@@ -177,8 +177,8 @@ func (o *GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner) HasNmId() boo
 	return false
 }
 
-// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
-func (o *GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner) SetNmId(v int32) {
+// SetNmId gets a reference to the given int64 and assigns it to the NmId field.
+func (o *GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner) SetNmId(v int64) {
 	o.NmId = &v
 }
 

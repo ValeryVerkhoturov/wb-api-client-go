@@ -22,7 +22,7 @@ var _ MappedNullable = &PostV2CardsUploadRequestInner{}
 // PostV2CardsUploadRequestInner struct for PostV2CardsUploadRequestInner
 type PostV2CardsUploadRequestInner struct {
 	// ID предмета
-	SubjectID int32 `json:"subjectID"`
+	SubjectID int64 `json:"subjectID"`
 	// [Объединённые](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров. Чтобы создать отдельную карточку, передайте только один объект
 	Variants []PostV2CardsUploadRequestInnerVariantsInner `json:"variants"`
 }
@@ -33,7 +33,7 @@ type _PostV2CardsUploadRequestInner PostV2CardsUploadRequestInner
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostV2CardsUploadRequestInner(subjectID int32, variants []PostV2CardsUploadRequestInnerVariantsInner) *PostV2CardsUploadRequestInner {
+func NewPostV2CardsUploadRequestInner(subjectID int64, variants []PostV2CardsUploadRequestInnerVariantsInner) *PostV2CardsUploadRequestInner {
 	this := PostV2CardsUploadRequestInner{}
 	this.SubjectID = subjectID
 	this.Variants = variants
@@ -49,9 +49,9 @@ func NewPostV2CardsUploadRequestInnerWithDefaults() *PostV2CardsUploadRequestInn
 }
 
 // GetSubjectID returns the SubjectID field value
-func (o *PostV2CardsUploadRequestInner) GetSubjectID() int32 {
+func (o *PostV2CardsUploadRequestInner) GetSubjectID() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -60,7 +60,7 @@ func (o *PostV2CardsUploadRequestInner) GetSubjectID() int32 {
 
 // GetSubjectIDOk returns a tuple with the SubjectID field value
 // and a boolean to check if the value has been set.
-func (o *PostV2CardsUploadRequestInner) GetSubjectIDOk() (*int32, bool) {
+func (o *PostV2CardsUploadRequestInner) GetSubjectIDOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,7 +68,7 @@ func (o *PostV2CardsUploadRequestInner) GetSubjectIDOk() (*int32, bool) {
 }
 
 // SetSubjectID sets field value
-func (o *PostV2CardsUploadRequestInner) SetSubjectID(v int32) {
+func (o *PostV2CardsUploadRequestInner) SetSubjectID(v int64) {
 	o.SubjectID = v
 }
 

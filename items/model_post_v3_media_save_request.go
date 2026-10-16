@@ -20,7 +20,7 @@ var _ MappedNullable = &PostV3MediaSaveRequest{}
 // PostV3MediaSaveRequest struct for PostV3MediaSaveRequest
 type PostV3MediaSaveRequest struct {
 	// Артикул WB
-	NmId *int32 `json:"nmId,omitempty"`
+	NmId *int64 `json:"nmId,omitempty"`
 	// Ссылки на изображения в том порядке, в котором они будут в карточке товара, и на видео, на любой позиции массива
 	Data []string `json:"data,omitempty"`
 }
@@ -43,9 +43,9 @@ func NewPostV3MediaSaveRequestWithDefaults() *PostV3MediaSaveRequest {
 }
 
 // GetNmId returns the NmId field value if set, zero value otherwise.
-func (o *PostV3MediaSaveRequest) GetNmId() int32 {
+func (o *PostV3MediaSaveRequest) GetNmId() int64 {
 	if o == nil || IsNil(o.NmId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmId
@@ -53,7 +53,7 @@ func (o *PostV3MediaSaveRequest) GetNmId() int32 {
 
 // GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV3MediaSaveRequest) GetNmIdOk() (*int32, bool) {
+func (o *PostV3MediaSaveRequest) GetNmIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
@@ -69,8 +69,8 @@ func (o *PostV3MediaSaveRequest) HasNmId() bool {
 	return false
 }
 
-// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
-func (o *PostV3MediaSaveRequest) SetNmId(v int32) {
+// SetNmId gets a reference to the given int64 and assigns it to the NmId field.
+func (o *PostV3MediaSaveRequest) SetNmId(v int64) {
 	o.NmId = &v
 }
 

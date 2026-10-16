@@ -22,7 +22,7 @@ var _ MappedNullable = &PostV1UploadTaskB2bWholesale208Response{}
 // PostV1UploadTaskB2bWholesale208Response struct for PostV1UploadTaskB2bWholesale208Response
 type PostV1UploadTaskB2bWholesale208Response struct {
 	// HTTP статус-код
-	Status int32 `json:"status"`
+	Status int64 `json:"status"`
 	// Заголовок ответа
 	Title string `json:"title"`
 	// Детали ответа
@@ -39,7 +39,7 @@ type _PostV1UploadTaskB2bWholesale208Response PostV1UploadTaskB2bWholesale208Res
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostV1UploadTaskB2bWholesale208Response(status int32, title string, detail string, requestId string, origin string) *PostV1UploadTaskB2bWholesale208Response {
+func NewPostV1UploadTaskB2bWholesale208Response(status int64, title string, detail string, requestId string, origin string) *PostV1UploadTaskB2bWholesale208Response {
 	this := PostV1UploadTaskB2bWholesale208Response{}
 	this.Status = status
 	this.Title = title
@@ -58,9 +58,9 @@ func NewPostV1UploadTaskB2bWholesale208ResponseWithDefaults() *PostV1UploadTaskB
 }
 
 // GetStatus returns the Status field value
-func (o *PostV1UploadTaskB2bWholesale208Response) GetStatus() int32 {
+func (o *PostV1UploadTaskB2bWholesale208Response) GetStatus() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -69,7 +69,7 @@ func (o *PostV1UploadTaskB2bWholesale208Response) GetStatus() int32 {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *PostV1UploadTaskB2bWholesale208Response) GetStatusOk() (*int32, bool) {
+func (o *PostV1UploadTaskB2bWholesale208Response) GetStatusOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -77,7 +77,7 @@ func (o *PostV1UploadTaskB2bWholesale208Response) GetStatusOk() (*int32, bool) {
 }
 
 // SetStatus sets field value
-func (o *PostV1UploadTaskB2bWholesale208Response) SetStatus(v int32) {
+func (o *PostV1UploadTaskB2bWholesale208Response) SetStatus(v int64) {
 	o.Status = v
 }
 

@@ -20,7 +20,7 @@ var _ MappedNullable = &PostV3OrdersStickersCrossBorderResponse200StickersInner{
 // PostV3OrdersStickersCrossBorderResponse200StickersInner struct for PostV3OrdersStickersCrossBorderResponse200StickersInner
 type PostV3OrdersStickersCrossBorderResponse200StickersInner struct {
 	// ID сборочного задания
-	OrderId *int32 `json:"orderId,omitempty"`
+	OrderId *int64 `json:"orderId,omitempty"`
 	// Статус генерации стикера:   - `awaitingTrackNumber` — стикер не готов. Ожидается трек-номер от перевозчика.   - `ready` — стикер готов
 	Status *string `json:"status,omitempty"`
 	// Трек-номер в стикере для отслеживания сборочного задания
@@ -53,9 +53,9 @@ func NewPostV3OrdersStickersCrossBorderResponse200StickersInnerWithDefaults() *P
 }
 
 // GetOrderId returns the OrderId field value if set, zero value otherwise.
-func (o *PostV3OrdersStickersCrossBorderResponse200StickersInner) GetOrderId() int32 {
+func (o *PostV3OrdersStickersCrossBorderResponse200StickersInner) GetOrderId() int64 {
 	if o == nil || IsNil(o.OrderId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OrderId
@@ -63,7 +63,7 @@ func (o *PostV3OrdersStickersCrossBorderResponse200StickersInner) GetOrderId() i
 
 // GetOrderIdOk returns a tuple with the OrderId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV3OrdersStickersCrossBorderResponse200StickersInner) GetOrderIdOk() (*int32, bool) {
+func (o *PostV3OrdersStickersCrossBorderResponse200StickersInner) GetOrderIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.OrderId) {
 		return nil, false
 	}
@@ -79,8 +79,8 @@ func (o *PostV3OrdersStickersCrossBorderResponse200StickersInner) HasOrderId() b
 	return false
 }
 
-// SetOrderId gets a reference to the given int32 and assigns it to the OrderId field.
-func (o *PostV3OrdersStickersCrossBorderResponse200StickersInner) SetOrderId(v int32) {
+// SetOrderId gets a reference to the given int64 and assigns it to the OrderId field.
+func (o *PostV3OrdersStickersCrossBorderResponse200StickersInner) SetOrderId(v int64) {
 	o.OrderId = &v
 }
 

@@ -20,17 +20,17 @@ var _ MappedNullable = &SellerTaskMetadataBuffer{}
 // SellerTaskMetadataBuffer Данные ответа
 type SellerTaskMetadataBuffer struct {
 	// ID загрузки
-	UploadID *int32 `json:"uploadID,omitempty"`
+	UploadID *int64 `json:"uploadID,omitempty"`
 	// Статус загрузки: `1` — в обработке
-	Status *int32 `json:"status,omitempty"`
+	Status *int64 `json:"status,omitempty"`
 	// Дата и время, когда загрузка создана
 	UploadDate *string `json:"uploadDate,omitempty"`
 	// Дата и время, когда загрузка отправляется в обработку
 	ActivationDate *string `json:"activationDate,omitempty"`
 	// Всего товаров
-	OverAllGoodsNumber *int32 `json:"overAllGoodsNumber,omitempty"`
+	OverAllGoodsNumber *int64 `json:"overAllGoodsNumber,omitempty"`
 	// Товаров без ошибок (0, потому что загрузка в обработке)
-	SuccessGoodsNumber *int32 `json:"successGoodsNumber,omitempty"`
+	SuccessGoodsNumber *int64 `json:"successGoodsNumber,omitempty"`
 }
 
 // NewSellerTaskMetadataBuffer instantiates a new SellerTaskMetadataBuffer object
@@ -51,9 +51,9 @@ func NewSellerTaskMetadataBufferWithDefaults() *SellerTaskMetadataBuffer {
 }
 
 // GetUploadID returns the UploadID field value if set, zero value otherwise.
-func (o *SellerTaskMetadataBuffer) GetUploadID() int32 {
+func (o *SellerTaskMetadataBuffer) GetUploadID() int64 {
 	if o == nil || IsNil(o.UploadID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.UploadID
@@ -61,7 +61,7 @@ func (o *SellerTaskMetadataBuffer) GetUploadID() int32 {
 
 // GetUploadIDOk returns a tuple with the UploadID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SellerTaskMetadataBuffer) GetUploadIDOk() (*int32, bool) {
+func (o *SellerTaskMetadataBuffer) GetUploadIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.UploadID) {
 		return nil, false
 	}
@@ -77,15 +77,15 @@ func (o *SellerTaskMetadataBuffer) HasUploadID() bool {
 	return false
 }
 
-// SetUploadID gets a reference to the given int32 and assigns it to the UploadID field.
-func (o *SellerTaskMetadataBuffer) SetUploadID(v int32) {
+// SetUploadID gets a reference to the given int64 and assigns it to the UploadID field.
+func (o *SellerTaskMetadataBuffer) SetUploadID(v int64) {
 	o.UploadID = &v
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
-func (o *SellerTaskMetadataBuffer) GetStatus() int32 {
+func (o *SellerTaskMetadataBuffer) GetStatus() int64 {
 	if o == nil || IsNil(o.Status) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Status
@@ -93,7 +93,7 @@ func (o *SellerTaskMetadataBuffer) GetStatus() int32 {
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SellerTaskMetadataBuffer) GetStatusOk() (*int32, bool) {
+func (o *SellerTaskMetadataBuffer) GetStatusOk() (*int64, bool) {
 	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
@@ -109,8 +109,8 @@ func (o *SellerTaskMetadataBuffer) HasStatus() bool {
 	return false
 }
 
-// SetStatus gets a reference to the given int32 and assigns it to the Status field.
-func (o *SellerTaskMetadataBuffer) SetStatus(v int32) {
+// SetStatus gets a reference to the given int64 and assigns it to the Status field.
+func (o *SellerTaskMetadataBuffer) SetStatus(v int64) {
 	o.Status = &v
 }
 
@@ -179,9 +179,9 @@ func (o *SellerTaskMetadataBuffer) SetActivationDate(v string) {
 }
 
 // GetOverAllGoodsNumber returns the OverAllGoodsNumber field value if set, zero value otherwise.
-func (o *SellerTaskMetadataBuffer) GetOverAllGoodsNumber() int32 {
+func (o *SellerTaskMetadataBuffer) GetOverAllGoodsNumber() int64 {
 	if o == nil || IsNil(o.OverAllGoodsNumber) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OverAllGoodsNumber
@@ -189,7 +189,7 @@ func (o *SellerTaskMetadataBuffer) GetOverAllGoodsNumber() int32 {
 
 // GetOverAllGoodsNumberOk returns a tuple with the OverAllGoodsNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SellerTaskMetadataBuffer) GetOverAllGoodsNumberOk() (*int32, bool) {
+func (o *SellerTaskMetadataBuffer) GetOverAllGoodsNumberOk() (*int64, bool) {
 	if o == nil || IsNil(o.OverAllGoodsNumber) {
 		return nil, false
 	}
@@ -205,15 +205,15 @@ func (o *SellerTaskMetadataBuffer) HasOverAllGoodsNumber() bool {
 	return false
 }
 
-// SetOverAllGoodsNumber gets a reference to the given int32 and assigns it to the OverAllGoodsNumber field.
-func (o *SellerTaskMetadataBuffer) SetOverAllGoodsNumber(v int32) {
+// SetOverAllGoodsNumber gets a reference to the given int64 and assigns it to the OverAllGoodsNumber field.
+func (o *SellerTaskMetadataBuffer) SetOverAllGoodsNumber(v int64) {
 	o.OverAllGoodsNumber = &v
 }
 
 // GetSuccessGoodsNumber returns the SuccessGoodsNumber field value if set, zero value otherwise.
-func (o *SellerTaskMetadataBuffer) GetSuccessGoodsNumber() int32 {
+func (o *SellerTaskMetadataBuffer) GetSuccessGoodsNumber() int64 {
 	if o == nil || IsNil(o.SuccessGoodsNumber) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SuccessGoodsNumber
@@ -221,7 +221,7 @@ func (o *SellerTaskMetadataBuffer) GetSuccessGoodsNumber() int32 {
 
 // GetSuccessGoodsNumberOk returns a tuple with the SuccessGoodsNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SellerTaskMetadataBuffer) GetSuccessGoodsNumberOk() (*int32, bool) {
+func (o *SellerTaskMetadataBuffer) GetSuccessGoodsNumberOk() (*int64, bool) {
 	if o == nil || IsNil(o.SuccessGoodsNumber) {
 		return nil, false
 	}
@@ -237,8 +237,8 @@ func (o *SellerTaskMetadataBuffer) HasSuccessGoodsNumber() bool {
 	return false
 }
 
-// SetSuccessGoodsNumber gets a reference to the given int32 and assigns it to the SuccessGoodsNumber field.
-func (o *SellerTaskMetadataBuffer) SetSuccessGoodsNumber(v int32) {
+// SetSuccessGoodsNumber gets a reference to the given int64 and assigns it to the SuccessGoodsNumber field.
+func (o *SellerTaskMetadataBuffer) SetSuccessGoodsNumber(v int64) {
 	o.SuccessGoodsNumber = &v
 }
 

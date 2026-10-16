@@ -24,7 +24,7 @@ type PostV2SeacatSaveAdRequest struct {
 	// Название кампании
 	Name string `json:"name"`
 	// Карточки товаров для кампании. Доступные карточки товаров можно получить с помощью метода [Карточки товаров для кампаний](./promotion#tag/creatingCampaigns/operation/postV2SupplierNms). Максимум 50 товаров (`nm`)
-	Nms []int32 `json:"nms,omitempty"`
+	Nms []int64 `json:"nms,omitempty"`
 	// Тип ставки:   - `manual` — ручная   - `unified` — единая
 	BidType *string `json:"bid_type,omitempty"`
 	// Тип оплаты: - `cpm` — за показы - `cpc` — за клик. При создании с этим типом оплаты в кампании автоматически устанавливается минимальная ставка
@@ -86,9 +86,9 @@ func (o *PostV2SeacatSaveAdRequest) SetName(v string) {
 }
 
 // GetNms returns the Nms field value if set, zero value otherwise.
-func (o *PostV2SeacatSaveAdRequest) GetNms() []int32 {
+func (o *PostV2SeacatSaveAdRequest) GetNms() []int64 {
 	if o == nil || IsNil(o.Nms) {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.Nms
@@ -96,7 +96,7 @@ func (o *PostV2SeacatSaveAdRequest) GetNms() []int32 {
 
 // GetNmsOk returns a tuple with the Nms field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2SeacatSaveAdRequest) GetNmsOk() ([]int32, bool) {
+func (o *PostV2SeacatSaveAdRequest) GetNmsOk() ([]int64, bool) {
 	if o == nil || IsNil(o.Nms) {
 		return nil, false
 	}
@@ -112,8 +112,8 @@ func (o *PostV2SeacatSaveAdRequest) HasNms() bool {
 	return false
 }
 
-// SetNms gets a reference to the given []int32 and assigns it to the Nms field.
-func (o *PostV2SeacatSaveAdRequest) SetNms(v []int32) {
+// SetNms gets a reference to the given []int64 and assigns it to the Nms field.
+func (o *PostV2SeacatSaveAdRequest) SetNms(v []int64) {
 	o.Nms = v
 }
 

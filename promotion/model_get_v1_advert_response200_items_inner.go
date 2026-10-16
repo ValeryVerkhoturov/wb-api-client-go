@@ -20,25 +20,25 @@ var _ MappedNullable = &GetV1AdvertResponse200ItemsInner{}
 // GetV1AdvertResponse200ItemsInner struct for GetV1AdvertResponse200ItemsInner
 type GetV1AdvertResponse200ItemsInner struct {
 	// ID баннера
-	Id *int32 `json:"id,omitempty"`
+	Id *int64 `json:"id,omitempty"`
 	// Бренд
 	Name *string `json:"name,omitempty"`
 	// Статус (такой же как у медиакампании)
-	Status *int32 `json:"status,omitempty"`
+	Status *int64 `json:"status,omitempty"`
 	// Позиция на странице размещения
-	Place *int32 `json:"place,omitempty"`
+	Place *int64 `json:"place,omitempty"`
 	// Бюджет
-	Budget *int32 `json:"budget,omitempty"`
+	Budget *int64 `json:"budget,omitempty"`
 	// Дневной лимит (для баннеров по показам)
-	DailyLimit *int32 `json:"daily_limit,omitempty"`
+	DailyLimit *int64 `json:"daily_limit,omitempty"`
 	// Название категории размещения
 	CategoryName *string `json:"category_name,omitempty"`
 	// Ставка
-	Cpm *int32 `json:"cpm,omitempty"`
+	Cpm *int64 `json:"cpm,omitempty"`
 	// URL страницы, на которую попадает пользователь при клике по баннеру
 	Url *string `json:"url,omitempty"`
 	// Тип продвижения: - `1` — баннер - `2` — всплывающее меню - `3` — почтовая рассылка - `4` — социальные сети - `5` — push-уведомления в мобильном приложении
-	AdvertType *int32 `json:"advert_type,omitempty"`
+	AdvertType *int64 `json:"advert_type,omitempty"`
 	// Дата создания баннера
 	CreatedAt *string `json:"created_at,omitempty"`
 	// Дата и время обновления баннера
@@ -48,7 +48,7 @@ type GetV1AdvertResponse200ItemsInner struct {
 	// Дата завершения работы баннера
 	DateTo *string `json:"date_to,omitempty"`
 	// Подборка артикулов WB
-	Nms []int32 `json:"nms,omitempty"`
+	Nms []int64 `json:"nms,omitempty"`
 	// Текст под плашкой баннера
 	BottomText1 *string `json:"bottomText1,omitempty"`
 	// 2-я строка с текстом под плашкой баннера
@@ -56,11 +56,11 @@ type GetV1AdvertResponse200ItemsInner struct {
 	// Текст push-уведомления или рассылки
 	Message *string `json:"message,omitempty"`
 	// Дополнительные настройки.  Формат почтовой рассылки: - `1` — общий - `2` — частичный - `3` — уникальный   Социальная сеть: - `1` — VK - `2` — OK (Одноклассники)
-	AdditionalSettings *int32 `json:"additionalSettings,omitempty"`
+	AdditionalSettings *int64 `json:"additionalSettings,omitempty"`
 	// Кол-во получателей push-уведомлений
-	ReceiversCount *int32 `json:"receiversCount,omitempty"`
+	ReceiversCount *int64 `json:"receiversCount,omitempty"`
 	// ID родительской категории товара
-	SubjectId *int32 `json:"subject_id,omitempty"`
+	SubjectId *int64 `json:"subject_id,omitempty"`
 	// Название родительской категории товара
 	SubjectName *string `json:"subject_name,omitempty"`
 	// Название акции
@@ -89,9 +89,9 @@ func NewGetV1AdvertResponse200ItemsInnerWithDefaults() *GetV1AdvertResponse200It
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *GetV1AdvertResponse200ItemsInner) GetId() int32 {
+func (o *GetV1AdvertResponse200ItemsInner) GetId() int64 {
 	if o == nil || IsNil(o.Id) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Id
@@ -99,7 +99,7 @@ func (o *GetV1AdvertResponse200ItemsInner) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AdvertResponse200ItemsInner) GetIdOk() (*int32, bool) {
+func (o *GetV1AdvertResponse200ItemsInner) GetIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -115,8 +115,8 @@ func (o *GetV1AdvertResponse200ItemsInner) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *GetV1AdvertResponse200ItemsInner) SetId(v int32) {
+// SetId gets a reference to the given int64 and assigns it to the Id field.
+func (o *GetV1AdvertResponse200ItemsInner) SetId(v int64) {
 	o.Id = &v
 }
 
@@ -153,9 +153,9 @@ func (o *GetV1AdvertResponse200ItemsInner) SetName(v string) {
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
-func (o *GetV1AdvertResponse200ItemsInner) GetStatus() int32 {
+func (o *GetV1AdvertResponse200ItemsInner) GetStatus() int64 {
 	if o == nil || IsNil(o.Status) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Status
@@ -163,7 +163,7 @@ func (o *GetV1AdvertResponse200ItemsInner) GetStatus() int32 {
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AdvertResponse200ItemsInner) GetStatusOk() (*int32, bool) {
+func (o *GetV1AdvertResponse200ItemsInner) GetStatusOk() (*int64, bool) {
 	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
@@ -179,15 +179,15 @@ func (o *GetV1AdvertResponse200ItemsInner) HasStatus() bool {
 	return false
 }
 
-// SetStatus gets a reference to the given int32 and assigns it to the Status field.
-func (o *GetV1AdvertResponse200ItemsInner) SetStatus(v int32) {
+// SetStatus gets a reference to the given int64 and assigns it to the Status field.
+func (o *GetV1AdvertResponse200ItemsInner) SetStatus(v int64) {
 	o.Status = &v
 }
 
 // GetPlace returns the Place field value if set, zero value otherwise.
-func (o *GetV1AdvertResponse200ItemsInner) GetPlace() int32 {
+func (o *GetV1AdvertResponse200ItemsInner) GetPlace() int64 {
 	if o == nil || IsNil(o.Place) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Place
@@ -195,7 +195,7 @@ func (o *GetV1AdvertResponse200ItemsInner) GetPlace() int32 {
 
 // GetPlaceOk returns a tuple with the Place field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AdvertResponse200ItemsInner) GetPlaceOk() (*int32, bool) {
+func (o *GetV1AdvertResponse200ItemsInner) GetPlaceOk() (*int64, bool) {
 	if o == nil || IsNil(o.Place) {
 		return nil, false
 	}
@@ -211,15 +211,15 @@ func (o *GetV1AdvertResponse200ItemsInner) HasPlace() bool {
 	return false
 }
 
-// SetPlace gets a reference to the given int32 and assigns it to the Place field.
-func (o *GetV1AdvertResponse200ItemsInner) SetPlace(v int32) {
+// SetPlace gets a reference to the given int64 and assigns it to the Place field.
+func (o *GetV1AdvertResponse200ItemsInner) SetPlace(v int64) {
 	o.Place = &v
 }
 
 // GetBudget returns the Budget field value if set, zero value otherwise.
-func (o *GetV1AdvertResponse200ItemsInner) GetBudget() int32 {
+func (o *GetV1AdvertResponse200ItemsInner) GetBudget() int64 {
 	if o == nil || IsNil(o.Budget) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Budget
@@ -227,7 +227,7 @@ func (o *GetV1AdvertResponse200ItemsInner) GetBudget() int32 {
 
 // GetBudgetOk returns a tuple with the Budget field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AdvertResponse200ItemsInner) GetBudgetOk() (*int32, bool) {
+func (o *GetV1AdvertResponse200ItemsInner) GetBudgetOk() (*int64, bool) {
 	if o == nil || IsNil(o.Budget) {
 		return nil, false
 	}
@@ -243,15 +243,15 @@ func (o *GetV1AdvertResponse200ItemsInner) HasBudget() bool {
 	return false
 }
 
-// SetBudget gets a reference to the given int32 and assigns it to the Budget field.
-func (o *GetV1AdvertResponse200ItemsInner) SetBudget(v int32) {
+// SetBudget gets a reference to the given int64 and assigns it to the Budget field.
+func (o *GetV1AdvertResponse200ItemsInner) SetBudget(v int64) {
 	o.Budget = &v
 }
 
 // GetDailyLimit returns the DailyLimit field value if set, zero value otherwise.
-func (o *GetV1AdvertResponse200ItemsInner) GetDailyLimit() int32 {
+func (o *GetV1AdvertResponse200ItemsInner) GetDailyLimit() int64 {
 	if o == nil || IsNil(o.DailyLimit) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.DailyLimit
@@ -259,7 +259,7 @@ func (o *GetV1AdvertResponse200ItemsInner) GetDailyLimit() int32 {
 
 // GetDailyLimitOk returns a tuple with the DailyLimit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AdvertResponse200ItemsInner) GetDailyLimitOk() (*int32, bool) {
+func (o *GetV1AdvertResponse200ItemsInner) GetDailyLimitOk() (*int64, bool) {
 	if o == nil || IsNil(o.DailyLimit) {
 		return nil, false
 	}
@@ -275,8 +275,8 @@ func (o *GetV1AdvertResponse200ItemsInner) HasDailyLimit() bool {
 	return false
 }
 
-// SetDailyLimit gets a reference to the given int32 and assigns it to the DailyLimit field.
-func (o *GetV1AdvertResponse200ItemsInner) SetDailyLimit(v int32) {
+// SetDailyLimit gets a reference to the given int64 and assigns it to the DailyLimit field.
+func (o *GetV1AdvertResponse200ItemsInner) SetDailyLimit(v int64) {
 	o.DailyLimit = &v
 }
 
@@ -313,9 +313,9 @@ func (o *GetV1AdvertResponse200ItemsInner) SetCategoryName(v string) {
 }
 
 // GetCpm returns the Cpm field value if set, zero value otherwise.
-func (o *GetV1AdvertResponse200ItemsInner) GetCpm() int32 {
+func (o *GetV1AdvertResponse200ItemsInner) GetCpm() int64 {
 	if o == nil || IsNil(o.Cpm) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Cpm
@@ -323,7 +323,7 @@ func (o *GetV1AdvertResponse200ItemsInner) GetCpm() int32 {
 
 // GetCpmOk returns a tuple with the Cpm field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AdvertResponse200ItemsInner) GetCpmOk() (*int32, bool) {
+func (o *GetV1AdvertResponse200ItemsInner) GetCpmOk() (*int64, bool) {
 	if o == nil || IsNil(o.Cpm) {
 		return nil, false
 	}
@@ -339,8 +339,8 @@ func (o *GetV1AdvertResponse200ItemsInner) HasCpm() bool {
 	return false
 }
 
-// SetCpm gets a reference to the given int32 and assigns it to the Cpm field.
-func (o *GetV1AdvertResponse200ItemsInner) SetCpm(v int32) {
+// SetCpm gets a reference to the given int64 and assigns it to the Cpm field.
+func (o *GetV1AdvertResponse200ItemsInner) SetCpm(v int64) {
 	o.Cpm = &v
 }
 
@@ -377,9 +377,9 @@ func (o *GetV1AdvertResponse200ItemsInner) SetUrl(v string) {
 }
 
 // GetAdvertType returns the AdvertType field value if set, zero value otherwise.
-func (o *GetV1AdvertResponse200ItemsInner) GetAdvertType() int32 {
+func (o *GetV1AdvertResponse200ItemsInner) GetAdvertType() int64 {
 	if o == nil || IsNil(o.AdvertType) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.AdvertType
@@ -387,7 +387,7 @@ func (o *GetV1AdvertResponse200ItemsInner) GetAdvertType() int32 {
 
 // GetAdvertTypeOk returns a tuple with the AdvertType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AdvertResponse200ItemsInner) GetAdvertTypeOk() (*int32, bool) {
+func (o *GetV1AdvertResponse200ItemsInner) GetAdvertTypeOk() (*int64, bool) {
 	if o == nil || IsNil(o.AdvertType) {
 		return nil, false
 	}
@@ -403,8 +403,8 @@ func (o *GetV1AdvertResponse200ItemsInner) HasAdvertType() bool {
 	return false
 }
 
-// SetAdvertType gets a reference to the given int32 and assigns it to the AdvertType field.
-func (o *GetV1AdvertResponse200ItemsInner) SetAdvertType(v int32) {
+// SetAdvertType gets a reference to the given int64 and assigns it to the AdvertType field.
+func (o *GetV1AdvertResponse200ItemsInner) SetAdvertType(v int64) {
 	o.AdvertType = &v
 }
 
@@ -537,9 +537,9 @@ func (o *GetV1AdvertResponse200ItemsInner) SetDateTo(v string) {
 }
 
 // GetNms returns the Nms field value if set, zero value otherwise.
-func (o *GetV1AdvertResponse200ItemsInner) GetNms() []int32 {
+func (o *GetV1AdvertResponse200ItemsInner) GetNms() []int64 {
 	if o == nil || IsNil(o.Nms) {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.Nms
@@ -547,7 +547,7 @@ func (o *GetV1AdvertResponse200ItemsInner) GetNms() []int32 {
 
 // GetNmsOk returns a tuple with the Nms field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AdvertResponse200ItemsInner) GetNmsOk() ([]int32, bool) {
+func (o *GetV1AdvertResponse200ItemsInner) GetNmsOk() ([]int64, bool) {
 	if o == nil || IsNil(o.Nms) {
 		return nil, false
 	}
@@ -563,8 +563,8 @@ func (o *GetV1AdvertResponse200ItemsInner) HasNms() bool {
 	return false
 }
 
-// SetNms gets a reference to the given []int32 and assigns it to the Nms field.
-func (o *GetV1AdvertResponse200ItemsInner) SetNms(v []int32) {
+// SetNms gets a reference to the given []int64 and assigns it to the Nms field.
+func (o *GetV1AdvertResponse200ItemsInner) SetNms(v []int64) {
 	o.Nms = v
 }
 
@@ -665,9 +665,9 @@ func (o *GetV1AdvertResponse200ItemsInner) SetMessage(v string) {
 }
 
 // GetAdditionalSettings returns the AdditionalSettings field value if set, zero value otherwise.
-func (o *GetV1AdvertResponse200ItemsInner) GetAdditionalSettings() int32 {
+func (o *GetV1AdvertResponse200ItemsInner) GetAdditionalSettings() int64 {
 	if o == nil || IsNil(o.AdditionalSettings) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.AdditionalSettings
@@ -675,7 +675,7 @@ func (o *GetV1AdvertResponse200ItemsInner) GetAdditionalSettings() int32 {
 
 // GetAdditionalSettingsOk returns a tuple with the AdditionalSettings field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AdvertResponse200ItemsInner) GetAdditionalSettingsOk() (*int32, bool) {
+func (o *GetV1AdvertResponse200ItemsInner) GetAdditionalSettingsOk() (*int64, bool) {
 	if o == nil || IsNil(o.AdditionalSettings) {
 		return nil, false
 	}
@@ -691,15 +691,15 @@ func (o *GetV1AdvertResponse200ItemsInner) HasAdditionalSettings() bool {
 	return false
 }
 
-// SetAdditionalSettings gets a reference to the given int32 and assigns it to the AdditionalSettings field.
-func (o *GetV1AdvertResponse200ItemsInner) SetAdditionalSettings(v int32) {
+// SetAdditionalSettings gets a reference to the given int64 and assigns it to the AdditionalSettings field.
+func (o *GetV1AdvertResponse200ItemsInner) SetAdditionalSettings(v int64) {
 	o.AdditionalSettings = &v
 }
 
 // GetReceiversCount returns the ReceiversCount field value if set, zero value otherwise.
-func (o *GetV1AdvertResponse200ItemsInner) GetReceiversCount() int32 {
+func (o *GetV1AdvertResponse200ItemsInner) GetReceiversCount() int64 {
 	if o == nil || IsNil(o.ReceiversCount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ReceiversCount
@@ -707,7 +707,7 @@ func (o *GetV1AdvertResponse200ItemsInner) GetReceiversCount() int32 {
 
 // GetReceiversCountOk returns a tuple with the ReceiversCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AdvertResponse200ItemsInner) GetReceiversCountOk() (*int32, bool) {
+func (o *GetV1AdvertResponse200ItemsInner) GetReceiversCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.ReceiversCount) {
 		return nil, false
 	}
@@ -723,15 +723,15 @@ func (o *GetV1AdvertResponse200ItemsInner) HasReceiversCount() bool {
 	return false
 }
 
-// SetReceiversCount gets a reference to the given int32 and assigns it to the ReceiversCount field.
-func (o *GetV1AdvertResponse200ItemsInner) SetReceiversCount(v int32) {
+// SetReceiversCount gets a reference to the given int64 and assigns it to the ReceiversCount field.
+func (o *GetV1AdvertResponse200ItemsInner) SetReceiversCount(v int64) {
 	o.ReceiversCount = &v
 }
 
 // GetSubjectId returns the SubjectId field value if set, zero value otherwise.
-func (o *GetV1AdvertResponse200ItemsInner) GetSubjectId() int32 {
+func (o *GetV1AdvertResponse200ItemsInner) GetSubjectId() int64 {
 	if o == nil || IsNil(o.SubjectId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SubjectId
@@ -739,7 +739,7 @@ func (o *GetV1AdvertResponse200ItemsInner) GetSubjectId() int32 {
 
 // GetSubjectIdOk returns a tuple with the SubjectId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AdvertResponse200ItemsInner) GetSubjectIdOk() (*int32, bool) {
+func (o *GetV1AdvertResponse200ItemsInner) GetSubjectIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.SubjectId) {
 		return nil, false
 	}
@@ -755,8 +755,8 @@ func (o *GetV1AdvertResponse200ItemsInner) HasSubjectId() bool {
 	return false
 }
 
-// SetSubjectId gets a reference to the given int32 and assigns it to the SubjectId field.
-func (o *GetV1AdvertResponse200ItemsInner) SetSubjectId(v int32) {
+// SetSubjectId gets a reference to the given int64 and assigns it to the SubjectId field.
+func (o *GetV1AdvertResponse200ItemsInner) SetSubjectId(v int64) {
 	o.SubjectId = &v
 }
 

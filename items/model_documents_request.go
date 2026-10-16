@@ -20,7 +20,7 @@ var _ MappedNullable = &DocumentsRequest{}
 // DocumentsRequest struct for DocumentsRequest
 type DocumentsRequest struct {
 	// Тип документа. Типы документов, которые вы можете добавить для товара, указаны в [характеристиках предмета](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) — поле `charcID`. Возможные типы документов: - `1` — Сертификат соответствия. Можно указать для `charcID`: 15001136, 15001137, 15001138 - `2` — Декларация о соответствии. Можно указать для `charcID`: 15001135, 15001137, 15001138 - `3` — Свидетельство о государственной регистрации (СГР). Можно указать для `charcID`: 62945173, 15000785, 15004302 - `4` — Регистрационное удостоверение (РУ) на медицинские изделия. Можно указать для `charcID`: 15001574, 15002355, 15002356, 15002357 - `5` — Регистрационное удостоверение Республики Беларусь. Можно указать для `charcID`: 15003071, 15003939 - `7` — Данные о регистрации пестицида. Можно указать для `charcID`: 15003924, 15003925 - `8` — Данные о регистрации агрохимиката. Можно указать для `charcID`: 15003920, 15003921 - `9` — Регистрационное удостоверение (РУ) на лекарственные препараты. Можно указать для `charcID`: 1897013, 15004284
-	Type *int32 `json:"type,omitempty"`
+	Type *int64 `json:"type,omitempty"`
 	// Номер документа
 	Number *string `json:"number,omitempty"`
 	// Дополнительный номер документа
@@ -55,9 +55,9 @@ func NewDocumentsRequestWithDefaults() *DocumentsRequest {
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
-func (o *DocumentsRequest) GetType() int32 {
+func (o *DocumentsRequest) GetType() int64 {
 	if o == nil || IsNil(o.Type) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Type
@@ -65,7 +65,7 @@ func (o *DocumentsRequest) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DocumentsRequest) GetTypeOk() (*int32, bool) {
+func (o *DocumentsRequest) GetTypeOk() (*int64, bool) {
 	if o == nil || IsNil(o.Type) {
 		return nil, false
 	}
@@ -81,8 +81,8 @@ func (o *DocumentsRequest) HasType() bool {
 	return false
 }
 
-// SetType gets a reference to the given int32 and assigns it to the Type field.
-func (o *DocumentsRequest) SetType(v int32) {
+// SetType gets a reference to the given int64 and assigns it to the Type field.
+func (o *DocumentsRequest) SetType(v int64) {
 	o.Type = &v
 }
 

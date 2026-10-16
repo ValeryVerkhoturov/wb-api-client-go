@@ -20,11 +20,11 @@ var _ MappedNullable = &FullStatsItemBoosterStatsInner{}
 // FullStatsItemBoosterStatsInner struct for FullStatsItemBoosterStatsInner
 type FullStatsItemBoosterStatsInner struct {
 	// Средняя позиция товара
-	AvgPosition *int32 `json:"avg_position,omitempty"`
+	AvgPosition *int64 `json:"avg_position,omitempty"`
 	// Дата, за которую предоставлены данные
 	Date *string `json:"date,omitempty"`
 	// Артикул WB
-	Nm *int32 `json:"nm,omitempty"`
+	Nm *int64 `json:"nm,omitempty"`
 }
 
 // NewFullStatsItemBoosterStatsInner instantiates a new FullStatsItemBoosterStatsInner object
@@ -45,9 +45,9 @@ func NewFullStatsItemBoosterStatsInnerWithDefaults() *FullStatsItemBoosterStatsI
 }
 
 // GetAvgPosition returns the AvgPosition field value if set, zero value otherwise.
-func (o *FullStatsItemBoosterStatsInner) GetAvgPosition() int32 {
+func (o *FullStatsItemBoosterStatsInner) GetAvgPosition() int64 {
 	if o == nil || IsNil(o.AvgPosition) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.AvgPosition
@@ -55,7 +55,7 @@ func (o *FullStatsItemBoosterStatsInner) GetAvgPosition() int32 {
 
 // GetAvgPositionOk returns a tuple with the AvgPosition field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FullStatsItemBoosterStatsInner) GetAvgPositionOk() (*int32, bool) {
+func (o *FullStatsItemBoosterStatsInner) GetAvgPositionOk() (*int64, bool) {
 	if o == nil || IsNil(o.AvgPosition) {
 		return nil, false
 	}
@@ -71,8 +71,8 @@ func (o *FullStatsItemBoosterStatsInner) HasAvgPosition() bool {
 	return false
 }
 
-// SetAvgPosition gets a reference to the given int32 and assigns it to the AvgPosition field.
-func (o *FullStatsItemBoosterStatsInner) SetAvgPosition(v int32) {
+// SetAvgPosition gets a reference to the given int64 and assigns it to the AvgPosition field.
+func (o *FullStatsItemBoosterStatsInner) SetAvgPosition(v int64) {
 	o.AvgPosition = &v
 }
 
@@ -109,9 +109,9 @@ func (o *FullStatsItemBoosterStatsInner) SetDate(v string) {
 }
 
 // GetNm returns the Nm field value if set, zero value otherwise.
-func (o *FullStatsItemBoosterStatsInner) GetNm() int32 {
+func (o *FullStatsItemBoosterStatsInner) GetNm() int64 {
 	if o == nil || IsNil(o.Nm) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Nm
@@ -119,7 +119,7 @@ func (o *FullStatsItemBoosterStatsInner) GetNm() int32 {
 
 // GetNmOk returns a tuple with the Nm field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FullStatsItemBoosterStatsInner) GetNmOk() (*int32, bool) {
+func (o *FullStatsItemBoosterStatsInner) GetNmOk() (*int64, bool) {
 	if o == nil || IsNil(o.Nm) {
 		return nil, false
 	}
@@ -135,8 +135,8 @@ func (o *FullStatsItemBoosterStatsInner) HasNm() bool {
 	return false
 }
 
-// SetNm gets a reference to the given int32 and assigns it to the Nm field.
-func (o *FullStatsItemBoosterStatsInner) SetNm(v int32) {
+// SetNm gets a reference to the given int64 and assigns it to the Nm field.
+func (o *FullStatsItemBoosterStatsInner) SetNm(v int64) {
 	o.Nm = &v
 }
 

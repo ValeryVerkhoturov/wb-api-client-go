@@ -20,7 +20,7 @@ var _ MappedNullable = &BrandsResponseBrandsInner{}
 // BrandsResponseBrandsInner struct for BrandsResponseBrandsInner
 type BrandsResponseBrandsInner struct {
 	// ID бренда
-	Id *int32 `json:"id,omitempty"`
+	Id *int64 `json:"id,omitempty"`
 	// URL логотипа бренда
 	LogoUrl *string `json:"logoUrl,omitempty"`
 	// Название бренда
@@ -45,9 +45,9 @@ func NewBrandsResponseBrandsInnerWithDefaults() *BrandsResponseBrandsInner {
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *BrandsResponseBrandsInner) GetId() int32 {
+func (o *BrandsResponseBrandsInner) GetId() int64 {
 	if o == nil || IsNil(o.Id) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Id
@@ -55,7 +55,7 @@ func (o *BrandsResponseBrandsInner) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *BrandsResponseBrandsInner) GetIdOk() (*int32, bool) {
+func (o *BrandsResponseBrandsInner) GetIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -71,8 +71,8 @@ func (o *BrandsResponseBrandsInner) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *BrandsResponseBrandsInner) SetId(v int32) {
+// SetId gets a reference to the given int64 and assigns it to the Id field.
+func (o *BrandsResponseBrandsInner) SetId(v int64) {
 	o.Id = &v
 }
 

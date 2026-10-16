@@ -22,13 +22,13 @@ type FullStatsItemDaysInner struct {
 	// Блок информации о платформе
 	Apps []FullStatsItemDaysInnerAppsInner `json:"apps,omitempty"`
 	// Количество добавлений товаров в корзину
-	Atbs *int32 `json:"atbs,omitempty"`
+	Atbs *int64 `json:"atbs,omitempty"`
 	// Отмены, шт.
-	Canceled *int32 `json:"canceled,omitempty"`
+	Canceled *int64 `json:"canceled,omitempty"`
 	// Дата, за которую представлены данные
 	Date *string `json:"date,omitempty"`
 	// Количество кликов
-	Clicks *int32 `json:"clicks,omitempty"`
+	Clicks *int64 `json:"clicks,omitempty"`
 	// Средняя стоимость клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Cpc *float32 `json:"cpc,omitempty"`
 	// CR (conversion rate) — отношение количества заказов к общему количеству посещений кампании
@@ -36,15 +36,15 @@ type FullStatsItemDaysInner struct {
 	// CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
 	Ctr *float32 `json:"ctr,omitempty"`
 	// Количество заказов
-	Orders *int32 `json:"orders,omitempty"`
+	Orders *int64 `json:"orders,omitempty"`
 	// Количество заказанных товаров, шт.
-	Shks *int32 `json:"shks,omitempty"`
+	Shks *int64 `json:"shks,omitempty"`
 	// Затраты в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Sum *float32 `json:"sum,omitempty"`
 	// Заказов на сумму в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	SumPrice *float32 `json:"sum_price,omitempty"`
 	// Количество просмотров
-	Views *int32 `json:"views,omitempty"`
+	Views *int64 `json:"views,omitempty"`
 }
 
 // NewFullStatsItemDaysInner instantiates a new FullStatsItemDaysInner object
@@ -97,9 +97,9 @@ func (o *FullStatsItemDaysInner) SetApps(v []FullStatsItemDaysInnerAppsInner) {
 }
 
 // GetAtbs returns the Atbs field value if set, zero value otherwise.
-func (o *FullStatsItemDaysInner) GetAtbs() int32 {
+func (o *FullStatsItemDaysInner) GetAtbs() int64 {
 	if o == nil || IsNil(o.Atbs) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Atbs
@@ -107,7 +107,7 @@ func (o *FullStatsItemDaysInner) GetAtbs() int32 {
 
 // GetAtbsOk returns a tuple with the Atbs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FullStatsItemDaysInner) GetAtbsOk() (*int32, bool) {
+func (o *FullStatsItemDaysInner) GetAtbsOk() (*int64, bool) {
 	if o == nil || IsNil(o.Atbs) {
 		return nil, false
 	}
@@ -123,15 +123,15 @@ func (o *FullStatsItemDaysInner) HasAtbs() bool {
 	return false
 }
 
-// SetAtbs gets a reference to the given int32 and assigns it to the Atbs field.
-func (o *FullStatsItemDaysInner) SetAtbs(v int32) {
+// SetAtbs gets a reference to the given int64 and assigns it to the Atbs field.
+func (o *FullStatsItemDaysInner) SetAtbs(v int64) {
 	o.Atbs = &v
 }
 
 // GetCanceled returns the Canceled field value if set, zero value otherwise.
-func (o *FullStatsItemDaysInner) GetCanceled() int32 {
+func (o *FullStatsItemDaysInner) GetCanceled() int64 {
 	if o == nil || IsNil(o.Canceled) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Canceled
@@ -139,7 +139,7 @@ func (o *FullStatsItemDaysInner) GetCanceled() int32 {
 
 // GetCanceledOk returns a tuple with the Canceled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FullStatsItemDaysInner) GetCanceledOk() (*int32, bool) {
+func (o *FullStatsItemDaysInner) GetCanceledOk() (*int64, bool) {
 	if o == nil || IsNil(o.Canceled) {
 		return nil, false
 	}
@@ -155,8 +155,8 @@ func (o *FullStatsItemDaysInner) HasCanceled() bool {
 	return false
 }
 
-// SetCanceled gets a reference to the given int32 and assigns it to the Canceled field.
-func (o *FullStatsItemDaysInner) SetCanceled(v int32) {
+// SetCanceled gets a reference to the given int64 and assigns it to the Canceled field.
+func (o *FullStatsItemDaysInner) SetCanceled(v int64) {
 	o.Canceled = &v
 }
 
@@ -193,9 +193,9 @@ func (o *FullStatsItemDaysInner) SetDate(v string) {
 }
 
 // GetClicks returns the Clicks field value if set, zero value otherwise.
-func (o *FullStatsItemDaysInner) GetClicks() int32 {
+func (o *FullStatsItemDaysInner) GetClicks() int64 {
 	if o == nil || IsNil(o.Clicks) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Clicks
@@ -203,7 +203,7 @@ func (o *FullStatsItemDaysInner) GetClicks() int32 {
 
 // GetClicksOk returns a tuple with the Clicks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FullStatsItemDaysInner) GetClicksOk() (*int32, bool) {
+func (o *FullStatsItemDaysInner) GetClicksOk() (*int64, bool) {
 	if o == nil || IsNil(o.Clicks) {
 		return nil, false
 	}
@@ -219,8 +219,8 @@ func (o *FullStatsItemDaysInner) HasClicks() bool {
 	return false
 }
 
-// SetClicks gets a reference to the given int32 and assigns it to the Clicks field.
-func (o *FullStatsItemDaysInner) SetClicks(v int32) {
+// SetClicks gets a reference to the given int64 and assigns it to the Clicks field.
+func (o *FullStatsItemDaysInner) SetClicks(v int64) {
 	o.Clicks = &v
 }
 
@@ -321,9 +321,9 @@ func (o *FullStatsItemDaysInner) SetCtr(v float32) {
 }
 
 // GetOrders returns the Orders field value if set, zero value otherwise.
-func (o *FullStatsItemDaysInner) GetOrders() int32 {
+func (o *FullStatsItemDaysInner) GetOrders() int64 {
 	if o == nil || IsNil(o.Orders) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Orders
@@ -331,7 +331,7 @@ func (o *FullStatsItemDaysInner) GetOrders() int32 {
 
 // GetOrdersOk returns a tuple with the Orders field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FullStatsItemDaysInner) GetOrdersOk() (*int32, bool) {
+func (o *FullStatsItemDaysInner) GetOrdersOk() (*int64, bool) {
 	if o == nil || IsNil(o.Orders) {
 		return nil, false
 	}
@@ -347,15 +347,15 @@ func (o *FullStatsItemDaysInner) HasOrders() bool {
 	return false
 }
 
-// SetOrders gets a reference to the given int32 and assigns it to the Orders field.
-func (o *FullStatsItemDaysInner) SetOrders(v int32) {
+// SetOrders gets a reference to the given int64 and assigns it to the Orders field.
+func (o *FullStatsItemDaysInner) SetOrders(v int64) {
 	o.Orders = &v
 }
 
 // GetShks returns the Shks field value if set, zero value otherwise.
-func (o *FullStatsItemDaysInner) GetShks() int32 {
+func (o *FullStatsItemDaysInner) GetShks() int64 {
 	if o == nil || IsNil(o.Shks) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Shks
@@ -363,7 +363,7 @@ func (o *FullStatsItemDaysInner) GetShks() int32 {
 
 // GetShksOk returns a tuple with the Shks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FullStatsItemDaysInner) GetShksOk() (*int32, bool) {
+func (o *FullStatsItemDaysInner) GetShksOk() (*int64, bool) {
 	if o == nil || IsNil(o.Shks) {
 		return nil, false
 	}
@@ -379,8 +379,8 @@ func (o *FullStatsItemDaysInner) HasShks() bool {
 	return false
 }
 
-// SetShks gets a reference to the given int32 and assigns it to the Shks field.
-func (o *FullStatsItemDaysInner) SetShks(v int32) {
+// SetShks gets a reference to the given int64 and assigns it to the Shks field.
+func (o *FullStatsItemDaysInner) SetShks(v int64) {
 	o.Shks = &v
 }
 
@@ -449,9 +449,9 @@ func (o *FullStatsItemDaysInner) SetSumPrice(v float32) {
 }
 
 // GetViews returns the Views field value if set, zero value otherwise.
-func (o *FullStatsItemDaysInner) GetViews() int32 {
+func (o *FullStatsItemDaysInner) GetViews() int64 {
 	if o == nil || IsNil(o.Views) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Views
@@ -459,7 +459,7 @@ func (o *FullStatsItemDaysInner) GetViews() int32 {
 
 // GetViewsOk returns a tuple with the Views field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FullStatsItemDaysInner) GetViewsOk() (*int32, bool) {
+func (o *FullStatsItemDaysInner) GetViewsOk() (*int64, bool) {
 	if o == nil || IsNil(o.Views) {
 		return nil, false
 	}
@@ -475,8 +475,8 @@ func (o *FullStatsItemDaysInner) HasViews() bool {
 	return false
 }
 
-// SetViews gets a reference to the given int32 and assigns it to the Views field.
-func (o *FullStatsItemDaysInner) SetViews(v int32) {
+// SetViews gets a reference to the given int64 and assigns it to the Views field.
+func (o *FullStatsItemDaysInner) SetViews(v int64) {
 	o.Views = &v
 }
 

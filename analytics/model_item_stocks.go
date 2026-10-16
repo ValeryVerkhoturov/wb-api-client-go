@@ -20,11 +20,11 @@ var _ MappedNullable = &ItemStocks{}
 // ItemStocks Остатки
 type ItemStocks struct {
 	// Общее количество остатков на складах WB на текущий день, шт.
-	Wb *int32 `json:"wb,omitempty"`
+	Wb *int64 `json:"wb,omitempty"`
 	// Общее количество остатков на складах продавца на текущий день, шт.
-	Mp *int32 `json:"mp,omitempty"`
+	Mp *int64 `json:"mp,omitempty"`
 	// Сумма остатков на складах на текущий день, шт.
-	BalanceSum *int32 `json:"balanceSum,omitempty"`
+	BalanceSum *int64 `json:"balanceSum,omitempty"`
 }
 
 // NewItemStocks instantiates a new ItemStocks object
@@ -45,9 +45,9 @@ func NewItemStocksWithDefaults() *ItemStocks {
 }
 
 // GetWb returns the Wb field value if set, zero value otherwise.
-func (o *ItemStocks) GetWb() int32 {
+func (o *ItemStocks) GetWb() int64 {
 	if o == nil || IsNil(o.Wb) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Wb
@@ -55,7 +55,7 @@ func (o *ItemStocks) GetWb() int32 {
 
 // GetWbOk returns a tuple with the Wb field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ItemStocks) GetWbOk() (*int32, bool) {
+func (o *ItemStocks) GetWbOk() (*int64, bool) {
 	if o == nil || IsNil(o.Wb) {
 		return nil, false
 	}
@@ -71,15 +71,15 @@ func (o *ItemStocks) HasWb() bool {
 	return false
 }
 
-// SetWb gets a reference to the given int32 and assigns it to the Wb field.
-func (o *ItemStocks) SetWb(v int32) {
+// SetWb gets a reference to the given int64 and assigns it to the Wb field.
+func (o *ItemStocks) SetWb(v int64) {
 	o.Wb = &v
 }
 
 // GetMp returns the Mp field value if set, zero value otherwise.
-func (o *ItemStocks) GetMp() int32 {
+func (o *ItemStocks) GetMp() int64 {
 	if o == nil || IsNil(o.Mp) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Mp
@@ -87,7 +87,7 @@ func (o *ItemStocks) GetMp() int32 {
 
 // GetMpOk returns a tuple with the Mp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ItemStocks) GetMpOk() (*int32, bool) {
+func (o *ItemStocks) GetMpOk() (*int64, bool) {
 	if o == nil || IsNil(o.Mp) {
 		return nil, false
 	}
@@ -103,15 +103,15 @@ func (o *ItemStocks) HasMp() bool {
 	return false
 }
 
-// SetMp gets a reference to the given int32 and assigns it to the Mp field.
-func (o *ItemStocks) SetMp(v int32) {
+// SetMp gets a reference to the given int64 and assigns it to the Mp field.
+func (o *ItemStocks) SetMp(v int64) {
 	o.Mp = &v
 }
 
 // GetBalanceSum returns the BalanceSum field value if set, zero value otherwise.
-func (o *ItemStocks) GetBalanceSum() int32 {
+func (o *ItemStocks) GetBalanceSum() int64 {
 	if o == nil || IsNil(o.BalanceSum) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.BalanceSum
@@ -119,7 +119,7 @@ func (o *ItemStocks) GetBalanceSum() int32 {
 
 // GetBalanceSumOk returns a tuple with the BalanceSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ItemStocks) GetBalanceSumOk() (*int32, bool) {
+func (o *ItemStocks) GetBalanceSumOk() (*int64, bool) {
 	if o == nil || IsNil(o.BalanceSum) {
 		return nil, false
 	}
@@ -135,8 +135,8 @@ func (o *ItemStocks) HasBalanceSum() bool {
 	return false
 }
 
-// SetBalanceSum gets a reference to the given int32 and assigns it to the BalanceSum field.
-func (o *ItemStocks) SetBalanceSum(v int32) {
+// SetBalanceSum gets a reference to the given int64 and assigns it to the BalanceSum field.
+func (o *ItemStocks) SetBalanceSum(v int64) {
 	o.BalanceSum = &v
 }
 

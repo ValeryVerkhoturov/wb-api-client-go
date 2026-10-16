@@ -20,7 +20,7 @@ var _ MappedNullable = &UserAccess{}
 // UserAccess struct for UserAccess
 type UserAccess struct {
 	// ID пользователя
-	UserId *int32 `json:"userId,omitempty"`
+	UserId *int64 `json:"userId,omitempty"`
 	// Настройки доступа к разделам профиля продавца
 	Access []CreateInviteRequestAccessInner `json:"access,omitempty"`
 }
@@ -43,9 +43,9 @@ func NewUserAccessWithDefaults() *UserAccess {
 }
 
 // GetUserId returns the UserId field value if set, zero value otherwise.
-func (o *UserAccess) GetUserId() int32 {
+func (o *UserAccess) GetUserId() int64 {
 	if o == nil || IsNil(o.UserId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.UserId
@@ -53,7 +53,7 @@ func (o *UserAccess) GetUserId() int32 {
 
 // GetUserIdOk returns a tuple with the UserId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UserAccess) GetUserIdOk() (*int32, bool) {
+func (o *UserAccess) GetUserIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.UserId) {
 		return nil, false
 	}
@@ -69,8 +69,8 @@ func (o *UserAccess) HasUserId() bool {
 	return false
 }
 
-// SetUserId gets a reference to the given int32 and assigns it to the UserId field.
-func (o *UserAccess) SetUserId(v int32) {
+// SetUserId gets a reference to the given int64 and assigns it to the UserId field.
+func (o *UserAccess) SetUserId(v int64) {
 	o.UserId = &v
 }
 

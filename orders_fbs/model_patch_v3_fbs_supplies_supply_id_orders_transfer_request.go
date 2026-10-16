@@ -22,7 +22,7 @@ var _ MappedNullable = &PatchV3FbsSuppliesSupplyIdOrdersTransferRequest{}
 // PatchV3FbsSuppliesSupplyIdOrdersTransferRequest struct for PatchV3FbsSuppliesSupplyIdOrdersTransferRequest
 type PatchV3FbsSuppliesSupplyIdOrdersTransferRequest struct {
 	// Список ID сборочных заданий, которые нужно перевести на сборку
-	OrderIds []int32 `json:"orderIds"`
+	OrderIds []int64 `json:"orderIds"`
 	// ID поставки, в которую будут перемещены сборочные задания. Поставка не должна быть в доставке
 	NewSupplyId string `json:"newSupplyId"`
 }
@@ -33,7 +33,7 @@ type _PatchV3FbsSuppliesSupplyIdOrdersTransferRequest PatchV3FbsSuppliesSupplyId
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPatchV3FbsSuppliesSupplyIdOrdersTransferRequest(orderIds []int32, newSupplyId string) *PatchV3FbsSuppliesSupplyIdOrdersTransferRequest {
+func NewPatchV3FbsSuppliesSupplyIdOrdersTransferRequest(orderIds []int64, newSupplyId string) *PatchV3FbsSuppliesSupplyIdOrdersTransferRequest {
 	this := PatchV3FbsSuppliesSupplyIdOrdersTransferRequest{}
 	this.OrderIds = orderIds
 	this.NewSupplyId = newSupplyId
@@ -49,9 +49,9 @@ func NewPatchV3FbsSuppliesSupplyIdOrdersTransferRequestWithDefaults() *PatchV3Fb
 }
 
 // GetOrderIds returns the OrderIds field value
-func (o *PatchV3FbsSuppliesSupplyIdOrdersTransferRequest) GetOrderIds() []int32 {
+func (o *PatchV3FbsSuppliesSupplyIdOrdersTransferRequest) GetOrderIds() []int64 {
 	if o == nil {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 
@@ -60,7 +60,7 @@ func (o *PatchV3FbsSuppliesSupplyIdOrdersTransferRequest) GetOrderIds() []int32 
 
 // GetOrderIdsOk returns a tuple with the OrderIds field value
 // and a boolean to check if the value has been set.
-func (o *PatchV3FbsSuppliesSupplyIdOrdersTransferRequest) GetOrderIdsOk() ([]int32, bool) {
+func (o *PatchV3FbsSuppliesSupplyIdOrdersTransferRequest) GetOrderIdsOk() ([]int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,7 +68,7 @@ func (o *PatchV3FbsSuppliesSupplyIdOrdersTransferRequest) GetOrderIdsOk() ([]int
 }
 
 // SetOrderIds sets field value
-func (o *PatchV3FbsSuppliesSupplyIdOrdersTransferRequest) SetOrderIds(v []int32) {
+func (o *PatchV3FbsSuppliesSupplyIdOrdersTransferRequest) SetOrderIds(v []int64) {
 	o.OrderIds = v
 }
 

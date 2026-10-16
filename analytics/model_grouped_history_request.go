@@ -25,9 +25,9 @@ type GroupedHistoryRequest struct {
 	// Список брендов для фильтрации
 	BrandNames []string `json:"brandNames,omitempty"`
 	// Список ID предметов для фильтрации
-	SubjectIds []int32 `json:"subjectIds,omitempty"`
+	SubjectIds []int64 `json:"subjectIds,omitempty"`
 	// Список ID ярлыков для фильтрации
-	TagIds []int32 `json:"tagIds,omitempty"`
+	TagIds []int64 `json:"tagIds,omitempty"`
 	// Скрыть удалённые товары
 	SkipDeletedNm    *bool  `json:"skipDeletedNm,omitempty"`
 	AggregationLevel *Level `json:"aggregationLevel,omitempty"`
@@ -114,9 +114,9 @@ func (o *GroupedHistoryRequest) SetBrandNames(v []string) {
 }
 
 // GetSubjectIds returns the SubjectIds field value if set, zero value otherwise.
-func (o *GroupedHistoryRequest) GetSubjectIds() []int32 {
+func (o *GroupedHistoryRequest) GetSubjectIds() []int64 {
 	if o == nil || IsNil(o.SubjectIds) {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.SubjectIds
@@ -124,7 +124,7 @@ func (o *GroupedHistoryRequest) GetSubjectIds() []int32 {
 
 // GetSubjectIdsOk returns a tuple with the SubjectIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GroupedHistoryRequest) GetSubjectIdsOk() ([]int32, bool) {
+func (o *GroupedHistoryRequest) GetSubjectIdsOk() ([]int64, bool) {
 	if o == nil || IsNil(o.SubjectIds) {
 		return nil, false
 	}
@@ -140,15 +140,15 @@ func (o *GroupedHistoryRequest) HasSubjectIds() bool {
 	return false
 }
 
-// SetSubjectIds gets a reference to the given []int32 and assigns it to the SubjectIds field.
-func (o *GroupedHistoryRequest) SetSubjectIds(v []int32) {
+// SetSubjectIds gets a reference to the given []int64 and assigns it to the SubjectIds field.
+func (o *GroupedHistoryRequest) SetSubjectIds(v []int64) {
 	o.SubjectIds = v
 }
 
 // GetTagIds returns the TagIds field value if set, zero value otherwise.
-func (o *GroupedHistoryRequest) GetTagIds() []int32 {
+func (o *GroupedHistoryRequest) GetTagIds() []int64 {
 	if o == nil || IsNil(o.TagIds) {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.TagIds
@@ -156,7 +156,7 @@ func (o *GroupedHistoryRequest) GetTagIds() []int32 {
 
 // GetTagIdsOk returns a tuple with the TagIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GroupedHistoryRequest) GetTagIdsOk() ([]int32, bool) {
+func (o *GroupedHistoryRequest) GetTagIdsOk() ([]int64, bool) {
 	if o == nil || IsNil(o.TagIds) {
 		return nil, false
 	}
@@ -172,8 +172,8 @@ func (o *GroupedHistoryRequest) HasTagIds() bool {
 	return false
 }
 
-// SetTagIds gets a reference to the given []int32 and assigns it to the TagIds field.
-func (o *GroupedHistoryRequest) SetTagIds(v []int32) {
+// SetTagIds gets a reference to the given []int64 and assigns it to the TagIds field.
+func (o *GroupedHistoryRequest) SetTagIds(v []int64) {
 	o.TagIds = v
 }
 

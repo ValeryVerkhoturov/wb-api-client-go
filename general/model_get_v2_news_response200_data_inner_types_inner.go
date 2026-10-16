@@ -20,7 +20,7 @@ var _ MappedNullable = &GetV2NewsResponse200DataInnerTypesInner{}
 // GetV2NewsResponse200DataInnerTypesInner struct for GetV2NewsResponse200DataInnerTypesInner
 type GetV2NewsResponse200DataInnerTypesInner struct {
 	// ID тега
-	Id *int32 `json:"id,omitempty"`
+	Id *int64 `json:"id,omitempty"`
 	// Название тега
 	Name *string `json:"name,omitempty"`
 }
@@ -43,9 +43,9 @@ func NewGetV2NewsResponse200DataInnerTypesInnerWithDefaults() *GetV2NewsResponse
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *GetV2NewsResponse200DataInnerTypesInner) GetId() int32 {
+func (o *GetV2NewsResponse200DataInnerTypesInner) GetId() int64 {
 	if o == nil || IsNil(o.Id) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Id
@@ -53,7 +53,7 @@ func (o *GetV2NewsResponse200DataInnerTypesInner) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV2NewsResponse200DataInnerTypesInner) GetIdOk() (*int32, bool) {
+func (o *GetV2NewsResponse200DataInnerTypesInner) GetIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -69,8 +69,8 @@ func (o *GetV2NewsResponse200DataInnerTypesInner) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *GetV2NewsResponse200DataInnerTypesInner) SetId(v int32) {
+// SetId gets a reference to the given int64 and assigns it to the Id field.
+func (o *GetV2NewsResponse200DataInnerTypesInner) SetId(v int64) {
 	o.Id = &v
 }
 

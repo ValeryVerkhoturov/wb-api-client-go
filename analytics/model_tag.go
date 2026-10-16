@@ -20,7 +20,7 @@ var _ MappedNullable = &Tag{}
 // Tag Ярлык
 type Tag struct {
 	// ID ярлыка
-	Id *int32 `json:"id,omitempty"`
+	Id *int64 `json:"id,omitempty"`
 	// Название ярлыка
 	Name *string `json:"name,omitempty"`
 }
@@ -43,9 +43,9 @@ func NewTagWithDefaults() *Tag {
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *Tag) GetId() int32 {
+func (o *Tag) GetId() int64 {
 	if o == nil || IsNil(o.Id) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Id
@@ -53,7 +53,7 @@ func (o *Tag) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Tag) GetIdOk() (*int32, bool) {
+func (o *Tag) GetIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -69,8 +69,8 @@ func (o *Tag) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *Tag) SetId(v int32) {
+// SetId gets a reference to the given int64 and assigns it to the Id field.
+func (o *Tag) SetId(v int64) {
 	o.Id = &v
 }
 

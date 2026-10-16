@@ -22,7 +22,7 @@ type PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner struct {
 	// ID документа
 	Id *string `json:"id,omitempty"`
 	// Тип документа:   - `1` — Сертификат соответствия   - `2` — Декларация о соответствии   - `3` — Свидетельство о государственной регистрации (СГР)   - `4` — Регистрационное удостоверение (РУ) на медицинские изделия   - `5` — Регистрационное удостоверение Республики Беларусь   - `7` — Данные о регистрации пестицида   - `8` — Данные о регистрации агрохимиката   - `9` — Регистрационное удостоверение (РУ) на лекарственные препараты
-	Type *int32 `json:"type,omitempty"`
+	Type *int64 `json:"type,omitempty"`
 	// Номер документа
 	Number *string `json:"number,omitempty"`
 	// Дополнительный номер документа
@@ -92,9 +92,9 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) SetId(v str
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
-func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) GetType() int32 {
+func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) GetType() int64 {
 	if o == nil || IsNil(o.Type) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Type
@@ -102,7 +102,7 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) GetType() i
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) GetTypeOk() (*int32, bool) {
+func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) GetTypeOk() (*int64, bool) {
 	if o == nil || IsNil(o.Type) {
 		return nil, false
 	}
@@ -118,8 +118,8 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) HasType() b
 	return false
 }
 
-// SetType gets a reference to the given int32 and assigns it to the Type field.
-func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) SetType(v int32) {
+// SetType gets a reference to the given int64 and assigns it to the Type field.
+func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) SetType(v int64) {
 	o.Type = &v
 }
 

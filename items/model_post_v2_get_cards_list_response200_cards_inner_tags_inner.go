@@ -20,7 +20,7 @@ var _ MappedNullable = &PostV2GetCardsListResponse200CardsInnerTagsInner{}
 // PostV2GetCardsListResponse200CardsInnerTagsInner struct for PostV2GetCardsListResponse200CardsInnerTagsInner
 type PostV2GetCardsListResponse200CardsInnerTagsInner struct {
 	// ID ярлыка
-	Id *int32 `json:"id,omitempty"`
+	Id *int64 `json:"id,omitempty"`
 	// Название ярлыка
 	Name *string `json:"name,omitempty"`
 	// Цвет ярлыка. Доступные цвета: - `D1CFD7` — серый - `FEE0E0` — красный - `ECDAFF` — фиолетовый - `E4EAFF` — синий - `DEF1DD` — зеленый - `FFECC7` — желтый
@@ -45,9 +45,9 @@ func NewPostV2GetCardsListResponse200CardsInnerTagsInnerWithDefaults() *PostV2Ge
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *PostV2GetCardsListResponse200CardsInnerTagsInner) GetId() int32 {
+func (o *PostV2GetCardsListResponse200CardsInnerTagsInner) GetId() int64 {
 	if o == nil || IsNil(o.Id) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Id
@@ -55,7 +55,7 @@ func (o *PostV2GetCardsListResponse200CardsInnerTagsInner) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2GetCardsListResponse200CardsInnerTagsInner) GetIdOk() (*int32, bool) {
+func (o *PostV2GetCardsListResponse200CardsInnerTagsInner) GetIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -71,8 +71,8 @@ func (o *PostV2GetCardsListResponse200CardsInnerTagsInner) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *PostV2GetCardsListResponse200CardsInnerTagsInner) SetId(v int32) {
+// SetId gets a reference to the given int64 and assigns it to the Id field.
+func (o *PostV2GetCardsListResponse200CardsInnerTagsInner) SetId(v int64) {
 	o.Id = &v
 }
 

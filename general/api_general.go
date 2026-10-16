@@ -1460,7 +1460,7 @@ type ApiGetV2NewsRequest struct {
 	ctx        context.Context
 	ApiService GeneralAPI
 	from       *string
-	fromID     *int32
+	fromID     *int64
 }
 
 // Дата, от которой необходимо выдать новости
@@ -1470,7 +1470,7 @@ func (r ApiGetV2NewsRequest) From(from string) ApiGetV2NewsRequest {
 }
 
 // ID новости, начиная с которой — включая её — нужно получить список новостей
-func (r ApiGetV2NewsRequest) FromID(fromID int32) ApiGetV2NewsRequest {
+func (r ApiGetV2NewsRequest) FromID(fromID int64) ApiGetV2NewsRequest {
 	r.fromID = &fromID
 	return r
 }

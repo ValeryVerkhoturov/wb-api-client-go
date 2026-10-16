@@ -20,7 +20,7 @@ var _ MappedNullable = &GetV1CalendarPromotionsDetails200ResponseDataPromotionsI
 // GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner struct for GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner
 type GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner struct {
 	// ID акции
-	Id *int32 `json:"id,omitempty"`
+	Id *int64 `json:"id,omitempty"`
 	// Название акции
 	Name *string `json:"name,omitempty"`
 	// Описание акции
@@ -32,15 +32,15 @@ type GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner struct {
 	// Конец акции
 	EndDateTime *string `json:"endDateTime,omitempty"`
 	// Количество товаров с остатками, участвующих в акции
-	InPromoActionLeftovers *int32 `json:"inPromoActionLeftovers,omitempty"`
+	InPromoActionLeftovers *int64 `json:"inPromoActionLeftovers,omitempty"`
 	// Общее количество товаров, участвующих в акции
-	InPromoActionTotal *int32 `json:"inPromoActionTotal,omitempty"`
+	InPromoActionTotal *int64 `json:"inPromoActionTotal,omitempty"`
 	// Количество товаров с остатками, не участвующих в акции
-	NotInPromoActionLeftovers *int32 `json:"notInPromoActionLeftovers,omitempty"`
+	NotInPromoActionLeftovers *int64 `json:"notInPromoActionLeftovers,omitempty"`
 	// Общее количество товаров, не участвующих в акции
-	NotInPromoActionTotal *int32 `json:"notInPromoActionTotal,omitempty"`
+	NotInPromoActionTotal *int64 `json:"notInPromoActionTotal,omitempty"`
 	// Уже участвующие в акции товары, %. Рассчитывается по товарам в акции и с остатком
-	ParticipationPercentage *int32 `json:"participationPercentage,omitempty"`
+	ParticipationPercentage *int64 `json:"participationPercentage,omitempty"`
 	// Тип акции:   - `regular` — акция   - `auto` — автоакция
 	Type *string `json:"type,omitempty"`
 	// Количество товаров, исключенных из автоакции до её старта. Только при `\"type\": \"auto\"`.  В момент старта акции эти товары автоматически будут без скидки
@@ -67,9 +67,9 @@ func NewGetV1CalendarPromotionsDetails200ResponseDataPromotionsInnerWithDefaults
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) GetId() int32 {
+func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) GetId() int64 {
 	if o == nil || IsNil(o.Id) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Id
@@ -77,7 +77,7 @@ func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) GetId() i
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) GetIdOk() (*int32, bool) {
+func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) GetIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -93,8 +93,8 @@ func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) HasId() b
 	return false
 }
 
-// SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) SetId(v int32) {
+// SetId gets a reference to the given int64 and assigns it to the Id field.
+func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) SetId(v int64) {
 	o.Id = &v
 }
 
@@ -259,9 +259,9 @@ func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) SetEndDat
 }
 
 // GetInPromoActionLeftovers returns the InPromoActionLeftovers field value if set, zero value otherwise.
-func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) GetInPromoActionLeftovers() int32 {
+func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) GetInPromoActionLeftovers() int64 {
 	if o == nil || IsNil(o.InPromoActionLeftovers) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.InPromoActionLeftovers
@@ -269,7 +269,7 @@ func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) GetInProm
 
 // GetInPromoActionLeftoversOk returns a tuple with the InPromoActionLeftovers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) GetInPromoActionLeftoversOk() (*int32, bool) {
+func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) GetInPromoActionLeftoversOk() (*int64, bool) {
 	if o == nil || IsNil(o.InPromoActionLeftovers) {
 		return nil, false
 	}
@@ -285,15 +285,15 @@ func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) HasInProm
 	return false
 }
 
-// SetInPromoActionLeftovers gets a reference to the given int32 and assigns it to the InPromoActionLeftovers field.
-func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) SetInPromoActionLeftovers(v int32) {
+// SetInPromoActionLeftovers gets a reference to the given int64 and assigns it to the InPromoActionLeftovers field.
+func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) SetInPromoActionLeftovers(v int64) {
 	o.InPromoActionLeftovers = &v
 }
 
 // GetInPromoActionTotal returns the InPromoActionTotal field value if set, zero value otherwise.
-func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) GetInPromoActionTotal() int32 {
+func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) GetInPromoActionTotal() int64 {
 	if o == nil || IsNil(o.InPromoActionTotal) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.InPromoActionTotal
@@ -301,7 +301,7 @@ func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) GetInProm
 
 // GetInPromoActionTotalOk returns a tuple with the InPromoActionTotal field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) GetInPromoActionTotalOk() (*int32, bool) {
+func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) GetInPromoActionTotalOk() (*int64, bool) {
 	if o == nil || IsNil(o.InPromoActionTotal) {
 		return nil, false
 	}
@@ -317,15 +317,15 @@ func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) HasInProm
 	return false
 }
 
-// SetInPromoActionTotal gets a reference to the given int32 and assigns it to the InPromoActionTotal field.
-func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) SetInPromoActionTotal(v int32) {
+// SetInPromoActionTotal gets a reference to the given int64 and assigns it to the InPromoActionTotal field.
+func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) SetInPromoActionTotal(v int64) {
 	o.InPromoActionTotal = &v
 }
 
 // GetNotInPromoActionLeftovers returns the NotInPromoActionLeftovers field value if set, zero value otherwise.
-func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) GetNotInPromoActionLeftovers() int32 {
+func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) GetNotInPromoActionLeftovers() int64 {
 	if o == nil || IsNil(o.NotInPromoActionLeftovers) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NotInPromoActionLeftovers
@@ -333,7 +333,7 @@ func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) GetNotInP
 
 // GetNotInPromoActionLeftoversOk returns a tuple with the NotInPromoActionLeftovers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) GetNotInPromoActionLeftoversOk() (*int32, bool) {
+func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) GetNotInPromoActionLeftoversOk() (*int64, bool) {
 	if o == nil || IsNil(o.NotInPromoActionLeftovers) {
 		return nil, false
 	}
@@ -349,15 +349,15 @@ func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) HasNotInP
 	return false
 }
 
-// SetNotInPromoActionLeftovers gets a reference to the given int32 and assigns it to the NotInPromoActionLeftovers field.
-func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) SetNotInPromoActionLeftovers(v int32) {
+// SetNotInPromoActionLeftovers gets a reference to the given int64 and assigns it to the NotInPromoActionLeftovers field.
+func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) SetNotInPromoActionLeftovers(v int64) {
 	o.NotInPromoActionLeftovers = &v
 }
 
 // GetNotInPromoActionTotal returns the NotInPromoActionTotal field value if set, zero value otherwise.
-func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) GetNotInPromoActionTotal() int32 {
+func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) GetNotInPromoActionTotal() int64 {
 	if o == nil || IsNil(o.NotInPromoActionTotal) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NotInPromoActionTotal
@@ -365,7 +365,7 @@ func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) GetNotInP
 
 // GetNotInPromoActionTotalOk returns a tuple with the NotInPromoActionTotal field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) GetNotInPromoActionTotalOk() (*int32, bool) {
+func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) GetNotInPromoActionTotalOk() (*int64, bool) {
 	if o == nil || IsNil(o.NotInPromoActionTotal) {
 		return nil, false
 	}
@@ -381,15 +381,15 @@ func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) HasNotInP
 	return false
 }
 
-// SetNotInPromoActionTotal gets a reference to the given int32 and assigns it to the NotInPromoActionTotal field.
-func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) SetNotInPromoActionTotal(v int32) {
+// SetNotInPromoActionTotal gets a reference to the given int64 and assigns it to the NotInPromoActionTotal field.
+func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) SetNotInPromoActionTotal(v int64) {
 	o.NotInPromoActionTotal = &v
 }
 
 // GetParticipationPercentage returns the ParticipationPercentage field value if set, zero value otherwise.
-func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) GetParticipationPercentage() int32 {
+func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) GetParticipationPercentage() int64 {
 	if o == nil || IsNil(o.ParticipationPercentage) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ParticipationPercentage
@@ -397,7 +397,7 @@ func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) GetPartic
 
 // GetParticipationPercentageOk returns a tuple with the ParticipationPercentage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) GetParticipationPercentageOk() (*int32, bool) {
+func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) GetParticipationPercentageOk() (*int64, bool) {
 	if o == nil || IsNil(o.ParticipationPercentage) {
 		return nil, false
 	}
@@ -413,8 +413,8 @@ func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) HasPartic
 	return false
 }
 
-// SetParticipationPercentage gets a reference to the given int32 and assigns it to the ParticipationPercentage field.
-func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) SetParticipationPercentage(v int32) {
+// SetParticipationPercentage gets a reference to the given int64 and assigns it to the ParticipationPercentage field.
+func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) SetParticipationPercentage(v int64) {
 	o.ParticipationPercentage = &v
 }
 

@@ -20,9 +20,9 @@ var _ MappedNullable = &NormQueryBidFailResponseItem{}
 // NormQueryBidFailResponseItem struct for NormQueryBidFailResponseItem
 type NormQueryBidFailResponseItem struct {
 	// ID кампании
-	AdvertId *int32 `json:"advertId,omitempty"`
+	AdvertId *int64 `json:"advertId,omitempty"`
 	// Артикул WB
-	NmId *int32 `json:"nmId,omitempty"`
+	NmId *int64 `json:"nmId,omitempty"`
 	// Поисковый кластер — это группа похожих поисковых запросов, по которым покупатели находят товары
 	NormQuery *string `json:"normQuery,omitempty"`
 	// Описание причины ошибки
@@ -47,9 +47,9 @@ func NewNormQueryBidFailResponseItemWithDefaults() *NormQueryBidFailResponseItem
 }
 
 // GetAdvertId returns the AdvertId field value if set, zero value otherwise.
-func (o *NormQueryBidFailResponseItem) GetAdvertId() int32 {
+func (o *NormQueryBidFailResponseItem) GetAdvertId() int64 {
 	if o == nil || IsNil(o.AdvertId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.AdvertId
@@ -57,7 +57,7 @@ func (o *NormQueryBidFailResponseItem) GetAdvertId() int32 {
 
 // GetAdvertIdOk returns a tuple with the AdvertId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *NormQueryBidFailResponseItem) GetAdvertIdOk() (*int32, bool) {
+func (o *NormQueryBidFailResponseItem) GetAdvertIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.AdvertId) {
 		return nil, false
 	}
@@ -73,15 +73,15 @@ func (o *NormQueryBidFailResponseItem) HasAdvertId() bool {
 	return false
 }
 
-// SetAdvertId gets a reference to the given int32 and assigns it to the AdvertId field.
-func (o *NormQueryBidFailResponseItem) SetAdvertId(v int32) {
+// SetAdvertId gets a reference to the given int64 and assigns it to the AdvertId field.
+func (o *NormQueryBidFailResponseItem) SetAdvertId(v int64) {
 	o.AdvertId = &v
 }
 
 // GetNmId returns the NmId field value if set, zero value otherwise.
-func (o *NormQueryBidFailResponseItem) GetNmId() int32 {
+func (o *NormQueryBidFailResponseItem) GetNmId() int64 {
 	if o == nil || IsNil(o.NmId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmId
@@ -89,7 +89,7 @@ func (o *NormQueryBidFailResponseItem) GetNmId() int32 {
 
 // GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *NormQueryBidFailResponseItem) GetNmIdOk() (*int32, bool) {
+func (o *NormQueryBidFailResponseItem) GetNmIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
@@ -105,8 +105,8 @@ func (o *NormQueryBidFailResponseItem) HasNmId() bool {
 	return false
 }
 
-// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
-func (o *NormQueryBidFailResponseItem) SetNmId(v int32) {
+// SetNmId gets a reference to the given int64 and assigns it to the NmId field.
+func (o *NormQueryBidFailResponseItem) SetNmId(v int64) {
 	o.NmId = &v
 }
 

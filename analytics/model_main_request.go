@@ -38,9 +38,9 @@ type MainRequest struct {
 	// Показать данные по поисковым запросам без учёта подменного артикула
 	IncludeSearchTexts *bool `json:"includeSearchTexts,omitempty"`
 	// Количество групп товаров в ответе
-	Limit int32 `json:"limit"`
+	Limit int64 `json:"limit"`
 	// После какого элемента выдавать данные
-	Offset int32 `json:"offset"`
+	Offset int64 `json:"offset"`
 }
 
 type _MainRequest MainRequest
@@ -49,7 +49,7 @@ type _MainRequest MainRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMainRequest(currentPeriod Period, positionCluster PositionCluster, orderBy OrderByMainAndDetails, limit int32, offset int32) *MainRequest {
+func NewMainRequest(currentPeriod Period, positionCluster PositionCluster, orderBy OrderByMainAndDetails, limit int64, offset int64) *MainRequest {
 	this := MainRequest{}
 	this.CurrentPeriod = currentPeriod
 	this.PositionCluster = positionCluster
@@ -372,9 +372,9 @@ func (o *MainRequest) SetIncludeSearchTexts(v bool) {
 }
 
 // GetLimit returns the Limit field value
-func (o *MainRequest) GetLimit() int32 {
+func (o *MainRequest) GetLimit() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -383,7 +383,7 @@ func (o *MainRequest) GetLimit() int32 {
 
 // GetLimitOk returns a tuple with the Limit field value
 // and a boolean to check if the value has been set.
-func (o *MainRequest) GetLimitOk() (*int32, bool) {
+func (o *MainRequest) GetLimitOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -391,14 +391,14 @@ func (o *MainRequest) GetLimitOk() (*int32, bool) {
 }
 
 // SetLimit sets field value
-func (o *MainRequest) SetLimit(v int32) {
+func (o *MainRequest) SetLimit(v int64) {
 	o.Limit = v
 }
 
 // GetOffset returns the Offset field value
-func (o *MainRequest) GetOffset() int32 {
+func (o *MainRequest) GetOffset() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -407,7 +407,7 @@ func (o *MainRequest) GetOffset() int32 {
 
 // GetOffsetOk returns a tuple with the Offset field value
 // and a boolean to check if the value has been set.
-func (o *MainRequest) GetOffsetOk() (*int32, bool) {
+func (o *MainRequest) GetOffsetOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -415,7 +415,7 @@ func (o *MainRequest) GetOffsetOk() (*int32, bool) {
 }
 
 // SetOffset sets field value
-func (o *MainRequest) SetOffset(v int32) {
+func (o *MainRequest) SetOffset(v int64) {
 	o.Offset = v
 }
 

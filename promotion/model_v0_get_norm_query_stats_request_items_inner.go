@@ -22,9 +22,9 @@ var _ MappedNullable = &V0GetNormQueryStatsRequestItemsInner{}
 // V0GetNormQueryStatsRequestItemsInner struct for V0GetNormQueryStatsRequestItemsInner
 type V0GetNormQueryStatsRequestItemsInner struct {
 	// ID кампании
-	AdvertId int32 `json:"advert_id"`
+	AdvertId int64 `json:"advert_id"`
 	// Артикул WB
-	NmId int32 `json:"nm_id"`
+	NmId int64 `json:"nm_id"`
 }
 
 type _V0GetNormQueryStatsRequestItemsInner V0GetNormQueryStatsRequestItemsInner
@@ -33,7 +33,7 @@ type _V0GetNormQueryStatsRequestItemsInner V0GetNormQueryStatsRequestItemsInner
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV0GetNormQueryStatsRequestItemsInner(advertId int32, nmId int32) *V0GetNormQueryStatsRequestItemsInner {
+func NewV0GetNormQueryStatsRequestItemsInner(advertId int64, nmId int64) *V0GetNormQueryStatsRequestItemsInner {
 	this := V0GetNormQueryStatsRequestItemsInner{}
 	this.AdvertId = advertId
 	this.NmId = nmId
@@ -49,9 +49,9 @@ func NewV0GetNormQueryStatsRequestItemsInnerWithDefaults() *V0GetNormQueryStatsR
 }
 
 // GetAdvertId returns the AdvertId field value
-func (o *V0GetNormQueryStatsRequestItemsInner) GetAdvertId() int32 {
+func (o *V0GetNormQueryStatsRequestItemsInner) GetAdvertId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -60,7 +60,7 @@ func (o *V0GetNormQueryStatsRequestItemsInner) GetAdvertId() int32 {
 
 // GetAdvertIdOk returns a tuple with the AdvertId field value
 // and a boolean to check if the value has been set.
-func (o *V0GetNormQueryStatsRequestItemsInner) GetAdvertIdOk() (*int32, bool) {
+func (o *V0GetNormQueryStatsRequestItemsInner) GetAdvertIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,14 +68,14 @@ func (o *V0GetNormQueryStatsRequestItemsInner) GetAdvertIdOk() (*int32, bool) {
 }
 
 // SetAdvertId sets field value
-func (o *V0GetNormQueryStatsRequestItemsInner) SetAdvertId(v int32) {
+func (o *V0GetNormQueryStatsRequestItemsInner) SetAdvertId(v int64) {
 	o.AdvertId = v
 }
 
 // GetNmId returns the NmId field value
-func (o *V0GetNormQueryStatsRequestItemsInner) GetNmId() int32 {
+func (o *V0GetNormQueryStatsRequestItemsInner) GetNmId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -84,7 +84,7 @@ func (o *V0GetNormQueryStatsRequestItemsInner) GetNmId() int32 {
 
 // GetNmIdOk returns a tuple with the NmId field value
 // and a boolean to check if the value has been set.
-func (o *V0GetNormQueryStatsRequestItemsInner) GetNmIdOk() (*int32, bool) {
+func (o *V0GetNormQueryStatsRequestItemsInner) GetNmIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -92,7 +92,7 @@ func (o *V0GetNormQueryStatsRequestItemsInner) GetNmIdOk() (*int32, bool) {
 }
 
 // SetNmId sets field value
-func (o *V0GetNormQueryStatsRequestItemsInner) SetNmId(v int32) {
+func (o *V0GetNormQueryStatsRequestItemsInner) SetNmId(v int64) {
 	o.NmId = v
 }
 

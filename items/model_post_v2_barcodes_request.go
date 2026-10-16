@@ -20,7 +20,7 @@ var _ MappedNullable = &PostV2BarcodesRequest{}
 // PostV2BarcodesRequest struct for PostV2BarcodesRequest
 type PostV2BarcodesRequest struct {
 	// Кол-во баркодов которые надо сгенерировать, максимальное доступное количество баркодов для генерации - `5 000`
-	Count *int32 `json:"count,omitempty"`
+	Count *int64 `json:"count,omitempty"`
 }
 
 // NewPostV2BarcodesRequest instantiates a new PostV2BarcodesRequest object
@@ -41,9 +41,9 @@ func NewPostV2BarcodesRequestWithDefaults() *PostV2BarcodesRequest {
 }
 
 // GetCount returns the Count field value if set, zero value otherwise.
-func (o *PostV2BarcodesRequest) GetCount() int32 {
+func (o *PostV2BarcodesRequest) GetCount() int64 {
 	if o == nil || IsNil(o.Count) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Count
@@ -51,7 +51,7 @@ func (o *PostV2BarcodesRequest) GetCount() int32 {
 
 // GetCountOk returns a tuple with the Count field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2BarcodesRequest) GetCountOk() (*int32, bool) {
+func (o *PostV2BarcodesRequest) GetCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.Count) {
 		return nil, false
 	}
@@ -67,8 +67,8 @@ func (o *PostV2BarcodesRequest) HasCount() bool {
 	return false
 }
 
-// SetCount gets a reference to the given int32 and assigns it to the Count field.
-func (o *PostV2BarcodesRequest) SetCount(v int32) {
+// SetCount gets a reference to the given int64 and assigns it to the Count field.
+func (o *PostV2BarcodesRequest) SetCount(v int64) {
 	o.Count = &v
 }
 

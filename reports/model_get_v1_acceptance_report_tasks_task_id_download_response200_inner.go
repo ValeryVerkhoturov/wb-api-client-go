@@ -20,13 +20,13 @@ var _ MappedNullable = &GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner
 // GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner struct for GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner
 type GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner struct {
 	// Количество товаров, шт.
-	Count *int32 `json:"count,omitempty"`
+	Count *int64 `json:"count,omitempty"`
 	// Дата создания поставки
 	GiCreateDate *string `json:"giCreateDate,omitempty"`
 	// Номер поставки
-	IncomeId *int32 `json:"incomeId,omitempty"`
+	IncomeId *int64 `json:"incomeId,omitempty"`
 	// Артикул WB
-	NmID *int32 `json:"nmID,omitempty"`
+	NmID *int64 `json:"nmID,omitempty"`
 	// Дата приёмки
 	ShkCreateDate *string `json:"shkCreateDate,omitempty"`
 	// Предмет
@@ -53,9 +53,9 @@ func NewGetV1AcceptanceReportTasksTaskIdDownloadResponse200InnerWithDefaults() *
 }
 
 // GetCount returns the Count field value if set, zero value otherwise.
-func (o *GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner) GetCount() int32 {
+func (o *GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner) GetCount() int64 {
 	if o == nil || IsNil(o.Count) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Count
@@ -63,7 +63,7 @@ func (o *GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner) GetCount() in
 
 // GetCountOk returns a tuple with the Count field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner) GetCountOk() (*int32, bool) {
+func (o *GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner) GetCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.Count) {
 		return nil, false
 	}
@@ -79,8 +79,8 @@ func (o *GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner) HasCount() bo
 	return false
 }
 
-// SetCount gets a reference to the given int32 and assigns it to the Count field.
-func (o *GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner) SetCount(v int32) {
+// SetCount gets a reference to the given int64 and assigns it to the Count field.
+func (o *GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner) SetCount(v int64) {
 	o.Count = &v
 }
 
@@ -117,9 +117,9 @@ func (o *GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner) SetGiCreateDa
 }
 
 // GetIncomeId returns the IncomeId field value if set, zero value otherwise.
-func (o *GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner) GetIncomeId() int32 {
+func (o *GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner) GetIncomeId() int64 {
 	if o == nil || IsNil(o.IncomeId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.IncomeId
@@ -127,7 +127,7 @@ func (o *GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner) GetIncomeId()
 
 // GetIncomeIdOk returns a tuple with the IncomeId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner) GetIncomeIdOk() (*int32, bool) {
+func (o *GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner) GetIncomeIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.IncomeId) {
 		return nil, false
 	}
@@ -143,15 +143,15 @@ func (o *GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner) HasIncomeId()
 	return false
 }
 
-// SetIncomeId gets a reference to the given int32 and assigns it to the IncomeId field.
-func (o *GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner) SetIncomeId(v int32) {
+// SetIncomeId gets a reference to the given int64 and assigns it to the IncomeId field.
+func (o *GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner) SetIncomeId(v int64) {
 	o.IncomeId = &v
 }
 
 // GetNmID returns the NmID field value if set, zero value otherwise.
-func (o *GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner) GetNmID() int32 {
+func (o *GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner) GetNmID() int64 {
 	if o == nil || IsNil(o.NmID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmID
@@ -159,7 +159,7 @@ func (o *GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner) GetNmID() int
 
 // GetNmIDOk returns a tuple with the NmID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner) GetNmIDOk() (*int32, bool) {
+func (o *GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner) GetNmIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmID) {
 		return nil, false
 	}
@@ -175,8 +175,8 @@ func (o *GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner) HasNmID() boo
 	return false
 }
 
-// SetNmID gets a reference to the given int32 and assigns it to the NmID field.
-func (o *GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner) SetNmID(v int32) {
+// SetNmID gets a reference to the given int64 and assigns it to the NmID field.
+func (o *GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner) SetNmID(v int64) {
 	o.NmID = &v
 }
 

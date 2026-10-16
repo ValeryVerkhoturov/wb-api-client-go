@@ -22,7 +22,7 @@ type TableSearchTextItem struct {
 	// Текст поискового запроса
 	Text *string `json:"text,omitempty"`
 	// Артикул WB
-	NmId *int32 `json:"nmId,omitempty"`
+	NmId *int64 `json:"nmId,omitempty"`
 	// Название предмета
 	SubjectName *string `json:"subjectName,omitempty"`
 	// Бренд
@@ -40,7 +40,7 @@ type TableSearchTextItem struct {
 	Price          *TableItemAllOfPrice               `json:"price,omitempty"`
 	Frequency      *TableSearchTextItemAllOfFrequency `json:"frequency,omitempty"`
 	// Количество обращений с поисковым запросом за неделю
-	WeekFrequency  *int32                                  `json:"weekFrequency,omitempty"`
+	WeekFrequency  *int64                                  `json:"weekFrequency,omitempty"`
 	MedianPosition *TableSearchTextItemAllOfMedianPosition `json:"medianPosition,omitempty"`
 	AvgPosition    *TableGroupItemMetricsAvgPosition       `json:"avgPosition,omitempty"`
 	OpenCard       *TableSearchTextItemAllOfOpenCard       `json:"openCard,omitempty"`
@@ -101,9 +101,9 @@ func (o *TableSearchTextItem) SetText(v string) {
 }
 
 // GetNmId returns the NmId field value if set, zero value otherwise.
-func (o *TableSearchTextItem) GetNmId() int32 {
+func (o *TableSearchTextItem) GetNmId() int64 {
 	if o == nil || IsNil(o.NmId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmId
@@ -111,7 +111,7 @@ func (o *TableSearchTextItem) GetNmId() int32 {
 
 // GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableSearchTextItem) GetNmIdOk() (*int32, bool) {
+func (o *TableSearchTextItem) GetNmIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
@@ -127,8 +127,8 @@ func (o *TableSearchTextItem) HasNmId() bool {
 	return false
 }
 
-// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
-func (o *TableSearchTextItem) SetNmId(v int32) {
+// SetNmId gets a reference to the given int64 and assigns it to the NmId field.
+func (o *TableSearchTextItem) SetNmId(v int64) {
 	o.NmId = &v
 }
 
@@ -421,9 +421,9 @@ func (o *TableSearchTextItem) SetFrequency(v TableSearchTextItemAllOfFrequency) 
 }
 
 // GetWeekFrequency returns the WeekFrequency field value if set, zero value otherwise.
-func (o *TableSearchTextItem) GetWeekFrequency() int32 {
+func (o *TableSearchTextItem) GetWeekFrequency() int64 {
 	if o == nil || IsNil(o.WeekFrequency) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.WeekFrequency
@@ -431,7 +431,7 @@ func (o *TableSearchTextItem) GetWeekFrequency() int32 {
 
 // GetWeekFrequencyOk returns a tuple with the WeekFrequency field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableSearchTextItem) GetWeekFrequencyOk() (*int32, bool) {
+func (o *TableSearchTextItem) GetWeekFrequencyOk() (*int64, bool) {
 	if o == nil || IsNil(o.WeekFrequency) {
 		return nil, false
 	}
@@ -447,8 +447,8 @@ func (o *TableSearchTextItem) HasWeekFrequency() bool {
 	return false
 }
 
-// SetWeekFrequency gets a reference to the given int32 and assigns it to the WeekFrequency field.
-func (o *TableSearchTextItem) SetWeekFrequency(v int32) {
+// SetWeekFrequency gets a reference to the given int64 and assigns it to the WeekFrequency field.
+func (o *TableSearchTextItem) SetWeekFrequency(v int64) {
 	o.WeekFrequency = &v
 }
 

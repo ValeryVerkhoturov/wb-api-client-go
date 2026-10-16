@@ -20,7 +20,7 @@ var _ MappedNullable = &ModelsSupplyAcceptedMoreThanYearAgo{}
 // ModelsSupplyAcceptedMoreThanYearAgo struct for ModelsSupplyAcceptedMoreThanYearAgo
 type ModelsSupplyAcceptedMoreThanYearAgo struct {
 	// HTTP-статус код
-	Status *int32 `json:"status,omitempty"`
+	Status *int64 `json:"status,omitempty"`
 	// Краткое описание ошибки
 	Title *string `json:"title,omitempty"`
 	// Подробное описание ошибки
@@ -49,9 +49,9 @@ func NewModelsSupplyAcceptedMoreThanYearAgoWithDefaults() *ModelsSupplyAcceptedM
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
-func (o *ModelsSupplyAcceptedMoreThanYearAgo) GetStatus() int32 {
+func (o *ModelsSupplyAcceptedMoreThanYearAgo) GetStatus() int64 {
 	if o == nil || IsNil(o.Status) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Status
@@ -59,7 +59,7 @@ func (o *ModelsSupplyAcceptedMoreThanYearAgo) GetStatus() int32 {
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsSupplyAcceptedMoreThanYearAgo) GetStatusOk() (*int32, bool) {
+func (o *ModelsSupplyAcceptedMoreThanYearAgo) GetStatusOk() (*int64, bool) {
 	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
@@ -75,8 +75,8 @@ func (o *ModelsSupplyAcceptedMoreThanYearAgo) HasStatus() bool {
 	return false
 }
 
-// SetStatus gets a reference to the given int32 and assigns it to the Status field.
-func (o *ModelsSupplyAcceptedMoreThanYearAgo) SetStatus(v int32) {
+// SetStatus gets a reference to the given int64 and assigns it to the Status field.
+func (o *ModelsSupplyAcceptedMoreThanYearAgo) SetStatus(v int64) {
 	o.Status = &v
 }
 

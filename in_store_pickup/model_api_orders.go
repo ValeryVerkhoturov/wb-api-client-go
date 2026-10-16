@@ -20,7 +20,7 @@ var _ MappedNullable = &ApiOrders{}
 // ApiOrders struct for ApiOrders
 type ApiOrders struct {
 	// Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных
-	Next *int32 `json:"next,omitempty"`
+	Next *int64 `json:"next,omitempty"`
 	// Список сборочных заданий
 	Orders []ApiOrder `json:"orders,omitempty"`
 }
@@ -43,9 +43,9 @@ func NewApiOrdersWithDefaults() *ApiOrders {
 }
 
 // GetNext returns the Next field value if set, zero value otherwise.
-func (o *ApiOrders) GetNext() int32 {
+func (o *ApiOrders) GetNext() int64 {
 	if o == nil || IsNil(o.Next) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Next
@@ -53,7 +53,7 @@ func (o *ApiOrders) GetNext() int32 {
 
 // GetNextOk returns a tuple with the Next field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiOrders) GetNextOk() (*int32, bool) {
+func (o *ApiOrders) GetNextOk() (*int64, bool) {
 	if o == nil || IsNil(o.Next) {
 		return nil, false
 	}
@@ -69,8 +69,8 @@ func (o *ApiOrders) HasNext() bool {
 	return false
 }
 
-// SetNext gets a reference to the given int32 and assigns it to the Next field.
-func (o *ApiOrders) SetNext(v int32) {
+// SetNext gets a reference to the given int64 and assigns it to the Next field.
+func (o *ApiOrders) SetNext(v int64) {
 	o.Next = &v
 }
 

@@ -20,7 +20,7 @@ var _ MappedNullable = &PostV2GetCardsListResponse200CardsInnerCharacteristicsIn
 // PostV2GetCardsListResponse200CardsInnerCharacteristicsInner struct for PostV2GetCardsListResponse200CardsInnerCharacteristicsInner
 type PostV2GetCardsListResponse200CardsInnerCharacteristicsInner struct {
 	// ID характеристики
-	Id *int32 `json:"id,omitempty"`
+	Id *int64 `json:"id,omitempty"`
 	// Название характеристики
 	Name *string `json:"name,omitempty"`
 	// Значение характеристики. Тип значения зависит от типа характеристики
@@ -45,9 +45,9 @@ func NewPostV2GetCardsListResponse200CardsInnerCharacteristicsInnerWithDefaults(
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *PostV2GetCardsListResponse200CardsInnerCharacteristicsInner) GetId() int32 {
+func (o *PostV2GetCardsListResponse200CardsInnerCharacteristicsInner) GetId() int64 {
 	if o == nil || IsNil(o.Id) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Id
@@ -55,7 +55,7 @@ func (o *PostV2GetCardsListResponse200CardsInnerCharacteristicsInner) GetId() in
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2GetCardsListResponse200CardsInnerCharacteristicsInner) GetIdOk() (*int32, bool) {
+func (o *PostV2GetCardsListResponse200CardsInnerCharacteristicsInner) GetIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -71,8 +71,8 @@ func (o *PostV2GetCardsListResponse200CardsInnerCharacteristicsInner) HasId() bo
 	return false
 }
 
-// SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *PostV2GetCardsListResponse200CardsInnerCharacteristicsInner) SetId(v int32) {
+// SetId gets a reference to the given int64 and assigns it to the Id field.
+func (o *PostV2GetCardsListResponse200CardsInnerCharacteristicsInner) SetId(v int64) {
 	o.Id = &v
 }
 

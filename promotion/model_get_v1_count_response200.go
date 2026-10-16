@@ -20,7 +20,7 @@ var _ MappedNullable = &GetV1CountResponse200{}
 // GetV1CountResponse200 struct for GetV1CountResponse200
 type GetV1CountResponse200 struct {
 	// Общее количество медиакампаний всех статусов и типов
-	All     *int32                               `json:"all,omitempty"`
+	All     *int64                               `json:"all,omitempty"`
 	Adverts NullableGetV1CountResponse200Adverts `json:"adverts,omitempty"`
 }
 
@@ -42,9 +42,9 @@ func NewGetV1CountResponse200WithDefaults() *GetV1CountResponse200 {
 }
 
 // GetAll returns the All field value if set, zero value otherwise.
-func (o *GetV1CountResponse200) GetAll() int32 {
+func (o *GetV1CountResponse200) GetAll() int64 {
 	if o == nil || IsNil(o.All) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.All
@@ -52,7 +52,7 @@ func (o *GetV1CountResponse200) GetAll() int32 {
 
 // GetAllOk returns a tuple with the All field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1CountResponse200) GetAllOk() (*int32, bool) {
+func (o *GetV1CountResponse200) GetAllOk() (*int64, bool) {
 	if o == nil || IsNil(o.All) {
 		return nil, false
 	}
@@ -68,8 +68,8 @@ func (o *GetV1CountResponse200) HasAll() bool {
 	return false
 }
 
-// SetAll gets a reference to the given int32 and assigns it to the All field.
-func (o *GetV1CountResponse200) SetAll(v int32) {
+// SetAll gets a reference to the given int64 and assigns it to the All field.
+func (o *GetV1CountResponse200) SetAll(v int64) {
 	o.All = &v
 }
 

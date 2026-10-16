@@ -22,9 +22,9 @@ var _ MappedNullable = &V0GetNormQueryBidsRequestItem{}
 // V0GetNormQueryBidsRequestItem struct for V0GetNormQueryBidsRequestItem
 type V0GetNormQueryBidsRequestItem struct {
 	// ID кампании
-	AdvertId int32 `json:"advert_id"`
+	AdvertId int64 `json:"advert_id"`
 	// Артикул WB
-	NmId int32 `json:"nm_id"`
+	NmId int64 `json:"nm_id"`
 }
 
 type _V0GetNormQueryBidsRequestItem V0GetNormQueryBidsRequestItem
@@ -33,7 +33,7 @@ type _V0GetNormQueryBidsRequestItem V0GetNormQueryBidsRequestItem
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV0GetNormQueryBidsRequestItem(advertId int32, nmId int32) *V0GetNormQueryBidsRequestItem {
+func NewV0GetNormQueryBidsRequestItem(advertId int64, nmId int64) *V0GetNormQueryBidsRequestItem {
 	this := V0GetNormQueryBidsRequestItem{}
 	this.AdvertId = advertId
 	this.NmId = nmId
@@ -49,9 +49,9 @@ func NewV0GetNormQueryBidsRequestItemWithDefaults() *V0GetNormQueryBidsRequestIt
 }
 
 // GetAdvertId returns the AdvertId field value
-func (o *V0GetNormQueryBidsRequestItem) GetAdvertId() int32 {
+func (o *V0GetNormQueryBidsRequestItem) GetAdvertId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -60,7 +60,7 @@ func (o *V0GetNormQueryBidsRequestItem) GetAdvertId() int32 {
 
 // GetAdvertIdOk returns a tuple with the AdvertId field value
 // and a boolean to check if the value has been set.
-func (o *V0GetNormQueryBidsRequestItem) GetAdvertIdOk() (*int32, bool) {
+func (o *V0GetNormQueryBidsRequestItem) GetAdvertIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,14 +68,14 @@ func (o *V0GetNormQueryBidsRequestItem) GetAdvertIdOk() (*int32, bool) {
 }
 
 // SetAdvertId sets field value
-func (o *V0GetNormQueryBidsRequestItem) SetAdvertId(v int32) {
+func (o *V0GetNormQueryBidsRequestItem) SetAdvertId(v int64) {
 	o.AdvertId = v
 }
 
 // GetNmId returns the NmId field value
-func (o *V0GetNormQueryBidsRequestItem) GetNmId() int32 {
+func (o *V0GetNormQueryBidsRequestItem) GetNmId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -84,7 +84,7 @@ func (o *V0GetNormQueryBidsRequestItem) GetNmId() int32 {
 
 // GetNmIdOk returns a tuple with the NmId field value
 // and a boolean to check if the value has been set.
-func (o *V0GetNormQueryBidsRequestItem) GetNmIdOk() (*int32, bool) {
+func (o *V0GetNormQueryBidsRequestItem) GetNmIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -92,7 +92,7 @@ func (o *V0GetNormQueryBidsRequestItem) GetNmIdOk() (*int32, bool) {
 }
 
 // SetNmId sets field value
-func (o *V0GetNormQueryBidsRequestItem) SetNmId(v int32) {
+func (o *V0GetNormQueryBidsRequestItem) SetNmId(v int64) {
 	o.NmId = v
 }
 

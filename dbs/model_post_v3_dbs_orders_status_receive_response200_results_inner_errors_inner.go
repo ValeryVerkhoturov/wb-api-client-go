@@ -20,7 +20,7 @@ var _ MappedNullable = &PostV3DbsOrdersStatusReceiveResponse200ResultsInnerError
 // PostV3DbsOrdersStatusReceiveResponse200ResultsInnerErrorsInner struct for PostV3DbsOrdersStatusReceiveResponse200ResultsInnerErrorsInner
 type PostV3DbsOrdersStatusReceiveResponse200ResultsInnerErrorsInner struct {
 	// Код ошибки
-	Code *int32 `json:"code,omitempty"`
+	Code *int64 `json:"code,omitempty"`
 	// - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `SGTINIsNotFilled` — обязательный [код маркировки](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin) не указан
 	Detail *string `json:"detail,omitempty"`
 }
@@ -43,9 +43,9 @@ func NewPostV3DbsOrdersStatusReceiveResponse200ResultsInnerErrorsInnerWithDefaul
 }
 
 // GetCode returns the Code field value if set, zero value otherwise.
-func (o *PostV3DbsOrdersStatusReceiveResponse200ResultsInnerErrorsInner) GetCode() int32 {
+func (o *PostV3DbsOrdersStatusReceiveResponse200ResultsInnerErrorsInner) GetCode() int64 {
 	if o == nil || IsNil(o.Code) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Code
@@ -53,7 +53,7 @@ func (o *PostV3DbsOrdersStatusReceiveResponse200ResultsInnerErrorsInner) GetCode
 
 // GetCodeOk returns a tuple with the Code field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV3DbsOrdersStatusReceiveResponse200ResultsInnerErrorsInner) GetCodeOk() (*int32, bool) {
+func (o *PostV3DbsOrdersStatusReceiveResponse200ResultsInnerErrorsInner) GetCodeOk() (*int64, bool) {
 	if o == nil || IsNil(o.Code) {
 		return nil, false
 	}
@@ -69,8 +69,8 @@ func (o *PostV3DbsOrdersStatusReceiveResponse200ResultsInnerErrorsInner) HasCode
 	return false
 }
 
-// SetCode gets a reference to the given int32 and assigns it to the Code field.
-func (o *PostV3DbsOrdersStatusReceiveResponse200ResultsInnerErrorsInner) SetCode(v int32) {
+// SetCode gets a reference to the given int64 and assigns it to the Code field.
+func (o *PostV3DbsOrdersStatusReceiveResponse200ResultsInnerErrorsInner) SetCode(v int64) {
 	o.Code = &v
 }
 

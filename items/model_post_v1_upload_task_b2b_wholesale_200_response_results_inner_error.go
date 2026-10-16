@@ -22,7 +22,7 @@ var _ MappedNullable = &PostV1UploadTaskB2bWholesale200ResponseResultsInnerError
 // PostV1UploadTaskB2bWholesale200ResponseResultsInnerError Ошибка. При `\"success\":false`
 type PostV1UploadTaskB2bWholesale200ResponseResultsInnerError struct {
 	// HTTP статус-код
-	Status int32 `json:"status"`
+	Status int64 `json:"status"`
 	// Заголовок ошибки
 	Title string `json:"title"`
 	// Детали ошибки
@@ -35,7 +35,7 @@ type _PostV1UploadTaskB2bWholesale200ResponseResultsInnerError PostV1UploadTaskB
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostV1UploadTaskB2bWholesale200ResponseResultsInnerError(status int32, title string, detail string) *PostV1UploadTaskB2bWholesale200ResponseResultsInnerError {
+func NewPostV1UploadTaskB2bWholesale200ResponseResultsInnerError(status int64, title string, detail string) *PostV1UploadTaskB2bWholesale200ResponseResultsInnerError {
 	this := PostV1UploadTaskB2bWholesale200ResponseResultsInnerError{}
 	this.Status = status
 	this.Title = title
@@ -52,9 +52,9 @@ func NewPostV1UploadTaskB2bWholesale200ResponseResultsInnerErrorWithDefaults() *
 }
 
 // GetStatus returns the Status field value
-func (o *PostV1UploadTaskB2bWholesale200ResponseResultsInnerError) GetStatus() int32 {
+func (o *PostV1UploadTaskB2bWholesale200ResponseResultsInnerError) GetStatus() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -63,7 +63,7 @@ func (o *PostV1UploadTaskB2bWholesale200ResponseResultsInnerError) GetStatus() i
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *PostV1UploadTaskB2bWholesale200ResponseResultsInnerError) GetStatusOk() (*int32, bool) {
+func (o *PostV1UploadTaskB2bWholesale200ResponseResultsInnerError) GetStatusOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -71,7 +71,7 @@ func (o *PostV1UploadTaskB2bWholesale200ResponseResultsInnerError) GetStatusOk()
 }
 
 // SetStatus sets field value
-func (o *PostV1UploadTaskB2bWholesale200ResponseResultsInnerError) SetStatus(v int32) {
+func (o *PostV1UploadTaskB2bWholesale200ResponseResultsInnerError) SetStatus(v int64) {
 	o.Status = v
 }
 

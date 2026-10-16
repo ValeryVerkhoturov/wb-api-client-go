@@ -20,11 +20,11 @@ var _ MappedNullable = &PostV2GetCardsListResponse200CardsInnerDimensions{}
 // PostV2GetCardsListResponse200CardsInnerDimensions Габариты и вес товара c упаковкой, см и кг
 type PostV2GetCardsListResponse200CardsInnerDimensions struct {
 	// Длина, см
-	Length *int32 `json:"length,omitempty"`
+	Length *int64 `json:"length,omitempty"`
 	// Ширина, см
-	Width *int32 `json:"width,omitempty"`
+	Width *int64 `json:"width,omitempty"`
 	// Высота, см
-	Height *int32 `json:"height,omitempty"`
+	Height *int64 `json:"height,omitempty"`
 	// Вес, кг Количество знаков после запятой <=3
 	WeightBrutto *float32 `json:"weightBrutto,omitempty"`
 	// Потенциальная некорректность габаритов товара:  - `true` — не выявлена. `\"isValid\":true` не гарантирует, что размеры указаны корректно. В отдельных случаях (например, при создании новой категории товаров) `\"isValid\":true` будет возвращаться при любых значениях, кроме нулевых.  - `false` — указанные габариты значительно отличаются от средних по категории (предмету). Рекомендуется перепроверить, правильно ли указаны размеры товара в упаковке в `сантиметрах`. Функциональность карточки товара, в том числе начисление логистики и хранения, при этом ограничена не будет. Логистика и хранение продолжают начисляться — по текущим габаритам. Также `\"isValid\":false` возвращается при отсутствии значений или нулевом значении любой стороны.
@@ -49,9 +49,9 @@ func NewPostV2GetCardsListResponse200CardsInnerDimensionsWithDefaults() *PostV2G
 }
 
 // GetLength returns the Length field value if set, zero value otherwise.
-func (o *PostV2GetCardsListResponse200CardsInnerDimensions) GetLength() int32 {
+func (o *PostV2GetCardsListResponse200CardsInnerDimensions) GetLength() int64 {
 	if o == nil || IsNil(o.Length) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Length
@@ -59,7 +59,7 @@ func (o *PostV2GetCardsListResponse200CardsInnerDimensions) GetLength() int32 {
 
 // GetLengthOk returns a tuple with the Length field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2GetCardsListResponse200CardsInnerDimensions) GetLengthOk() (*int32, bool) {
+func (o *PostV2GetCardsListResponse200CardsInnerDimensions) GetLengthOk() (*int64, bool) {
 	if o == nil || IsNil(o.Length) {
 		return nil, false
 	}
@@ -75,15 +75,15 @@ func (o *PostV2GetCardsListResponse200CardsInnerDimensions) HasLength() bool {
 	return false
 }
 
-// SetLength gets a reference to the given int32 and assigns it to the Length field.
-func (o *PostV2GetCardsListResponse200CardsInnerDimensions) SetLength(v int32) {
+// SetLength gets a reference to the given int64 and assigns it to the Length field.
+func (o *PostV2GetCardsListResponse200CardsInnerDimensions) SetLength(v int64) {
 	o.Length = &v
 }
 
 // GetWidth returns the Width field value if set, zero value otherwise.
-func (o *PostV2GetCardsListResponse200CardsInnerDimensions) GetWidth() int32 {
+func (o *PostV2GetCardsListResponse200CardsInnerDimensions) GetWidth() int64 {
 	if o == nil || IsNil(o.Width) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Width
@@ -91,7 +91,7 @@ func (o *PostV2GetCardsListResponse200CardsInnerDimensions) GetWidth() int32 {
 
 // GetWidthOk returns a tuple with the Width field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2GetCardsListResponse200CardsInnerDimensions) GetWidthOk() (*int32, bool) {
+func (o *PostV2GetCardsListResponse200CardsInnerDimensions) GetWidthOk() (*int64, bool) {
 	if o == nil || IsNil(o.Width) {
 		return nil, false
 	}
@@ -107,15 +107,15 @@ func (o *PostV2GetCardsListResponse200CardsInnerDimensions) HasWidth() bool {
 	return false
 }
 
-// SetWidth gets a reference to the given int32 and assigns it to the Width field.
-func (o *PostV2GetCardsListResponse200CardsInnerDimensions) SetWidth(v int32) {
+// SetWidth gets a reference to the given int64 and assigns it to the Width field.
+func (o *PostV2GetCardsListResponse200CardsInnerDimensions) SetWidth(v int64) {
 	o.Width = &v
 }
 
 // GetHeight returns the Height field value if set, zero value otherwise.
-func (o *PostV2GetCardsListResponse200CardsInnerDimensions) GetHeight() int32 {
+func (o *PostV2GetCardsListResponse200CardsInnerDimensions) GetHeight() int64 {
 	if o == nil || IsNil(o.Height) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Height
@@ -123,7 +123,7 @@ func (o *PostV2GetCardsListResponse200CardsInnerDimensions) GetHeight() int32 {
 
 // GetHeightOk returns a tuple with the Height field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2GetCardsListResponse200CardsInnerDimensions) GetHeightOk() (*int32, bool) {
+func (o *PostV2GetCardsListResponse200CardsInnerDimensions) GetHeightOk() (*int64, bool) {
 	if o == nil || IsNil(o.Height) {
 		return nil, false
 	}
@@ -139,8 +139,8 @@ func (o *PostV2GetCardsListResponse200CardsInnerDimensions) HasHeight() bool {
 	return false
 }
 
-// SetHeight gets a reference to the given int32 and assigns it to the Height field.
-func (o *PostV2GetCardsListResponse200CardsInnerDimensions) SetHeight(v int32) {
+// SetHeight gets a reference to the given int64 and assigns it to the Height field.
+func (o *PostV2GetCardsListResponse200CardsInnerDimensions) SetHeight(v int64) {
 	o.Height = &v
 }
 

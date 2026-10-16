@@ -22,11 +22,11 @@ type ModelsSupplyDetails struct {
 	// Телефон пользователя, создавшего поставку
 	Phone *string `json:"phone,omitempty"`
 	// ID статуса поставки:   - `1` — Не запланировано   - `2` — Запланировано   - `3` — Отгрузка разрешена   - `4` — Идёт приёмка   - `5` — Принято   - `6` — Отгружено на воротах
-	StatusID *int32 `json:"statusID,omitempty"`
+	StatusID *int64 `json:"statusID,omitempty"`
 	// ID типа виртуальной поставки. Отображается только для поставок с `\"boxTypeID\":0`.   - `0` — Перенос остатков   - `1` — Обезличка   - `4` — QR-поставка   - `5` — Допринято   - `6` — Скан-приёмка
-	VirtualTypeID *int32 `json:"virtualTypeID,omitempty"`
+	VirtualTypeID *int64 `json:"virtualTypeID,omitempty"`
 	// ID типа поставки:   - `0` — Без коробов (виртуальная поставка)   - `1` и `2` — Короба   - `5` — Монопаллеты   - `6` — Суперсейф
-	BoxTypeID *int32 `json:"boxTypeID,omitempty"`
+	BoxTypeID *int64 `json:"boxTypeID,omitempty"`
 	// Дата и время создания поставки
 	CreateDate *string `json:"createDate,omitempty"`
 	// Плановая дата отгрузки поставки
@@ -36,15 +36,15 @@ type ModelsSupplyDetails struct {
 	// Дата изменения поставки
 	UpdatedDate NullableString `json:"updatedDate,omitempty"`
 	// ID склада, на который планируется поставка
-	WarehouseID *int32 `json:"warehouseID,omitempty"`
+	WarehouseID *int64 `json:"warehouseID,omitempty"`
 	// Название склада, на который планируется поставка
 	WarehouseName *string `json:"warehouseName,omitempty"`
 	// ID склада, на который поставка была привезена
-	ActualWarehouseID NullableInt32 `json:"actualWarehouseID,omitempty"`
+	ActualWarehouseID NullableInt64 `json:"actualWarehouseID,omitempty"`
 	// Название склада, на который поставка привезена
 	ActualWarehouseName *string `json:"actualWarehouseName,omitempty"`
 	// ID транзитного склада
-	TransitWarehouseID NullableInt32 `json:"transitWarehouseID,omitempty"`
+	TransitWarehouseID NullableInt64 `json:"transitWarehouseID,omitempty"`
 	// Название транзитного склада
 	TransitWarehouseName *string `json:"transitWarehouseName,omitempty"`
 	// Предварительная стоимость приёмки, ₽
@@ -60,17 +60,17 @@ type ModelsSupplyDetails struct {
 	// Коэффициент логистики
 	DeliveryCoef NullableString `json:"deliveryCoef,omitempty"`
 	// Добавлено в поставку/заказ, шт
-	Quantity *int32 `json:"quantity,omitempty"`
+	Quantity *int64 `json:"quantity,omitempty"`
 	// Поступило в продажу, шт
-	ReadyForSaleQuantity *int32 `json:"readyForSaleQuantity,omitempty"`
+	ReadyForSaleQuantity *int64 `json:"readyForSaleQuantity,omitempty"`
 	// Принято, шт
-	AcceptedQuantity *int32 `json:"acceptedQuantity,omitempty"`
+	AcceptedQuantity *int64 `json:"acceptedQuantity,omitempty"`
 	// Количество товара, находящегося на раскладке, шт
-	UnloadingQuantity *int32 `json:"unloadingQuantity,omitempty"`
+	UnloadingQuantity *int64 `json:"unloadingQuantity,omitempty"`
 	// Количество обезличенного товара, шт
-	DepersonalizedQuantity NullableInt32 `json:"depersonalizedQuantity,omitempty"`
+	DepersonalizedQuantity NullableInt64 `json:"depersonalizedQuantity,omitempty"`
 	// Расхождения между заявленным и фактическим количеством товара в поставке.  Только при `\"statusID\":5`
-	Discrepancies *int32 `json:"discrepancies,omitempty"`
+	Discrepancies *int64 `json:"discrepancies,omitempty"`
 	// Тип поставки — **Поштучная палета**:   - `true` — да   - `false` — нет    Поле возвращается только при `\"boxTypeID\": 2`
 	IsBoxOnPallet *bool `json:"isBoxOnPallet,omitempty"`
 }
@@ -125,9 +125,9 @@ func (o *ModelsSupplyDetails) SetPhone(v string) {
 }
 
 // GetStatusID returns the StatusID field value if set, zero value otherwise.
-func (o *ModelsSupplyDetails) GetStatusID() int32 {
+func (o *ModelsSupplyDetails) GetStatusID() int64 {
 	if o == nil || IsNil(o.StatusID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.StatusID
@@ -135,7 +135,7 @@ func (o *ModelsSupplyDetails) GetStatusID() int32 {
 
 // GetStatusIDOk returns a tuple with the StatusID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsSupplyDetails) GetStatusIDOk() (*int32, bool) {
+func (o *ModelsSupplyDetails) GetStatusIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.StatusID) {
 		return nil, false
 	}
@@ -151,15 +151,15 @@ func (o *ModelsSupplyDetails) HasStatusID() bool {
 	return false
 }
 
-// SetStatusID gets a reference to the given int32 and assigns it to the StatusID field.
-func (o *ModelsSupplyDetails) SetStatusID(v int32) {
+// SetStatusID gets a reference to the given int64 and assigns it to the StatusID field.
+func (o *ModelsSupplyDetails) SetStatusID(v int64) {
 	o.StatusID = &v
 }
 
 // GetVirtualTypeID returns the VirtualTypeID field value if set, zero value otherwise.
-func (o *ModelsSupplyDetails) GetVirtualTypeID() int32 {
+func (o *ModelsSupplyDetails) GetVirtualTypeID() int64 {
 	if o == nil || IsNil(o.VirtualTypeID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.VirtualTypeID
@@ -167,7 +167,7 @@ func (o *ModelsSupplyDetails) GetVirtualTypeID() int32 {
 
 // GetVirtualTypeIDOk returns a tuple with the VirtualTypeID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsSupplyDetails) GetVirtualTypeIDOk() (*int32, bool) {
+func (o *ModelsSupplyDetails) GetVirtualTypeIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.VirtualTypeID) {
 		return nil, false
 	}
@@ -183,15 +183,15 @@ func (o *ModelsSupplyDetails) HasVirtualTypeID() bool {
 	return false
 }
 
-// SetVirtualTypeID gets a reference to the given int32 and assigns it to the VirtualTypeID field.
-func (o *ModelsSupplyDetails) SetVirtualTypeID(v int32) {
+// SetVirtualTypeID gets a reference to the given int64 and assigns it to the VirtualTypeID field.
+func (o *ModelsSupplyDetails) SetVirtualTypeID(v int64) {
 	o.VirtualTypeID = &v
 }
 
 // GetBoxTypeID returns the BoxTypeID field value if set, zero value otherwise.
-func (o *ModelsSupplyDetails) GetBoxTypeID() int32 {
+func (o *ModelsSupplyDetails) GetBoxTypeID() int64 {
 	if o == nil || IsNil(o.BoxTypeID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.BoxTypeID
@@ -199,7 +199,7 @@ func (o *ModelsSupplyDetails) GetBoxTypeID() int32 {
 
 // GetBoxTypeIDOk returns a tuple with the BoxTypeID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsSupplyDetails) GetBoxTypeIDOk() (*int32, bool) {
+func (o *ModelsSupplyDetails) GetBoxTypeIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.BoxTypeID) {
 		return nil, false
 	}
@@ -215,8 +215,8 @@ func (o *ModelsSupplyDetails) HasBoxTypeID() bool {
 	return false
 }
 
-// SetBoxTypeID gets a reference to the given int32 and assigns it to the BoxTypeID field.
-func (o *ModelsSupplyDetails) SetBoxTypeID(v int32) {
+// SetBoxTypeID gets a reference to the given int64 and assigns it to the BoxTypeID field.
+func (o *ModelsSupplyDetails) SetBoxTypeID(v int64) {
 	o.BoxTypeID = &v
 }
 
@@ -382,9 +382,9 @@ func (o *ModelsSupplyDetails) UnsetUpdatedDate() {
 }
 
 // GetWarehouseID returns the WarehouseID field value if set, zero value otherwise.
-func (o *ModelsSupplyDetails) GetWarehouseID() int32 {
+func (o *ModelsSupplyDetails) GetWarehouseID() int64 {
 	if o == nil || IsNil(o.WarehouseID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.WarehouseID
@@ -392,7 +392,7 @@ func (o *ModelsSupplyDetails) GetWarehouseID() int32 {
 
 // GetWarehouseIDOk returns a tuple with the WarehouseID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsSupplyDetails) GetWarehouseIDOk() (*int32, bool) {
+func (o *ModelsSupplyDetails) GetWarehouseIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.WarehouseID) {
 		return nil, false
 	}
@@ -408,8 +408,8 @@ func (o *ModelsSupplyDetails) HasWarehouseID() bool {
 	return false
 }
 
-// SetWarehouseID gets a reference to the given int32 and assigns it to the WarehouseID field.
-func (o *ModelsSupplyDetails) SetWarehouseID(v int32) {
+// SetWarehouseID gets a reference to the given int64 and assigns it to the WarehouseID field.
+func (o *ModelsSupplyDetails) SetWarehouseID(v int64) {
 	o.WarehouseID = &v
 }
 
@@ -446,9 +446,9 @@ func (o *ModelsSupplyDetails) SetWarehouseName(v string) {
 }
 
 // GetActualWarehouseID returns the ActualWarehouseID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ModelsSupplyDetails) GetActualWarehouseID() int32 {
+func (o *ModelsSupplyDetails) GetActualWarehouseID() int64 {
 	if o == nil || IsNil(o.ActualWarehouseID.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ActualWarehouseID.Get()
@@ -457,7 +457,7 @@ func (o *ModelsSupplyDetails) GetActualWarehouseID() int32 {
 // GetActualWarehouseIDOk returns a tuple with the ActualWarehouseID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelsSupplyDetails) GetActualWarehouseIDOk() (*int32, bool) {
+func (o *ModelsSupplyDetails) GetActualWarehouseIDOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -473,8 +473,8 @@ func (o *ModelsSupplyDetails) HasActualWarehouseID() bool {
 	return false
 }
 
-// SetActualWarehouseID gets a reference to the given NullableInt32 and assigns it to the ActualWarehouseID field.
-func (o *ModelsSupplyDetails) SetActualWarehouseID(v int32) {
+// SetActualWarehouseID gets a reference to the given NullableInt64 and assigns it to the ActualWarehouseID field.
+func (o *ModelsSupplyDetails) SetActualWarehouseID(v int64) {
 	o.ActualWarehouseID.Set(&v)
 }
 
@@ -521,9 +521,9 @@ func (o *ModelsSupplyDetails) SetActualWarehouseName(v string) {
 }
 
 // GetTransitWarehouseID returns the TransitWarehouseID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ModelsSupplyDetails) GetTransitWarehouseID() int32 {
+func (o *ModelsSupplyDetails) GetTransitWarehouseID() int64 {
 	if o == nil || IsNil(o.TransitWarehouseID.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.TransitWarehouseID.Get()
@@ -532,7 +532,7 @@ func (o *ModelsSupplyDetails) GetTransitWarehouseID() int32 {
 // GetTransitWarehouseIDOk returns a tuple with the TransitWarehouseID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelsSupplyDetails) GetTransitWarehouseIDOk() (*int32, bool) {
+func (o *ModelsSupplyDetails) GetTransitWarehouseIDOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -548,8 +548,8 @@ func (o *ModelsSupplyDetails) HasTransitWarehouseID() bool {
 	return false
 }
 
-// SetTransitWarehouseID gets a reference to the given NullableInt32 and assigns it to the TransitWarehouseID field.
-func (o *ModelsSupplyDetails) SetTransitWarehouseID(v int32) {
+// SetTransitWarehouseID gets a reference to the given NullableInt64 and assigns it to the TransitWarehouseID field.
+func (o *ModelsSupplyDetails) SetTransitWarehouseID(v int64) {
 	o.TransitWarehouseID.Set(&v)
 }
 
@@ -854,9 +854,9 @@ func (o *ModelsSupplyDetails) UnsetDeliveryCoef() {
 }
 
 // GetQuantity returns the Quantity field value if set, zero value otherwise.
-func (o *ModelsSupplyDetails) GetQuantity() int32 {
+func (o *ModelsSupplyDetails) GetQuantity() int64 {
 	if o == nil || IsNil(o.Quantity) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Quantity
@@ -864,7 +864,7 @@ func (o *ModelsSupplyDetails) GetQuantity() int32 {
 
 // GetQuantityOk returns a tuple with the Quantity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsSupplyDetails) GetQuantityOk() (*int32, bool) {
+func (o *ModelsSupplyDetails) GetQuantityOk() (*int64, bool) {
 	if o == nil || IsNil(o.Quantity) {
 		return nil, false
 	}
@@ -880,15 +880,15 @@ func (o *ModelsSupplyDetails) HasQuantity() bool {
 	return false
 }
 
-// SetQuantity gets a reference to the given int32 and assigns it to the Quantity field.
-func (o *ModelsSupplyDetails) SetQuantity(v int32) {
+// SetQuantity gets a reference to the given int64 and assigns it to the Quantity field.
+func (o *ModelsSupplyDetails) SetQuantity(v int64) {
 	o.Quantity = &v
 }
 
 // GetReadyForSaleQuantity returns the ReadyForSaleQuantity field value if set, zero value otherwise.
-func (o *ModelsSupplyDetails) GetReadyForSaleQuantity() int32 {
+func (o *ModelsSupplyDetails) GetReadyForSaleQuantity() int64 {
 	if o == nil || IsNil(o.ReadyForSaleQuantity) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ReadyForSaleQuantity
@@ -896,7 +896,7 @@ func (o *ModelsSupplyDetails) GetReadyForSaleQuantity() int32 {
 
 // GetReadyForSaleQuantityOk returns a tuple with the ReadyForSaleQuantity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsSupplyDetails) GetReadyForSaleQuantityOk() (*int32, bool) {
+func (o *ModelsSupplyDetails) GetReadyForSaleQuantityOk() (*int64, bool) {
 	if o == nil || IsNil(o.ReadyForSaleQuantity) {
 		return nil, false
 	}
@@ -912,15 +912,15 @@ func (o *ModelsSupplyDetails) HasReadyForSaleQuantity() bool {
 	return false
 }
 
-// SetReadyForSaleQuantity gets a reference to the given int32 and assigns it to the ReadyForSaleQuantity field.
-func (o *ModelsSupplyDetails) SetReadyForSaleQuantity(v int32) {
+// SetReadyForSaleQuantity gets a reference to the given int64 and assigns it to the ReadyForSaleQuantity field.
+func (o *ModelsSupplyDetails) SetReadyForSaleQuantity(v int64) {
 	o.ReadyForSaleQuantity = &v
 }
 
 // GetAcceptedQuantity returns the AcceptedQuantity field value if set, zero value otherwise.
-func (o *ModelsSupplyDetails) GetAcceptedQuantity() int32 {
+func (o *ModelsSupplyDetails) GetAcceptedQuantity() int64 {
 	if o == nil || IsNil(o.AcceptedQuantity) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.AcceptedQuantity
@@ -928,7 +928,7 @@ func (o *ModelsSupplyDetails) GetAcceptedQuantity() int32 {
 
 // GetAcceptedQuantityOk returns a tuple with the AcceptedQuantity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsSupplyDetails) GetAcceptedQuantityOk() (*int32, bool) {
+func (o *ModelsSupplyDetails) GetAcceptedQuantityOk() (*int64, bool) {
 	if o == nil || IsNil(o.AcceptedQuantity) {
 		return nil, false
 	}
@@ -944,15 +944,15 @@ func (o *ModelsSupplyDetails) HasAcceptedQuantity() bool {
 	return false
 }
 
-// SetAcceptedQuantity gets a reference to the given int32 and assigns it to the AcceptedQuantity field.
-func (o *ModelsSupplyDetails) SetAcceptedQuantity(v int32) {
+// SetAcceptedQuantity gets a reference to the given int64 and assigns it to the AcceptedQuantity field.
+func (o *ModelsSupplyDetails) SetAcceptedQuantity(v int64) {
 	o.AcceptedQuantity = &v
 }
 
 // GetUnloadingQuantity returns the UnloadingQuantity field value if set, zero value otherwise.
-func (o *ModelsSupplyDetails) GetUnloadingQuantity() int32 {
+func (o *ModelsSupplyDetails) GetUnloadingQuantity() int64 {
 	if o == nil || IsNil(o.UnloadingQuantity) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.UnloadingQuantity
@@ -960,7 +960,7 @@ func (o *ModelsSupplyDetails) GetUnloadingQuantity() int32 {
 
 // GetUnloadingQuantityOk returns a tuple with the UnloadingQuantity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsSupplyDetails) GetUnloadingQuantityOk() (*int32, bool) {
+func (o *ModelsSupplyDetails) GetUnloadingQuantityOk() (*int64, bool) {
 	if o == nil || IsNil(o.UnloadingQuantity) {
 		return nil, false
 	}
@@ -976,15 +976,15 @@ func (o *ModelsSupplyDetails) HasUnloadingQuantity() bool {
 	return false
 }
 
-// SetUnloadingQuantity gets a reference to the given int32 and assigns it to the UnloadingQuantity field.
-func (o *ModelsSupplyDetails) SetUnloadingQuantity(v int32) {
+// SetUnloadingQuantity gets a reference to the given int64 and assigns it to the UnloadingQuantity field.
+func (o *ModelsSupplyDetails) SetUnloadingQuantity(v int64) {
 	o.UnloadingQuantity = &v
 }
 
 // GetDepersonalizedQuantity returns the DepersonalizedQuantity field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ModelsSupplyDetails) GetDepersonalizedQuantity() int32 {
+func (o *ModelsSupplyDetails) GetDepersonalizedQuantity() int64 {
 	if o == nil || IsNil(o.DepersonalizedQuantity.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.DepersonalizedQuantity.Get()
@@ -993,7 +993,7 @@ func (o *ModelsSupplyDetails) GetDepersonalizedQuantity() int32 {
 // GetDepersonalizedQuantityOk returns a tuple with the DepersonalizedQuantity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelsSupplyDetails) GetDepersonalizedQuantityOk() (*int32, bool) {
+func (o *ModelsSupplyDetails) GetDepersonalizedQuantityOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1009,8 +1009,8 @@ func (o *ModelsSupplyDetails) HasDepersonalizedQuantity() bool {
 	return false
 }
 
-// SetDepersonalizedQuantity gets a reference to the given NullableInt32 and assigns it to the DepersonalizedQuantity field.
-func (o *ModelsSupplyDetails) SetDepersonalizedQuantity(v int32) {
+// SetDepersonalizedQuantity gets a reference to the given NullableInt64 and assigns it to the DepersonalizedQuantity field.
+func (o *ModelsSupplyDetails) SetDepersonalizedQuantity(v int64) {
 	o.DepersonalizedQuantity.Set(&v)
 }
 
@@ -1025,9 +1025,9 @@ func (o *ModelsSupplyDetails) UnsetDepersonalizedQuantity() {
 }
 
 // GetDiscrepancies returns the Discrepancies field value if set, zero value otherwise.
-func (o *ModelsSupplyDetails) GetDiscrepancies() int32 {
+func (o *ModelsSupplyDetails) GetDiscrepancies() int64 {
 	if o == nil || IsNil(o.Discrepancies) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Discrepancies
@@ -1035,7 +1035,7 @@ func (o *ModelsSupplyDetails) GetDiscrepancies() int32 {
 
 // GetDiscrepanciesOk returns a tuple with the Discrepancies field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsSupplyDetails) GetDiscrepanciesOk() (*int32, bool) {
+func (o *ModelsSupplyDetails) GetDiscrepanciesOk() (*int64, bool) {
 	if o == nil || IsNil(o.Discrepancies) {
 		return nil, false
 	}
@@ -1051,8 +1051,8 @@ func (o *ModelsSupplyDetails) HasDiscrepancies() bool {
 	return false
 }
 
-// SetDiscrepancies gets a reference to the given int32 and assigns it to the Discrepancies field.
-func (o *ModelsSupplyDetails) SetDiscrepancies(v int32) {
+// SetDiscrepancies gets a reference to the given int64 and assigns it to the Discrepancies field.
+func (o *ModelsSupplyDetails) SetDiscrepancies(v int64) {
 	o.Discrepancies = &v
 }
 

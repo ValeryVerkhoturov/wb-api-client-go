@@ -20,7 +20,7 @@ var _ MappedNullable = &PostV3WarehousesResponse201{}
 // PostV3WarehousesResponse201 struct for PostV3WarehousesResponse201
 type PostV3WarehousesResponse201 struct {
 	// ID склада продавца
-	Id *int32 `json:"id,omitempty"`
+	Id *int64 `json:"id,omitempty"`
 }
 
 // NewPostV3WarehousesResponse201 instantiates a new PostV3WarehousesResponse201 object
@@ -41,9 +41,9 @@ func NewPostV3WarehousesResponse201WithDefaults() *PostV3WarehousesResponse201 {
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *PostV3WarehousesResponse201) GetId() int32 {
+func (o *PostV3WarehousesResponse201) GetId() int64 {
 	if o == nil || IsNil(o.Id) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Id
@@ -51,7 +51,7 @@ func (o *PostV3WarehousesResponse201) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV3WarehousesResponse201) GetIdOk() (*int32, bool) {
+func (o *PostV3WarehousesResponse201) GetIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -67,8 +67,8 @@ func (o *PostV3WarehousesResponse201) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *PostV3WarehousesResponse201) SetId(v int32) {
+// SetId gets a reference to the given int64 and assigns it to the Id field.
+func (o *PostV3WarehousesResponse201) SetId(v int64) {
 	o.Id = &v
 }
 

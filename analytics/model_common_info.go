@@ -22,7 +22,7 @@ type CommonInfo struct {
 	SupplierRating     *CommonInfoSupplierRating     `json:"supplierRating,omitempty"`
 	AdvertisedProducts *CommonInfoAdvertisedProducts `json:"advertisedProducts,omitempty"`
 	// Общее количество товаров
-	TotalProducts *int32 `json:"totalProducts,omitempty"`
+	TotalProducts *int64 `json:"totalProducts,omitempty"`
 }
 
 // NewCommonInfo instantiates a new CommonInfo object
@@ -107,9 +107,9 @@ func (o *CommonInfo) SetAdvertisedProducts(v CommonInfoAdvertisedProducts) {
 }
 
 // GetTotalProducts returns the TotalProducts field value if set, zero value otherwise.
-func (o *CommonInfo) GetTotalProducts() int32 {
+func (o *CommonInfo) GetTotalProducts() int64 {
 	if o == nil || IsNil(o.TotalProducts) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.TotalProducts
@@ -117,7 +117,7 @@ func (o *CommonInfo) GetTotalProducts() int32 {
 
 // GetTotalProductsOk returns a tuple with the TotalProducts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CommonInfo) GetTotalProductsOk() (*int32, bool) {
+func (o *CommonInfo) GetTotalProductsOk() (*int64, bool) {
 	if o == nil || IsNil(o.TotalProducts) {
 		return nil, false
 	}
@@ -133,8 +133,8 @@ func (o *CommonInfo) HasTotalProducts() bool {
 	return false
 }
 
-// SetTotalProducts gets a reference to the given int32 and assigns it to the TotalProducts field.
-func (o *CommonInfo) SetTotalProducts(v int32) {
+// SetTotalProducts gets a reference to the given int64 and assigns it to the TotalProducts field.
+func (o *CommonInfo) SetTotalProducts(v int64) {
 	o.TotalProducts = &v
 }
 

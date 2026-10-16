@@ -1006,8 +1006,8 @@ type PromotionAPI interface {
 	PostV2SeacatSaveAd(ctx context.Context) ApiPostV2SeacatSaveAdRequest
 
 	// PostV2SeacatSaveAdExecute executes the request
-	//  @return int32
-	PostV2SeacatSaveAdExecute(r ApiPostV2SeacatSaveAdRequest) (int32, *http.Response, error)
+	//  @return int64
+	PostV2SeacatSaveAdExecute(r ApiPostV2SeacatSaveAdRequest) (int64, *http.Response, error)
 
 	/*
 			PostV2SupplierNms Карточки товаров для кампаний
@@ -1588,11 +1588,11 @@ func (a *PromotionAPIService) GetV0DailyLimitsExecute(r ApiGetV0DailyLimitsReque
 type ApiGetV0DeleteRequest struct {
 	ctx        context.Context
 	ApiService PromotionAPI
-	id         *int32
+	id         *int64
 }
 
 // ID кампании
-func (r ApiGetV0DeleteRequest) Id(id int32) ApiGetV0DeleteRequest {
+func (r ApiGetV0DeleteRequest) Id(id int64) ApiGetV0DeleteRequest {
 	r.id = &id
 	return r
 }
@@ -1742,11 +1742,11 @@ func (a *PromotionAPIService) GetV0DeleteExecute(r ApiGetV0DeleteRequest) (*http
 type ApiGetV0PauseRequest struct {
 	ctx        context.Context
 	ApiService PromotionAPI
-	id         *int32
+	id         *int64
 }
 
 // ID кампании
-func (r ApiGetV0PauseRequest) Id(id int32) ApiGetV0PauseRequest {
+func (r ApiGetV0PauseRequest) Id(id int64) ApiGetV0PauseRequest {
 	r.id = &id
 	return r
 }
@@ -1905,11 +1905,11 @@ func (a *PromotionAPIService) GetV0PauseExecute(r ApiGetV0PauseRequest) (*http.R
 type ApiGetV0StartRequest struct {
 	ctx        context.Context
 	ApiService PromotionAPI
-	id         *int32
+	id         *int64
 }
 
 // ID кампании
-func (r ApiGetV0StartRequest) Id(id int32) ApiGetV0StartRequest {
+func (r ApiGetV0StartRequest) Id(id int64) ApiGetV0StartRequest {
 	r.id = &id
 	return r
 }
@@ -2069,11 +2069,11 @@ func (a *PromotionAPIService) GetV0StartExecute(r ApiGetV0StartRequest) (*http.R
 type ApiGetV0StopRequest struct {
 	ctx        context.Context
 	ApiService PromotionAPI
-	id         *int32
+	id         *int64
 }
 
 // ID кампании
-func (r ApiGetV0StopRequest) Id(id int32) ApiGetV0StopRequest {
+func (r ApiGetV0StopRequest) Id(id int64) ApiGetV0StopRequest {
 	r.id = &id
 	return r
 }
@@ -2234,11 +2234,11 @@ func (a *PromotionAPIService) GetV0StopExecute(r ApiGetV0StopRequest) (*http.Res
 type ApiGetV1AdvertRequest struct {
 	ctx        context.Context
 	ApiService PromotionAPI
-	id         *int32
+	id         *int64
 }
 
 // ID медиакампании
-func (r ApiGetV1AdvertRequest) Id(id int32) ApiGetV1AdvertRequest {
+func (r ApiGetV1AdvertRequest) Id(id int64) ApiGetV1AdvertRequest {
 	r.id = &id
 	return r
 }
@@ -2399,9 +2399,9 @@ type ApiGetV1AdvertsRequest struct {
 	ctx        context.Context
 	ApiService PromotionAPI
 	status     *string
-	type_      *int32
-	limit      *int32
-	offset     *int32
+	type_      *int64
+	limit      *int64
+	offset     *int64
 	order      *string
 	direction  *string
 }
@@ -2413,19 +2413,19 @@ func (r ApiGetV1AdvertsRequest) Status(status string) ApiGetV1AdvertsRequest {
 }
 
 // Тип медиакампании: - &#x60;1&#x60; — размещение по дням - &#x60;2&#x60; — размещение по просмотрам
-func (r ApiGetV1AdvertsRequest) Type_(type_ int32) ApiGetV1AdvertsRequest {
+func (r ApiGetV1AdvertsRequest) Type_(type_ int64) ApiGetV1AdvertsRequest {
 	r.type_ = &type_
 	return r
 }
 
 // Количество кампаний в ответе
-func (r ApiGetV1AdvertsRequest) Limit(limit int32) ApiGetV1AdvertsRequest {
+func (r ApiGetV1AdvertsRequest) Limit(limit int64) ApiGetV1AdvertsRequest {
 	r.limit = &limit
 	return r
 }
 
 // Смещение относительно первой медиакампании
-func (r ApiGetV1AdvertsRequest) Offset(offset int32) ApiGetV1AdvertsRequest {
+func (r ApiGetV1AdvertsRequest) Offset(offset int64) ApiGetV1AdvertsRequest {
 	r.offset = &offset
 	return r
 }
@@ -2757,11 +2757,11 @@ func (a *PromotionAPIService) GetV1BalanceExecute(r ApiGetV1BalanceRequest) (*Ge
 type ApiGetV1BudgetRequest struct {
 	ctx        context.Context
 	ApiService PromotionAPI
-	id         *int32
+	id         *int64
 }
 
 // ID кампании
-func (r ApiGetV1BudgetRequest) Id(id int32) ApiGetV1BudgetRequest {
+func (r ApiGetV1BudgetRequest) Id(id int64) ApiGetV1BudgetRequest {
 	r.id = &id
 	return r
 }
@@ -3142,11 +3142,11 @@ func (a *PromotionAPIService) GetV1CalendarPromotionsExecute(r ApiGetV1CalendarP
 type ApiGetV1CalendarPromotionsDetailsRequest struct {
 	ctx          context.Context
 	ApiService   PromotionAPI
-	promotionIDs *[]int32
+	promotionIDs *[]int64
 }
 
 // ID акций, по которым нужно вернуть информацию
-func (r ApiGetV1CalendarPromotionsDetailsRequest) PromotionIDs(promotionIDs []int32) ApiGetV1CalendarPromotionsDetailsRequest {
+func (r ApiGetV1CalendarPromotionsDetailsRequest) PromotionIDs(promotionIDs []int64) ApiGetV1CalendarPromotionsDetailsRequest {
 	r.promotionIDs = &promotionIDs
 	return r
 }
@@ -3333,14 +3333,14 @@ func (a *PromotionAPIService) GetV1CalendarPromotionsDetailsExecute(r ApiGetV1Ca
 type ApiGetV1CalendarPromotionsNomenclaturesRequest struct {
 	ctx         context.Context
 	ApiService  PromotionAPI
-	promotionID *int32
+	promotionID *int64
 	inAction    *bool
 	limit       *int32
 	offset      *int32
 }
 
 // ID акции
-func (r ApiGetV1CalendarPromotionsNomenclaturesRequest) PromotionID(promotionID int32) ApiGetV1CalendarPromotionsNomenclaturesRequest {
+func (r ApiGetV1CalendarPromotionsNomenclaturesRequest) PromotionID(promotionID int64) ApiGetV1CalendarPromotionsNomenclaturesRequest {
 	r.promotionID = &promotionID
 	return r
 }
@@ -6488,12 +6488,12 @@ func (a *PromotionAPIService) PostV1BidsMinExecute(r ApiPostV1BidsMinRequest) (*
 type ApiPostV1BudgetDepositRequest struct {
 	ctx                        context.Context
 	ApiService                 PromotionAPI
-	id                         *int32
+	id                         *int64
 	postV1BudgetDepositRequest *PostV1BudgetDepositRequest
 }
 
 // ID кампании
-func (r ApiPostV1BudgetDepositRequest) Id(id int32) ApiPostV1BudgetDepositRequest {
+func (r ApiPostV1BudgetDepositRequest) Id(id int64) ApiPostV1BudgetDepositRequest {
 	r.id = &id
 	return r
 }
@@ -7531,7 +7531,7 @@ func (r ApiPostV2SeacatSaveAdRequest) PostV2SeacatSaveAdRequest(postV2SeacatSave
 	return r
 }
 
-func (r ApiPostV2SeacatSaveAdRequest) Execute() (int32, *http.Response, error) {
+func (r ApiPostV2SeacatSaveAdRequest) Execute() (int64, *http.Response, error) {
 	return r.ApiService.PostV2SeacatSaveAdExecute(r)
 }
 
@@ -7564,13 +7564,13 @@ func (a *PromotionAPIService) PostV2SeacatSaveAd(ctx context.Context) ApiPostV2S
 
 // Execute executes the request
 //
-//	@return int32
-func (a *PromotionAPIService) PostV2SeacatSaveAdExecute(r ApiPostV2SeacatSaveAdRequest) (int32, *http.Response, error) {
+//	@return int64
+func (a *PromotionAPIService) PostV2SeacatSaveAdExecute(r ApiPostV2SeacatSaveAdRequest) (int64, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
 		formFiles           []formFile
-		localVarReturnValue int32
+		localVarReturnValue int64
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.PostV2SeacatSaveAd")
@@ -7686,11 +7686,11 @@ func (a *PromotionAPIService) PostV2SeacatSaveAdExecute(r ApiPostV2SeacatSaveAdR
 type ApiPostV2SupplierNmsRequest struct {
 	ctx         context.Context
 	ApiService  PromotionAPI
-	requestBody *[]int32
+	requestBody *[]int64
 }
 
 // ID предметов, для которых нужно получить карточки товаров
-func (r ApiPostV2SupplierNmsRequest) RequestBody(requestBody []int32) ApiPostV2SupplierNmsRequest {
+func (r ApiPostV2SupplierNmsRequest) RequestBody(requestBody []int64) ApiPostV2SupplierNmsRequest {
 	r.requestBody = &requestBody
 	return r
 }

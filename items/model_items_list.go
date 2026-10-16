@@ -20,7 +20,7 @@ var _ MappedNullable = &ItemsList{}
 // ItemsList Размеры товара
 type ItemsList struct {
 	// Артикул WB
-	NmID *int32 `json:"nmID,omitempty"`
+	NmID *int64 `json:"nmID,omitempty"`
 	// Артикул продавца
 	VendorCode *string `json:"vendorCode,omitempty"`
 	// Размер
@@ -28,9 +28,9 @@ type ItemsList struct {
 	// Валюта, по стандарту ISO 4217
 	CurrencyIsoCode4217 *string `json:"currencyIsoCode4217,omitempty"`
 	// Скидка, %
-	Discount *int32 `json:"discount,omitempty"`
+	Discount *int64 `json:"discount,omitempty"`
 	// Скидка WB Клуба, %
-	ClubDiscount *int32 `json:"clubDiscount,omitempty"`
+	ClubDiscount *int64 `json:"clubDiscount,omitempty"`
 	// Можно ли устанавливать цены отдельно для разных размеров (зависит от категории товара):   - `true` — можно   - `false` — нельзя
 	EditableSizePrice *bool `json:"editableSizePrice,omitempty"`
 	// Оптовые скидки разных уровней для B2B
@@ -55,9 +55,9 @@ func NewItemsListWithDefaults() *ItemsList {
 }
 
 // GetNmID returns the NmID field value if set, zero value otherwise.
-func (o *ItemsList) GetNmID() int32 {
+func (o *ItemsList) GetNmID() int64 {
 	if o == nil || IsNil(o.NmID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmID
@@ -65,7 +65,7 @@ func (o *ItemsList) GetNmID() int32 {
 
 // GetNmIDOk returns a tuple with the NmID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ItemsList) GetNmIDOk() (*int32, bool) {
+func (o *ItemsList) GetNmIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmID) {
 		return nil, false
 	}
@@ -81,8 +81,8 @@ func (o *ItemsList) HasNmID() bool {
 	return false
 }
 
-// SetNmID gets a reference to the given int32 and assigns it to the NmID field.
-func (o *ItemsList) SetNmID(v int32) {
+// SetNmID gets a reference to the given int64 and assigns it to the NmID field.
+func (o *ItemsList) SetNmID(v int64) {
 	o.NmID = &v
 }
 
@@ -183,9 +183,9 @@ func (o *ItemsList) SetCurrencyIsoCode4217(v string) {
 }
 
 // GetDiscount returns the Discount field value if set, zero value otherwise.
-func (o *ItemsList) GetDiscount() int32 {
+func (o *ItemsList) GetDiscount() int64 {
 	if o == nil || IsNil(o.Discount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Discount
@@ -193,7 +193,7 @@ func (o *ItemsList) GetDiscount() int32 {
 
 // GetDiscountOk returns a tuple with the Discount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ItemsList) GetDiscountOk() (*int32, bool) {
+func (o *ItemsList) GetDiscountOk() (*int64, bool) {
 	if o == nil || IsNil(o.Discount) {
 		return nil, false
 	}
@@ -209,15 +209,15 @@ func (o *ItemsList) HasDiscount() bool {
 	return false
 }
 
-// SetDiscount gets a reference to the given int32 and assigns it to the Discount field.
-func (o *ItemsList) SetDiscount(v int32) {
+// SetDiscount gets a reference to the given int64 and assigns it to the Discount field.
+func (o *ItemsList) SetDiscount(v int64) {
 	o.Discount = &v
 }
 
 // GetClubDiscount returns the ClubDiscount field value if set, zero value otherwise.
-func (o *ItemsList) GetClubDiscount() int32 {
+func (o *ItemsList) GetClubDiscount() int64 {
 	if o == nil || IsNil(o.ClubDiscount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ClubDiscount
@@ -225,7 +225,7 @@ func (o *ItemsList) GetClubDiscount() int32 {
 
 // GetClubDiscountOk returns a tuple with the ClubDiscount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ItemsList) GetClubDiscountOk() (*int32, bool) {
+func (o *ItemsList) GetClubDiscountOk() (*int64, bool) {
 	if o == nil || IsNil(o.ClubDiscount) {
 		return nil, false
 	}
@@ -241,8 +241,8 @@ func (o *ItemsList) HasClubDiscount() bool {
 	return false
 }
 
-// SetClubDiscount gets a reference to the given int32 and assigns it to the ClubDiscount field.
-func (o *ItemsList) SetClubDiscount(v int32) {
+// SetClubDiscount gets a reference to the given int64 and assigns it to the ClubDiscount field.
+func (o *ItemsList) SetClubDiscount(v int64) {
 	o.ClubDiscount = &v
 }
 

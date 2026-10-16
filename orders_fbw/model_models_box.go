@@ -22,7 +22,7 @@ type ModelsBox struct {
 	// Штрих-код упаковки
 	PackageCode *string `json:"packageCode,omitempty"`
 	// Суммарное количество товара в упаковке, шт
-	Quantity *int32 `json:"quantity,omitempty"`
+	Quantity *int64 `json:"quantity,omitempty"`
 	// Список упакованных товаров
 	Barcodes []ModelsGoodInBox `json:"barcodes,omitempty"`
 }
@@ -77,9 +77,9 @@ func (o *ModelsBox) SetPackageCode(v string) {
 }
 
 // GetQuantity returns the Quantity field value if set, zero value otherwise.
-func (o *ModelsBox) GetQuantity() int32 {
+func (o *ModelsBox) GetQuantity() int64 {
 	if o == nil || IsNil(o.Quantity) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Quantity
@@ -87,7 +87,7 @@ func (o *ModelsBox) GetQuantity() int32 {
 
 // GetQuantityOk returns a tuple with the Quantity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsBox) GetQuantityOk() (*int32, bool) {
+func (o *ModelsBox) GetQuantityOk() (*int64, bool) {
 	if o == nil || IsNil(o.Quantity) {
 		return nil, false
 	}
@@ -103,8 +103,8 @@ func (o *ModelsBox) HasQuantity() bool {
 	return false
 }
 
-// SetQuantity gets a reference to the given int32 and assigns it to the Quantity field.
-func (o *ModelsBox) SetQuantity(v int32) {
+// SetQuantity gets a reference to the given int64 and assigns it to the Quantity field.
+func (o *ModelsBox) SetQuantity(v int64) {
 	o.Quantity = &v
 }
 

@@ -22,7 +22,7 @@ type GetV1SellerDownloadIdResponse202 struct {
 	// Статус модерации
 	ModerationState *string `json:"moderationState,omitempty"`
 	// Секунд до следующей попытки запроса файла
-	RetrySeconds *int32 `json:"retrySeconds,omitempty"`
+	RetrySeconds *int64 `json:"retrySeconds,omitempty"`
 }
 
 // NewGetV1SellerDownloadIdResponse202 instantiates a new GetV1SellerDownloadIdResponse202 object
@@ -75,9 +75,9 @@ func (o *GetV1SellerDownloadIdResponse202) SetModerationState(v string) {
 }
 
 // GetRetrySeconds returns the RetrySeconds field value if set, zero value otherwise.
-func (o *GetV1SellerDownloadIdResponse202) GetRetrySeconds() int32 {
+func (o *GetV1SellerDownloadIdResponse202) GetRetrySeconds() int64 {
 	if o == nil || IsNil(o.RetrySeconds) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.RetrySeconds
@@ -85,7 +85,7 @@ func (o *GetV1SellerDownloadIdResponse202) GetRetrySeconds() int32 {
 
 // GetRetrySecondsOk returns a tuple with the RetrySeconds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1SellerDownloadIdResponse202) GetRetrySecondsOk() (*int32, bool) {
+func (o *GetV1SellerDownloadIdResponse202) GetRetrySecondsOk() (*int64, bool) {
 	if o == nil || IsNil(o.RetrySeconds) {
 		return nil, false
 	}
@@ -101,8 +101,8 @@ func (o *GetV1SellerDownloadIdResponse202) HasRetrySeconds() bool {
 	return false
 }
 
-// SetRetrySeconds gets a reference to the given int32 and assigns it to the RetrySeconds field.
-func (o *GetV1SellerDownloadIdResponse202) SetRetrySeconds(v int32) {
+// SetRetrySeconds gets a reference to the given int64 and assigns it to the RetrySeconds field.
+func (o *GetV1SellerDownloadIdResponse202) SetRetrySeconds(v int64) {
 	o.RetrySeconds = &v
 }
 

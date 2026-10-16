@@ -22,7 +22,7 @@ var _ MappedNullable = &ApiIMEI{}
 // ApiIMEI struct for ApiIMEI
 type ApiIMEI struct {
 	// ID сборочного задания
-	OrderId int32 `json:"orderId"`
+	OrderId int64 `json:"orderId"`
 	// IMEI
 	Imei string `json:"imei"`
 }
@@ -33,7 +33,7 @@ type _ApiIMEI ApiIMEI
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiIMEI(orderId int32, imei string) *ApiIMEI {
+func NewApiIMEI(orderId int64, imei string) *ApiIMEI {
 	this := ApiIMEI{}
 	this.OrderId = orderId
 	this.Imei = imei
@@ -49,9 +49,9 @@ func NewApiIMEIWithDefaults() *ApiIMEI {
 }
 
 // GetOrderId returns the OrderId field value
-func (o *ApiIMEI) GetOrderId() int32 {
+func (o *ApiIMEI) GetOrderId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -60,7 +60,7 @@ func (o *ApiIMEI) GetOrderId() int32 {
 
 // GetOrderIdOk returns a tuple with the OrderId field value
 // and a boolean to check if the value has been set.
-func (o *ApiIMEI) GetOrderIdOk() (*int32, bool) {
+func (o *ApiIMEI) GetOrderIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,7 +68,7 @@ func (o *ApiIMEI) GetOrderIdOk() (*int32, bool) {
 }
 
 // SetOrderId sets field value
-func (o *ApiIMEI) SetOrderId(v int32) {
+func (o *ApiIMEI) SetOrderId(v int64) {
 	o.OrderId = v
 }
 

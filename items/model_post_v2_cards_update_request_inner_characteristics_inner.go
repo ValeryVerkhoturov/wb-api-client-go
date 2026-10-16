@@ -22,7 +22,7 @@ var _ MappedNullable = &PostV2CardsUpdateRequestInnerCharacteristicsInner{}
 // PostV2CardsUpdateRequestInnerCharacteristicsInner struct for PostV2CardsUpdateRequestInnerCharacteristicsInner
 type PostV2CardsUpdateRequestInnerCharacteristicsInner struct {
 	// ID характеристики
-	Id int32 `json:"id"`
+	Id int64 `json:"id"`
 	// Значения характеристики.  Тип данных — массив строк или число — зависит от типа характеристики, см. описание поля `charcType` в методе [Характеристики предмета](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId).  Допустимое количество значений отображено в поле `maxCount` того же метода
 	Value interface{} `json:"value"`
 }
@@ -33,7 +33,7 @@ type _PostV2CardsUpdateRequestInnerCharacteristicsInner PostV2CardsUpdateRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostV2CardsUpdateRequestInnerCharacteristicsInner(id int32, value interface{}) *PostV2CardsUpdateRequestInnerCharacteristicsInner {
+func NewPostV2CardsUpdateRequestInnerCharacteristicsInner(id int64, value interface{}) *PostV2CardsUpdateRequestInnerCharacteristicsInner {
 	this := PostV2CardsUpdateRequestInnerCharacteristicsInner{}
 	this.Id = id
 	this.Value = value
@@ -49,9 +49,9 @@ func NewPostV2CardsUpdateRequestInnerCharacteristicsInnerWithDefaults() *PostV2C
 }
 
 // GetId returns the Id field value
-func (o *PostV2CardsUpdateRequestInnerCharacteristicsInner) GetId() int32 {
+func (o *PostV2CardsUpdateRequestInnerCharacteristicsInner) GetId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -60,7 +60,7 @@ func (o *PostV2CardsUpdateRequestInnerCharacteristicsInner) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *PostV2CardsUpdateRequestInnerCharacteristicsInner) GetIdOk() (*int32, bool) {
+func (o *PostV2CardsUpdateRequestInnerCharacteristicsInner) GetIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,7 +68,7 @@ func (o *PostV2CardsUpdateRequestInnerCharacteristicsInner) GetIdOk() (*int32, b
 }
 
 // SetId sets field value
-func (o *PostV2CardsUpdateRequestInnerCharacteristicsInner) SetId(v int32) {
+func (o *PostV2CardsUpdateRequestInnerCharacteristicsInner) SetId(v int64) {
 	o.Id = v
 }
 

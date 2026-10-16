@@ -22,7 +22,7 @@ var _ MappedNullable = &PostV3SuppliesSupplyIdTrbxRequest{}
 // PostV3SuppliesSupplyIdTrbxRequest struct for PostV3SuppliesSupplyIdTrbxRequest
 type PostV3SuppliesSupplyIdTrbxRequest struct {
 	// Количество грузомест, которые необходимо добавить к поставке
-	Amount int32 `json:"amount"`
+	Amount int64 `json:"amount"`
 }
 
 type _PostV3SuppliesSupplyIdTrbxRequest PostV3SuppliesSupplyIdTrbxRequest
@@ -31,7 +31,7 @@ type _PostV3SuppliesSupplyIdTrbxRequest PostV3SuppliesSupplyIdTrbxRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostV3SuppliesSupplyIdTrbxRequest(amount int32) *PostV3SuppliesSupplyIdTrbxRequest {
+func NewPostV3SuppliesSupplyIdTrbxRequest(amount int64) *PostV3SuppliesSupplyIdTrbxRequest {
 	this := PostV3SuppliesSupplyIdTrbxRequest{}
 	this.Amount = amount
 	return &this
@@ -46,9 +46,9 @@ func NewPostV3SuppliesSupplyIdTrbxRequestWithDefaults() *PostV3SuppliesSupplyIdT
 }
 
 // GetAmount returns the Amount field value
-func (o *PostV3SuppliesSupplyIdTrbxRequest) GetAmount() int32 {
+func (o *PostV3SuppliesSupplyIdTrbxRequest) GetAmount() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -57,7 +57,7 @@ func (o *PostV3SuppliesSupplyIdTrbxRequest) GetAmount() int32 {
 
 // GetAmountOk returns a tuple with the Amount field value
 // and a boolean to check if the value has been set.
-func (o *PostV3SuppliesSupplyIdTrbxRequest) GetAmountOk() (*int32, bool) {
+func (o *PostV3SuppliesSupplyIdTrbxRequest) GetAmountOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,7 +65,7 @@ func (o *PostV3SuppliesSupplyIdTrbxRequest) GetAmountOk() (*int32, bool) {
 }
 
 // SetAmount sets field value
-func (o *PostV3SuppliesSupplyIdTrbxRequest) SetAmount(v int32) {
+func (o *PostV3SuppliesSupplyIdTrbxRequest) SetAmount(v int64) {
 	o.Amount = v
 }
 

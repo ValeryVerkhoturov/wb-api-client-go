@@ -30,7 +30,7 @@ type Event struct {
 	// Источник отправки сообщения: - `seller-portal` — портал продавцов - `seller-public-api` — API Чата с покупателями - `rusite` — портал покупателей - `global` — портал `global.wildberries.ru` - `ios` —  мобильная операционная система от **Apple** - `android` — операционная система **Android** от **Google**
 	Source *string `json:"source,omitempty"`
 	// Время появления события на сервере. Формат Unix timestamp
-	AddTimestamp *int32 `json:"addTimestamp,omitempty"`
+	AddTimestamp *int64 `json:"addTimestamp,omitempty"`
 	// Время появления события на сервере в UTC
 	AddTime *string `json:"addTime,omitempty"`
 	// Подпись чата. Доступна только при `\"isNewChat\": true`. Требуется при [отправке сообщения](./customer-communication#tag/buyersChat/operation/postV1SellerMessage)
@@ -250,9 +250,9 @@ func (o *Event) SetSource(v string) {
 }
 
 // GetAddTimestamp returns the AddTimestamp field value if set, zero value otherwise.
-func (o *Event) GetAddTimestamp() int32 {
+func (o *Event) GetAddTimestamp() int64 {
 	if o == nil || IsNil(o.AddTimestamp) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.AddTimestamp
@@ -260,7 +260,7 @@ func (o *Event) GetAddTimestamp() int32 {
 
 // GetAddTimestampOk returns a tuple with the AddTimestamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Event) GetAddTimestampOk() (*int32, bool) {
+func (o *Event) GetAddTimestampOk() (*int64, bool) {
 	if o == nil || IsNil(o.AddTimestamp) {
 		return nil, false
 	}
@@ -276,8 +276,8 @@ func (o *Event) HasAddTimestamp() bool {
 	return false
 }
 
-// SetAddTimestamp gets a reference to the given int32 and assigns it to the AddTimestamp field.
-func (o *Event) SetAddTimestamp(v int32) {
+// SetAddTimestamp gets a reference to the given int64 and assigns it to the AddTimestamp field.
+func (o *Event) SetAddTimestamp(v int64) {
 	o.AddTimestamp = &v
 }
 

@@ -20,9 +20,9 @@ var _ MappedNullable = &V0GetNormQueryMinusResponseItem{}
 // V0GetNormQueryMinusResponseItem struct for V0GetNormQueryMinusResponseItem
 type V0GetNormQueryMinusResponseItem struct {
 	// ID кампании
-	AdvertId *int32 `json:"advert_id,omitempty"`
+	AdvertId *int64 `json:"advert_id,omitempty"`
 	// Артикул WB
-	NmId *int32 `json:"nm_id,omitempty"`
+	NmId *int64 `json:"nm_id,omitempty"`
 	// Список минус-фраз
 	NormQueries []string `json:"norm_queries,omitempty"`
 }
@@ -45,9 +45,9 @@ func NewV0GetNormQueryMinusResponseItemWithDefaults() *V0GetNormQueryMinusRespon
 }
 
 // GetAdvertId returns the AdvertId field value if set, zero value otherwise.
-func (o *V0GetNormQueryMinusResponseItem) GetAdvertId() int32 {
+func (o *V0GetNormQueryMinusResponseItem) GetAdvertId() int64 {
 	if o == nil || IsNil(o.AdvertId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.AdvertId
@@ -55,7 +55,7 @@ func (o *V0GetNormQueryMinusResponseItem) GetAdvertId() int32 {
 
 // GetAdvertIdOk returns a tuple with the AdvertId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V0GetNormQueryMinusResponseItem) GetAdvertIdOk() (*int32, bool) {
+func (o *V0GetNormQueryMinusResponseItem) GetAdvertIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.AdvertId) {
 		return nil, false
 	}
@@ -71,15 +71,15 @@ func (o *V0GetNormQueryMinusResponseItem) HasAdvertId() bool {
 	return false
 }
 
-// SetAdvertId gets a reference to the given int32 and assigns it to the AdvertId field.
-func (o *V0GetNormQueryMinusResponseItem) SetAdvertId(v int32) {
+// SetAdvertId gets a reference to the given int64 and assigns it to the AdvertId field.
+func (o *V0GetNormQueryMinusResponseItem) SetAdvertId(v int64) {
 	o.AdvertId = &v
 }
 
 // GetNmId returns the NmId field value if set, zero value otherwise.
-func (o *V0GetNormQueryMinusResponseItem) GetNmId() int32 {
+func (o *V0GetNormQueryMinusResponseItem) GetNmId() int64 {
 	if o == nil || IsNil(o.NmId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmId
@@ -87,7 +87,7 @@ func (o *V0GetNormQueryMinusResponseItem) GetNmId() int32 {
 
 // GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V0GetNormQueryMinusResponseItem) GetNmIdOk() (*int32, bool) {
+func (o *V0GetNormQueryMinusResponseItem) GetNmIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
@@ -103,8 +103,8 @@ func (o *V0GetNormQueryMinusResponseItem) HasNmId() bool {
 	return false
 }
 
-// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
-func (o *V0GetNormQueryMinusResponseItem) SetNmId(v int32) {
+// SetNmId gets a reference to the given int64 and assigns it to the NmId field.
+func (o *V0GetNormQueryMinusResponseItem) SetNmId(v int64) {
 	o.NmId = &v
 }
 

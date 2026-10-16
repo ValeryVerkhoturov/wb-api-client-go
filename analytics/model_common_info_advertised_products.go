@@ -20,9 +20,9 @@ var _ MappedNullable = &CommonInfoAdvertisedProducts{}
 // CommonInfoAdvertisedProducts Количество товаров в рекламе
 type CommonInfoAdvertisedProducts struct {
 	// Текущее количество товаров в рекламе
-	Current *int32 `json:"current,omitempty"`
+	Current *int64 `json:"current,omitempty"`
 	// Динамика по сравнению с предыдущим периодом, %
-	Dynamics *int32 `json:"dynamics,omitempty"`
+	Dynamics *int64 `json:"dynamics,omitempty"`
 }
 
 // NewCommonInfoAdvertisedProducts instantiates a new CommonInfoAdvertisedProducts object
@@ -43,9 +43,9 @@ func NewCommonInfoAdvertisedProductsWithDefaults() *CommonInfoAdvertisedProducts
 }
 
 // GetCurrent returns the Current field value if set, zero value otherwise.
-func (o *CommonInfoAdvertisedProducts) GetCurrent() int32 {
+func (o *CommonInfoAdvertisedProducts) GetCurrent() int64 {
 	if o == nil || IsNil(o.Current) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Current
@@ -53,7 +53,7 @@ func (o *CommonInfoAdvertisedProducts) GetCurrent() int32 {
 
 // GetCurrentOk returns a tuple with the Current field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CommonInfoAdvertisedProducts) GetCurrentOk() (*int32, bool) {
+func (o *CommonInfoAdvertisedProducts) GetCurrentOk() (*int64, bool) {
 	if o == nil || IsNil(o.Current) {
 		return nil, false
 	}
@@ -69,15 +69,15 @@ func (o *CommonInfoAdvertisedProducts) HasCurrent() bool {
 	return false
 }
 
-// SetCurrent gets a reference to the given int32 and assigns it to the Current field.
-func (o *CommonInfoAdvertisedProducts) SetCurrent(v int32) {
+// SetCurrent gets a reference to the given int64 and assigns it to the Current field.
+func (o *CommonInfoAdvertisedProducts) SetCurrent(v int64) {
 	o.Current = &v
 }
 
 // GetDynamics returns the Dynamics field value if set, zero value otherwise.
-func (o *CommonInfoAdvertisedProducts) GetDynamics() int32 {
+func (o *CommonInfoAdvertisedProducts) GetDynamics() int64 {
 	if o == nil || IsNil(o.Dynamics) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Dynamics
@@ -85,7 +85,7 @@ func (o *CommonInfoAdvertisedProducts) GetDynamics() int32 {
 
 // GetDynamicsOk returns a tuple with the Dynamics field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CommonInfoAdvertisedProducts) GetDynamicsOk() (*int32, bool) {
+func (o *CommonInfoAdvertisedProducts) GetDynamicsOk() (*int64, bool) {
 	if o == nil || IsNil(o.Dynamics) {
 		return nil, false
 	}
@@ -101,8 +101,8 @@ func (o *CommonInfoAdvertisedProducts) HasDynamics() bool {
 	return false
 }
 
-// SetDynamics gets a reference to the given int32 and assigns it to the Dynamics field.
-func (o *CommonInfoAdvertisedProducts) SetDynamics(v int32) {
+// SetDynamics gets a reference to the given int64 and assigns it to the Dynamics field.
+func (o *CommonInfoAdvertisedProducts) SetDynamics(v int64) {
 	o.Dynamics = &v
 }
 

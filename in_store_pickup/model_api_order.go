@@ -22,29 +22,29 @@ type ApiOrder struct {
 	// Артикул продавца
 	Article *string `json:"article,omitempty"`
 	// Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+)
-	CargoType *int32 `json:"cargoType,omitempty"`
+	CargoType *int64 `json:"cargoType,omitempty"`
 	// ID размера товара в системе WB
-	ChrtId *int32 `json:"chrtId,omitempty"`
+	ChrtId *int64 `json:"chrtId,omitempty"`
 	// Дата и время создания сборочного задания
 	CreatedAt *string `json:"createdAt,omitempty"`
 	// Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
-	Price *int32 `json:"price,omitempty"`
+	Price *int64 `json:"price,omitempty"`
 	// Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100.  Код валюты продажи указан в поле `currencyCode`.  Предоставляется в информационных целях.  Используйте значение поля `finalPrice`, только если в ответе метода [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа указанного метода
-	FinalPrice *int32 `json:"finalPrice,omitempty"`
+	FinalPrice *int64 `json:"finalPrice,omitempty"`
 	// Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
-	ConvertedPrice *int32 `json:"convertedPrice,omitempty"`
+	ConvertedPrice *int64 `json:"convertedPrice,omitempty"`
 	// Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100.  Предоставляется в информационных целях.  Используйте значение поля `convertedFinalPrice`, только если в ответе метода [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `convertedOriginalFinalPrice` из ответа того же метода
-	ConvertedFinalPrice *int32 `json:"convertedFinalPrice,omitempty"`
+	ConvertedFinalPrice *int64 `json:"convertedFinalPrice,omitempty"`
 	// Код валюты продажи
 	CurrencyCode *int32 `json:"currencyCode,omitempty"`
 	// Код валюты страны продавца
 	ConvertedCurrencyCode *int32 `json:"convertedCurrencyCode,omitempty"`
 	// ID сборочного задания
-	Id *int32 `json:"id,omitempty"`
+	Id *int64 `json:"id,omitempty"`
 	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
 	IsZeroOrder *bool `json:"isZeroOrder,omitempty"`
 	// Артикул WB
-	NmId *int32 `json:"nmId,omitempty"`
+	NmId *int64 `json:"nmId,omitempty"`
 	// Уникальный ID заказа покупателя
 	OrderCode *string `json:"orderCode,omitempty"`
 	// Режим оплаты:   - `prepaid` — предоплатный   - `postpaid` — постоплатный   - `unknown` — неизвестный
@@ -56,7 +56,7 @@ type ApiOrder struct {
 	// Адрес магазина (склада продавца), на который поступило сборочное задание
 	WarehouseAddress *string `json:"warehouseAddress,omitempty"`
 	// ID склада продавца, на который поступило сборочное задание
-	WarehouseId *int32 `json:"warehouseId,omitempty"`
+	WarehouseId *int64 `json:"warehouseId,omitempty"`
 	// Указал ли покупатель, что ему требуется услуга шиномонтажа:   - `false` — нет, услуга шиномонтажа не требуется   - `true` — да, услуга шиномонтажа требуется
 	TireService *bool            `json:"tireService,omitempty"`
 	Options     *ApiOrderOptions `json:"options,omitempty"`
@@ -112,9 +112,9 @@ func (o *ApiOrder) SetArticle(v string) {
 }
 
 // GetCargoType returns the CargoType field value if set, zero value otherwise.
-func (o *ApiOrder) GetCargoType() int32 {
+func (o *ApiOrder) GetCargoType() int64 {
 	if o == nil || IsNil(o.CargoType) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CargoType
@@ -122,7 +122,7 @@ func (o *ApiOrder) GetCargoType() int32 {
 
 // GetCargoTypeOk returns a tuple with the CargoType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiOrder) GetCargoTypeOk() (*int32, bool) {
+func (o *ApiOrder) GetCargoTypeOk() (*int64, bool) {
 	if o == nil || IsNil(o.CargoType) {
 		return nil, false
 	}
@@ -138,15 +138,15 @@ func (o *ApiOrder) HasCargoType() bool {
 	return false
 }
 
-// SetCargoType gets a reference to the given int32 and assigns it to the CargoType field.
-func (o *ApiOrder) SetCargoType(v int32) {
+// SetCargoType gets a reference to the given int64 and assigns it to the CargoType field.
+func (o *ApiOrder) SetCargoType(v int64) {
 	o.CargoType = &v
 }
 
 // GetChrtId returns the ChrtId field value if set, zero value otherwise.
-func (o *ApiOrder) GetChrtId() int32 {
+func (o *ApiOrder) GetChrtId() int64 {
 	if o == nil || IsNil(o.ChrtId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ChrtId
@@ -154,7 +154,7 @@ func (o *ApiOrder) GetChrtId() int32 {
 
 // GetChrtIdOk returns a tuple with the ChrtId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiOrder) GetChrtIdOk() (*int32, bool) {
+func (o *ApiOrder) GetChrtIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.ChrtId) {
 		return nil, false
 	}
@@ -170,8 +170,8 @@ func (o *ApiOrder) HasChrtId() bool {
 	return false
 }
 
-// SetChrtId gets a reference to the given int32 and assigns it to the ChrtId field.
-func (o *ApiOrder) SetChrtId(v int32) {
+// SetChrtId gets a reference to the given int64 and assigns it to the ChrtId field.
+func (o *ApiOrder) SetChrtId(v int64) {
 	o.ChrtId = &v
 }
 
@@ -208,9 +208,9 @@ func (o *ApiOrder) SetCreatedAt(v string) {
 }
 
 // GetPrice returns the Price field value if set, zero value otherwise.
-func (o *ApiOrder) GetPrice() int32 {
+func (o *ApiOrder) GetPrice() int64 {
 	if o == nil || IsNil(o.Price) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Price
@@ -218,7 +218,7 @@ func (o *ApiOrder) GetPrice() int32 {
 
 // GetPriceOk returns a tuple with the Price field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiOrder) GetPriceOk() (*int32, bool) {
+func (o *ApiOrder) GetPriceOk() (*int64, bool) {
 	if o == nil || IsNil(o.Price) {
 		return nil, false
 	}
@@ -234,15 +234,15 @@ func (o *ApiOrder) HasPrice() bool {
 	return false
 }
 
-// SetPrice gets a reference to the given int32 and assigns it to the Price field.
-func (o *ApiOrder) SetPrice(v int32) {
+// SetPrice gets a reference to the given int64 and assigns it to the Price field.
+func (o *ApiOrder) SetPrice(v int64) {
 	o.Price = &v
 }
 
 // GetFinalPrice returns the FinalPrice field value if set, zero value otherwise.
-func (o *ApiOrder) GetFinalPrice() int32 {
+func (o *ApiOrder) GetFinalPrice() int64 {
 	if o == nil || IsNil(o.FinalPrice) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.FinalPrice
@@ -250,7 +250,7 @@ func (o *ApiOrder) GetFinalPrice() int32 {
 
 // GetFinalPriceOk returns a tuple with the FinalPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiOrder) GetFinalPriceOk() (*int32, bool) {
+func (o *ApiOrder) GetFinalPriceOk() (*int64, bool) {
 	if o == nil || IsNil(o.FinalPrice) {
 		return nil, false
 	}
@@ -266,15 +266,15 @@ func (o *ApiOrder) HasFinalPrice() bool {
 	return false
 }
 
-// SetFinalPrice gets a reference to the given int32 and assigns it to the FinalPrice field.
-func (o *ApiOrder) SetFinalPrice(v int32) {
+// SetFinalPrice gets a reference to the given int64 and assigns it to the FinalPrice field.
+func (o *ApiOrder) SetFinalPrice(v int64) {
 	o.FinalPrice = &v
 }
 
 // GetConvertedPrice returns the ConvertedPrice field value if set, zero value otherwise.
-func (o *ApiOrder) GetConvertedPrice() int32 {
+func (o *ApiOrder) GetConvertedPrice() int64 {
 	if o == nil || IsNil(o.ConvertedPrice) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ConvertedPrice
@@ -282,7 +282,7 @@ func (o *ApiOrder) GetConvertedPrice() int32 {
 
 // GetConvertedPriceOk returns a tuple with the ConvertedPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiOrder) GetConvertedPriceOk() (*int32, bool) {
+func (o *ApiOrder) GetConvertedPriceOk() (*int64, bool) {
 	if o == nil || IsNil(o.ConvertedPrice) {
 		return nil, false
 	}
@@ -298,15 +298,15 @@ func (o *ApiOrder) HasConvertedPrice() bool {
 	return false
 }
 
-// SetConvertedPrice gets a reference to the given int32 and assigns it to the ConvertedPrice field.
-func (o *ApiOrder) SetConvertedPrice(v int32) {
+// SetConvertedPrice gets a reference to the given int64 and assigns it to the ConvertedPrice field.
+func (o *ApiOrder) SetConvertedPrice(v int64) {
 	o.ConvertedPrice = &v
 }
 
 // GetConvertedFinalPrice returns the ConvertedFinalPrice field value if set, zero value otherwise.
-func (o *ApiOrder) GetConvertedFinalPrice() int32 {
+func (o *ApiOrder) GetConvertedFinalPrice() int64 {
 	if o == nil || IsNil(o.ConvertedFinalPrice) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ConvertedFinalPrice
@@ -314,7 +314,7 @@ func (o *ApiOrder) GetConvertedFinalPrice() int32 {
 
 // GetConvertedFinalPriceOk returns a tuple with the ConvertedFinalPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiOrder) GetConvertedFinalPriceOk() (*int32, bool) {
+func (o *ApiOrder) GetConvertedFinalPriceOk() (*int64, bool) {
 	if o == nil || IsNil(o.ConvertedFinalPrice) {
 		return nil, false
 	}
@@ -330,8 +330,8 @@ func (o *ApiOrder) HasConvertedFinalPrice() bool {
 	return false
 }
 
-// SetConvertedFinalPrice gets a reference to the given int32 and assigns it to the ConvertedFinalPrice field.
-func (o *ApiOrder) SetConvertedFinalPrice(v int32) {
+// SetConvertedFinalPrice gets a reference to the given int64 and assigns it to the ConvertedFinalPrice field.
+func (o *ApiOrder) SetConvertedFinalPrice(v int64) {
 	o.ConvertedFinalPrice = &v
 }
 
@@ -400,9 +400,9 @@ func (o *ApiOrder) SetConvertedCurrencyCode(v int32) {
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *ApiOrder) GetId() int32 {
+func (o *ApiOrder) GetId() int64 {
 	if o == nil || IsNil(o.Id) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Id
@@ -410,7 +410,7 @@ func (o *ApiOrder) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiOrder) GetIdOk() (*int32, bool) {
+func (o *ApiOrder) GetIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -426,8 +426,8 @@ func (o *ApiOrder) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *ApiOrder) SetId(v int32) {
+// SetId gets a reference to the given int64 and assigns it to the Id field.
+func (o *ApiOrder) SetId(v int64) {
 	o.Id = &v
 }
 
@@ -464,9 +464,9 @@ func (o *ApiOrder) SetIsZeroOrder(v bool) {
 }
 
 // GetNmId returns the NmId field value if set, zero value otherwise.
-func (o *ApiOrder) GetNmId() int32 {
+func (o *ApiOrder) GetNmId() int64 {
 	if o == nil || IsNil(o.NmId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmId
@@ -474,7 +474,7 @@ func (o *ApiOrder) GetNmId() int32 {
 
 // GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiOrder) GetNmIdOk() (*int32, bool) {
+func (o *ApiOrder) GetNmIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
@@ -490,8 +490,8 @@ func (o *ApiOrder) HasNmId() bool {
 	return false
 }
 
-// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
-func (o *ApiOrder) SetNmId(v int32) {
+// SetNmId gets a reference to the given int64 and assigns it to the NmId field.
+func (o *ApiOrder) SetNmId(v int64) {
 	o.NmId = &v
 }
 
@@ -656,9 +656,9 @@ func (o *ApiOrder) SetWarehouseAddress(v string) {
 }
 
 // GetWarehouseId returns the WarehouseId field value if set, zero value otherwise.
-func (o *ApiOrder) GetWarehouseId() int32 {
+func (o *ApiOrder) GetWarehouseId() int64 {
 	if o == nil || IsNil(o.WarehouseId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.WarehouseId
@@ -666,7 +666,7 @@ func (o *ApiOrder) GetWarehouseId() int32 {
 
 // GetWarehouseIdOk returns a tuple with the WarehouseId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiOrder) GetWarehouseIdOk() (*int32, bool) {
+func (o *ApiOrder) GetWarehouseIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.WarehouseId) {
 		return nil, false
 	}
@@ -682,8 +682,8 @@ func (o *ApiOrder) HasWarehouseId() bool {
 	return false
 }
 
-// SetWarehouseId gets a reference to the given int32 and assigns it to the WarehouseId field.
-func (o *ApiOrder) SetWarehouseId(v int32) {
+// SetWarehouseId gets a reference to the given int64 and assigns it to the WarehouseId field.
+func (o *ApiOrder) SetWarehouseId(v int64) {
 	o.WarehouseId = &v
 }
 

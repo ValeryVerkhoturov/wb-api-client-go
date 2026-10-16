@@ -22,7 +22,7 @@ var _ MappedNullable = &PostV1UploadTaskB2bWholesale200ResponseResultsInner{}
 // PostV1UploadTaskB2bWholesale200ResponseResultsInner struct for PostV1UploadTaskB2bWholesale200ResponseResultsInner
 type PostV1UploadTaskB2bWholesale200ResponseResultsInner struct {
 	// Артикул WB
-	NmId int32 `json:"nmId"`
+	NmId int64 `json:"nmId"`
 	// Успешна ли установка скидки на товар:   - `false` — неуспешна   - `true` — успешна
 	Success bool                                                      `json:"success"`
 	Error   *PostV1UploadTaskB2bWholesale200ResponseResultsInnerError `json:"error,omitempty"`
@@ -34,7 +34,7 @@ type _PostV1UploadTaskB2bWholesale200ResponseResultsInner PostV1UploadTaskB2bWho
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostV1UploadTaskB2bWholesale200ResponseResultsInner(nmId int32, success bool) *PostV1UploadTaskB2bWholesale200ResponseResultsInner {
+func NewPostV1UploadTaskB2bWholesale200ResponseResultsInner(nmId int64, success bool) *PostV1UploadTaskB2bWholesale200ResponseResultsInner {
 	this := PostV1UploadTaskB2bWholesale200ResponseResultsInner{}
 	this.NmId = nmId
 	this.Success = success
@@ -50,9 +50,9 @@ func NewPostV1UploadTaskB2bWholesale200ResponseResultsInnerWithDefaults() *PostV
 }
 
 // GetNmId returns the NmId field value
-func (o *PostV1UploadTaskB2bWholesale200ResponseResultsInner) GetNmId() int32 {
+func (o *PostV1UploadTaskB2bWholesale200ResponseResultsInner) GetNmId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -61,7 +61,7 @@ func (o *PostV1UploadTaskB2bWholesale200ResponseResultsInner) GetNmId() int32 {
 
 // GetNmIdOk returns a tuple with the NmId field value
 // and a boolean to check if the value has been set.
-func (o *PostV1UploadTaskB2bWholesale200ResponseResultsInner) GetNmIdOk() (*int32, bool) {
+func (o *PostV1UploadTaskB2bWholesale200ResponseResultsInner) GetNmIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -69,7 +69,7 @@ func (o *PostV1UploadTaskB2bWholesale200ResponseResultsInner) GetNmIdOk() (*int3
 }
 
 // SetNmId sets field value
-func (o *PostV1UploadTaskB2bWholesale200ResponseResultsInner) SetNmId(v int32) {
+func (o *PostV1UploadTaskB2bWholesale200ResponseResultsInner) SetNmId(v int64) {
 	o.NmId = v
 }
 

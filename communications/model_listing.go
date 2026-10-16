@@ -20,9 +20,9 @@ var _ MappedNullable = &Listing{}
 // Listing Информация о заказе
 type Listing struct {
 	// Артикул WB
-	NmID *int32 `json:"nmID,omitempty"`
+	NmID *int64 `json:"nmID,omitempty"`
 	// Фактическая цена с учетом всех скидок. Взимается с покупателя
-	Price *int32 `json:"price,omitempty"`
+	Price *int64 `json:"price,omitempty"`
 	// Валюта
 	PriceCurrency *string `json:"priceCurrency,omitempty"`
 	// Уникальный ID заказа. Примечание: `rid` — это `srid` в ответах методов: - [Заявки покупателей на возврат](./customer-communication#tag/buyersReturns/operation/getV1Claims) - [Лента заказов](./analytics#tag/orderFeed/operation/postV1OrderFeed) - [Заказы](./reports#tag/mainReports/operation/getV1SupplierOrders) - [Продажи](./reports#tag/mainReports/operation/getV1SupplierSales) - [Отчёт о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport) - [Детализации к отчётам реализации по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId) - [Детализации к отчётам реализации за период](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed) - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId) - [Детализации к отчётам об издержках на приём платежей за период](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)
@@ -49,9 +49,9 @@ func NewListingWithDefaults() *Listing {
 }
 
 // GetNmID returns the NmID field value if set, zero value otherwise.
-func (o *Listing) GetNmID() int32 {
+func (o *Listing) GetNmID() int64 {
 	if o == nil || IsNil(o.NmID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmID
@@ -59,7 +59,7 @@ func (o *Listing) GetNmID() int32 {
 
 // GetNmIDOk returns a tuple with the NmID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Listing) GetNmIDOk() (*int32, bool) {
+func (o *Listing) GetNmIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmID) {
 		return nil, false
 	}
@@ -75,15 +75,15 @@ func (o *Listing) HasNmID() bool {
 	return false
 }
 
-// SetNmID gets a reference to the given int32 and assigns it to the NmID field.
-func (o *Listing) SetNmID(v int32) {
+// SetNmID gets a reference to the given int64 and assigns it to the NmID field.
+func (o *Listing) SetNmID(v int64) {
 	o.NmID = &v
 }
 
 // GetPrice returns the Price field value if set, zero value otherwise.
-func (o *Listing) GetPrice() int32 {
+func (o *Listing) GetPrice() int64 {
 	if o == nil || IsNil(o.Price) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Price
@@ -91,7 +91,7 @@ func (o *Listing) GetPrice() int32 {
 
 // GetPriceOk returns a tuple with the Price field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Listing) GetPriceOk() (*int32, bool) {
+func (o *Listing) GetPriceOk() (*int64, bool) {
 	if o == nil || IsNil(o.Price) {
 		return nil, false
 	}
@@ -107,8 +107,8 @@ func (o *Listing) HasPrice() bool {
 	return false
 }
 
-// SetPrice gets a reference to the given int32 and assigns it to the Price field.
-func (o *Listing) SetPrice(v int32) {
+// SetPrice gets a reference to the given int64 and assigns it to the Price field.
+func (o *Listing) SetPrice(v int64) {
 	o.Price = &v
 }
 

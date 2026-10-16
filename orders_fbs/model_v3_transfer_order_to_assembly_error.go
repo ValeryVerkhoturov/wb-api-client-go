@@ -22,7 +22,7 @@ type V3TransferOrderToAssemblyError struct {
 	// Детали ошибки
 	Detail *string `json:"detail,omitempty"`
 	// Внутренний код ошибки
-	Code *int32 `json:"code,omitempty"`
+	Code *int64 `json:"code,omitempty"`
 }
 
 // NewV3TransferOrderToAssemblyError instantiates a new V3TransferOrderToAssemblyError object
@@ -75,9 +75,9 @@ func (o *V3TransferOrderToAssemblyError) SetDetail(v string) {
 }
 
 // GetCode returns the Code field value if set, zero value otherwise.
-func (o *V3TransferOrderToAssemblyError) GetCode() int32 {
+func (o *V3TransferOrderToAssemblyError) GetCode() int64 {
 	if o == nil || IsNil(o.Code) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Code
@@ -85,7 +85,7 @@ func (o *V3TransferOrderToAssemblyError) GetCode() int32 {
 
 // GetCodeOk returns a tuple with the Code field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V3TransferOrderToAssemblyError) GetCodeOk() (*int32, bool) {
+func (o *V3TransferOrderToAssemblyError) GetCodeOk() (*int64, bool) {
 	if o == nil || IsNil(o.Code) {
 		return nil, false
 	}
@@ -101,8 +101,8 @@ func (o *V3TransferOrderToAssemblyError) HasCode() bool {
 	return false
 }
 
-// SetCode gets a reference to the given int32 and assigns it to the Code field.
-func (o *V3TransferOrderToAssemblyError) SetCode(v int32) {
+// SetCode gets a reference to the given int64 and assigns it to the Code field.
+func (o *V3TransferOrderToAssemblyError) SetCode(v int64) {
 	o.Code = &v
 }
 

@@ -22,7 +22,7 @@ type OrderCourierInfo struct {
 	// Информация о курьере
 	CourierInfo *CourierInfo `json:"courierInfo,omitempty"`
 	// ID сборочного задания
-	OrderID *int32 `json:"orderID,omitempty"`
+	OrderID *int64 `json:"orderID,omitempty"`
 }
 
 // NewOrderCourierInfo instantiates a new OrderCourierInfo object
@@ -75,9 +75,9 @@ func (o *OrderCourierInfo) SetCourierInfo(v CourierInfo) {
 }
 
 // GetOrderID returns the OrderID field value if set, zero value otherwise.
-func (o *OrderCourierInfo) GetOrderID() int32 {
+func (o *OrderCourierInfo) GetOrderID() int64 {
 	if o == nil || IsNil(o.OrderID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OrderID
@@ -85,7 +85,7 @@ func (o *OrderCourierInfo) GetOrderID() int32 {
 
 // GetOrderIDOk returns a tuple with the OrderID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OrderCourierInfo) GetOrderIDOk() (*int32, bool) {
+func (o *OrderCourierInfo) GetOrderIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.OrderID) {
 		return nil, false
 	}
@@ -101,8 +101,8 @@ func (o *OrderCourierInfo) HasOrderID() bool {
 	return false
 }
 
-// SetOrderID gets a reference to the given int32 and assigns it to the OrderID field.
-func (o *OrderCourierInfo) SetOrderID(v int32) {
+// SetOrderID gets a reference to the given int64 and assigns it to the OrderID field.
+func (o *OrderCourierInfo) SetOrderID(v int64) {
 	o.OrderID = &v
 }
 

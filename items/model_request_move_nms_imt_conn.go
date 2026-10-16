@@ -22,9 +22,9 @@ var _ MappedNullable = &RequestMoveNmsImtConn{}
 // RequestMoveNmsImtConn struct for RequestMoveNmsImtConn
 type RequestMoveNmsImtConn struct {
 	// Существующий `imtID`, под которым необходимо [объединить](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров
-	TargetIMT int32 `json:"targetIMT"`
+	TargetIMT int64 `json:"targetIMT"`
 	// `nmID`, которые необходимо объединить
-	NmIDs []int32 `json:"nmIDs"`
+	NmIDs []int64 `json:"nmIDs"`
 }
 
 type _RequestMoveNmsImtConn RequestMoveNmsImtConn
@@ -33,7 +33,7 @@ type _RequestMoveNmsImtConn RequestMoveNmsImtConn
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRequestMoveNmsImtConn(targetIMT int32, nmIDs []int32) *RequestMoveNmsImtConn {
+func NewRequestMoveNmsImtConn(targetIMT int64, nmIDs []int64) *RequestMoveNmsImtConn {
 	this := RequestMoveNmsImtConn{}
 	this.TargetIMT = targetIMT
 	this.NmIDs = nmIDs
@@ -49,9 +49,9 @@ func NewRequestMoveNmsImtConnWithDefaults() *RequestMoveNmsImtConn {
 }
 
 // GetTargetIMT returns the TargetIMT field value
-func (o *RequestMoveNmsImtConn) GetTargetIMT() int32 {
+func (o *RequestMoveNmsImtConn) GetTargetIMT() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -60,7 +60,7 @@ func (o *RequestMoveNmsImtConn) GetTargetIMT() int32 {
 
 // GetTargetIMTOk returns a tuple with the TargetIMT field value
 // and a boolean to check if the value has been set.
-func (o *RequestMoveNmsImtConn) GetTargetIMTOk() (*int32, bool) {
+func (o *RequestMoveNmsImtConn) GetTargetIMTOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,14 +68,14 @@ func (o *RequestMoveNmsImtConn) GetTargetIMTOk() (*int32, bool) {
 }
 
 // SetTargetIMT sets field value
-func (o *RequestMoveNmsImtConn) SetTargetIMT(v int32) {
+func (o *RequestMoveNmsImtConn) SetTargetIMT(v int64) {
 	o.TargetIMT = v
 }
 
 // GetNmIDs returns the NmIDs field value
-func (o *RequestMoveNmsImtConn) GetNmIDs() []int32 {
+func (o *RequestMoveNmsImtConn) GetNmIDs() []int64 {
 	if o == nil {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 
@@ -84,7 +84,7 @@ func (o *RequestMoveNmsImtConn) GetNmIDs() []int32 {
 
 // GetNmIDsOk returns a tuple with the NmIDs field value
 // and a boolean to check if the value has been set.
-func (o *RequestMoveNmsImtConn) GetNmIDsOk() ([]int32, bool) {
+func (o *RequestMoveNmsImtConn) GetNmIDsOk() ([]int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -92,7 +92,7 @@ func (o *RequestMoveNmsImtConn) GetNmIDsOk() ([]int32, bool) {
 }
 
 // SetNmIDs sets field value
-func (o *RequestMoveNmsImtConn) SetNmIDs(v []int32) {
+func (o *RequestMoveNmsImtConn) SetNmIDs(v []int64) {
 	o.NmIDs = v
 }
 

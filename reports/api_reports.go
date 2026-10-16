@@ -1559,14 +1559,14 @@ func (a *ReportsAPIService) GetV1AnalyticsBannedProducsBlockedExecute(r ApiGetV1
 type ApiGetV1AnalyticsBrandShareRequest struct {
 	ctx        context.Context
 	ApiService ReportsAPI
-	parentId   *int32
+	parentId   *int64
 	brand      *string
 	dateFrom   *string
 	dateTo     *string
 }
 
 // ID родительской категории
-func (r ApiGetV1AnalyticsBrandShareRequest) ParentId(parentId int32) ApiGetV1AnalyticsBrandShareRequest {
+func (r ApiGetV1AnalyticsBrandShareRequest) ParentId(parentId int64) ApiGetV1AnalyticsBrandShareRequest {
 	r.parentId = &parentId
 	return r
 }
@@ -2700,11 +2700,11 @@ type ApiGetV1DeductionsRequest struct {
 	ctx        context.Context
 	ApiService ReportsAPI
 	dateTo     *string
-	limit      *int32
+	limit      *int64
 	dateFrom   *string
 	sort       *string
 	order      *string
-	offset     *int32
+	offset     *int64
 }
 
 // Конец отчётного периода
@@ -2714,7 +2714,7 @@ func (r ApiGetV1DeductionsRequest) DateTo(dateTo string) ApiGetV1DeductionsReque
 }
 
 // Количество удержаний в ответе
-func (r ApiGetV1DeductionsRequest) Limit(limit int32) ApiGetV1DeductionsRequest {
+func (r ApiGetV1DeductionsRequest) Limit(limit int64) ApiGetV1DeductionsRequest {
 	r.limit = &limit
 	return r
 }
@@ -2738,7 +2738,7 @@ func (r ApiGetV1DeductionsRequest) Order(order string) ApiGetV1DeductionsRequest
 }
 
 // Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента
-func (r ApiGetV1DeductionsRequest) Offset(offset int32) ApiGetV1DeductionsRequest {
+func (r ApiGetV1DeductionsRequest) Offset(offset int64) ApiGetV1DeductionsRequest {
 	r.offset = &offset
 	return r
 }
@@ -2823,7 +2823,7 @@ func (a *ReportsAPIService) GetV1DeductionsExecute(r ApiGetV1DeductionsRequest) 
 	if r.offset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
 	} else {
-		var defaultValue int32 = 0
+		var defaultValue int64 = 0
 		r.offset = &defaultValue
 	}
 	// to determine the Content-Type header
@@ -3124,9 +3124,9 @@ type ApiGetV1MeasurementPenaltiesRequest struct {
 	ctx        context.Context
 	ApiService ReportsAPI
 	dateTo     *string
-	limit      *int32
+	limit      *int64
 	dateFrom   *string
-	offset     *int32
+	offset     *int64
 }
 
 // Конец отчётного периода
@@ -3136,7 +3136,7 @@ func (r ApiGetV1MeasurementPenaltiesRequest) DateTo(dateTo string) ApiGetV1Measu
 }
 
 // Количество удержаний в ответе
-func (r ApiGetV1MeasurementPenaltiesRequest) Limit(limit int32) ApiGetV1MeasurementPenaltiesRequest {
+func (r ApiGetV1MeasurementPenaltiesRequest) Limit(limit int64) ApiGetV1MeasurementPenaltiesRequest {
 	r.limit = &limit
 	return r
 }
@@ -3148,7 +3148,7 @@ func (r ApiGetV1MeasurementPenaltiesRequest) DateFrom(dateFrom string) ApiGetV1M
 }
 
 // Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента
-func (r ApiGetV1MeasurementPenaltiesRequest) Offset(offset int32) ApiGetV1MeasurementPenaltiesRequest {
+func (r ApiGetV1MeasurementPenaltiesRequest) Offset(offset int64) ApiGetV1MeasurementPenaltiesRequest {
 	r.offset = &offset
 	return r
 }
@@ -3221,7 +3221,7 @@ func (a *ReportsAPIService) GetV1MeasurementPenaltiesExecute(r ApiGetV1Measureme
 	if r.offset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
 	} else {
-		var defaultValue int32 = 0
+		var defaultValue int64 = 0
 		r.offset = &defaultValue
 	}
 	// to determine the Content-Type header
@@ -3871,7 +3871,7 @@ type ApiGetV1SupplierOrdersRequest struct {
 	ctx        context.Context
 	ApiService ReportsAPI
 	dateFrom   *string
-	flag       *int32
+	flag       *int64
 }
 
 // Дата и время последнего изменения по заказу. Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. Время передаётся в часовом поясе Москва (UTC+3).  Примеры: - &#x60;2019-06-20&#x60; - &#x60;2019-06-20T23:59:59&#x60; - &#x60;2019-06-20T00:00:00.12345&#x60; - &#x60;2017-03-25T00:00:00&#x60;
@@ -3881,7 +3881,7 @@ func (r ApiGetV1SupplierOrdersRequest) DateFrom(dateFrom string) ApiGetV1Supplie
 }
 
 // Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.  Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;.
-func (r ApiGetV1SupplierOrdersRequest) Flag(flag int32) ApiGetV1SupplierOrdersRequest {
+func (r ApiGetV1SupplierOrdersRequest) Flag(flag int64) ApiGetV1SupplierOrdersRequest {
 	r.flag = &flag
 	return r
 }
@@ -3961,7 +3961,7 @@ func (a *ReportsAPIService) GetV1SupplierOrdersExecute(r ApiGetV1SupplierOrdersR
 	if r.flag != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "flag", r.flag, "form", "")
 	} else {
-		var defaultValue int32 = 0
+		var defaultValue int64 = 0
 		r.flag = &defaultValue
 	}
 	// to determine the Content-Type header
@@ -4076,7 +4076,7 @@ type ApiGetV1SupplierSalesRequest struct {
 	ctx        context.Context
 	ApiService ReportsAPI
 	dateFrom   *string
-	flag       *int32
+	flag       *int64
 }
 
 // Дата и время последнего изменения по продаже/возврату. Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. Время передаётся в часовом поясе Москва (UTC+3).  Примеры: - &#x60;2019-06-20&#x60; - &#x60;2019-06-20T23:59:59&#x60; - &#x60;2019-06-20T00:00:00.12345&#x60; - &#x60;2017-03-25T00:00:00&#x60;
@@ -4086,7 +4086,7 @@ func (r ApiGetV1SupplierSalesRequest) DateFrom(dateFrom string) ApiGetV1Supplier
 }
 
 // Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.  Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;.
-func (r ApiGetV1SupplierSalesRequest) Flag(flag int32) ApiGetV1SupplierSalesRequest {
+func (r ApiGetV1SupplierSalesRequest) Flag(flag int64) ApiGetV1SupplierSalesRequest {
 	r.flag = &flag
 	return r
 }
@@ -4169,7 +4169,7 @@ func (a *ReportsAPIService) GetV1SupplierSalesExecute(r ApiGetV1SupplierSalesReq
 	if r.flag != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "flag", r.flag, "form", "")
 	} else {
-		var defaultValue int32 = 0
+		var defaultValue int64 = 0
 		r.flag = &defaultValue
 	}
 	// to determine the Content-Type header
@@ -4284,9 +4284,9 @@ type ApiGetV1WarehouseMeasurementsRequest struct {
 	ctx        context.Context
 	ApiService ReportsAPI
 	dateTo     *string
-	limit      *int32
+	limit      *int64
 	dateFrom   *string
-	offset     *int32
+	offset     *int64
 }
 
 // Конец отчётного периода
@@ -4296,7 +4296,7 @@ func (r ApiGetV1WarehouseMeasurementsRequest) DateTo(dateTo string) ApiGetV1Ware
 }
 
 // Количество замеров в ответе
-func (r ApiGetV1WarehouseMeasurementsRequest) Limit(limit int32) ApiGetV1WarehouseMeasurementsRequest {
+func (r ApiGetV1WarehouseMeasurementsRequest) Limit(limit int64) ApiGetV1WarehouseMeasurementsRequest {
 	r.limit = &limit
 	return r
 }
@@ -4308,7 +4308,7 @@ func (r ApiGetV1WarehouseMeasurementsRequest) DateFrom(dateFrom string) ApiGetV1
 }
 
 // Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента
-func (r ApiGetV1WarehouseMeasurementsRequest) Offset(offset int32) ApiGetV1WarehouseMeasurementsRequest {
+func (r ApiGetV1WarehouseMeasurementsRequest) Offset(offset int64) ApiGetV1WarehouseMeasurementsRequest {
 	r.offset = &offset
 	return r
 }
@@ -4381,7 +4381,7 @@ func (a *ReportsAPIService) GetV1WarehouseMeasurementsExecute(r ApiGetV1Warehous
 	if r.offset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
 	} else {
-		var defaultValue int32 = 0
+		var defaultValue int64 = 0
 		r.offset = &defaultValue
 	}
 	// to determine the Content-Type header
@@ -4502,8 +4502,8 @@ type ApiGetV1WarehouseRemainsRequest struct {
 	groupByNm      *bool
 	groupByBarcode *bool
 	groupBySize    *bool
-	filterPics     *int32
-	filterVolume   *int32
+	filterPics     *int64
+	filterVolume   *int64
 }
 
 // Язык полей ответа &#x60;subjectName&#x60; и &#x60;warehouseName&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский. Значения &#x60;warehouseName&#x60; на английском
@@ -4549,13 +4549,13 @@ func (r ApiGetV1WarehouseRemainsRequest) GroupBySize(groupBySize bool) ApiGetV1W
 }
 
 // Фильтр по фото:   - &#x60;-1&#x60; — без фото   - &#x60;0&#x60; — не применять фильтр   - &#x60;1&#x60; — с фото
-func (r ApiGetV1WarehouseRemainsRequest) FilterPics(filterPics int32) ApiGetV1WarehouseRemainsRequest {
+func (r ApiGetV1WarehouseRemainsRequest) FilterPics(filterPics int64) ApiGetV1WarehouseRemainsRequest {
 	r.filterPics = &filterPics
 	return r
 }
 
 // Фильтр по объёму:   - &#x60;-1&#x60; — без габаритов   - &#x60;0&#x60; — не применять фильтр   - &#x60;3&#x60; — свыше трёх литров
-func (r ApiGetV1WarehouseRemainsRequest) FilterVolume(filterVolume int32) ApiGetV1WarehouseRemainsRequest {
+func (r ApiGetV1WarehouseRemainsRequest) FilterVolume(filterVolume int64) ApiGetV1WarehouseRemainsRequest {
 	r.filterVolume = &filterVolume
 	return r
 }
@@ -4658,13 +4658,13 @@ func (a *ReportsAPIService) GetV1WarehouseRemainsExecute(r ApiGetV1WarehouseRema
 	if r.filterPics != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "filterPics", r.filterPics, "form", "")
 	} else {
-		var defaultValue int32 = 0
+		var defaultValue int64 = 0
 		r.filterPics = &defaultValue
 	}
 	if r.filterVolume != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "filterVolume", r.filterVolume, "form", "")
 	} else {
-		var defaultValue int32 = 0
+		var defaultValue int64 = 0
 		r.filterVolume = &defaultValue
 	}
 	// to determine the Content-Type header

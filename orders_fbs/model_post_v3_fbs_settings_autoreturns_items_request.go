@@ -22,7 +22,7 @@ var _ MappedNullable = &PostV3FbsSettingsAutoreturnsItemsRequest{}
 // PostV3FbsSettingsAutoreturnsItemsRequest struct for PostV3FbsSettingsAutoreturnsItemsRequest
 type PostV3FbsSettingsAutoreturnsItemsRequest struct {
 	// Список ID размеров товаров в системе WB
-	ChrtIds []int32 `json:"chrtIds"`
+	ChrtIds []int64 `json:"chrtIds"`
 }
 
 type _PostV3FbsSettingsAutoreturnsItemsRequest PostV3FbsSettingsAutoreturnsItemsRequest
@@ -31,7 +31,7 @@ type _PostV3FbsSettingsAutoreturnsItemsRequest PostV3FbsSettingsAutoreturnsItems
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostV3FbsSettingsAutoreturnsItemsRequest(chrtIds []int32) *PostV3FbsSettingsAutoreturnsItemsRequest {
+func NewPostV3FbsSettingsAutoreturnsItemsRequest(chrtIds []int64) *PostV3FbsSettingsAutoreturnsItemsRequest {
 	this := PostV3FbsSettingsAutoreturnsItemsRequest{}
 	this.ChrtIds = chrtIds
 	return &this
@@ -46,9 +46,9 @@ func NewPostV3FbsSettingsAutoreturnsItemsRequestWithDefaults() *PostV3FbsSetting
 }
 
 // GetChrtIds returns the ChrtIds field value
-func (o *PostV3FbsSettingsAutoreturnsItemsRequest) GetChrtIds() []int32 {
+func (o *PostV3FbsSettingsAutoreturnsItemsRequest) GetChrtIds() []int64 {
 	if o == nil {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 
@@ -57,7 +57,7 @@ func (o *PostV3FbsSettingsAutoreturnsItemsRequest) GetChrtIds() []int32 {
 
 // GetChrtIdsOk returns a tuple with the ChrtIds field value
 // and a boolean to check if the value has been set.
-func (o *PostV3FbsSettingsAutoreturnsItemsRequest) GetChrtIdsOk() ([]int32, bool) {
+func (o *PostV3FbsSettingsAutoreturnsItemsRequest) GetChrtIdsOk() ([]int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,7 +65,7 @@ func (o *PostV3FbsSettingsAutoreturnsItemsRequest) GetChrtIdsOk() ([]int32, bool
 }
 
 // SetChrtIds sets field value
-func (o *PostV3FbsSettingsAutoreturnsItemsRequest) SetChrtIds(v []int32) {
+func (o *PostV3FbsSettingsAutoreturnsItemsRequest) SetChrtIds(v []int64) {
 	o.ChrtIds = v
 }
 

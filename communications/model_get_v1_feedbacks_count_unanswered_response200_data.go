@@ -20,9 +20,9 @@ var _ MappedNullable = &GetV1FeedbacksCountUnansweredResponse200Data{}
 // GetV1FeedbacksCountUnansweredResponse200Data struct for GetV1FeedbacksCountUnansweredResponse200Data
 type GetV1FeedbacksCountUnansweredResponse200Data struct {
 	// Количество необработанных отзывов
-	CountUnanswered *int32 `json:"countUnanswered,omitempty"`
+	CountUnanswered *int64 `json:"countUnanswered,omitempty"`
 	// Количество необработанных отзывов за сегодня
-	CountUnansweredToday *int32 `json:"countUnansweredToday,omitempty"`
+	CountUnansweredToday *int64 `json:"countUnansweredToday,omitempty"`
 }
 
 // NewGetV1FeedbacksCountUnansweredResponse200Data instantiates a new GetV1FeedbacksCountUnansweredResponse200Data object
@@ -43,9 +43,9 @@ func NewGetV1FeedbacksCountUnansweredResponse200DataWithDefaults() *GetV1Feedbac
 }
 
 // GetCountUnanswered returns the CountUnanswered field value if set, zero value otherwise.
-func (o *GetV1FeedbacksCountUnansweredResponse200Data) GetCountUnanswered() int32 {
+func (o *GetV1FeedbacksCountUnansweredResponse200Data) GetCountUnanswered() int64 {
 	if o == nil || IsNil(o.CountUnanswered) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CountUnanswered
@@ -53,7 +53,7 @@ func (o *GetV1FeedbacksCountUnansweredResponse200Data) GetCountUnanswered() int3
 
 // GetCountUnansweredOk returns a tuple with the CountUnanswered field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1FeedbacksCountUnansweredResponse200Data) GetCountUnansweredOk() (*int32, bool) {
+func (o *GetV1FeedbacksCountUnansweredResponse200Data) GetCountUnansweredOk() (*int64, bool) {
 	if o == nil || IsNil(o.CountUnanswered) {
 		return nil, false
 	}
@@ -69,15 +69,15 @@ func (o *GetV1FeedbacksCountUnansweredResponse200Data) HasCountUnanswered() bool
 	return false
 }
 
-// SetCountUnanswered gets a reference to the given int32 and assigns it to the CountUnanswered field.
-func (o *GetV1FeedbacksCountUnansweredResponse200Data) SetCountUnanswered(v int32) {
+// SetCountUnanswered gets a reference to the given int64 and assigns it to the CountUnanswered field.
+func (o *GetV1FeedbacksCountUnansweredResponse200Data) SetCountUnanswered(v int64) {
 	o.CountUnanswered = &v
 }
 
 // GetCountUnansweredToday returns the CountUnansweredToday field value if set, zero value otherwise.
-func (o *GetV1FeedbacksCountUnansweredResponse200Data) GetCountUnansweredToday() int32 {
+func (o *GetV1FeedbacksCountUnansweredResponse200Data) GetCountUnansweredToday() int64 {
 	if o == nil || IsNil(o.CountUnansweredToday) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CountUnansweredToday
@@ -85,7 +85,7 @@ func (o *GetV1FeedbacksCountUnansweredResponse200Data) GetCountUnansweredToday()
 
 // GetCountUnansweredTodayOk returns a tuple with the CountUnansweredToday field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1FeedbacksCountUnansweredResponse200Data) GetCountUnansweredTodayOk() (*int32, bool) {
+func (o *GetV1FeedbacksCountUnansweredResponse200Data) GetCountUnansweredTodayOk() (*int64, bool) {
 	if o == nil || IsNil(o.CountUnansweredToday) {
 		return nil, false
 	}
@@ -101,8 +101,8 @@ func (o *GetV1FeedbacksCountUnansweredResponse200Data) HasCountUnansweredToday()
 	return false
 }
 
-// SetCountUnansweredToday gets a reference to the given int32 and assigns it to the CountUnansweredToday field.
-func (o *GetV1FeedbacksCountUnansweredResponse200Data) SetCountUnansweredToday(v int32) {
+// SetCountUnansweredToday gets a reference to the given int64 and assigns it to the CountUnansweredToday field.
+func (o *GetV1FeedbacksCountUnansweredResponse200Data) SetCountUnansweredToday(v int64) {
 	o.CountUnansweredToday = &v
 }
 

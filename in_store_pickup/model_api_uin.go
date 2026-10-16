@@ -22,7 +22,7 @@ var _ MappedNullable = &ApiUIN{}
 // ApiUIN struct for ApiUIN
 type ApiUIN struct {
 	// ID сборочного задания
-	OrderId int32 `json:"orderId"`
+	OrderId int64 `json:"orderId"`
 	// УИН
 	Uin string `json:"uin"`
 }
@@ -33,7 +33,7 @@ type _ApiUIN ApiUIN
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiUIN(orderId int32, uin string) *ApiUIN {
+func NewApiUIN(orderId int64, uin string) *ApiUIN {
 	this := ApiUIN{}
 	this.OrderId = orderId
 	this.Uin = uin
@@ -49,9 +49,9 @@ func NewApiUINWithDefaults() *ApiUIN {
 }
 
 // GetOrderId returns the OrderId field value
-func (o *ApiUIN) GetOrderId() int32 {
+func (o *ApiUIN) GetOrderId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -60,7 +60,7 @@ func (o *ApiUIN) GetOrderId() int32 {
 
 // GetOrderIdOk returns a tuple with the OrderId field value
 // and a boolean to check if the value has been set.
-func (o *ApiUIN) GetOrderIdOk() (*int32, bool) {
+func (o *ApiUIN) GetOrderIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,7 +68,7 @@ func (o *ApiUIN) GetOrderIdOk() (*int32, bool) {
 }
 
 // SetOrderId sets field value
-func (o *ApiUIN) SetOrderId(v int32) {
+func (o *ApiUIN) SetOrderId(v int64) {
 	o.OrderId = v
 }
 

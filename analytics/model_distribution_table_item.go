@@ -26,7 +26,7 @@ type DistributionTableItem struct {
 	// Артикул продавца
 	VendorCode *string `json:"vendorCode,omitempty"`
 	// ID предмета
-	SubjectId *int32 `json:"subjectId,omitempty"`
+	SubjectId *int64 `json:"subjectId,omitempty"`
 	// Название предмета
 	SubjectName *string `json:"subjectName,omitempty"`
 	// Бренд
@@ -47,7 +47,7 @@ type DistributionTableItem struct {
 	TwoStar        *DistributionTableItemTwoStar        `json:"twoStar,omitempty"`
 	OneStar        *DistributionTableItemOneStar        `json:"oneStar,omitempty"`
 	// Отзывы, исключённые из рейтинга
-	Disqualified *int32 `json:"disqualified,omitempty"`
+	Disqualified *int64 `json:"disqualified,omitempty"`
 	// Является ли товар скрытым из каталога:   - `true` — товар скрыт из каталога   - `false` — товар не скрыт из каталога
 	IsShadowed *bool `json:"isShadowed,omitempty"`
 }
@@ -166,9 +166,9 @@ func (o *DistributionTableItem) SetVendorCode(v string) {
 }
 
 // GetSubjectId returns the SubjectId field value if set, zero value otherwise.
-func (o *DistributionTableItem) GetSubjectId() int32 {
+func (o *DistributionTableItem) GetSubjectId() int64 {
 	if o == nil || IsNil(o.SubjectId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SubjectId
@@ -176,7 +176,7 @@ func (o *DistributionTableItem) GetSubjectId() int32 {
 
 // GetSubjectIdOk returns a tuple with the SubjectId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DistributionTableItem) GetSubjectIdOk() (*int32, bool) {
+func (o *DistributionTableItem) GetSubjectIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.SubjectId) {
 		return nil, false
 	}
@@ -192,8 +192,8 @@ func (o *DistributionTableItem) HasSubjectId() bool {
 	return false
 }
 
-// SetSubjectId gets a reference to the given int32 and assigns it to the SubjectId field.
-func (o *DistributionTableItem) SetSubjectId(v int32) {
+// SetSubjectId gets a reference to the given int64 and assigns it to the SubjectId field.
+func (o *DistributionTableItem) SetSubjectId(v int64) {
 	o.SubjectId = &v
 }
 
@@ -614,9 +614,9 @@ func (o *DistributionTableItem) SetOneStar(v DistributionTableItemOneStar) {
 }
 
 // GetDisqualified returns the Disqualified field value if set, zero value otherwise.
-func (o *DistributionTableItem) GetDisqualified() int32 {
+func (o *DistributionTableItem) GetDisqualified() int64 {
 	if o == nil || IsNil(o.Disqualified) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Disqualified
@@ -624,7 +624,7 @@ func (o *DistributionTableItem) GetDisqualified() int32 {
 
 // GetDisqualifiedOk returns a tuple with the Disqualified field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DistributionTableItem) GetDisqualifiedOk() (*int32, bool) {
+func (o *DistributionTableItem) GetDisqualifiedOk() (*int64, bool) {
 	if o == nil || IsNil(o.Disqualified) {
 		return nil, false
 	}
@@ -640,8 +640,8 @@ func (o *DistributionTableItem) HasDisqualified() bool {
 	return false
 }
 
-// SetDisqualified gets a reference to the given int32 and assigns it to the Disqualified field.
-func (o *DistributionTableItem) SetDisqualified(v int32) {
+// SetDisqualified gets a reference to the given int64 and assigns it to the Disqualified field.
+func (o *DistributionTableItem) SetDisqualified(v int64) {
 	o.Disqualified = &v
 }
 

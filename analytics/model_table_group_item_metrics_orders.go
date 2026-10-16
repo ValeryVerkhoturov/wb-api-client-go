@@ -20,9 +20,9 @@ var _ MappedNullable = &TableGroupItemMetricsOrders{}
 // TableGroupItemMetricsOrders Сколько раз товары из поиска заказали
 type TableGroupItemMetricsOrders struct {
 	// Текущее количество
-	Current *int32 `json:"current,omitempty"`
+	Current *int64 `json:"current,omitempty"`
 	// Динамика по сравнению с предыдущим периодом, %
-	Dynamics *int32 `json:"dynamics,omitempty"`
+	Dynamics *int64 `json:"dynamics,omitempty"`
 }
 
 // NewTableGroupItemMetricsOrders instantiates a new TableGroupItemMetricsOrders object
@@ -43,9 +43,9 @@ func NewTableGroupItemMetricsOrdersWithDefaults() *TableGroupItemMetricsOrders {
 }
 
 // GetCurrent returns the Current field value if set, zero value otherwise.
-func (o *TableGroupItemMetricsOrders) GetCurrent() int32 {
+func (o *TableGroupItemMetricsOrders) GetCurrent() int64 {
 	if o == nil || IsNil(o.Current) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Current
@@ -53,7 +53,7 @@ func (o *TableGroupItemMetricsOrders) GetCurrent() int32 {
 
 // GetCurrentOk returns a tuple with the Current field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableGroupItemMetricsOrders) GetCurrentOk() (*int32, bool) {
+func (o *TableGroupItemMetricsOrders) GetCurrentOk() (*int64, bool) {
 	if o == nil || IsNil(o.Current) {
 		return nil, false
 	}
@@ -69,15 +69,15 @@ func (o *TableGroupItemMetricsOrders) HasCurrent() bool {
 	return false
 }
 
-// SetCurrent gets a reference to the given int32 and assigns it to the Current field.
-func (o *TableGroupItemMetricsOrders) SetCurrent(v int32) {
+// SetCurrent gets a reference to the given int64 and assigns it to the Current field.
+func (o *TableGroupItemMetricsOrders) SetCurrent(v int64) {
 	o.Current = &v
 }
 
 // GetDynamics returns the Dynamics field value if set, zero value otherwise.
-func (o *TableGroupItemMetricsOrders) GetDynamics() int32 {
+func (o *TableGroupItemMetricsOrders) GetDynamics() int64 {
 	if o == nil || IsNil(o.Dynamics) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Dynamics
@@ -85,7 +85,7 @@ func (o *TableGroupItemMetricsOrders) GetDynamics() int32 {
 
 // GetDynamicsOk returns a tuple with the Dynamics field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableGroupItemMetricsOrders) GetDynamicsOk() (*int32, bool) {
+func (o *TableGroupItemMetricsOrders) GetDynamicsOk() (*int64, bool) {
 	if o == nil || IsNil(o.Dynamics) {
 		return nil, false
 	}
@@ -101,8 +101,8 @@ func (o *TableGroupItemMetricsOrders) HasDynamics() bool {
 	return false
 }
 
-// SetDynamics gets a reference to the given int32 and assigns it to the Dynamics field.
-func (o *TableGroupItemMetricsOrders) SetDynamics(v int32) {
+// SetDynamics gets a reference to the given int64 and assigns it to the Dynamics field.
+func (o *TableGroupItemMetricsOrders) SetDynamics(v int64) {
 	o.Dynamics = &v
 }
 

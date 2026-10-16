@@ -24,7 +24,7 @@ type PostV2CardsUploadAddRequestCardsToAddInnerSizesInner struct {
 	// Российский размер товара
 	WbSize *string `json:"wbSize,omitempty"`
 	// Цена товара
-	Price *int32 `json:"price,omitempty"`
+	Price *int64 `json:"price,omitempty"`
 	// Баркод. Если не указать, сгенерируется автоматически
 	Skus []string `json:"skus,omitempty"`
 }
@@ -111,9 +111,9 @@ func (o *PostV2CardsUploadAddRequestCardsToAddInnerSizesInner) SetWbSize(v strin
 }
 
 // GetPrice returns the Price field value if set, zero value otherwise.
-func (o *PostV2CardsUploadAddRequestCardsToAddInnerSizesInner) GetPrice() int32 {
+func (o *PostV2CardsUploadAddRequestCardsToAddInnerSizesInner) GetPrice() int64 {
 	if o == nil || IsNil(o.Price) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Price
@@ -121,7 +121,7 @@ func (o *PostV2CardsUploadAddRequestCardsToAddInnerSizesInner) GetPrice() int32 
 
 // GetPriceOk returns a tuple with the Price field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2CardsUploadAddRequestCardsToAddInnerSizesInner) GetPriceOk() (*int32, bool) {
+func (o *PostV2CardsUploadAddRequestCardsToAddInnerSizesInner) GetPriceOk() (*int64, bool) {
 	if o == nil || IsNil(o.Price) {
 		return nil, false
 	}
@@ -137,8 +137,8 @@ func (o *PostV2CardsUploadAddRequestCardsToAddInnerSizesInner) HasPrice() bool {
 	return false
 }
 
-// SetPrice gets a reference to the given int32 and assigns it to the Price field.
-func (o *PostV2CardsUploadAddRequestCardsToAddInnerSizesInner) SetPrice(v int32) {
+// SetPrice gets a reference to the given int64 and assigns it to the Price field.
+func (o *PostV2CardsUploadAddRequestCardsToAddInnerSizesInner) SetPrice(v int64) {
 	o.Price = &v
 }
 

@@ -22,7 +22,7 @@ var _ MappedNullable = &RequestWithDate{}
 // RequestWithDate struct for RequestWithDate
 type RequestWithDate struct {
 	// ID кампании
-	Id int32 `json:"id"`
+	Id int64 `json:"id"`
 	// Даты, за которые нужно получить информацию
 	Dates []string `json:"dates"`
 }
@@ -33,7 +33,7 @@ type _RequestWithDate RequestWithDate
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRequestWithDate(id int32, dates []string) *RequestWithDate {
+func NewRequestWithDate(id int64, dates []string) *RequestWithDate {
 	this := RequestWithDate{}
 	this.Id = id
 	this.Dates = dates
@@ -49,9 +49,9 @@ func NewRequestWithDateWithDefaults() *RequestWithDate {
 }
 
 // GetId returns the Id field value
-func (o *RequestWithDate) GetId() int32 {
+func (o *RequestWithDate) GetId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -60,7 +60,7 @@ func (o *RequestWithDate) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *RequestWithDate) GetIdOk() (*int32, bool) {
+func (o *RequestWithDate) GetIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,7 +68,7 @@ func (o *RequestWithDate) GetIdOk() (*int32, bool) {
 }
 
 // SetId sets field value
-func (o *RequestWithDate) SetId(v int32) {
+func (o *RequestWithDate) SetId(v int64) {
 	o.Id = v
 }
 

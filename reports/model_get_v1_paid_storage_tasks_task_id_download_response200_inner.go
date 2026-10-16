@@ -24,15 +24,15 @@ type GetV1PaidStorageTasksTaskIdDownloadResponse200Inner struct {
 	// Коэффициент логистики и хранения. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`
 	LogWarehouseCoef *float32 `json:"logWarehouseCoef,omitempty"`
 	// ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`
-	OfficeId *int32 `json:"officeId,omitempty"`
+	OfficeId *int64 `json:"officeId,omitempty"`
 	// Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB РФ`
 	Warehouse *string `json:"warehouse,omitempty"`
 	// Коэффициент хранения
 	WarehouseCoef *float32 `json:"warehouseCoef,omitempty"`
 	// ID поставки
-	GiId *int32 `json:"giId,omitempty"`
+	GiId *int64 `json:"giId,omitempty"`
 	// ID размера для этого артикула WB
-	ChrtId *int32 `json:"chrtId,omitempty"`
+	ChrtId *int64 `json:"chrtId,omitempty"`
 	// Размер (`techSize` в карточке товара)
 	Size *string `json:"size,omitempty"`
 	// Баркод
@@ -44,7 +44,7 @@ type GetV1PaidStorageTasksTaskIdDownloadResponse200Inner struct {
 	// Артикул продавца
 	VendorCode *string `json:"vendorCode,omitempty"`
 	// Артикул WB
-	NmId *int32 `json:"nmId,omitempty"`
+	NmId *int64 `json:"nmId,omitempty"`
 	// Объём товара
 	Volume *float32 `json:"volume,omitempty"`
 	// Способ расчёта
@@ -52,9 +52,9 @@ type GetV1PaidStorageTasksTaskIdDownloadResponse200Inner struct {
 	// Сумма хранения
 	WarehousePrice *float32 `json:"warehousePrice,omitempty"`
 	// Количество единиц товара (штук), подлежащих тарифицированию за расчётные сутки
-	BarcodesCount *int32 `json:"barcodesCount,omitempty"`
+	BarcodesCount *int64 `json:"barcodesCount,omitempty"`
 	// Код паллетоместа. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`
-	PalletPlaceCode *int32 `json:"palletPlaceCode,omitempty"`
+	PalletPlaceCode *int64 `json:"palletPlaceCode,omitempty"`
 	// Количество паллет
 	PalletCount *float32 `json:"palletCount,omitempty"`
 	// Если был перерасчёт, это дата первоначального расчёта. Если перерасчёта не было, совпадает с `date`
@@ -149,9 +149,9 @@ func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) SetLogWarehouseCoe
 }
 
 // GetOfficeId returns the OfficeId field value if set, zero value otherwise.
-func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) GetOfficeId() int32 {
+func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) GetOfficeId() int64 {
 	if o == nil || IsNil(o.OfficeId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OfficeId
@@ -159,7 +159,7 @@ func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) GetOfficeId() int3
 
 // GetOfficeIdOk returns a tuple with the OfficeId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) GetOfficeIdOk() (*int32, bool) {
+func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) GetOfficeIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.OfficeId) {
 		return nil, false
 	}
@@ -175,8 +175,8 @@ func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) HasOfficeId() bool
 	return false
 }
 
-// SetOfficeId gets a reference to the given int32 and assigns it to the OfficeId field.
-func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) SetOfficeId(v int32) {
+// SetOfficeId gets a reference to the given int64 and assigns it to the OfficeId field.
+func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) SetOfficeId(v int64) {
 	o.OfficeId = &v
 }
 
@@ -245,9 +245,9 @@ func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) SetWarehouseCoef(v
 }
 
 // GetGiId returns the GiId field value if set, zero value otherwise.
-func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) GetGiId() int32 {
+func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) GetGiId() int64 {
 	if o == nil || IsNil(o.GiId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.GiId
@@ -255,7 +255,7 @@ func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) GetGiId() int32 {
 
 // GetGiIdOk returns a tuple with the GiId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) GetGiIdOk() (*int32, bool) {
+func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) GetGiIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.GiId) {
 		return nil, false
 	}
@@ -271,15 +271,15 @@ func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) HasGiId() bool {
 	return false
 }
 
-// SetGiId gets a reference to the given int32 and assigns it to the GiId field.
-func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) SetGiId(v int32) {
+// SetGiId gets a reference to the given int64 and assigns it to the GiId field.
+func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) SetGiId(v int64) {
 	o.GiId = &v
 }
 
 // GetChrtId returns the ChrtId field value if set, zero value otherwise.
-func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) GetChrtId() int32 {
+func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) GetChrtId() int64 {
 	if o == nil || IsNil(o.ChrtId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ChrtId
@@ -287,7 +287,7 @@ func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) GetChrtId() int32 
 
 // GetChrtIdOk returns a tuple with the ChrtId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) GetChrtIdOk() (*int32, bool) {
+func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) GetChrtIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.ChrtId) {
 		return nil, false
 	}
@@ -303,8 +303,8 @@ func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) HasChrtId() bool {
 	return false
 }
 
-// SetChrtId gets a reference to the given int32 and assigns it to the ChrtId field.
-func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) SetChrtId(v int32) {
+// SetChrtId gets a reference to the given int64 and assigns it to the ChrtId field.
+func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) SetChrtId(v int64) {
 	o.ChrtId = &v
 }
 
@@ -469,9 +469,9 @@ func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) SetVendorCode(v st
 }
 
 // GetNmId returns the NmId field value if set, zero value otherwise.
-func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) GetNmId() int32 {
+func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) GetNmId() int64 {
 	if o == nil || IsNil(o.NmId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmId
@@ -479,7 +479,7 @@ func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) GetNmId() int32 {
 
 // GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) GetNmIdOk() (*int32, bool) {
+func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) GetNmIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
@@ -495,8 +495,8 @@ func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) HasNmId() bool {
 	return false
 }
 
-// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
-func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) SetNmId(v int32) {
+// SetNmId gets a reference to the given int64 and assigns it to the NmId field.
+func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) SetNmId(v int64) {
 	o.NmId = &v
 }
 
@@ -597,9 +597,9 @@ func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) SetWarehousePrice(
 }
 
 // GetBarcodesCount returns the BarcodesCount field value if set, zero value otherwise.
-func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) GetBarcodesCount() int32 {
+func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) GetBarcodesCount() int64 {
 	if o == nil || IsNil(o.BarcodesCount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.BarcodesCount
@@ -607,7 +607,7 @@ func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) GetBarcodesCount()
 
 // GetBarcodesCountOk returns a tuple with the BarcodesCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) GetBarcodesCountOk() (*int32, bool) {
+func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) GetBarcodesCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.BarcodesCount) {
 		return nil, false
 	}
@@ -623,15 +623,15 @@ func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) HasBarcodesCount()
 	return false
 }
 
-// SetBarcodesCount gets a reference to the given int32 and assigns it to the BarcodesCount field.
-func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) SetBarcodesCount(v int32) {
+// SetBarcodesCount gets a reference to the given int64 and assigns it to the BarcodesCount field.
+func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) SetBarcodesCount(v int64) {
 	o.BarcodesCount = &v
 }
 
 // GetPalletPlaceCode returns the PalletPlaceCode field value if set, zero value otherwise.
-func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) GetPalletPlaceCode() int32 {
+func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) GetPalletPlaceCode() int64 {
 	if o == nil || IsNil(o.PalletPlaceCode) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.PalletPlaceCode
@@ -639,7 +639,7 @@ func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) GetPalletPlaceCode
 
 // GetPalletPlaceCodeOk returns a tuple with the PalletPlaceCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) GetPalletPlaceCodeOk() (*int32, bool) {
+func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) GetPalletPlaceCodeOk() (*int64, bool) {
 	if o == nil || IsNil(o.PalletPlaceCode) {
 		return nil, false
 	}
@@ -655,8 +655,8 @@ func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) HasPalletPlaceCode
 	return false
 }
 
-// SetPalletPlaceCode gets a reference to the given int32 and assigns it to the PalletPlaceCode field.
-func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) SetPalletPlaceCode(v int32) {
+// SetPalletPlaceCode gets a reference to the given int64 and assigns it to the PalletPlaceCode field.
+func (o *GetV1PaidStorageTasksTaskIdDownloadResponse200Inner) SetPalletPlaceCode(v int64) {
 	o.PalletPlaceCode = &v
 }
 

@@ -20,7 +20,7 @@ var _ MappedNullable = &GetV1CalendarPromotions200ResponseDataPromotionsInner{}
 // GetV1CalendarPromotions200ResponseDataPromotionsInner struct for GetV1CalendarPromotions200ResponseDataPromotionsInner
 type GetV1CalendarPromotions200ResponseDataPromotionsInner struct {
 	// ID акции
-	Id *int32 `json:"id,omitempty"`
+	Id *int64 `json:"id,omitempty"`
 	// Название акции
 	Name *string `json:"name,omitempty"`
 	// Начало акции
@@ -49,9 +49,9 @@ func NewGetV1CalendarPromotions200ResponseDataPromotionsInnerWithDefaults() *Get
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *GetV1CalendarPromotions200ResponseDataPromotionsInner) GetId() int32 {
+func (o *GetV1CalendarPromotions200ResponseDataPromotionsInner) GetId() int64 {
 	if o == nil || IsNil(o.Id) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Id
@@ -59,7 +59,7 @@ func (o *GetV1CalendarPromotions200ResponseDataPromotionsInner) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1CalendarPromotions200ResponseDataPromotionsInner) GetIdOk() (*int32, bool) {
+func (o *GetV1CalendarPromotions200ResponseDataPromotionsInner) GetIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -75,8 +75,8 @@ func (o *GetV1CalendarPromotions200ResponseDataPromotionsInner) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *GetV1CalendarPromotions200ResponseDataPromotionsInner) SetId(v int32) {
+// SetId gets a reference to the given int64 and assigns it to the Id field.
+func (o *GetV1CalendarPromotions200ResponseDataPromotionsInner) SetId(v int64) {
 	o.Id = &v
 }
 

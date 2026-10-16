@@ -22,7 +22,7 @@ type V2GetConfigResponse struct {
 	// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Currency *string `json:"currency,omitempty"`
 	// Код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
-	CurrencyCode *int32 `json:"currencyCode,omitempty"`
+	CurrencyCode *int64 `json:"currencyCode,omitempty"`
 	// Шаг ставки в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) для CPM-кампаний
 	CpmStep *int64 `json:"cpmStep,omitempty"`
 	// Шаг ставки в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) для кампаний CPC
@@ -83,9 +83,9 @@ func (o *V2GetConfigResponse) SetCurrency(v string) {
 }
 
 // GetCurrencyCode returns the CurrencyCode field value if set, zero value otherwise.
-func (o *V2GetConfigResponse) GetCurrencyCode() int32 {
+func (o *V2GetConfigResponse) GetCurrencyCode() int64 {
 	if o == nil || IsNil(o.CurrencyCode) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CurrencyCode
@@ -93,7 +93,7 @@ func (o *V2GetConfigResponse) GetCurrencyCode() int32 {
 
 // GetCurrencyCodeOk returns a tuple with the CurrencyCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V2GetConfigResponse) GetCurrencyCodeOk() (*int32, bool) {
+func (o *V2GetConfigResponse) GetCurrencyCodeOk() (*int64, bool) {
 	if o == nil || IsNil(o.CurrencyCode) {
 		return nil, false
 	}
@@ -109,8 +109,8 @@ func (o *V2GetConfigResponse) HasCurrencyCode() bool {
 	return false
 }
 
-// SetCurrencyCode gets a reference to the given int32 and assigns it to the CurrencyCode field.
-func (o *V2GetConfigResponse) SetCurrencyCode(v int32) {
+// SetCurrencyCode gets a reference to the given int64 and assigns it to the CurrencyCode field.
+func (o *V2GetConfigResponse) SetCurrencyCode(v int64) {
 	o.CurrencyCode = &v
 }
 

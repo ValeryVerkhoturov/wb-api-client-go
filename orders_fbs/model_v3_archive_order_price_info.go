@@ -20,13 +20,13 @@ var _ MappedNullable = &V3ArchiveOrderPriceInfo{}
 // V3ArchiveOrderPriceInfo Информация о цене заказа
 type V3ArchiveOrderPriceInfo struct {
 	// Код валюты страны продавца
-	ConvertedCurrencyCode *int32 `json:"convertedCurrencyCode,omitempty"`
+	ConvertedCurrencyCode *int64 `json:"convertedCurrencyCode,omitempty"`
 	// Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100
-	ConvertedPrice *int32 `json:"convertedPrice,omitempty"`
+	ConvertedPrice *int64 `json:"convertedPrice,omitempty"`
 	// Код валюты продажи
-	CurrencyCode *int32 `json:"currencyCode,omitempty"`
+	CurrencyCode *int64 `json:"currencyCode,omitempty"`
 	// Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100
-	Price *int32 `json:"price,omitempty"`
+	Price *int64 `json:"price,omitempty"`
 }
 
 // NewV3ArchiveOrderPriceInfo instantiates a new V3ArchiveOrderPriceInfo object
@@ -47,9 +47,9 @@ func NewV3ArchiveOrderPriceInfoWithDefaults() *V3ArchiveOrderPriceInfo {
 }
 
 // GetConvertedCurrencyCode returns the ConvertedCurrencyCode field value if set, zero value otherwise.
-func (o *V3ArchiveOrderPriceInfo) GetConvertedCurrencyCode() int32 {
+func (o *V3ArchiveOrderPriceInfo) GetConvertedCurrencyCode() int64 {
 	if o == nil || IsNil(o.ConvertedCurrencyCode) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ConvertedCurrencyCode
@@ -57,7 +57,7 @@ func (o *V3ArchiveOrderPriceInfo) GetConvertedCurrencyCode() int32 {
 
 // GetConvertedCurrencyCodeOk returns a tuple with the ConvertedCurrencyCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V3ArchiveOrderPriceInfo) GetConvertedCurrencyCodeOk() (*int32, bool) {
+func (o *V3ArchiveOrderPriceInfo) GetConvertedCurrencyCodeOk() (*int64, bool) {
 	if o == nil || IsNil(o.ConvertedCurrencyCode) {
 		return nil, false
 	}
@@ -73,15 +73,15 @@ func (o *V3ArchiveOrderPriceInfo) HasConvertedCurrencyCode() bool {
 	return false
 }
 
-// SetConvertedCurrencyCode gets a reference to the given int32 and assigns it to the ConvertedCurrencyCode field.
-func (o *V3ArchiveOrderPriceInfo) SetConvertedCurrencyCode(v int32) {
+// SetConvertedCurrencyCode gets a reference to the given int64 and assigns it to the ConvertedCurrencyCode field.
+func (o *V3ArchiveOrderPriceInfo) SetConvertedCurrencyCode(v int64) {
 	o.ConvertedCurrencyCode = &v
 }
 
 // GetConvertedPrice returns the ConvertedPrice field value if set, zero value otherwise.
-func (o *V3ArchiveOrderPriceInfo) GetConvertedPrice() int32 {
+func (o *V3ArchiveOrderPriceInfo) GetConvertedPrice() int64 {
 	if o == nil || IsNil(o.ConvertedPrice) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ConvertedPrice
@@ -89,7 +89,7 @@ func (o *V3ArchiveOrderPriceInfo) GetConvertedPrice() int32 {
 
 // GetConvertedPriceOk returns a tuple with the ConvertedPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V3ArchiveOrderPriceInfo) GetConvertedPriceOk() (*int32, bool) {
+func (o *V3ArchiveOrderPriceInfo) GetConvertedPriceOk() (*int64, bool) {
 	if o == nil || IsNil(o.ConvertedPrice) {
 		return nil, false
 	}
@@ -105,15 +105,15 @@ func (o *V3ArchiveOrderPriceInfo) HasConvertedPrice() bool {
 	return false
 }
 
-// SetConvertedPrice gets a reference to the given int32 and assigns it to the ConvertedPrice field.
-func (o *V3ArchiveOrderPriceInfo) SetConvertedPrice(v int32) {
+// SetConvertedPrice gets a reference to the given int64 and assigns it to the ConvertedPrice field.
+func (o *V3ArchiveOrderPriceInfo) SetConvertedPrice(v int64) {
 	o.ConvertedPrice = &v
 }
 
 // GetCurrencyCode returns the CurrencyCode field value if set, zero value otherwise.
-func (o *V3ArchiveOrderPriceInfo) GetCurrencyCode() int32 {
+func (o *V3ArchiveOrderPriceInfo) GetCurrencyCode() int64 {
 	if o == nil || IsNil(o.CurrencyCode) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CurrencyCode
@@ -121,7 +121,7 @@ func (o *V3ArchiveOrderPriceInfo) GetCurrencyCode() int32 {
 
 // GetCurrencyCodeOk returns a tuple with the CurrencyCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V3ArchiveOrderPriceInfo) GetCurrencyCodeOk() (*int32, bool) {
+func (o *V3ArchiveOrderPriceInfo) GetCurrencyCodeOk() (*int64, bool) {
 	if o == nil || IsNil(o.CurrencyCode) {
 		return nil, false
 	}
@@ -137,15 +137,15 @@ func (o *V3ArchiveOrderPriceInfo) HasCurrencyCode() bool {
 	return false
 }
 
-// SetCurrencyCode gets a reference to the given int32 and assigns it to the CurrencyCode field.
-func (o *V3ArchiveOrderPriceInfo) SetCurrencyCode(v int32) {
+// SetCurrencyCode gets a reference to the given int64 and assigns it to the CurrencyCode field.
+func (o *V3ArchiveOrderPriceInfo) SetCurrencyCode(v int64) {
 	o.CurrencyCode = &v
 }
 
 // GetPrice returns the Price field value if set, zero value otherwise.
-func (o *V3ArchiveOrderPriceInfo) GetPrice() int32 {
+func (o *V3ArchiveOrderPriceInfo) GetPrice() int64 {
 	if o == nil || IsNil(o.Price) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Price
@@ -153,7 +153,7 @@ func (o *V3ArchiveOrderPriceInfo) GetPrice() int32 {
 
 // GetPriceOk returns a tuple with the Price field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V3ArchiveOrderPriceInfo) GetPriceOk() (*int32, bool) {
+func (o *V3ArchiveOrderPriceInfo) GetPriceOk() (*int64, bool) {
 	if o == nil || IsNil(o.Price) {
 		return nil, false
 	}
@@ -169,8 +169,8 @@ func (o *V3ArchiveOrderPriceInfo) HasPrice() bool {
 	return false
 }
 
-// SetPrice gets a reference to the given int32 and assigns it to the Price field.
-func (o *V3ArchiveOrderPriceInfo) SetPrice(v int32) {
+// SetPrice gets a reference to the given int64 and assigns it to the Price field.
+func (o *V3ArchiveOrderPriceInfo) SetPrice(v int64) {
 	o.Price = &v
 }
 

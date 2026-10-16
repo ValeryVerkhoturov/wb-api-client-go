@@ -22,7 +22,7 @@ type GetV1Claims200Response struct {
 	// Заявки
 	Claims []GetV1Claims200ResponseClaimsInner `json:"claims,omitempty"`
 	// Количество заявок, соответствующих параметрам запроса. Без учёта `limit` и `offset`
-	Total *int32 `json:"total,omitempty"`
+	Total *int64 `json:"total,omitempty"`
 }
 
 // NewGetV1Claims200Response instantiates a new GetV1Claims200Response object
@@ -75,9 +75,9 @@ func (o *GetV1Claims200Response) SetClaims(v []GetV1Claims200ResponseClaimsInner
 }
 
 // GetTotal returns the Total field value if set, zero value otherwise.
-func (o *GetV1Claims200Response) GetTotal() int32 {
+func (o *GetV1Claims200Response) GetTotal() int64 {
 	if o == nil || IsNil(o.Total) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Total
@@ -85,7 +85,7 @@ func (o *GetV1Claims200Response) GetTotal() int32 {
 
 // GetTotalOk returns a tuple with the Total field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1Claims200Response) GetTotalOk() (*int32, bool) {
+func (o *GetV1Claims200Response) GetTotalOk() (*int64, bool) {
 	if o == nil || IsNil(o.Total) {
 		return nil, false
 	}
@@ -101,8 +101,8 @@ func (o *GetV1Claims200Response) HasTotal() bool {
 	return false
 }
 
-// SetTotal gets a reference to the given int32 and assigns it to the Total field.
-func (o *GetV1Claims200Response) SetTotal(v int32) {
+// SetTotal gets a reference to the given int64 and assigns it to the Total field.
+func (o *GetV1Claims200Response) SetTotal(v int64) {
 	o.Total = &v
 }
 

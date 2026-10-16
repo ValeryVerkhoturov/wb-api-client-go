@@ -20,9 +20,9 @@ var _ MappedNullable = &FinancialReportsDetailedReportIdReq{}
 // FinancialReportsDetailedReportIdReq Параметры запроса
 type FinancialReportsDetailedReportIdReq struct {
 	// Количество строк в ответе
-	Limit *int32 `json:"limit,omitempty"`
+	Limit *int64 `json:"limit,omitempty"`
 	// ID строки ответа. Необходим для получения отчёта частями. Начинайте загрузку отчёта с `\"rrdid\":0`. В последующих запросах передавайте значение `rrdId` из последней строки предыдущего ответа. Повторяйте запрос, пока не получите ответ `204`
-	RrdId *int32 `json:"rrdId,omitempty"`
+	RrdId *int64 `json:"rrdId,omitempty"`
 	// Список полей, которые вернутся в ответе. Если параметр не указан, возвращаются все поля
 	Fields []string `json:"fields,omitempty"`
 }
@@ -33,9 +33,9 @@ type FinancialReportsDetailedReportIdReq struct {
 // will change when the set of required properties is changed
 func NewFinancialReportsDetailedReportIdReq() *FinancialReportsDetailedReportIdReq {
 	this := FinancialReportsDetailedReportIdReq{}
-	var limit int32 = 100000
+	var limit int64 = 100000
 	this.Limit = &limit
-	var rrdId int32 = 0
+	var rrdId int64 = 0
 	this.RrdId = &rrdId
 	return &this
 }
@@ -45,17 +45,17 @@ func NewFinancialReportsDetailedReportIdReq() *FinancialReportsDetailedReportIdR
 // but it doesn't guarantee that properties required by API are set
 func NewFinancialReportsDetailedReportIdReqWithDefaults() *FinancialReportsDetailedReportIdReq {
 	this := FinancialReportsDetailedReportIdReq{}
-	var limit int32 = 100000
+	var limit int64 = 100000
 	this.Limit = &limit
-	var rrdId int32 = 0
+	var rrdId int64 = 0
 	this.RrdId = &rrdId
 	return &this
 }
 
 // GetLimit returns the Limit field value if set, zero value otherwise.
-func (o *FinancialReportsDetailedReportIdReq) GetLimit() int32 {
+func (o *FinancialReportsDetailedReportIdReq) GetLimit() int64 {
 	if o == nil || IsNil(o.Limit) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Limit
@@ -63,7 +63,7 @@ func (o *FinancialReportsDetailedReportIdReq) GetLimit() int32 {
 
 // GetLimitOk returns a tuple with the Limit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FinancialReportsDetailedReportIdReq) GetLimitOk() (*int32, bool) {
+func (o *FinancialReportsDetailedReportIdReq) GetLimitOk() (*int64, bool) {
 	if o == nil || IsNil(o.Limit) {
 		return nil, false
 	}
@@ -79,15 +79,15 @@ func (o *FinancialReportsDetailedReportIdReq) HasLimit() bool {
 	return false
 }
 
-// SetLimit gets a reference to the given int32 and assigns it to the Limit field.
-func (o *FinancialReportsDetailedReportIdReq) SetLimit(v int32) {
+// SetLimit gets a reference to the given int64 and assigns it to the Limit field.
+func (o *FinancialReportsDetailedReportIdReq) SetLimit(v int64) {
 	o.Limit = &v
 }
 
 // GetRrdId returns the RrdId field value if set, zero value otherwise.
-func (o *FinancialReportsDetailedReportIdReq) GetRrdId() int32 {
+func (o *FinancialReportsDetailedReportIdReq) GetRrdId() int64 {
 	if o == nil || IsNil(o.RrdId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.RrdId
@@ -95,7 +95,7 @@ func (o *FinancialReportsDetailedReportIdReq) GetRrdId() int32 {
 
 // GetRrdIdOk returns a tuple with the RrdId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FinancialReportsDetailedReportIdReq) GetRrdIdOk() (*int32, bool) {
+func (o *FinancialReportsDetailedReportIdReq) GetRrdIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.RrdId) {
 		return nil, false
 	}
@@ -111,8 +111,8 @@ func (o *FinancialReportsDetailedReportIdReq) HasRrdId() bool {
 	return false
 }
 
-// SetRrdId gets a reference to the given int32 and assigns it to the RrdId field.
-func (o *FinancialReportsDetailedReportIdReq) SetRrdId(v int32) {
+// SetRrdId gets a reference to the given int64 and assigns it to the RrdId field.
+func (o *FinancialReportsDetailedReportIdReq) SetRrdId(v int64) {
 	o.RrdId = &v
 }
 

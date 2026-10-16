@@ -24,7 +24,7 @@ type ItemSearchTextsRequest struct {
 	CurrentPeriod Period      `json:"currentPeriod"`
 	PastPeriod    *PastPeriod `json:"pastPeriod,omitempty"`
 	// Список артикулов WB
-	NmIds []int32 `json:"nmIds"`
+	NmIds []int64 `json:"nmIds"`
 	// Фильтрация по поисковым запросам, по которым больше всего:   - `openCard` — перешли в карточку   - `addToCart` — добавили в корзину   - `openToCart` — конверсия в корзину   - `orders` — заказали товаров   - `cartToOrder` — конверсия в заказ
 	TopOrderBy string `json:"topOrderBy"`
 	// Показать данные по прямым запросам с [подменным артикулом](https://seller.wildberries.ru/help-center/article/A-524)
@@ -41,7 +41,7 @@ type _ItemSearchTextsRequest ItemSearchTextsRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemSearchTextsRequest(currentPeriod Period, nmIds []int32, topOrderBy string, orderBy OrderByGrTe, limit TextLimit) *ItemSearchTextsRequest {
+func NewItemSearchTextsRequest(currentPeriod Period, nmIds []int64, topOrderBy string, orderBy OrderByGrTe, limit TextLimit) *ItemSearchTextsRequest {
 	this := ItemSearchTextsRequest{}
 	this.CurrentPeriod = currentPeriod
 	this.NmIds = nmIds
@@ -124,9 +124,9 @@ func (o *ItemSearchTextsRequest) SetPastPeriod(v PastPeriod) {
 }
 
 // GetNmIds returns the NmIds field value
-func (o *ItemSearchTextsRequest) GetNmIds() []int32 {
+func (o *ItemSearchTextsRequest) GetNmIds() []int64 {
 	if o == nil {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 
@@ -135,7 +135,7 @@ func (o *ItemSearchTextsRequest) GetNmIds() []int32 {
 
 // GetNmIdsOk returns a tuple with the NmIds field value
 // and a boolean to check if the value has been set.
-func (o *ItemSearchTextsRequest) GetNmIdsOk() ([]int32, bool) {
+func (o *ItemSearchTextsRequest) GetNmIdsOk() ([]int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -143,7 +143,7 @@ func (o *ItemSearchTextsRequest) GetNmIdsOk() ([]int32, bool) {
 }
 
 // SetNmIds sets field value
-func (o *ItemSearchTextsRequest) SetNmIds(v []int32) {
+func (o *ItemSearchTextsRequest) SetNmIds(v []int64) {
 	o.NmIds = v
 }
 

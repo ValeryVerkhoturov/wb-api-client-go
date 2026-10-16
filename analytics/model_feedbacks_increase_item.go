@@ -20,11 +20,11 @@ var _ MappedNullable = &FeedbacksIncreaseItem{}
 // FeedbacksIncreaseItem Прирост оценок
 type FeedbacksIncreaseItem struct {
 	// Прирост оценок за период
-	Current *int32 `json:"current,omitempty"`
+	Current *int64 `json:"current,omitempty"`
 	// Всего оценок
-	Total *int32 `json:"total,omitempty"`
+	Total *int64 `json:"total,omitempty"`
 	// Динамика по сравнению с предыдущим периодом, %
-	Dynamics  *int32                          `json:"dynamics,omitempty"`
+	Dynamics  *int64                          `json:"dynamics,omitempty"`
 	FiveStar  *FeedbacksIncreaseItemFiveStar  `json:"fiveStar,omitempty"`
 	FourStar  *FeedbacksIncreaseItemFourStar  `json:"fourStar,omitempty"`
 	ThreeStar *FeedbacksIncreaseItemThreeStar `json:"threeStar,omitempty"`
@@ -50,9 +50,9 @@ func NewFeedbacksIncreaseItemWithDefaults() *FeedbacksIncreaseItem {
 }
 
 // GetCurrent returns the Current field value if set, zero value otherwise.
-func (o *FeedbacksIncreaseItem) GetCurrent() int32 {
+func (o *FeedbacksIncreaseItem) GetCurrent() int64 {
 	if o == nil || IsNil(o.Current) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Current
@@ -60,7 +60,7 @@ func (o *FeedbacksIncreaseItem) GetCurrent() int32 {
 
 // GetCurrentOk returns a tuple with the Current field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FeedbacksIncreaseItem) GetCurrentOk() (*int32, bool) {
+func (o *FeedbacksIncreaseItem) GetCurrentOk() (*int64, bool) {
 	if o == nil || IsNil(o.Current) {
 		return nil, false
 	}
@@ -76,15 +76,15 @@ func (o *FeedbacksIncreaseItem) HasCurrent() bool {
 	return false
 }
 
-// SetCurrent gets a reference to the given int32 and assigns it to the Current field.
-func (o *FeedbacksIncreaseItem) SetCurrent(v int32) {
+// SetCurrent gets a reference to the given int64 and assigns it to the Current field.
+func (o *FeedbacksIncreaseItem) SetCurrent(v int64) {
 	o.Current = &v
 }
 
 // GetTotal returns the Total field value if set, zero value otherwise.
-func (o *FeedbacksIncreaseItem) GetTotal() int32 {
+func (o *FeedbacksIncreaseItem) GetTotal() int64 {
 	if o == nil || IsNil(o.Total) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Total
@@ -92,7 +92,7 @@ func (o *FeedbacksIncreaseItem) GetTotal() int32 {
 
 // GetTotalOk returns a tuple with the Total field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FeedbacksIncreaseItem) GetTotalOk() (*int32, bool) {
+func (o *FeedbacksIncreaseItem) GetTotalOk() (*int64, bool) {
 	if o == nil || IsNil(o.Total) {
 		return nil, false
 	}
@@ -108,15 +108,15 @@ func (o *FeedbacksIncreaseItem) HasTotal() bool {
 	return false
 }
 
-// SetTotal gets a reference to the given int32 and assigns it to the Total field.
-func (o *FeedbacksIncreaseItem) SetTotal(v int32) {
+// SetTotal gets a reference to the given int64 and assigns it to the Total field.
+func (o *FeedbacksIncreaseItem) SetTotal(v int64) {
 	o.Total = &v
 }
 
 // GetDynamics returns the Dynamics field value if set, zero value otherwise.
-func (o *FeedbacksIncreaseItem) GetDynamics() int32 {
+func (o *FeedbacksIncreaseItem) GetDynamics() int64 {
 	if o == nil || IsNil(o.Dynamics) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Dynamics
@@ -124,7 +124,7 @@ func (o *FeedbacksIncreaseItem) GetDynamics() int32 {
 
 // GetDynamicsOk returns a tuple with the Dynamics field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FeedbacksIncreaseItem) GetDynamicsOk() (*int32, bool) {
+func (o *FeedbacksIncreaseItem) GetDynamicsOk() (*int64, bool) {
 	if o == nil || IsNil(o.Dynamics) {
 		return nil, false
 	}
@@ -140,8 +140,8 @@ func (o *FeedbacksIncreaseItem) HasDynamics() bool {
 	return false
 }
 
-// SetDynamics gets a reference to the given int32 and assigns it to the Dynamics field.
-func (o *FeedbacksIncreaseItem) SetDynamics(v int32) {
+// SetDynamics gets a reference to the given int64 and assigns it to the Dynamics field.
+func (o *FeedbacksIncreaseItem) SetDynamics(v int64) {
 	o.Dynamics = &v
 }
 

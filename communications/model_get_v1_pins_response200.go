@@ -21,7 +21,7 @@ var _ MappedNullable = &GetV1PinsResponse200{}
 type GetV1PinsResponse200 struct {
 	Data []OpenapiPinnedReviewItemResult `json:"data,omitempty"`
 	// Параметр пагинации. Укажите это значение в запросе, чтобы получить следующий пакет данных. Если поле отсутствует, вы получили все данные
-	Next *int32 `json:"next,omitempty"`
+	Next *int64 `json:"next,omitempty"`
 }
 
 // NewGetV1PinsResponse200 instantiates a new GetV1PinsResponse200 object
@@ -74,9 +74,9 @@ func (o *GetV1PinsResponse200) SetData(v []OpenapiPinnedReviewItemResult) {
 }
 
 // GetNext returns the Next field value if set, zero value otherwise.
-func (o *GetV1PinsResponse200) GetNext() int32 {
+func (o *GetV1PinsResponse200) GetNext() int64 {
 	if o == nil || IsNil(o.Next) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Next
@@ -84,7 +84,7 @@ func (o *GetV1PinsResponse200) GetNext() int32 {
 
 // GetNextOk returns a tuple with the Next field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1PinsResponse200) GetNextOk() (*int32, bool) {
+func (o *GetV1PinsResponse200) GetNextOk() (*int64, bool) {
 	if o == nil || IsNil(o.Next) {
 		return nil, false
 	}
@@ -100,8 +100,8 @@ func (o *GetV1PinsResponse200) HasNext() bool {
 	return false
 }
 
-// SetNext gets a reference to the given int32 and assigns it to the Next field.
-func (o *GetV1PinsResponse200) SetNext(v int32) {
+// SetNext gets a reference to the given int64 and assigns it to the Next field.
+func (o *GetV1PinsResponse200) SetNext(v int64) {
 	o.Next = &v
 }
 

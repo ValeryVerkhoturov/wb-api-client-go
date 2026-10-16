@@ -22,7 +22,7 @@ type PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner struct {
 	// - `true` — настройки автовозврата товара успешно получены
 	Success *bool `json:"success,omitempty"`
 	// ID размера товара в системе WB
-	ChrtId *int32 `json:"chrtId,omitempty"`
+	ChrtId *int64 `json:"chrtId,omitempty"`
 	// Куда будет возвращён товар:   - `auto` — место возврата определяется автоматически   - `byWarehouse` — на склад WB   - `byPickupPoint` — на пункт выдачи заказов   - `byCourier` — продавцу курьером. Всегда для товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
 	Type *string `json:"type,omitempty"`
 	// - `true` — настройки автовозврата товара можно изменить
@@ -81,9 +81,9 @@ func (o *PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) SetSuccess(v 
 }
 
 // GetChrtId returns the ChrtId field value if set, zero value otherwise.
-func (o *PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) GetChrtId() int32 {
+func (o *PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) GetChrtId() int64 {
 	if o == nil || IsNil(o.ChrtId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ChrtId
@@ -91,7 +91,7 @@ func (o *PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) GetChrtId() i
 
 // GetChrtIdOk returns a tuple with the ChrtId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) GetChrtIdOk() (*int32, bool) {
+func (o *PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) GetChrtIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.ChrtId) {
 		return nil, false
 	}
@@ -107,8 +107,8 @@ func (o *PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) HasChrtId() b
 	return false
 }
 
-// SetChrtId gets a reference to the given int32 and assigns it to the ChrtId field.
-func (o *PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) SetChrtId(v int32) {
+// SetChrtId gets a reference to the given int64 and assigns it to the ChrtId field.
+func (o *PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) SetChrtId(v int64) {
 	o.ChrtId = &v
 }
 

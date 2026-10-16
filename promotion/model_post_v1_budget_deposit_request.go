@@ -20,13 +20,13 @@ var _ MappedNullable = &PostV1BudgetDepositRequest{}
 // PostV1BudgetDepositRequest struct for PostV1BudgetDepositRequest
 type PostV1BudgetDepositRequest struct {
 	// Общая сумма пополнения бюджета в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
-	Sum *int32 `json:"sum,omitempty"`
+	Sum *int64 `json:"sum,omitempty"`
 	// Сумма пополнения бюджета промо-бонусами.  Пополнить можно только определённый процент от общей суммы, указанный в поле `percent` ответа метода получения [баланса](./promotion#tag/finances/operation/getV1Balance).  Оставшаяся часть общей суммы спишется с указанного источника пополнения. Пополнить можно только определённый процент от общей суммы, указанный в поле `percent` ответа метода получения [баланса](./promotion#tag/finances/operation/getV1Balance).  Оставшаяся часть общей суммы спишется с указанного источника пополнения.  Списать промо-бонусы можно только для источников пополнения: - `0` — счёт - `1` — баланс
-	CashbackSum *int32 `json:"cashback_sum,omitempty"`
+	CashbackSum *int64 `json:"cashback_sum,omitempty"`
 	// Процент от суммы пополнения, который можно пополнить промо-бонусами. Нужно указать значение поля percent из ответа метода получения [баланса](./promotion#tag/finances/operation/getV1Balance)  Если вы указали `cashback\\_sum`, параметр `cashback\\_percent` становится обязательным
-	CashbackPercent *int32 `json:"cashback_percent,omitempty"`
+	CashbackPercent *int64 `json:"cashback_percent,omitempty"`
 	// Тип источника пополнения: - `0` — Счёт - `1` — Баланс - `3` — Бонусы
-	Type *int32 `json:"type,omitempty"`
+	Type *int64 `json:"type,omitempty"`
 	// Флаг возврата ответа (`true` — в ответе вернется обновлённый размер бюджета кампании, `false` или не указать параметр вообще — не вернётся.)
 	Return *bool `json:"return,omitempty"`
 }
@@ -49,9 +49,9 @@ func NewPostV1BudgetDepositRequestWithDefaults() *PostV1BudgetDepositRequest {
 }
 
 // GetSum returns the Sum field value if set, zero value otherwise.
-func (o *PostV1BudgetDepositRequest) GetSum() int32 {
+func (o *PostV1BudgetDepositRequest) GetSum() int64 {
 	if o == nil || IsNil(o.Sum) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Sum
@@ -59,7 +59,7 @@ func (o *PostV1BudgetDepositRequest) GetSum() int32 {
 
 // GetSumOk returns a tuple with the Sum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV1BudgetDepositRequest) GetSumOk() (*int32, bool) {
+func (o *PostV1BudgetDepositRequest) GetSumOk() (*int64, bool) {
 	if o == nil || IsNil(o.Sum) {
 		return nil, false
 	}
@@ -75,15 +75,15 @@ func (o *PostV1BudgetDepositRequest) HasSum() bool {
 	return false
 }
 
-// SetSum gets a reference to the given int32 and assigns it to the Sum field.
-func (o *PostV1BudgetDepositRequest) SetSum(v int32) {
+// SetSum gets a reference to the given int64 and assigns it to the Sum field.
+func (o *PostV1BudgetDepositRequest) SetSum(v int64) {
 	o.Sum = &v
 }
 
 // GetCashbackSum returns the CashbackSum field value if set, zero value otherwise.
-func (o *PostV1BudgetDepositRequest) GetCashbackSum() int32 {
+func (o *PostV1BudgetDepositRequest) GetCashbackSum() int64 {
 	if o == nil || IsNil(o.CashbackSum) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CashbackSum
@@ -91,7 +91,7 @@ func (o *PostV1BudgetDepositRequest) GetCashbackSum() int32 {
 
 // GetCashbackSumOk returns a tuple with the CashbackSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV1BudgetDepositRequest) GetCashbackSumOk() (*int32, bool) {
+func (o *PostV1BudgetDepositRequest) GetCashbackSumOk() (*int64, bool) {
 	if o == nil || IsNil(o.CashbackSum) {
 		return nil, false
 	}
@@ -107,15 +107,15 @@ func (o *PostV1BudgetDepositRequest) HasCashbackSum() bool {
 	return false
 }
 
-// SetCashbackSum gets a reference to the given int32 and assigns it to the CashbackSum field.
-func (o *PostV1BudgetDepositRequest) SetCashbackSum(v int32) {
+// SetCashbackSum gets a reference to the given int64 and assigns it to the CashbackSum field.
+func (o *PostV1BudgetDepositRequest) SetCashbackSum(v int64) {
 	o.CashbackSum = &v
 }
 
 // GetCashbackPercent returns the CashbackPercent field value if set, zero value otherwise.
-func (o *PostV1BudgetDepositRequest) GetCashbackPercent() int32 {
+func (o *PostV1BudgetDepositRequest) GetCashbackPercent() int64 {
 	if o == nil || IsNil(o.CashbackPercent) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CashbackPercent
@@ -123,7 +123,7 @@ func (o *PostV1BudgetDepositRequest) GetCashbackPercent() int32 {
 
 // GetCashbackPercentOk returns a tuple with the CashbackPercent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV1BudgetDepositRequest) GetCashbackPercentOk() (*int32, bool) {
+func (o *PostV1BudgetDepositRequest) GetCashbackPercentOk() (*int64, bool) {
 	if o == nil || IsNil(o.CashbackPercent) {
 		return nil, false
 	}
@@ -139,15 +139,15 @@ func (o *PostV1BudgetDepositRequest) HasCashbackPercent() bool {
 	return false
 }
 
-// SetCashbackPercent gets a reference to the given int32 and assigns it to the CashbackPercent field.
-func (o *PostV1BudgetDepositRequest) SetCashbackPercent(v int32) {
+// SetCashbackPercent gets a reference to the given int64 and assigns it to the CashbackPercent field.
+func (o *PostV1BudgetDepositRequest) SetCashbackPercent(v int64) {
 	o.CashbackPercent = &v
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
-func (o *PostV1BudgetDepositRequest) GetType() int32 {
+func (o *PostV1BudgetDepositRequest) GetType() int64 {
 	if o == nil || IsNil(o.Type) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Type
@@ -155,7 +155,7 @@ func (o *PostV1BudgetDepositRequest) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV1BudgetDepositRequest) GetTypeOk() (*int32, bool) {
+func (o *PostV1BudgetDepositRequest) GetTypeOk() (*int64, bool) {
 	if o == nil || IsNil(o.Type) {
 		return nil, false
 	}
@@ -171,8 +171,8 @@ func (o *PostV1BudgetDepositRequest) HasType() bool {
 	return false
 }
 
-// SetType gets a reference to the given int32 and assigns it to the Type field.
-func (o *PostV1BudgetDepositRequest) SetType(v int32) {
+// SetType gets a reference to the given int64 and assigns it to the Type field.
+func (o *PostV1BudgetDepositRequest) SetType(v int64) {
 	o.Type = &v
 }
 

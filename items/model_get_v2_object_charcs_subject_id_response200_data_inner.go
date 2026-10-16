@@ -20,11 +20,11 @@ var _ MappedNullable = &GetV2ObjectCharcsSubjectIdResponse200DataInner{}
 // GetV2ObjectCharcsSubjectIdResponse200DataInner struct for GetV2ObjectCharcsSubjectIdResponse200DataInner
 type GetV2ObjectCharcsSubjectIdResponse200DataInner struct {
 	// ID характеристики
-	CharcID *int32 `json:"charcID,omitempty"`
+	CharcID *int64 `json:"charcID,omitempty"`
 	// Название предмета
 	SubjectName *string `json:"subjectName,omitempty"`
 	// ID предмета
-	SubjectID *int32 `json:"subjectID,omitempty"`
+	SubjectID *int64 `json:"subjectID,omitempty"`
 	// Название характеристики
 	Name *string `json:"name,omitempty"`
 	// - `true` — характеристику необходимо обязательно указать в карточке товара - `false` — характеристику необязательно указывать
@@ -32,11 +32,11 @@ type GetV2ObjectCharcsSubjectIdResponse200DataInner struct {
 	// Единица измерения
 	UnitName *string `json:"unitName,omitempty"`
 	// Максимальное количество значений, которое можно присвоить характеристике при [создании](./item-management#tag/listingItems) или [редактировании](./item-management#tag/listings/operation/postV2CardsUpdate) карточек товаров.  Используется только для характеристик с `\"charcType\":1` — массив строк.  Характеристикам с `\"charcType\":4` — число, можно присвоить только одно значение.  Если `\"maxCount\":0`, количество значений не ограничено
-	MaxCount *int32 `json:"maxCount,omitempty"`
+	MaxCount *int64 `json:"maxCount,omitempty"`
 	// Характеристика популярна у пользователей (true - да, false - нет)
 	Popular *bool `json:"popular,omitempty"`
 	// Тип данных характеристики, который необходимо использовать при [создании](./item-management#tag/listingItems) или [редактировании](./item-management#tag/listings/operation/postV2CardsUpdate) карточек товаров:   -  `1` — массив строк   -  `4` — число (целое либо с десятичной дробью)   -  `0` — характеристика не используется
-	CharcType *int32 `json:"charcType,omitempty"`
+	CharcType *int64 `json:"charcType,omitempty"`
 	// Ключевая характеристика. Является ли характеристика значимой для покупателей:   - `true` — да   - `false` — нет
 	HasFilter *bool `json:"hasFilter,omitempty"`
 	// Признак [меняющейся характеристики](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov). Значение размечает характеристики, по которым варианты отличаются друг от друга:   -  `true` — варианты товара отличаются по этой характеристике   -  `false` — варианты товара не отличаются по этой характеристике
@@ -63,9 +63,9 @@ func NewGetV2ObjectCharcsSubjectIdResponse200DataInnerWithDefaults() *GetV2Objec
 }
 
 // GetCharcID returns the CharcID field value if set, zero value otherwise.
-func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) GetCharcID() int32 {
+func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) GetCharcID() int64 {
 	if o == nil || IsNil(o.CharcID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CharcID
@@ -73,7 +73,7 @@ func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) GetCharcID() int32 {
 
 // GetCharcIDOk returns a tuple with the CharcID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) GetCharcIDOk() (*int32, bool) {
+func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) GetCharcIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.CharcID) {
 		return nil, false
 	}
@@ -89,8 +89,8 @@ func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) HasCharcID() bool {
 	return false
 }
 
-// SetCharcID gets a reference to the given int32 and assigns it to the CharcID field.
-func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) SetCharcID(v int32) {
+// SetCharcID gets a reference to the given int64 and assigns it to the CharcID field.
+func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) SetCharcID(v int64) {
 	o.CharcID = &v
 }
 
@@ -127,9 +127,9 @@ func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) SetSubjectName(v string
 }
 
 // GetSubjectID returns the SubjectID field value if set, zero value otherwise.
-func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) GetSubjectID() int32 {
+func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) GetSubjectID() int64 {
 	if o == nil || IsNil(o.SubjectID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SubjectID
@@ -137,7 +137,7 @@ func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) GetSubjectID() int32 {
 
 // GetSubjectIDOk returns a tuple with the SubjectID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) GetSubjectIDOk() (*int32, bool) {
+func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) GetSubjectIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.SubjectID) {
 		return nil, false
 	}
@@ -153,8 +153,8 @@ func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) HasSubjectID() bool {
 	return false
 }
 
-// SetSubjectID gets a reference to the given int32 and assigns it to the SubjectID field.
-func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) SetSubjectID(v int32) {
+// SetSubjectID gets a reference to the given int64 and assigns it to the SubjectID field.
+func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) SetSubjectID(v int64) {
 	o.SubjectID = &v
 }
 
@@ -255,9 +255,9 @@ func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) SetUnitName(v string) {
 }
 
 // GetMaxCount returns the MaxCount field value if set, zero value otherwise.
-func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) GetMaxCount() int32 {
+func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) GetMaxCount() int64 {
 	if o == nil || IsNil(o.MaxCount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.MaxCount
@@ -265,7 +265,7 @@ func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) GetMaxCount() int32 {
 
 // GetMaxCountOk returns a tuple with the MaxCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) GetMaxCountOk() (*int32, bool) {
+func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) GetMaxCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.MaxCount) {
 		return nil, false
 	}
@@ -281,8 +281,8 @@ func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) HasMaxCount() bool {
 	return false
 }
 
-// SetMaxCount gets a reference to the given int32 and assigns it to the MaxCount field.
-func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) SetMaxCount(v int32) {
+// SetMaxCount gets a reference to the given int64 and assigns it to the MaxCount field.
+func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) SetMaxCount(v int64) {
 	o.MaxCount = &v
 }
 
@@ -319,9 +319,9 @@ func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) SetPopular(v bool) {
 }
 
 // GetCharcType returns the CharcType field value if set, zero value otherwise.
-func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) GetCharcType() int32 {
+func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) GetCharcType() int64 {
 	if o == nil || IsNil(o.CharcType) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CharcType
@@ -329,7 +329,7 @@ func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) GetCharcType() int32 {
 
 // GetCharcTypeOk returns a tuple with the CharcType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) GetCharcTypeOk() (*int32, bool) {
+func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) GetCharcTypeOk() (*int64, bool) {
 	if o == nil || IsNil(o.CharcType) {
 		return nil, false
 	}
@@ -345,8 +345,8 @@ func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) HasCharcType() bool {
 	return false
 }
 
-// SetCharcType gets a reference to the given int32 and assigns it to the CharcType field.
-func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) SetCharcType(v int32) {
+// SetCharcType gets a reference to the given int64 and assigns it to the CharcType field.
+func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) SetCharcType(v int64) {
 	o.CharcType = &v
 }
 

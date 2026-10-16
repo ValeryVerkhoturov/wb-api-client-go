@@ -20,7 +20,7 @@ var _ MappedNullable = &OrderNewDBS{}
 // OrderNewDBS struct for OrderNewDBS
 type OrderNewDBS struct {
 	// Цена в валюте продажи с учетом скидки продавца, без учета скидки WB Клуба, умноженная на 100. Предоставляется в информационных целях
-	SalePrice NullableInt32 `json:"salePrice,omitempty"`
+	SalePrice NullableInt64 `json:"salePrice,omitempty"`
 	// Список идентификаторов маркировки, доступных для сборочного задания. [Указывать IMEI](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei) обязательно для [предмета](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) `Смартфоны`, `\"subjectId\":515`
 	RequiredMeta []string `json:"requiredMeta,omitempty"`
 	// Комментарий покупателя
@@ -46,29 +46,29 @@ type OrderNewDBS struct {
 	// ID сборочного задания
 	Id *int64 `json:"id,omitempty"`
 	// ID склада продавца, на который поступило сборочное задание
-	WarehouseId *int32 `json:"warehouseId,omitempty"`
+	WarehouseId *int64 `json:"warehouseId,omitempty"`
 	// Артикул WB
-	NmId *int32 `json:"nmId,omitempty"`
+	NmId *int64 `json:"nmId,omitempty"`
 	// ID размера товара в системе WB
-	ChrtId *int32 `json:"chrtId,omitempty"`
+	ChrtId *int64 `json:"chrtId,omitempty"`
 	// Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
-	Price *int32 `json:"price,omitempty"`
+	Price *int64 `json:"price,omitempty"`
 	// Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100.  Код валюты продажи указан в поле `currencyCode`.  Предоставляется в информационных целях.  Используйте значение поля `finalPrice`, только если в ответе метода [POST /api/marketplace/v3/dbs/orders/final-price](./docs/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа того же метода
-	FinalPrice *int32 `json:"finalPrice,omitempty"`
+	FinalPrice *int64 `json:"finalPrice,omitempty"`
 	// Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100.  Предоставляется в информационных целях.  Используйте значение поля `convertedFinalPrice`, только если в ответе метода [POST /api/marketplace/v3/dbs/orders/final-price](./docs/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `convertedOriginalFinalPrice` из ответа того же метода
-	ConvertedFinalPrice *int32 `json:"convertedFinalPrice,omitempty"`
+	ConvertedFinalPrice *int64 `json:"convertedFinalPrice,omitempty"`
 	// Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Предоставляется в информационных целях
-	ConvertedPrice *int32 `json:"convertedPrice,omitempty"`
+	ConvertedPrice *int64 `json:"convertedPrice,omitempty"`
 	// Код валюты продажи
 	CurrencyCode *int32 `json:"currencyCode,omitempty"`
 	// Код валюты страны продавца
 	ConvertedCurrencyCode *int32 `json:"convertedCurrencyCode,omitempty"`
 	// Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+)
-	CargoType *int32 `json:"cargoType,omitempty"`
+	CargoType *int64 `json:"cargoType,omitempty"`
 	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
 	IsZeroOrder *bool `json:"isZeroOrder,omitempty"`
 	// ID стикера. Отображается только для заказов в ПВЗ
-	WbStickerId *int32 `json:"wbStickerId,omitempty"`
+	WbStickerId *int64 `json:"wbStickerId,omitempty"`
 }
 
 // NewOrderNewDBS instantiates a new OrderNewDBS object
@@ -89,9 +89,9 @@ func NewOrderNewDBSWithDefaults() *OrderNewDBS {
 }
 
 // GetSalePrice returns the SalePrice field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *OrderNewDBS) GetSalePrice() int32 {
+func (o *OrderNewDBS) GetSalePrice() int64 {
 	if o == nil || IsNil(o.SalePrice.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SalePrice.Get()
@@ -100,7 +100,7 @@ func (o *OrderNewDBS) GetSalePrice() int32 {
 // GetSalePriceOk returns a tuple with the SalePrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *OrderNewDBS) GetSalePriceOk() (*int32, bool) {
+func (o *OrderNewDBS) GetSalePriceOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -116,8 +116,8 @@ func (o *OrderNewDBS) HasSalePrice() bool {
 	return false
 }
 
-// SetSalePrice gets a reference to the given NullableInt32 and assigns it to the SalePrice field.
-func (o *OrderNewDBS) SetSalePrice(v int32) {
+// SetSalePrice gets a reference to the given NullableInt64 and assigns it to the SalePrice field.
+func (o *OrderNewDBS) SetSalePrice(v int64) {
 	o.SalePrice.Set(&v)
 }
 
@@ -550,9 +550,9 @@ func (o *OrderNewDBS) SetId(v int64) {
 }
 
 // GetWarehouseId returns the WarehouseId field value if set, zero value otherwise.
-func (o *OrderNewDBS) GetWarehouseId() int32 {
+func (o *OrderNewDBS) GetWarehouseId() int64 {
 	if o == nil || IsNil(o.WarehouseId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.WarehouseId
@@ -560,7 +560,7 @@ func (o *OrderNewDBS) GetWarehouseId() int32 {
 
 // GetWarehouseIdOk returns a tuple with the WarehouseId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OrderNewDBS) GetWarehouseIdOk() (*int32, bool) {
+func (o *OrderNewDBS) GetWarehouseIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.WarehouseId) {
 		return nil, false
 	}
@@ -576,15 +576,15 @@ func (o *OrderNewDBS) HasWarehouseId() bool {
 	return false
 }
 
-// SetWarehouseId gets a reference to the given int32 and assigns it to the WarehouseId field.
-func (o *OrderNewDBS) SetWarehouseId(v int32) {
+// SetWarehouseId gets a reference to the given int64 and assigns it to the WarehouseId field.
+func (o *OrderNewDBS) SetWarehouseId(v int64) {
 	o.WarehouseId = &v
 }
 
 // GetNmId returns the NmId field value if set, zero value otherwise.
-func (o *OrderNewDBS) GetNmId() int32 {
+func (o *OrderNewDBS) GetNmId() int64 {
 	if o == nil || IsNil(o.NmId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmId
@@ -592,7 +592,7 @@ func (o *OrderNewDBS) GetNmId() int32 {
 
 // GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OrderNewDBS) GetNmIdOk() (*int32, bool) {
+func (o *OrderNewDBS) GetNmIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
@@ -608,15 +608,15 @@ func (o *OrderNewDBS) HasNmId() bool {
 	return false
 }
 
-// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
-func (o *OrderNewDBS) SetNmId(v int32) {
+// SetNmId gets a reference to the given int64 and assigns it to the NmId field.
+func (o *OrderNewDBS) SetNmId(v int64) {
 	o.NmId = &v
 }
 
 // GetChrtId returns the ChrtId field value if set, zero value otherwise.
-func (o *OrderNewDBS) GetChrtId() int32 {
+func (o *OrderNewDBS) GetChrtId() int64 {
 	if o == nil || IsNil(o.ChrtId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ChrtId
@@ -624,7 +624,7 @@ func (o *OrderNewDBS) GetChrtId() int32 {
 
 // GetChrtIdOk returns a tuple with the ChrtId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OrderNewDBS) GetChrtIdOk() (*int32, bool) {
+func (o *OrderNewDBS) GetChrtIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.ChrtId) {
 		return nil, false
 	}
@@ -640,15 +640,15 @@ func (o *OrderNewDBS) HasChrtId() bool {
 	return false
 }
 
-// SetChrtId gets a reference to the given int32 and assigns it to the ChrtId field.
-func (o *OrderNewDBS) SetChrtId(v int32) {
+// SetChrtId gets a reference to the given int64 and assigns it to the ChrtId field.
+func (o *OrderNewDBS) SetChrtId(v int64) {
 	o.ChrtId = &v
 }
 
 // GetPrice returns the Price field value if set, zero value otherwise.
-func (o *OrderNewDBS) GetPrice() int32 {
+func (o *OrderNewDBS) GetPrice() int64 {
 	if o == nil || IsNil(o.Price) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Price
@@ -656,7 +656,7 @@ func (o *OrderNewDBS) GetPrice() int32 {
 
 // GetPriceOk returns a tuple with the Price field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OrderNewDBS) GetPriceOk() (*int32, bool) {
+func (o *OrderNewDBS) GetPriceOk() (*int64, bool) {
 	if o == nil || IsNil(o.Price) {
 		return nil, false
 	}
@@ -672,15 +672,15 @@ func (o *OrderNewDBS) HasPrice() bool {
 	return false
 }
 
-// SetPrice gets a reference to the given int32 and assigns it to the Price field.
-func (o *OrderNewDBS) SetPrice(v int32) {
+// SetPrice gets a reference to the given int64 and assigns it to the Price field.
+func (o *OrderNewDBS) SetPrice(v int64) {
 	o.Price = &v
 }
 
 // GetFinalPrice returns the FinalPrice field value if set, zero value otherwise.
-func (o *OrderNewDBS) GetFinalPrice() int32 {
+func (o *OrderNewDBS) GetFinalPrice() int64 {
 	if o == nil || IsNil(o.FinalPrice) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.FinalPrice
@@ -688,7 +688,7 @@ func (o *OrderNewDBS) GetFinalPrice() int32 {
 
 // GetFinalPriceOk returns a tuple with the FinalPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OrderNewDBS) GetFinalPriceOk() (*int32, bool) {
+func (o *OrderNewDBS) GetFinalPriceOk() (*int64, bool) {
 	if o == nil || IsNil(o.FinalPrice) {
 		return nil, false
 	}
@@ -704,15 +704,15 @@ func (o *OrderNewDBS) HasFinalPrice() bool {
 	return false
 }
 
-// SetFinalPrice gets a reference to the given int32 and assigns it to the FinalPrice field.
-func (o *OrderNewDBS) SetFinalPrice(v int32) {
+// SetFinalPrice gets a reference to the given int64 and assigns it to the FinalPrice field.
+func (o *OrderNewDBS) SetFinalPrice(v int64) {
 	o.FinalPrice = &v
 }
 
 // GetConvertedFinalPrice returns the ConvertedFinalPrice field value if set, zero value otherwise.
-func (o *OrderNewDBS) GetConvertedFinalPrice() int32 {
+func (o *OrderNewDBS) GetConvertedFinalPrice() int64 {
 	if o == nil || IsNil(o.ConvertedFinalPrice) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ConvertedFinalPrice
@@ -720,7 +720,7 @@ func (o *OrderNewDBS) GetConvertedFinalPrice() int32 {
 
 // GetConvertedFinalPriceOk returns a tuple with the ConvertedFinalPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OrderNewDBS) GetConvertedFinalPriceOk() (*int32, bool) {
+func (o *OrderNewDBS) GetConvertedFinalPriceOk() (*int64, bool) {
 	if o == nil || IsNil(o.ConvertedFinalPrice) {
 		return nil, false
 	}
@@ -736,15 +736,15 @@ func (o *OrderNewDBS) HasConvertedFinalPrice() bool {
 	return false
 }
 
-// SetConvertedFinalPrice gets a reference to the given int32 and assigns it to the ConvertedFinalPrice field.
-func (o *OrderNewDBS) SetConvertedFinalPrice(v int32) {
+// SetConvertedFinalPrice gets a reference to the given int64 and assigns it to the ConvertedFinalPrice field.
+func (o *OrderNewDBS) SetConvertedFinalPrice(v int64) {
 	o.ConvertedFinalPrice = &v
 }
 
 // GetConvertedPrice returns the ConvertedPrice field value if set, zero value otherwise.
-func (o *OrderNewDBS) GetConvertedPrice() int32 {
+func (o *OrderNewDBS) GetConvertedPrice() int64 {
 	if o == nil || IsNil(o.ConvertedPrice) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ConvertedPrice
@@ -752,7 +752,7 @@ func (o *OrderNewDBS) GetConvertedPrice() int32 {
 
 // GetConvertedPriceOk returns a tuple with the ConvertedPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OrderNewDBS) GetConvertedPriceOk() (*int32, bool) {
+func (o *OrderNewDBS) GetConvertedPriceOk() (*int64, bool) {
 	if o == nil || IsNil(o.ConvertedPrice) {
 		return nil, false
 	}
@@ -768,8 +768,8 @@ func (o *OrderNewDBS) HasConvertedPrice() bool {
 	return false
 }
 
-// SetConvertedPrice gets a reference to the given int32 and assigns it to the ConvertedPrice field.
-func (o *OrderNewDBS) SetConvertedPrice(v int32) {
+// SetConvertedPrice gets a reference to the given int64 and assigns it to the ConvertedPrice field.
+func (o *OrderNewDBS) SetConvertedPrice(v int64) {
 	o.ConvertedPrice = &v
 }
 
@@ -838,9 +838,9 @@ func (o *OrderNewDBS) SetConvertedCurrencyCode(v int32) {
 }
 
 // GetCargoType returns the CargoType field value if set, zero value otherwise.
-func (o *OrderNewDBS) GetCargoType() int32 {
+func (o *OrderNewDBS) GetCargoType() int64 {
 	if o == nil || IsNil(o.CargoType) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CargoType
@@ -848,7 +848,7 @@ func (o *OrderNewDBS) GetCargoType() int32 {
 
 // GetCargoTypeOk returns a tuple with the CargoType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OrderNewDBS) GetCargoTypeOk() (*int32, bool) {
+func (o *OrderNewDBS) GetCargoTypeOk() (*int64, bool) {
 	if o == nil || IsNil(o.CargoType) {
 		return nil, false
 	}
@@ -864,8 +864,8 @@ func (o *OrderNewDBS) HasCargoType() bool {
 	return false
 }
 
-// SetCargoType gets a reference to the given int32 and assigns it to the CargoType field.
-func (o *OrderNewDBS) SetCargoType(v int32) {
+// SetCargoType gets a reference to the given int64 and assigns it to the CargoType field.
+func (o *OrderNewDBS) SetCargoType(v int64) {
 	o.CargoType = &v
 }
 
@@ -902,9 +902,9 @@ func (o *OrderNewDBS) SetIsZeroOrder(v bool) {
 }
 
 // GetWbStickerId returns the WbStickerId field value if set, zero value otherwise.
-func (o *OrderNewDBS) GetWbStickerId() int32 {
+func (o *OrderNewDBS) GetWbStickerId() int64 {
 	if o == nil || IsNil(o.WbStickerId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.WbStickerId
@@ -912,7 +912,7 @@ func (o *OrderNewDBS) GetWbStickerId() int32 {
 
 // GetWbStickerIdOk returns a tuple with the WbStickerId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OrderNewDBS) GetWbStickerIdOk() (*int32, bool) {
+func (o *OrderNewDBS) GetWbStickerIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.WbStickerId) {
 		return nil, false
 	}
@@ -928,8 +928,8 @@ func (o *OrderNewDBS) HasWbStickerId() bool {
 	return false
 }
 
-// SetWbStickerId gets a reference to the given int32 and assigns it to the WbStickerId field.
-func (o *OrderNewDBS) SetWbStickerId(v int32) {
+// SetWbStickerId gets a reference to the given int64 and assigns it to the WbStickerId field.
+func (o *OrderNewDBS) SetWbStickerId(v int64) {
 	o.WbStickerId = &v
 }
 

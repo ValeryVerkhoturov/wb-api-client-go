@@ -24,13 +24,13 @@ type ModelsDraftItemItem struct {
 	// Цвет товара
 	Color *string `json:"color,omitempty"`
 	// Количество единиц товара
-	Quantity *int32 `json:"quantity,omitempty"`
+	Quantity *int64 `json:"quantity,omitempty"`
 	// Бренд
 	BrandName *string `json:"brandName,omitempty"`
 	// Ссылка на изображение товара
 	ImgSrc *string `json:"imgSrc,omitempty"`
 	// Артикул WB
-	NmId *int32 `json:"nmId,omitempty"`
+	NmId *int64 `json:"nmId,omitempty"`
 	// Предмет
 	SubjectName *string `json:"subjectName,omitempty"`
 	// Размер товара
@@ -123,9 +123,9 @@ func (o *ModelsDraftItemItem) SetColor(v string) {
 }
 
 // GetQuantity returns the Quantity field value if set, zero value otherwise.
-func (o *ModelsDraftItemItem) GetQuantity() int32 {
+func (o *ModelsDraftItemItem) GetQuantity() int64 {
 	if o == nil || IsNil(o.Quantity) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Quantity
@@ -133,7 +133,7 @@ func (o *ModelsDraftItemItem) GetQuantity() int32 {
 
 // GetQuantityOk returns a tuple with the Quantity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsDraftItemItem) GetQuantityOk() (*int32, bool) {
+func (o *ModelsDraftItemItem) GetQuantityOk() (*int64, bool) {
 	if o == nil || IsNil(o.Quantity) {
 		return nil, false
 	}
@@ -149,8 +149,8 @@ func (o *ModelsDraftItemItem) HasQuantity() bool {
 	return false
 }
 
-// SetQuantity gets a reference to the given int32 and assigns it to the Quantity field.
-func (o *ModelsDraftItemItem) SetQuantity(v int32) {
+// SetQuantity gets a reference to the given int64 and assigns it to the Quantity field.
+func (o *ModelsDraftItemItem) SetQuantity(v int64) {
 	o.Quantity = &v
 }
 
@@ -219,9 +219,9 @@ func (o *ModelsDraftItemItem) SetImgSrc(v string) {
 }
 
 // GetNmId returns the NmId field value if set, zero value otherwise.
-func (o *ModelsDraftItemItem) GetNmId() int32 {
+func (o *ModelsDraftItemItem) GetNmId() int64 {
 	if o == nil || IsNil(o.NmId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmId
@@ -229,7 +229,7 @@ func (o *ModelsDraftItemItem) GetNmId() int32 {
 
 // GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsDraftItemItem) GetNmIdOk() (*int32, bool) {
+func (o *ModelsDraftItemItem) GetNmIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
@@ -245,8 +245,8 @@ func (o *ModelsDraftItemItem) HasNmId() bool {
 	return false
 }
 
-// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
-func (o *ModelsDraftItemItem) SetNmId(v int32) {
+// SetNmId gets a reference to the given int64 and assigns it to the NmId field.
+func (o *ModelsDraftItemItem) SetNmId(v int64) {
 	o.NmId = &v
 }
 

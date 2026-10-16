@@ -20,9 +20,9 @@ var _ MappedNullable = &TableGroupItemMetricsOpenToCart{}
 // TableGroupItemMetricsOpenToCart Конверсия в корзину из поиска — доля добавлений товара в корзину по отношению ко всем переходам в карточку товара из поиска
 type TableGroupItemMetricsOpenToCart struct {
 	// Текущая конверсия
-	Current *int32 `json:"current,omitempty"`
+	Current *int64 `json:"current,omitempty"`
 	// Динамика по сравнению с предыдущим периодом, %
-	Dynamics *int32 `json:"dynamics,omitempty"`
+	Dynamics *int64 `json:"dynamics,omitempty"`
 }
 
 // NewTableGroupItemMetricsOpenToCart instantiates a new TableGroupItemMetricsOpenToCart object
@@ -43,9 +43,9 @@ func NewTableGroupItemMetricsOpenToCartWithDefaults() *TableGroupItemMetricsOpen
 }
 
 // GetCurrent returns the Current field value if set, zero value otherwise.
-func (o *TableGroupItemMetricsOpenToCart) GetCurrent() int32 {
+func (o *TableGroupItemMetricsOpenToCart) GetCurrent() int64 {
 	if o == nil || IsNil(o.Current) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Current
@@ -53,7 +53,7 @@ func (o *TableGroupItemMetricsOpenToCart) GetCurrent() int32 {
 
 // GetCurrentOk returns a tuple with the Current field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableGroupItemMetricsOpenToCart) GetCurrentOk() (*int32, bool) {
+func (o *TableGroupItemMetricsOpenToCart) GetCurrentOk() (*int64, bool) {
 	if o == nil || IsNil(o.Current) {
 		return nil, false
 	}
@@ -69,15 +69,15 @@ func (o *TableGroupItemMetricsOpenToCart) HasCurrent() bool {
 	return false
 }
 
-// SetCurrent gets a reference to the given int32 and assigns it to the Current field.
-func (o *TableGroupItemMetricsOpenToCart) SetCurrent(v int32) {
+// SetCurrent gets a reference to the given int64 and assigns it to the Current field.
+func (o *TableGroupItemMetricsOpenToCart) SetCurrent(v int64) {
 	o.Current = &v
 }
 
 // GetDynamics returns the Dynamics field value if set, zero value otherwise.
-func (o *TableGroupItemMetricsOpenToCart) GetDynamics() int32 {
+func (o *TableGroupItemMetricsOpenToCart) GetDynamics() int64 {
 	if o == nil || IsNil(o.Dynamics) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Dynamics
@@ -85,7 +85,7 @@ func (o *TableGroupItemMetricsOpenToCart) GetDynamics() int32 {
 
 // GetDynamicsOk returns a tuple with the Dynamics field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableGroupItemMetricsOpenToCart) GetDynamicsOk() (*int32, bool) {
+func (o *TableGroupItemMetricsOpenToCart) GetDynamicsOk() (*int64, bool) {
 	if o == nil || IsNil(o.Dynamics) {
 		return nil, false
 	}
@@ -101,8 +101,8 @@ func (o *TableGroupItemMetricsOpenToCart) HasDynamics() bool {
 	return false
 }
 
-// SetDynamics gets a reference to the given int32 and assigns it to the Dynamics field.
-func (o *TableGroupItemMetricsOpenToCart) SetDynamics(v int32) {
+// SetDynamics gets a reference to the given int64 and assigns it to the Dynamics field.
+func (o *TableGroupItemMetricsOpenToCart) SetDynamics(v int64) {
 	o.Dynamics = &v
 }
 

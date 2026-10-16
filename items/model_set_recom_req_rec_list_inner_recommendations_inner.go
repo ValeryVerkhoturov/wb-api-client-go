@@ -20,9 +20,9 @@ var _ MappedNullable = &SetRecomReqRecListInnerRecommendationsInner{}
 // SetRecomReqRecListInnerRecommendationsInner struct for SetRecomReqRecListInnerRecommendationsInner
 type SetRecomReqRecListInnerRecommendationsInner struct {
 	// Артикул WB рекомендуемого товара
-	RecomNm *int32 `json:"recomNm,omitempty"`
+	RecomNm *int64 `json:"recomNm,omitempty"`
 	// Позиция товара в списке рекомендаций.   Допустимые значения:  - `1`–`20` — фиксированная позиция:    - при создании или замене (`replace: true`) задаёт порядок отображения    - при добавлении (`replace: false`) вставляет товар на указанную позицию, существующие сдвигаются  - `0` — автоматическая сортировка товаров:    - при создании или замене (`replace: true`) — в порядке расположения товаров в массиве `recommendations`    - при добавлении (`replace: false`) — в конец списка существующих рекомендаций, сохраняя порядок из массива `recommendations`
-	Sort *int32 `json:"sort,omitempty"`
+	Sort *int64 `json:"sort,omitempty"`
 }
 
 // NewSetRecomReqRecListInnerRecommendationsInner instantiates a new SetRecomReqRecListInnerRecommendationsInner object
@@ -31,9 +31,9 @@ type SetRecomReqRecListInnerRecommendationsInner struct {
 // will change when the set of required properties is changed
 func NewSetRecomReqRecListInnerRecommendationsInner() *SetRecomReqRecListInnerRecommendationsInner {
 	this := SetRecomReqRecListInnerRecommendationsInner{}
-	var recomNm int32 = 0
+	var recomNm int64 = 0
 	this.RecomNm = &recomNm
-	var sort int32 = 20
+	var sort int64 = 20
 	this.Sort = &sort
 	return &this
 }
@@ -43,17 +43,17 @@ func NewSetRecomReqRecListInnerRecommendationsInner() *SetRecomReqRecListInnerRe
 // but it doesn't guarantee that properties required by API are set
 func NewSetRecomReqRecListInnerRecommendationsInnerWithDefaults() *SetRecomReqRecListInnerRecommendationsInner {
 	this := SetRecomReqRecListInnerRecommendationsInner{}
-	var recomNm int32 = 0
+	var recomNm int64 = 0
 	this.RecomNm = &recomNm
-	var sort int32 = 20
+	var sort int64 = 20
 	this.Sort = &sort
 	return &this
 }
 
 // GetRecomNm returns the RecomNm field value if set, zero value otherwise.
-func (o *SetRecomReqRecListInnerRecommendationsInner) GetRecomNm() int32 {
+func (o *SetRecomReqRecListInnerRecommendationsInner) GetRecomNm() int64 {
 	if o == nil || IsNil(o.RecomNm) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.RecomNm
@@ -61,7 +61,7 @@ func (o *SetRecomReqRecListInnerRecommendationsInner) GetRecomNm() int32 {
 
 // GetRecomNmOk returns a tuple with the RecomNm field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SetRecomReqRecListInnerRecommendationsInner) GetRecomNmOk() (*int32, bool) {
+func (o *SetRecomReqRecListInnerRecommendationsInner) GetRecomNmOk() (*int64, bool) {
 	if o == nil || IsNil(o.RecomNm) {
 		return nil, false
 	}
@@ -77,15 +77,15 @@ func (o *SetRecomReqRecListInnerRecommendationsInner) HasRecomNm() bool {
 	return false
 }
 
-// SetRecomNm gets a reference to the given int32 and assigns it to the RecomNm field.
-func (o *SetRecomReqRecListInnerRecommendationsInner) SetRecomNm(v int32) {
+// SetRecomNm gets a reference to the given int64 and assigns it to the RecomNm field.
+func (o *SetRecomReqRecListInnerRecommendationsInner) SetRecomNm(v int64) {
 	o.RecomNm = &v
 }
 
 // GetSort returns the Sort field value if set, zero value otherwise.
-func (o *SetRecomReqRecListInnerRecommendationsInner) GetSort() int32 {
+func (o *SetRecomReqRecListInnerRecommendationsInner) GetSort() int64 {
 	if o == nil || IsNil(o.Sort) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Sort
@@ -93,7 +93,7 @@ func (o *SetRecomReqRecListInnerRecommendationsInner) GetSort() int32 {
 
 // GetSortOk returns a tuple with the Sort field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SetRecomReqRecListInnerRecommendationsInner) GetSortOk() (*int32, bool) {
+func (o *SetRecomReqRecListInnerRecommendationsInner) GetSortOk() (*int64, bool) {
 	if o == nil || IsNil(o.Sort) {
 		return nil, false
 	}
@@ -109,8 +109,8 @@ func (o *SetRecomReqRecListInnerRecommendationsInner) HasSort() bool {
 	return false
 }
 
-// SetSort gets a reference to the given int32 and assigns it to the Sort field.
-func (o *SetRecomReqRecListInnerRecommendationsInner) SetSort(v int32) {
+// SetSort gets a reference to the given int64 and assigns it to the Sort field.
+func (o *SetRecomReqRecListInnerRecommendationsInner) SetSort(v int64) {
 	o.Sort = &v
 }
 

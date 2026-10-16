@@ -20,11 +20,11 @@ var _ MappedNullable = &GetV1CountResponse200Adverts{}
 // GetV1CountResponse200Adverts struct for GetV1CountResponse200Adverts
 type GetV1CountResponse200Adverts struct {
 	// Тип медиакампании: - `1` — размещение по дням - `2` — размещение по просмотрам
-	Type *int32 `json:"type,omitempty"`
+	Type *int64 `json:"type,omitempty"`
 	// Статус медиакампании:   - `1` — черновик   - `2` — модерация   - `3` — отклонена (с возможностью вернуть на модерацию)   - `4` — готова к запуску   - `5` — запланирована   - `6` — на показах   - `7` — завершена   - `8` — отменена   - `9` — приостановлена продавцом   - `10` — пауза по дневному лимиту   - `11` — пауза
-	Status *int32 `json:"status,omitempty"`
+	Status *int64 `json:"status,omitempty"`
 	// Количество медиакампаний
-	Count *int32 `json:"count,omitempty"`
+	Count *int64 `json:"count,omitempty"`
 }
 
 // NewGetV1CountResponse200Adverts instantiates a new GetV1CountResponse200Adverts object
@@ -45,9 +45,9 @@ func NewGetV1CountResponse200AdvertsWithDefaults() *GetV1CountResponse200Adverts
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
-func (o *GetV1CountResponse200Adverts) GetType() int32 {
+func (o *GetV1CountResponse200Adverts) GetType() int64 {
 	if o == nil || IsNil(o.Type) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Type
@@ -55,7 +55,7 @@ func (o *GetV1CountResponse200Adverts) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1CountResponse200Adverts) GetTypeOk() (*int32, bool) {
+func (o *GetV1CountResponse200Adverts) GetTypeOk() (*int64, bool) {
 	if o == nil || IsNil(o.Type) {
 		return nil, false
 	}
@@ -71,15 +71,15 @@ func (o *GetV1CountResponse200Adverts) HasType() bool {
 	return false
 }
 
-// SetType gets a reference to the given int32 and assigns it to the Type field.
-func (o *GetV1CountResponse200Adverts) SetType(v int32) {
+// SetType gets a reference to the given int64 and assigns it to the Type field.
+func (o *GetV1CountResponse200Adverts) SetType(v int64) {
 	o.Type = &v
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
-func (o *GetV1CountResponse200Adverts) GetStatus() int32 {
+func (o *GetV1CountResponse200Adverts) GetStatus() int64 {
 	if o == nil || IsNil(o.Status) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Status
@@ -87,7 +87,7 @@ func (o *GetV1CountResponse200Adverts) GetStatus() int32 {
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1CountResponse200Adverts) GetStatusOk() (*int32, bool) {
+func (o *GetV1CountResponse200Adverts) GetStatusOk() (*int64, bool) {
 	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
@@ -103,15 +103,15 @@ func (o *GetV1CountResponse200Adverts) HasStatus() bool {
 	return false
 }
 
-// SetStatus gets a reference to the given int32 and assigns it to the Status field.
-func (o *GetV1CountResponse200Adverts) SetStatus(v int32) {
+// SetStatus gets a reference to the given int64 and assigns it to the Status field.
+func (o *GetV1CountResponse200Adverts) SetStatus(v int64) {
 	o.Status = &v
 }
 
 // GetCount returns the Count field value if set, zero value otherwise.
-func (o *GetV1CountResponse200Adverts) GetCount() int32 {
+func (o *GetV1CountResponse200Adverts) GetCount() int64 {
 	if o == nil || IsNil(o.Count) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Count
@@ -119,7 +119,7 @@ func (o *GetV1CountResponse200Adverts) GetCount() int32 {
 
 // GetCountOk returns a tuple with the Count field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1CountResponse200Adverts) GetCountOk() (*int32, bool) {
+func (o *GetV1CountResponse200Adverts) GetCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.Count) {
 		return nil, false
 	}
@@ -135,8 +135,8 @@ func (o *GetV1CountResponse200Adverts) HasCount() bool {
 	return false
 }
 
-// SetCount gets a reference to the given int32 and assigns it to the Count field.
-func (o *GetV1CountResponse200Adverts) SetCount(v int32) {
+// SetCount gets a reference to the given int64 and assigns it to the Count field.
+func (o *GetV1CountResponse200Adverts) SetCount(v int64) {
 	o.Count = &v
 }
 

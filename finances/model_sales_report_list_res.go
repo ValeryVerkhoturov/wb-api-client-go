@@ -32,7 +32,7 @@ type SalesReportListRes struct {
 	// Валюта отчёта
 	Currency *string `json:"currency,omitempty"`
 	// Тип отчёта:   - `1` — основной   - `2` — по выкупам
-	ReportType *int32 `json:"reportType,omitempty"`
+	ReportType *int64 `json:"reportType,omitempty"`
 	// Продажа
 	RetailAmountSum *string `json:"retailAmountSum,omitempty"`
 	// К перечислению за товар
@@ -273,9 +273,9 @@ func (o *SalesReportListRes) SetCurrency(v string) {
 }
 
 // GetReportType returns the ReportType field value if set, zero value otherwise.
-func (o *SalesReportListRes) GetReportType() int32 {
+func (o *SalesReportListRes) GetReportType() int64 {
 	if o == nil || IsNil(o.ReportType) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ReportType
@@ -283,7 +283,7 @@ func (o *SalesReportListRes) GetReportType() int32 {
 
 // GetReportTypeOk returns a tuple with the ReportType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SalesReportListRes) GetReportTypeOk() (*int32, bool) {
+func (o *SalesReportListRes) GetReportTypeOk() (*int64, bool) {
 	if o == nil || IsNil(o.ReportType) {
 		return nil, false
 	}
@@ -299,8 +299,8 @@ func (o *SalesReportListRes) HasReportType() bool {
 	return false
 }
 
-// SetReportType gets a reference to the given int32 and assigns it to the ReportType field.
-func (o *SalesReportListRes) SetReportType(v int32) {
+// SetReportType gets a reference to the given int64 and assigns it to the ReportType field.
+func (o *SalesReportListRes) SetReportType(v int64) {
 	o.ReportType = &v
 }
 

@@ -22,7 +22,7 @@ var _ MappedNullable = &ModelsItem{}
 // ModelsItem struct for ModelsItem
 type ModelsItem struct {
 	// Количество единиц товара
-	Quantity int32 `json:"quantity"`
+	Quantity int64 `json:"quantity"`
 	// Баркод из карточки товара
 	Sku string `json:"sku"`
 }
@@ -33,7 +33,7 @@ type _ModelsItem ModelsItem
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelsItem(quantity int32, sku string) *ModelsItem {
+func NewModelsItem(quantity int64, sku string) *ModelsItem {
 	this := ModelsItem{}
 	this.Quantity = quantity
 	this.Sku = sku
@@ -49,9 +49,9 @@ func NewModelsItemWithDefaults() *ModelsItem {
 }
 
 // GetQuantity returns the Quantity field value
-func (o *ModelsItem) GetQuantity() int32 {
+func (o *ModelsItem) GetQuantity() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -60,7 +60,7 @@ func (o *ModelsItem) GetQuantity() int32 {
 
 // GetQuantityOk returns a tuple with the Quantity field value
 // and a boolean to check if the value has been set.
-func (o *ModelsItem) GetQuantityOk() (*int32, bool) {
+func (o *ModelsItem) GetQuantityOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,7 +68,7 @@ func (o *ModelsItem) GetQuantityOk() (*int32, bool) {
 }
 
 // SetQuantity sets field value
-func (o *ModelsItem) SetQuantity(v int32) {
+func (o *ModelsItem) SetQuantity(v int64) {
 	o.Quantity = v
 }
 

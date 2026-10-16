@@ -22,7 +22,7 @@ type InventoryWbResponseItemsInner struct {
 	// Артикул WB
 	NmId *int64 `json:"nmId,omitempty"`
 	// ID размера
-	ChrtId *int32 `json:"chrtId,omitempty"`
+	ChrtId *int64 `json:"chrtId,omitempty"`
 	// ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `-999999`
 	WarehouseId *int64 `json:"warehouseId,omitempty"`
 	// Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB`
@@ -30,11 +30,11 @@ type InventoryWbResponseItemsInner struct {
 	// Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB`
 	RegionName *string `json:"regionName,omitempty"`
 	// Количество товара на складе, доступное клиентам для добавления в корзину
-	Quantity *int32 `json:"quantity,omitempty"`
+	Quantity *int64 `json:"quantity,omitempty"`
 	// В пути к клиенту
-	InWayToClient *int32 `json:"inWayToClient,omitempty"`
+	InWayToClient *int64 `json:"inWayToClient,omitempty"`
 	// В пути от клиента
-	InWayFromClient *int32 `json:"inWayFromClient,omitempty"`
+	InWayFromClient *int64 `json:"inWayFromClient,omitempty"`
 }
 
 // NewInventoryWbResponseItemsInner instantiates a new InventoryWbResponseItemsInner object
@@ -87,9 +87,9 @@ func (o *InventoryWbResponseItemsInner) SetNmId(v int64) {
 }
 
 // GetChrtId returns the ChrtId field value if set, zero value otherwise.
-func (o *InventoryWbResponseItemsInner) GetChrtId() int32 {
+func (o *InventoryWbResponseItemsInner) GetChrtId() int64 {
 	if o == nil || IsNil(o.ChrtId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ChrtId
@@ -97,7 +97,7 @@ func (o *InventoryWbResponseItemsInner) GetChrtId() int32 {
 
 // GetChrtIdOk returns a tuple with the ChrtId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InventoryWbResponseItemsInner) GetChrtIdOk() (*int32, bool) {
+func (o *InventoryWbResponseItemsInner) GetChrtIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.ChrtId) {
 		return nil, false
 	}
@@ -113,8 +113,8 @@ func (o *InventoryWbResponseItemsInner) HasChrtId() bool {
 	return false
 }
 
-// SetChrtId gets a reference to the given int32 and assigns it to the ChrtId field.
-func (o *InventoryWbResponseItemsInner) SetChrtId(v int32) {
+// SetChrtId gets a reference to the given int64 and assigns it to the ChrtId field.
+func (o *InventoryWbResponseItemsInner) SetChrtId(v int64) {
 	o.ChrtId = &v
 }
 
@@ -215,9 +215,9 @@ func (o *InventoryWbResponseItemsInner) SetRegionName(v string) {
 }
 
 // GetQuantity returns the Quantity field value if set, zero value otherwise.
-func (o *InventoryWbResponseItemsInner) GetQuantity() int32 {
+func (o *InventoryWbResponseItemsInner) GetQuantity() int64 {
 	if o == nil || IsNil(o.Quantity) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Quantity
@@ -225,7 +225,7 @@ func (o *InventoryWbResponseItemsInner) GetQuantity() int32 {
 
 // GetQuantityOk returns a tuple with the Quantity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InventoryWbResponseItemsInner) GetQuantityOk() (*int32, bool) {
+func (o *InventoryWbResponseItemsInner) GetQuantityOk() (*int64, bool) {
 	if o == nil || IsNil(o.Quantity) {
 		return nil, false
 	}
@@ -241,15 +241,15 @@ func (o *InventoryWbResponseItemsInner) HasQuantity() bool {
 	return false
 }
 
-// SetQuantity gets a reference to the given int32 and assigns it to the Quantity field.
-func (o *InventoryWbResponseItemsInner) SetQuantity(v int32) {
+// SetQuantity gets a reference to the given int64 and assigns it to the Quantity field.
+func (o *InventoryWbResponseItemsInner) SetQuantity(v int64) {
 	o.Quantity = &v
 }
 
 // GetInWayToClient returns the InWayToClient field value if set, zero value otherwise.
-func (o *InventoryWbResponseItemsInner) GetInWayToClient() int32 {
+func (o *InventoryWbResponseItemsInner) GetInWayToClient() int64 {
 	if o == nil || IsNil(o.InWayToClient) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.InWayToClient
@@ -257,7 +257,7 @@ func (o *InventoryWbResponseItemsInner) GetInWayToClient() int32 {
 
 // GetInWayToClientOk returns a tuple with the InWayToClient field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InventoryWbResponseItemsInner) GetInWayToClientOk() (*int32, bool) {
+func (o *InventoryWbResponseItemsInner) GetInWayToClientOk() (*int64, bool) {
 	if o == nil || IsNil(o.InWayToClient) {
 		return nil, false
 	}
@@ -273,15 +273,15 @@ func (o *InventoryWbResponseItemsInner) HasInWayToClient() bool {
 	return false
 }
 
-// SetInWayToClient gets a reference to the given int32 and assigns it to the InWayToClient field.
-func (o *InventoryWbResponseItemsInner) SetInWayToClient(v int32) {
+// SetInWayToClient gets a reference to the given int64 and assigns it to the InWayToClient field.
+func (o *InventoryWbResponseItemsInner) SetInWayToClient(v int64) {
 	o.InWayToClient = &v
 }
 
 // GetInWayFromClient returns the InWayFromClient field value if set, zero value otherwise.
-func (o *InventoryWbResponseItemsInner) GetInWayFromClient() int32 {
+func (o *InventoryWbResponseItemsInner) GetInWayFromClient() int64 {
 	if o == nil || IsNil(o.InWayFromClient) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.InWayFromClient
@@ -289,7 +289,7 @@ func (o *InventoryWbResponseItemsInner) GetInWayFromClient() int32 {
 
 // GetInWayFromClientOk returns a tuple with the InWayFromClient field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InventoryWbResponseItemsInner) GetInWayFromClientOk() (*int32, bool) {
+func (o *InventoryWbResponseItemsInner) GetInWayFromClientOk() (*int64, bool) {
 	if o == nil || IsNil(o.InWayFromClient) {
 		return nil, false
 	}
@@ -305,8 +305,8 @@ func (o *InventoryWbResponseItemsInner) HasInWayFromClient() bool {
 	return false
 }
 
-// SetInWayFromClient gets a reference to the given int32 and assigns it to the InWayFromClient field.
-func (o *InventoryWbResponseItemsInner) SetInWayFromClient(v int32) {
+// SetInWayFromClient gets a reference to the given int64 and assigns it to the InWayFromClient field.
+func (o *InventoryWbResponseItemsInner) SetInWayFromClient(v int64) {
 	o.InWayFromClient = &v
 }
 

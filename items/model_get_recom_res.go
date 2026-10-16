@@ -22,7 +22,7 @@ type GetRecomRes struct {
 	// Данные о товарах и их рекомендациях
 	Data []GetRecomResDataInner `json:"data,omitempty"`
 	// Курсор. Последний `nmId` в ответе
-	Next *int32 `json:"next,omitempty"`
+	Next *int64 `json:"next,omitempty"`
 }
 
 // NewGetRecomRes instantiates a new GetRecomRes object
@@ -75,9 +75,9 @@ func (o *GetRecomRes) SetData(v []GetRecomResDataInner) {
 }
 
 // GetNext returns the Next field value if set, zero value otherwise.
-func (o *GetRecomRes) GetNext() int32 {
+func (o *GetRecomRes) GetNext() int64 {
 	if o == nil || IsNil(o.Next) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Next
@@ -85,7 +85,7 @@ func (o *GetRecomRes) GetNext() int32 {
 
 // GetNextOk returns a tuple with the Next field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetRecomRes) GetNextOk() (*int32, bool) {
+func (o *GetRecomRes) GetNextOk() (*int64, bool) {
 	if o == nil || IsNil(o.Next) {
 		return nil, false
 	}
@@ -101,8 +101,8 @@ func (o *GetRecomRes) HasNext() bool {
 	return false
 }
 
-// SetNext gets a reference to the given int32 and assigns it to the Next field.
-func (o *GetRecomRes) SetNext(v int32) {
+// SetNext gets a reference to the given int64 and assigns it to the Next field.
+func (o *GetRecomRes) SetNext(v int64) {
 	o.Next = &v
 }
 

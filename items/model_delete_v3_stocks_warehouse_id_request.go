@@ -22,7 +22,7 @@ var _ MappedNullable = &DeleteV3StocksWarehouseIdRequest{}
 // DeleteV3StocksWarehouseIdRequest struct for DeleteV3StocksWarehouseIdRequest
 type DeleteV3StocksWarehouseIdRequest struct {
 	// Массив ID размеров товаров
-	ChrtIds []int32 `json:"chrtIds"`
+	ChrtIds []int64 `json:"chrtIds"`
 }
 
 type _DeleteV3StocksWarehouseIdRequest DeleteV3StocksWarehouseIdRequest
@@ -31,7 +31,7 @@ type _DeleteV3StocksWarehouseIdRequest DeleteV3StocksWarehouseIdRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDeleteV3StocksWarehouseIdRequest(chrtIds []int32) *DeleteV3StocksWarehouseIdRequest {
+func NewDeleteV3StocksWarehouseIdRequest(chrtIds []int64) *DeleteV3StocksWarehouseIdRequest {
 	this := DeleteV3StocksWarehouseIdRequest{}
 	this.ChrtIds = chrtIds
 	return &this
@@ -46,9 +46,9 @@ func NewDeleteV3StocksWarehouseIdRequestWithDefaults() *DeleteV3StocksWarehouseI
 }
 
 // GetChrtIds returns the ChrtIds field value
-func (o *DeleteV3StocksWarehouseIdRequest) GetChrtIds() []int32 {
+func (o *DeleteV3StocksWarehouseIdRequest) GetChrtIds() []int64 {
 	if o == nil {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 
@@ -57,7 +57,7 @@ func (o *DeleteV3StocksWarehouseIdRequest) GetChrtIds() []int32 {
 
 // GetChrtIdsOk returns a tuple with the ChrtIds field value
 // and a boolean to check if the value has been set.
-func (o *DeleteV3StocksWarehouseIdRequest) GetChrtIdsOk() ([]int32, bool) {
+func (o *DeleteV3StocksWarehouseIdRequest) GetChrtIdsOk() ([]int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,7 +65,7 @@ func (o *DeleteV3StocksWarehouseIdRequest) GetChrtIdsOk() ([]int32, bool) {
 }
 
 // SetChrtIds sets field value
-func (o *DeleteV3StocksWarehouseIdRequest) SetChrtIds(v []int32) {
+func (o *DeleteV3StocksWarehouseIdRequest) SetChrtIds(v []int64) {
 	o.ChrtIds = v
 }
 

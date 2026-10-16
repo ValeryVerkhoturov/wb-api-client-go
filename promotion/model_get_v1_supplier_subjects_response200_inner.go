@@ -20,11 +20,11 @@ var _ MappedNullable = &GetV1SupplierSubjectsResponse200Inner{}
 // GetV1SupplierSubjectsResponse200Inner struct for GetV1SupplierSubjectsResponse200Inner
 type GetV1SupplierSubjectsResponse200Inner struct {
 	// ID предмета
-	Id *int32 `json:"id,omitempty"`
+	Id *int64 `json:"id,omitempty"`
 	// Предмет
 	Name *string `json:"name,omitempty"`
 	// Количество Артикулов WB (`nmId`) с таким предметом.
-	Count *int32 `json:"count,omitempty"`
+	Count *int64 `json:"count,omitempty"`
 }
 
 // NewGetV1SupplierSubjectsResponse200Inner instantiates a new GetV1SupplierSubjectsResponse200Inner object
@@ -45,9 +45,9 @@ func NewGetV1SupplierSubjectsResponse200InnerWithDefaults() *GetV1SupplierSubjec
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *GetV1SupplierSubjectsResponse200Inner) GetId() int32 {
+func (o *GetV1SupplierSubjectsResponse200Inner) GetId() int64 {
 	if o == nil || IsNil(o.Id) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Id
@@ -55,7 +55,7 @@ func (o *GetV1SupplierSubjectsResponse200Inner) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1SupplierSubjectsResponse200Inner) GetIdOk() (*int32, bool) {
+func (o *GetV1SupplierSubjectsResponse200Inner) GetIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -71,8 +71,8 @@ func (o *GetV1SupplierSubjectsResponse200Inner) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *GetV1SupplierSubjectsResponse200Inner) SetId(v int32) {
+// SetId gets a reference to the given int64 and assigns it to the Id field.
+func (o *GetV1SupplierSubjectsResponse200Inner) SetId(v int64) {
 	o.Id = &v
 }
 
@@ -109,9 +109,9 @@ func (o *GetV1SupplierSubjectsResponse200Inner) SetName(v string) {
 }
 
 // GetCount returns the Count field value if set, zero value otherwise.
-func (o *GetV1SupplierSubjectsResponse200Inner) GetCount() int32 {
+func (o *GetV1SupplierSubjectsResponse200Inner) GetCount() int64 {
 	if o == nil || IsNil(o.Count) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Count
@@ -119,7 +119,7 @@ func (o *GetV1SupplierSubjectsResponse200Inner) GetCount() int32 {
 
 // GetCountOk returns a tuple with the Count field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1SupplierSubjectsResponse200Inner) GetCountOk() (*int32, bool) {
+func (o *GetV1SupplierSubjectsResponse200Inner) GetCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.Count) {
 		return nil, false
 	}
@@ -135,8 +135,8 @@ func (o *GetV1SupplierSubjectsResponse200Inner) HasCount() bool {
 	return false
 }
 
-// SetCount gets a reference to the given int32 and assigns it to the Count field.
-func (o *GetV1SupplierSubjectsResponse200Inner) SetCount(v int32) {
+// SetCount gets a reference to the given int64 and assigns it to the Count field.
+func (o *GetV1SupplierSubjectsResponse200Inner) SetCount(v int64) {
 	o.Count = &v
 }
 

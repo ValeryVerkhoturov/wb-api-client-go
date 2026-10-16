@@ -20,21 +20,21 @@ var _ MappedNullable = &GetV1UpdResponse200Inner{}
 // GetV1UpdResponse200Inner struct for GetV1UpdResponse200Inner
 type GetV1UpdResponse200Inner struct {
 	// Номер выставленного документа
-	UpdNum *int32 `json:"updNum,omitempty"`
+	UpdNum *int64 `json:"updNum,omitempty"`
 	// Время списания
 	UpdTime NullableString `json:"updTime,omitempty"`
 	// Выставленная сумма в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
-	UpdSum *int32 `json:"updSum,omitempty"`
+	UpdSum *int64 `json:"updSum,omitempty"`
 	// ID кампании
-	AdvertId *int32 `json:"advertId,omitempty"`
+	AdvertId *int64 `json:"advertId,omitempty"`
 	// Название кампании
 	CampName *string `json:"campName,omitempty"`
 	// Тип кампании
-	AdvertType *int32 `json:"advertType,omitempty"`
+	AdvertType *int64 `json:"advertType,omitempty"`
 	// Источник списания:  - `Баланс`  - `Бонусы`  - `Счёт`  - `Кэшбэк`
 	PaymentType *string `json:"paymentType,omitempty"`
 	// Статус кампании: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе
-	AdvertStatus *int32 `json:"advertStatus,omitempty"`
+	AdvertStatus *int64 `json:"advertStatus,omitempty"`
 }
 
 // NewGetV1UpdResponse200Inner instantiates a new GetV1UpdResponse200Inner object
@@ -55,9 +55,9 @@ func NewGetV1UpdResponse200InnerWithDefaults() *GetV1UpdResponse200Inner {
 }
 
 // GetUpdNum returns the UpdNum field value if set, zero value otherwise.
-func (o *GetV1UpdResponse200Inner) GetUpdNum() int32 {
+func (o *GetV1UpdResponse200Inner) GetUpdNum() int64 {
 	if o == nil || IsNil(o.UpdNum) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.UpdNum
@@ -65,7 +65,7 @@ func (o *GetV1UpdResponse200Inner) GetUpdNum() int32 {
 
 // GetUpdNumOk returns a tuple with the UpdNum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1UpdResponse200Inner) GetUpdNumOk() (*int32, bool) {
+func (o *GetV1UpdResponse200Inner) GetUpdNumOk() (*int64, bool) {
 	if o == nil || IsNil(o.UpdNum) {
 		return nil, false
 	}
@@ -81,8 +81,8 @@ func (o *GetV1UpdResponse200Inner) HasUpdNum() bool {
 	return false
 }
 
-// SetUpdNum gets a reference to the given int32 and assigns it to the UpdNum field.
-func (o *GetV1UpdResponse200Inner) SetUpdNum(v int32) {
+// SetUpdNum gets a reference to the given int64 and assigns it to the UpdNum field.
+func (o *GetV1UpdResponse200Inner) SetUpdNum(v int64) {
 	o.UpdNum = &v
 }
 
@@ -130,9 +130,9 @@ func (o *GetV1UpdResponse200Inner) UnsetUpdTime() {
 }
 
 // GetUpdSum returns the UpdSum field value if set, zero value otherwise.
-func (o *GetV1UpdResponse200Inner) GetUpdSum() int32 {
+func (o *GetV1UpdResponse200Inner) GetUpdSum() int64 {
 	if o == nil || IsNil(o.UpdSum) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.UpdSum
@@ -140,7 +140,7 @@ func (o *GetV1UpdResponse200Inner) GetUpdSum() int32 {
 
 // GetUpdSumOk returns a tuple with the UpdSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1UpdResponse200Inner) GetUpdSumOk() (*int32, bool) {
+func (o *GetV1UpdResponse200Inner) GetUpdSumOk() (*int64, bool) {
 	if o == nil || IsNil(o.UpdSum) {
 		return nil, false
 	}
@@ -156,15 +156,15 @@ func (o *GetV1UpdResponse200Inner) HasUpdSum() bool {
 	return false
 }
 
-// SetUpdSum gets a reference to the given int32 and assigns it to the UpdSum field.
-func (o *GetV1UpdResponse200Inner) SetUpdSum(v int32) {
+// SetUpdSum gets a reference to the given int64 and assigns it to the UpdSum field.
+func (o *GetV1UpdResponse200Inner) SetUpdSum(v int64) {
 	o.UpdSum = &v
 }
 
 // GetAdvertId returns the AdvertId field value if set, zero value otherwise.
-func (o *GetV1UpdResponse200Inner) GetAdvertId() int32 {
+func (o *GetV1UpdResponse200Inner) GetAdvertId() int64 {
 	if o == nil || IsNil(o.AdvertId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.AdvertId
@@ -172,7 +172,7 @@ func (o *GetV1UpdResponse200Inner) GetAdvertId() int32 {
 
 // GetAdvertIdOk returns a tuple with the AdvertId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1UpdResponse200Inner) GetAdvertIdOk() (*int32, bool) {
+func (o *GetV1UpdResponse200Inner) GetAdvertIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.AdvertId) {
 		return nil, false
 	}
@@ -188,8 +188,8 @@ func (o *GetV1UpdResponse200Inner) HasAdvertId() bool {
 	return false
 }
 
-// SetAdvertId gets a reference to the given int32 and assigns it to the AdvertId field.
-func (o *GetV1UpdResponse200Inner) SetAdvertId(v int32) {
+// SetAdvertId gets a reference to the given int64 and assigns it to the AdvertId field.
+func (o *GetV1UpdResponse200Inner) SetAdvertId(v int64) {
 	o.AdvertId = &v
 }
 
@@ -226,9 +226,9 @@ func (o *GetV1UpdResponse200Inner) SetCampName(v string) {
 }
 
 // GetAdvertType returns the AdvertType field value if set, zero value otherwise.
-func (o *GetV1UpdResponse200Inner) GetAdvertType() int32 {
+func (o *GetV1UpdResponse200Inner) GetAdvertType() int64 {
 	if o == nil || IsNil(o.AdvertType) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.AdvertType
@@ -236,7 +236,7 @@ func (o *GetV1UpdResponse200Inner) GetAdvertType() int32 {
 
 // GetAdvertTypeOk returns a tuple with the AdvertType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1UpdResponse200Inner) GetAdvertTypeOk() (*int32, bool) {
+func (o *GetV1UpdResponse200Inner) GetAdvertTypeOk() (*int64, bool) {
 	if o == nil || IsNil(o.AdvertType) {
 		return nil, false
 	}
@@ -252,8 +252,8 @@ func (o *GetV1UpdResponse200Inner) HasAdvertType() bool {
 	return false
 }
 
-// SetAdvertType gets a reference to the given int32 and assigns it to the AdvertType field.
-func (o *GetV1UpdResponse200Inner) SetAdvertType(v int32) {
+// SetAdvertType gets a reference to the given int64 and assigns it to the AdvertType field.
+func (o *GetV1UpdResponse200Inner) SetAdvertType(v int64) {
 	o.AdvertType = &v
 }
 
@@ -290,9 +290,9 @@ func (o *GetV1UpdResponse200Inner) SetPaymentType(v string) {
 }
 
 // GetAdvertStatus returns the AdvertStatus field value if set, zero value otherwise.
-func (o *GetV1UpdResponse200Inner) GetAdvertStatus() int32 {
+func (o *GetV1UpdResponse200Inner) GetAdvertStatus() int64 {
 	if o == nil || IsNil(o.AdvertStatus) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.AdvertStatus
@@ -300,7 +300,7 @@ func (o *GetV1UpdResponse200Inner) GetAdvertStatus() int32 {
 
 // GetAdvertStatusOk returns a tuple with the AdvertStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1UpdResponse200Inner) GetAdvertStatusOk() (*int32, bool) {
+func (o *GetV1UpdResponse200Inner) GetAdvertStatusOk() (*int64, bool) {
 	if o == nil || IsNil(o.AdvertStatus) {
 		return nil, false
 	}
@@ -316,8 +316,8 @@ func (o *GetV1UpdResponse200Inner) HasAdvertStatus() bool {
 	return false
 }
 
-// SetAdvertStatus gets a reference to the given int32 and assigns it to the AdvertStatus field.
-func (o *GetV1UpdResponse200Inner) SetAdvertStatus(v int32) {
+// SetAdvertStatus gets a reference to the given int64 and assigns it to the AdvertStatus field.
+func (o *GetV1UpdResponse200Inner) SetAdvertStatus(v int64) {
 	o.AdvertStatus = &v
 }
 

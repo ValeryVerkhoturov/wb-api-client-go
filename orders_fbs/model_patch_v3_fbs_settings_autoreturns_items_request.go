@@ -22,7 +22,7 @@ var _ MappedNullable = &PatchV3FbsSettingsAutoreturnsItemsRequest{}
 // PatchV3FbsSettingsAutoreturnsItemsRequest struct for PatchV3FbsSettingsAutoreturnsItemsRequest
 type PatchV3FbsSettingsAutoreturnsItemsRequest struct {
 	// Список ID размеров товаров в системе WB
-	ChrtIds []int32 `json:"chrtIds"`
+	ChrtIds []int64 `json:"chrtIds"`
 	// Тип автовозврата малогабаритных товаров:   - `byWarehouse` — все товары отправляются на склад WB   - `byPickupPoint` — все товары отправляются на пункт выдачи заказов
 	Type string `json:"type"`
 }
@@ -33,7 +33,7 @@ type _PatchV3FbsSettingsAutoreturnsItemsRequest PatchV3FbsSettingsAutoreturnsIte
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPatchV3FbsSettingsAutoreturnsItemsRequest(chrtIds []int32, type_ string) *PatchV3FbsSettingsAutoreturnsItemsRequest {
+func NewPatchV3FbsSettingsAutoreturnsItemsRequest(chrtIds []int64, type_ string) *PatchV3FbsSettingsAutoreturnsItemsRequest {
 	this := PatchV3FbsSettingsAutoreturnsItemsRequest{}
 	this.ChrtIds = chrtIds
 	this.Type = type_
@@ -49,9 +49,9 @@ func NewPatchV3FbsSettingsAutoreturnsItemsRequestWithDefaults() *PatchV3FbsSetti
 }
 
 // GetChrtIds returns the ChrtIds field value
-func (o *PatchV3FbsSettingsAutoreturnsItemsRequest) GetChrtIds() []int32 {
+func (o *PatchV3FbsSettingsAutoreturnsItemsRequest) GetChrtIds() []int64 {
 	if o == nil {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 
@@ -60,7 +60,7 @@ func (o *PatchV3FbsSettingsAutoreturnsItemsRequest) GetChrtIds() []int32 {
 
 // GetChrtIdsOk returns a tuple with the ChrtIds field value
 // and a boolean to check if the value has been set.
-func (o *PatchV3FbsSettingsAutoreturnsItemsRequest) GetChrtIdsOk() ([]int32, bool) {
+func (o *PatchV3FbsSettingsAutoreturnsItemsRequest) GetChrtIdsOk() ([]int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,7 +68,7 @@ func (o *PatchV3FbsSettingsAutoreturnsItemsRequest) GetChrtIdsOk() ([]int32, boo
 }
 
 // SetChrtIds sets field value
-func (o *PatchV3FbsSettingsAutoreturnsItemsRequest) SetChrtIds(v []int32) {
+func (o *PatchV3FbsSettingsAutoreturnsItemsRequest) SetChrtIds(v []int64) {
 	o.ChrtIds = v
 }
 

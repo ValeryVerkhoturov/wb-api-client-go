@@ -22,11 +22,11 @@ var _ MappedNullable = &SizeGoodReq{}
 // SizeGoodReq struct for SizeGoodReq
 type SizeGoodReq struct {
 	// Артикул WB
-	NmID int32 `json:"nmID"`
+	NmID int64 `json:"nmID"`
 	// ID размера. Можно получить с помощью методов [Получить товары с ценами](./item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) и [Получить товары с ценами по артикулам](./item-management#tag/pricesAndDiscounts/operation/postV2ListGoodsFilter), поле `sizeID`. В методах Контента это поле `chrtID`
-	SizeID int32 `json:"sizeID"`
+	SizeID int64 `json:"sizeID"`
 	// Цена. Валюту можно получить с помощью методов [Получить товары с ценами](./item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) и [Получить товары с ценами по артикулам](./item-management#tag/pricesAndDiscounts/operation/postV2ListGoodsFilter), поле `currencyIsoCode4217`
-	Price int32 `json:"price"`
+	Price int64 `json:"price"`
 }
 
 type _SizeGoodReq SizeGoodReq
@@ -35,7 +35,7 @@ type _SizeGoodReq SizeGoodReq
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSizeGoodReq(nmID int32, sizeID int32, price int32) *SizeGoodReq {
+func NewSizeGoodReq(nmID int64, sizeID int64, price int64) *SizeGoodReq {
 	this := SizeGoodReq{}
 	this.NmID = nmID
 	this.SizeID = sizeID
@@ -52,9 +52,9 @@ func NewSizeGoodReqWithDefaults() *SizeGoodReq {
 }
 
 // GetNmID returns the NmID field value
-func (o *SizeGoodReq) GetNmID() int32 {
+func (o *SizeGoodReq) GetNmID() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -63,7 +63,7 @@ func (o *SizeGoodReq) GetNmID() int32 {
 
 // GetNmIDOk returns a tuple with the NmID field value
 // and a boolean to check if the value has been set.
-func (o *SizeGoodReq) GetNmIDOk() (*int32, bool) {
+func (o *SizeGoodReq) GetNmIDOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -71,14 +71,14 @@ func (o *SizeGoodReq) GetNmIDOk() (*int32, bool) {
 }
 
 // SetNmID sets field value
-func (o *SizeGoodReq) SetNmID(v int32) {
+func (o *SizeGoodReq) SetNmID(v int64) {
 	o.NmID = v
 }
 
 // GetSizeID returns the SizeID field value
-func (o *SizeGoodReq) GetSizeID() int32 {
+func (o *SizeGoodReq) GetSizeID() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -87,7 +87,7 @@ func (o *SizeGoodReq) GetSizeID() int32 {
 
 // GetSizeIDOk returns a tuple with the SizeID field value
 // and a boolean to check if the value has been set.
-func (o *SizeGoodReq) GetSizeIDOk() (*int32, bool) {
+func (o *SizeGoodReq) GetSizeIDOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -95,14 +95,14 @@ func (o *SizeGoodReq) GetSizeIDOk() (*int32, bool) {
 }
 
 // SetSizeID sets field value
-func (o *SizeGoodReq) SetSizeID(v int32) {
+func (o *SizeGoodReq) SetSizeID(v int64) {
 	o.SizeID = v
 }
 
 // GetPrice returns the Price field value
-func (o *SizeGoodReq) GetPrice() int32 {
+func (o *SizeGoodReq) GetPrice() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -111,7 +111,7 @@ func (o *SizeGoodReq) GetPrice() int32 {
 
 // GetPriceOk returns a tuple with the Price field value
 // and a boolean to check if the value has been set.
-func (o *SizeGoodReq) GetPriceOk() (*int32, bool) {
+func (o *SizeGoodReq) GetPriceOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -119,7 +119,7 @@ func (o *SizeGoodReq) GetPriceOk() (*int32, bool) {
 }
 
 // SetPrice sets field value
-func (o *SizeGoodReq) SetPrice(v int32) {
+func (o *SizeGoodReq) SetPrice(v int64) {
 	o.Price = v
 }
 

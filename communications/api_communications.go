@@ -671,11 +671,11 @@ type CommunicationsAPIService service
 type ApiDeleteV1PinsRequest struct {
 	ctx         context.Context
 	ApiService  CommunicationsAPI
-	requestBody *[]int32
+	requestBody *[]int64
 }
 
 // Список &#x60;pinId&#x60; — ID операций закрепления отзывов
-func (r ApiDeleteV1PinsRequest) RequestBody(requestBody []int32) ApiDeleteV1PinsRequest {
+func (r ApiDeleteV1PinsRequest) RequestBody(requestBody []int64) ApiDeleteV1PinsRequest {
 	r.requestBody = &requestBody
 	return r
 }
@@ -855,7 +855,7 @@ type ApiGetV1ClaimsRequest struct {
 	id         *string
 	limit      *int32
 	offset     *int32
-	nmId       *int32
+	nmId       *int64
 }
 
 // Состояние заявки:   * &#x60;false&#x60; — на рассмотрении   * &#x60;true&#x60; — в архиве
@@ -883,7 +883,7 @@ func (r ApiGetV1ClaimsRequest) Offset(offset int32) ApiGetV1ClaimsRequest {
 }
 
 // Артикул WB
-func (r ApiGetV1ClaimsRequest) NmId(nmId int32) ApiGetV1ClaimsRequest {
+func (r ApiGetV1ClaimsRequest) NmId(nmId int64) ApiGetV1ClaimsRequest {
 	r.nmId = &nmId
 	return r
 }
@@ -1248,12 +1248,12 @@ type ApiGetV1FeedbacksRequest struct {
 	ctx        context.Context
 	ApiService CommunicationsAPI
 	isAnswered *bool
-	take       *int32
-	skip       *int32
-	nmId       *int32
+	take       *int64
+	skip       *int64
+	nmId       *int64
 	order      *string
-	dateFrom   *int32
-	dateTo     *int32
+	dateFrom   *int64
+	dateTo     *int64
 }
 
 // Вернуть только обработанные отзывы:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет
@@ -1263,19 +1263,19 @@ func (r ApiGetV1FeedbacksRequest) IsAnswered(isAnswered bool) ApiGetV1FeedbacksR
 }
 
 // Количество отзывов (max. 5 000)
-func (r ApiGetV1FeedbacksRequest) Take(take int32) ApiGetV1FeedbacksRequest {
+func (r ApiGetV1FeedbacksRequest) Take(take int64) ApiGetV1FeedbacksRequest {
 	r.take = &take
 	return r
 }
 
 // Количество отзывов для пропуска (max. 199990)
-func (r ApiGetV1FeedbacksRequest) Skip(skip int32) ApiGetV1FeedbacksRequest {
+func (r ApiGetV1FeedbacksRequest) Skip(skip int64) ApiGetV1FeedbacksRequest {
 	r.skip = &skip
 	return r
 }
 
 // Артикул WB
-func (r ApiGetV1FeedbacksRequest) NmId(nmId int32) ApiGetV1FeedbacksRequest {
+func (r ApiGetV1FeedbacksRequest) NmId(nmId int64) ApiGetV1FeedbacksRequest {
 	r.nmId = &nmId
 	return r
 }
@@ -1287,13 +1287,13 @@ func (r ApiGetV1FeedbacksRequest) Order(order string) ApiGetV1FeedbacksRequest {
 }
 
 // Дата начала периода в формате Unix timestamp
-func (r ApiGetV1FeedbacksRequest) DateFrom(dateFrom int32) ApiGetV1FeedbacksRequest {
+func (r ApiGetV1FeedbacksRequest) DateFrom(dateFrom int64) ApiGetV1FeedbacksRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
 
 // Дата конца периода в формате Unix timestamp
-func (r ApiGetV1FeedbacksRequest) DateTo(dateTo int32) ApiGetV1FeedbacksRequest {
+func (r ApiGetV1FeedbacksRequest) DateTo(dateTo int64) ApiGetV1FeedbacksRequest {
 	r.dateTo = &dateTo
 	return r
 }
@@ -1490,26 +1490,26 @@ func (a *CommunicationsAPIService) GetV1FeedbacksExecute(r ApiGetV1FeedbacksRequ
 type ApiGetV1FeedbacksArchiveRequest struct {
 	ctx        context.Context
 	ApiService CommunicationsAPI
-	take       *int32
-	skip       *int32
-	nmId       *int32
+	take       *int64
+	skip       *int64
+	nmId       *int64
 	order      *string
 }
 
 // Количество отзывов (max. 5 000)
-func (r ApiGetV1FeedbacksArchiveRequest) Take(take int32) ApiGetV1FeedbacksArchiveRequest {
+func (r ApiGetV1FeedbacksArchiveRequest) Take(take int64) ApiGetV1FeedbacksArchiveRequest {
 	r.take = &take
 	return r
 }
 
 // Количество отзывов для пропуска
-func (r ApiGetV1FeedbacksArchiveRequest) Skip(skip int32) ApiGetV1FeedbacksArchiveRequest {
+func (r ApiGetV1FeedbacksArchiveRequest) Skip(skip int64) ApiGetV1FeedbacksArchiveRequest {
 	r.skip = &skip
 	return r
 }
 
 // Артикул WB
-func (r ApiGetV1FeedbacksArchiveRequest) NmId(nmId int32) ApiGetV1FeedbacksArchiveRequest {
+func (r ApiGetV1FeedbacksArchiveRequest) NmId(nmId int64) ApiGetV1FeedbacksArchiveRequest {
 	r.nmId = &nmId
 	return r
 }
@@ -1713,8 +1713,8 @@ type ApiGetV1FeedbacksCountRequest struct {
 	ctx        context.Context
 	ApiService CommunicationsAPI
 	isAnswered *bool
-	dateFrom   *int32
-	dateTo     *int32
+	dateFrom   *int64
+	dateTo     *int64
 }
 
 // Вернуть только обработанные отзывы:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет
@@ -1724,13 +1724,13 @@ func (r ApiGetV1FeedbacksCountRequest) IsAnswered(isAnswered bool) ApiGetV1Feedb
 }
 
 // Дата начала периода в формате Unix timestamp
-func (r ApiGetV1FeedbacksCountRequest) DateFrom(dateFrom int32) ApiGetV1FeedbacksCountRequest {
+func (r ApiGetV1FeedbacksCountRequest) DateFrom(dateFrom int64) ApiGetV1FeedbacksCountRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
 
 // Дата конца периода в формате Unix timestamp
-func (r ApiGetV1FeedbacksCountRequest) DateTo(dateTo int32) ApiGetV1FeedbacksCountRequest {
+func (r ApiGetV1FeedbacksCountRequest) DateTo(dateTo int64) ApiGetV1FeedbacksCountRequest {
 	r.dateTo = &dateTo
 	return r
 }
@@ -2219,13 +2219,13 @@ type ApiGetV1PinsRequest struct {
 	ApiService CommunicationsAPI
 	state      *string
 	pinOn      *string
-	imtId      *int32
-	nmId       *int32
-	feedbackId *int32
+	imtId      *int64
+	nmId       *int64
+	feedbackId *int64
 	dateFrom   *string
 	dateTo     *string
-	next       *int32
-	limit      *int32
+	next       *int64
+	limit      *int64
 }
 
 // Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет
@@ -2241,19 +2241,19 @@ func (r ApiGetV1PinsRequest) PinOn(pinOn string) ApiGetV1PinsRequest {
 }
 
 // ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
-func (r ApiGetV1PinsRequest) ImtId(imtId int32) ApiGetV1PinsRequest {
+func (r ApiGetV1PinsRequest) ImtId(imtId int64) ApiGetV1PinsRequest {
 	r.imtId = &imtId
 	return r
 }
 
 // Артикул WB
-func (r ApiGetV1PinsRequest) NmId(nmId int32) ApiGetV1PinsRequest {
+func (r ApiGetV1PinsRequest) NmId(nmId int64) ApiGetV1PinsRequest {
 	r.nmId = &nmId
 	return r
 }
 
 // ID отзыва
-func (r ApiGetV1PinsRequest) FeedbackId(feedbackId int32) ApiGetV1PinsRequest {
+func (r ApiGetV1PinsRequest) FeedbackId(feedbackId int64) ApiGetV1PinsRequest {
 	r.feedbackId = &feedbackId
 	return r
 }
@@ -2271,13 +2271,13 @@ func (r ApiGetV1PinsRequest) DateTo(dateTo string) ApiGetV1PinsRequest {
 }
 
 // ID последней операции закрепления (пагинатор)
-func (r ApiGetV1PinsRequest) Next(next int32) ApiGetV1PinsRequest {
+func (r ApiGetV1PinsRequest) Next(next int64) ApiGetV1PinsRequest {
 	r.next = &next
 	return r
 }
 
 // Количество отзывов на одной странице (пагинация)
-func (r ApiGetV1PinsRequest) Limit(limit int32) ApiGetV1PinsRequest {
+func (r ApiGetV1PinsRequest) Limit(limit int64) ApiGetV1PinsRequest {
 	r.limit = &limit
 	return r
 }
@@ -2362,7 +2362,7 @@ func (a *CommunicationsAPIService) GetV1PinsExecute(r ApiGetV1PinsRequest) (*Get
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
 	} else {
-		var defaultValue int32 = 500
+		var defaultValue int64 = 500
 		r.limit = &defaultValue
 	}
 	// to determine the Content-Type header
@@ -2478,9 +2478,9 @@ type ApiGetV1PinsCountRequest struct {
 	ApiService CommunicationsAPI
 	state      *string
 	pinOn      *string
-	imtId      *int32
-	nmId       *int32
-	feedbackId *int32
+	imtId      *int64
+	nmId       *int64
+	feedbackId *int64
 	dateFrom   *string
 	dateTo     *string
 }
@@ -2498,19 +2498,19 @@ func (r ApiGetV1PinsCountRequest) PinOn(pinOn string) ApiGetV1PinsCountRequest {
 }
 
 // ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
-func (r ApiGetV1PinsCountRequest) ImtId(imtId int32) ApiGetV1PinsCountRequest {
+func (r ApiGetV1PinsCountRequest) ImtId(imtId int64) ApiGetV1PinsCountRequest {
 	r.imtId = &imtId
 	return r
 }
 
 // Артикул WB
-func (r ApiGetV1PinsCountRequest) NmId(nmId int32) ApiGetV1PinsCountRequest {
+func (r ApiGetV1PinsCountRequest) NmId(nmId int64) ApiGetV1PinsCountRequest {
 	r.nmId = &nmId
 	return r
 }
 
 // ID отзыва
-func (r ApiGetV1PinsCountRequest) FeedbackId(feedbackId int32) ApiGetV1PinsCountRequest {
+func (r ApiGetV1PinsCountRequest) FeedbackId(feedbackId int64) ApiGetV1PinsCountRequest {
 	r.feedbackId = &feedbackId
 	return r
 }
@@ -3039,12 +3039,12 @@ type ApiGetV1QuestionsRequest struct {
 	ctx        context.Context
 	ApiService CommunicationsAPI
 	isAnswered *bool
-	take       *int32
-	skip       *int32
-	nmId       *int32
+	take       *int64
+	skip       *int64
+	nmId       *int64
 	order      *string
-	dateFrom   *int32
-	dateTo     *int32
+	dateFrom   *int64
+	dateTo     *int64
 }
 
 // Есть ли ответ на вопрос:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет
@@ -3054,19 +3054,19 @@ func (r ApiGetV1QuestionsRequest) IsAnswered(isAnswered bool) ApiGetV1QuestionsR
 }
 
 // Количество запрашиваемых вопросов (максимально допустимое значение для параметра - 10 000, при этом сумма значений параметров &#x60;take&#x60; и &#x60;skip&#x60; не должна превышать 10 000)
-func (r ApiGetV1QuestionsRequest) Take(take int32) ApiGetV1QuestionsRequest {
+func (r ApiGetV1QuestionsRequest) Take(take int64) ApiGetV1QuestionsRequest {
 	r.take = &take
 	return r
 }
 
 // Количество вопросов для пропуска (максимально допустимое значение для параметра - 10 000, при этом сумма значений параметров &#x60;take&#x60; и &#x60;skip&#x60; не должна превышать 10 000)
-func (r ApiGetV1QuestionsRequest) Skip(skip int32) ApiGetV1QuestionsRequest {
+func (r ApiGetV1QuestionsRequest) Skip(skip int64) ApiGetV1QuestionsRequest {
 	r.skip = &skip
 	return r
 }
 
 // Артикул WB
-func (r ApiGetV1QuestionsRequest) NmId(nmId int32) ApiGetV1QuestionsRequest {
+func (r ApiGetV1QuestionsRequest) NmId(nmId int64) ApiGetV1QuestionsRequest {
 	r.nmId = &nmId
 	return r
 }
@@ -3078,13 +3078,13 @@ func (r ApiGetV1QuestionsRequest) Order(order string) ApiGetV1QuestionsRequest {
 }
 
 // Дата начала периода в формате Unix timestamp
-func (r ApiGetV1QuestionsRequest) DateFrom(dateFrom int32) ApiGetV1QuestionsRequest {
+func (r ApiGetV1QuestionsRequest) DateFrom(dateFrom int64) ApiGetV1QuestionsRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
 
 // Дата конца периода в формате Unix timestamp
-func (r ApiGetV1QuestionsRequest) DateTo(dateTo int32) ApiGetV1QuestionsRequest {
+func (r ApiGetV1QuestionsRequest) DateTo(dateTo int64) ApiGetV1QuestionsRequest {
 	r.dateTo = &dateTo
 	return r
 }
@@ -3280,19 +3280,19 @@ func (a *CommunicationsAPIService) GetV1QuestionsExecute(r ApiGetV1QuestionsRequ
 type ApiGetV1QuestionsCountRequest struct {
 	ctx        context.Context
 	ApiService CommunicationsAPI
-	dateFrom   *int32
-	dateTo     *int32
+	dateFrom   *int64
+	dateTo     *int64
 	isAnswered *bool
 }
 
 // Дата начала периода в формате Unix timestamp
-func (r ApiGetV1QuestionsCountRequest) DateFrom(dateFrom int32) ApiGetV1QuestionsCountRequest {
+func (r ApiGetV1QuestionsCountRequest) DateFrom(dateFrom int64) ApiGetV1QuestionsCountRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
 
 // Дата конца периода в формате Unix timestamp
-func (r ApiGetV1QuestionsCountRequest) DateTo(dateTo int32) ApiGetV1QuestionsCountRequest {
+func (r ApiGetV1QuestionsCountRequest) DateTo(dateTo int64) ApiGetV1QuestionsCountRequest {
 	r.dateTo = &dateTo
 	return r
 }
@@ -3962,11 +3962,11 @@ func (a *CommunicationsAPIService) GetV1SellerDownloadIdExecute(r ApiGetV1Seller
 type ApiGetV1SellerEventsRequest struct {
 	ctx        context.Context
 	ApiService CommunicationsAPI
-	next       *int32
+	next       *int64
 }
 
 // Пагинатор. С какого момента получить следующий пакет данных. Формат Unix timestamp \\*\\*с миллисекундами\\*\\*
-func (r ApiGetV1SellerEventsRequest) Next(next int32) ApiGetV1SellerEventsRequest {
+func (r ApiGetV1SellerEventsRequest) Next(next int64) ApiGetV1SellerEventsRequest {
 	r.next = &next
 	return r
 }

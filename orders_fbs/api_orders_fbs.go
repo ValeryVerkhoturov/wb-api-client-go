@@ -2235,20 +2235,20 @@ func (a *OrdersFbsAPIService) GetV3FbsDictionariesCountriesOksmExecute(r ApiGetV
 type ApiGetV3FbsOrdersArchiveRequest struct {
 	ctx        context.Context
 	ApiService OrdersFbsAPI
-	year       *int32
-	month      *int32
+	year       *int64
+	month      *int64
 	next       *int64
 	limit      *int32
 }
 
 // Год создания заказа
-func (r ApiGetV3FbsOrdersArchiveRequest) Year(year int32) ApiGetV3FbsOrdersArchiveRequest {
+func (r ApiGetV3FbsOrdersArchiveRequest) Year(year int64) ApiGetV3FbsOrdersArchiveRequest {
 	r.year = &year
 	return r
 }
 
 // Месяц создания заказа
-func (r ApiGetV3FbsOrdersArchiveRequest) Month(month int32) ApiGetV3FbsOrdersArchiveRequest {
+func (r ApiGetV3FbsOrdersArchiveRequest) Month(month int64) ApiGetV3FbsOrdersArchiveRequest {
 	r.month = &month
 	return r
 }
@@ -2796,7 +2796,7 @@ type ApiGetV3FbsShippingPointsRequest struct {
 	ctx        context.Context
 	ApiService OrdersFbsAPI
 	city       *string
-	cargoType  *int32
+	cargoType  *int64
 }
 
 // Населённый пункт отгрузки поставки, кириллица
@@ -2806,7 +2806,7 @@ func (r ApiGetV3FbsShippingPointsRequest) City(city string) ApiGetV3FbsShippingP
 }
 
 // Тип товара, который принимает пункт отгрузки:   - &#x60;1&#x60; — малогабаритный товар (МГТ)   - &#x60;2&#x60; — сверхгабаритный товар (СГТ)   - &#x60;3&#x60; — крупногабаритный товар (КГТ+)
-func (r ApiGetV3FbsShippingPointsRequest) CargoType(cargoType int32) ApiGetV3FbsShippingPointsRequest {
+func (r ApiGetV3FbsShippingPointsRequest) CargoType(cargoType int64) ApiGetV3FbsShippingPointsRequest {
 	r.cargoType = &cargoType
 	return r
 }
@@ -3140,14 +3140,14 @@ func (a *OrdersFbsAPIService) GetV3FbsSuppliesSupplyIdStickersSpotExecute(r ApiG
 type ApiGetV3OrdersRequest struct {
 	ctx        context.Context
 	ApiService OrdersFbsAPI
-	limit      *int32
+	limit      *int64
 	next       *int64
-	dateFrom   *int32
-	dateTo     *int32
+	dateFrom   *int64
+	dateTo     *int64
 }
 
 // Параметр пагинации. Устанавливает предельное количество возвращаемых данных.
-func (r ApiGetV3OrdersRequest) Limit(limit int32) ApiGetV3OrdersRequest {
+func (r ApiGetV3OrdersRequest) Limit(limit int64) ApiGetV3OrdersRequest {
 	r.limit = &limit
 	return r
 }
@@ -3159,13 +3159,13 @@ func (r ApiGetV3OrdersRequest) Next(next int64) ApiGetV3OrdersRequest {
 }
 
 // Дата начала периода в формате Unix timestamp. По умолчанию — дата за 30 дней до запроса. Часовой пояс — UTC
-func (r ApiGetV3OrdersRequest) DateFrom(dateFrom int32) ApiGetV3OrdersRequest {
+func (r ApiGetV3OrdersRequest) DateFrom(dateFrom int64) ApiGetV3OrdersRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
 
 // Дата конца периода в формате Unix timestamp. Часовой пояс — UTC
-func (r ApiGetV3OrdersRequest) DateTo(dateTo int32) ApiGetV3OrdersRequest {
+func (r ApiGetV3OrdersRequest) DateTo(dateTo int64) ApiGetV3OrdersRequest {
 	r.dateTo = &dateTo
 	return r
 }
@@ -3830,12 +3830,12 @@ func (a *OrdersFbsAPIService) GetV3PassesOfficesExecute(r ApiGetV3PassesOfficesR
 type ApiGetV3SuppliesRequest struct {
 	ctx        context.Context
 	ApiService OrdersFbsAPI
-	limit      *int32
+	limit      *int64
 	next       *int64
 }
 
 // Параметр пагинации. Устанавливает предельное количество возвращаемых данных.
-func (r ApiGetV3SuppliesRequest) Limit(limit int32) ApiGetV3SuppliesRequest {
+func (r ApiGetV3SuppliesRequest) Limit(limit int64) ApiGetV3SuppliesRequest {
 	r.limit = &limit
 	return r
 }
@@ -7264,8 +7264,8 @@ type ApiPostV3OrdersStickersRequest struct {
 	ctx                         context.Context
 	ApiService                  OrdersFbsAPI
 	type_                       *string
-	width                       *int32
-	height                      *int32
+	width                       *int64
+	height                      *int64
 	postV3OrdersStickersRequest *PostV3OrdersStickersRequest
 }
 
@@ -7276,13 +7276,13 @@ func (r ApiPostV3OrdersStickersRequest) Type_(type_ string) ApiPostV3OrdersStick
 }
 
 // Ширина стикера
-func (r ApiPostV3OrdersStickersRequest) Width(width int32) ApiPostV3OrdersStickersRequest {
+func (r ApiPostV3OrdersStickersRequest) Width(width int64) ApiPostV3OrdersStickersRequest {
 	r.width = &width
 	return r
 }
 
 // Высота стикера
-func (r ApiPostV3OrdersStickersRequest) Height(height int32) ApiPostV3OrdersStickersRequest {
+func (r ApiPostV3OrdersStickersRequest) Height(height int64) ApiPostV3OrdersStickersRequest {
 	r.height = &height
 	return r
 }

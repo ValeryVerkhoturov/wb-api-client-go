@@ -26,7 +26,7 @@ type GetV1AnalyticsRegionSale200ResponseReportInner struct {
 	// Федеральный округ
 	FoName *string `json:"foName,omitempty"`
 	// Артикул WB
-	NmID *int32 `json:"nmID,omitempty"`
+	NmID *int64 `json:"nmID,omitempty"`
 	// Регион
 	RegionName *string `json:"regionName,omitempty"`
 	// Артикул продавца
@@ -36,7 +36,7 @@ type GetV1AnalyticsRegionSale200ResponseReportInner struct {
 	// Доля, %
 	SaleInvoiceCostPricePerc *float32 `json:"saleInvoiceCostPricePerc,omitempty"`
 	// Выкупили, шт.
-	SaleItemInvoiceQty *int32 `json:"saleItemInvoiceQty,omitempty"`
+	SaleItemInvoiceQty *int64 `json:"saleItemInvoiceQty,omitempty"`
 }
 
 // NewGetV1AnalyticsRegionSale200ResponseReportInner instantiates a new GetV1AnalyticsRegionSale200ResponseReportInner object
@@ -153,9 +153,9 @@ func (o *GetV1AnalyticsRegionSale200ResponseReportInner) SetFoName(v string) {
 }
 
 // GetNmID returns the NmID field value if set, zero value otherwise.
-func (o *GetV1AnalyticsRegionSale200ResponseReportInner) GetNmID() int32 {
+func (o *GetV1AnalyticsRegionSale200ResponseReportInner) GetNmID() int64 {
 	if o == nil || IsNil(o.NmID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmID
@@ -163,7 +163,7 @@ func (o *GetV1AnalyticsRegionSale200ResponseReportInner) GetNmID() int32 {
 
 // GetNmIDOk returns a tuple with the NmID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AnalyticsRegionSale200ResponseReportInner) GetNmIDOk() (*int32, bool) {
+func (o *GetV1AnalyticsRegionSale200ResponseReportInner) GetNmIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmID) {
 		return nil, false
 	}
@@ -179,8 +179,8 @@ func (o *GetV1AnalyticsRegionSale200ResponseReportInner) HasNmID() bool {
 	return false
 }
 
-// SetNmID gets a reference to the given int32 and assigns it to the NmID field.
-func (o *GetV1AnalyticsRegionSale200ResponseReportInner) SetNmID(v int32) {
+// SetNmID gets a reference to the given int64 and assigns it to the NmID field.
+func (o *GetV1AnalyticsRegionSale200ResponseReportInner) SetNmID(v int64) {
 	o.NmID = &v
 }
 
@@ -313,9 +313,9 @@ func (o *GetV1AnalyticsRegionSale200ResponseReportInner) SetSaleInvoiceCostPrice
 }
 
 // GetSaleItemInvoiceQty returns the SaleItemInvoiceQty field value if set, zero value otherwise.
-func (o *GetV1AnalyticsRegionSale200ResponseReportInner) GetSaleItemInvoiceQty() int32 {
+func (o *GetV1AnalyticsRegionSale200ResponseReportInner) GetSaleItemInvoiceQty() int64 {
 	if o == nil || IsNil(o.SaleItemInvoiceQty) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SaleItemInvoiceQty
@@ -323,7 +323,7 @@ func (o *GetV1AnalyticsRegionSale200ResponseReportInner) GetSaleItemInvoiceQty()
 
 // GetSaleItemInvoiceQtyOk returns a tuple with the SaleItemInvoiceQty field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AnalyticsRegionSale200ResponseReportInner) GetSaleItemInvoiceQtyOk() (*int32, bool) {
+func (o *GetV1AnalyticsRegionSale200ResponseReportInner) GetSaleItemInvoiceQtyOk() (*int64, bool) {
 	if o == nil || IsNil(o.SaleItemInvoiceQty) {
 		return nil, false
 	}
@@ -339,8 +339,8 @@ func (o *GetV1AnalyticsRegionSale200ResponseReportInner) HasSaleItemInvoiceQty()
 	return false
 }
 
-// SetSaleItemInvoiceQty gets a reference to the given int32 and assigns it to the SaleItemInvoiceQty field.
-func (o *GetV1AnalyticsRegionSale200ResponseReportInner) SetSaleItemInvoiceQty(v int32) {
+// SetSaleItemInvoiceQty gets a reference to the given int64 and assigns it to the SaleItemInvoiceQty field.
+func (o *GetV1AnalyticsRegionSale200ResponseReportInner) SetSaleItemInvoiceQty(v int64) {
 	o.SaleItemInvoiceQty = &v
 }
 

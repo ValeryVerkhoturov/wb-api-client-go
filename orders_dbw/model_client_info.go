@@ -30,11 +30,11 @@ type ClientInfo struct {
 	// Дополнительные номера телефонов для связи с покупателем. Используйте, чтобы позвонить покупателю, если недоступен основной номер из `phone`. Пустое значение означает, что номер не указан
 	AdditionalPhones []string `json:"additionalPhones,omitempty"`
 	// Дополнительные добавочные коды. Используйте, если не получилось дозвониться по добавочному коду из `phoneCode`. Пустое значение указывает, коды ещё не назначены
-	AdditionalPhoneCodes []int32 `json:"additionalPhoneCodes,omitempty"`
+	AdditionalPhoneCodes []int64 `json:"additionalPhoneCodes,omitempty"`
 	// ID сборочного задания
-	OrderId *int32 `json:"orderId,omitempty"`
+	OrderId *int64 `json:"orderId,omitempty"`
 	// Добавочный код. Используйте, чтобы связаться с покупателем по номеру из `phone`. Если код не указан, вы можете связаться с покупателем без кода
-	PhoneCode *int32 `json:"phoneCode,omitempty"`
+	PhoneCode *int64 `json:"phoneCode,omitempty"`
 }
 
 // NewClientInfo instantiates a new ClientInfo object
@@ -215,9 +215,9 @@ func (o *ClientInfo) SetAdditionalPhones(v []string) {
 }
 
 // GetAdditionalPhoneCodes returns the AdditionalPhoneCodes field value if set, zero value otherwise.
-func (o *ClientInfo) GetAdditionalPhoneCodes() []int32 {
+func (o *ClientInfo) GetAdditionalPhoneCodes() []int64 {
 	if o == nil || IsNil(o.AdditionalPhoneCodes) {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.AdditionalPhoneCodes
@@ -225,7 +225,7 @@ func (o *ClientInfo) GetAdditionalPhoneCodes() []int32 {
 
 // GetAdditionalPhoneCodesOk returns a tuple with the AdditionalPhoneCodes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ClientInfo) GetAdditionalPhoneCodesOk() ([]int32, bool) {
+func (o *ClientInfo) GetAdditionalPhoneCodesOk() ([]int64, bool) {
 	if o == nil || IsNil(o.AdditionalPhoneCodes) {
 		return nil, false
 	}
@@ -241,15 +241,15 @@ func (o *ClientInfo) HasAdditionalPhoneCodes() bool {
 	return false
 }
 
-// SetAdditionalPhoneCodes gets a reference to the given []int32 and assigns it to the AdditionalPhoneCodes field.
-func (o *ClientInfo) SetAdditionalPhoneCodes(v []int32) {
+// SetAdditionalPhoneCodes gets a reference to the given []int64 and assigns it to the AdditionalPhoneCodes field.
+func (o *ClientInfo) SetAdditionalPhoneCodes(v []int64) {
 	o.AdditionalPhoneCodes = v
 }
 
 // GetOrderId returns the OrderId field value if set, zero value otherwise.
-func (o *ClientInfo) GetOrderId() int32 {
+func (o *ClientInfo) GetOrderId() int64 {
 	if o == nil || IsNil(o.OrderId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OrderId
@@ -257,7 +257,7 @@ func (o *ClientInfo) GetOrderId() int32 {
 
 // GetOrderIdOk returns a tuple with the OrderId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ClientInfo) GetOrderIdOk() (*int32, bool) {
+func (o *ClientInfo) GetOrderIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.OrderId) {
 		return nil, false
 	}
@@ -273,15 +273,15 @@ func (o *ClientInfo) HasOrderId() bool {
 	return false
 }
 
-// SetOrderId gets a reference to the given int32 and assigns it to the OrderId field.
-func (o *ClientInfo) SetOrderId(v int32) {
+// SetOrderId gets a reference to the given int64 and assigns it to the OrderId field.
+func (o *ClientInfo) SetOrderId(v int64) {
 	o.OrderId = &v
 }
 
 // GetPhoneCode returns the PhoneCode field value if set, zero value otherwise.
-func (o *ClientInfo) GetPhoneCode() int32 {
+func (o *ClientInfo) GetPhoneCode() int64 {
 	if o == nil || IsNil(o.PhoneCode) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.PhoneCode
@@ -289,7 +289,7 @@ func (o *ClientInfo) GetPhoneCode() int32 {
 
 // GetPhoneCodeOk returns a tuple with the PhoneCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ClientInfo) GetPhoneCodeOk() (*int32, bool) {
+func (o *ClientInfo) GetPhoneCodeOk() (*int64, bool) {
 	if o == nil || IsNil(o.PhoneCode) {
 		return nil, false
 	}
@@ -305,8 +305,8 @@ func (o *ClientInfo) HasPhoneCode() bool {
 	return false
 }
 
-// SetPhoneCode gets a reference to the given int32 and assigns it to the PhoneCode field.
-func (o *ClientInfo) SetPhoneCode(v int32) {
+// SetPhoneCode gets a reference to the given int64 and assigns it to the PhoneCode field.
+func (o *ClientInfo) SetPhoneCode(v int64) {
 	o.PhoneCode = &v
 }
 

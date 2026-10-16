@@ -20,9 +20,9 @@ var _ MappedNullable = &GetV1QuestionsResponse200Data{}
 // GetV1QuestionsResponse200Data struct for GetV1QuestionsResponse200Data
 type GetV1QuestionsResponse200Data struct {
 	// Количество неотвеченных вопросов
-	CountUnanswered *int32 `json:"countUnanswered,omitempty"`
+	CountUnanswered *int64 `json:"countUnanswered,omitempty"`
 	// Количество отвеченных вопросов
-	CountArchive *int32 `json:"countArchive,omitempty"`
+	CountArchive *int64 `json:"countArchive,omitempty"`
 	// Вопросы
 	Questions []GetV1QuestionsResponse200DataQuestionsInner `json:"questions,omitempty"`
 }
@@ -45,9 +45,9 @@ func NewGetV1QuestionsResponse200DataWithDefaults() *GetV1QuestionsResponse200Da
 }
 
 // GetCountUnanswered returns the CountUnanswered field value if set, zero value otherwise.
-func (o *GetV1QuestionsResponse200Data) GetCountUnanswered() int32 {
+func (o *GetV1QuestionsResponse200Data) GetCountUnanswered() int64 {
 	if o == nil || IsNil(o.CountUnanswered) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CountUnanswered
@@ -55,7 +55,7 @@ func (o *GetV1QuestionsResponse200Data) GetCountUnanswered() int32 {
 
 // GetCountUnansweredOk returns a tuple with the CountUnanswered field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1QuestionsResponse200Data) GetCountUnansweredOk() (*int32, bool) {
+func (o *GetV1QuestionsResponse200Data) GetCountUnansweredOk() (*int64, bool) {
 	if o == nil || IsNil(o.CountUnanswered) {
 		return nil, false
 	}
@@ -71,15 +71,15 @@ func (o *GetV1QuestionsResponse200Data) HasCountUnanswered() bool {
 	return false
 }
 
-// SetCountUnanswered gets a reference to the given int32 and assigns it to the CountUnanswered field.
-func (o *GetV1QuestionsResponse200Data) SetCountUnanswered(v int32) {
+// SetCountUnanswered gets a reference to the given int64 and assigns it to the CountUnanswered field.
+func (o *GetV1QuestionsResponse200Data) SetCountUnanswered(v int64) {
 	o.CountUnanswered = &v
 }
 
 // GetCountArchive returns the CountArchive field value if set, zero value otherwise.
-func (o *GetV1QuestionsResponse200Data) GetCountArchive() int32 {
+func (o *GetV1QuestionsResponse200Data) GetCountArchive() int64 {
 	if o == nil || IsNil(o.CountArchive) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CountArchive
@@ -87,7 +87,7 @@ func (o *GetV1QuestionsResponse200Data) GetCountArchive() int32 {
 
 // GetCountArchiveOk returns a tuple with the CountArchive field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1QuestionsResponse200Data) GetCountArchiveOk() (*int32, bool) {
+func (o *GetV1QuestionsResponse200Data) GetCountArchiveOk() (*int64, bool) {
 	if o == nil || IsNil(o.CountArchive) {
 		return nil, false
 	}
@@ -103,8 +103,8 @@ func (o *GetV1QuestionsResponse200Data) HasCountArchive() bool {
 	return false
 }
 
-// SetCountArchive gets a reference to the given int32 and assigns it to the CountArchive field.
-func (o *GetV1QuestionsResponse200Data) SetCountArchive(v int32) {
+// SetCountArchive gets a reference to the given int64 and assigns it to the CountArchive field.
+func (o *GetV1QuestionsResponse200Data) SetCountArchive(v int64) {
 	o.CountArchive = &v
 }
 

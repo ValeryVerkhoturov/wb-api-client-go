@@ -20,15 +20,15 @@ var _ MappedNullable = &GetV1AdvertResponse200{}
 // GetV1AdvertResponse200 struct for GetV1AdvertResponse200
 type GetV1AdvertResponse200 struct {
 	// ID медиакампании
-	AdvertId *int32 `json:"advertId,omitempty"`
+	AdvertId *int64 `json:"advertId,omitempty"`
 	// Название медиакампании
 	Name *string `json:"name,omitempty"`
 	// Название бренда
 	Brand *string `json:"brand,omitempty"`
 	// Тип медиакампании: - `1` — размещение по дням - `2` — размещение по просмотрам
-	Type *int32 `json:"type,omitempty"`
+	Type *int64 `json:"type,omitempty"`
 	// Статус медиакампании:   - `1` — черновик   - `2` — модерация   - `3` — отклонена (с возможностью вернуть на модерацию)   - `4` — готова к запуску   - `5` — запланирована   - `6` — на показах   - `7` — завершена   - `8` — отменена   - `9` — приостановлена продавцом   - `10` — пауза по дневному лимиту   - `11` — пауза
-	Status *int32 `json:"status,omitempty"`
+	Status *int64 `json:"status,omitempty"`
 	// Время создания медиакампании
 	CreateTime *string                         `json:"createTime,omitempty"`
 	Extended   *GetV1AdvertResponse200Extended `json:"extended,omitempty"`
@@ -54,9 +54,9 @@ func NewGetV1AdvertResponse200WithDefaults() *GetV1AdvertResponse200 {
 }
 
 // GetAdvertId returns the AdvertId field value if set, zero value otherwise.
-func (o *GetV1AdvertResponse200) GetAdvertId() int32 {
+func (o *GetV1AdvertResponse200) GetAdvertId() int64 {
 	if o == nil || IsNil(o.AdvertId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.AdvertId
@@ -64,7 +64,7 @@ func (o *GetV1AdvertResponse200) GetAdvertId() int32 {
 
 // GetAdvertIdOk returns a tuple with the AdvertId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AdvertResponse200) GetAdvertIdOk() (*int32, bool) {
+func (o *GetV1AdvertResponse200) GetAdvertIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.AdvertId) {
 		return nil, false
 	}
@@ -80,8 +80,8 @@ func (o *GetV1AdvertResponse200) HasAdvertId() bool {
 	return false
 }
 
-// SetAdvertId gets a reference to the given int32 and assigns it to the AdvertId field.
-func (o *GetV1AdvertResponse200) SetAdvertId(v int32) {
+// SetAdvertId gets a reference to the given int64 and assigns it to the AdvertId field.
+func (o *GetV1AdvertResponse200) SetAdvertId(v int64) {
 	o.AdvertId = &v
 }
 
@@ -150,9 +150,9 @@ func (o *GetV1AdvertResponse200) SetBrand(v string) {
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
-func (o *GetV1AdvertResponse200) GetType() int32 {
+func (o *GetV1AdvertResponse200) GetType() int64 {
 	if o == nil || IsNil(o.Type) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Type
@@ -160,7 +160,7 @@ func (o *GetV1AdvertResponse200) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AdvertResponse200) GetTypeOk() (*int32, bool) {
+func (o *GetV1AdvertResponse200) GetTypeOk() (*int64, bool) {
 	if o == nil || IsNil(o.Type) {
 		return nil, false
 	}
@@ -176,15 +176,15 @@ func (o *GetV1AdvertResponse200) HasType() bool {
 	return false
 }
 
-// SetType gets a reference to the given int32 and assigns it to the Type field.
-func (o *GetV1AdvertResponse200) SetType(v int32) {
+// SetType gets a reference to the given int64 and assigns it to the Type field.
+func (o *GetV1AdvertResponse200) SetType(v int64) {
 	o.Type = &v
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
-func (o *GetV1AdvertResponse200) GetStatus() int32 {
+func (o *GetV1AdvertResponse200) GetStatus() int64 {
 	if o == nil || IsNil(o.Status) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Status
@@ -192,7 +192,7 @@ func (o *GetV1AdvertResponse200) GetStatus() int32 {
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AdvertResponse200) GetStatusOk() (*int32, bool) {
+func (o *GetV1AdvertResponse200) GetStatusOk() (*int64, bool) {
 	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
@@ -208,8 +208,8 @@ func (o *GetV1AdvertResponse200) HasStatus() bool {
 	return false
 }
 
-// SetStatus gets a reference to the given int32 and assigns it to the Status field.
-func (o *GetV1AdvertResponse200) SetStatus(v int32) {
+// SetStatus gets a reference to the given int64 and assigns it to the Status field.
+func (o *GetV1AdvertResponse200) SetStatus(v int64) {
 	o.Status = &v
 }
 

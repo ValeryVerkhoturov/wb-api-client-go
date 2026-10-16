@@ -20,7 +20,7 @@ var _ MappedNullable = &ModelsItemScans{}
 // ModelsItemScans struct for ModelsItemScans
 type ModelsItemScans struct {
 	// ID сканирования
-	ScanId *int32 `json:"scanId,omitempty"`
+	ScanId *int64 `json:"scanId,omitempty"`
 	// Баркод, заявленный при формировании поставки
 	DeclaredSku *string `json:"declaredSku,omitempty"`
 	// Дата и время сканирования
@@ -49,9 +49,9 @@ func NewModelsItemScansWithDefaults() *ModelsItemScans {
 }
 
 // GetScanId returns the ScanId field value if set, zero value otherwise.
-func (o *ModelsItemScans) GetScanId() int32 {
+func (o *ModelsItemScans) GetScanId() int64 {
 	if o == nil || IsNil(o.ScanId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ScanId
@@ -59,7 +59,7 @@ func (o *ModelsItemScans) GetScanId() int32 {
 
 // GetScanIdOk returns a tuple with the ScanId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsItemScans) GetScanIdOk() (*int32, bool) {
+func (o *ModelsItemScans) GetScanIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.ScanId) {
 		return nil, false
 	}
@@ -75,8 +75,8 @@ func (o *ModelsItemScans) HasScanId() bool {
 	return false
 }
 
-// SetScanId gets a reference to the given int32 and assigns it to the ScanId field.
-func (o *ModelsItemScans) SetScanId(v int32) {
+// SetScanId gets a reference to the given int64 and assigns it to the ScanId field.
+func (o *ModelsItemScans) SetScanId(v int64) {
 	o.ScanId = &v
 }
 

@@ -22,25 +22,25 @@ type History struct {
 	// Дата сбора статистики
 	Date *string `json:"date,omitempty"`
 	// Количество переходов в карточку товара
-	OpenCount *int32 `json:"openCount,omitempty"`
+	OpenCount *int64 `json:"openCount,omitempty"`
 	// Положили в корзину, шт.
-	CartCount *int32 `json:"cartCount,omitempty"`
+	CartCount *int64 `json:"cartCount,omitempty"`
 	// Заказали товаров, шт.
-	OrderCount *int32 `json:"orderCount,omitempty"`
+	OrderCount *int64 `json:"orderCount,omitempty"`
 	// Заказали на сумму
-	OrderSum *int32 `json:"orderSum,omitempty"`
+	OrderSum *int64 `json:"orderSum,omitempty"`
 	// Выкупили товаров, шт.
-	BuyoutCount *int32 `json:"buyoutCount,omitempty"`
+	BuyoutCount *int64 `json:"buyoutCount,omitempty"`
 	// Выкупили на сумму
-	BuyoutSum *int32 `json:"buyoutSum,omitempty"`
+	BuyoutSum *int64 `json:"buyoutSum,omitempty"`
 	// Процент выкупа
-	BuyoutPercent *int32 `json:"buyoutPercent,omitempty"`
+	BuyoutPercent *int64 `json:"buyoutPercent,omitempty"`
 	// Конверсия в корзину. Какой процент посетителей, открывших карточку товара, добавили товар в корзину, %
-	AddToCartConversion *int32 `json:"addToCartConversion,omitempty"`
+	AddToCartConversion *int64 `json:"addToCartConversion,omitempty"`
 	// Конверсия в заказ. Какой процент посетителей, добавивших товар в корзину, сделали заказ
-	CartToOrderConversion *int32 `json:"cartToOrderConversion,omitempty"`
+	CartToOrderConversion *int64 `json:"cartToOrderConversion,omitempty"`
 	// Количество добавлений товара в **Отложенные**
-	AddToWishlistCount *int32 `json:"addToWishlistCount,omitempty"`
+	AddToWishlistCount *int64 `json:"addToWishlistCount,omitempty"`
 }
 
 // NewHistory instantiates a new History object
@@ -93,9 +93,9 @@ func (o *History) SetDate(v string) {
 }
 
 // GetOpenCount returns the OpenCount field value if set, zero value otherwise.
-func (o *History) GetOpenCount() int32 {
+func (o *History) GetOpenCount() int64 {
 	if o == nil || IsNil(o.OpenCount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OpenCount
@@ -103,7 +103,7 @@ func (o *History) GetOpenCount() int32 {
 
 // GetOpenCountOk returns a tuple with the OpenCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *History) GetOpenCountOk() (*int32, bool) {
+func (o *History) GetOpenCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.OpenCount) {
 		return nil, false
 	}
@@ -119,15 +119,15 @@ func (o *History) HasOpenCount() bool {
 	return false
 }
 
-// SetOpenCount gets a reference to the given int32 and assigns it to the OpenCount field.
-func (o *History) SetOpenCount(v int32) {
+// SetOpenCount gets a reference to the given int64 and assigns it to the OpenCount field.
+func (o *History) SetOpenCount(v int64) {
 	o.OpenCount = &v
 }
 
 // GetCartCount returns the CartCount field value if set, zero value otherwise.
-func (o *History) GetCartCount() int32 {
+func (o *History) GetCartCount() int64 {
 	if o == nil || IsNil(o.CartCount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CartCount
@@ -135,7 +135,7 @@ func (o *History) GetCartCount() int32 {
 
 // GetCartCountOk returns a tuple with the CartCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *History) GetCartCountOk() (*int32, bool) {
+func (o *History) GetCartCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.CartCount) {
 		return nil, false
 	}
@@ -151,15 +151,15 @@ func (o *History) HasCartCount() bool {
 	return false
 }
 
-// SetCartCount gets a reference to the given int32 and assigns it to the CartCount field.
-func (o *History) SetCartCount(v int32) {
+// SetCartCount gets a reference to the given int64 and assigns it to the CartCount field.
+func (o *History) SetCartCount(v int64) {
 	o.CartCount = &v
 }
 
 // GetOrderCount returns the OrderCount field value if set, zero value otherwise.
-func (o *History) GetOrderCount() int32 {
+func (o *History) GetOrderCount() int64 {
 	if o == nil || IsNil(o.OrderCount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OrderCount
@@ -167,7 +167,7 @@ func (o *History) GetOrderCount() int32 {
 
 // GetOrderCountOk returns a tuple with the OrderCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *History) GetOrderCountOk() (*int32, bool) {
+func (o *History) GetOrderCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.OrderCount) {
 		return nil, false
 	}
@@ -183,15 +183,15 @@ func (o *History) HasOrderCount() bool {
 	return false
 }
 
-// SetOrderCount gets a reference to the given int32 and assigns it to the OrderCount field.
-func (o *History) SetOrderCount(v int32) {
+// SetOrderCount gets a reference to the given int64 and assigns it to the OrderCount field.
+func (o *History) SetOrderCount(v int64) {
 	o.OrderCount = &v
 }
 
 // GetOrderSum returns the OrderSum field value if set, zero value otherwise.
-func (o *History) GetOrderSum() int32 {
+func (o *History) GetOrderSum() int64 {
 	if o == nil || IsNil(o.OrderSum) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OrderSum
@@ -199,7 +199,7 @@ func (o *History) GetOrderSum() int32 {
 
 // GetOrderSumOk returns a tuple with the OrderSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *History) GetOrderSumOk() (*int32, bool) {
+func (o *History) GetOrderSumOk() (*int64, bool) {
 	if o == nil || IsNil(o.OrderSum) {
 		return nil, false
 	}
@@ -215,15 +215,15 @@ func (o *History) HasOrderSum() bool {
 	return false
 }
 
-// SetOrderSum gets a reference to the given int32 and assigns it to the OrderSum field.
-func (o *History) SetOrderSum(v int32) {
+// SetOrderSum gets a reference to the given int64 and assigns it to the OrderSum field.
+func (o *History) SetOrderSum(v int64) {
 	o.OrderSum = &v
 }
 
 // GetBuyoutCount returns the BuyoutCount field value if set, zero value otherwise.
-func (o *History) GetBuyoutCount() int32 {
+func (o *History) GetBuyoutCount() int64 {
 	if o == nil || IsNil(o.BuyoutCount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.BuyoutCount
@@ -231,7 +231,7 @@ func (o *History) GetBuyoutCount() int32 {
 
 // GetBuyoutCountOk returns a tuple with the BuyoutCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *History) GetBuyoutCountOk() (*int32, bool) {
+func (o *History) GetBuyoutCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.BuyoutCount) {
 		return nil, false
 	}
@@ -247,15 +247,15 @@ func (o *History) HasBuyoutCount() bool {
 	return false
 }
 
-// SetBuyoutCount gets a reference to the given int32 and assigns it to the BuyoutCount field.
-func (o *History) SetBuyoutCount(v int32) {
+// SetBuyoutCount gets a reference to the given int64 and assigns it to the BuyoutCount field.
+func (o *History) SetBuyoutCount(v int64) {
 	o.BuyoutCount = &v
 }
 
 // GetBuyoutSum returns the BuyoutSum field value if set, zero value otherwise.
-func (o *History) GetBuyoutSum() int32 {
+func (o *History) GetBuyoutSum() int64 {
 	if o == nil || IsNil(o.BuyoutSum) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.BuyoutSum
@@ -263,7 +263,7 @@ func (o *History) GetBuyoutSum() int32 {
 
 // GetBuyoutSumOk returns a tuple with the BuyoutSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *History) GetBuyoutSumOk() (*int32, bool) {
+func (o *History) GetBuyoutSumOk() (*int64, bool) {
 	if o == nil || IsNil(o.BuyoutSum) {
 		return nil, false
 	}
@@ -279,15 +279,15 @@ func (o *History) HasBuyoutSum() bool {
 	return false
 }
 
-// SetBuyoutSum gets a reference to the given int32 and assigns it to the BuyoutSum field.
-func (o *History) SetBuyoutSum(v int32) {
+// SetBuyoutSum gets a reference to the given int64 and assigns it to the BuyoutSum field.
+func (o *History) SetBuyoutSum(v int64) {
 	o.BuyoutSum = &v
 }
 
 // GetBuyoutPercent returns the BuyoutPercent field value if set, zero value otherwise.
-func (o *History) GetBuyoutPercent() int32 {
+func (o *History) GetBuyoutPercent() int64 {
 	if o == nil || IsNil(o.BuyoutPercent) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.BuyoutPercent
@@ -295,7 +295,7 @@ func (o *History) GetBuyoutPercent() int32 {
 
 // GetBuyoutPercentOk returns a tuple with the BuyoutPercent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *History) GetBuyoutPercentOk() (*int32, bool) {
+func (o *History) GetBuyoutPercentOk() (*int64, bool) {
 	if o == nil || IsNil(o.BuyoutPercent) {
 		return nil, false
 	}
@@ -311,15 +311,15 @@ func (o *History) HasBuyoutPercent() bool {
 	return false
 }
 
-// SetBuyoutPercent gets a reference to the given int32 and assigns it to the BuyoutPercent field.
-func (o *History) SetBuyoutPercent(v int32) {
+// SetBuyoutPercent gets a reference to the given int64 and assigns it to the BuyoutPercent field.
+func (o *History) SetBuyoutPercent(v int64) {
 	o.BuyoutPercent = &v
 }
 
 // GetAddToCartConversion returns the AddToCartConversion field value if set, zero value otherwise.
-func (o *History) GetAddToCartConversion() int32 {
+func (o *History) GetAddToCartConversion() int64 {
 	if o == nil || IsNil(o.AddToCartConversion) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.AddToCartConversion
@@ -327,7 +327,7 @@ func (o *History) GetAddToCartConversion() int32 {
 
 // GetAddToCartConversionOk returns a tuple with the AddToCartConversion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *History) GetAddToCartConversionOk() (*int32, bool) {
+func (o *History) GetAddToCartConversionOk() (*int64, bool) {
 	if o == nil || IsNil(o.AddToCartConversion) {
 		return nil, false
 	}
@@ -343,15 +343,15 @@ func (o *History) HasAddToCartConversion() bool {
 	return false
 }
 
-// SetAddToCartConversion gets a reference to the given int32 and assigns it to the AddToCartConversion field.
-func (o *History) SetAddToCartConversion(v int32) {
+// SetAddToCartConversion gets a reference to the given int64 and assigns it to the AddToCartConversion field.
+func (o *History) SetAddToCartConversion(v int64) {
 	o.AddToCartConversion = &v
 }
 
 // GetCartToOrderConversion returns the CartToOrderConversion field value if set, zero value otherwise.
-func (o *History) GetCartToOrderConversion() int32 {
+func (o *History) GetCartToOrderConversion() int64 {
 	if o == nil || IsNil(o.CartToOrderConversion) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CartToOrderConversion
@@ -359,7 +359,7 @@ func (o *History) GetCartToOrderConversion() int32 {
 
 // GetCartToOrderConversionOk returns a tuple with the CartToOrderConversion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *History) GetCartToOrderConversionOk() (*int32, bool) {
+func (o *History) GetCartToOrderConversionOk() (*int64, bool) {
 	if o == nil || IsNil(o.CartToOrderConversion) {
 		return nil, false
 	}
@@ -375,15 +375,15 @@ func (o *History) HasCartToOrderConversion() bool {
 	return false
 }
 
-// SetCartToOrderConversion gets a reference to the given int32 and assigns it to the CartToOrderConversion field.
-func (o *History) SetCartToOrderConversion(v int32) {
+// SetCartToOrderConversion gets a reference to the given int64 and assigns it to the CartToOrderConversion field.
+func (o *History) SetCartToOrderConversion(v int64) {
 	o.CartToOrderConversion = &v
 }
 
 // GetAddToWishlistCount returns the AddToWishlistCount field value if set, zero value otherwise.
-func (o *History) GetAddToWishlistCount() int32 {
+func (o *History) GetAddToWishlistCount() int64 {
 	if o == nil || IsNil(o.AddToWishlistCount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.AddToWishlistCount
@@ -391,7 +391,7 @@ func (o *History) GetAddToWishlistCount() int32 {
 
 // GetAddToWishlistCountOk returns a tuple with the AddToWishlistCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *History) GetAddToWishlistCountOk() (*int32, bool) {
+func (o *History) GetAddToWishlistCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.AddToWishlistCount) {
 		return nil, false
 	}
@@ -407,8 +407,8 @@ func (o *History) HasAddToWishlistCount() bool {
 	return false
 }
 
-// SetAddToWishlistCount gets a reference to the given int32 and assigns it to the AddToWishlistCount field.
-func (o *History) SetAddToWishlistCount(v int32) {
+// SetAddToWishlistCount gets a reference to the given int64 and assigns it to the AddToWishlistCount field.
+func (o *History) SetAddToWishlistCount(v int64) {
 	o.AddToWishlistCount = &v
 }
 

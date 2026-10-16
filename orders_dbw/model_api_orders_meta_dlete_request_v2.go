@@ -24,7 +24,7 @@ type ApiOrdersMetaDleteRequestV2 struct {
 	// Название идентификатора маркировки для удаления. Передаётся только одно значение
 	Key string `json:"key"`
 	// Список ID сборочных заданий
-	OrdersIds []int32 `json:"ordersIds"`
+	OrdersIds []int64 `json:"ordersIds"`
 }
 
 type _ApiOrdersMetaDleteRequestV2 ApiOrdersMetaDleteRequestV2
@@ -33,7 +33,7 @@ type _ApiOrdersMetaDleteRequestV2 ApiOrdersMetaDleteRequestV2
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiOrdersMetaDleteRequestV2(key string, ordersIds []int32) *ApiOrdersMetaDleteRequestV2 {
+func NewApiOrdersMetaDleteRequestV2(key string, ordersIds []int64) *ApiOrdersMetaDleteRequestV2 {
 	this := ApiOrdersMetaDleteRequestV2{}
 	this.Key = key
 	this.OrdersIds = ordersIds
@@ -73,9 +73,9 @@ func (o *ApiOrdersMetaDleteRequestV2) SetKey(v string) {
 }
 
 // GetOrdersIds returns the OrdersIds field value
-func (o *ApiOrdersMetaDleteRequestV2) GetOrdersIds() []int32 {
+func (o *ApiOrdersMetaDleteRequestV2) GetOrdersIds() []int64 {
 	if o == nil {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 
@@ -84,7 +84,7 @@ func (o *ApiOrdersMetaDleteRequestV2) GetOrdersIds() []int32 {
 
 // GetOrdersIdsOk returns a tuple with the OrdersIds field value
 // and a boolean to check if the value has been set.
-func (o *ApiOrdersMetaDleteRequestV2) GetOrdersIdsOk() ([]int32, bool) {
+func (o *ApiOrdersMetaDleteRequestV2) GetOrdersIdsOk() ([]int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -92,7 +92,7 @@ func (o *ApiOrdersMetaDleteRequestV2) GetOrdersIdsOk() ([]int32, bool) {
 }
 
 // SetOrdersIds sets field value
-func (o *ApiOrdersMetaDleteRequestV2) SetOrdersIds(v []int32) {
+func (o *ApiOrdersMetaDleteRequestV2) SetOrdersIds(v []int64) {
 	o.OrdersIds = v
 }
 

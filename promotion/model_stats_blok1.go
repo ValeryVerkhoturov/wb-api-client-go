@@ -20,19 +20,19 @@ var _ MappedNullable = &StatsBlok1{}
 // StatsBlok1 struct for StatsBlok1
 type StatsBlok1 struct {
 	// ID баннера
-	ItemId *int32 `json:"item_id,omitempty"`
+	ItemId *int64 `json:"item_id,omitempty"`
 	// Бренд
 	ItemName *string `json:"item_name,omitempty"`
 	// Название категории
 	CategoryName *string `json:"category_name,omitempty"`
 	// Тип медиакампании:   - `1` — размещение по дням   - `2` — размещение по просмотрам
-	AdvertType *int32 `json:"advert_type,omitempty"`
+	AdvertType *int64 `json:"advert_type,omitempty"`
 	// Место на странице
-	Place *int32 `json:"place,omitempty"`
+	Place *int64 `json:"place,omitempty"`
 	// Количество просмотров
-	Views *int32 `json:"views,omitempty"`
+	Views *int64 `json:"views,omitempty"`
 	// Количество кликов
-	Clicks *int32 `json:"clicks,omitempty"`
+	Clicks *int64 `json:"clicks,omitempty"`
 	// CR(conversion rate) — это отношение количества заказов к общему количеству посещений медиакампании
 	Cr *float32 `json:"cr,omitempty"`
 	// CTR (click-through rate) — показатель кликабельности, отношение числа кликов к количеству показов в рамках медиакампании
@@ -44,22 +44,22 @@ type StatsBlok1 struct {
 	// Родительская категория предмета
 	SubjectName *string `json:"subject_name,omitempty"`
 	// Количество добавлений товаров в корзину
-	Atbs *int32 `json:"atbs,omitempty"`
+	Atbs *int64 `json:"atbs,omitempty"`
 	// Количество заказов
-	Orders *int32 `json:"orders,omitempty"`
+	Orders *int64 `json:"orders,omitempty"`
 	// Стоимость размещения
 	Price *float32 `json:"price,omitempty"`
 	// (cost per click) — цена клика по продвигаемому товару
 	Cpc *float32 `json:"cpc,omitempty"`
 	// Статус медиакампании
-	Status     *int32                      `json:"status,omitempty"`
+	Status     *int64                      `json:"status,omitempty"`
 	DailyStats []StatsBlok1DailyStatsInner `json:"daily_stats,omitempty"`
 	// Стоимость размещения баннера
 	Expenses *float32 `json:"expenses,omitempty"`
 	// Отношение количества добавлений в корзину к количеству кликов
 	Cr1 *float32 `json:"cr1,omitempty"`
 	// Отношение количества заказов к количеству добавлений в корзину
-	Cr2 *int32 `json:"cr2,omitempty"`
+	Cr2 *int64 `json:"cr2,omitempty"`
 }
 
 // NewStatsBlok1 instantiates a new StatsBlok1 object
@@ -80,9 +80,9 @@ func NewStatsBlok1WithDefaults() *StatsBlok1 {
 }
 
 // GetItemId returns the ItemId field value if set, zero value otherwise.
-func (o *StatsBlok1) GetItemId() int32 {
+func (o *StatsBlok1) GetItemId() int64 {
 	if o == nil || IsNil(o.ItemId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ItemId
@@ -90,7 +90,7 @@ func (o *StatsBlok1) GetItemId() int32 {
 
 // GetItemIdOk returns a tuple with the ItemId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *StatsBlok1) GetItemIdOk() (*int32, bool) {
+func (o *StatsBlok1) GetItemIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.ItemId) {
 		return nil, false
 	}
@@ -106,8 +106,8 @@ func (o *StatsBlok1) HasItemId() bool {
 	return false
 }
 
-// SetItemId gets a reference to the given int32 and assigns it to the ItemId field.
-func (o *StatsBlok1) SetItemId(v int32) {
+// SetItemId gets a reference to the given int64 and assigns it to the ItemId field.
+func (o *StatsBlok1) SetItemId(v int64) {
 	o.ItemId = &v
 }
 
@@ -176,9 +176,9 @@ func (o *StatsBlok1) SetCategoryName(v string) {
 }
 
 // GetAdvertType returns the AdvertType field value if set, zero value otherwise.
-func (o *StatsBlok1) GetAdvertType() int32 {
+func (o *StatsBlok1) GetAdvertType() int64 {
 	if o == nil || IsNil(o.AdvertType) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.AdvertType
@@ -186,7 +186,7 @@ func (o *StatsBlok1) GetAdvertType() int32 {
 
 // GetAdvertTypeOk returns a tuple with the AdvertType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *StatsBlok1) GetAdvertTypeOk() (*int32, bool) {
+func (o *StatsBlok1) GetAdvertTypeOk() (*int64, bool) {
 	if o == nil || IsNil(o.AdvertType) {
 		return nil, false
 	}
@@ -202,15 +202,15 @@ func (o *StatsBlok1) HasAdvertType() bool {
 	return false
 }
 
-// SetAdvertType gets a reference to the given int32 and assigns it to the AdvertType field.
-func (o *StatsBlok1) SetAdvertType(v int32) {
+// SetAdvertType gets a reference to the given int64 and assigns it to the AdvertType field.
+func (o *StatsBlok1) SetAdvertType(v int64) {
 	o.AdvertType = &v
 }
 
 // GetPlace returns the Place field value if set, zero value otherwise.
-func (o *StatsBlok1) GetPlace() int32 {
+func (o *StatsBlok1) GetPlace() int64 {
 	if o == nil || IsNil(o.Place) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Place
@@ -218,7 +218,7 @@ func (o *StatsBlok1) GetPlace() int32 {
 
 // GetPlaceOk returns a tuple with the Place field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *StatsBlok1) GetPlaceOk() (*int32, bool) {
+func (o *StatsBlok1) GetPlaceOk() (*int64, bool) {
 	if o == nil || IsNil(o.Place) {
 		return nil, false
 	}
@@ -234,15 +234,15 @@ func (o *StatsBlok1) HasPlace() bool {
 	return false
 }
 
-// SetPlace gets a reference to the given int32 and assigns it to the Place field.
-func (o *StatsBlok1) SetPlace(v int32) {
+// SetPlace gets a reference to the given int64 and assigns it to the Place field.
+func (o *StatsBlok1) SetPlace(v int64) {
 	o.Place = &v
 }
 
 // GetViews returns the Views field value if set, zero value otherwise.
-func (o *StatsBlok1) GetViews() int32 {
+func (o *StatsBlok1) GetViews() int64 {
 	if o == nil || IsNil(o.Views) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Views
@@ -250,7 +250,7 @@ func (o *StatsBlok1) GetViews() int32 {
 
 // GetViewsOk returns a tuple with the Views field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *StatsBlok1) GetViewsOk() (*int32, bool) {
+func (o *StatsBlok1) GetViewsOk() (*int64, bool) {
 	if o == nil || IsNil(o.Views) {
 		return nil, false
 	}
@@ -266,15 +266,15 @@ func (o *StatsBlok1) HasViews() bool {
 	return false
 }
 
-// SetViews gets a reference to the given int32 and assigns it to the Views field.
-func (o *StatsBlok1) SetViews(v int32) {
+// SetViews gets a reference to the given int64 and assigns it to the Views field.
+func (o *StatsBlok1) SetViews(v int64) {
 	o.Views = &v
 }
 
 // GetClicks returns the Clicks field value if set, zero value otherwise.
-func (o *StatsBlok1) GetClicks() int32 {
+func (o *StatsBlok1) GetClicks() int64 {
 	if o == nil || IsNil(o.Clicks) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Clicks
@@ -282,7 +282,7 @@ func (o *StatsBlok1) GetClicks() int32 {
 
 // GetClicksOk returns a tuple with the Clicks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *StatsBlok1) GetClicksOk() (*int32, bool) {
+func (o *StatsBlok1) GetClicksOk() (*int64, bool) {
 	if o == nil || IsNil(o.Clicks) {
 		return nil, false
 	}
@@ -298,8 +298,8 @@ func (o *StatsBlok1) HasClicks() bool {
 	return false
 }
 
-// SetClicks gets a reference to the given int32 and assigns it to the Clicks field.
-func (o *StatsBlok1) SetClicks(v int32) {
+// SetClicks gets a reference to the given int64 and assigns it to the Clicks field.
+func (o *StatsBlok1) SetClicks(v int64) {
 	o.Clicks = &v
 }
 
@@ -464,9 +464,9 @@ func (o *StatsBlok1) SetSubjectName(v string) {
 }
 
 // GetAtbs returns the Atbs field value if set, zero value otherwise.
-func (o *StatsBlok1) GetAtbs() int32 {
+func (o *StatsBlok1) GetAtbs() int64 {
 	if o == nil || IsNil(o.Atbs) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Atbs
@@ -474,7 +474,7 @@ func (o *StatsBlok1) GetAtbs() int32 {
 
 // GetAtbsOk returns a tuple with the Atbs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *StatsBlok1) GetAtbsOk() (*int32, bool) {
+func (o *StatsBlok1) GetAtbsOk() (*int64, bool) {
 	if o == nil || IsNil(o.Atbs) {
 		return nil, false
 	}
@@ -490,15 +490,15 @@ func (o *StatsBlok1) HasAtbs() bool {
 	return false
 }
 
-// SetAtbs gets a reference to the given int32 and assigns it to the Atbs field.
-func (o *StatsBlok1) SetAtbs(v int32) {
+// SetAtbs gets a reference to the given int64 and assigns it to the Atbs field.
+func (o *StatsBlok1) SetAtbs(v int64) {
 	o.Atbs = &v
 }
 
 // GetOrders returns the Orders field value if set, zero value otherwise.
-func (o *StatsBlok1) GetOrders() int32 {
+func (o *StatsBlok1) GetOrders() int64 {
 	if o == nil || IsNil(o.Orders) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Orders
@@ -506,7 +506,7 @@ func (o *StatsBlok1) GetOrders() int32 {
 
 // GetOrdersOk returns a tuple with the Orders field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *StatsBlok1) GetOrdersOk() (*int32, bool) {
+func (o *StatsBlok1) GetOrdersOk() (*int64, bool) {
 	if o == nil || IsNil(o.Orders) {
 		return nil, false
 	}
@@ -522,8 +522,8 @@ func (o *StatsBlok1) HasOrders() bool {
 	return false
 }
 
-// SetOrders gets a reference to the given int32 and assigns it to the Orders field.
-func (o *StatsBlok1) SetOrders(v int32) {
+// SetOrders gets a reference to the given int64 and assigns it to the Orders field.
+func (o *StatsBlok1) SetOrders(v int64) {
 	o.Orders = &v
 }
 
@@ -592,9 +592,9 @@ func (o *StatsBlok1) SetCpc(v float32) {
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
-func (o *StatsBlok1) GetStatus() int32 {
+func (o *StatsBlok1) GetStatus() int64 {
 	if o == nil || IsNil(o.Status) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Status
@@ -602,7 +602,7 @@ func (o *StatsBlok1) GetStatus() int32 {
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *StatsBlok1) GetStatusOk() (*int32, bool) {
+func (o *StatsBlok1) GetStatusOk() (*int64, bool) {
 	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
@@ -618,8 +618,8 @@ func (o *StatsBlok1) HasStatus() bool {
 	return false
 }
 
-// SetStatus gets a reference to the given int32 and assigns it to the Status field.
-func (o *StatsBlok1) SetStatus(v int32) {
+// SetStatus gets a reference to the given int64 and assigns it to the Status field.
+func (o *StatsBlok1) SetStatus(v int64) {
 	o.Status = &v
 }
 
@@ -720,9 +720,9 @@ func (o *StatsBlok1) SetCr1(v float32) {
 }
 
 // GetCr2 returns the Cr2 field value if set, zero value otherwise.
-func (o *StatsBlok1) GetCr2() int32 {
+func (o *StatsBlok1) GetCr2() int64 {
 	if o == nil || IsNil(o.Cr2) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Cr2
@@ -730,7 +730,7 @@ func (o *StatsBlok1) GetCr2() int32 {
 
 // GetCr2Ok returns a tuple with the Cr2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *StatsBlok1) GetCr2Ok() (*int32, bool) {
+func (o *StatsBlok1) GetCr2Ok() (*int64, bool) {
 	if o == nil || IsNil(o.Cr2) {
 		return nil, false
 	}
@@ -746,8 +746,8 @@ func (o *StatsBlok1) HasCr2() bool {
 	return false
 }
 
-// SetCr2 gets a reference to the given int32 and assigns it to the Cr2 field.
-func (o *StatsBlok1) SetCr2(v int32) {
+// SetCr2 gets a reference to the given int64 and assigns it to the Cr2 field.
+func (o *StatsBlok1) SetCr2(v int64) {
 	o.Cr2 = &v
 }
 

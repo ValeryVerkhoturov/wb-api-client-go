@@ -23,7 +23,7 @@ type PostV1BidsMinResponse200BidsInnerBidsInner struct {
 	Currency *string        `json:"currency,omitempty"`
 	Type     *PlacementType `json:"type,omitempty"`
 	// Минимальная ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
-	Value *int32 `json:"value,omitempty"`
+	Value *int64 `json:"value,omitempty"`
 }
 
 // NewPostV1BidsMinResponse200BidsInnerBidsInner instantiates a new PostV1BidsMinResponse200BidsInnerBidsInner object
@@ -108,9 +108,9 @@ func (o *PostV1BidsMinResponse200BidsInnerBidsInner) SetType(v PlacementType) {
 }
 
 // GetValue returns the Value field value if set, zero value otherwise.
-func (o *PostV1BidsMinResponse200BidsInnerBidsInner) GetValue() int32 {
+func (o *PostV1BidsMinResponse200BidsInnerBidsInner) GetValue() int64 {
 	if o == nil || IsNil(o.Value) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Value
@@ -118,7 +118,7 @@ func (o *PostV1BidsMinResponse200BidsInnerBidsInner) GetValue() int32 {
 
 // GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV1BidsMinResponse200BidsInnerBidsInner) GetValueOk() (*int32, bool) {
+func (o *PostV1BidsMinResponse200BidsInnerBidsInner) GetValueOk() (*int64, bool) {
 	if o == nil || IsNil(o.Value) {
 		return nil, false
 	}
@@ -134,8 +134,8 @@ func (o *PostV1BidsMinResponse200BidsInnerBidsInner) HasValue() bool {
 	return false
 }
 
-// SetValue gets a reference to the given int32 and assigns it to the Value field.
-func (o *PostV1BidsMinResponse200BidsInnerBidsInner) SetValue(v int32) {
+// SetValue gets a reference to the given int64 and assigns it to the Value field.
+func (o *PostV1BidsMinResponse200BidsInnerBidsInner) SetValue(v int64) {
 	o.Value = &v
 }
 

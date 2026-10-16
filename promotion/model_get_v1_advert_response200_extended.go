@@ -22,7 +22,7 @@ type GetV1AdvertResponse200Extended struct {
 	// Комментарий модератора
 	Reason NullableString `json:"reason,omitempty"`
 	// Затраты
-	Expenses *int32 `json:"expenses,omitempty"`
+	Expenses *int64 `json:"expenses,omitempty"`
 	// Дата и время начала показа медиакампании
 	From *string `json:"from,omitempty"`
 	// Дата и время окончания показа медиакампании
@@ -30,13 +30,13 @@ type GetV1AdvertResponse200Extended struct {
 	// Дата и время изменения кампании
 	UpdatedAt *string `json:"updated_at,omitempty"`
 	// Стоимость размещения по дням для типа `1`
-	Price *int32 `json:"price,omitempty"`
+	Price *int64 `json:"price,omitempty"`
 	// Остаток бюджета для типа `2`
-	Budget *int32 `json:"budget,omitempty"`
+	Budget *int64 `json:"budget,omitempty"`
 	// Источник списания:   - `1` — баланс   - `2` — счёт
-	Operation *int32 `json:"operation,omitempty"`
+	Operation *int64 `json:"operation,omitempty"`
 	// ID контракта, для продавцов на контракте
-	ContractId *int32 `json:"contract_id,omitempty"`
+	ContractId *int64 `json:"contract_id,omitempty"`
 }
 
 // NewGetV1AdvertResponse200Extended instantiates a new GetV1AdvertResponse200Extended object
@@ -100,9 +100,9 @@ func (o *GetV1AdvertResponse200Extended) UnsetReason() {
 }
 
 // GetExpenses returns the Expenses field value if set, zero value otherwise.
-func (o *GetV1AdvertResponse200Extended) GetExpenses() int32 {
+func (o *GetV1AdvertResponse200Extended) GetExpenses() int64 {
 	if o == nil || IsNil(o.Expenses) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Expenses
@@ -110,7 +110,7 @@ func (o *GetV1AdvertResponse200Extended) GetExpenses() int32 {
 
 // GetExpensesOk returns a tuple with the Expenses field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AdvertResponse200Extended) GetExpensesOk() (*int32, bool) {
+func (o *GetV1AdvertResponse200Extended) GetExpensesOk() (*int64, bool) {
 	if o == nil || IsNil(o.Expenses) {
 		return nil, false
 	}
@@ -126,8 +126,8 @@ func (o *GetV1AdvertResponse200Extended) HasExpenses() bool {
 	return false
 }
 
-// SetExpenses gets a reference to the given int32 and assigns it to the Expenses field.
-func (o *GetV1AdvertResponse200Extended) SetExpenses(v int32) {
+// SetExpenses gets a reference to the given int64 and assigns it to the Expenses field.
+func (o *GetV1AdvertResponse200Extended) SetExpenses(v int64) {
 	o.Expenses = &v
 }
 
@@ -228,9 +228,9 @@ func (o *GetV1AdvertResponse200Extended) SetUpdatedAt(v string) {
 }
 
 // GetPrice returns the Price field value if set, zero value otherwise.
-func (o *GetV1AdvertResponse200Extended) GetPrice() int32 {
+func (o *GetV1AdvertResponse200Extended) GetPrice() int64 {
 	if o == nil || IsNil(o.Price) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Price
@@ -238,7 +238,7 @@ func (o *GetV1AdvertResponse200Extended) GetPrice() int32 {
 
 // GetPriceOk returns a tuple with the Price field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AdvertResponse200Extended) GetPriceOk() (*int32, bool) {
+func (o *GetV1AdvertResponse200Extended) GetPriceOk() (*int64, bool) {
 	if o == nil || IsNil(o.Price) {
 		return nil, false
 	}
@@ -254,15 +254,15 @@ func (o *GetV1AdvertResponse200Extended) HasPrice() bool {
 	return false
 }
 
-// SetPrice gets a reference to the given int32 and assigns it to the Price field.
-func (o *GetV1AdvertResponse200Extended) SetPrice(v int32) {
+// SetPrice gets a reference to the given int64 and assigns it to the Price field.
+func (o *GetV1AdvertResponse200Extended) SetPrice(v int64) {
 	o.Price = &v
 }
 
 // GetBudget returns the Budget field value if set, zero value otherwise.
-func (o *GetV1AdvertResponse200Extended) GetBudget() int32 {
+func (o *GetV1AdvertResponse200Extended) GetBudget() int64 {
 	if o == nil || IsNil(o.Budget) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Budget
@@ -270,7 +270,7 @@ func (o *GetV1AdvertResponse200Extended) GetBudget() int32 {
 
 // GetBudgetOk returns a tuple with the Budget field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AdvertResponse200Extended) GetBudgetOk() (*int32, bool) {
+func (o *GetV1AdvertResponse200Extended) GetBudgetOk() (*int64, bool) {
 	if o == nil || IsNil(o.Budget) {
 		return nil, false
 	}
@@ -286,15 +286,15 @@ func (o *GetV1AdvertResponse200Extended) HasBudget() bool {
 	return false
 }
 
-// SetBudget gets a reference to the given int32 and assigns it to the Budget field.
-func (o *GetV1AdvertResponse200Extended) SetBudget(v int32) {
+// SetBudget gets a reference to the given int64 and assigns it to the Budget field.
+func (o *GetV1AdvertResponse200Extended) SetBudget(v int64) {
 	o.Budget = &v
 }
 
 // GetOperation returns the Operation field value if set, zero value otherwise.
-func (o *GetV1AdvertResponse200Extended) GetOperation() int32 {
+func (o *GetV1AdvertResponse200Extended) GetOperation() int64 {
 	if o == nil || IsNil(o.Operation) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Operation
@@ -302,7 +302,7 @@ func (o *GetV1AdvertResponse200Extended) GetOperation() int32 {
 
 // GetOperationOk returns a tuple with the Operation field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AdvertResponse200Extended) GetOperationOk() (*int32, bool) {
+func (o *GetV1AdvertResponse200Extended) GetOperationOk() (*int64, bool) {
 	if o == nil || IsNil(o.Operation) {
 		return nil, false
 	}
@@ -318,15 +318,15 @@ func (o *GetV1AdvertResponse200Extended) HasOperation() bool {
 	return false
 }
 
-// SetOperation gets a reference to the given int32 and assigns it to the Operation field.
-func (o *GetV1AdvertResponse200Extended) SetOperation(v int32) {
+// SetOperation gets a reference to the given int64 and assigns it to the Operation field.
+func (o *GetV1AdvertResponse200Extended) SetOperation(v int64) {
 	o.Operation = &v
 }
 
 // GetContractId returns the ContractId field value if set, zero value otherwise.
-func (o *GetV1AdvertResponse200Extended) GetContractId() int32 {
+func (o *GetV1AdvertResponse200Extended) GetContractId() int64 {
 	if o == nil || IsNil(o.ContractId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ContractId
@@ -334,7 +334,7 @@ func (o *GetV1AdvertResponse200Extended) GetContractId() int32 {
 
 // GetContractIdOk returns a tuple with the ContractId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AdvertResponse200Extended) GetContractIdOk() (*int32, bool) {
+func (o *GetV1AdvertResponse200Extended) GetContractIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.ContractId) {
 		return nil, false
 	}
@@ -350,8 +350,8 @@ func (o *GetV1AdvertResponse200Extended) HasContractId() bool {
 	return false
 }
 
-// SetContractId gets a reference to the given int32 and assigns it to the ContractId field.
-func (o *GetV1AdvertResponse200Extended) SetContractId(v int32) {
+// SetContractId gets a reference to the given int64 and assigns it to the ContractId field.
+func (o *GetV1AdvertResponse200Extended) SetContractId(v int64) {
 	o.ContractId = &v
 }
 

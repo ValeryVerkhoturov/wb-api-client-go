@@ -20,7 +20,7 @@ var _ MappedNullable = &V3OrderMetaAPI{}
 // V3OrderMetaAPI struct for V3OrderMetaAPI
 type V3OrderMetaAPI struct {
 	// ID сборочного задания
-	Id *int32 `json:"id,omitempty"`
+	Id *int64 `json:"id,omitempty"`
 	// Детали маркировки
 	MetaDetails []V3ArchiveOrderMetaDetailsInner `json:"metaDetails,omitempty"`
 }
@@ -43,9 +43,9 @@ func NewV3OrderMetaAPIWithDefaults() *V3OrderMetaAPI {
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *V3OrderMetaAPI) GetId() int32 {
+func (o *V3OrderMetaAPI) GetId() int64 {
 	if o == nil || IsNil(o.Id) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Id
@@ -53,7 +53,7 @@ func (o *V3OrderMetaAPI) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V3OrderMetaAPI) GetIdOk() (*int32, bool) {
+func (o *V3OrderMetaAPI) GetIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -69,8 +69,8 @@ func (o *V3OrderMetaAPI) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *V3OrderMetaAPI) SetId(v int32) {
+// SetId gets a reference to the given int64 and assigns it to the Id field.
+func (o *V3OrderMetaAPI) SetId(v int64) {
 	o.Id = &v
 }
 

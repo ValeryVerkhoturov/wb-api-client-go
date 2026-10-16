@@ -629,14 +629,14 @@ type DbsAPIService service
 type ApiGetV3DbsOrdersRequest struct {
 	ctx        context.Context
 	ApiService DbsAPI
-	limit      *int32
+	limit      *int64
 	next       *int64
-	dateFrom   *int32
-	dateTo     *int32
+	dateFrom   *int64
+	dateTo     *int64
 }
 
 // Параметр пагинации. Устанавливает предельное количество возвращаемых данных.
-func (r ApiGetV3DbsOrdersRequest) Limit(limit int32) ApiGetV3DbsOrdersRequest {
+func (r ApiGetV3DbsOrdersRequest) Limit(limit int64) ApiGetV3DbsOrdersRequest {
 	r.limit = &limit
 	return r
 }
@@ -648,13 +648,13 @@ func (r ApiGetV3DbsOrdersRequest) Next(next int64) ApiGetV3DbsOrdersRequest {
 }
 
 // Дата начала периода в формате Unix timestamp
-func (r ApiGetV3DbsOrdersRequest) DateFrom(dateFrom int32) ApiGetV3DbsOrdersRequest {
+func (r ApiGetV3DbsOrdersRequest) DateFrom(dateFrom int64) ApiGetV3DbsOrdersRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
 
 // Дата конца периода в формате Unix timestamp
-func (r ApiGetV3DbsOrdersRequest) DateTo(dateTo int32) ApiGetV3DbsOrdersRequest {
+func (r ApiGetV3DbsOrdersRequest) DateTo(dateTo int64) ApiGetV3DbsOrdersRequest {
 	r.dateTo = &dateTo
 	return r
 }
@@ -4308,8 +4308,8 @@ type ApiPostV3DbsOrdersStickersRequest struct {
 	ctx                            context.Context
 	ApiService                     DbsAPI
 	type_                          *string
-	width                          *int32
-	height                         *int32
+	width                          *int64
+	height                         *int64
 	postV3DbsOrdersStickersRequest *PostV3DbsOrdersStickersRequest
 }
 
@@ -4320,13 +4320,13 @@ func (r ApiPostV3DbsOrdersStickersRequest) Type_(type_ string) ApiPostV3DbsOrder
 }
 
 // Ширина стикера
-func (r ApiPostV3DbsOrdersStickersRequest) Width(width int32) ApiPostV3DbsOrdersStickersRequest {
+func (r ApiPostV3DbsOrdersStickersRequest) Width(width int64) ApiPostV3DbsOrdersStickersRequest {
 	r.width = &width
 	return r
 }
 
 // Высота стикера
-func (r ApiPostV3DbsOrdersStickersRequest) Height(height int32) ApiPostV3DbsOrdersStickersRequest {
+func (r ApiPostV3DbsOrdersStickersRequest) Height(height int64) ApiPostV3DbsOrdersStickersRequest {
 	r.height = &height
 	return r
 }

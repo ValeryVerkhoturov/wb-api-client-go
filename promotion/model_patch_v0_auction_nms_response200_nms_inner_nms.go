@@ -20,9 +20,9 @@ var _ MappedNullable = &PatchV0AuctionNmsResponse200NmsInnerNms{}
 // PatchV0AuctionNmsResponse200NmsInnerNms Карточки товаров
 type PatchV0AuctionNmsResponse200NmsInnerNms struct {
 	// Добавленные карточки товаров
-	Added []int32 `json:"added,omitempty"`
+	Added []int64 `json:"added,omitempty"`
 	// Удалённые карточки товаров
-	Deleted []int32 `json:"deleted,omitempty"`
+	Deleted []int64 `json:"deleted,omitempty"`
 }
 
 // NewPatchV0AuctionNmsResponse200NmsInnerNms instantiates a new PatchV0AuctionNmsResponse200NmsInnerNms object
@@ -43,9 +43,9 @@ func NewPatchV0AuctionNmsResponse200NmsInnerNmsWithDefaults() *PatchV0AuctionNms
 }
 
 // GetAdded returns the Added field value if set, zero value otherwise.
-func (o *PatchV0AuctionNmsResponse200NmsInnerNms) GetAdded() []int32 {
+func (o *PatchV0AuctionNmsResponse200NmsInnerNms) GetAdded() []int64 {
 	if o == nil || IsNil(o.Added) {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.Added
@@ -53,7 +53,7 @@ func (o *PatchV0AuctionNmsResponse200NmsInnerNms) GetAdded() []int32 {
 
 // GetAddedOk returns a tuple with the Added field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PatchV0AuctionNmsResponse200NmsInnerNms) GetAddedOk() ([]int32, bool) {
+func (o *PatchV0AuctionNmsResponse200NmsInnerNms) GetAddedOk() ([]int64, bool) {
 	if o == nil || IsNil(o.Added) {
 		return nil, false
 	}
@@ -69,15 +69,15 @@ func (o *PatchV0AuctionNmsResponse200NmsInnerNms) HasAdded() bool {
 	return false
 }
 
-// SetAdded gets a reference to the given []int32 and assigns it to the Added field.
-func (o *PatchV0AuctionNmsResponse200NmsInnerNms) SetAdded(v []int32) {
+// SetAdded gets a reference to the given []int64 and assigns it to the Added field.
+func (o *PatchV0AuctionNmsResponse200NmsInnerNms) SetAdded(v []int64) {
 	o.Added = v
 }
 
 // GetDeleted returns the Deleted field value if set, zero value otherwise.
-func (o *PatchV0AuctionNmsResponse200NmsInnerNms) GetDeleted() []int32 {
+func (o *PatchV0AuctionNmsResponse200NmsInnerNms) GetDeleted() []int64 {
 	if o == nil || IsNil(o.Deleted) {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.Deleted
@@ -85,7 +85,7 @@ func (o *PatchV0AuctionNmsResponse200NmsInnerNms) GetDeleted() []int32 {
 
 // GetDeletedOk returns a tuple with the Deleted field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PatchV0AuctionNmsResponse200NmsInnerNms) GetDeletedOk() ([]int32, bool) {
+func (o *PatchV0AuctionNmsResponse200NmsInnerNms) GetDeletedOk() ([]int64, bool) {
 	if o == nil || IsNil(o.Deleted) {
 		return nil, false
 	}
@@ -101,8 +101,8 @@ func (o *PatchV0AuctionNmsResponse200NmsInnerNms) HasDeleted() bool {
 	return false
 }
 
-// SetDeleted gets a reference to the given []int32 and assigns it to the Deleted field.
-func (o *PatchV0AuctionNmsResponse200NmsInnerNms) SetDeleted(v []int32) {
+// SetDeleted gets a reference to the given []int64 and assigns it to the Deleted field.
+func (o *PatchV0AuctionNmsResponse200NmsInnerNms) SetDeleted(v []int64) {
 	o.Deleted = v
 }
 

@@ -20,11 +20,11 @@ var _ MappedNullable = &PostV1CalendarPromotionsUploadRequestData{}
 // PostV1CalendarPromotionsUploadRequestData Данные запроса
 type PostV1CalendarPromotionsUploadRequestData struct {
 	// ID акции
-	PromotionID *int32 `json:"promotionID,omitempty"`
+	PromotionID *int64 `json:"promotionID,omitempty"`
 	// Установить скидку:   - `true` — сейчас   - `false` — в момент старта акции
 	UploadNow *bool `json:"uploadNow,omitempty"`
 	// Артикулы WB, которые можно добавить в акцию
-	Nomenclatures []int32 `json:"nomenclatures,omitempty"`
+	Nomenclatures []int64 `json:"nomenclatures,omitempty"`
 }
 
 // NewPostV1CalendarPromotionsUploadRequestData instantiates a new PostV1CalendarPromotionsUploadRequestData object
@@ -45,9 +45,9 @@ func NewPostV1CalendarPromotionsUploadRequestDataWithDefaults() *PostV1CalendarP
 }
 
 // GetPromotionID returns the PromotionID field value if set, zero value otherwise.
-func (o *PostV1CalendarPromotionsUploadRequestData) GetPromotionID() int32 {
+func (o *PostV1CalendarPromotionsUploadRequestData) GetPromotionID() int64 {
 	if o == nil || IsNil(o.PromotionID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.PromotionID
@@ -55,7 +55,7 @@ func (o *PostV1CalendarPromotionsUploadRequestData) GetPromotionID() int32 {
 
 // GetPromotionIDOk returns a tuple with the PromotionID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV1CalendarPromotionsUploadRequestData) GetPromotionIDOk() (*int32, bool) {
+func (o *PostV1CalendarPromotionsUploadRequestData) GetPromotionIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.PromotionID) {
 		return nil, false
 	}
@@ -71,8 +71,8 @@ func (o *PostV1CalendarPromotionsUploadRequestData) HasPromotionID() bool {
 	return false
 }
 
-// SetPromotionID gets a reference to the given int32 and assigns it to the PromotionID field.
-func (o *PostV1CalendarPromotionsUploadRequestData) SetPromotionID(v int32) {
+// SetPromotionID gets a reference to the given int64 and assigns it to the PromotionID field.
+func (o *PostV1CalendarPromotionsUploadRequestData) SetPromotionID(v int64) {
 	o.PromotionID = &v
 }
 
@@ -109,9 +109,9 @@ func (o *PostV1CalendarPromotionsUploadRequestData) SetUploadNow(v bool) {
 }
 
 // GetNomenclatures returns the Nomenclatures field value if set, zero value otherwise.
-func (o *PostV1CalendarPromotionsUploadRequestData) GetNomenclatures() []int32 {
+func (o *PostV1CalendarPromotionsUploadRequestData) GetNomenclatures() []int64 {
 	if o == nil || IsNil(o.Nomenclatures) {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.Nomenclatures
@@ -119,7 +119,7 @@ func (o *PostV1CalendarPromotionsUploadRequestData) GetNomenclatures() []int32 {
 
 // GetNomenclaturesOk returns a tuple with the Nomenclatures field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV1CalendarPromotionsUploadRequestData) GetNomenclaturesOk() ([]int32, bool) {
+func (o *PostV1CalendarPromotionsUploadRequestData) GetNomenclaturesOk() ([]int64, bool) {
 	if o == nil || IsNil(o.Nomenclatures) {
 		return nil, false
 	}
@@ -135,8 +135,8 @@ func (o *PostV1CalendarPromotionsUploadRequestData) HasNomenclatures() bool {
 	return false
 }
 
-// SetNomenclatures gets a reference to the given []int32 and assigns it to the Nomenclatures field.
-func (o *PostV1CalendarPromotionsUploadRequestData) SetNomenclatures(v []int32) {
+// SetNomenclatures gets a reference to the given []int64 and assigns it to the Nomenclatures field.
+func (o *PostV1CalendarPromotionsUploadRequestData) SetNomenclatures(v []int64) {
 	o.Nomenclatures = v
 }
 

@@ -20,13 +20,13 @@ var _ MappedNullable = &ApiOrderFinalPriceResultData{}
 // ApiOrderFinalPriceResultData Данные сборочного задания.  Если `\"data\":{}`, данные формируются. Повторите запрос позднее. Максимальное время формирования данных около 1 минуты.  Если `data` отсутствует, данных по сборочному заданию не предусмотрено. Используйте данные из ответов методов: - [Получить список новых сборочных заданий](https://dev.wildberries.ru/docs/openapi/dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew) - [Получить информацию о завершенных сборочных заданиях](https://dev.wildberries.ru/docs/openapi/dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrders)
 type ApiOrderFinalPriceResultData struct {
 	// Цена продавца в валюте продажи без учёта скидок, умноженная на 100. Предоставляется в информационных целях
-	OriginalPrice *int32 `json:"originalPrice,omitempty"`
+	OriginalPrice *int64 `json:"originalPrice,omitempty"`
 	// Цена продавца в валюте страны продавца без учёта скидок, умноженная на 100. Предоставляется в информационных целях
-	ConvertedOriginalPrice *int32 `json:"convertedOriginalPrice,omitempty"`
+	ConvertedOriginalPrice *int64 `json:"convertedOriginalPrice,omitempty"`
 	// Сумма к оплате покупателем в валюте продажи с учетом всех скидок и кэшбека, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
-	OriginalFinalPrice *int32 `json:"originalFinalPrice,omitempty"`
+	OriginalFinalPrice *int64 `json:"originalFinalPrice,omitempty"`
 	// Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок и кэшбека, умноженная на 100. Предоставляется в информационных целях
-	ConvertedOriginalFinalPrice *int32 `json:"convertedOriginalFinalPrice,omitempty"`
+	ConvertedOriginalFinalPrice *int64 `json:"convertedOriginalFinalPrice,omitempty"`
 	// Код валюты продажи
 	CurrencyCode *int32 `json:"currencyCode,omitempty"`
 	// Код валюты страны продавца
@@ -51,9 +51,9 @@ func NewApiOrderFinalPriceResultDataWithDefaults() *ApiOrderFinalPriceResultData
 }
 
 // GetOriginalPrice returns the OriginalPrice field value if set, zero value otherwise.
-func (o *ApiOrderFinalPriceResultData) GetOriginalPrice() int32 {
+func (o *ApiOrderFinalPriceResultData) GetOriginalPrice() int64 {
 	if o == nil || IsNil(o.OriginalPrice) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OriginalPrice
@@ -61,7 +61,7 @@ func (o *ApiOrderFinalPriceResultData) GetOriginalPrice() int32 {
 
 // GetOriginalPriceOk returns a tuple with the OriginalPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiOrderFinalPriceResultData) GetOriginalPriceOk() (*int32, bool) {
+func (o *ApiOrderFinalPriceResultData) GetOriginalPriceOk() (*int64, bool) {
 	if o == nil || IsNil(o.OriginalPrice) {
 		return nil, false
 	}
@@ -77,15 +77,15 @@ func (o *ApiOrderFinalPriceResultData) HasOriginalPrice() bool {
 	return false
 }
 
-// SetOriginalPrice gets a reference to the given int32 and assigns it to the OriginalPrice field.
-func (o *ApiOrderFinalPriceResultData) SetOriginalPrice(v int32) {
+// SetOriginalPrice gets a reference to the given int64 and assigns it to the OriginalPrice field.
+func (o *ApiOrderFinalPriceResultData) SetOriginalPrice(v int64) {
 	o.OriginalPrice = &v
 }
 
 // GetConvertedOriginalPrice returns the ConvertedOriginalPrice field value if set, zero value otherwise.
-func (o *ApiOrderFinalPriceResultData) GetConvertedOriginalPrice() int32 {
+func (o *ApiOrderFinalPriceResultData) GetConvertedOriginalPrice() int64 {
 	if o == nil || IsNil(o.ConvertedOriginalPrice) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ConvertedOriginalPrice
@@ -93,7 +93,7 @@ func (o *ApiOrderFinalPriceResultData) GetConvertedOriginalPrice() int32 {
 
 // GetConvertedOriginalPriceOk returns a tuple with the ConvertedOriginalPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiOrderFinalPriceResultData) GetConvertedOriginalPriceOk() (*int32, bool) {
+func (o *ApiOrderFinalPriceResultData) GetConvertedOriginalPriceOk() (*int64, bool) {
 	if o == nil || IsNil(o.ConvertedOriginalPrice) {
 		return nil, false
 	}
@@ -109,15 +109,15 @@ func (o *ApiOrderFinalPriceResultData) HasConvertedOriginalPrice() bool {
 	return false
 }
 
-// SetConvertedOriginalPrice gets a reference to the given int32 and assigns it to the ConvertedOriginalPrice field.
-func (o *ApiOrderFinalPriceResultData) SetConvertedOriginalPrice(v int32) {
+// SetConvertedOriginalPrice gets a reference to the given int64 and assigns it to the ConvertedOriginalPrice field.
+func (o *ApiOrderFinalPriceResultData) SetConvertedOriginalPrice(v int64) {
 	o.ConvertedOriginalPrice = &v
 }
 
 // GetOriginalFinalPrice returns the OriginalFinalPrice field value if set, zero value otherwise.
-func (o *ApiOrderFinalPriceResultData) GetOriginalFinalPrice() int32 {
+func (o *ApiOrderFinalPriceResultData) GetOriginalFinalPrice() int64 {
 	if o == nil || IsNil(o.OriginalFinalPrice) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OriginalFinalPrice
@@ -125,7 +125,7 @@ func (o *ApiOrderFinalPriceResultData) GetOriginalFinalPrice() int32 {
 
 // GetOriginalFinalPriceOk returns a tuple with the OriginalFinalPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiOrderFinalPriceResultData) GetOriginalFinalPriceOk() (*int32, bool) {
+func (o *ApiOrderFinalPriceResultData) GetOriginalFinalPriceOk() (*int64, bool) {
 	if o == nil || IsNil(o.OriginalFinalPrice) {
 		return nil, false
 	}
@@ -141,15 +141,15 @@ func (o *ApiOrderFinalPriceResultData) HasOriginalFinalPrice() bool {
 	return false
 }
 
-// SetOriginalFinalPrice gets a reference to the given int32 and assigns it to the OriginalFinalPrice field.
-func (o *ApiOrderFinalPriceResultData) SetOriginalFinalPrice(v int32) {
+// SetOriginalFinalPrice gets a reference to the given int64 and assigns it to the OriginalFinalPrice field.
+func (o *ApiOrderFinalPriceResultData) SetOriginalFinalPrice(v int64) {
 	o.OriginalFinalPrice = &v
 }
 
 // GetConvertedOriginalFinalPrice returns the ConvertedOriginalFinalPrice field value if set, zero value otherwise.
-func (o *ApiOrderFinalPriceResultData) GetConvertedOriginalFinalPrice() int32 {
+func (o *ApiOrderFinalPriceResultData) GetConvertedOriginalFinalPrice() int64 {
 	if o == nil || IsNil(o.ConvertedOriginalFinalPrice) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ConvertedOriginalFinalPrice
@@ -157,7 +157,7 @@ func (o *ApiOrderFinalPriceResultData) GetConvertedOriginalFinalPrice() int32 {
 
 // GetConvertedOriginalFinalPriceOk returns a tuple with the ConvertedOriginalFinalPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiOrderFinalPriceResultData) GetConvertedOriginalFinalPriceOk() (*int32, bool) {
+func (o *ApiOrderFinalPriceResultData) GetConvertedOriginalFinalPriceOk() (*int64, bool) {
 	if o == nil || IsNil(o.ConvertedOriginalFinalPrice) {
 		return nil, false
 	}
@@ -173,8 +173,8 @@ func (o *ApiOrderFinalPriceResultData) HasConvertedOriginalFinalPrice() bool {
 	return false
 }
 
-// SetConvertedOriginalFinalPrice gets a reference to the given int32 and assigns it to the ConvertedOriginalFinalPrice field.
-func (o *ApiOrderFinalPriceResultData) SetConvertedOriginalFinalPrice(v int32) {
+// SetConvertedOriginalFinalPrice gets a reference to the given int64 and assigns it to the ConvertedOriginalFinalPrice field.
+func (o *ApiOrderFinalPriceResultData) SetConvertedOriginalFinalPrice(v int64) {
 	o.ConvertedOriginalFinalPrice = &v
 }
 

@@ -22,7 +22,7 @@ type PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict struct {
 	// - `true` — карточка товара проверена - `false` — карточка товара не проверена
 	IsFullyChecked *bool `json:"isFullyChecked,omitempty"`
 	// Результат проверки карточки товара:   - `1` — проверка пройдена   - `2` — проверка не пройдена
-	Status *int32 `json:"status,omitempty"`
+	Status *int64 `json:"status,omitempty"`
 	// Ошибка при проверке, возвращается для `status: 2`. Указывается только 1 причина. Если карточка не прошла проверку по нескольким причинам, то после исправления первой причины, вернётся следующая. Возможные значения: - `tnved\\_missing` — Не указан код ТН ВЭД - `supplier\\_inn\\_missing` — Не указан ИНН - `supplier\\_not\\_registered` — Поставщик не найден в реестре - `supplier\\_inactive` — Ошибка в статусе поставщика, проверьте его в реестре - `product\\_group\\_not\\_registered` — Добавлена неверная товарная группа в системе маркировки - `kiz\\_required` — Этот товар нельзя продавать в России без кода маркировки Честного Знака - `kiz\\_certificate\\_missing` — Нет подтверждения, что на товар нанесена необходимая маркировка
 	Reason NullableString `json:"reason,omitempty"`
 	// Дата и время проверки карточки товара
@@ -79,9 +79,9 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict) SetIsFu
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
-func (o *PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict) GetStatus() int32 {
+func (o *PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict) GetStatus() int64 {
 	if o == nil || IsNil(o.Status) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Status
@@ -89,7 +89,7 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict) GetStat
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict) GetStatusOk() (*int32, bool) {
+func (o *PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict) GetStatusOk() (*int64, bool) {
 	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
@@ -105,8 +105,8 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict) HasStat
 	return false
 }
 
-// SetStatus gets a reference to the given int32 and assigns it to the Status field.
-func (o *PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict) SetStatus(v int32) {
+// SetStatus gets a reference to the given int64 and assigns it to the Status field.
+func (o *PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict) SetStatus(v int64) {
 	o.Status = &v
 }
 

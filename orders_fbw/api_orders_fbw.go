@@ -144,7 +144,7 @@ type OrdersFbwAPI interface {
 			@param iD ID поставки или заказа
 			@return ApiGetV1SuppliesIdRequest
 	*/
-	GetV1SuppliesId(ctx context.Context, iD int32) ApiGetV1SuppliesIdRequest
+	GetV1SuppliesId(ctx context.Context, iD int64) ApiGetV1SuppliesIdRequest
 
 	// GetV1SuppliesIdExecute executes the request
 	//  @return ModelsSupplyDetails
@@ -169,7 +169,7 @@ type OrdersFbwAPI interface {
 			@param iD ID поставки или заказа
 			@return ApiGetV1SuppliesIdGoodsRequest
 	*/
-	GetV1SuppliesIdGoods(ctx context.Context, iD int32) ApiGetV1SuppliesIdGoodsRequest
+	GetV1SuppliesIdGoods(ctx context.Context, iD int64) ApiGetV1SuppliesIdGoodsRequest
 
 	// GetV1SuppliesIdGoodsExecute executes the request
 	//  @return []ModelsGoodInSupply
@@ -194,7 +194,7 @@ type OrdersFbwAPI interface {
 			@param iD ID поставки
 			@return ApiGetV1SuppliesIdPackageRequest
 	*/
-	GetV1SuppliesIdPackage(ctx context.Context, iD int32) ApiGetV1SuppliesIdPackageRequest
+	GetV1SuppliesIdPackage(ctx context.Context, iD int64) ApiGetV1SuppliesIdPackageRequest
 
 	// GetV1SuppliesIdPackageExecute executes the request
 	//  @return []ModelsBox
@@ -752,20 +752,20 @@ func (a *OrdersFbwAPIService) DeleteV1DraftsDraftIdItemsExecute(r ApiDeleteV1Dra
 type ApiGetV1DraftsRequest struct {
 	ctx        context.Context
 	ApiService OrdersFbwAPI
-	limit      *int32
-	offset     *int32
+	limit      *int64
+	offset     *int64
 	sort       *string
 	order      *string
 }
 
 // Количество черновиков в ответе
-func (r ApiGetV1DraftsRequest) Limit(limit int32) ApiGetV1DraftsRequest {
+func (r ApiGetV1DraftsRequest) Limit(limit int64) ApiGetV1DraftsRequest {
 	r.limit = &limit
 	return r
 }
 
 // Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
-func (r ApiGetV1DraftsRequest) Offset(offset int32) ApiGetV1DraftsRequest {
+func (r ApiGetV1DraftsRequest) Offset(offset int64) ApiGetV1DraftsRequest {
 	r.offset = &offset
 	return r
 }
@@ -837,13 +837,13 @@ func (a *OrdersFbwAPIService) GetV1DraftsExecute(r ApiGetV1DraftsRequest) (*Mode
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
 	} else {
-		var defaultValue int32 = 1000
+		var defaultValue int64 = 1000
 		r.limit = &defaultValue
 	}
 	if r.offset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
 	} else {
-		var defaultValue int32 = 0
+		var defaultValue int64 = 0
 		r.offset = &defaultValue
 	}
 	if r.sort != nil {
@@ -1127,7 +1127,7 @@ func (a *OrdersFbwAPIService) GetV1DraftsDraftIdItemsExecute(r ApiGetV1DraftsDra
 type ApiGetV1SuppliesIdRequest struct {
 	ctx          context.Context
 	ApiService   OrdersFbwAPI
-	iD           int32
+	iD           int64
 	isPreorderID *bool
 }
 
@@ -1160,7 +1160,7 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	@param iD ID поставки или заказа
 	@return ApiGetV1SuppliesIdRequest
 */
-func (a *OrdersFbwAPIService) GetV1SuppliesId(ctx context.Context, iD int32) ApiGetV1SuppliesIdRequest {
+func (a *OrdersFbwAPIService) GetV1SuppliesId(ctx context.Context, iD int64) ApiGetV1SuppliesIdRequest {
 	return ApiGetV1SuppliesIdRequest{
 		ApiService: a,
 		ctx:        ctx,
@@ -1319,20 +1319,20 @@ func (a *OrdersFbwAPIService) GetV1SuppliesIdExecute(r ApiGetV1SuppliesIdRequest
 type ApiGetV1SuppliesIdGoodsRequest struct {
 	ctx          context.Context
 	ApiService   OrdersFbwAPI
-	iD           int32
-	limit        *int32
-	offset       *int32
+	iD           int64
+	limit        *int64
+	offset       *int64
 	isPreorderID *bool
 }
 
 // Количество записей в ответе
-func (r ApiGetV1SuppliesIdGoodsRequest) Limit(limit int32) ApiGetV1SuppliesIdGoodsRequest {
+func (r ApiGetV1SuppliesIdGoodsRequest) Limit(limit int64) ApiGetV1SuppliesIdGoodsRequest {
 	r.limit = &limit
 	return r
 }
 
 // После какого элемента выдавать данные
-func (r ApiGetV1SuppliesIdGoodsRequest) Offset(offset int32) ApiGetV1SuppliesIdGoodsRequest {
+func (r ApiGetV1SuppliesIdGoodsRequest) Offset(offset int64) ApiGetV1SuppliesIdGoodsRequest {
 	r.offset = &offset
 	return r
 }
@@ -1366,7 +1366,7 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	@param iD ID поставки или заказа
 	@return ApiGetV1SuppliesIdGoodsRequest
 */
-func (a *OrdersFbwAPIService) GetV1SuppliesIdGoods(ctx context.Context, iD int32) ApiGetV1SuppliesIdGoodsRequest {
+func (a *OrdersFbwAPIService) GetV1SuppliesIdGoods(ctx context.Context, iD int64) ApiGetV1SuppliesIdGoodsRequest {
 	return ApiGetV1SuppliesIdGoodsRequest{
 		ApiService: a,
 		ctx:        ctx,
@@ -1400,13 +1400,13 @@ func (a *OrdersFbwAPIService) GetV1SuppliesIdGoodsExecute(r ApiGetV1SuppliesIdGo
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
 	} else {
-		var defaultValue int32 = 100
+		var defaultValue int64 = 100
 		r.limit = &defaultValue
 	}
 	if r.offset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
 	} else {
-		var defaultValue int32 = 0
+		var defaultValue int64 = 0
 		r.offset = &defaultValue
 	}
 	if r.isPreorderID != nil {
@@ -1526,7 +1526,7 @@ func (a *OrdersFbwAPIService) GetV1SuppliesIdGoodsExecute(r ApiGetV1SuppliesIdGo
 type ApiGetV1SuppliesIdPackageRequest struct {
 	ctx        context.Context
 	ApiService OrdersFbwAPI
-	iD         int32
+	iD         int64
 }
 
 func (r ApiGetV1SuppliesIdPackageRequest) Execute() ([]ModelsBox, *http.Response, error) {
@@ -1552,7 +1552,7 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	@param iD ID поставки
 	@return ApiGetV1SuppliesIdPackageRequest
 */
-func (a *OrdersFbwAPIService) GetV1SuppliesIdPackage(ctx context.Context, iD int32) ApiGetV1SuppliesIdPackageRequest {
+func (a *OrdersFbwAPIService) GetV1SuppliesIdPackage(ctx context.Context, iD int64) ApiGetV1SuppliesIdPackageRequest {
 	return ApiGetV1SuppliesIdPackageRequest{
 		ApiService: a,
 		ctx:        ctx,
@@ -2173,7 +2173,7 @@ type ApiPostV1AcceptanceOptionsRequest struct {
 	ctx         context.Context
 	ApiService  OrdersFbwAPI
 	modelsGood  *[]ModelsGood
-	warehouseID *int32
+	warehouseID *int64
 }
 
 func (r ApiPostV1AcceptanceOptionsRequest) ModelsGood(modelsGood []ModelsGood) ApiPostV1AcceptanceOptionsRequest {
@@ -2182,7 +2182,7 @@ func (r ApiPostV1AcceptanceOptionsRequest) ModelsGood(modelsGood []ModelsGood) A
 }
 
 // ID склада.  Если параметр не указан, возвращаются данные по всем складам.  \\*\\*Максимум одно значение\\*\\*
-func (r ApiPostV1AcceptanceOptionsRequest) WarehouseID(warehouseID int32) ApiPostV1AcceptanceOptionsRequest {
+func (r ApiPostV1AcceptanceOptionsRequest) WarehouseID(warehouseID int64) ApiPostV1AcceptanceOptionsRequest {
 	r.warehouseID = &warehouseID
 	return r
 }
@@ -2692,8 +2692,8 @@ type ApiPostV1SuppliesRequest struct {
 	ctx                          context.Context
 	ApiService                   OrdersFbwAPI
 	modelsSuppliesFiltersRequest *ModelsSuppliesFiltersRequest
-	limit                        *int32
-	offset                       *int32
+	limit                        *int64
+	offset                       *int64
 }
 
 func (r ApiPostV1SuppliesRequest) ModelsSuppliesFiltersRequest(modelsSuppliesFiltersRequest ModelsSuppliesFiltersRequest) ApiPostV1SuppliesRequest {
@@ -2702,13 +2702,13 @@ func (r ApiPostV1SuppliesRequest) ModelsSuppliesFiltersRequest(modelsSuppliesFil
 }
 
 // Количество записей в ответе
-func (r ApiPostV1SuppliesRequest) Limit(limit int32) ApiPostV1SuppliesRequest {
+func (r ApiPostV1SuppliesRequest) Limit(limit int64) ApiPostV1SuppliesRequest {
 	r.limit = &limit
 	return r
 }
 
 // После какого элемента выдавать данные
-func (r ApiPostV1SuppliesRequest) Offset(offset int32) ApiPostV1SuppliesRequest {
+func (r ApiPostV1SuppliesRequest) Offset(offset int64) ApiPostV1SuppliesRequest {
 	r.offset = &offset
 	return r
 }
@@ -2770,13 +2770,13 @@ func (a *OrdersFbwAPIService) PostV1SuppliesExecute(r ApiPostV1SuppliesRequest) 
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
 	} else {
-		var defaultValue int32 = 1000
+		var defaultValue int64 = 1000
 		r.limit = &defaultValue
 	}
 	if r.offset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
 	} else {
-		var defaultValue int32 = 0
+		var defaultValue int64 = 0
 		r.offset = &defaultValue
 	}
 	// to determine the Content-Type header

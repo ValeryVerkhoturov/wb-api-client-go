@@ -20,9 +20,9 @@ var _ MappedNullable = &GetV1FeedbacksResponse200DataFeedbacksInnerProductDetail
 // GetV1FeedbacksResponse200DataFeedbacksInnerProductDetails Информация о товаре
 type GetV1FeedbacksResponse200DataFeedbacksInnerProductDetails struct {
 	// Артикул WB
-	NmId *int32 `json:"nmId,omitempty"`
+	NmId *int64 `json:"nmId,omitempty"`
 	// ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
-	ImtId *int32 `json:"imtId,omitempty"`
+	ImtId *int64 `json:"imtId,omitempty"`
 	// Название товара
 	ProductName *string `json:"productName,omitempty"`
 	// Артикул продавца
@@ -53,9 +53,9 @@ func NewGetV1FeedbacksResponse200DataFeedbacksInnerProductDetailsWithDefaults() 
 }
 
 // GetNmId returns the NmId field value if set, zero value otherwise.
-func (o *GetV1FeedbacksResponse200DataFeedbacksInnerProductDetails) GetNmId() int32 {
+func (o *GetV1FeedbacksResponse200DataFeedbacksInnerProductDetails) GetNmId() int64 {
 	if o == nil || IsNil(o.NmId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmId
@@ -63,7 +63,7 @@ func (o *GetV1FeedbacksResponse200DataFeedbacksInnerProductDetails) GetNmId() in
 
 // GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1FeedbacksResponse200DataFeedbacksInnerProductDetails) GetNmIdOk() (*int32, bool) {
+func (o *GetV1FeedbacksResponse200DataFeedbacksInnerProductDetails) GetNmIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
@@ -79,15 +79,15 @@ func (o *GetV1FeedbacksResponse200DataFeedbacksInnerProductDetails) HasNmId() bo
 	return false
 }
 
-// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
-func (o *GetV1FeedbacksResponse200DataFeedbacksInnerProductDetails) SetNmId(v int32) {
+// SetNmId gets a reference to the given int64 and assigns it to the NmId field.
+func (o *GetV1FeedbacksResponse200DataFeedbacksInnerProductDetails) SetNmId(v int64) {
 	o.NmId = &v
 }
 
 // GetImtId returns the ImtId field value if set, zero value otherwise.
-func (o *GetV1FeedbacksResponse200DataFeedbacksInnerProductDetails) GetImtId() int32 {
+func (o *GetV1FeedbacksResponse200DataFeedbacksInnerProductDetails) GetImtId() int64 {
 	if o == nil || IsNil(o.ImtId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ImtId
@@ -95,7 +95,7 @@ func (o *GetV1FeedbacksResponse200DataFeedbacksInnerProductDetails) GetImtId() i
 
 // GetImtIdOk returns a tuple with the ImtId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1FeedbacksResponse200DataFeedbacksInnerProductDetails) GetImtIdOk() (*int32, bool) {
+func (o *GetV1FeedbacksResponse200DataFeedbacksInnerProductDetails) GetImtIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.ImtId) {
 		return nil, false
 	}
@@ -111,8 +111,8 @@ func (o *GetV1FeedbacksResponse200DataFeedbacksInnerProductDetails) HasImtId() b
 	return false
 }
 
-// SetImtId gets a reference to the given int32 and assigns it to the ImtId field.
-func (o *GetV1FeedbacksResponse200DataFeedbacksInnerProductDetails) SetImtId(v int32) {
+// SetImtId gets a reference to the given int64 and assigns it to the ImtId field.
+func (o *GetV1FeedbacksResponse200DataFeedbacksInnerProductDetails) SetImtId(v int64) {
 	o.ImtId = &v
 }
 

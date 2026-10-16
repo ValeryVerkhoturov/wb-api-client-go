@@ -18,13 +18,13 @@ import (
 
 // TextLimit - struct for TextLimit
 type TextLimit struct {
-	Int32 *int32
+	Int64 *int64
 }
 
-// int32AsTextLimit is a convenience function that returns int32 wrapped in TextLimit
-func Int32AsTextLimit(v *int32) TextLimit {
+// int64AsTextLimit is a convenience function that returns int64 wrapped in TextLimit
+func Int64AsTextLimit(v *int64) TextLimit {
 	return TextLimit{
-		Int32: v,
+		Int64: v,
 	}
 }
 
@@ -32,26 +32,26 @@ func Int32AsTextLimit(v *int32) TextLimit {
 func (dst *TextLimit) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
-	// try to unmarshal data into Int32
-	err = newStrictDecoder(data).Decode(&dst.Int32)
+	// try to unmarshal data into Int64
+	err = newStrictDecoder(data).Decode(&dst.Int64)
 	if err == nil {
-		jsonInt32, _ := json.Marshal(dst.Int32)
-		if string(jsonInt32) == "{}" { // empty struct
-			dst.Int32 = nil
+		jsonInt64, _ := json.Marshal(dst.Int64)
+		if string(jsonInt64) == "{}" { // empty struct
+			dst.Int64 = nil
 		} else {
-			if err = validator.Validate(dst.Int32); err != nil {
-				dst.Int32 = nil
+			if err = validator.Validate(dst.Int64); err != nil {
+				dst.Int64 = nil
 			} else {
 				match++
 			}
 		}
 	} else {
-		dst.Int32 = nil
+		dst.Int64 = nil
 	}
 
 	if match > 1 { // more than 1 match
 		// reset to nil
-		dst.Int32 = nil
+		dst.Int64 = nil
 
 		return fmt.Errorf("data matches more than one schema in oneOf(TextLimit)")
 	} else if match == 1 {
@@ -63,8 +63,8 @@ func (dst *TextLimit) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src TextLimit) MarshalJSON() ([]byte, error) {
-	if src.Int32 != nil {
-		return json.Marshal(&src.Int32)
+	if src.Int64 != nil {
+		return json.Marshal(&src.Int64)
 	}
 
 	return nil, nil // no data in oneOf schemas
@@ -75,8 +75,8 @@ func (obj *TextLimit) GetActualInstance() interface{} {
 	if obj == nil {
 		return nil
 	}
-	if obj.Int32 != nil {
-		return obj.Int32
+	if obj.Int64 != nil {
+		return obj.Int64
 	}
 
 	// all schemas are nil

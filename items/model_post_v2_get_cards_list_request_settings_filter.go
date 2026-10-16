@@ -20,15 +20,15 @@ var _ MappedNullable = &PostV2GetCardsListRequestSettingsFilter{}
 // PostV2GetCardsListRequestSettingsFilter Параметры фильтрации
 type PostV2GetCardsListRequestSettingsFilter struct {
 	// Фильтр по фото:   * `-1` — любые карточки товаров   * `0` — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id=531) — любые карточки товаров   * `1` — только карточки с фото   * `2` — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id=531)
-	WithPhoto *int32 `json:"withPhoto,omitempty"`
+	WithPhoto *int64 `json:"withPhoto,omitempty"`
 	// Поиск по артикулу продавца, артикулу WB, баркоду
 	TextSearch *string `json:"textSearch,omitempty"`
 	// Поиск по ID ярлыков
-	TagIDs []int32 `json:"tagIDs,omitempty"`
+	TagIDs []int64 `json:"tagIDs,omitempty"`
 	// Фильтр по категории:   - `true` — только разрешённые   - `false` — все    Не используется в песочнице
 	AllowedCategoriesOnly *bool `json:"allowedCategoriesOnly,omitempty"`
 	// Поиск по ID предметов
-	ObjectIDs []int32 `json:"objectIDs,omitempty"`
+	ObjectIDs []int64 `json:"objectIDs,omitempty"`
 	// Поиск по брендам
 	Brands []string `json:"brands,omitempty"`
 	// Поиск по [ID для объединённых карточек товаров](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
@@ -41,7 +41,7 @@ type PostV2GetCardsListRequestSettingsFilter struct {
 // will change when the set of required properties is changed
 func NewPostV2GetCardsListRequestSettingsFilter() *PostV2GetCardsListRequestSettingsFilter {
 	this := PostV2GetCardsListRequestSettingsFilter{}
-	var withPhoto int32 = 0
+	var withPhoto int64 = 0
 	this.WithPhoto = &withPhoto
 	return &this
 }
@@ -51,15 +51,15 @@ func NewPostV2GetCardsListRequestSettingsFilter() *PostV2GetCardsListRequestSett
 // but it doesn't guarantee that properties required by API are set
 func NewPostV2GetCardsListRequestSettingsFilterWithDefaults() *PostV2GetCardsListRequestSettingsFilter {
 	this := PostV2GetCardsListRequestSettingsFilter{}
-	var withPhoto int32 = 0
+	var withPhoto int64 = 0
 	this.WithPhoto = &withPhoto
 	return &this
 }
 
 // GetWithPhoto returns the WithPhoto field value if set, zero value otherwise.
-func (o *PostV2GetCardsListRequestSettingsFilter) GetWithPhoto() int32 {
+func (o *PostV2GetCardsListRequestSettingsFilter) GetWithPhoto() int64 {
 	if o == nil || IsNil(o.WithPhoto) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.WithPhoto
@@ -67,7 +67,7 @@ func (o *PostV2GetCardsListRequestSettingsFilter) GetWithPhoto() int32 {
 
 // GetWithPhotoOk returns a tuple with the WithPhoto field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2GetCardsListRequestSettingsFilter) GetWithPhotoOk() (*int32, bool) {
+func (o *PostV2GetCardsListRequestSettingsFilter) GetWithPhotoOk() (*int64, bool) {
 	if o == nil || IsNil(o.WithPhoto) {
 		return nil, false
 	}
@@ -83,8 +83,8 @@ func (o *PostV2GetCardsListRequestSettingsFilter) HasWithPhoto() bool {
 	return false
 }
 
-// SetWithPhoto gets a reference to the given int32 and assigns it to the WithPhoto field.
-func (o *PostV2GetCardsListRequestSettingsFilter) SetWithPhoto(v int32) {
+// SetWithPhoto gets a reference to the given int64 and assigns it to the WithPhoto field.
+func (o *PostV2GetCardsListRequestSettingsFilter) SetWithPhoto(v int64) {
 	o.WithPhoto = &v
 }
 
@@ -121,9 +121,9 @@ func (o *PostV2GetCardsListRequestSettingsFilter) SetTextSearch(v string) {
 }
 
 // GetTagIDs returns the TagIDs field value if set, zero value otherwise.
-func (o *PostV2GetCardsListRequestSettingsFilter) GetTagIDs() []int32 {
+func (o *PostV2GetCardsListRequestSettingsFilter) GetTagIDs() []int64 {
 	if o == nil || IsNil(o.TagIDs) {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.TagIDs
@@ -131,7 +131,7 @@ func (o *PostV2GetCardsListRequestSettingsFilter) GetTagIDs() []int32 {
 
 // GetTagIDsOk returns a tuple with the TagIDs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2GetCardsListRequestSettingsFilter) GetTagIDsOk() ([]int32, bool) {
+func (o *PostV2GetCardsListRequestSettingsFilter) GetTagIDsOk() ([]int64, bool) {
 	if o == nil || IsNil(o.TagIDs) {
 		return nil, false
 	}
@@ -147,8 +147,8 @@ func (o *PostV2GetCardsListRequestSettingsFilter) HasTagIDs() bool {
 	return false
 }
 
-// SetTagIDs gets a reference to the given []int32 and assigns it to the TagIDs field.
-func (o *PostV2GetCardsListRequestSettingsFilter) SetTagIDs(v []int32) {
+// SetTagIDs gets a reference to the given []int64 and assigns it to the TagIDs field.
+func (o *PostV2GetCardsListRequestSettingsFilter) SetTagIDs(v []int64) {
 	o.TagIDs = v
 }
 
@@ -185,9 +185,9 @@ func (o *PostV2GetCardsListRequestSettingsFilter) SetAllowedCategoriesOnly(v boo
 }
 
 // GetObjectIDs returns the ObjectIDs field value if set, zero value otherwise.
-func (o *PostV2GetCardsListRequestSettingsFilter) GetObjectIDs() []int32 {
+func (o *PostV2GetCardsListRequestSettingsFilter) GetObjectIDs() []int64 {
 	if o == nil || IsNil(o.ObjectIDs) {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.ObjectIDs
@@ -195,7 +195,7 @@ func (o *PostV2GetCardsListRequestSettingsFilter) GetObjectIDs() []int32 {
 
 // GetObjectIDsOk returns a tuple with the ObjectIDs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2GetCardsListRequestSettingsFilter) GetObjectIDsOk() ([]int32, bool) {
+func (o *PostV2GetCardsListRequestSettingsFilter) GetObjectIDsOk() ([]int64, bool) {
 	if o == nil || IsNil(o.ObjectIDs) {
 		return nil, false
 	}
@@ -211,8 +211,8 @@ func (o *PostV2GetCardsListRequestSettingsFilter) HasObjectIDs() bool {
 	return false
 }
 
-// SetObjectIDs gets a reference to the given []int32 and assigns it to the ObjectIDs field.
-func (o *PostV2GetCardsListRequestSettingsFilter) SetObjectIDs(v []int32) {
+// SetObjectIDs gets a reference to the given []int64 and assigns it to the ObjectIDs field.
+func (o *PostV2GetCardsListRequestSettingsFilter) SetObjectIDs(v []int64) {
 	o.ObjectIDs = v
 }
 

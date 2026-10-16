@@ -20,7 +20,7 @@ var _ MappedNullable = &PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInne
 // PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner struct for PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner
 type PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner struct {
 	// Код ошибки
-	Code *int32 `json:"code,omitempty"`
+	Code *int64 `json:"code,omitempty"`
 	// Дополнительная информация об ошибке:   - `Not Found` — ID размера товара не найден или указан ID размера немалогабаритного товара
 	Detail *string `json:"detail,omitempty"`
 }
@@ -43,9 +43,9 @@ func NewPatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInnerWithD
 }
 
 // GetCode returns the Code field value if set, zero value otherwise.
-func (o *PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner) GetCode() int32 {
+func (o *PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner) GetCode() int64 {
 	if o == nil || IsNil(o.Code) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Code
@@ -53,7 +53,7 @@ func (o *PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner) Ge
 
 // GetCodeOk returns a tuple with the Code field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner) GetCodeOk() (*int32, bool) {
+func (o *PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner) GetCodeOk() (*int64, bool) {
 	if o == nil || IsNil(o.Code) {
 		return nil, false
 	}
@@ -69,8 +69,8 @@ func (o *PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner) Ha
 	return false
 }
 
-// SetCode gets a reference to the given int32 and assigns it to the Code field.
-func (o *PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner) SetCode(v int32) {
+// SetCode gets a reference to the given int64 and assigns it to the Code field.
+func (o *PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner) SetCode(v int64) {
 	o.Code = &v
 }
 

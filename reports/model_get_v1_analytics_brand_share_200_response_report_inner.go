@@ -22,7 +22,7 @@ type GetV1AnalyticsBrandShare200ResponseReportInner struct {
 	// Дата
 	ApplyDate *string `json:"applyDate,omitempty"`
 	// Рейтинг бренда в родительской категории
-	BrandRating *int32 `json:"brandRating,omitempty"`
+	BrandRating *int64 `json:"brandRating,omitempty"`
 	// Доля от продаж в родительской категории — цена, %
 	PricePercent *float32 `json:"pricePercent,omitempty"`
 	// Доля от продаж в родительской категории — количество, %
@@ -79,9 +79,9 @@ func (o *GetV1AnalyticsBrandShare200ResponseReportInner) SetApplyDate(v string) 
 }
 
 // GetBrandRating returns the BrandRating field value if set, zero value otherwise.
-func (o *GetV1AnalyticsBrandShare200ResponseReportInner) GetBrandRating() int32 {
+func (o *GetV1AnalyticsBrandShare200ResponseReportInner) GetBrandRating() int64 {
 	if o == nil || IsNil(o.BrandRating) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.BrandRating
@@ -89,7 +89,7 @@ func (o *GetV1AnalyticsBrandShare200ResponseReportInner) GetBrandRating() int32 
 
 // GetBrandRatingOk returns a tuple with the BrandRating field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AnalyticsBrandShare200ResponseReportInner) GetBrandRatingOk() (*int32, bool) {
+func (o *GetV1AnalyticsBrandShare200ResponseReportInner) GetBrandRatingOk() (*int64, bool) {
 	if o == nil || IsNil(o.BrandRating) {
 		return nil, false
 	}
@@ -105,8 +105,8 @@ func (o *GetV1AnalyticsBrandShare200ResponseReportInner) HasBrandRating() bool {
 	return false
 }
 
-// SetBrandRating gets a reference to the given int32 and assigns it to the BrandRating field.
-func (o *GetV1AnalyticsBrandShare200ResponseReportInner) SetBrandRating(v int32) {
+// SetBrandRating gets a reference to the given int64 and assigns it to the BrandRating field.
+func (o *GetV1AnalyticsBrandShare200ResponseReportInner) SetBrandRating(v int64) {
 	o.BrandRating = &v
 }
 

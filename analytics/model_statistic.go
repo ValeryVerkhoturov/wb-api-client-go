@@ -21,32 +21,32 @@ var _ MappedNullable = &Statistic{}
 type Statistic struct {
 	Period *StatisticPeriod `json:"period,omitempty"`
 	// Количество переходов в карточку товара
-	OpenCount *int32 `json:"openCount,omitempty"`
+	OpenCount *int64 `json:"openCount,omitempty"`
 	// Положили в корзину, шт.
 	CartCount *int32 `json:"cartCount,omitempty"`
 	// Заказали товаров, шт.
-	OrderCount *int32 `json:"orderCount,omitempty"`
+	OrderCount *int64 `json:"orderCount,omitempty"`
 	// Заказали на сумму
-	OrderSum *int32 `json:"orderSum,omitempty"`
+	OrderSum *int64 `json:"orderSum,omitempty"`
 	// Выкупили товаров, шт.
-	BuyoutCount *int32 `json:"buyoutCount,omitempty"`
+	BuyoutCount *int64 `json:"buyoutCount,omitempty"`
 	// Выкупили на сумму
-	BuyoutSum *int32 `json:"buyoutSum,omitempty"`
+	BuyoutSum *int64 `json:"buyoutSum,omitempty"`
 	// Отменили и вернули товаров, шт.
-	CancelCount *int32 `json:"cancelCount,omitempty"`
+	CancelCount *int64 `json:"cancelCount,omitempty"`
 	// Отменили и вернули на сумму
-	CancelSum *int32 `json:"cancelSum,omitempty"`
+	CancelSum *int64 `json:"cancelSum,omitempty"`
 	// Средняя цена
-	AvgPrice *int32 `json:"avgPrice,omitempty"`
+	AvgPrice *int64 `json:"avgPrice,omitempty"`
 	// Среднее количество заказов в день, шт.
 	AvgOrdersCountPerDay *float32 `json:"avgOrdersCountPerDay,omitempty"`
 	// Доля в выручке
 	ShareOrderPercent *float32 `json:"shareOrderPercent,omitempty"`
 	// Добавили в **Отложенные**
-	AddToWishlist *int32                `json:"addToWishlist,omitempty"`
+	AddToWishlist *int64                `json:"addToWishlist,omitempty"`
 	TimeToReady   *StatisticTimeToReady `json:"timeToReady,omitempty"`
 	// Локальные заказы в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `100`
-	LocalizationPercent *int32                `json:"localizationPercent,omitempty"`
+	LocalizationPercent *int64                `json:"localizationPercent,omitempty"`
 	WbClub              *StatisticWbClub      `json:"wbClub,omitempty"`
 	Conversions         *StatisticConversions `json:"conversions,omitempty"`
 }
@@ -101,9 +101,9 @@ func (o *Statistic) SetPeriod(v StatisticPeriod) {
 }
 
 // GetOpenCount returns the OpenCount field value if set, zero value otherwise.
-func (o *Statistic) GetOpenCount() int32 {
+func (o *Statistic) GetOpenCount() int64 {
 	if o == nil || IsNil(o.OpenCount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OpenCount
@@ -111,7 +111,7 @@ func (o *Statistic) GetOpenCount() int32 {
 
 // GetOpenCountOk returns a tuple with the OpenCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Statistic) GetOpenCountOk() (*int32, bool) {
+func (o *Statistic) GetOpenCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.OpenCount) {
 		return nil, false
 	}
@@ -127,8 +127,8 @@ func (o *Statistic) HasOpenCount() bool {
 	return false
 }
 
-// SetOpenCount gets a reference to the given int32 and assigns it to the OpenCount field.
-func (o *Statistic) SetOpenCount(v int32) {
+// SetOpenCount gets a reference to the given int64 and assigns it to the OpenCount field.
+func (o *Statistic) SetOpenCount(v int64) {
 	o.OpenCount = &v
 }
 
@@ -165,9 +165,9 @@ func (o *Statistic) SetCartCount(v int32) {
 }
 
 // GetOrderCount returns the OrderCount field value if set, zero value otherwise.
-func (o *Statistic) GetOrderCount() int32 {
+func (o *Statistic) GetOrderCount() int64 {
 	if o == nil || IsNil(o.OrderCount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OrderCount
@@ -175,7 +175,7 @@ func (o *Statistic) GetOrderCount() int32 {
 
 // GetOrderCountOk returns a tuple with the OrderCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Statistic) GetOrderCountOk() (*int32, bool) {
+func (o *Statistic) GetOrderCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.OrderCount) {
 		return nil, false
 	}
@@ -191,15 +191,15 @@ func (o *Statistic) HasOrderCount() bool {
 	return false
 }
 
-// SetOrderCount gets a reference to the given int32 and assigns it to the OrderCount field.
-func (o *Statistic) SetOrderCount(v int32) {
+// SetOrderCount gets a reference to the given int64 and assigns it to the OrderCount field.
+func (o *Statistic) SetOrderCount(v int64) {
 	o.OrderCount = &v
 }
 
 // GetOrderSum returns the OrderSum field value if set, zero value otherwise.
-func (o *Statistic) GetOrderSum() int32 {
+func (o *Statistic) GetOrderSum() int64 {
 	if o == nil || IsNil(o.OrderSum) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OrderSum
@@ -207,7 +207,7 @@ func (o *Statistic) GetOrderSum() int32 {
 
 // GetOrderSumOk returns a tuple with the OrderSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Statistic) GetOrderSumOk() (*int32, bool) {
+func (o *Statistic) GetOrderSumOk() (*int64, bool) {
 	if o == nil || IsNil(o.OrderSum) {
 		return nil, false
 	}
@@ -223,15 +223,15 @@ func (o *Statistic) HasOrderSum() bool {
 	return false
 }
 
-// SetOrderSum gets a reference to the given int32 and assigns it to the OrderSum field.
-func (o *Statistic) SetOrderSum(v int32) {
+// SetOrderSum gets a reference to the given int64 and assigns it to the OrderSum field.
+func (o *Statistic) SetOrderSum(v int64) {
 	o.OrderSum = &v
 }
 
 // GetBuyoutCount returns the BuyoutCount field value if set, zero value otherwise.
-func (o *Statistic) GetBuyoutCount() int32 {
+func (o *Statistic) GetBuyoutCount() int64 {
 	if o == nil || IsNil(o.BuyoutCount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.BuyoutCount
@@ -239,7 +239,7 @@ func (o *Statistic) GetBuyoutCount() int32 {
 
 // GetBuyoutCountOk returns a tuple with the BuyoutCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Statistic) GetBuyoutCountOk() (*int32, bool) {
+func (o *Statistic) GetBuyoutCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.BuyoutCount) {
 		return nil, false
 	}
@@ -255,15 +255,15 @@ func (o *Statistic) HasBuyoutCount() bool {
 	return false
 }
 
-// SetBuyoutCount gets a reference to the given int32 and assigns it to the BuyoutCount field.
-func (o *Statistic) SetBuyoutCount(v int32) {
+// SetBuyoutCount gets a reference to the given int64 and assigns it to the BuyoutCount field.
+func (o *Statistic) SetBuyoutCount(v int64) {
 	o.BuyoutCount = &v
 }
 
 // GetBuyoutSum returns the BuyoutSum field value if set, zero value otherwise.
-func (o *Statistic) GetBuyoutSum() int32 {
+func (o *Statistic) GetBuyoutSum() int64 {
 	if o == nil || IsNil(o.BuyoutSum) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.BuyoutSum
@@ -271,7 +271,7 @@ func (o *Statistic) GetBuyoutSum() int32 {
 
 // GetBuyoutSumOk returns a tuple with the BuyoutSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Statistic) GetBuyoutSumOk() (*int32, bool) {
+func (o *Statistic) GetBuyoutSumOk() (*int64, bool) {
 	if o == nil || IsNil(o.BuyoutSum) {
 		return nil, false
 	}
@@ -287,15 +287,15 @@ func (o *Statistic) HasBuyoutSum() bool {
 	return false
 }
 
-// SetBuyoutSum gets a reference to the given int32 and assigns it to the BuyoutSum field.
-func (o *Statistic) SetBuyoutSum(v int32) {
+// SetBuyoutSum gets a reference to the given int64 and assigns it to the BuyoutSum field.
+func (o *Statistic) SetBuyoutSum(v int64) {
 	o.BuyoutSum = &v
 }
 
 // GetCancelCount returns the CancelCount field value if set, zero value otherwise.
-func (o *Statistic) GetCancelCount() int32 {
+func (o *Statistic) GetCancelCount() int64 {
 	if o == nil || IsNil(o.CancelCount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CancelCount
@@ -303,7 +303,7 @@ func (o *Statistic) GetCancelCount() int32 {
 
 // GetCancelCountOk returns a tuple with the CancelCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Statistic) GetCancelCountOk() (*int32, bool) {
+func (o *Statistic) GetCancelCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.CancelCount) {
 		return nil, false
 	}
@@ -319,15 +319,15 @@ func (o *Statistic) HasCancelCount() bool {
 	return false
 }
 
-// SetCancelCount gets a reference to the given int32 and assigns it to the CancelCount field.
-func (o *Statistic) SetCancelCount(v int32) {
+// SetCancelCount gets a reference to the given int64 and assigns it to the CancelCount field.
+func (o *Statistic) SetCancelCount(v int64) {
 	o.CancelCount = &v
 }
 
 // GetCancelSum returns the CancelSum field value if set, zero value otherwise.
-func (o *Statistic) GetCancelSum() int32 {
+func (o *Statistic) GetCancelSum() int64 {
 	if o == nil || IsNil(o.CancelSum) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CancelSum
@@ -335,7 +335,7 @@ func (o *Statistic) GetCancelSum() int32 {
 
 // GetCancelSumOk returns a tuple with the CancelSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Statistic) GetCancelSumOk() (*int32, bool) {
+func (o *Statistic) GetCancelSumOk() (*int64, bool) {
 	if o == nil || IsNil(o.CancelSum) {
 		return nil, false
 	}
@@ -351,15 +351,15 @@ func (o *Statistic) HasCancelSum() bool {
 	return false
 }
 
-// SetCancelSum gets a reference to the given int32 and assigns it to the CancelSum field.
-func (o *Statistic) SetCancelSum(v int32) {
+// SetCancelSum gets a reference to the given int64 and assigns it to the CancelSum field.
+func (o *Statistic) SetCancelSum(v int64) {
 	o.CancelSum = &v
 }
 
 // GetAvgPrice returns the AvgPrice field value if set, zero value otherwise.
-func (o *Statistic) GetAvgPrice() int32 {
+func (o *Statistic) GetAvgPrice() int64 {
 	if o == nil || IsNil(o.AvgPrice) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.AvgPrice
@@ -367,7 +367,7 @@ func (o *Statistic) GetAvgPrice() int32 {
 
 // GetAvgPriceOk returns a tuple with the AvgPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Statistic) GetAvgPriceOk() (*int32, bool) {
+func (o *Statistic) GetAvgPriceOk() (*int64, bool) {
 	if o == nil || IsNil(o.AvgPrice) {
 		return nil, false
 	}
@@ -383,8 +383,8 @@ func (o *Statistic) HasAvgPrice() bool {
 	return false
 }
 
-// SetAvgPrice gets a reference to the given int32 and assigns it to the AvgPrice field.
-func (o *Statistic) SetAvgPrice(v int32) {
+// SetAvgPrice gets a reference to the given int64 and assigns it to the AvgPrice field.
+func (o *Statistic) SetAvgPrice(v int64) {
 	o.AvgPrice = &v
 }
 
@@ -453,9 +453,9 @@ func (o *Statistic) SetShareOrderPercent(v float32) {
 }
 
 // GetAddToWishlist returns the AddToWishlist field value if set, zero value otherwise.
-func (o *Statistic) GetAddToWishlist() int32 {
+func (o *Statistic) GetAddToWishlist() int64 {
 	if o == nil || IsNil(o.AddToWishlist) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.AddToWishlist
@@ -463,7 +463,7 @@ func (o *Statistic) GetAddToWishlist() int32 {
 
 // GetAddToWishlistOk returns a tuple with the AddToWishlist field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Statistic) GetAddToWishlistOk() (*int32, bool) {
+func (o *Statistic) GetAddToWishlistOk() (*int64, bool) {
 	if o == nil || IsNil(o.AddToWishlist) {
 		return nil, false
 	}
@@ -479,8 +479,8 @@ func (o *Statistic) HasAddToWishlist() bool {
 	return false
 }
 
-// SetAddToWishlist gets a reference to the given int32 and assigns it to the AddToWishlist field.
-func (o *Statistic) SetAddToWishlist(v int32) {
+// SetAddToWishlist gets a reference to the given int64 and assigns it to the AddToWishlist field.
+func (o *Statistic) SetAddToWishlist(v int64) {
 	o.AddToWishlist = &v
 }
 
@@ -517,9 +517,9 @@ func (o *Statistic) SetTimeToReady(v StatisticTimeToReady) {
 }
 
 // GetLocalizationPercent returns the LocalizationPercent field value if set, zero value otherwise.
-func (o *Statistic) GetLocalizationPercent() int32 {
+func (o *Statistic) GetLocalizationPercent() int64 {
 	if o == nil || IsNil(o.LocalizationPercent) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.LocalizationPercent
@@ -527,7 +527,7 @@ func (o *Statistic) GetLocalizationPercent() int32 {
 
 // GetLocalizationPercentOk returns a tuple with the LocalizationPercent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Statistic) GetLocalizationPercentOk() (*int32, bool) {
+func (o *Statistic) GetLocalizationPercentOk() (*int64, bool) {
 	if o == nil || IsNil(o.LocalizationPercent) {
 		return nil, false
 	}
@@ -543,8 +543,8 @@ func (o *Statistic) HasLocalizationPercent() bool {
 	return false
 }
 
-// SetLocalizationPercent gets a reference to the given int32 and assigns it to the LocalizationPercent field.
-func (o *Statistic) SetLocalizationPercent(v int32) {
+// SetLocalizationPercent gets a reference to the given int64 and assigns it to the LocalizationPercent field.
+func (o *Statistic) SetLocalizationPercent(v int64) {
 	o.LocalizationPercent = &v
 }
 

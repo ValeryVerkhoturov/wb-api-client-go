@@ -24,13 +24,13 @@ type ModelsAcceptanceCoefficient struct {
 	// Коэффициент приёмки:   - `-1` — приёмка недоступна, вне зависимости от значения поля `allowUnload`   - `0` — бесплатная приёмка   - от `1` — множитель стоимости приёмки
 	Coefficient *float32 `json:"coefficient,omitempty"`
 	// ID склада. По нему можно получить [информацию о складе](./orders-fbw#tag/informationForFormingSupplies/operation/getV1Warehouses)
-	WarehouseID *int32 `json:"warehouseID,omitempty"`
+	WarehouseID *int64 `json:"warehouseID,omitempty"`
 	// Название склада
 	WarehouseName *string `json:"warehouseName,omitempty"`
 	// Доступность приёмки для поставок данного типа, смотри значение поля `boxTypeID`:   - `true` — приёмка доступна  - `false` — приёмка не доступна
 	AllowUnload *bool `json:"allowUnload,omitempty"`
 	// ID типа поставки: - `2` — Короба - `5` — Монопаллеты - `6` — Суперсейф  Для типа поставки \\*\\*QR-поставка с коробами\\*\\* поле не возвращается
-	BoxTypeID *int32 `json:"boxTypeID,omitempty"`
+	BoxTypeID *int64 `json:"boxTypeID,omitempty"`
 	// Коэффициент хранения
 	StorageCoef NullableString `json:"storageCoef,omitempty"`
 	// Коэффициент логистики
@@ -129,9 +129,9 @@ func (o *ModelsAcceptanceCoefficient) SetCoefficient(v float32) {
 }
 
 // GetWarehouseID returns the WarehouseID field value if set, zero value otherwise.
-func (o *ModelsAcceptanceCoefficient) GetWarehouseID() int32 {
+func (o *ModelsAcceptanceCoefficient) GetWarehouseID() int64 {
 	if o == nil || IsNil(o.WarehouseID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.WarehouseID
@@ -139,7 +139,7 @@ func (o *ModelsAcceptanceCoefficient) GetWarehouseID() int32 {
 
 // GetWarehouseIDOk returns a tuple with the WarehouseID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsAcceptanceCoefficient) GetWarehouseIDOk() (*int32, bool) {
+func (o *ModelsAcceptanceCoefficient) GetWarehouseIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.WarehouseID) {
 		return nil, false
 	}
@@ -155,8 +155,8 @@ func (o *ModelsAcceptanceCoefficient) HasWarehouseID() bool {
 	return false
 }
 
-// SetWarehouseID gets a reference to the given int32 and assigns it to the WarehouseID field.
-func (o *ModelsAcceptanceCoefficient) SetWarehouseID(v int32) {
+// SetWarehouseID gets a reference to the given int64 and assigns it to the WarehouseID field.
+func (o *ModelsAcceptanceCoefficient) SetWarehouseID(v int64) {
 	o.WarehouseID = &v
 }
 
@@ -225,9 +225,9 @@ func (o *ModelsAcceptanceCoefficient) SetAllowUnload(v bool) {
 }
 
 // GetBoxTypeID returns the BoxTypeID field value if set, zero value otherwise.
-func (o *ModelsAcceptanceCoefficient) GetBoxTypeID() int32 {
+func (o *ModelsAcceptanceCoefficient) GetBoxTypeID() int64 {
 	if o == nil || IsNil(o.BoxTypeID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.BoxTypeID
@@ -235,7 +235,7 @@ func (o *ModelsAcceptanceCoefficient) GetBoxTypeID() int32 {
 
 // GetBoxTypeIDOk returns a tuple with the BoxTypeID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsAcceptanceCoefficient) GetBoxTypeIDOk() (*int32, bool) {
+func (o *ModelsAcceptanceCoefficient) GetBoxTypeIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.BoxTypeID) {
 		return nil, false
 	}
@@ -251,8 +251,8 @@ func (o *ModelsAcceptanceCoefficient) HasBoxTypeID() bool {
 	return false
 }
 
-// SetBoxTypeID gets a reference to the given int32 and assigns it to the BoxTypeID field.
-func (o *ModelsAcceptanceCoefficient) SetBoxTypeID(v int32) {
+// SetBoxTypeID gets a reference to the given int64 and assigns it to the BoxTypeID field.
+func (o *ModelsAcceptanceCoefficient) SetBoxTypeID(v int64) {
 	o.BoxTypeID = &v
 }
 

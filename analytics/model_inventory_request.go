@@ -22,11 +22,11 @@ type InventoryRequest struct {
 	// Артикулы WB
 	NmIds []int64 `json:"nmIds,omitempty"`
 	// ID размеров. Используется только для указанных в массиве `nmIds` артикулов
-	ChrtIds []int32 `json:"chrtIds,omitempty"`
+	ChrtIds []int64 `json:"chrtIds,omitempty"`
 	// Количество строк в ответе
-	Limit *int32 `json:"limit,omitempty"`
+	Limit *int64 `json:"limit,omitempty"`
 	// Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента
-	Offset *int32 `json:"offset,omitempty"`
+	Offset *int64 `json:"offset,omitempty"`
 }
 
 // NewInventoryRequest instantiates a new InventoryRequest object
@@ -35,9 +35,9 @@ type InventoryRequest struct {
 // will change when the set of required properties is changed
 func NewInventoryRequest() *InventoryRequest {
 	this := InventoryRequest{}
-	var limit int32 = 250000
+	var limit int64 = 250000
 	this.Limit = &limit
-	var offset int32 = 0
+	var offset int64 = 0
 	this.Offset = &offset
 	return &this
 }
@@ -47,9 +47,9 @@ func NewInventoryRequest() *InventoryRequest {
 // but it doesn't guarantee that properties required by API are set
 func NewInventoryRequestWithDefaults() *InventoryRequest {
 	this := InventoryRequest{}
-	var limit int32 = 250000
+	var limit int64 = 250000
 	this.Limit = &limit
-	var offset int32 = 0
+	var offset int64 = 0
 	this.Offset = &offset
 	return &this
 }
@@ -87,9 +87,9 @@ func (o *InventoryRequest) SetNmIds(v []int64) {
 }
 
 // GetChrtIds returns the ChrtIds field value if set, zero value otherwise.
-func (o *InventoryRequest) GetChrtIds() []int32 {
+func (o *InventoryRequest) GetChrtIds() []int64 {
 	if o == nil || IsNil(o.ChrtIds) {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.ChrtIds
@@ -97,7 +97,7 @@ func (o *InventoryRequest) GetChrtIds() []int32 {
 
 // GetChrtIdsOk returns a tuple with the ChrtIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InventoryRequest) GetChrtIdsOk() ([]int32, bool) {
+func (o *InventoryRequest) GetChrtIdsOk() ([]int64, bool) {
 	if o == nil || IsNil(o.ChrtIds) {
 		return nil, false
 	}
@@ -113,15 +113,15 @@ func (o *InventoryRequest) HasChrtIds() bool {
 	return false
 }
 
-// SetChrtIds gets a reference to the given []int32 and assigns it to the ChrtIds field.
-func (o *InventoryRequest) SetChrtIds(v []int32) {
+// SetChrtIds gets a reference to the given []int64 and assigns it to the ChrtIds field.
+func (o *InventoryRequest) SetChrtIds(v []int64) {
 	o.ChrtIds = v
 }
 
 // GetLimit returns the Limit field value if set, zero value otherwise.
-func (o *InventoryRequest) GetLimit() int32 {
+func (o *InventoryRequest) GetLimit() int64 {
 	if o == nil || IsNil(o.Limit) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Limit
@@ -129,7 +129,7 @@ func (o *InventoryRequest) GetLimit() int32 {
 
 // GetLimitOk returns a tuple with the Limit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InventoryRequest) GetLimitOk() (*int32, bool) {
+func (o *InventoryRequest) GetLimitOk() (*int64, bool) {
 	if o == nil || IsNil(o.Limit) {
 		return nil, false
 	}
@@ -145,15 +145,15 @@ func (o *InventoryRequest) HasLimit() bool {
 	return false
 }
 
-// SetLimit gets a reference to the given int32 and assigns it to the Limit field.
-func (o *InventoryRequest) SetLimit(v int32) {
+// SetLimit gets a reference to the given int64 and assigns it to the Limit field.
+func (o *InventoryRequest) SetLimit(v int64) {
 	o.Limit = &v
 }
 
 // GetOffset returns the Offset field value if set, zero value otherwise.
-func (o *InventoryRequest) GetOffset() int32 {
+func (o *InventoryRequest) GetOffset() int64 {
 	if o == nil || IsNil(o.Offset) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Offset
@@ -161,7 +161,7 @@ func (o *InventoryRequest) GetOffset() int32 {
 
 // GetOffsetOk returns a tuple with the Offset field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InventoryRequest) GetOffsetOk() (*int32, bool) {
+func (o *InventoryRequest) GetOffsetOk() (*int64, bool) {
 	if o == nil || IsNil(o.Offset) {
 		return nil, false
 	}
@@ -177,8 +177,8 @@ func (o *InventoryRequest) HasOffset() bool {
 	return false
 }
 
-// SetOffset gets a reference to the given int32 and assigns it to the Offset field.
-func (o *InventoryRequest) SetOffset(v int32) {
+// SetOffset gets a reference to the given int64 and assigns it to the Offset field.
+func (o *InventoryRequest) SetOffset(v int64) {
 	o.Offset = &v
 }
 

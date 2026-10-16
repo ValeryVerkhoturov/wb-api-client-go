@@ -20,7 +20,7 @@ var _ MappedNullable = &PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInne
 // PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner struct for PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
 type PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner struct {
 	// ID размера товара в системе WB
-	ChrtId *int32 `json:"chrtId,omitempty"`
+	ChrtId *int64 `json:"chrtId,omitempty"`
 	// Детали ошибки
 	Error []PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner `json:"error,omitempty"`
 	// - `true` — настройки автовозврата товара обновлены
@@ -45,9 +45,9 @@ func NewPatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerWithDefaults() 
 }
 
 // GetChrtId returns the ChrtId field value if set, zero value otherwise.
-func (o *PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) GetChrtId() int32 {
+func (o *PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) GetChrtId() int64 {
 	if o == nil || IsNil(o.ChrtId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ChrtId
@@ -55,7 +55,7 @@ func (o *PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) GetChrtId() 
 
 // GetChrtIdOk returns a tuple with the ChrtId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) GetChrtIdOk() (*int32, bool) {
+func (o *PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) GetChrtIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.ChrtId) {
 		return nil, false
 	}
@@ -71,8 +71,8 @@ func (o *PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) HasChrtId() 
 	return false
 }
 
-// SetChrtId gets a reference to the given int32 and assigns it to the ChrtId field.
-func (o *PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) SetChrtId(v int32) {
+// SetChrtId gets a reference to the given int64 and assigns it to the ChrtId field.
+func (o *PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) SetChrtId(v int64) {
 	o.ChrtId = &v
 }
 

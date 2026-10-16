@@ -20,11 +20,11 @@ var _ MappedNullable = &FeedbacksIncreaseItemFiveStar{}
 // FeedbacksIncreaseItemFiveStar Отзывы 5 звёзд
 type FeedbacksIncreaseItemFiveStar struct {
 	// Прирост оценок за период
-	Current *int32 `json:"current,omitempty"`
+	Current *int64 `json:"current,omitempty"`
 	// Динамика по сравнению с предыдущим периодом, %
-	Dynamics *int32 `json:"dynamics,omitempty"`
+	Dynamics *int64 `json:"dynamics,omitempty"`
 	// Всего оценок
-	Total *int32 `json:"total,omitempty"`
+	Total *int64 `json:"total,omitempty"`
 }
 
 // NewFeedbacksIncreaseItemFiveStar instantiates a new FeedbacksIncreaseItemFiveStar object
@@ -45,9 +45,9 @@ func NewFeedbacksIncreaseItemFiveStarWithDefaults() *FeedbacksIncreaseItemFiveSt
 }
 
 // GetCurrent returns the Current field value if set, zero value otherwise.
-func (o *FeedbacksIncreaseItemFiveStar) GetCurrent() int32 {
+func (o *FeedbacksIncreaseItemFiveStar) GetCurrent() int64 {
 	if o == nil || IsNil(o.Current) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Current
@@ -55,7 +55,7 @@ func (o *FeedbacksIncreaseItemFiveStar) GetCurrent() int32 {
 
 // GetCurrentOk returns a tuple with the Current field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FeedbacksIncreaseItemFiveStar) GetCurrentOk() (*int32, bool) {
+func (o *FeedbacksIncreaseItemFiveStar) GetCurrentOk() (*int64, bool) {
 	if o == nil || IsNil(o.Current) {
 		return nil, false
 	}
@@ -71,15 +71,15 @@ func (o *FeedbacksIncreaseItemFiveStar) HasCurrent() bool {
 	return false
 }
 
-// SetCurrent gets a reference to the given int32 and assigns it to the Current field.
-func (o *FeedbacksIncreaseItemFiveStar) SetCurrent(v int32) {
+// SetCurrent gets a reference to the given int64 and assigns it to the Current field.
+func (o *FeedbacksIncreaseItemFiveStar) SetCurrent(v int64) {
 	o.Current = &v
 }
 
 // GetDynamics returns the Dynamics field value if set, zero value otherwise.
-func (o *FeedbacksIncreaseItemFiveStar) GetDynamics() int32 {
+func (o *FeedbacksIncreaseItemFiveStar) GetDynamics() int64 {
 	if o == nil || IsNil(o.Dynamics) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Dynamics
@@ -87,7 +87,7 @@ func (o *FeedbacksIncreaseItemFiveStar) GetDynamics() int32 {
 
 // GetDynamicsOk returns a tuple with the Dynamics field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FeedbacksIncreaseItemFiveStar) GetDynamicsOk() (*int32, bool) {
+func (o *FeedbacksIncreaseItemFiveStar) GetDynamicsOk() (*int64, bool) {
 	if o == nil || IsNil(o.Dynamics) {
 		return nil, false
 	}
@@ -103,15 +103,15 @@ func (o *FeedbacksIncreaseItemFiveStar) HasDynamics() bool {
 	return false
 }
 
-// SetDynamics gets a reference to the given int32 and assigns it to the Dynamics field.
-func (o *FeedbacksIncreaseItemFiveStar) SetDynamics(v int32) {
+// SetDynamics gets a reference to the given int64 and assigns it to the Dynamics field.
+func (o *FeedbacksIncreaseItemFiveStar) SetDynamics(v int64) {
 	o.Dynamics = &v
 }
 
 // GetTotal returns the Total field value if set, zero value otherwise.
-func (o *FeedbacksIncreaseItemFiveStar) GetTotal() int32 {
+func (o *FeedbacksIncreaseItemFiveStar) GetTotal() int64 {
 	if o == nil || IsNil(o.Total) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Total
@@ -119,7 +119,7 @@ func (o *FeedbacksIncreaseItemFiveStar) GetTotal() int32 {
 
 // GetTotalOk returns a tuple with the Total field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FeedbacksIncreaseItemFiveStar) GetTotalOk() (*int32, bool) {
+func (o *FeedbacksIncreaseItemFiveStar) GetTotalOk() (*int64, bool) {
 	if o == nil || IsNil(o.Total) {
 		return nil, false
 	}
@@ -135,8 +135,8 @@ func (o *FeedbacksIncreaseItemFiveStar) HasTotal() bool {
 	return false
 }
 
-// SetTotal gets a reference to the given int32 and assigns it to the Total field.
-func (o *FeedbacksIncreaseItemFiveStar) SetTotal(v int32) {
+// SetTotal gets a reference to the given int64 and assigns it to the Total field.
+func (o *FeedbacksIncreaseItemFiveStar) SetTotal(v int64) {
 	o.Total = &v
 }
 

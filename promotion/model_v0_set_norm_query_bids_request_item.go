@@ -22,13 +22,13 @@ var _ MappedNullable = &V0SetNormQueryBidsRequestItem{}
 // V0SetNormQueryBidsRequestItem struct for V0SetNormQueryBidsRequestItem
 type V0SetNormQueryBidsRequestItem struct {
 	// ID кампании
-	AdvertId int32 `json:"advert_id"`
+	AdvertId int64 `json:"advert_id"`
 	// Артикул WB
-	NmId int32 `json:"nm_id"`
+	NmId int64 `json:"nm_id"`
 	// Поисковый кластер
 	NormQuery string `json:"norm_query"`
 	// Ставка за тысячу показов в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
-	Bid int32 `json:"bid"`
+	Bid int64 `json:"bid"`
 }
 
 type _V0SetNormQueryBidsRequestItem V0SetNormQueryBidsRequestItem
@@ -37,7 +37,7 @@ type _V0SetNormQueryBidsRequestItem V0SetNormQueryBidsRequestItem
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV0SetNormQueryBidsRequestItem(advertId int32, nmId int32, normQuery string, bid int32) *V0SetNormQueryBidsRequestItem {
+func NewV0SetNormQueryBidsRequestItem(advertId int64, nmId int64, normQuery string, bid int64) *V0SetNormQueryBidsRequestItem {
 	this := V0SetNormQueryBidsRequestItem{}
 	this.AdvertId = advertId
 	this.NmId = nmId
@@ -55,9 +55,9 @@ func NewV0SetNormQueryBidsRequestItemWithDefaults() *V0SetNormQueryBidsRequestIt
 }
 
 // GetAdvertId returns the AdvertId field value
-func (o *V0SetNormQueryBidsRequestItem) GetAdvertId() int32 {
+func (o *V0SetNormQueryBidsRequestItem) GetAdvertId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -66,7 +66,7 @@ func (o *V0SetNormQueryBidsRequestItem) GetAdvertId() int32 {
 
 // GetAdvertIdOk returns a tuple with the AdvertId field value
 // and a boolean to check if the value has been set.
-func (o *V0SetNormQueryBidsRequestItem) GetAdvertIdOk() (*int32, bool) {
+func (o *V0SetNormQueryBidsRequestItem) GetAdvertIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -74,14 +74,14 @@ func (o *V0SetNormQueryBidsRequestItem) GetAdvertIdOk() (*int32, bool) {
 }
 
 // SetAdvertId sets field value
-func (o *V0SetNormQueryBidsRequestItem) SetAdvertId(v int32) {
+func (o *V0SetNormQueryBidsRequestItem) SetAdvertId(v int64) {
 	o.AdvertId = v
 }
 
 // GetNmId returns the NmId field value
-func (o *V0SetNormQueryBidsRequestItem) GetNmId() int32 {
+func (o *V0SetNormQueryBidsRequestItem) GetNmId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -90,7 +90,7 @@ func (o *V0SetNormQueryBidsRequestItem) GetNmId() int32 {
 
 // GetNmIdOk returns a tuple with the NmId field value
 // and a boolean to check if the value has been set.
-func (o *V0SetNormQueryBidsRequestItem) GetNmIdOk() (*int32, bool) {
+func (o *V0SetNormQueryBidsRequestItem) GetNmIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -98,7 +98,7 @@ func (o *V0SetNormQueryBidsRequestItem) GetNmIdOk() (*int32, bool) {
 }
 
 // SetNmId sets field value
-func (o *V0SetNormQueryBidsRequestItem) SetNmId(v int32) {
+func (o *V0SetNormQueryBidsRequestItem) SetNmId(v int64) {
 	o.NmId = v
 }
 
@@ -127,9 +127,9 @@ func (o *V0SetNormQueryBidsRequestItem) SetNormQuery(v string) {
 }
 
 // GetBid returns the Bid field value
-func (o *V0SetNormQueryBidsRequestItem) GetBid() int32 {
+func (o *V0SetNormQueryBidsRequestItem) GetBid() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -138,7 +138,7 @@ func (o *V0SetNormQueryBidsRequestItem) GetBid() int32 {
 
 // GetBidOk returns a tuple with the Bid field value
 // and a boolean to check if the value has been set.
-func (o *V0SetNormQueryBidsRequestItem) GetBidOk() (*int32, bool) {
+func (o *V0SetNormQueryBidsRequestItem) GetBidOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -146,7 +146,7 @@ func (o *V0SetNormQueryBidsRequestItem) GetBidOk() (*int32, bool) {
 }
 
 // SetBid sets field value
-func (o *V0SetNormQueryBidsRequestItem) SetBid(v int32) {
+func (o *V0SetNormQueryBidsRequestItem) SetBid(v int64) {
 	o.Bid = v
 }
 

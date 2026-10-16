@@ -26,7 +26,7 @@ type GetV2NewsResponse200DataInner struct {
 	// Заголовок новости
 	Header *string `json:"header,omitempty"`
 	// ID новости
-	Id *int32 `json:"id,omitempty"`
+	Id *int64 `json:"id,omitempty"`
 	// Теги новости
 	Types []GetV2NewsResponse200DataInnerTypesInner `json:"types,omitempty"`
 }
@@ -145,9 +145,9 @@ func (o *GetV2NewsResponse200DataInner) SetHeader(v string) {
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *GetV2NewsResponse200DataInner) GetId() int32 {
+func (o *GetV2NewsResponse200DataInner) GetId() int64 {
 	if o == nil || IsNil(o.Id) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Id
@@ -155,7 +155,7 @@ func (o *GetV2NewsResponse200DataInner) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV2NewsResponse200DataInner) GetIdOk() (*int32, bool) {
+func (o *GetV2NewsResponse200DataInner) GetIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -171,8 +171,8 @@ func (o *GetV2NewsResponse200DataInner) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *GetV2NewsResponse200DataInner) SetId(v int32) {
+// SetId gets a reference to the given int64 and assigns it to the Id field.
+func (o *GetV2NewsResponse200DataInner) SetId(v int64) {
 	o.Id = &v
 }
 

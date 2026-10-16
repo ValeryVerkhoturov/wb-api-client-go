@@ -23,11 +23,11 @@ type V3TransferOrderToAssembly struct {
 	// Успешна ли обработка запроса. Может быть только `true`
 	Success *bool `json:"success,omitempty"`
 	// Новый ID стикера
-	NewStickerId *int32 `json:"newStickerId,omitempty"`
+	NewStickerId *int64 `json:"newStickerId,omitempty"`
 	// Старый ID стикера
-	OldStickerId *int32 `json:"oldStickerId,omitempty"`
+	OldStickerId *int64 `json:"oldStickerId,omitempty"`
 	// ID сборочного задания
-	OrderId *int32 `json:"orderId,omitempty"`
+	OrderId *int64 `json:"orderId,omitempty"`
 }
 
 // NewV3TransferOrderToAssembly instantiates a new V3TransferOrderToAssembly object
@@ -112,9 +112,9 @@ func (o *V3TransferOrderToAssembly) SetSuccess(v bool) {
 }
 
 // GetNewStickerId returns the NewStickerId field value if set, zero value otherwise.
-func (o *V3TransferOrderToAssembly) GetNewStickerId() int32 {
+func (o *V3TransferOrderToAssembly) GetNewStickerId() int64 {
 	if o == nil || IsNil(o.NewStickerId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NewStickerId
@@ -122,7 +122,7 @@ func (o *V3TransferOrderToAssembly) GetNewStickerId() int32 {
 
 // GetNewStickerIdOk returns a tuple with the NewStickerId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V3TransferOrderToAssembly) GetNewStickerIdOk() (*int32, bool) {
+func (o *V3TransferOrderToAssembly) GetNewStickerIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.NewStickerId) {
 		return nil, false
 	}
@@ -138,15 +138,15 @@ func (o *V3TransferOrderToAssembly) HasNewStickerId() bool {
 	return false
 }
 
-// SetNewStickerId gets a reference to the given int32 and assigns it to the NewStickerId field.
-func (o *V3TransferOrderToAssembly) SetNewStickerId(v int32) {
+// SetNewStickerId gets a reference to the given int64 and assigns it to the NewStickerId field.
+func (o *V3TransferOrderToAssembly) SetNewStickerId(v int64) {
 	o.NewStickerId = &v
 }
 
 // GetOldStickerId returns the OldStickerId field value if set, zero value otherwise.
-func (o *V3TransferOrderToAssembly) GetOldStickerId() int32 {
+func (o *V3TransferOrderToAssembly) GetOldStickerId() int64 {
 	if o == nil || IsNil(o.OldStickerId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OldStickerId
@@ -154,7 +154,7 @@ func (o *V3TransferOrderToAssembly) GetOldStickerId() int32 {
 
 // GetOldStickerIdOk returns a tuple with the OldStickerId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V3TransferOrderToAssembly) GetOldStickerIdOk() (*int32, bool) {
+func (o *V3TransferOrderToAssembly) GetOldStickerIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.OldStickerId) {
 		return nil, false
 	}
@@ -170,15 +170,15 @@ func (o *V3TransferOrderToAssembly) HasOldStickerId() bool {
 	return false
 }
 
-// SetOldStickerId gets a reference to the given int32 and assigns it to the OldStickerId field.
-func (o *V3TransferOrderToAssembly) SetOldStickerId(v int32) {
+// SetOldStickerId gets a reference to the given int64 and assigns it to the OldStickerId field.
+func (o *V3TransferOrderToAssembly) SetOldStickerId(v int64) {
 	o.OldStickerId = &v
 }
 
 // GetOrderId returns the OrderId field value if set, zero value otherwise.
-func (o *V3TransferOrderToAssembly) GetOrderId() int32 {
+func (o *V3TransferOrderToAssembly) GetOrderId() int64 {
 	if o == nil || IsNil(o.OrderId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OrderId
@@ -186,7 +186,7 @@ func (o *V3TransferOrderToAssembly) GetOrderId() int32 {
 
 // GetOrderIdOk returns a tuple with the OrderId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V3TransferOrderToAssembly) GetOrderIdOk() (*int32, bool) {
+func (o *V3TransferOrderToAssembly) GetOrderIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.OrderId) {
 		return nil, false
 	}
@@ -202,8 +202,8 @@ func (o *V3TransferOrderToAssembly) HasOrderId() bool {
 	return false
 }
 
-// SetOrderId gets a reference to the given int32 and assigns it to the OrderId field.
-func (o *V3TransferOrderToAssembly) SetOrderId(v int32) {
+// SetOrderId gets a reference to the given int64 and assigns it to the OrderId field.
+func (o *V3TransferOrderToAssembly) SetOrderId(v int64) {
 	o.OrderId = &v
 }
 

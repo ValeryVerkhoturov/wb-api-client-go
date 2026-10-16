@@ -20,7 +20,7 @@ var _ MappedNullable = &GetV1FeedbacksCountResponse200{}
 // GetV1FeedbacksCountResponse200 struct for GetV1FeedbacksCountResponse200
 type GetV1FeedbacksCountResponse200 struct {
 	// Количество отзывов
-	Data *int32 `json:"data,omitempty"`
+	Data *int64 `json:"data,omitempty"`
 	// Есть ли ошибка
 	Error *bool `json:"error,omitempty"`
 	// Описание ошибки
@@ -47,9 +47,9 @@ func NewGetV1FeedbacksCountResponse200WithDefaults() *GetV1FeedbacksCountRespons
 }
 
 // GetData returns the Data field value if set, zero value otherwise.
-func (o *GetV1FeedbacksCountResponse200) GetData() int32 {
+func (o *GetV1FeedbacksCountResponse200) GetData() int64 {
 	if o == nil || IsNil(o.Data) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Data
@@ -57,7 +57,7 @@ func (o *GetV1FeedbacksCountResponse200) GetData() int32 {
 
 // GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1FeedbacksCountResponse200) GetDataOk() (*int32, bool) {
+func (o *GetV1FeedbacksCountResponse200) GetDataOk() (*int64, bool) {
 	if o == nil || IsNil(o.Data) {
 		return nil, false
 	}
@@ -73,8 +73,8 @@ func (o *GetV1FeedbacksCountResponse200) HasData() bool {
 	return false
 }
 
-// SetData gets a reference to the given int32 and assigns it to the Data field.
-func (o *GetV1FeedbacksCountResponse200) SetData(v int32) {
+// SetData gets a reference to the given int64 and assigns it to the Data field.
+func (o *GetV1FeedbacksCountResponse200) SetData(v int64) {
 	o.Data = &v
 }
 

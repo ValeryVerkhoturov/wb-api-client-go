@@ -20,7 +20,7 @@ var _ MappedNullable = &AcquiringReportsDetailedRes{}
 // AcquiringReportsDetailedRes Детализации к отчётам об издержках на приём платежей
 type AcquiringReportsDetailedRes struct {
 	// ID строки
-	RrdId *int32 `json:"rrdId,omitempty"`
+	RrdId *int64 `json:"rrdId,omitempty"`
 	// ID отчёта
 	ReportId *int64 `json:"reportId,omitempty"`
 	// Дата операции
@@ -38,7 +38,7 @@ type AcquiringReportsDetailedRes struct {
 	// Тип документа
 	DocumentType *string `json:"documentType,omitempty"`
 	// Артикул WB
-	NmId *int32 `json:"nmId,omitempty"`
+	NmId *int64 `json:"nmId,omitempty"`
 	// Wildberries реализовал Товар (Пр)
 	RetailAmount *string `json:"retailAmount,omitempty"`
 	// Размер комиссии за эквайринг, в том числе НДС
@@ -50,7 +50,7 @@ type AcquiringReportsDetailedRes struct {
 	// Дата счёта-фактуры
 	InvoiceDate *string `json:"invoiceDate,omitempty"`
 	// Штрихкод
-	ShkId *int32 `json:"shkId,omitempty"`
+	ShkId *int64 `json:"shkId,omitempty"`
 	// Валюта отчёта
 	Currency *string `json:"currency,omitempty"`
 }
@@ -73,9 +73,9 @@ func NewAcquiringReportsDetailedResWithDefaults() *AcquiringReportsDetailedRes {
 }
 
 // GetRrdId returns the RrdId field value if set, zero value otherwise.
-func (o *AcquiringReportsDetailedRes) GetRrdId() int32 {
+func (o *AcquiringReportsDetailedRes) GetRrdId() int64 {
 	if o == nil || IsNil(o.RrdId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.RrdId
@@ -83,7 +83,7 @@ func (o *AcquiringReportsDetailedRes) GetRrdId() int32 {
 
 // GetRrdIdOk returns a tuple with the RrdId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AcquiringReportsDetailedRes) GetRrdIdOk() (*int32, bool) {
+func (o *AcquiringReportsDetailedRes) GetRrdIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.RrdId) {
 		return nil, false
 	}
@@ -99,8 +99,8 @@ func (o *AcquiringReportsDetailedRes) HasRrdId() bool {
 	return false
 }
 
-// SetRrdId gets a reference to the given int32 and assigns it to the RrdId field.
-func (o *AcquiringReportsDetailedRes) SetRrdId(v int32) {
+// SetRrdId gets a reference to the given int64 and assigns it to the RrdId field.
+func (o *AcquiringReportsDetailedRes) SetRrdId(v int64) {
 	o.RrdId = &v
 }
 
@@ -361,9 +361,9 @@ func (o *AcquiringReportsDetailedRes) SetDocumentType(v string) {
 }
 
 // GetNmId returns the NmId field value if set, zero value otherwise.
-func (o *AcquiringReportsDetailedRes) GetNmId() int32 {
+func (o *AcquiringReportsDetailedRes) GetNmId() int64 {
 	if o == nil || IsNil(o.NmId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmId
@@ -371,7 +371,7 @@ func (o *AcquiringReportsDetailedRes) GetNmId() int32 {
 
 // GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AcquiringReportsDetailedRes) GetNmIdOk() (*int32, bool) {
+func (o *AcquiringReportsDetailedRes) GetNmIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
@@ -387,8 +387,8 @@ func (o *AcquiringReportsDetailedRes) HasNmId() bool {
 	return false
 }
 
-// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
-func (o *AcquiringReportsDetailedRes) SetNmId(v int32) {
+// SetNmId gets a reference to the given int64 and assigns it to the NmId field.
+func (o *AcquiringReportsDetailedRes) SetNmId(v int64) {
 	o.NmId = &v
 }
 
@@ -553,9 +553,9 @@ func (o *AcquiringReportsDetailedRes) SetInvoiceDate(v string) {
 }
 
 // GetShkId returns the ShkId field value if set, zero value otherwise.
-func (o *AcquiringReportsDetailedRes) GetShkId() int32 {
+func (o *AcquiringReportsDetailedRes) GetShkId() int64 {
 	if o == nil || IsNil(o.ShkId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ShkId
@@ -563,7 +563,7 @@ func (o *AcquiringReportsDetailedRes) GetShkId() int32 {
 
 // GetShkIdOk returns a tuple with the ShkId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AcquiringReportsDetailedRes) GetShkIdOk() (*int32, bool) {
+func (o *AcquiringReportsDetailedRes) GetShkIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.ShkId) {
 		return nil, false
 	}
@@ -579,8 +579,8 @@ func (o *AcquiringReportsDetailedRes) HasShkId() bool {
 	return false
 }
 
-// SetShkId gets a reference to the given int32 and assigns it to the ShkId field.
-func (o *AcquiringReportsDetailedRes) SetShkId(v int32) {
+// SetShkId gets a reference to the given int64 and assigns it to the ShkId field.
+func (o *AcquiringReportsDetailedRes) SetShkId(v int64) {
 	o.ShkId = &v
 }
 

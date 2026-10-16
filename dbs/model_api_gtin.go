@@ -24,7 +24,7 @@ type ApiGTIN struct {
 	// GTIN
 	Gtin string `json:"gtin"`
 	// ID сборочного задания
-	OrderId int32 `json:"orderId"`
+	OrderId int64 `json:"orderId"`
 }
 
 type _ApiGTIN ApiGTIN
@@ -33,7 +33,7 @@ type _ApiGTIN ApiGTIN
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiGTIN(gtin string, orderId int32) *ApiGTIN {
+func NewApiGTIN(gtin string, orderId int64) *ApiGTIN {
 	this := ApiGTIN{}
 	this.Gtin = gtin
 	this.OrderId = orderId
@@ -73,9 +73,9 @@ func (o *ApiGTIN) SetGtin(v string) {
 }
 
 // GetOrderId returns the OrderId field value
-func (o *ApiGTIN) GetOrderId() int32 {
+func (o *ApiGTIN) GetOrderId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -84,7 +84,7 @@ func (o *ApiGTIN) GetOrderId() int32 {
 
 // GetOrderIdOk returns a tuple with the OrderId field value
 // and a boolean to check if the value has been set.
-func (o *ApiGTIN) GetOrderIdOk() (*int32, bool) {
+func (o *ApiGTIN) GetOrderIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -92,7 +92,7 @@ func (o *ApiGTIN) GetOrderIdOk() (*int32, bool) {
 }
 
 // SetOrderId sets field value
-func (o *ApiGTIN) SetOrderId(v int32) {
+func (o *ApiGTIN) SetOrderId(v int64) {
 	o.OrderId = v
 }
 

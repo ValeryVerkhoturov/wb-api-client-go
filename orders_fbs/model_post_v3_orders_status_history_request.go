@@ -20,7 +20,7 @@ var _ MappedNullable = &PostV3OrdersStatusHistoryRequest{}
 // PostV3OrdersStatusHistoryRequest struct for PostV3OrdersStatusHistoryRequest
 type PostV3OrdersStatusHistoryRequest struct {
 	// ID сборочных заданий
-	Orders []int32 `json:"orders,omitempty"`
+	Orders []int64 `json:"orders,omitempty"`
 }
 
 // NewPostV3OrdersStatusHistoryRequest instantiates a new PostV3OrdersStatusHistoryRequest object
@@ -41,9 +41,9 @@ func NewPostV3OrdersStatusHistoryRequestWithDefaults() *PostV3OrdersStatusHistor
 }
 
 // GetOrders returns the Orders field value if set, zero value otherwise.
-func (o *PostV3OrdersStatusHistoryRequest) GetOrders() []int32 {
+func (o *PostV3OrdersStatusHistoryRequest) GetOrders() []int64 {
 	if o == nil || IsNil(o.Orders) {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.Orders
@@ -51,7 +51,7 @@ func (o *PostV3OrdersStatusHistoryRequest) GetOrders() []int32 {
 
 // GetOrdersOk returns a tuple with the Orders field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV3OrdersStatusHistoryRequest) GetOrdersOk() ([]int32, bool) {
+func (o *PostV3OrdersStatusHistoryRequest) GetOrdersOk() ([]int64, bool) {
 	if o == nil || IsNil(o.Orders) {
 		return nil, false
 	}
@@ -67,8 +67,8 @@ func (o *PostV3OrdersStatusHistoryRequest) HasOrders() bool {
 	return false
 }
 
-// SetOrders gets a reference to the given []int32 and assigns it to the Orders field.
-func (o *PostV3OrdersStatusHistoryRequest) SetOrders(v []int32) {
+// SetOrders gets a reference to the given []int64 and assigns it to the Orders field.
+func (o *PostV3OrdersStatusHistoryRequest) SetOrders(v []int64) {
 	o.Orders = v
 }
 

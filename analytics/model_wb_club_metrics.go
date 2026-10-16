@@ -20,21 +20,21 @@ var _ MappedNullable = &WbClubMetrics{}
 // WbClubMetrics struct for WbClubMetrics
 type WbClubMetrics struct {
 	// Заказали товаров с WB Клубом, шт.
-	OrderCount *int32 `json:"orderCount,omitempty"`
+	OrderCount *int64 `json:"orderCount,omitempty"`
 	// Заказали с WB Клубом на сумму
-	OrderSum *int32 `json:"orderSum,omitempty"`
+	OrderSum *int64 `json:"orderSum,omitempty"`
 	// Выкупили с WB Клубом на сумму
-	BuyoutSum *int32 `json:"buyoutSum,omitempty"`
+	BuyoutSum *int64 `json:"buyoutSum,omitempty"`
 	// Выкупили товаров с WB Клубом, шт.
-	BuyoutCount *int32 `json:"buyoutCount,omitempty"`
+	BuyoutCount *int64 `json:"buyoutCount,omitempty"`
 	// Отменили и вернули с WB Клубом на сумму
-	CancelSum *int32 `json:"cancelSum,omitempty"`
+	CancelSum *int64 `json:"cancelSum,omitempty"`
 	// Отменили и вернули товаров с WB Клубом, шт.
-	CancelCount *int32 `json:"cancelCount,omitempty"`
+	CancelCount *int64 `json:"cancelCount,omitempty"`
 	// Средняя цена с WB Клубом
-	AvgPrice *int32 `json:"avgPrice,omitempty"`
+	AvgPrice *int64 `json:"avgPrice,omitempty"`
 	// Процент выкупа с WB Клубом
-	BuyoutPercent *int32 `json:"buyoutPercent,omitempty"`
+	BuyoutPercent *int64 `json:"buyoutPercent,omitempty"`
 	// Среднее количество заказов с WB Клубом в день, шт.
 	AvgOrderCountPerDay *float32 `json:"avgOrderCountPerDay,omitempty"`
 }
@@ -57,9 +57,9 @@ func NewWbClubMetricsWithDefaults() *WbClubMetrics {
 }
 
 // GetOrderCount returns the OrderCount field value if set, zero value otherwise.
-func (o *WbClubMetrics) GetOrderCount() int32 {
+func (o *WbClubMetrics) GetOrderCount() int64 {
 	if o == nil || IsNil(o.OrderCount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OrderCount
@@ -67,7 +67,7 @@ func (o *WbClubMetrics) GetOrderCount() int32 {
 
 // GetOrderCountOk returns a tuple with the OrderCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WbClubMetrics) GetOrderCountOk() (*int32, bool) {
+func (o *WbClubMetrics) GetOrderCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.OrderCount) {
 		return nil, false
 	}
@@ -83,15 +83,15 @@ func (o *WbClubMetrics) HasOrderCount() bool {
 	return false
 }
 
-// SetOrderCount gets a reference to the given int32 and assigns it to the OrderCount field.
-func (o *WbClubMetrics) SetOrderCount(v int32) {
+// SetOrderCount gets a reference to the given int64 and assigns it to the OrderCount field.
+func (o *WbClubMetrics) SetOrderCount(v int64) {
 	o.OrderCount = &v
 }
 
 // GetOrderSum returns the OrderSum field value if set, zero value otherwise.
-func (o *WbClubMetrics) GetOrderSum() int32 {
+func (o *WbClubMetrics) GetOrderSum() int64 {
 	if o == nil || IsNil(o.OrderSum) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OrderSum
@@ -99,7 +99,7 @@ func (o *WbClubMetrics) GetOrderSum() int32 {
 
 // GetOrderSumOk returns a tuple with the OrderSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WbClubMetrics) GetOrderSumOk() (*int32, bool) {
+func (o *WbClubMetrics) GetOrderSumOk() (*int64, bool) {
 	if o == nil || IsNil(o.OrderSum) {
 		return nil, false
 	}
@@ -115,15 +115,15 @@ func (o *WbClubMetrics) HasOrderSum() bool {
 	return false
 }
 
-// SetOrderSum gets a reference to the given int32 and assigns it to the OrderSum field.
-func (o *WbClubMetrics) SetOrderSum(v int32) {
+// SetOrderSum gets a reference to the given int64 and assigns it to the OrderSum field.
+func (o *WbClubMetrics) SetOrderSum(v int64) {
 	o.OrderSum = &v
 }
 
 // GetBuyoutSum returns the BuyoutSum field value if set, zero value otherwise.
-func (o *WbClubMetrics) GetBuyoutSum() int32 {
+func (o *WbClubMetrics) GetBuyoutSum() int64 {
 	if o == nil || IsNil(o.BuyoutSum) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.BuyoutSum
@@ -131,7 +131,7 @@ func (o *WbClubMetrics) GetBuyoutSum() int32 {
 
 // GetBuyoutSumOk returns a tuple with the BuyoutSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WbClubMetrics) GetBuyoutSumOk() (*int32, bool) {
+func (o *WbClubMetrics) GetBuyoutSumOk() (*int64, bool) {
 	if o == nil || IsNil(o.BuyoutSum) {
 		return nil, false
 	}
@@ -147,15 +147,15 @@ func (o *WbClubMetrics) HasBuyoutSum() bool {
 	return false
 }
 
-// SetBuyoutSum gets a reference to the given int32 and assigns it to the BuyoutSum field.
-func (o *WbClubMetrics) SetBuyoutSum(v int32) {
+// SetBuyoutSum gets a reference to the given int64 and assigns it to the BuyoutSum field.
+func (o *WbClubMetrics) SetBuyoutSum(v int64) {
 	o.BuyoutSum = &v
 }
 
 // GetBuyoutCount returns the BuyoutCount field value if set, zero value otherwise.
-func (o *WbClubMetrics) GetBuyoutCount() int32 {
+func (o *WbClubMetrics) GetBuyoutCount() int64 {
 	if o == nil || IsNil(o.BuyoutCount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.BuyoutCount
@@ -163,7 +163,7 @@ func (o *WbClubMetrics) GetBuyoutCount() int32 {
 
 // GetBuyoutCountOk returns a tuple with the BuyoutCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WbClubMetrics) GetBuyoutCountOk() (*int32, bool) {
+func (o *WbClubMetrics) GetBuyoutCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.BuyoutCount) {
 		return nil, false
 	}
@@ -179,15 +179,15 @@ func (o *WbClubMetrics) HasBuyoutCount() bool {
 	return false
 }
 
-// SetBuyoutCount gets a reference to the given int32 and assigns it to the BuyoutCount field.
-func (o *WbClubMetrics) SetBuyoutCount(v int32) {
+// SetBuyoutCount gets a reference to the given int64 and assigns it to the BuyoutCount field.
+func (o *WbClubMetrics) SetBuyoutCount(v int64) {
 	o.BuyoutCount = &v
 }
 
 // GetCancelSum returns the CancelSum field value if set, zero value otherwise.
-func (o *WbClubMetrics) GetCancelSum() int32 {
+func (o *WbClubMetrics) GetCancelSum() int64 {
 	if o == nil || IsNil(o.CancelSum) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CancelSum
@@ -195,7 +195,7 @@ func (o *WbClubMetrics) GetCancelSum() int32 {
 
 // GetCancelSumOk returns a tuple with the CancelSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WbClubMetrics) GetCancelSumOk() (*int32, bool) {
+func (o *WbClubMetrics) GetCancelSumOk() (*int64, bool) {
 	if o == nil || IsNil(o.CancelSum) {
 		return nil, false
 	}
@@ -211,15 +211,15 @@ func (o *WbClubMetrics) HasCancelSum() bool {
 	return false
 }
 
-// SetCancelSum gets a reference to the given int32 and assigns it to the CancelSum field.
-func (o *WbClubMetrics) SetCancelSum(v int32) {
+// SetCancelSum gets a reference to the given int64 and assigns it to the CancelSum field.
+func (o *WbClubMetrics) SetCancelSum(v int64) {
 	o.CancelSum = &v
 }
 
 // GetCancelCount returns the CancelCount field value if set, zero value otherwise.
-func (o *WbClubMetrics) GetCancelCount() int32 {
+func (o *WbClubMetrics) GetCancelCount() int64 {
 	if o == nil || IsNil(o.CancelCount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CancelCount
@@ -227,7 +227,7 @@ func (o *WbClubMetrics) GetCancelCount() int32 {
 
 // GetCancelCountOk returns a tuple with the CancelCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WbClubMetrics) GetCancelCountOk() (*int32, bool) {
+func (o *WbClubMetrics) GetCancelCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.CancelCount) {
 		return nil, false
 	}
@@ -243,15 +243,15 @@ func (o *WbClubMetrics) HasCancelCount() bool {
 	return false
 }
 
-// SetCancelCount gets a reference to the given int32 and assigns it to the CancelCount field.
-func (o *WbClubMetrics) SetCancelCount(v int32) {
+// SetCancelCount gets a reference to the given int64 and assigns it to the CancelCount field.
+func (o *WbClubMetrics) SetCancelCount(v int64) {
 	o.CancelCount = &v
 }
 
 // GetAvgPrice returns the AvgPrice field value if set, zero value otherwise.
-func (o *WbClubMetrics) GetAvgPrice() int32 {
+func (o *WbClubMetrics) GetAvgPrice() int64 {
 	if o == nil || IsNil(o.AvgPrice) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.AvgPrice
@@ -259,7 +259,7 @@ func (o *WbClubMetrics) GetAvgPrice() int32 {
 
 // GetAvgPriceOk returns a tuple with the AvgPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WbClubMetrics) GetAvgPriceOk() (*int32, bool) {
+func (o *WbClubMetrics) GetAvgPriceOk() (*int64, bool) {
 	if o == nil || IsNil(o.AvgPrice) {
 		return nil, false
 	}
@@ -275,15 +275,15 @@ func (o *WbClubMetrics) HasAvgPrice() bool {
 	return false
 }
 
-// SetAvgPrice gets a reference to the given int32 and assigns it to the AvgPrice field.
-func (o *WbClubMetrics) SetAvgPrice(v int32) {
+// SetAvgPrice gets a reference to the given int64 and assigns it to the AvgPrice field.
+func (o *WbClubMetrics) SetAvgPrice(v int64) {
 	o.AvgPrice = &v
 }
 
 // GetBuyoutPercent returns the BuyoutPercent field value if set, zero value otherwise.
-func (o *WbClubMetrics) GetBuyoutPercent() int32 {
+func (o *WbClubMetrics) GetBuyoutPercent() int64 {
 	if o == nil || IsNil(o.BuyoutPercent) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.BuyoutPercent
@@ -291,7 +291,7 @@ func (o *WbClubMetrics) GetBuyoutPercent() int32 {
 
 // GetBuyoutPercentOk returns a tuple with the BuyoutPercent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WbClubMetrics) GetBuyoutPercentOk() (*int32, bool) {
+func (o *WbClubMetrics) GetBuyoutPercentOk() (*int64, bool) {
 	if o == nil || IsNil(o.BuyoutPercent) {
 		return nil, false
 	}
@@ -307,8 +307,8 @@ func (o *WbClubMetrics) HasBuyoutPercent() bool {
 	return false
 }
 
-// SetBuyoutPercent gets a reference to the given int32 and assigns it to the BuyoutPercent field.
-func (o *WbClubMetrics) SetBuyoutPercent(v int32) {
+// SetBuyoutPercent gets a reference to the given int64 and assigns it to the BuyoutPercent field.
+func (o *WbClubMetrics) SetBuyoutPercent(v int64) {
 	o.BuyoutPercent = &v
 }
 

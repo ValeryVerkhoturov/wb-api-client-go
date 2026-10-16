@@ -26,9 +26,9 @@ type AcquiringReportListReq struct {
 	// Конечная дата отчёта. Дата в формате [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339). Можно передать дату или дату со временем. Время можно указывать с точностью до секунд или миллисекунд. Время передаётся в часовом поясе Москва `UTC+3`. Примеры: - `2025-06-20` - `2025-06-20T23:59:59` - `2025-06-20T00:00:00.12345` - `2025-06-20T00:00:00`
 	DateTo string `json:"dateTo"`
 	// Количество отчётов в ответе
-	Limit *int32 `json:"limit,omitempty"`
+	Limit *int64 `json:"limit,omitempty"`
 	// Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента
-	Offset *int32 `json:"offset,omitempty"`
+	Offset *int64 `json:"offset,omitempty"`
 }
 
 type _AcquiringReportListReq AcquiringReportListReq
@@ -41,9 +41,9 @@ func NewAcquiringReportListReq(dateFrom string, dateTo string) *AcquiringReportL
 	this := AcquiringReportListReq{}
 	this.DateFrom = dateFrom
 	this.DateTo = dateTo
-	var limit int32 = 1000
+	var limit int64 = 1000
 	this.Limit = &limit
-	var offset int32 = 0
+	var offset int64 = 0
 	this.Offset = &offset
 	return &this
 }
@@ -53,9 +53,9 @@ func NewAcquiringReportListReq(dateFrom string, dateTo string) *AcquiringReportL
 // but it doesn't guarantee that properties required by API are set
 func NewAcquiringReportListReqWithDefaults() *AcquiringReportListReq {
 	this := AcquiringReportListReq{}
-	var limit int32 = 1000
+	var limit int64 = 1000
 	this.Limit = &limit
-	var offset int32 = 0
+	var offset int64 = 0
 	this.Offset = &offset
 	return &this
 }
@@ -109,9 +109,9 @@ func (o *AcquiringReportListReq) SetDateTo(v string) {
 }
 
 // GetLimit returns the Limit field value if set, zero value otherwise.
-func (o *AcquiringReportListReq) GetLimit() int32 {
+func (o *AcquiringReportListReq) GetLimit() int64 {
 	if o == nil || IsNil(o.Limit) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Limit
@@ -119,7 +119,7 @@ func (o *AcquiringReportListReq) GetLimit() int32 {
 
 // GetLimitOk returns a tuple with the Limit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AcquiringReportListReq) GetLimitOk() (*int32, bool) {
+func (o *AcquiringReportListReq) GetLimitOk() (*int64, bool) {
 	if o == nil || IsNil(o.Limit) {
 		return nil, false
 	}
@@ -135,15 +135,15 @@ func (o *AcquiringReportListReq) HasLimit() bool {
 	return false
 }
 
-// SetLimit gets a reference to the given int32 and assigns it to the Limit field.
-func (o *AcquiringReportListReq) SetLimit(v int32) {
+// SetLimit gets a reference to the given int64 and assigns it to the Limit field.
+func (o *AcquiringReportListReq) SetLimit(v int64) {
 	o.Limit = &v
 }
 
 // GetOffset returns the Offset field value if set, zero value otherwise.
-func (o *AcquiringReportListReq) GetOffset() int32 {
+func (o *AcquiringReportListReq) GetOffset() int64 {
 	if o == nil || IsNil(o.Offset) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Offset
@@ -151,7 +151,7 @@ func (o *AcquiringReportListReq) GetOffset() int32 {
 
 // GetOffsetOk returns a tuple with the Offset field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AcquiringReportListReq) GetOffsetOk() (*int32, bool) {
+func (o *AcquiringReportListReq) GetOffsetOk() (*int64, bool) {
 	if o == nil || IsNil(o.Offset) {
 		return nil, false
 	}
@@ -167,8 +167,8 @@ func (o *AcquiringReportListReq) HasOffset() bool {
 	return false
 }
 
-// SetOffset gets a reference to the given int32 and assigns it to the Offset field.
-func (o *AcquiringReportListReq) SetOffset(v int32) {
+// SetOffset gets a reference to the given int64 and assigns it to the Offset field.
+func (o *AcquiringReportListReq) SetOffset(v int64) {
 	o.Offset = &v
 }
 

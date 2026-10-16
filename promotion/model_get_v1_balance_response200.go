@@ -20,13 +20,13 @@ var _ MappedNullable = &GetV1BalanceResponse200{}
 // GetV1BalanceResponse200 struct for GetV1BalanceResponse200
 type GetV1BalanceResponse200 struct {
 	// Счёт в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
-	Balance *int32 `json:"balance,omitempty"`
+	Balance *int64 `json:"balance,omitempty"`
 	// Баланс в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
-	Net *int32 `json:"net,omitempty"`
+	Net *int64 `json:"net,omitempty"`
 	// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Currency *string `json:"currency,omitempty"`
 	// Бонусы в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
-	Bonus *int32 `json:"bonus,omitempty"`
+	Bonus *int64 `json:"bonus,omitempty"`
 	// Промо-бонусы
 	Cashbacks []GetV1BalanceResponse200CashbacksInner `json:"cashbacks,omitempty"`
 }
@@ -49,9 +49,9 @@ func NewGetV1BalanceResponse200WithDefaults() *GetV1BalanceResponse200 {
 }
 
 // GetBalance returns the Balance field value if set, zero value otherwise.
-func (o *GetV1BalanceResponse200) GetBalance() int32 {
+func (o *GetV1BalanceResponse200) GetBalance() int64 {
 	if o == nil || IsNil(o.Balance) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Balance
@@ -59,7 +59,7 @@ func (o *GetV1BalanceResponse200) GetBalance() int32 {
 
 // GetBalanceOk returns a tuple with the Balance field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1BalanceResponse200) GetBalanceOk() (*int32, bool) {
+func (o *GetV1BalanceResponse200) GetBalanceOk() (*int64, bool) {
 	if o == nil || IsNil(o.Balance) {
 		return nil, false
 	}
@@ -75,15 +75,15 @@ func (o *GetV1BalanceResponse200) HasBalance() bool {
 	return false
 }
 
-// SetBalance gets a reference to the given int32 and assigns it to the Balance field.
-func (o *GetV1BalanceResponse200) SetBalance(v int32) {
+// SetBalance gets a reference to the given int64 and assigns it to the Balance field.
+func (o *GetV1BalanceResponse200) SetBalance(v int64) {
 	o.Balance = &v
 }
 
 // GetNet returns the Net field value if set, zero value otherwise.
-func (o *GetV1BalanceResponse200) GetNet() int32 {
+func (o *GetV1BalanceResponse200) GetNet() int64 {
 	if o == nil || IsNil(o.Net) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Net
@@ -91,7 +91,7 @@ func (o *GetV1BalanceResponse200) GetNet() int32 {
 
 // GetNetOk returns a tuple with the Net field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1BalanceResponse200) GetNetOk() (*int32, bool) {
+func (o *GetV1BalanceResponse200) GetNetOk() (*int64, bool) {
 	if o == nil || IsNil(o.Net) {
 		return nil, false
 	}
@@ -107,8 +107,8 @@ func (o *GetV1BalanceResponse200) HasNet() bool {
 	return false
 }
 
-// SetNet gets a reference to the given int32 and assigns it to the Net field.
-func (o *GetV1BalanceResponse200) SetNet(v int32) {
+// SetNet gets a reference to the given int64 and assigns it to the Net field.
+func (o *GetV1BalanceResponse200) SetNet(v int64) {
 	o.Net = &v
 }
 
@@ -145,9 +145,9 @@ func (o *GetV1BalanceResponse200) SetCurrency(v string) {
 }
 
 // GetBonus returns the Bonus field value if set, zero value otherwise.
-func (o *GetV1BalanceResponse200) GetBonus() int32 {
+func (o *GetV1BalanceResponse200) GetBonus() int64 {
 	if o == nil || IsNil(o.Bonus) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Bonus
@@ -155,7 +155,7 @@ func (o *GetV1BalanceResponse200) GetBonus() int32 {
 
 // GetBonusOk returns a tuple with the Bonus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1BalanceResponse200) GetBonusOk() (*int32, bool) {
+func (o *GetV1BalanceResponse200) GetBonusOk() (*int64, bool) {
 	if o == nil || IsNil(o.Bonus) {
 		return nil, false
 	}
@@ -171,8 +171,8 @@ func (o *GetV1BalanceResponse200) HasBonus() bool {
 	return false
 }
 
-// SetBonus gets a reference to the given int32 and assigns it to the Bonus field.
-func (o *GetV1BalanceResponse200) SetBonus(v int32) {
+// SetBonus gets a reference to the given int64 and assigns it to the Bonus field.
+func (o *GetV1BalanceResponse200) SetBonus(v int64) {
 	o.Bonus = &v
 }
 

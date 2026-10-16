@@ -36,7 +36,7 @@ type Supply struct {
 	// Наименование поставки
 	Name *string `json:"name,omitempty"`
 	// Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+)
-	CargoType *int32 `json:"cargoType,omitempty"`
+	CargoType *int64 `json:"cargoType,omitempty"`
 	// Тип поставки:   - `0` — внутренняя поставка   - `1` — трансграничная поставка   - `null` — значение отсутствует
 	CrossBorderType NullableInt32 `json:"crossBorderType,omitempty"`
 	// ID склада хранения сборочных заданий в поставке. Если `null`, склад не указан
@@ -46,7 +46,7 @@ type Supply struct {
 	// Планируемая дата отгрузки поставки, формат `YYYY-MM-DD`
 	ShippingDt NullableString `json:"shippingDt,omitempty"`
 	// ID пункта отгрузки. Можно получить в методе получения [пунктов отгрузки поставок](./orders-fbs#tag/fbsSupplies/operation/getV3FbsShippingPoints)
-	ShippingPointId NullableInt32 `json:"shippingPointId,omitempty"`
+	ShippingPointId NullableInt64 `json:"shippingPointId,omitempty"`
 	// Способ доставки до пункта отгрузки:   - `selfShipping` — доставка силами продавца   - `transportCompany` — доставка через транспортную компанию
 	ShippingType NullableString `json:"shippingType,omitempty"`
 	// ID ЭТрН — электронной транспортной накладной
@@ -362,9 +362,9 @@ func (o *Supply) SetName(v string) {
 }
 
 // GetCargoType returns the CargoType field value if set, zero value otherwise.
-func (o *Supply) GetCargoType() int32 {
+func (o *Supply) GetCargoType() int64 {
 	if o == nil || IsNil(o.CargoType) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CargoType
@@ -372,7 +372,7 @@ func (o *Supply) GetCargoType() int32 {
 
 // GetCargoTypeOk returns a tuple with the CargoType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Supply) GetCargoTypeOk() (*int32, bool) {
+func (o *Supply) GetCargoTypeOk() (*int64, bool) {
 	if o == nil || IsNil(o.CargoType) {
 		return nil, false
 	}
@@ -388,8 +388,8 @@ func (o *Supply) HasCargoType() bool {
 	return false
 }
 
-// SetCargoType gets a reference to the given int32 and assigns it to the CargoType field.
-func (o *Supply) SetCargoType(v int32) {
+// SetCargoType gets a reference to the given int64 and assigns it to the CargoType field.
+func (o *Supply) SetCargoType(v int64) {
 	o.CargoType = &v
 }
 
@@ -555,9 +555,9 @@ func (o *Supply) UnsetShippingDt() {
 }
 
 // GetShippingPointId returns the ShippingPointId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Supply) GetShippingPointId() int32 {
+func (o *Supply) GetShippingPointId() int64 {
 	if o == nil || IsNil(o.ShippingPointId.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ShippingPointId.Get()
@@ -566,7 +566,7 @@ func (o *Supply) GetShippingPointId() int32 {
 // GetShippingPointIdOk returns a tuple with the ShippingPointId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Supply) GetShippingPointIdOk() (*int32, bool) {
+func (o *Supply) GetShippingPointIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -582,8 +582,8 @@ func (o *Supply) HasShippingPointId() bool {
 	return false
 }
 
-// SetShippingPointId gets a reference to the given NullableInt32 and assigns it to the ShippingPointId field.
-func (o *Supply) SetShippingPointId(v int32) {
+// SetShippingPointId gets a reference to the given NullableInt64 and assigns it to the ShippingPointId field.
+func (o *Supply) SetShippingPointId(v int64) {
 	o.ShippingPointId.Set(&v)
 }
 

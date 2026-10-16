@@ -24,7 +24,7 @@ type PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInner struct {
 	// Номер ДТ
 	CustomsDeclaration string `json:"customsDeclaration"`
 	// ID сборочного задания
-	OrderId int32 `json:"orderId"`
+	OrderId int64 `json:"orderId"`
 	// Числовой код страны происхождения товара из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269). Необходимо указывать только для сборочных заданий с признаком B2B-продажи `\"isB2b\":true`
 	OriginCountryCode string `json:"originCountryCode"`
 }
@@ -35,7 +35,7 @@ type _PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInner PostV3DbsOrdersMet
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInner(customsDeclaration string, orderId int32, originCountryCode string) *PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInner {
+func NewPostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInner(customsDeclaration string, orderId int64, originCountryCode string) *PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInner {
 	this := PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInner{}
 	this.CustomsDeclaration = customsDeclaration
 	this.OrderId = orderId
@@ -76,9 +76,9 @@ func (o *PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInner) SetCustomsDecl
 }
 
 // GetOrderId returns the OrderId field value
-func (o *PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInner) GetOrderId() int32 {
+func (o *PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInner) GetOrderId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -87,7 +87,7 @@ func (o *PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInner) GetOrderId() i
 
 // GetOrderIdOk returns a tuple with the OrderId field value
 // and a boolean to check if the value has been set.
-func (o *PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInner) GetOrderIdOk() (*int32, bool) {
+func (o *PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInner) GetOrderIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -95,7 +95,7 @@ func (o *PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInner) GetOrderIdOk()
 }
 
 // SetOrderId sets field value
-func (o *PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInner) SetOrderId(v int32) {
+func (o *PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInner) SetOrderId(v int64) {
 	o.OrderId = v
 }
 

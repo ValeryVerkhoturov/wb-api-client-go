@@ -20,7 +20,7 @@ var _ MappedNullable = &GetV1PromotionCountResponse200AdvertsInnerAdvertListInne
 // GetV1PromotionCountResponse200AdvertsInnerAdvertListInner struct for GetV1PromotionCountResponse200AdvertsInnerAdvertListInner
 type GetV1PromotionCountResponse200AdvertsInnerAdvertListInner struct {
 	// ID кампании
-	AdvertId *int32 `json:"advertId,omitempty"`
+	AdvertId *int64 `json:"advertId,omitempty"`
 	// Дата и время последнего изменения кампании
 	ChangeTime *string `json:"changeTime,omitempty"`
 }
@@ -43,9 +43,9 @@ func NewGetV1PromotionCountResponse200AdvertsInnerAdvertListInnerWithDefaults() 
 }
 
 // GetAdvertId returns the AdvertId field value if set, zero value otherwise.
-func (o *GetV1PromotionCountResponse200AdvertsInnerAdvertListInner) GetAdvertId() int32 {
+func (o *GetV1PromotionCountResponse200AdvertsInnerAdvertListInner) GetAdvertId() int64 {
 	if o == nil || IsNil(o.AdvertId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.AdvertId
@@ -53,7 +53,7 @@ func (o *GetV1PromotionCountResponse200AdvertsInnerAdvertListInner) GetAdvertId(
 
 // GetAdvertIdOk returns a tuple with the AdvertId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1PromotionCountResponse200AdvertsInnerAdvertListInner) GetAdvertIdOk() (*int32, bool) {
+func (o *GetV1PromotionCountResponse200AdvertsInnerAdvertListInner) GetAdvertIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.AdvertId) {
 		return nil, false
 	}
@@ -69,8 +69,8 @@ func (o *GetV1PromotionCountResponse200AdvertsInnerAdvertListInner) HasAdvertId(
 	return false
 }
 
-// SetAdvertId gets a reference to the given int32 and assigns it to the AdvertId field.
-func (o *GetV1PromotionCountResponse200AdvertsInnerAdvertListInner) SetAdvertId(v int32) {
+// SetAdvertId gets a reference to the given int64 and assigns it to the AdvertId field.
+func (o *GetV1PromotionCountResponse200AdvertsInnerAdvertListInner) SetAdvertId(v int64) {
 	o.AdvertId = &v
 }
 

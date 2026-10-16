@@ -22,7 +22,7 @@ type GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner str
 	// Название склада
 	WarehouseName *string `json:"warehouseName,omitempty"`
 	// Количество, шт.
-	Quantity *int32 `json:"quantity,omitempty"`
+	Quantity *int64 `json:"quantity,omitempty"`
 }
 
 // NewGetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner instantiates a new GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner object
@@ -75,9 +75,9 @@ func (o *GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner
 }
 
 // GetQuantity returns the Quantity field value if set, zero value otherwise.
-func (o *GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner) GetQuantity() int32 {
+func (o *GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner) GetQuantity() int64 {
 	if o == nil || IsNil(o.Quantity) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Quantity
@@ -85,7 +85,7 @@ func (o *GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner
 
 // GetQuantityOk returns a tuple with the Quantity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner) GetQuantityOk() (*int32, bool) {
+func (o *GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner) GetQuantityOk() (*int64, bool) {
 	if o == nil || IsNil(o.Quantity) {
 		return nil, false
 	}
@@ -101,8 +101,8 @@ func (o *GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner
 	return false
 }
 
-// SetQuantity gets a reference to the given int32 and assigns it to the Quantity field.
-func (o *GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner) SetQuantity(v int32) {
+// SetQuantity gets a reference to the given int64 and assigns it to the Quantity field.
+func (o *GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner) SetQuantity(v int64) {
 	o.Quantity = &v
 }
 

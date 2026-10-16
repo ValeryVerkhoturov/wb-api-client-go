@@ -45,7 +45,7 @@ type ItemsAPI interface {
 			@param id Числовой ID ярлыка
 			@return ApiDeleteV2TagIdRequest
 	*/
-	DeleteV2TagId(ctx context.Context, id int32) ApiDeleteV2TagIdRequest
+	DeleteV2TagId(ctx context.Context, id int64) ApiDeleteV2TagIdRequest
 
 	// DeleteV2TagIdExecute executes the request
 	//  @return ResponseContentError
@@ -685,7 +685,7 @@ type ItemsAPI interface {
 			@param subjectId ID предмета
 			@return ApiGetV2ObjectCharcsSubjectIdRequest
 	*/
-	GetV2ObjectCharcsSubjectId(ctx context.Context, subjectId int32) ApiGetV2ObjectCharcsSubjectIdRequest
+	GetV2ObjectCharcsSubjectId(ctx context.Context, subjectId int64) ApiGetV2ObjectCharcsSubjectIdRequest
 
 	// GetV2ObjectCharcsSubjectIdExecute executes the request
 	//  @return GetV2ObjectCharcsSubjectIdResponse200
@@ -895,7 +895,7 @@ type ItemsAPI interface {
 			@param id Числовой ID ярлыка
 			@return ApiPatchV2TagIdRequest
 	*/
-	PatchV2TagId(ctx context.Context, id int32) ApiPatchV2TagIdRequest
+	PatchV2TagId(ctx context.Context, id int64) ApiPatchV2TagIdRequest
 
 	// PatchV2TagIdExecute executes the request
 	//  @return ResponseContentError
@@ -1837,7 +1837,7 @@ type ItemsAPIService service
 type ApiDeleteV2TagIdRequest struct {
 	ctx        context.Context
 	ApiService ItemsAPI
-	id         int32
+	id         int64
 }
 
 func (r ApiDeleteV2TagIdRequest) Execute() (*ResponseContentError, *http.Response, error) {
@@ -1867,7 +1867,7 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	@param id Числовой ID ярлыка
 	@return ApiDeleteV2TagIdRequest
 */
-func (a *ItemsAPIService) DeleteV2TagId(ctx context.Context, id int32) ApiDeleteV2TagIdRequest {
+func (a *ItemsAPIService) DeleteV2TagId(ctx context.Context, id int64) ApiDeleteV2TagIdRequest {
 	return ApiDeleteV2TagIdRequest{
 		ApiService: a,
 		ctx:        ctx,
@@ -2360,18 +2360,18 @@ func (a *ItemsAPIService) DeleteV3WarehousesWarehouseIdExecute(r ApiDeleteV3Ware
 type ApiGetV1BrandsRequest struct {
 	ctx        context.Context
 	ApiService ItemsAPI
-	subjectId  *int32
-	next       *int32
+	subjectId  *int64
+	next       *int64
 }
 
 // ID предмета
-func (r ApiGetV1BrandsRequest) SubjectId(subjectId int32) ApiGetV1BrandsRequest {
+func (r ApiGetV1BrandsRequest) SubjectId(subjectId int64) ApiGetV1BrandsRequest {
 	r.subjectId = &subjectId
 	return r
 }
 
 // Параметр пагинации. Используйте значение &#x60;next&#x60; из ответа, чтобы получить следующий пакет данных
-func (r ApiGetV1BrandsRequest) Next(next int32) ApiGetV1BrandsRequest {
+func (r ApiGetV1BrandsRequest) Next(next int64) ApiGetV1BrandsRequest {
 	r.next = &next
 	return r
 }
@@ -2546,7 +2546,7 @@ type ApiGetV2BufferGoodsTaskRequest struct {
 	ctx        context.Context
 	ApiService ItemsAPI
 	limit      *int32
-	uploadID   *int32
+	uploadID   *int64
 	offset     *int32
 }
 
@@ -2557,7 +2557,7 @@ func (r ApiGetV2BufferGoodsTaskRequest) Limit(limit int32) ApiGetV2BufferGoodsTa
 }
 
 // ID загрузки
-func (r ApiGetV2BufferGoodsTaskRequest) UploadID(uploadID int32) ApiGetV2BufferGoodsTaskRequest {
+func (r ApiGetV2BufferGoodsTaskRequest) UploadID(uploadID int64) ApiGetV2BufferGoodsTaskRequest {
 	r.uploadID = &uploadID
 	return r
 }
@@ -2739,11 +2739,11 @@ func (a *ItemsAPIService) GetV2BufferGoodsTaskExecute(r ApiGetV2BufferGoodsTaskR
 type ApiGetV2BufferTasksRequest struct {
 	ctx        context.Context
 	ApiService ItemsAPI
-	uploadID   *int32
+	uploadID   *int64
 }
 
 // ID загрузки
-func (r ApiGetV2BufferTasksRequest) UploadID(uploadID int32) ApiGetV2BufferTasksRequest {
+func (r ApiGetV2BufferTasksRequest) UploadID(uploadID int64) ApiGetV2BufferTasksRequest {
 	r.uploadID = &uploadID
 	return r
 }
@@ -3569,13 +3569,13 @@ func (a *ItemsAPIService) GetV2DirectoryKindsExecute(r ApiGetV2DirectoryKindsReq
 type ApiGetV2DirectoryOkpdRequest struct {
 	ctx        context.Context
 	ApiService ItemsAPI
-	subjectId  *int32
+	subjectId  *int64
 	search     *string
 	locale     *string
 }
 
 // ID предмета
-func (r ApiGetV2DirectoryOkpdRequest) SubjectId(subjectId int32) ApiGetV2DirectoryOkpdRequest {
+func (r ApiGetV2DirectoryOkpdRequest) SubjectId(subjectId int64) ApiGetV2DirectoryOkpdRequest {
 	r.subjectId = &subjectId
 	return r
 }
@@ -4109,19 +4109,19 @@ func (a *ItemsAPIService) GetV2DirectorySeasonsExecute(r ApiGetV2DirectorySeason
 type ApiGetV2DirectoryTnvedRequest struct {
 	ctx        context.Context
 	ApiService ItemsAPI
-	subjectID  *int32
-	search     *int32
+	subjectID  *int64
+	search     *int64
 	locale     *string
 }
 
 // ID предмета
-func (r ApiGetV2DirectoryTnvedRequest) SubjectID(subjectID int32) ApiGetV2DirectoryTnvedRequest {
+func (r ApiGetV2DirectoryTnvedRequest) SubjectID(subjectID int64) ApiGetV2DirectoryTnvedRequest {
 	r.subjectID = &subjectID
 	return r
 }
 
 // Поиск по коду ТН ВЭД. Работает только в паре с &#x60;subjectID&#x60;
-func (r ApiGetV2DirectoryTnvedRequest) Search(search int32) ApiGetV2DirectoryTnvedRequest {
+func (r ApiGetV2DirectoryTnvedRequest) Search(search int64) ApiGetV2DirectoryTnvedRequest {
 	r.search = &search
 	return r
 }
@@ -4302,12 +4302,12 @@ func (a *ItemsAPIService) GetV2DirectoryTnvedExecute(r ApiGetV2DirectoryTnvedReq
 type ApiGetV2DirectoryTnvedAllRequest struct {
 	ctx        context.Context
 	ApiService ItemsAPI
-	search     *int32
+	search     *int64
 	locale     *string
 }
 
 // Поиск по первым цифрам кода ТН ВЭД. Укажите не более 10 символов
-func (r ApiGetV2DirectoryTnvedAllRequest) Search(search int32) ApiGetV2DirectoryTnvedAllRequest {
+func (r ApiGetV2DirectoryTnvedAllRequest) Search(search int64) ApiGetV2DirectoryTnvedAllRequest {
 	r.search = &search
 	return r
 }
@@ -4655,7 +4655,7 @@ type ApiGetV2HistoryGoodsTaskRequest struct {
 	ctx        context.Context
 	ApiService ItemsAPI
 	limit      *int32
-	uploadID   *int32
+	uploadID   *int64
 	offset     *int32
 }
 
@@ -4666,7 +4666,7 @@ func (r ApiGetV2HistoryGoodsTaskRequest) Limit(limit int32) ApiGetV2HistoryGoods
 }
 
 // ID загрузки
-func (r ApiGetV2HistoryGoodsTaskRequest) UploadID(uploadID int32) ApiGetV2HistoryGoodsTaskRequest {
+func (r ApiGetV2HistoryGoodsTaskRequest) UploadID(uploadID int64) ApiGetV2HistoryGoodsTaskRequest {
 	r.uploadID = &uploadID
 	return r
 }
@@ -4848,11 +4848,11 @@ func (a *ItemsAPIService) GetV2HistoryGoodsTaskExecute(r ApiGetV2HistoryGoodsTas
 type ApiGetV2HistoryTasksRequest struct {
 	ctx        context.Context
 	ApiService ItemsAPI
-	uploadID   *int32
+	uploadID   *int64
 }
 
 // ID загрузки
-func (r ApiGetV2HistoryTasksRequest) UploadID(uploadID int32) ApiGetV2HistoryTasksRequest {
+func (r ApiGetV2HistoryTasksRequest) UploadID(uploadID int64) ApiGetV2HistoryTasksRequest {
 	r.uploadID = &uploadID
 	return r
 }
@@ -5020,7 +5020,7 @@ type ApiGetV2ListGoodsFilterRequest struct {
 	ApiService ItemsAPI
 	limit      *int32
 	offset     *int32
-	filterNmID *int32
+	filterNmID *int64
 }
 
 // Сколько элементов вывести на одной странице (пагинация)
@@ -5036,7 +5036,7 @@ func (r ApiGetV2ListGoodsFilterRequest) Offset(offset int32) ApiGetV2ListGoodsFi
 }
 
 // Артикул WB для поиска товара
-func (r ApiGetV2ListGoodsFilterRequest) FilterNmID(filterNmID int32) ApiGetV2ListGoodsFilterRequest {
+func (r ApiGetV2ListGoodsFilterRequest) FilterNmID(filterNmID int64) ApiGetV2ListGoodsFilterRequest {
 	r.filterNmID = &filterNmID
 	return r
 }
@@ -5229,7 +5229,7 @@ type ApiGetV2ListGoodsSizeNmRequest struct {
 	ctx        context.Context
 	ApiService ItemsAPI
 	limit      *int32
-	nmID       *int32
+	nmID       *int64
 	offset     *int32
 }
 
@@ -5240,7 +5240,7 @@ func (r ApiGetV2ListGoodsSizeNmRequest) Limit(limit int32) ApiGetV2ListGoodsSize
 }
 
 // Артикул WB
-func (r ApiGetV2ListGoodsSizeNmRequest) NmID(nmID int32) ApiGetV2ListGoodsSizeNmRequest {
+func (r ApiGetV2ListGoodsSizeNmRequest) NmID(nmID int64) ApiGetV2ListGoodsSizeNmRequest {
 	r.nmID = &nmID
 	return r
 }
@@ -5437,9 +5437,9 @@ type ApiGetV2ObjectAllRequest struct {
 	ApiService ItemsAPI
 	locale     *string
 	name       *string
-	limit      *int32
-	offset     *int32
-	parentID   *int32
+	limit      *int64
+	offset     *int64
+	parentID   *int64
 }
 
 // Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
@@ -5455,19 +5455,19 @@ func (r ApiGetV2ObjectAllRequest) Name(name string) ApiGetV2ObjectAllRequest {
 }
 
 // Количество предметов, максимум 1000
-func (r ApiGetV2ObjectAllRequest) Limit(limit int32) ApiGetV2ObjectAllRequest {
+func (r ApiGetV2ObjectAllRequest) Limit(limit int64) ApiGetV2ObjectAllRequest {
 	r.limit = &limit
 	return r
 }
 
 // Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнется с 11 элемента
-func (r ApiGetV2ObjectAllRequest) Offset(offset int32) ApiGetV2ObjectAllRequest {
+func (r ApiGetV2ObjectAllRequest) Offset(offset int64) ApiGetV2ObjectAllRequest {
 	r.offset = &offset
 	return r
 }
 
 // ID родительской категории предмета
-func (r ApiGetV2ObjectAllRequest) ParentID(parentID int32) ApiGetV2ObjectAllRequest {
+func (r ApiGetV2ObjectAllRequest) ParentID(parentID int64) ApiGetV2ObjectAllRequest {
 	r.parentID = &parentID
 	return r
 }
@@ -5541,13 +5541,13 @@ func (a *ItemsAPIService) GetV2ObjectAllExecute(r ApiGetV2ObjectAllRequest) (*Ge
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
 	} else {
-		var defaultValue int32 = 30
+		var defaultValue int64 = 30
 		r.limit = &defaultValue
 	}
 	if r.offset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
 	} else {
-		var defaultValue int32 = 0
+		var defaultValue int64 = 0
 		r.offset = &defaultValue
 	}
 	if r.parentID != nil {
@@ -5642,7 +5642,7 @@ func (a *ItemsAPIService) GetV2ObjectAllExecute(r ApiGetV2ObjectAllRequest) (*Ge
 type ApiGetV2ObjectCharcsSubjectIdRequest struct {
 	ctx        context.Context
 	ApiService ItemsAPI
-	subjectId  int32
+	subjectId  int64
 	locale     *string
 }
 
@@ -5686,7 +5686,7 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	@param subjectId ID предмета
 	@return ApiGetV2ObjectCharcsSubjectIdRequest
 */
-func (a *ItemsAPIService) GetV2ObjectCharcsSubjectId(ctx context.Context, subjectId int32) ApiGetV2ObjectCharcsSubjectIdRequest {
+func (a *ItemsAPIService) GetV2ObjectCharcsSubjectId(ctx context.Context, subjectId int64) ApiGetV2ObjectCharcsSubjectIdRequest {
 	return ApiGetV2ObjectCharcsSubjectIdRequest{
 		ApiService: a,
 		ctx:        ctx,
@@ -6821,7 +6821,7 @@ func (a *ItemsAPIService) GetV3WarehousesExecute(r ApiGetV3WarehousesRequest) ([
 type ApiPatchV2TagIdRequest struct {
 	ctx                 context.Context
 	ApiService          ItemsAPI
-	id                  int32
+	id                  int64
 	patchV2TagIdRequest *PatchV2TagIdRequest
 }
 
@@ -6859,7 +6859,7 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	@param id Числовой ID ярлыка
 	@return ApiPatchV2TagIdRequest
 */
-func (a *ItemsAPIService) PatchV2TagId(ctx context.Context, id int32) ApiPatchV2TagIdRequest {
+func (a *ItemsAPIService) PatchV2TagId(ctx context.Context, id int64) ApiPatchV2TagIdRequest {
 	return ApiPatchV2TagIdRequest{
 		ApiService: a,
 		ctx:        ctx,
@@ -10659,7 +10659,7 @@ type ApiPostV3MediaFileRequest struct {
 	ctx          context.Context
 	ApiService   ItemsAPI
 	xNmId        *string
-	xPhotoNumber *int32
+	xPhotoNumber *int64
 	uploadfile   *os.File
 }
 
@@ -10670,7 +10670,7 @@ func (r ApiPostV3MediaFileRequest) XNmId(xNmId string) ApiPostV3MediaFileRequest
 }
 
 // Номер медиафайла на загрузку, начинается с &#x60;1&#x60;. При загрузке видео всегда указывайте &#x60;1&#x60;.  Чтобы добавить изображение к уже загруженным, номер медиафайла должен быть больше количества уже загруженных медиафайлов.
-func (r ApiPostV3MediaFileRequest) XPhotoNumber(xPhotoNumber int32) ApiPostV3MediaFileRequest {
+func (r ApiPostV3MediaFileRequest) XPhotoNumber(xPhotoNumber int64) ApiPostV3MediaFileRequest {
 	r.xPhotoNumber = &xPhotoNumber
 	return r
 }

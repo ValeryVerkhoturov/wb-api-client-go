@@ -20,7 +20,7 @@ var _ MappedNullable = &PostV2CardsDeleteTrashRequest{}
 // PostV2CardsDeleteTrashRequest struct for PostV2CardsDeleteTrashRequest
 type PostV2CardsDeleteTrashRequest struct {
 	// Артикулы WB
-	NmIDs []int32 `json:"nmIDs,omitempty"`
+	NmIDs []int64 `json:"nmIDs,omitempty"`
 }
 
 // NewPostV2CardsDeleteTrashRequest instantiates a new PostV2CardsDeleteTrashRequest object
@@ -41,9 +41,9 @@ func NewPostV2CardsDeleteTrashRequestWithDefaults() *PostV2CardsDeleteTrashReque
 }
 
 // GetNmIDs returns the NmIDs field value if set, zero value otherwise.
-func (o *PostV2CardsDeleteTrashRequest) GetNmIDs() []int32 {
+func (o *PostV2CardsDeleteTrashRequest) GetNmIDs() []int64 {
 	if o == nil || IsNil(o.NmIDs) {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.NmIDs
@@ -51,7 +51,7 @@ func (o *PostV2CardsDeleteTrashRequest) GetNmIDs() []int32 {
 
 // GetNmIDsOk returns a tuple with the NmIDs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2CardsDeleteTrashRequest) GetNmIDsOk() ([]int32, bool) {
+func (o *PostV2CardsDeleteTrashRequest) GetNmIDsOk() ([]int64, bool) {
 	if o == nil || IsNil(o.NmIDs) {
 		return nil, false
 	}
@@ -67,8 +67,8 @@ func (o *PostV2CardsDeleteTrashRequest) HasNmIDs() bool {
 	return false
 }
 
-// SetNmIDs gets a reference to the given []int32 and assigns it to the NmIDs field.
-func (o *PostV2CardsDeleteTrashRequest) SetNmIDs(v []int32) {
+// SetNmIDs gets a reference to the given []int64 and assigns it to the NmIDs field.
+func (o *PostV2CardsDeleteTrashRequest) SetNmIDs(v []int64) {
 	o.NmIDs = v
 }
 

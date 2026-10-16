@@ -22,9 +22,9 @@ type GetV1Deductions200ResponseDataReportsInner struct {
 	// Дата и время удержания
 	DtBonus *string `json:"dtBonus,omitempty"`
 	// Артикул WB
-	NmId *int32 `json:"nmId,omitempty"`
+	NmId *int64 `json:"nmId,omitempty"`
 	// Старый штрихкод
-	OldShkId *int32 `json:"oldShkId,omitempty"`
+	OldShkId *int64 `json:"oldShkId,omitempty"`
 	// Старый цвет
 	OldColor *string `json:"oldColor,omitempty"`
 	// Старый размер
@@ -34,7 +34,7 @@ type GetV1Deductions200ResponseDataReportsInner struct {
 	// Старый артикул продавца
 	OldVendorCode *string `json:"oldVendorCode,omitempty"`
 	// Новый штрихкод
-	NewShkId *int32 `json:"newShkId,omitempty"`
+	NewShkId *int64 `json:"newShkId,omitempty"`
 	// Новый цвет
 	NewColor *string `json:"newColor,omitempty"`
 	// Новый размер
@@ -101,9 +101,9 @@ func (o *GetV1Deductions200ResponseDataReportsInner) SetDtBonus(v string) {
 }
 
 // GetNmId returns the NmId field value if set, zero value otherwise.
-func (o *GetV1Deductions200ResponseDataReportsInner) GetNmId() int32 {
+func (o *GetV1Deductions200ResponseDataReportsInner) GetNmId() int64 {
 	if o == nil || IsNil(o.NmId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmId
@@ -111,7 +111,7 @@ func (o *GetV1Deductions200ResponseDataReportsInner) GetNmId() int32 {
 
 // GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1Deductions200ResponseDataReportsInner) GetNmIdOk() (*int32, bool) {
+func (o *GetV1Deductions200ResponseDataReportsInner) GetNmIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
@@ -127,15 +127,15 @@ func (o *GetV1Deductions200ResponseDataReportsInner) HasNmId() bool {
 	return false
 }
 
-// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
-func (o *GetV1Deductions200ResponseDataReportsInner) SetNmId(v int32) {
+// SetNmId gets a reference to the given int64 and assigns it to the NmId field.
+func (o *GetV1Deductions200ResponseDataReportsInner) SetNmId(v int64) {
 	o.NmId = &v
 }
 
 // GetOldShkId returns the OldShkId field value if set, zero value otherwise.
-func (o *GetV1Deductions200ResponseDataReportsInner) GetOldShkId() int32 {
+func (o *GetV1Deductions200ResponseDataReportsInner) GetOldShkId() int64 {
 	if o == nil || IsNil(o.OldShkId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OldShkId
@@ -143,7 +143,7 @@ func (o *GetV1Deductions200ResponseDataReportsInner) GetOldShkId() int32 {
 
 // GetOldShkIdOk returns a tuple with the OldShkId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1Deductions200ResponseDataReportsInner) GetOldShkIdOk() (*int32, bool) {
+func (o *GetV1Deductions200ResponseDataReportsInner) GetOldShkIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.OldShkId) {
 		return nil, false
 	}
@@ -159,8 +159,8 @@ func (o *GetV1Deductions200ResponseDataReportsInner) HasOldShkId() bool {
 	return false
 }
 
-// SetOldShkId gets a reference to the given int32 and assigns it to the OldShkId field.
-func (o *GetV1Deductions200ResponseDataReportsInner) SetOldShkId(v int32) {
+// SetOldShkId gets a reference to the given int64 and assigns it to the OldShkId field.
+func (o *GetV1Deductions200ResponseDataReportsInner) SetOldShkId(v int64) {
 	o.OldShkId = &v
 }
 
@@ -293,9 +293,9 @@ func (o *GetV1Deductions200ResponseDataReportsInner) SetOldVendorCode(v string) 
 }
 
 // GetNewShkId returns the NewShkId field value if set, zero value otherwise.
-func (o *GetV1Deductions200ResponseDataReportsInner) GetNewShkId() int32 {
+func (o *GetV1Deductions200ResponseDataReportsInner) GetNewShkId() int64 {
 	if o == nil || IsNil(o.NewShkId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NewShkId
@@ -303,7 +303,7 @@ func (o *GetV1Deductions200ResponseDataReportsInner) GetNewShkId() int32 {
 
 // GetNewShkIdOk returns a tuple with the NewShkId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1Deductions200ResponseDataReportsInner) GetNewShkIdOk() (*int32, bool) {
+func (o *GetV1Deductions200ResponseDataReportsInner) GetNewShkIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.NewShkId) {
 		return nil, false
 	}
@@ -319,8 +319,8 @@ func (o *GetV1Deductions200ResponseDataReportsInner) HasNewShkId() bool {
 	return false
 }
 
-// SetNewShkId gets a reference to the given int32 and assigns it to the NewShkId field.
-func (o *GetV1Deductions200ResponseDataReportsInner) SetNewShkId(v int32) {
+// SetNewShkId gets a reference to the given int64 and assigns it to the NewShkId field.
+func (o *GetV1Deductions200ResponseDataReportsInner) SetNewShkId(v int64) {
 	o.NewShkId = &v
 }
 

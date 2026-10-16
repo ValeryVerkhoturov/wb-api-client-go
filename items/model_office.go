@@ -32,9 +32,9 @@ type Office struct {
 	// Широта
 	Latitude *float32 `json:"latitude,omitempty"`
 	// Тип товара, который принимает склад:   - `1` — малогабаритный товар (МГТ)   - `3` — крупногабаритный товар (КГТ+)
-	CargoType *int32 `json:"cargoType,omitempty"`
+	CargoType *int64 `json:"cargoType,omitempty"`
 	// Тип доставки, который принимает склад:   - `1` — доставка на склад WB (FBS)   - `2` — доставка силами продавца (DBS)   - `3` — Деливери WB (DBW)   - `5` — самовывоз (C&C)   - `6` — экспресс-доставка силами продавца (ЕDBS)
-	DeliveryType *int32 `json:"deliveryType,omitempty"`
+	DeliveryType *int64 `json:"deliveryType,omitempty"`
 	// Федеральный округ склада WB. Если `null`, склад находится за пределами РФ или федеральный округ не указан
 	FederalDistrict NullableString `json:"federalDistrict,omitempty"`
 	// Признак того, что склад уже выбран продавцом
@@ -251,9 +251,9 @@ func (o *Office) SetLatitude(v float32) {
 }
 
 // GetCargoType returns the CargoType field value if set, zero value otherwise.
-func (o *Office) GetCargoType() int32 {
+func (o *Office) GetCargoType() int64 {
 	if o == nil || IsNil(o.CargoType) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CargoType
@@ -261,7 +261,7 @@ func (o *Office) GetCargoType() int32 {
 
 // GetCargoTypeOk returns a tuple with the CargoType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Office) GetCargoTypeOk() (*int32, bool) {
+func (o *Office) GetCargoTypeOk() (*int64, bool) {
 	if o == nil || IsNil(o.CargoType) {
 		return nil, false
 	}
@@ -277,15 +277,15 @@ func (o *Office) HasCargoType() bool {
 	return false
 }
 
-// SetCargoType gets a reference to the given int32 and assigns it to the CargoType field.
-func (o *Office) SetCargoType(v int32) {
+// SetCargoType gets a reference to the given int64 and assigns it to the CargoType field.
+func (o *Office) SetCargoType(v int64) {
 	o.CargoType = &v
 }
 
 // GetDeliveryType returns the DeliveryType field value if set, zero value otherwise.
-func (o *Office) GetDeliveryType() int32 {
+func (o *Office) GetDeliveryType() int64 {
 	if o == nil || IsNil(o.DeliveryType) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.DeliveryType
@@ -293,7 +293,7 @@ func (o *Office) GetDeliveryType() int32 {
 
 // GetDeliveryTypeOk returns a tuple with the DeliveryType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Office) GetDeliveryTypeOk() (*int32, bool) {
+func (o *Office) GetDeliveryTypeOk() (*int64, bool) {
 	if o == nil || IsNil(o.DeliveryType) {
 		return nil, false
 	}
@@ -309,8 +309,8 @@ func (o *Office) HasDeliveryType() bool {
 	return false
 }
 
-// SetDeliveryType gets a reference to the given int32 and assigns it to the DeliveryType field.
-func (o *Office) SetDeliveryType(v int32) {
+// SetDeliveryType gets a reference to the given int64 and assigns it to the DeliveryType field.
+func (o *Office) SetDeliveryType(v int64) {
 	o.DeliveryType = &v
 }
 

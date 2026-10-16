@@ -22,7 +22,7 @@ var _ MappedNullable = &PostV1UploadTaskB2bWholesale200Response{}
 // PostV1UploadTaskB2bWholesale200Response struct for PostV1UploadTaskB2bWholesale200Response
 type PostV1UploadTaskB2bWholesale200Response struct {
 	// ID загрузки
-	Id int32 `json:"id"`
+	Id int64 `json:"id"`
 	// Дублирование загрузки: `true` — такая загрузка уже есть
 	AlreadyExists bool `json:"alreadyExists"`
 	// Результаты обработки запроса
@@ -35,7 +35,7 @@ type _PostV1UploadTaskB2bWholesale200Response PostV1UploadTaskB2bWholesale200Res
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostV1UploadTaskB2bWholesale200Response(id int32, alreadyExists bool, results []PostV1UploadTaskB2bWholesale200ResponseResultsInner) *PostV1UploadTaskB2bWholesale200Response {
+func NewPostV1UploadTaskB2bWholesale200Response(id int64, alreadyExists bool, results []PostV1UploadTaskB2bWholesale200ResponseResultsInner) *PostV1UploadTaskB2bWholesale200Response {
 	this := PostV1UploadTaskB2bWholesale200Response{}
 	this.Id = id
 	this.AlreadyExists = alreadyExists
@@ -52,9 +52,9 @@ func NewPostV1UploadTaskB2bWholesale200ResponseWithDefaults() *PostV1UploadTaskB
 }
 
 // GetId returns the Id field value
-func (o *PostV1UploadTaskB2bWholesale200Response) GetId() int32 {
+func (o *PostV1UploadTaskB2bWholesale200Response) GetId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -63,7 +63,7 @@ func (o *PostV1UploadTaskB2bWholesale200Response) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *PostV1UploadTaskB2bWholesale200Response) GetIdOk() (*int32, bool) {
+func (o *PostV1UploadTaskB2bWholesale200Response) GetIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -71,7 +71,7 @@ func (o *PostV1UploadTaskB2bWholesale200Response) GetIdOk() (*int32, bool) {
 }
 
 // SetId sets field value
-func (o *PostV1UploadTaskB2bWholesale200Response) SetId(v int32) {
+func (o *PostV1UploadTaskB2bWholesale200Response) SetId(v int64) {
 	o.Id = v
 }
 

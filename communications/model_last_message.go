@@ -22,7 +22,7 @@ type LastMessage struct {
 	// Текст сообщения
 	Text *string `json:"text,omitempty"`
 	// Время сообщения
-	AddTimestamp *int32 `json:"addTimestamp,omitempty"`
+	AddTimestamp *int64 `json:"addTimestamp,omitempty"`
 }
 
 // NewLastMessage instantiates a new LastMessage object
@@ -75,9 +75,9 @@ func (o *LastMessage) SetText(v string) {
 }
 
 // GetAddTimestamp returns the AddTimestamp field value if set, zero value otherwise.
-func (o *LastMessage) GetAddTimestamp() int32 {
+func (o *LastMessage) GetAddTimestamp() int64 {
 	if o == nil || IsNil(o.AddTimestamp) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.AddTimestamp
@@ -85,7 +85,7 @@ func (o *LastMessage) GetAddTimestamp() int32 {
 
 // GetAddTimestampOk returns a tuple with the AddTimestamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LastMessage) GetAddTimestampOk() (*int32, bool) {
+func (o *LastMessage) GetAddTimestampOk() (*int64, bool) {
 	if o == nil || IsNil(o.AddTimestamp) {
 		return nil, false
 	}
@@ -101,8 +101,8 @@ func (o *LastMessage) HasAddTimestamp() bool {
 	return false
 }
 
-// SetAddTimestamp gets a reference to the given int32 and assigns it to the AddTimestamp field.
-func (o *LastMessage) SetAddTimestamp(v int32) {
+// SetAddTimestamp gets a reference to the given int64 and assigns it to the AddTimestamp field.
+func (o *LastMessage) SetAddTimestamp(v int64) {
 	o.AddTimestamp = &v
 }
 

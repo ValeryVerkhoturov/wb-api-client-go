@@ -24,7 +24,7 @@ type UpdateSupplyShippingMethod struct {
 	// Планируемая дата отгрузки поставки, формат `YYYY-MM-DD`
 	ShippingDt string `json:"shippingDt"`
 	// ID пункта отгрузки. Можно получить с помощью [отдельного метода](./orders-fbs#tag/fbsSupplies/operation/getV3FbsShippingPoints)
-	ShippingPointId int32 `json:"shippingPointId"`
+	ShippingPointId int64 `json:"shippingPointId"`
 	// Способ доставки до пункта отгрузки:   - `selfShipping` — доставка силами продавца   - `transportCompany` — доставка через транспортную компанию
 	ShippingType string `json:"shippingType"`
 	// ID поставки
@@ -37,7 +37,7 @@ type _UpdateSupplyShippingMethod UpdateSupplyShippingMethod
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUpdateSupplyShippingMethod(shippingDt string, shippingPointId int32, shippingType string, supplyId string) *UpdateSupplyShippingMethod {
+func NewUpdateSupplyShippingMethod(shippingDt string, shippingPointId int64, shippingType string, supplyId string) *UpdateSupplyShippingMethod {
 	this := UpdateSupplyShippingMethod{}
 	this.ShippingDt = shippingDt
 	this.ShippingPointId = shippingPointId
@@ -79,9 +79,9 @@ func (o *UpdateSupplyShippingMethod) SetShippingDt(v string) {
 }
 
 // GetShippingPointId returns the ShippingPointId field value
-func (o *UpdateSupplyShippingMethod) GetShippingPointId() int32 {
+func (o *UpdateSupplyShippingMethod) GetShippingPointId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -90,7 +90,7 @@ func (o *UpdateSupplyShippingMethod) GetShippingPointId() int32 {
 
 // GetShippingPointIdOk returns a tuple with the ShippingPointId field value
 // and a boolean to check if the value has been set.
-func (o *UpdateSupplyShippingMethod) GetShippingPointIdOk() (*int32, bool) {
+func (o *UpdateSupplyShippingMethod) GetShippingPointIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -98,7 +98,7 @@ func (o *UpdateSupplyShippingMethod) GetShippingPointIdOk() (*int32, bool) {
 }
 
 // SetShippingPointId sets field value
-func (o *UpdateSupplyShippingMethod) SetShippingPointId(v int32) {
+func (o *UpdateSupplyShippingMethod) SetShippingPointId(v int64) {
 	o.ShippingPointId = v
 }
 

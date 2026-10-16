@@ -29,7 +29,7 @@ type V3ArchiveOrder struct {
 	// Тип сборочного задания:   - `local` — внутренняя поставка   - `crossBorder` — трансграничная поставка
 	CrossBorderType *string `json:"crossBorderType,omitempty"`
 	// ID сборочного задания
-	Id *int32 `json:"id,omitempty"`
+	Id *int64 `json:"id,omitempty"`
 	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком
 	IsZeroOrder *bool `json:"isZeroOrder,omitempty"`
 	// Детали маркировки
@@ -42,14 +42,14 @@ type V3ArchiveOrder struct {
 	// Уникальный ID заказа. Примечание: `rid` — это `srid` в ответах методов: - [Заявки покупателей на возврат](./customer-communication#tag/buyersReturns/operation/getV1Claims) - [Лента заказов](./analytics#tag/orderFeed/operation/postV1OrderFeed) - [Заказы](./reports#tag/mainReports/operation/getV1SupplierOrders) - [Продажи](./reports#tag/mainReports/operation/getV1SupplierSales) - [Отчёт о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport) - [Детализации к отчётам реализации по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId) - [Детализации к отчётам реализации за период](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed) - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId) - [Детализации к отчётам об издержках на приём платежей за период](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)
 	Rid *string `json:"rid,omitempty"`
 	// Цена приёмки заказа в копейках
-	ScanPrice NullableInt32         `json:"scanPrice,omitempty"`
+	ScanPrice NullableInt64         `json:"scanPrice,omitempty"`
 	Status    *V3ArchiveOrderStatus `json:"status,omitempty"`
 	// ID стикера
-	StickerId *int32 `json:"stickerId,omitempty"`
+	StickerId *int64 `json:"stickerId,omitempty"`
 	// ID поставки
 	SupplyId NullableString `json:"supplyId,omitempty"`
 	// ID склада продавца, с которого был отгружен товар
-	WarehouseId *int32 `json:"warehouseId,omitempty"`
+	WarehouseId *int64 `json:"warehouseId,omitempty"`
 }
 
 // NewV3ArchiveOrder instantiates a new V3ArchiveOrder object
@@ -252,9 +252,9 @@ func (o *V3ArchiveOrder) SetCrossBorderType(v string) {
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *V3ArchiveOrder) GetId() int32 {
+func (o *V3ArchiveOrder) GetId() int64 {
 	if o == nil || IsNil(o.Id) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Id
@@ -262,7 +262,7 @@ func (o *V3ArchiveOrder) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V3ArchiveOrder) GetIdOk() (*int32, bool) {
+func (o *V3ArchiveOrder) GetIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -278,8 +278,8 @@ func (o *V3ArchiveOrder) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *V3ArchiveOrder) SetId(v int32) {
+// SetId gets a reference to the given int64 and assigns it to the Id field.
+func (o *V3ArchiveOrder) SetId(v int64) {
 	o.Id = &v
 }
 
@@ -508,9 +508,9 @@ func (o *V3ArchiveOrder) SetRid(v string) {
 }
 
 // GetScanPrice returns the ScanPrice field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *V3ArchiveOrder) GetScanPrice() int32 {
+func (o *V3ArchiveOrder) GetScanPrice() int64 {
 	if o == nil || IsNil(o.ScanPrice.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ScanPrice.Get()
@@ -519,7 +519,7 @@ func (o *V3ArchiveOrder) GetScanPrice() int32 {
 // GetScanPriceOk returns a tuple with the ScanPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *V3ArchiveOrder) GetScanPriceOk() (*int32, bool) {
+func (o *V3ArchiveOrder) GetScanPriceOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -535,8 +535,8 @@ func (o *V3ArchiveOrder) HasScanPrice() bool {
 	return false
 }
 
-// SetScanPrice gets a reference to the given NullableInt32 and assigns it to the ScanPrice field.
-func (o *V3ArchiveOrder) SetScanPrice(v int32) {
+// SetScanPrice gets a reference to the given NullableInt64 and assigns it to the ScanPrice field.
+func (o *V3ArchiveOrder) SetScanPrice(v int64) {
 	o.ScanPrice.Set(&v)
 }
 
@@ -583,9 +583,9 @@ func (o *V3ArchiveOrder) SetStatus(v V3ArchiveOrderStatus) {
 }
 
 // GetStickerId returns the StickerId field value if set, zero value otherwise.
-func (o *V3ArchiveOrder) GetStickerId() int32 {
+func (o *V3ArchiveOrder) GetStickerId() int64 {
 	if o == nil || IsNil(o.StickerId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.StickerId
@@ -593,7 +593,7 @@ func (o *V3ArchiveOrder) GetStickerId() int32 {
 
 // GetStickerIdOk returns a tuple with the StickerId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V3ArchiveOrder) GetStickerIdOk() (*int32, bool) {
+func (o *V3ArchiveOrder) GetStickerIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.StickerId) {
 		return nil, false
 	}
@@ -609,8 +609,8 @@ func (o *V3ArchiveOrder) HasStickerId() bool {
 	return false
 }
 
-// SetStickerId gets a reference to the given int32 and assigns it to the StickerId field.
-func (o *V3ArchiveOrder) SetStickerId(v int32) {
+// SetStickerId gets a reference to the given int64 and assigns it to the StickerId field.
+func (o *V3ArchiveOrder) SetStickerId(v int64) {
 	o.StickerId = &v
 }
 
@@ -658,9 +658,9 @@ func (o *V3ArchiveOrder) UnsetSupplyId() {
 }
 
 // GetWarehouseId returns the WarehouseId field value if set, zero value otherwise.
-func (o *V3ArchiveOrder) GetWarehouseId() int32 {
+func (o *V3ArchiveOrder) GetWarehouseId() int64 {
 	if o == nil || IsNil(o.WarehouseId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.WarehouseId
@@ -668,7 +668,7 @@ func (o *V3ArchiveOrder) GetWarehouseId() int32 {
 
 // GetWarehouseIdOk returns a tuple with the WarehouseId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V3ArchiveOrder) GetWarehouseIdOk() (*int32, bool) {
+func (o *V3ArchiveOrder) GetWarehouseIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.WarehouseId) {
 		return nil, false
 	}
@@ -684,8 +684,8 @@ func (o *V3ArchiveOrder) HasWarehouseId() bool {
 	return false
 }
 
-// SetWarehouseId gets a reference to the given int32 and assigns it to the WarehouseId field.
-func (o *V3ArchiveOrder) SetWarehouseId(v int32) {
+// SetWarehouseId gets a reference to the given int64 and assigns it to the WarehouseId field.
+func (o *V3ArchiveOrder) SetWarehouseId(v int64) {
 	o.WarehouseId = &v
 }
 

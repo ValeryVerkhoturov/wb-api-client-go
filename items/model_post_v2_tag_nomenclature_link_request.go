@@ -20,9 +20,9 @@ var _ MappedNullable = &PostV2TagNomenclatureLinkRequest{}
 // PostV2TagNomenclatureLinkRequest struct for PostV2TagNomenclatureLinkRequest
 type PostV2TagNomenclatureLinkRequest struct {
 	// Артикул WB
-	NmID *int32 `json:"nmID,omitempty"`
+	NmID *int64 `json:"nmID,omitempty"`
 	// Массив числовых ID ярлыков. Что бы снять ярлыки с карточки товара, необходимо передать пустой массив. Чтобы добавить ярлыки к уже имеющимся в карточке товара, необходимо в запросе передать новые ярлыки и ярлыки, которые уже есть в карточке товара.
-	TagsIDs []int32 `json:"tagsIDs,omitempty"`
+	TagsIDs []int64 `json:"tagsIDs,omitempty"`
 }
 
 // NewPostV2TagNomenclatureLinkRequest instantiates a new PostV2TagNomenclatureLinkRequest object
@@ -43,9 +43,9 @@ func NewPostV2TagNomenclatureLinkRequestWithDefaults() *PostV2TagNomenclatureLin
 }
 
 // GetNmID returns the NmID field value if set, zero value otherwise.
-func (o *PostV2TagNomenclatureLinkRequest) GetNmID() int32 {
+func (o *PostV2TagNomenclatureLinkRequest) GetNmID() int64 {
 	if o == nil || IsNil(o.NmID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmID
@@ -53,7 +53,7 @@ func (o *PostV2TagNomenclatureLinkRequest) GetNmID() int32 {
 
 // GetNmIDOk returns a tuple with the NmID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2TagNomenclatureLinkRequest) GetNmIDOk() (*int32, bool) {
+func (o *PostV2TagNomenclatureLinkRequest) GetNmIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmID) {
 		return nil, false
 	}
@@ -69,15 +69,15 @@ func (o *PostV2TagNomenclatureLinkRequest) HasNmID() bool {
 	return false
 }
 
-// SetNmID gets a reference to the given int32 and assigns it to the NmID field.
-func (o *PostV2TagNomenclatureLinkRequest) SetNmID(v int32) {
+// SetNmID gets a reference to the given int64 and assigns it to the NmID field.
+func (o *PostV2TagNomenclatureLinkRequest) SetNmID(v int64) {
 	o.NmID = &v
 }
 
 // GetTagsIDs returns the TagsIDs field value if set, zero value otherwise.
-func (o *PostV2TagNomenclatureLinkRequest) GetTagsIDs() []int32 {
+func (o *PostV2TagNomenclatureLinkRequest) GetTagsIDs() []int64 {
 	if o == nil || IsNil(o.TagsIDs) {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.TagsIDs
@@ -85,7 +85,7 @@ func (o *PostV2TagNomenclatureLinkRequest) GetTagsIDs() []int32 {
 
 // GetTagsIDsOk returns a tuple with the TagsIDs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2TagNomenclatureLinkRequest) GetTagsIDsOk() ([]int32, bool) {
+func (o *PostV2TagNomenclatureLinkRequest) GetTagsIDsOk() ([]int64, bool) {
 	if o == nil || IsNil(o.TagsIDs) {
 		return nil, false
 	}
@@ -101,8 +101,8 @@ func (o *PostV2TagNomenclatureLinkRequest) HasTagsIDs() bool {
 	return false
 }
 
-// SetTagsIDs gets a reference to the given []int32 and assigns it to the TagsIDs field.
-func (o *PostV2TagNomenclatureLinkRequest) SetTagsIDs(v []int32) {
+// SetTagsIDs gets a reference to the given []int64 and assigns it to the TagsIDs field.
+func (o *PostV2TagNomenclatureLinkRequest) SetTagsIDs(v []int64) {
 	o.TagsIDs = v
 }
 

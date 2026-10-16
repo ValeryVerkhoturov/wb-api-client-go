@@ -20,11 +20,11 @@ var _ MappedNullable = &ComparisonTimeToReadyDynamic{}
 // ComparisonTimeToReadyDynamic struct for ComparisonTimeToReadyDynamic
 type ComparisonTimeToReadyDynamic struct {
 	// Дни
-	Days *int32 `json:"days,omitempty"`
+	Days *int64 `json:"days,omitempty"`
 	// Часы
-	Hours *int32 `json:"hours,omitempty"`
+	Hours *int64 `json:"hours,omitempty"`
 	// Минуты
-	Mins *int32 `json:"mins,omitempty"`
+	Mins *int64 `json:"mins,omitempty"`
 }
 
 // NewComparisonTimeToReadyDynamic instantiates a new ComparisonTimeToReadyDynamic object
@@ -45,9 +45,9 @@ func NewComparisonTimeToReadyDynamicWithDefaults() *ComparisonTimeToReadyDynamic
 }
 
 // GetDays returns the Days field value if set, zero value otherwise.
-func (o *ComparisonTimeToReadyDynamic) GetDays() int32 {
+func (o *ComparisonTimeToReadyDynamic) GetDays() int64 {
 	if o == nil || IsNil(o.Days) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Days
@@ -55,7 +55,7 @@ func (o *ComparisonTimeToReadyDynamic) GetDays() int32 {
 
 // GetDaysOk returns a tuple with the Days field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ComparisonTimeToReadyDynamic) GetDaysOk() (*int32, bool) {
+func (o *ComparisonTimeToReadyDynamic) GetDaysOk() (*int64, bool) {
 	if o == nil || IsNil(o.Days) {
 		return nil, false
 	}
@@ -71,15 +71,15 @@ func (o *ComparisonTimeToReadyDynamic) HasDays() bool {
 	return false
 }
 
-// SetDays gets a reference to the given int32 and assigns it to the Days field.
-func (o *ComparisonTimeToReadyDynamic) SetDays(v int32) {
+// SetDays gets a reference to the given int64 and assigns it to the Days field.
+func (o *ComparisonTimeToReadyDynamic) SetDays(v int64) {
 	o.Days = &v
 }
 
 // GetHours returns the Hours field value if set, zero value otherwise.
-func (o *ComparisonTimeToReadyDynamic) GetHours() int32 {
+func (o *ComparisonTimeToReadyDynamic) GetHours() int64 {
 	if o == nil || IsNil(o.Hours) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Hours
@@ -87,7 +87,7 @@ func (o *ComparisonTimeToReadyDynamic) GetHours() int32 {
 
 // GetHoursOk returns a tuple with the Hours field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ComparisonTimeToReadyDynamic) GetHoursOk() (*int32, bool) {
+func (o *ComparisonTimeToReadyDynamic) GetHoursOk() (*int64, bool) {
 	if o == nil || IsNil(o.Hours) {
 		return nil, false
 	}
@@ -103,15 +103,15 @@ func (o *ComparisonTimeToReadyDynamic) HasHours() bool {
 	return false
 }
 
-// SetHours gets a reference to the given int32 and assigns it to the Hours field.
-func (o *ComparisonTimeToReadyDynamic) SetHours(v int32) {
+// SetHours gets a reference to the given int64 and assigns it to the Hours field.
+func (o *ComparisonTimeToReadyDynamic) SetHours(v int64) {
 	o.Hours = &v
 }
 
 // GetMins returns the Mins field value if set, zero value otherwise.
-func (o *ComparisonTimeToReadyDynamic) GetMins() int32 {
+func (o *ComparisonTimeToReadyDynamic) GetMins() int64 {
 	if o == nil || IsNil(o.Mins) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Mins
@@ -119,7 +119,7 @@ func (o *ComparisonTimeToReadyDynamic) GetMins() int32 {
 
 // GetMinsOk returns a tuple with the Mins field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ComparisonTimeToReadyDynamic) GetMinsOk() (*int32, bool) {
+func (o *ComparisonTimeToReadyDynamic) GetMinsOk() (*int64, bool) {
 	if o == nil || IsNil(o.Mins) {
 		return nil, false
 	}
@@ -135,8 +135,8 @@ func (o *ComparisonTimeToReadyDynamic) HasMins() bool {
 	return false
 }
 
-// SetMins gets a reference to the given int32 and assigns it to the Mins field.
-func (o *ComparisonTimeToReadyDynamic) SetMins(v int32) {
+// SetMins gets a reference to the given int64 and assigns it to the Mins field.
+func (o *ComparisonTimeToReadyDynamic) SetMins(v int64) {
 	o.Mins = &v
 }
 

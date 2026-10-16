@@ -25,7 +25,7 @@ type ApiB2bClientInfoResponse struct {
 	// Есть ли ошибки
 	IsError *bool `json:"isError,omitempty"`
 	// ID сборочного задания
-	OrderId *int32 `json:"orderId,omitempty"`
+	OrderId *int64 `json:"orderId,omitempty"`
 }
 
 // NewApiB2bClientInfoResponse instantiates a new ApiB2bClientInfoResponse object
@@ -142,9 +142,9 @@ func (o *ApiB2bClientInfoResponse) SetIsError(v bool) {
 }
 
 // GetOrderId returns the OrderId field value if set, zero value otherwise.
-func (o *ApiB2bClientInfoResponse) GetOrderId() int32 {
+func (o *ApiB2bClientInfoResponse) GetOrderId() int64 {
 	if o == nil || IsNil(o.OrderId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OrderId
@@ -152,7 +152,7 @@ func (o *ApiB2bClientInfoResponse) GetOrderId() int32 {
 
 // GetOrderIdOk returns a tuple with the OrderId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiB2bClientInfoResponse) GetOrderIdOk() (*int32, bool) {
+func (o *ApiB2bClientInfoResponse) GetOrderIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.OrderId) {
 		return nil, false
 	}
@@ -168,8 +168,8 @@ func (o *ApiB2bClientInfoResponse) HasOrderId() bool {
 	return false
 }
 
-// SetOrderId gets a reference to the given int32 and assigns it to the OrderId field.
-func (o *ApiB2bClientInfoResponse) SetOrderId(v int32) {
+// SetOrderId gets a reference to the given int64 and assigns it to the OrderId field.
+func (o *ApiB2bClientInfoResponse) SetOrderId(v int64) {
 	o.OrderId = &v
 }
 

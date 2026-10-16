@@ -24,11 +24,11 @@ type ModelsDiscrepancyResponseItem struct {
 	// Тип расхождения в целом по коробу:  - `surplus` — товара в коробе больше заявленного  - `shortage` — товара в коробе меньше заявленного  - `re-sorting` — баркод принятого товара не соответствует заявленному при формировании поставки
 	DiscrepancyType *string `json:"discrepancyType,omitempty"`
 	// Количество товара, заявленное при формировании поставки
-	DeclaredAmount *int32 `json:"declaredAmount,omitempty"`
+	DeclaredAmount *int64 `json:"declaredAmount,omitempty"`
 	// Фактическое количество товара
-	ActualAmount *int32 `json:"actualAmount,omitempty"`
+	ActualAmount *int64 `json:"actualAmount,omitempty"`
 	// Разница между заявленным и фактическим количеством товара
-	DiscrepancyQuantity *int32 `json:"discrepancyQuantity,omitempty"`
+	DiscrepancyQuantity *int64 `json:"discrepancyQuantity,omitempty"`
 	// Фактический баркод
 	ActualSku *string `json:"actualSku,omitempty"`
 	// Результаты сканирования товаров
@@ -117,9 +117,9 @@ func (o *ModelsDiscrepancyResponseItem) SetDiscrepancyType(v string) {
 }
 
 // GetDeclaredAmount returns the DeclaredAmount field value if set, zero value otherwise.
-func (o *ModelsDiscrepancyResponseItem) GetDeclaredAmount() int32 {
+func (o *ModelsDiscrepancyResponseItem) GetDeclaredAmount() int64 {
 	if o == nil || IsNil(o.DeclaredAmount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.DeclaredAmount
@@ -127,7 +127,7 @@ func (o *ModelsDiscrepancyResponseItem) GetDeclaredAmount() int32 {
 
 // GetDeclaredAmountOk returns a tuple with the DeclaredAmount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsDiscrepancyResponseItem) GetDeclaredAmountOk() (*int32, bool) {
+func (o *ModelsDiscrepancyResponseItem) GetDeclaredAmountOk() (*int64, bool) {
 	if o == nil || IsNil(o.DeclaredAmount) {
 		return nil, false
 	}
@@ -143,15 +143,15 @@ func (o *ModelsDiscrepancyResponseItem) HasDeclaredAmount() bool {
 	return false
 }
 
-// SetDeclaredAmount gets a reference to the given int32 and assigns it to the DeclaredAmount field.
-func (o *ModelsDiscrepancyResponseItem) SetDeclaredAmount(v int32) {
+// SetDeclaredAmount gets a reference to the given int64 and assigns it to the DeclaredAmount field.
+func (o *ModelsDiscrepancyResponseItem) SetDeclaredAmount(v int64) {
 	o.DeclaredAmount = &v
 }
 
 // GetActualAmount returns the ActualAmount field value if set, zero value otherwise.
-func (o *ModelsDiscrepancyResponseItem) GetActualAmount() int32 {
+func (o *ModelsDiscrepancyResponseItem) GetActualAmount() int64 {
 	if o == nil || IsNil(o.ActualAmount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ActualAmount
@@ -159,7 +159,7 @@ func (o *ModelsDiscrepancyResponseItem) GetActualAmount() int32 {
 
 // GetActualAmountOk returns a tuple with the ActualAmount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsDiscrepancyResponseItem) GetActualAmountOk() (*int32, bool) {
+func (o *ModelsDiscrepancyResponseItem) GetActualAmountOk() (*int64, bool) {
 	if o == nil || IsNil(o.ActualAmount) {
 		return nil, false
 	}
@@ -175,15 +175,15 @@ func (o *ModelsDiscrepancyResponseItem) HasActualAmount() bool {
 	return false
 }
 
-// SetActualAmount gets a reference to the given int32 and assigns it to the ActualAmount field.
-func (o *ModelsDiscrepancyResponseItem) SetActualAmount(v int32) {
+// SetActualAmount gets a reference to the given int64 and assigns it to the ActualAmount field.
+func (o *ModelsDiscrepancyResponseItem) SetActualAmount(v int64) {
 	o.ActualAmount = &v
 }
 
 // GetDiscrepancyQuantity returns the DiscrepancyQuantity field value if set, zero value otherwise.
-func (o *ModelsDiscrepancyResponseItem) GetDiscrepancyQuantity() int32 {
+func (o *ModelsDiscrepancyResponseItem) GetDiscrepancyQuantity() int64 {
 	if o == nil || IsNil(o.DiscrepancyQuantity) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.DiscrepancyQuantity
@@ -191,7 +191,7 @@ func (o *ModelsDiscrepancyResponseItem) GetDiscrepancyQuantity() int32 {
 
 // GetDiscrepancyQuantityOk returns a tuple with the DiscrepancyQuantity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsDiscrepancyResponseItem) GetDiscrepancyQuantityOk() (*int32, bool) {
+func (o *ModelsDiscrepancyResponseItem) GetDiscrepancyQuantityOk() (*int64, bool) {
 	if o == nil || IsNil(o.DiscrepancyQuantity) {
 		return nil, false
 	}
@@ -207,8 +207,8 @@ func (o *ModelsDiscrepancyResponseItem) HasDiscrepancyQuantity() bool {
 	return false
 }
 
-// SetDiscrepancyQuantity gets a reference to the given int32 and assigns it to the DiscrepancyQuantity field.
-func (o *ModelsDiscrepancyResponseItem) SetDiscrepancyQuantity(v int32) {
+// SetDiscrepancyQuantity gets a reference to the given int64 and assigns it to the DiscrepancyQuantity field.
+func (o *ModelsDiscrepancyResponseItem) SetDiscrepancyQuantity(v int64) {
 	o.DiscrepancyQuantity = &v
 }
 

@@ -20,7 +20,7 @@ var _ MappedNullable = &GetV1SellerDownloadIdResponse451{}
 // GetV1SellerDownloadIdResponse451 struct for GetV1SellerDownloadIdResponse451
 type GetV1SellerDownloadIdResponse451 struct {
 	// HTTP статус-код
-	Status *int32 `json:"status,omitempty"`
+	Status *int64 `json:"status,omitempty"`
 	// Заголовок ошибки
 	Title *string `json:"title,omitempty"`
 	// ID внутреннего сервиса WB
@@ -49,9 +49,9 @@ func NewGetV1SellerDownloadIdResponse451WithDefaults() *GetV1SellerDownloadIdRes
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
-func (o *GetV1SellerDownloadIdResponse451) GetStatus() int32 {
+func (o *GetV1SellerDownloadIdResponse451) GetStatus() int64 {
 	if o == nil || IsNil(o.Status) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Status
@@ -59,7 +59,7 @@ func (o *GetV1SellerDownloadIdResponse451) GetStatus() int32 {
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1SellerDownloadIdResponse451) GetStatusOk() (*int32, bool) {
+func (o *GetV1SellerDownloadIdResponse451) GetStatusOk() (*int64, bool) {
 	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
@@ -75,8 +75,8 @@ func (o *GetV1SellerDownloadIdResponse451) HasStatus() bool {
 	return false
 }
 
-// SetStatus gets a reference to the given int32 and assigns it to the Status field.
-func (o *GetV1SellerDownloadIdResponse451) SetStatus(v int32) {
+// SetStatus gets a reference to the given int64 and assigns it to the Status field.
+func (o *GetV1SellerDownloadIdResponse451) SetStatus(v int64) {
 	o.Status = &v
 }
 

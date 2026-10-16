@@ -22,7 +22,7 @@ type InventorySellerResponseItemsInner struct {
 	// Артикул WB
 	NmId *int64 `json:"nmId,omitempty"`
 	// ID размера
-	ChrtId *int32 `json:"chrtId,omitempty"`
+	ChrtId *int64 `json:"chrtId,omitempty"`
 	// ID склада
 	WarehouseId *int64 `json:"warehouseId,omitempty"`
 	// Название склада
@@ -30,7 +30,7 @@ type InventorySellerResponseItemsInner struct {
 	// Регион отгрузки
 	RegionName *string `json:"regionName,omitempty"`
 	// Количество товара на складе, доступное клиентам для добавления в корзину
-	Quantity *int32 `json:"quantity,omitempty"`
+	Quantity *int64 `json:"quantity,omitempty"`
 }
 
 // NewInventorySellerResponseItemsInner instantiates a new InventorySellerResponseItemsInner object
@@ -83,9 +83,9 @@ func (o *InventorySellerResponseItemsInner) SetNmId(v int64) {
 }
 
 // GetChrtId returns the ChrtId field value if set, zero value otherwise.
-func (o *InventorySellerResponseItemsInner) GetChrtId() int32 {
+func (o *InventorySellerResponseItemsInner) GetChrtId() int64 {
 	if o == nil || IsNil(o.ChrtId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ChrtId
@@ -93,7 +93,7 @@ func (o *InventorySellerResponseItemsInner) GetChrtId() int32 {
 
 // GetChrtIdOk returns a tuple with the ChrtId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InventorySellerResponseItemsInner) GetChrtIdOk() (*int32, bool) {
+func (o *InventorySellerResponseItemsInner) GetChrtIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.ChrtId) {
 		return nil, false
 	}
@@ -109,8 +109,8 @@ func (o *InventorySellerResponseItemsInner) HasChrtId() bool {
 	return false
 }
 
-// SetChrtId gets a reference to the given int32 and assigns it to the ChrtId field.
-func (o *InventorySellerResponseItemsInner) SetChrtId(v int32) {
+// SetChrtId gets a reference to the given int64 and assigns it to the ChrtId field.
+func (o *InventorySellerResponseItemsInner) SetChrtId(v int64) {
 	o.ChrtId = &v
 }
 
@@ -211,9 +211,9 @@ func (o *InventorySellerResponseItemsInner) SetRegionName(v string) {
 }
 
 // GetQuantity returns the Quantity field value if set, zero value otherwise.
-func (o *InventorySellerResponseItemsInner) GetQuantity() int32 {
+func (o *InventorySellerResponseItemsInner) GetQuantity() int64 {
 	if o == nil || IsNil(o.Quantity) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Quantity
@@ -221,7 +221,7 @@ func (o *InventorySellerResponseItemsInner) GetQuantity() int32 {
 
 // GetQuantityOk returns a tuple with the Quantity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InventorySellerResponseItemsInner) GetQuantityOk() (*int32, bool) {
+func (o *InventorySellerResponseItemsInner) GetQuantityOk() (*int64, bool) {
 	if o == nil || IsNil(o.Quantity) {
 		return nil, false
 	}
@@ -237,8 +237,8 @@ func (o *InventorySellerResponseItemsInner) HasQuantity() bool {
 	return false
 }
 
-// SetQuantity gets a reference to the given int32 and assigns it to the Quantity field.
-func (o *InventorySellerResponseItemsInner) SetQuantity(v int32) {
+// SetQuantity gets a reference to the given int64 and assigns it to the Quantity field.
+func (o *InventorySellerResponseItemsInner) SetQuantity(v int64) {
 	o.Quantity = &v
 }
 

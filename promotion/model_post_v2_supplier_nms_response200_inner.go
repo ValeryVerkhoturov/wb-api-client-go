@@ -22,9 +22,9 @@ type PostV2SupplierNmsResponse200Inner struct {
 	// Название товара
 	Title *string `json:"title,omitempty"`
 	// Артикул WB
-	Nm *int32 `json:"nm,omitempty"`
+	Nm *int64 `json:"nm,omitempty"`
 	// ID предмета
-	SubjectId *int32 `json:"subjectId,omitempty"`
+	SubjectId *int64 `json:"subjectId,omitempty"`
 }
 
 // NewPostV2SupplierNmsResponse200Inner instantiates a new PostV2SupplierNmsResponse200Inner object
@@ -77,9 +77,9 @@ func (o *PostV2SupplierNmsResponse200Inner) SetTitle(v string) {
 }
 
 // GetNm returns the Nm field value if set, zero value otherwise.
-func (o *PostV2SupplierNmsResponse200Inner) GetNm() int32 {
+func (o *PostV2SupplierNmsResponse200Inner) GetNm() int64 {
 	if o == nil || IsNil(o.Nm) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Nm
@@ -87,7 +87,7 @@ func (o *PostV2SupplierNmsResponse200Inner) GetNm() int32 {
 
 // GetNmOk returns a tuple with the Nm field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2SupplierNmsResponse200Inner) GetNmOk() (*int32, bool) {
+func (o *PostV2SupplierNmsResponse200Inner) GetNmOk() (*int64, bool) {
 	if o == nil || IsNil(o.Nm) {
 		return nil, false
 	}
@@ -103,15 +103,15 @@ func (o *PostV2SupplierNmsResponse200Inner) HasNm() bool {
 	return false
 }
 
-// SetNm gets a reference to the given int32 and assigns it to the Nm field.
-func (o *PostV2SupplierNmsResponse200Inner) SetNm(v int32) {
+// SetNm gets a reference to the given int64 and assigns it to the Nm field.
+func (o *PostV2SupplierNmsResponse200Inner) SetNm(v int64) {
 	o.Nm = &v
 }
 
 // GetSubjectId returns the SubjectId field value if set, zero value otherwise.
-func (o *PostV2SupplierNmsResponse200Inner) GetSubjectId() int32 {
+func (o *PostV2SupplierNmsResponse200Inner) GetSubjectId() int64 {
 	if o == nil || IsNil(o.SubjectId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SubjectId
@@ -119,7 +119,7 @@ func (o *PostV2SupplierNmsResponse200Inner) GetSubjectId() int32 {
 
 // GetSubjectIdOk returns a tuple with the SubjectId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2SupplierNmsResponse200Inner) GetSubjectIdOk() (*int32, bool) {
+func (o *PostV2SupplierNmsResponse200Inner) GetSubjectIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.SubjectId) {
 		return nil, false
 	}
@@ -135,8 +135,8 @@ func (o *PostV2SupplierNmsResponse200Inner) HasSubjectId() bool {
 	return false
 }
 
-// SetSubjectId gets a reference to the given int32 and assigns it to the SubjectId field.
-func (o *PostV2SupplierNmsResponse200Inner) SetSubjectId(v int32) {
+// SetSubjectId gets a reference to the given int64 and assigns it to the SubjectId field.
+func (o *PostV2SupplierNmsResponse200Inner) SetSubjectId(v int64) {
 	o.SubjectId = &v
 }
 

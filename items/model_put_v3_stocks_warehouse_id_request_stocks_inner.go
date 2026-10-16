@@ -22,9 +22,9 @@ var _ MappedNullable = &PutV3StocksWarehouseIdRequestStocksInner{}
 // PutV3StocksWarehouseIdRequestStocksInner struct for PutV3StocksWarehouseIdRequestStocksInner
 type PutV3StocksWarehouseIdRequestStocksInner struct {
 	// ID размера товара
-	ChrtId int32 `json:"chrtId"`
+	ChrtId int64 `json:"chrtId"`
 	// Остаток
-	Amount int32 `json:"amount"`
+	Amount int64 `json:"amount"`
 }
 
 type _PutV3StocksWarehouseIdRequestStocksInner PutV3StocksWarehouseIdRequestStocksInner
@@ -33,7 +33,7 @@ type _PutV3StocksWarehouseIdRequestStocksInner PutV3StocksWarehouseIdRequestStoc
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPutV3StocksWarehouseIdRequestStocksInner(chrtId int32, amount int32) *PutV3StocksWarehouseIdRequestStocksInner {
+func NewPutV3StocksWarehouseIdRequestStocksInner(chrtId int64, amount int64) *PutV3StocksWarehouseIdRequestStocksInner {
 	this := PutV3StocksWarehouseIdRequestStocksInner{}
 	this.ChrtId = chrtId
 	this.Amount = amount
@@ -49,9 +49,9 @@ func NewPutV3StocksWarehouseIdRequestStocksInnerWithDefaults() *PutV3StocksWareh
 }
 
 // GetChrtId returns the ChrtId field value
-func (o *PutV3StocksWarehouseIdRequestStocksInner) GetChrtId() int32 {
+func (o *PutV3StocksWarehouseIdRequestStocksInner) GetChrtId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -60,7 +60,7 @@ func (o *PutV3StocksWarehouseIdRequestStocksInner) GetChrtId() int32 {
 
 // GetChrtIdOk returns a tuple with the ChrtId field value
 // and a boolean to check if the value has been set.
-func (o *PutV3StocksWarehouseIdRequestStocksInner) GetChrtIdOk() (*int32, bool) {
+func (o *PutV3StocksWarehouseIdRequestStocksInner) GetChrtIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,14 +68,14 @@ func (o *PutV3StocksWarehouseIdRequestStocksInner) GetChrtIdOk() (*int32, bool) 
 }
 
 // SetChrtId sets field value
-func (o *PutV3StocksWarehouseIdRequestStocksInner) SetChrtId(v int32) {
+func (o *PutV3StocksWarehouseIdRequestStocksInner) SetChrtId(v int64) {
 	o.ChrtId = v
 }
 
 // GetAmount returns the Amount field value
-func (o *PutV3StocksWarehouseIdRequestStocksInner) GetAmount() int32 {
+func (o *PutV3StocksWarehouseIdRequestStocksInner) GetAmount() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -84,7 +84,7 @@ func (o *PutV3StocksWarehouseIdRequestStocksInner) GetAmount() int32 {
 
 // GetAmountOk returns a tuple with the Amount field value
 // and a boolean to check if the value has been set.
-func (o *PutV3StocksWarehouseIdRequestStocksInner) GetAmountOk() (*int32, bool) {
+func (o *PutV3StocksWarehouseIdRequestStocksInner) GetAmountOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -92,7 +92,7 @@ func (o *PutV3StocksWarehouseIdRequestStocksInner) GetAmountOk() (*int32, bool) 
 }
 
 // SetAmount sets field value
-func (o *PutV3StocksWarehouseIdRequestStocksInner) SetAmount(v int32) {
+func (o *PutV3StocksWarehouseIdRequestStocksInner) SetAmount(v int64) {
 	o.Amount = v
 }
 

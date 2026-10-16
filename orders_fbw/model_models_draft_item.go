@@ -28,9 +28,9 @@ type ModelsDraftItem struct {
 	// Дата и время последнего обновления черновика
 	UpdatedAt *string `json:"updatedAt,omitempty"`
 	// Количество баркодов
-	SkuQuantity *int32 `json:"skuQuantity,omitempty"`
+	SkuQuantity *int64 `json:"skuQuantity,omitempty"`
 	// Количество единиц товара
-	ItemQuantity *int32 `json:"itemQuantity,omitempty"`
+	ItemQuantity *int64 `json:"itemQuantity,omitempty"`
 }
 
 // NewModelsDraftItem instantiates a new ModelsDraftItem object
@@ -179,9 +179,9 @@ func (o *ModelsDraftItem) SetUpdatedAt(v string) {
 }
 
 // GetSkuQuantity returns the SkuQuantity field value if set, zero value otherwise.
-func (o *ModelsDraftItem) GetSkuQuantity() int32 {
+func (o *ModelsDraftItem) GetSkuQuantity() int64 {
 	if o == nil || IsNil(o.SkuQuantity) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SkuQuantity
@@ -189,7 +189,7 @@ func (o *ModelsDraftItem) GetSkuQuantity() int32 {
 
 // GetSkuQuantityOk returns a tuple with the SkuQuantity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsDraftItem) GetSkuQuantityOk() (*int32, bool) {
+func (o *ModelsDraftItem) GetSkuQuantityOk() (*int64, bool) {
 	if o == nil || IsNil(o.SkuQuantity) {
 		return nil, false
 	}
@@ -205,15 +205,15 @@ func (o *ModelsDraftItem) HasSkuQuantity() bool {
 	return false
 }
 
-// SetSkuQuantity gets a reference to the given int32 and assigns it to the SkuQuantity field.
-func (o *ModelsDraftItem) SetSkuQuantity(v int32) {
+// SetSkuQuantity gets a reference to the given int64 and assigns it to the SkuQuantity field.
+func (o *ModelsDraftItem) SetSkuQuantity(v int64) {
 	o.SkuQuantity = &v
 }
 
 // GetItemQuantity returns the ItemQuantity field value if set, zero value otherwise.
-func (o *ModelsDraftItem) GetItemQuantity() int32 {
+func (o *ModelsDraftItem) GetItemQuantity() int64 {
 	if o == nil || IsNil(o.ItemQuantity) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ItemQuantity
@@ -221,7 +221,7 @@ func (o *ModelsDraftItem) GetItemQuantity() int32 {
 
 // GetItemQuantityOk returns a tuple with the ItemQuantity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsDraftItem) GetItemQuantityOk() (*int32, bool) {
+func (o *ModelsDraftItem) GetItemQuantityOk() (*int64, bool) {
 	if o == nil || IsNil(o.ItemQuantity) {
 		return nil, false
 	}
@@ -237,8 +237,8 @@ func (o *ModelsDraftItem) HasItemQuantity() bool {
 	return false
 }
 
-// SetItemQuantity gets a reference to the given int32 and assigns it to the ItemQuantity field.
-func (o *ModelsDraftItem) SetItemQuantity(v int32) {
+// SetItemQuantity gets a reference to the given int64 and assigns it to the ItemQuantity field.
+func (o *ModelsDraftItem) SetItemQuantity(v int64) {
 	o.ItemQuantity = &v
 }
 

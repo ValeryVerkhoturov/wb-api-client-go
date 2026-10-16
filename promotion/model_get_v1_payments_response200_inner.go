@@ -20,15 +20,15 @@ var _ MappedNullable = &GetV1PaymentsResponse200Inner{}
 // GetV1PaymentsResponse200Inner struct for GetV1PaymentsResponse200Inner
 type GetV1PaymentsResponse200Inner struct {
 	// ID платежа
-	Id *int32 `json:"id,omitempty"`
+	Id *int64 `json:"id,omitempty"`
 	// Дата платежа
 	Date *string `json:"date,omitempty"`
 	// Сумма платежа
-	Sum *int32 `json:"sum,omitempty"`
+	Sum *int64 `json:"sum,omitempty"`
 	// Тип источника списания: - `0` — Счёт - `1` — Баланс - `3` — Картой
-	Type *int32 `json:"type,omitempty"`
+	Type *int64 `json:"type,omitempty"`
 	// Статус: - `0` — ошибка - `1` — обработано
-	StatusId *int32 `json:"statusId,omitempty"`
+	StatusId *int64 `json:"statusId,omitempty"`
 	// Статус операции при оплате картой: - `success` — успех - `fail` — неуспех - `pending` — в ожидании ответа - `unknown` — неизвестно
 	CardStatus *string `json:"cardStatus,omitempty"`
 	// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
@@ -53,9 +53,9 @@ func NewGetV1PaymentsResponse200InnerWithDefaults() *GetV1PaymentsResponse200Inn
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *GetV1PaymentsResponse200Inner) GetId() int32 {
+func (o *GetV1PaymentsResponse200Inner) GetId() int64 {
 	if o == nil || IsNil(o.Id) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Id
@@ -63,7 +63,7 @@ func (o *GetV1PaymentsResponse200Inner) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1PaymentsResponse200Inner) GetIdOk() (*int32, bool) {
+func (o *GetV1PaymentsResponse200Inner) GetIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -79,8 +79,8 @@ func (o *GetV1PaymentsResponse200Inner) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *GetV1PaymentsResponse200Inner) SetId(v int32) {
+// SetId gets a reference to the given int64 and assigns it to the Id field.
+func (o *GetV1PaymentsResponse200Inner) SetId(v int64) {
 	o.Id = &v
 }
 
@@ -117,9 +117,9 @@ func (o *GetV1PaymentsResponse200Inner) SetDate(v string) {
 }
 
 // GetSum returns the Sum field value if set, zero value otherwise.
-func (o *GetV1PaymentsResponse200Inner) GetSum() int32 {
+func (o *GetV1PaymentsResponse200Inner) GetSum() int64 {
 	if o == nil || IsNil(o.Sum) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Sum
@@ -127,7 +127,7 @@ func (o *GetV1PaymentsResponse200Inner) GetSum() int32 {
 
 // GetSumOk returns a tuple with the Sum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1PaymentsResponse200Inner) GetSumOk() (*int32, bool) {
+func (o *GetV1PaymentsResponse200Inner) GetSumOk() (*int64, bool) {
 	if o == nil || IsNil(o.Sum) {
 		return nil, false
 	}
@@ -143,15 +143,15 @@ func (o *GetV1PaymentsResponse200Inner) HasSum() bool {
 	return false
 }
 
-// SetSum gets a reference to the given int32 and assigns it to the Sum field.
-func (o *GetV1PaymentsResponse200Inner) SetSum(v int32) {
+// SetSum gets a reference to the given int64 and assigns it to the Sum field.
+func (o *GetV1PaymentsResponse200Inner) SetSum(v int64) {
 	o.Sum = &v
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
-func (o *GetV1PaymentsResponse200Inner) GetType() int32 {
+func (o *GetV1PaymentsResponse200Inner) GetType() int64 {
 	if o == nil || IsNil(o.Type) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Type
@@ -159,7 +159,7 @@ func (o *GetV1PaymentsResponse200Inner) GetType() int32 {
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1PaymentsResponse200Inner) GetTypeOk() (*int32, bool) {
+func (o *GetV1PaymentsResponse200Inner) GetTypeOk() (*int64, bool) {
 	if o == nil || IsNil(o.Type) {
 		return nil, false
 	}
@@ -175,15 +175,15 @@ func (o *GetV1PaymentsResponse200Inner) HasType() bool {
 	return false
 }
 
-// SetType gets a reference to the given int32 and assigns it to the Type field.
-func (o *GetV1PaymentsResponse200Inner) SetType(v int32) {
+// SetType gets a reference to the given int64 and assigns it to the Type field.
+func (o *GetV1PaymentsResponse200Inner) SetType(v int64) {
 	o.Type = &v
 }
 
 // GetStatusId returns the StatusId field value if set, zero value otherwise.
-func (o *GetV1PaymentsResponse200Inner) GetStatusId() int32 {
+func (o *GetV1PaymentsResponse200Inner) GetStatusId() int64 {
 	if o == nil || IsNil(o.StatusId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.StatusId
@@ -191,7 +191,7 @@ func (o *GetV1PaymentsResponse200Inner) GetStatusId() int32 {
 
 // GetStatusIdOk returns a tuple with the StatusId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1PaymentsResponse200Inner) GetStatusIdOk() (*int32, bool) {
+func (o *GetV1PaymentsResponse200Inner) GetStatusIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.StatusId) {
 		return nil, false
 	}
@@ -207,8 +207,8 @@ func (o *GetV1PaymentsResponse200Inner) HasStatusId() bool {
 	return false
 }
 
-// SetStatusId gets a reference to the given int32 and assigns it to the StatusId field.
-func (o *GetV1PaymentsResponse200Inner) SetStatusId(v int32) {
+// SetStatusId gets a reference to the given int64 and assigns it to the StatusId field.
+func (o *GetV1PaymentsResponse200Inner) SetStatusId(v int64) {
 	o.StatusId = &v
 }
 

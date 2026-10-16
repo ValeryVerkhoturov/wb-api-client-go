@@ -20,19 +20,19 @@ var _ MappedNullable = &WHMDataReportsInner{}
 // WHMDataReportsInner struct for WHMDataReportsInner
 type WHMDataReportsInner struct {
 	// Артикул WB
-	NmId *int32 `json:"nmId,omitempty"`
+	NmId *int64 `json:"nmId,omitempty"`
 	// Предмет
 	SubjectName *string `json:"subjectName,omitempty"`
 	// ID замера
-	DimId *int32 `json:"dimId,omitempty"`
+	DimId *int64 `json:"dimId,omitempty"`
 	// Объём, л
 	Volume *float32 `json:"volume,omitempty"`
 	// Ширина, см
-	Width *int32 `json:"width,omitempty"`
+	Width *int64 `json:"width,omitempty"`
 	// Длина, см
-	Length *int32 `json:"length,omitempty"`
+	Length *int64 `json:"length,omitempty"`
 	// Высота, см
-	Height *int32 `json:"height,omitempty"`
+	Height *int64 `json:"height,omitempty"`
 	// Фото замеров
 	PhotoUrls []string `json:"photoUrls,omitempty"`
 	// Дата и время
@@ -57,9 +57,9 @@ func NewWHMDataReportsInnerWithDefaults() *WHMDataReportsInner {
 }
 
 // GetNmId returns the NmId field value if set, zero value otherwise.
-func (o *WHMDataReportsInner) GetNmId() int32 {
+func (o *WHMDataReportsInner) GetNmId() int64 {
 	if o == nil || IsNil(o.NmId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmId
@@ -67,7 +67,7 @@ func (o *WHMDataReportsInner) GetNmId() int32 {
 
 // GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WHMDataReportsInner) GetNmIdOk() (*int32, bool) {
+func (o *WHMDataReportsInner) GetNmIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
@@ -83,8 +83,8 @@ func (o *WHMDataReportsInner) HasNmId() bool {
 	return false
 }
 
-// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
-func (o *WHMDataReportsInner) SetNmId(v int32) {
+// SetNmId gets a reference to the given int64 and assigns it to the NmId field.
+func (o *WHMDataReportsInner) SetNmId(v int64) {
 	o.NmId = &v
 }
 
@@ -121,9 +121,9 @@ func (o *WHMDataReportsInner) SetSubjectName(v string) {
 }
 
 // GetDimId returns the DimId field value if set, zero value otherwise.
-func (o *WHMDataReportsInner) GetDimId() int32 {
+func (o *WHMDataReportsInner) GetDimId() int64 {
 	if o == nil || IsNil(o.DimId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.DimId
@@ -131,7 +131,7 @@ func (o *WHMDataReportsInner) GetDimId() int32 {
 
 // GetDimIdOk returns a tuple with the DimId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WHMDataReportsInner) GetDimIdOk() (*int32, bool) {
+func (o *WHMDataReportsInner) GetDimIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.DimId) {
 		return nil, false
 	}
@@ -147,8 +147,8 @@ func (o *WHMDataReportsInner) HasDimId() bool {
 	return false
 }
 
-// SetDimId gets a reference to the given int32 and assigns it to the DimId field.
-func (o *WHMDataReportsInner) SetDimId(v int32) {
+// SetDimId gets a reference to the given int64 and assigns it to the DimId field.
+func (o *WHMDataReportsInner) SetDimId(v int64) {
 	o.DimId = &v
 }
 
@@ -185,9 +185,9 @@ func (o *WHMDataReportsInner) SetVolume(v float32) {
 }
 
 // GetWidth returns the Width field value if set, zero value otherwise.
-func (o *WHMDataReportsInner) GetWidth() int32 {
+func (o *WHMDataReportsInner) GetWidth() int64 {
 	if o == nil || IsNil(o.Width) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Width
@@ -195,7 +195,7 @@ func (o *WHMDataReportsInner) GetWidth() int32 {
 
 // GetWidthOk returns a tuple with the Width field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WHMDataReportsInner) GetWidthOk() (*int32, bool) {
+func (o *WHMDataReportsInner) GetWidthOk() (*int64, bool) {
 	if o == nil || IsNil(o.Width) {
 		return nil, false
 	}
@@ -211,15 +211,15 @@ func (o *WHMDataReportsInner) HasWidth() bool {
 	return false
 }
 
-// SetWidth gets a reference to the given int32 and assigns it to the Width field.
-func (o *WHMDataReportsInner) SetWidth(v int32) {
+// SetWidth gets a reference to the given int64 and assigns it to the Width field.
+func (o *WHMDataReportsInner) SetWidth(v int64) {
 	o.Width = &v
 }
 
 // GetLength returns the Length field value if set, zero value otherwise.
-func (o *WHMDataReportsInner) GetLength() int32 {
+func (o *WHMDataReportsInner) GetLength() int64 {
 	if o == nil || IsNil(o.Length) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Length
@@ -227,7 +227,7 @@ func (o *WHMDataReportsInner) GetLength() int32 {
 
 // GetLengthOk returns a tuple with the Length field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WHMDataReportsInner) GetLengthOk() (*int32, bool) {
+func (o *WHMDataReportsInner) GetLengthOk() (*int64, bool) {
 	if o == nil || IsNil(o.Length) {
 		return nil, false
 	}
@@ -243,15 +243,15 @@ func (o *WHMDataReportsInner) HasLength() bool {
 	return false
 }
 
-// SetLength gets a reference to the given int32 and assigns it to the Length field.
-func (o *WHMDataReportsInner) SetLength(v int32) {
+// SetLength gets a reference to the given int64 and assigns it to the Length field.
+func (o *WHMDataReportsInner) SetLength(v int64) {
 	o.Length = &v
 }
 
 // GetHeight returns the Height field value if set, zero value otherwise.
-func (o *WHMDataReportsInner) GetHeight() int32 {
+func (o *WHMDataReportsInner) GetHeight() int64 {
 	if o == nil || IsNil(o.Height) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Height
@@ -259,7 +259,7 @@ func (o *WHMDataReportsInner) GetHeight() int32 {
 
 // GetHeightOk returns a tuple with the Height field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WHMDataReportsInner) GetHeightOk() (*int32, bool) {
+func (o *WHMDataReportsInner) GetHeightOk() (*int64, bool) {
 	if o == nil || IsNil(o.Height) {
 		return nil, false
 	}
@@ -275,8 +275,8 @@ func (o *WHMDataReportsInner) HasHeight() bool {
 	return false
 }
 
-// SetHeight gets a reference to the given int32 and assigns it to the Height field.
-func (o *WHMDataReportsInner) SetHeight(v int32) {
+// SetHeight gets a reference to the given int64 and assigns it to the Height field.
+func (o *WHMDataReportsInner) SetHeight(v int64) {
 	o.Height = &v
 }
 

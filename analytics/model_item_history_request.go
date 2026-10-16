@@ -23,7 +23,7 @@ var _ MappedNullable = &ItemHistoryRequest{}
 type ItemHistoryRequest struct {
 	SelectedPeriod ItemsRequestSelectedPeriod `json:"selectedPeriod"`
 	// Артикулы WB, по которым нужно составить отчёт
-	NmIds []int32 `json:"nmIds"`
+	NmIds []int64 `json:"nmIds"`
 	// Скрыть удалённые товары
 	SkipDeletedNm    *bool  `json:"skipDeletedNm,omitempty"`
 	AggregationLevel *Level `json:"aggregationLevel,omitempty"`
@@ -35,7 +35,7 @@ type _ItemHistoryRequest ItemHistoryRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemHistoryRequest(selectedPeriod ItemsRequestSelectedPeriod, nmIds []int32) *ItemHistoryRequest {
+func NewItemHistoryRequest(selectedPeriod ItemsRequestSelectedPeriod, nmIds []int64) *ItemHistoryRequest {
 	this := ItemHistoryRequest{}
 	this.SelectedPeriod = selectedPeriod
 	this.NmIds = nmIds
@@ -79,9 +79,9 @@ func (o *ItemHistoryRequest) SetSelectedPeriod(v ItemsRequestSelectedPeriod) {
 }
 
 // GetNmIds returns the NmIds field value
-func (o *ItemHistoryRequest) GetNmIds() []int32 {
+func (o *ItemHistoryRequest) GetNmIds() []int64 {
 	if o == nil {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 
@@ -90,7 +90,7 @@ func (o *ItemHistoryRequest) GetNmIds() []int32 {
 
 // GetNmIdsOk returns a tuple with the NmIds field value
 // and a boolean to check if the value has been set.
-func (o *ItemHistoryRequest) GetNmIdsOk() ([]int32, bool) {
+func (o *ItemHistoryRequest) GetNmIdsOk() ([]int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -98,7 +98,7 @@ func (o *ItemHistoryRequest) GetNmIdsOk() ([]int32, bool) {
 }
 
 // SetNmIds sets field value
-func (o *ItemHistoryRequest) SetNmIds(v []int32) {
+func (o *ItemHistoryRequest) SetNmIds(v []int64) {
 	o.NmIds = v
 }
 

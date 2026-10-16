@@ -28,7 +28,7 @@ type PostV3SalesFunnelProductsHistoryResponse200InnerProduct struct {
 	// Бренд
 	BrandName *string `json:"brandName,omitempty"`
 	// ID предмета
-	SubjectId *int32 `json:"subjectId,omitempty"`
+	SubjectId *int64 `json:"subjectId,omitempty"`
 	// Название предмета
 	SubjectName *string `json:"subjectName,omitempty"`
 }
@@ -179,9 +179,9 @@ func (o *PostV3SalesFunnelProductsHistoryResponse200InnerProduct) SetBrandName(v
 }
 
 // GetSubjectId returns the SubjectId field value if set, zero value otherwise.
-func (o *PostV3SalesFunnelProductsHistoryResponse200InnerProduct) GetSubjectId() int32 {
+func (o *PostV3SalesFunnelProductsHistoryResponse200InnerProduct) GetSubjectId() int64 {
 	if o == nil || IsNil(o.SubjectId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SubjectId
@@ -189,7 +189,7 @@ func (o *PostV3SalesFunnelProductsHistoryResponse200InnerProduct) GetSubjectId()
 
 // GetSubjectIdOk returns a tuple with the SubjectId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV3SalesFunnelProductsHistoryResponse200InnerProduct) GetSubjectIdOk() (*int32, bool) {
+func (o *PostV3SalesFunnelProductsHistoryResponse200InnerProduct) GetSubjectIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.SubjectId) {
 		return nil, false
 	}
@@ -205,8 +205,8 @@ func (o *PostV3SalesFunnelProductsHistoryResponse200InnerProduct) HasSubjectId()
 	return false
 }
 
-// SetSubjectId gets a reference to the given int32 and assigns it to the SubjectId field.
-func (o *PostV3SalesFunnelProductsHistoryResponse200InnerProduct) SetSubjectId(v int32) {
+// SetSubjectId gets a reference to the given int64 and assigns it to the SubjectId field.
+func (o *PostV3SalesFunnelProductsHistoryResponse200InnerProduct) SetSubjectId(v int64) {
 	o.SubjectId = &v
 }
 

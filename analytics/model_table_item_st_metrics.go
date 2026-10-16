@@ -20,29 +20,29 @@ var _ MappedNullable = &TableItemStMetrics{}
 // TableItemStMetrics Метрики товара
 type TableItemStMetrics struct {
 	// Заказы, шт.
-	OrdersCount *int32 `json:"ordersCount,omitempty"`
+	OrdersCount *int64 `json:"ordersCount,omitempty"`
 	// Заказы, сумма
-	OrdersSum *int32 `json:"ordersSum,omitempty"`
+	OrdersSum *int64 `json:"ordersSum,omitempty"`
 	// Среднее количество заказов в день
 	AvgOrders *float32 `json:"avgOrders,omitempty"`
 	// Среднее количество заказов по месяцам
 	AvgOrdersByMonth []FloatGraphByPeriodItem `json:"avgOrdersByMonth,omitempty"`
 	// Выкупы, шт.
-	BuyoutCount *int32 `json:"buyoutCount,omitempty"`
+	BuyoutCount *int64 `json:"buyoutCount,omitempty"`
 	// Выкупы, сумма
-	BuyoutSum *int32 `json:"buyoutSum,omitempty"`
+	BuyoutSum *int64 `json:"buyoutSum,omitempty"`
 	// Процент выкупа
-	BuyoutPercent *int32 `json:"buyoutPercent,omitempty"`
+	BuyoutPercent *int64 `json:"buyoutPercent,omitempty"`
 	// Остатки на текущий день, шт.
-	StockCount *int32 `json:"stockCount,omitempty"`
+	StockCount *int64 `json:"stockCount,omitempty"`
 	// Стоимость остатков на текущий день
-	StockSum         *int32                              `json:"stockSum,omitempty"`
+	StockSum         *int64                              `json:"stockSum,omitempty"`
 	SaleRate         *TableCommonMetricsSaleRate         `json:"saleRate,omitempty"`
 	AvgStockTurnover *TableCommonMetricsAvgStockTurnover `json:"avgStockTurnover,omitempty"`
 	// В пути к клиенту, шт.
-	ToClientCount *int32 `json:"toClientCount,omitempty"`
+	ToClientCount *int64 `json:"toClientCount,omitempty"`
 	// В пути от клиента, шт.
-	FromClientCount   *int32                               `json:"fromClientCount,omitempty"`
+	FromClientCount   *int64                               `json:"fromClientCount,omitempty"`
 	OfficeMissingTime *TableCommonMetricsOfficeMissingTime `json:"officeMissingTime,omitempty"`
 	// Упущенные заказы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
 	LostOrdersCount *float32 `json:"lostOrdersCount,omitempty"`
@@ -75,9 +75,9 @@ func NewTableItemStMetricsWithDefaults() *TableItemStMetrics {
 }
 
 // GetOrdersCount returns the OrdersCount field value if set, zero value otherwise.
-func (o *TableItemStMetrics) GetOrdersCount() int32 {
+func (o *TableItemStMetrics) GetOrdersCount() int64 {
 	if o == nil || IsNil(o.OrdersCount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OrdersCount
@@ -85,7 +85,7 @@ func (o *TableItemStMetrics) GetOrdersCount() int32 {
 
 // GetOrdersCountOk returns a tuple with the OrdersCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableItemStMetrics) GetOrdersCountOk() (*int32, bool) {
+func (o *TableItemStMetrics) GetOrdersCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.OrdersCount) {
 		return nil, false
 	}
@@ -101,15 +101,15 @@ func (o *TableItemStMetrics) HasOrdersCount() bool {
 	return false
 }
 
-// SetOrdersCount gets a reference to the given int32 and assigns it to the OrdersCount field.
-func (o *TableItemStMetrics) SetOrdersCount(v int32) {
+// SetOrdersCount gets a reference to the given int64 and assigns it to the OrdersCount field.
+func (o *TableItemStMetrics) SetOrdersCount(v int64) {
 	o.OrdersCount = &v
 }
 
 // GetOrdersSum returns the OrdersSum field value if set, zero value otherwise.
-func (o *TableItemStMetrics) GetOrdersSum() int32 {
+func (o *TableItemStMetrics) GetOrdersSum() int64 {
 	if o == nil || IsNil(o.OrdersSum) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OrdersSum
@@ -117,7 +117,7 @@ func (o *TableItemStMetrics) GetOrdersSum() int32 {
 
 // GetOrdersSumOk returns a tuple with the OrdersSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableItemStMetrics) GetOrdersSumOk() (*int32, bool) {
+func (o *TableItemStMetrics) GetOrdersSumOk() (*int64, bool) {
 	if o == nil || IsNil(o.OrdersSum) {
 		return nil, false
 	}
@@ -133,8 +133,8 @@ func (o *TableItemStMetrics) HasOrdersSum() bool {
 	return false
 }
 
-// SetOrdersSum gets a reference to the given int32 and assigns it to the OrdersSum field.
-func (o *TableItemStMetrics) SetOrdersSum(v int32) {
+// SetOrdersSum gets a reference to the given int64 and assigns it to the OrdersSum field.
+func (o *TableItemStMetrics) SetOrdersSum(v int64) {
 	o.OrdersSum = &v
 }
 
@@ -203,9 +203,9 @@ func (o *TableItemStMetrics) SetAvgOrdersByMonth(v []FloatGraphByPeriodItem) {
 }
 
 // GetBuyoutCount returns the BuyoutCount field value if set, zero value otherwise.
-func (o *TableItemStMetrics) GetBuyoutCount() int32 {
+func (o *TableItemStMetrics) GetBuyoutCount() int64 {
 	if o == nil || IsNil(o.BuyoutCount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.BuyoutCount
@@ -213,7 +213,7 @@ func (o *TableItemStMetrics) GetBuyoutCount() int32 {
 
 // GetBuyoutCountOk returns a tuple with the BuyoutCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableItemStMetrics) GetBuyoutCountOk() (*int32, bool) {
+func (o *TableItemStMetrics) GetBuyoutCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.BuyoutCount) {
 		return nil, false
 	}
@@ -229,15 +229,15 @@ func (o *TableItemStMetrics) HasBuyoutCount() bool {
 	return false
 }
 
-// SetBuyoutCount gets a reference to the given int32 and assigns it to the BuyoutCount field.
-func (o *TableItemStMetrics) SetBuyoutCount(v int32) {
+// SetBuyoutCount gets a reference to the given int64 and assigns it to the BuyoutCount field.
+func (o *TableItemStMetrics) SetBuyoutCount(v int64) {
 	o.BuyoutCount = &v
 }
 
 // GetBuyoutSum returns the BuyoutSum field value if set, zero value otherwise.
-func (o *TableItemStMetrics) GetBuyoutSum() int32 {
+func (o *TableItemStMetrics) GetBuyoutSum() int64 {
 	if o == nil || IsNil(o.BuyoutSum) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.BuyoutSum
@@ -245,7 +245,7 @@ func (o *TableItemStMetrics) GetBuyoutSum() int32 {
 
 // GetBuyoutSumOk returns a tuple with the BuyoutSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableItemStMetrics) GetBuyoutSumOk() (*int32, bool) {
+func (o *TableItemStMetrics) GetBuyoutSumOk() (*int64, bool) {
 	if o == nil || IsNil(o.BuyoutSum) {
 		return nil, false
 	}
@@ -261,15 +261,15 @@ func (o *TableItemStMetrics) HasBuyoutSum() bool {
 	return false
 }
 
-// SetBuyoutSum gets a reference to the given int32 and assigns it to the BuyoutSum field.
-func (o *TableItemStMetrics) SetBuyoutSum(v int32) {
+// SetBuyoutSum gets a reference to the given int64 and assigns it to the BuyoutSum field.
+func (o *TableItemStMetrics) SetBuyoutSum(v int64) {
 	o.BuyoutSum = &v
 }
 
 // GetBuyoutPercent returns the BuyoutPercent field value if set, zero value otherwise.
-func (o *TableItemStMetrics) GetBuyoutPercent() int32 {
+func (o *TableItemStMetrics) GetBuyoutPercent() int64 {
 	if o == nil || IsNil(o.BuyoutPercent) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.BuyoutPercent
@@ -277,7 +277,7 @@ func (o *TableItemStMetrics) GetBuyoutPercent() int32 {
 
 // GetBuyoutPercentOk returns a tuple with the BuyoutPercent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableItemStMetrics) GetBuyoutPercentOk() (*int32, bool) {
+func (o *TableItemStMetrics) GetBuyoutPercentOk() (*int64, bool) {
 	if o == nil || IsNil(o.BuyoutPercent) {
 		return nil, false
 	}
@@ -293,15 +293,15 @@ func (o *TableItemStMetrics) HasBuyoutPercent() bool {
 	return false
 }
 
-// SetBuyoutPercent gets a reference to the given int32 and assigns it to the BuyoutPercent field.
-func (o *TableItemStMetrics) SetBuyoutPercent(v int32) {
+// SetBuyoutPercent gets a reference to the given int64 and assigns it to the BuyoutPercent field.
+func (o *TableItemStMetrics) SetBuyoutPercent(v int64) {
 	o.BuyoutPercent = &v
 }
 
 // GetStockCount returns the StockCount field value if set, zero value otherwise.
-func (o *TableItemStMetrics) GetStockCount() int32 {
+func (o *TableItemStMetrics) GetStockCount() int64 {
 	if o == nil || IsNil(o.StockCount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.StockCount
@@ -309,7 +309,7 @@ func (o *TableItemStMetrics) GetStockCount() int32 {
 
 // GetStockCountOk returns a tuple with the StockCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableItemStMetrics) GetStockCountOk() (*int32, bool) {
+func (o *TableItemStMetrics) GetStockCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.StockCount) {
 		return nil, false
 	}
@@ -325,15 +325,15 @@ func (o *TableItemStMetrics) HasStockCount() bool {
 	return false
 }
 
-// SetStockCount gets a reference to the given int32 and assigns it to the StockCount field.
-func (o *TableItemStMetrics) SetStockCount(v int32) {
+// SetStockCount gets a reference to the given int64 and assigns it to the StockCount field.
+func (o *TableItemStMetrics) SetStockCount(v int64) {
 	o.StockCount = &v
 }
 
 // GetStockSum returns the StockSum field value if set, zero value otherwise.
-func (o *TableItemStMetrics) GetStockSum() int32 {
+func (o *TableItemStMetrics) GetStockSum() int64 {
 	if o == nil || IsNil(o.StockSum) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.StockSum
@@ -341,7 +341,7 @@ func (o *TableItemStMetrics) GetStockSum() int32 {
 
 // GetStockSumOk returns a tuple with the StockSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableItemStMetrics) GetStockSumOk() (*int32, bool) {
+func (o *TableItemStMetrics) GetStockSumOk() (*int64, bool) {
 	if o == nil || IsNil(o.StockSum) {
 		return nil, false
 	}
@@ -357,8 +357,8 @@ func (o *TableItemStMetrics) HasStockSum() bool {
 	return false
 }
 
-// SetStockSum gets a reference to the given int32 and assigns it to the StockSum field.
-func (o *TableItemStMetrics) SetStockSum(v int32) {
+// SetStockSum gets a reference to the given int64 and assigns it to the StockSum field.
+func (o *TableItemStMetrics) SetStockSum(v int64) {
 	o.StockSum = &v
 }
 
@@ -427,9 +427,9 @@ func (o *TableItemStMetrics) SetAvgStockTurnover(v TableCommonMetricsAvgStockTur
 }
 
 // GetToClientCount returns the ToClientCount field value if set, zero value otherwise.
-func (o *TableItemStMetrics) GetToClientCount() int32 {
+func (o *TableItemStMetrics) GetToClientCount() int64 {
 	if o == nil || IsNil(o.ToClientCount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ToClientCount
@@ -437,7 +437,7 @@ func (o *TableItemStMetrics) GetToClientCount() int32 {
 
 // GetToClientCountOk returns a tuple with the ToClientCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableItemStMetrics) GetToClientCountOk() (*int32, bool) {
+func (o *TableItemStMetrics) GetToClientCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.ToClientCount) {
 		return nil, false
 	}
@@ -453,15 +453,15 @@ func (o *TableItemStMetrics) HasToClientCount() bool {
 	return false
 }
 
-// SetToClientCount gets a reference to the given int32 and assigns it to the ToClientCount field.
-func (o *TableItemStMetrics) SetToClientCount(v int32) {
+// SetToClientCount gets a reference to the given int64 and assigns it to the ToClientCount field.
+func (o *TableItemStMetrics) SetToClientCount(v int64) {
 	o.ToClientCount = &v
 }
 
 // GetFromClientCount returns the FromClientCount field value if set, zero value otherwise.
-func (o *TableItemStMetrics) GetFromClientCount() int32 {
+func (o *TableItemStMetrics) GetFromClientCount() int64 {
 	if o == nil || IsNil(o.FromClientCount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.FromClientCount
@@ -469,7 +469,7 @@ func (o *TableItemStMetrics) GetFromClientCount() int32 {
 
 // GetFromClientCountOk returns a tuple with the FromClientCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableItemStMetrics) GetFromClientCountOk() (*int32, bool) {
+func (o *TableItemStMetrics) GetFromClientCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.FromClientCount) {
 		return nil, false
 	}
@@ -485,8 +485,8 @@ func (o *TableItemStMetrics) HasFromClientCount() bool {
 	return false
 }
 
-// SetFromClientCount gets a reference to the given int32 and assigns it to the FromClientCount field.
-func (o *TableItemStMetrics) SetFromClientCount(v int32) {
+// SetFromClientCount gets a reference to the given int64 and assigns it to the FromClientCount field.
+func (o *TableItemStMetrics) SetFromClientCount(v int64) {
 	o.FromClientCount = &v
 }
 

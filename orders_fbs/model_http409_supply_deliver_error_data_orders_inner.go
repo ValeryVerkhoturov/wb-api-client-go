@@ -20,7 +20,7 @@ var _ MappedNullable = &Http409SupplyDeliverErrorDataOrdersInner{}
 // Http409SupplyDeliverErrorDataOrdersInner struct for Http409SupplyDeliverErrorDataOrdersInner
 type Http409SupplyDeliverErrorDataOrdersInner struct {
 	// ID сборочного задания
-	Id *int32 `json:"id,omitempty"`
+	Id *int64 `json:"id,omitempty"`
 	// Информация об ошибках
 	MetaDetails []Http409SupplyDeliverErrorDataOrdersInnerMetaDetailsInner `json:"metaDetails,omitempty"`
 }
@@ -43,9 +43,9 @@ func NewHttp409SupplyDeliverErrorDataOrdersInnerWithDefaults() *Http409SupplyDel
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *Http409SupplyDeliverErrorDataOrdersInner) GetId() int32 {
+func (o *Http409SupplyDeliverErrorDataOrdersInner) GetId() int64 {
 	if o == nil || IsNil(o.Id) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Id
@@ -53,7 +53,7 @@ func (o *Http409SupplyDeliverErrorDataOrdersInner) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Http409SupplyDeliverErrorDataOrdersInner) GetIdOk() (*int32, bool) {
+func (o *Http409SupplyDeliverErrorDataOrdersInner) GetIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -69,8 +69,8 @@ func (o *Http409SupplyDeliverErrorDataOrdersInner) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *Http409SupplyDeliverErrorDataOrdersInner) SetId(v int32) {
+// SetId gets a reference to the given int64 and assigns it to the Id field.
+func (o *Http409SupplyDeliverErrorDataOrdersInner) SetId(v int64) {
 	o.Id = &v
 }
 

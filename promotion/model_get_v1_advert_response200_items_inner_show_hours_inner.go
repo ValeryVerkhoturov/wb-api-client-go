@@ -20,9 +20,9 @@ var _ MappedNullable = &GetV1AdvertResponse200ItemsInnerShowHoursInner{}
 // GetV1AdvertResponse200ItemsInnerShowHoursInner struct for GetV1AdvertResponse200ItemsInnerShowHoursInner
 type GetV1AdvertResponse200ItemsInnerShowHoursInner struct {
 	// Начало показа
-	From *int32 `json:"From,omitempty"`
+	From *int64 `json:"From,omitempty"`
 	// Конец показа
-	To *int32 `json:"To,omitempty"`
+	To *int64 `json:"To,omitempty"`
 }
 
 // NewGetV1AdvertResponse200ItemsInnerShowHoursInner instantiates a new GetV1AdvertResponse200ItemsInnerShowHoursInner object
@@ -43,9 +43,9 @@ func NewGetV1AdvertResponse200ItemsInnerShowHoursInnerWithDefaults() *GetV1Adver
 }
 
 // GetFrom returns the From field value if set, zero value otherwise.
-func (o *GetV1AdvertResponse200ItemsInnerShowHoursInner) GetFrom() int32 {
+func (o *GetV1AdvertResponse200ItemsInnerShowHoursInner) GetFrom() int64 {
 	if o == nil || IsNil(o.From) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.From
@@ -53,7 +53,7 @@ func (o *GetV1AdvertResponse200ItemsInnerShowHoursInner) GetFrom() int32 {
 
 // GetFromOk returns a tuple with the From field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AdvertResponse200ItemsInnerShowHoursInner) GetFromOk() (*int32, bool) {
+func (o *GetV1AdvertResponse200ItemsInnerShowHoursInner) GetFromOk() (*int64, bool) {
 	if o == nil || IsNil(o.From) {
 		return nil, false
 	}
@@ -69,15 +69,15 @@ func (o *GetV1AdvertResponse200ItemsInnerShowHoursInner) HasFrom() bool {
 	return false
 }
 
-// SetFrom gets a reference to the given int32 and assigns it to the From field.
-func (o *GetV1AdvertResponse200ItemsInnerShowHoursInner) SetFrom(v int32) {
+// SetFrom gets a reference to the given int64 and assigns it to the From field.
+func (o *GetV1AdvertResponse200ItemsInnerShowHoursInner) SetFrom(v int64) {
 	o.From = &v
 }
 
 // GetTo returns the To field value if set, zero value otherwise.
-func (o *GetV1AdvertResponse200ItemsInnerShowHoursInner) GetTo() int32 {
+func (o *GetV1AdvertResponse200ItemsInnerShowHoursInner) GetTo() int64 {
 	if o == nil || IsNil(o.To) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.To
@@ -85,7 +85,7 @@ func (o *GetV1AdvertResponse200ItemsInnerShowHoursInner) GetTo() int32 {
 
 // GetToOk returns a tuple with the To field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AdvertResponse200ItemsInnerShowHoursInner) GetToOk() (*int32, bool) {
+func (o *GetV1AdvertResponse200ItemsInnerShowHoursInner) GetToOk() (*int64, bool) {
 	if o == nil || IsNil(o.To) {
 		return nil, false
 	}
@@ -101,8 +101,8 @@ func (o *GetV1AdvertResponse200ItemsInnerShowHoursInner) HasTo() bool {
 	return false
 }
 
-// SetTo gets a reference to the given int32 and assigns it to the To field.
-func (o *GetV1AdvertResponse200ItemsInnerShowHoursInner) SetTo(v int32) {
+// SetTo gets a reference to the given int64 and assigns it to the To field.
+func (o *GetV1AdvertResponse200ItemsInnerShowHoursInner) SetTo(v int64) {
 	o.To = &v
 }
 

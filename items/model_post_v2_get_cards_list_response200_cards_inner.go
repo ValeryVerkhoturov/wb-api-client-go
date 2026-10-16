@@ -20,13 +20,13 @@ var _ MappedNullable = &PostV2GetCardsListResponse200CardsInner{}
 // PostV2GetCardsListResponse200CardsInner struct for PostV2GetCardsListResponse200CardsInner
 type PostV2GetCardsListResponse200CardsInner struct {
 	// Артикул WB
-	NmID *int32 `json:"nmID,omitempty"`
+	NmID *int64 `json:"nmID,omitempty"`
 	// ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть `imtID`, даже если она не объединена с другими карточками
 	ImtID *int64 `json:"imtID,omitempty"`
 	// Внутренний технический ID карточки товара
 	NmUUID *string `json:"nmUUID,omitempty"`
 	// ID предмета
-	SubjectID *int32 `json:"subjectID,omitempty"`
+	SubjectID *int64 `json:"subjectID,omitempty"`
 	// Название предмета
 	SubjectName *string `json:"subjectName,omitempty"`
 	// Артикул продавца
@@ -84,9 +84,9 @@ func NewPostV2GetCardsListResponse200CardsInnerWithDefaults() *PostV2GetCardsLis
 }
 
 // GetNmID returns the NmID field value if set, zero value otherwise.
-func (o *PostV2GetCardsListResponse200CardsInner) GetNmID() int32 {
+func (o *PostV2GetCardsListResponse200CardsInner) GetNmID() int64 {
 	if o == nil || IsNil(o.NmID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmID
@@ -94,7 +94,7 @@ func (o *PostV2GetCardsListResponse200CardsInner) GetNmID() int32 {
 
 // GetNmIDOk returns a tuple with the NmID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2GetCardsListResponse200CardsInner) GetNmIDOk() (*int32, bool) {
+func (o *PostV2GetCardsListResponse200CardsInner) GetNmIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmID) {
 		return nil, false
 	}
@@ -110,8 +110,8 @@ func (o *PostV2GetCardsListResponse200CardsInner) HasNmID() bool {
 	return false
 }
 
-// SetNmID gets a reference to the given int32 and assigns it to the NmID field.
-func (o *PostV2GetCardsListResponse200CardsInner) SetNmID(v int32) {
+// SetNmID gets a reference to the given int64 and assigns it to the NmID field.
+func (o *PostV2GetCardsListResponse200CardsInner) SetNmID(v int64) {
 	o.NmID = &v
 }
 
@@ -180,9 +180,9 @@ func (o *PostV2GetCardsListResponse200CardsInner) SetNmUUID(v string) {
 }
 
 // GetSubjectID returns the SubjectID field value if set, zero value otherwise.
-func (o *PostV2GetCardsListResponse200CardsInner) GetSubjectID() int32 {
+func (o *PostV2GetCardsListResponse200CardsInner) GetSubjectID() int64 {
 	if o == nil || IsNil(o.SubjectID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SubjectID
@@ -190,7 +190,7 @@ func (o *PostV2GetCardsListResponse200CardsInner) GetSubjectID() int32 {
 
 // GetSubjectIDOk returns a tuple with the SubjectID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2GetCardsListResponse200CardsInner) GetSubjectIDOk() (*int32, bool) {
+func (o *PostV2GetCardsListResponse200CardsInner) GetSubjectIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.SubjectID) {
 		return nil, false
 	}
@@ -206,8 +206,8 @@ func (o *PostV2GetCardsListResponse200CardsInner) HasSubjectID() bool {
 	return false
 }
 
-// SetSubjectID gets a reference to the given int32 and assigns it to the SubjectID field.
-func (o *PostV2GetCardsListResponse200CardsInner) SetSubjectID(v int32) {
+// SetSubjectID gets a reference to the given int64 and assigns it to the SubjectID field.
+func (o *PostV2GetCardsListResponse200CardsInner) SetSubjectID(v int64) {
 	o.SubjectID = &v
 }
 

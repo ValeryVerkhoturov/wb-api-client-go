@@ -22,13 +22,13 @@ type GetRecomReq struct {
 	// Бренды
 	BrandNames []string `json:"brandNames,omitempty"`
 	// Количество товаров в ответе
-	Limit *int32 `json:"limit,omitempty"`
+	Limit *int64 `json:"limit,omitempty"`
 	// Курсор. Последний `nmId` в ответе
-	Next *int32 `json:"next,omitempty"`
+	Next *int64 `json:"next,omitempty"`
 	// Поиск:   - по артикулу WB `nmId` — полное совпадение   - по артикулу продавца `vendorCode` — частичное совпадение
 	Search *string `json:"search,omitempty"`
 	// ID предметов
-	SubjectIds []int32 `json:"subjectIds,omitempty"`
+	SubjectIds []int64 `json:"subjectIds,omitempty"`
 }
 
 // NewGetRecomReq instantiates a new GetRecomReq object
@@ -37,9 +37,9 @@ type GetRecomReq struct {
 // will change when the set of required properties is changed
 func NewGetRecomReq() *GetRecomReq {
 	this := GetRecomReq{}
-	var limit int32 = 20
+	var limit int64 = 20
 	this.Limit = &limit
-	var next int32 = 0
+	var next int64 = 0
 	this.Next = &next
 	return &this
 }
@@ -49,9 +49,9 @@ func NewGetRecomReq() *GetRecomReq {
 // but it doesn't guarantee that properties required by API are set
 func NewGetRecomReqWithDefaults() *GetRecomReq {
 	this := GetRecomReq{}
-	var limit int32 = 20
+	var limit int64 = 20
 	this.Limit = &limit
-	var next int32 = 0
+	var next int64 = 0
 	this.Next = &next
 	return &this
 }
@@ -89,9 +89,9 @@ func (o *GetRecomReq) SetBrandNames(v []string) {
 }
 
 // GetLimit returns the Limit field value if set, zero value otherwise.
-func (o *GetRecomReq) GetLimit() int32 {
+func (o *GetRecomReq) GetLimit() int64 {
 	if o == nil || IsNil(o.Limit) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Limit
@@ -99,7 +99,7 @@ func (o *GetRecomReq) GetLimit() int32 {
 
 // GetLimitOk returns a tuple with the Limit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetRecomReq) GetLimitOk() (*int32, bool) {
+func (o *GetRecomReq) GetLimitOk() (*int64, bool) {
 	if o == nil || IsNil(o.Limit) {
 		return nil, false
 	}
@@ -115,15 +115,15 @@ func (o *GetRecomReq) HasLimit() bool {
 	return false
 }
 
-// SetLimit gets a reference to the given int32 and assigns it to the Limit field.
-func (o *GetRecomReq) SetLimit(v int32) {
+// SetLimit gets a reference to the given int64 and assigns it to the Limit field.
+func (o *GetRecomReq) SetLimit(v int64) {
 	o.Limit = &v
 }
 
 // GetNext returns the Next field value if set, zero value otherwise.
-func (o *GetRecomReq) GetNext() int32 {
+func (o *GetRecomReq) GetNext() int64 {
 	if o == nil || IsNil(o.Next) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Next
@@ -131,7 +131,7 @@ func (o *GetRecomReq) GetNext() int32 {
 
 // GetNextOk returns a tuple with the Next field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetRecomReq) GetNextOk() (*int32, bool) {
+func (o *GetRecomReq) GetNextOk() (*int64, bool) {
 	if o == nil || IsNil(o.Next) {
 		return nil, false
 	}
@@ -147,8 +147,8 @@ func (o *GetRecomReq) HasNext() bool {
 	return false
 }
 
-// SetNext gets a reference to the given int32 and assigns it to the Next field.
-func (o *GetRecomReq) SetNext(v int32) {
+// SetNext gets a reference to the given int64 and assigns it to the Next field.
+func (o *GetRecomReq) SetNext(v int64) {
 	o.Next = &v
 }
 
@@ -185,9 +185,9 @@ func (o *GetRecomReq) SetSearch(v string) {
 }
 
 // GetSubjectIds returns the SubjectIds field value if set, zero value otherwise.
-func (o *GetRecomReq) GetSubjectIds() []int32 {
+func (o *GetRecomReq) GetSubjectIds() []int64 {
 	if o == nil || IsNil(o.SubjectIds) {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.SubjectIds
@@ -195,7 +195,7 @@ func (o *GetRecomReq) GetSubjectIds() []int32 {
 
 // GetSubjectIdsOk returns a tuple with the SubjectIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetRecomReq) GetSubjectIdsOk() ([]int32, bool) {
+func (o *GetRecomReq) GetSubjectIdsOk() ([]int64, bool) {
 	if o == nil || IsNil(o.SubjectIds) {
 		return nil, false
 	}
@@ -211,8 +211,8 @@ func (o *GetRecomReq) HasSubjectIds() bool {
 	return false
 }
 
-// SetSubjectIds gets a reference to the given []int32 and assigns it to the SubjectIds field.
-func (o *GetRecomReq) SetSubjectIds(v []int32) {
+// SetSubjectIds gets a reference to the given []int64 and assigns it to the SubjectIds field.
+func (o *GetRecomReq) SetSubjectIds(v []int64) {
 	o.SubjectIds = v
 }
 

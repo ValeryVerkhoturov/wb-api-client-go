@@ -20,7 +20,7 @@ var _ MappedNullable = &PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
 // PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner struct for PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner
 type PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner struct {
 	// Код ошибки
-	Code *int32 `json:"code,omitempty"`
+	Code *int64 `json:"code,omitempty"`
 	// Дополнительная информация об ошибке
 	Detail *string `json:"detail,omitempty"`
 }
@@ -43,9 +43,9 @@ func NewPostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInnerWithDe
 }
 
 // GetCode returns the Code field value if set, zero value otherwise.
-func (o *PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner) GetCode() int32 {
+func (o *PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner) GetCode() int64 {
 	if o == nil || IsNil(o.Code) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Code
@@ -53,7 +53,7 @@ func (o *PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner) Get
 
 // GetCodeOk returns a tuple with the Code field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner) GetCodeOk() (*int32, bool) {
+func (o *PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner) GetCodeOk() (*int64, bool) {
 	if o == nil || IsNil(o.Code) {
 		return nil, false
 	}
@@ -69,8 +69,8 @@ func (o *PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner) Has
 	return false
 }
 
-// SetCode gets a reference to the given int32 and assigns it to the Code field.
-func (o *PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner) SetCode(v int32) {
+// SetCode gets a reference to the given int64 and assigns it to the Code field.
+func (o *PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner) SetCode(v int64) {
 	o.Code = &v
 }
 

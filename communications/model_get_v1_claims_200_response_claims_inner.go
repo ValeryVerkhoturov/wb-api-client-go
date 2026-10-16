@@ -22,13 +22,13 @@ type GetV1Claims200ResponseClaimsInner struct {
 	// ID заявки
 	Id *string `json:"id,omitempty"`
 	// Источник заявки:   * `1` — портал покупателей   * `3` — чат
-	ClaimType *int32 `json:"claim_type,omitempty"`
+	ClaimType *int64 `json:"claim_type,omitempty"`
 	// Решение по возврату покупателю:   * `0` — на рассмотрении   * `1` — отказ   * `2` — одобрено
-	Status *int32 `json:"status,omitempty"`
+	Status *int64 `json:"status,omitempty"`
 	// Статус товара:   * `0` — заявка на рассмотрении   * `1` — товар остается у покупателя (Заявка отклонена)   * `2` — покупатель сдает товар на WB, товар отправляется в утиль   * `5` — товар остается у покупателя (Заявка одобрена)   * `8` — товар будет возвращён в реализацию после проверки WB   * `10` — товар возвращается продавцу
-	StatusEx *int32 `json:"status_ex,omitempty"`
+	StatusEx *int64 `json:"status_ex,omitempty"`
 	// Артикул WB
-	NmId *int32 `json:"nm_id,omitempty"`
+	NmId *int64 `json:"nm_id,omitempty"`
 	// Комментарий покупателя
 	UserComment *string `json:"user_comment,omitempty"`
 	// Ответ покупателю
@@ -109,9 +109,9 @@ func (o *GetV1Claims200ResponseClaimsInner) SetId(v string) {
 }
 
 // GetClaimType returns the ClaimType field value if set, zero value otherwise.
-func (o *GetV1Claims200ResponseClaimsInner) GetClaimType() int32 {
+func (o *GetV1Claims200ResponseClaimsInner) GetClaimType() int64 {
 	if o == nil || IsNil(o.ClaimType) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ClaimType
@@ -119,7 +119,7 @@ func (o *GetV1Claims200ResponseClaimsInner) GetClaimType() int32 {
 
 // GetClaimTypeOk returns a tuple with the ClaimType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1Claims200ResponseClaimsInner) GetClaimTypeOk() (*int32, bool) {
+func (o *GetV1Claims200ResponseClaimsInner) GetClaimTypeOk() (*int64, bool) {
 	if o == nil || IsNil(o.ClaimType) {
 		return nil, false
 	}
@@ -135,15 +135,15 @@ func (o *GetV1Claims200ResponseClaimsInner) HasClaimType() bool {
 	return false
 }
 
-// SetClaimType gets a reference to the given int32 and assigns it to the ClaimType field.
-func (o *GetV1Claims200ResponseClaimsInner) SetClaimType(v int32) {
+// SetClaimType gets a reference to the given int64 and assigns it to the ClaimType field.
+func (o *GetV1Claims200ResponseClaimsInner) SetClaimType(v int64) {
 	o.ClaimType = &v
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
-func (o *GetV1Claims200ResponseClaimsInner) GetStatus() int32 {
+func (o *GetV1Claims200ResponseClaimsInner) GetStatus() int64 {
 	if o == nil || IsNil(o.Status) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Status
@@ -151,7 +151,7 @@ func (o *GetV1Claims200ResponseClaimsInner) GetStatus() int32 {
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1Claims200ResponseClaimsInner) GetStatusOk() (*int32, bool) {
+func (o *GetV1Claims200ResponseClaimsInner) GetStatusOk() (*int64, bool) {
 	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
@@ -167,15 +167,15 @@ func (o *GetV1Claims200ResponseClaimsInner) HasStatus() bool {
 	return false
 }
 
-// SetStatus gets a reference to the given int32 and assigns it to the Status field.
-func (o *GetV1Claims200ResponseClaimsInner) SetStatus(v int32) {
+// SetStatus gets a reference to the given int64 and assigns it to the Status field.
+func (o *GetV1Claims200ResponseClaimsInner) SetStatus(v int64) {
 	o.Status = &v
 }
 
 // GetStatusEx returns the StatusEx field value if set, zero value otherwise.
-func (o *GetV1Claims200ResponseClaimsInner) GetStatusEx() int32 {
+func (o *GetV1Claims200ResponseClaimsInner) GetStatusEx() int64 {
 	if o == nil || IsNil(o.StatusEx) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.StatusEx
@@ -183,7 +183,7 @@ func (o *GetV1Claims200ResponseClaimsInner) GetStatusEx() int32 {
 
 // GetStatusExOk returns a tuple with the StatusEx field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1Claims200ResponseClaimsInner) GetStatusExOk() (*int32, bool) {
+func (o *GetV1Claims200ResponseClaimsInner) GetStatusExOk() (*int64, bool) {
 	if o == nil || IsNil(o.StatusEx) {
 		return nil, false
 	}
@@ -199,15 +199,15 @@ func (o *GetV1Claims200ResponseClaimsInner) HasStatusEx() bool {
 	return false
 }
 
-// SetStatusEx gets a reference to the given int32 and assigns it to the StatusEx field.
-func (o *GetV1Claims200ResponseClaimsInner) SetStatusEx(v int32) {
+// SetStatusEx gets a reference to the given int64 and assigns it to the StatusEx field.
+func (o *GetV1Claims200ResponseClaimsInner) SetStatusEx(v int64) {
 	o.StatusEx = &v
 }
 
 // GetNmId returns the NmId field value if set, zero value otherwise.
-func (o *GetV1Claims200ResponseClaimsInner) GetNmId() int32 {
+func (o *GetV1Claims200ResponseClaimsInner) GetNmId() int64 {
 	if o == nil || IsNil(o.NmId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmId
@@ -215,7 +215,7 @@ func (o *GetV1Claims200ResponseClaimsInner) GetNmId() int32 {
 
 // GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1Claims200ResponseClaimsInner) GetNmIdOk() (*int32, bool) {
+func (o *GetV1Claims200ResponseClaimsInner) GetNmIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
@@ -231,8 +231,8 @@ func (o *GetV1Claims200ResponseClaimsInner) HasNmId() bool {
 	return false
 }
 
-// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
-func (o *GetV1Claims200ResponseClaimsInner) SetNmId(v int32) {
+// SetNmId gets a reference to the given int64 and assigns it to the NmId field.
+func (o *GetV1Claims200ResponseClaimsInner) SetNmId(v int64) {
 	o.NmId = &v
 }
 

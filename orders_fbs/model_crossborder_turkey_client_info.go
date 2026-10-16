@@ -28,7 +28,7 @@ type CrossborderTurkeyClientInfo struct {
 	// Отчество клиента
 	MiddleName *string `json:"middleName,omitempty"`
 	// Номер заказа
-	OrderID *int32 `json:"orderID,omitempty"`
+	OrderID *int64 `json:"orderID,omitempty"`
 	// Телефон для связи с клиентом
 	Phone *string `json:"phone,omitempty"`
 	// Не используется
@@ -181,9 +181,9 @@ func (o *CrossborderTurkeyClientInfo) SetMiddleName(v string) {
 }
 
 // GetOrderID returns the OrderID field value if set, zero value otherwise.
-func (o *CrossborderTurkeyClientInfo) GetOrderID() int32 {
+func (o *CrossborderTurkeyClientInfo) GetOrderID() int64 {
 	if o == nil || IsNil(o.OrderID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OrderID
@@ -191,7 +191,7 @@ func (o *CrossborderTurkeyClientInfo) GetOrderID() int32 {
 
 // GetOrderIDOk returns a tuple with the OrderID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CrossborderTurkeyClientInfo) GetOrderIDOk() (*int32, bool) {
+func (o *CrossborderTurkeyClientInfo) GetOrderIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.OrderID) {
 		return nil, false
 	}
@@ -207,8 +207,8 @@ func (o *CrossborderTurkeyClientInfo) HasOrderID() bool {
 	return false
 }
 
-// SetOrderID gets a reference to the given int32 and assigns it to the OrderID field.
-func (o *CrossborderTurkeyClientInfo) SetOrderID(v int32) {
+// SetOrderID gets a reference to the given int64 and assigns it to the OrderID field.
+func (o *CrossborderTurkeyClientInfo) SetOrderID(v int64) {
 	o.OrderID = &v
 }
 

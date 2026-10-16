@@ -20,11 +20,11 @@ var _ MappedNullable = &PostV2GetCardsTrashRequestSettingsCursor{}
 // PostV2GetCardsTrashRequestSettingsCursor Пагинатор
 type PostV2GetCardsTrashRequestSettingsCursor struct {
 	// Сколько карточек товаров выдать в ответе
-	Limit *int32 `json:"limit,omitempty"`
+	Limit *int64 `json:"limit,omitempty"`
 	// Дата и время помещения в корзину
 	TrashedAt *string `json:"trashedAt,omitempty"`
 	// Артикул WB, с которого надо запрашивать следующий список карточек товаров
-	NmID *int32 `json:"nmID,omitempty"`
+	NmID *int64 `json:"nmID,omitempty"`
 }
 
 // NewPostV2GetCardsTrashRequestSettingsCursor instantiates a new PostV2GetCardsTrashRequestSettingsCursor object
@@ -33,7 +33,7 @@ type PostV2GetCardsTrashRequestSettingsCursor struct {
 // will change when the set of required properties is changed
 func NewPostV2GetCardsTrashRequestSettingsCursor() *PostV2GetCardsTrashRequestSettingsCursor {
 	this := PostV2GetCardsTrashRequestSettingsCursor{}
-	var limit int32 = 10
+	var limit int64 = 10
 	this.Limit = &limit
 	return &this
 }
@@ -43,15 +43,15 @@ func NewPostV2GetCardsTrashRequestSettingsCursor() *PostV2GetCardsTrashRequestSe
 // but it doesn't guarantee that properties required by API are set
 func NewPostV2GetCardsTrashRequestSettingsCursorWithDefaults() *PostV2GetCardsTrashRequestSettingsCursor {
 	this := PostV2GetCardsTrashRequestSettingsCursor{}
-	var limit int32 = 10
+	var limit int64 = 10
 	this.Limit = &limit
 	return &this
 }
 
 // GetLimit returns the Limit field value if set, zero value otherwise.
-func (o *PostV2GetCardsTrashRequestSettingsCursor) GetLimit() int32 {
+func (o *PostV2GetCardsTrashRequestSettingsCursor) GetLimit() int64 {
 	if o == nil || IsNil(o.Limit) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Limit
@@ -59,7 +59,7 @@ func (o *PostV2GetCardsTrashRequestSettingsCursor) GetLimit() int32 {
 
 // GetLimitOk returns a tuple with the Limit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2GetCardsTrashRequestSettingsCursor) GetLimitOk() (*int32, bool) {
+func (o *PostV2GetCardsTrashRequestSettingsCursor) GetLimitOk() (*int64, bool) {
 	if o == nil || IsNil(o.Limit) {
 		return nil, false
 	}
@@ -75,8 +75,8 @@ func (o *PostV2GetCardsTrashRequestSettingsCursor) HasLimit() bool {
 	return false
 }
 
-// SetLimit gets a reference to the given int32 and assigns it to the Limit field.
-func (o *PostV2GetCardsTrashRequestSettingsCursor) SetLimit(v int32) {
+// SetLimit gets a reference to the given int64 and assigns it to the Limit field.
+func (o *PostV2GetCardsTrashRequestSettingsCursor) SetLimit(v int64) {
 	o.Limit = &v
 }
 
@@ -113,9 +113,9 @@ func (o *PostV2GetCardsTrashRequestSettingsCursor) SetTrashedAt(v string) {
 }
 
 // GetNmID returns the NmID field value if set, zero value otherwise.
-func (o *PostV2GetCardsTrashRequestSettingsCursor) GetNmID() int32 {
+func (o *PostV2GetCardsTrashRequestSettingsCursor) GetNmID() int64 {
 	if o == nil || IsNil(o.NmID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmID
@@ -123,7 +123,7 @@ func (o *PostV2GetCardsTrashRequestSettingsCursor) GetNmID() int32 {
 
 // GetNmIDOk returns a tuple with the NmID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2GetCardsTrashRequestSettingsCursor) GetNmIDOk() (*int32, bool) {
+func (o *PostV2GetCardsTrashRequestSettingsCursor) GetNmIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmID) {
 		return nil, false
 	}
@@ -139,8 +139,8 @@ func (o *PostV2GetCardsTrashRequestSettingsCursor) HasNmID() bool {
 	return false
 }
 
-// SetNmID gets a reference to the given int32 and assigns it to the NmID field.
-func (o *PostV2GetCardsTrashRequestSettingsCursor) SetNmID(v int32) {
+// SetNmID gets a reference to the given int64 and assigns it to the NmID field.
+func (o *PostV2GetCardsTrashRequestSettingsCursor) SetNmID(v int64) {
 	o.NmID = &v
 }
 

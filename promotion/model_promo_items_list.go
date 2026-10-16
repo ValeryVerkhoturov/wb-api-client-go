@@ -20,7 +20,7 @@ var _ MappedNullable = &PromoItemsList{}
 // PromoItemsList struct for PromoItemsList
 type PromoItemsList struct {
 	// Артикул WB
-	Id *int32 `json:"id,omitempty"`
+	Id *int64 `json:"id,omitempty"`
 	// Участвует в акции:   - `true` — да   - `false` — нет
 	InAction *bool `json:"inAction,omitempty"`
 	// Текущая розничная цена
@@ -30,9 +30,9 @@ type PromoItemsList struct {
 	// Плановая цена (цена во время акции)
 	PlanPrice *float32 `json:"planPrice,omitempty"`
 	// Текущая скидка
-	Discount *int32 `json:"discount,omitempty"`
+	Discount *int64 `json:"discount,omitempty"`
 	// Рекомендуемая скидка для участия в акции
-	PlanDiscount *int32 `json:"planDiscount,omitempty"`
+	PlanDiscount *int64 `json:"planDiscount,omitempty"`
 }
 
 // NewPromoItemsList instantiates a new PromoItemsList object
@@ -53,9 +53,9 @@ func NewPromoItemsListWithDefaults() *PromoItemsList {
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *PromoItemsList) GetId() int32 {
+func (o *PromoItemsList) GetId() int64 {
 	if o == nil || IsNil(o.Id) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Id
@@ -63,7 +63,7 @@ func (o *PromoItemsList) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PromoItemsList) GetIdOk() (*int32, bool) {
+func (o *PromoItemsList) GetIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -79,8 +79,8 @@ func (o *PromoItemsList) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *PromoItemsList) SetId(v int32) {
+// SetId gets a reference to the given int64 and assigns it to the Id field.
+func (o *PromoItemsList) SetId(v int64) {
 	o.Id = &v
 }
 
@@ -213,9 +213,9 @@ func (o *PromoItemsList) SetPlanPrice(v float32) {
 }
 
 // GetDiscount returns the Discount field value if set, zero value otherwise.
-func (o *PromoItemsList) GetDiscount() int32 {
+func (o *PromoItemsList) GetDiscount() int64 {
 	if o == nil || IsNil(o.Discount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Discount
@@ -223,7 +223,7 @@ func (o *PromoItemsList) GetDiscount() int32 {
 
 // GetDiscountOk returns a tuple with the Discount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PromoItemsList) GetDiscountOk() (*int32, bool) {
+func (o *PromoItemsList) GetDiscountOk() (*int64, bool) {
 	if o == nil || IsNil(o.Discount) {
 		return nil, false
 	}
@@ -239,15 +239,15 @@ func (o *PromoItemsList) HasDiscount() bool {
 	return false
 }
 
-// SetDiscount gets a reference to the given int32 and assigns it to the Discount field.
-func (o *PromoItemsList) SetDiscount(v int32) {
+// SetDiscount gets a reference to the given int64 and assigns it to the Discount field.
+func (o *PromoItemsList) SetDiscount(v int64) {
 	o.Discount = &v
 }
 
 // GetPlanDiscount returns the PlanDiscount field value if set, zero value otherwise.
-func (o *PromoItemsList) GetPlanDiscount() int32 {
+func (o *PromoItemsList) GetPlanDiscount() int64 {
 	if o == nil || IsNil(o.PlanDiscount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.PlanDiscount
@@ -255,7 +255,7 @@ func (o *PromoItemsList) GetPlanDiscount() int32 {
 
 // GetPlanDiscountOk returns a tuple with the PlanDiscount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PromoItemsList) GetPlanDiscountOk() (*int32, bool) {
+func (o *PromoItemsList) GetPlanDiscountOk() (*int64, bool) {
 	if o == nil || IsNil(o.PlanDiscount) {
 		return nil, false
 	}
@@ -271,8 +271,8 @@ func (o *PromoItemsList) HasPlanDiscount() bool {
 	return false
 }
 
-// SetPlanDiscount gets a reference to the given int32 and assigns it to the PlanDiscount field.
-func (o *PromoItemsList) SetPlanDiscount(v int32) {
+// SetPlanDiscount gets a reference to the given int64 and assigns it to the PlanDiscount field.
+func (o *PromoItemsList) SetPlanDiscount(v int64) {
 	o.PlanDiscount = &v
 }
 

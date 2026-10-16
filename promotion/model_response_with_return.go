@@ -20,7 +20,7 @@ var _ MappedNullable = &ResponseWithReturn{}
 // ResponseWithReturn struct for ResponseWithReturn
 type ResponseWithReturn struct {
 	// Размер обновлённого бюджета
-	Total *int32 `json:"total,omitempty"`
+	Total *int64 `json:"total,omitempty"`
 	// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Currency *string `json:"currency,omitempty"`
 }
@@ -43,9 +43,9 @@ func NewResponseWithReturnWithDefaults() *ResponseWithReturn {
 }
 
 // GetTotal returns the Total field value if set, zero value otherwise.
-func (o *ResponseWithReturn) GetTotal() int32 {
+func (o *ResponseWithReturn) GetTotal() int64 {
 	if o == nil || IsNil(o.Total) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Total
@@ -53,7 +53,7 @@ func (o *ResponseWithReturn) GetTotal() int32 {
 
 // GetTotalOk returns a tuple with the Total field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ResponseWithReturn) GetTotalOk() (*int32, bool) {
+func (o *ResponseWithReturn) GetTotalOk() (*int64, bool) {
 	if o == nil || IsNil(o.Total) {
 		return nil, false
 	}
@@ -69,8 +69,8 @@ func (o *ResponseWithReturn) HasTotal() bool {
 	return false
 }
 
-// SetTotal gets a reference to the given int32 and assigns it to the Total field.
-func (o *ResponseWithReturn) SetTotal(v int32) {
+// SetTotal gets a reference to the given int64 and assigns it to the Total field.
+func (o *ResponseWithReturn) SetTotal(v int64) {
 	o.Total = &v
 }
 

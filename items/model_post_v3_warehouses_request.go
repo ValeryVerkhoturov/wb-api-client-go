@@ -24,7 +24,7 @@ type PostV3WarehousesRequest struct {
 	// Имя склада продавца
 	Name string `json:"name"`
 	// ID [склада WB](./item-management#tag/sellerWarehouses/operation/getV3Offices). Нельзя привязывать склад WB, который уже используется
-	OfficeId int32 `json:"officeId"`
+	OfficeId int64 `json:"officeId"`
 }
 
 type _PostV3WarehousesRequest PostV3WarehousesRequest
@@ -33,7 +33,7 @@ type _PostV3WarehousesRequest PostV3WarehousesRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostV3WarehousesRequest(name string, officeId int32) *PostV3WarehousesRequest {
+func NewPostV3WarehousesRequest(name string, officeId int64) *PostV3WarehousesRequest {
 	this := PostV3WarehousesRequest{}
 	this.Name = name
 	this.OfficeId = officeId
@@ -73,9 +73,9 @@ func (o *PostV3WarehousesRequest) SetName(v string) {
 }
 
 // GetOfficeId returns the OfficeId field value
-func (o *PostV3WarehousesRequest) GetOfficeId() int32 {
+func (o *PostV3WarehousesRequest) GetOfficeId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -84,7 +84,7 @@ func (o *PostV3WarehousesRequest) GetOfficeId() int32 {
 
 // GetOfficeIdOk returns a tuple with the OfficeId field value
 // and a boolean to check if the value has been set.
-func (o *PostV3WarehousesRequest) GetOfficeIdOk() (*int32, bool) {
+func (o *PostV3WarehousesRequest) GetOfficeIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -92,7 +92,7 @@ func (o *PostV3WarehousesRequest) GetOfficeIdOk() (*int32, bool) {
 }
 
 // SetOfficeId sets field value
-func (o *PostV3WarehousesRequest) SetOfficeId(v int32) {
+func (o *PostV3WarehousesRequest) SetOfficeId(v int64) {
 	o.OfficeId = v
 }
 

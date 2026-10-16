@@ -22,9 +22,9 @@ type SearchReportPositionChartItem struct {
 	// Дата
 	Dt *string `json:"dt,omitempty"`
 	// Средняя позиция товара в результатах поиска
-	Average *int32 `json:"average,omitempty"`
+	Average *int64 `json:"average,omitempty"`
 	// Медианная позиция товара в результатах поиска
-	Median *int32 `json:"median,omitempty"`
+	Median *int64 `json:"median,omitempty"`
 }
 
 // NewSearchReportPositionChartItem instantiates a new SearchReportPositionChartItem object
@@ -77,9 +77,9 @@ func (o *SearchReportPositionChartItem) SetDt(v string) {
 }
 
 // GetAverage returns the Average field value if set, zero value otherwise.
-func (o *SearchReportPositionChartItem) GetAverage() int32 {
+func (o *SearchReportPositionChartItem) GetAverage() int64 {
 	if o == nil || IsNil(o.Average) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Average
@@ -87,7 +87,7 @@ func (o *SearchReportPositionChartItem) GetAverage() int32 {
 
 // GetAverageOk returns a tuple with the Average field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SearchReportPositionChartItem) GetAverageOk() (*int32, bool) {
+func (o *SearchReportPositionChartItem) GetAverageOk() (*int64, bool) {
 	if o == nil || IsNil(o.Average) {
 		return nil, false
 	}
@@ -103,15 +103,15 @@ func (o *SearchReportPositionChartItem) HasAverage() bool {
 	return false
 }
 
-// SetAverage gets a reference to the given int32 and assigns it to the Average field.
-func (o *SearchReportPositionChartItem) SetAverage(v int32) {
+// SetAverage gets a reference to the given int64 and assigns it to the Average field.
+func (o *SearchReportPositionChartItem) SetAverage(v int64) {
 	o.Average = &v
 }
 
 // GetMedian returns the Median field value if set, zero value otherwise.
-func (o *SearchReportPositionChartItem) GetMedian() int32 {
+func (o *SearchReportPositionChartItem) GetMedian() int64 {
 	if o == nil || IsNil(o.Median) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Median
@@ -119,7 +119,7 @@ func (o *SearchReportPositionChartItem) GetMedian() int32 {
 
 // GetMedianOk returns a tuple with the Median field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SearchReportPositionChartItem) GetMedianOk() (*int32, bool) {
+func (o *SearchReportPositionChartItem) GetMedianOk() (*int64, bool) {
 	if o == nil || IsNil(o.Median) {
 		return nil, false
 	}
@@ -135,8 +135,8 @@ func (o *SearchReportPositionChartItem) HasMedian() bool {
 	return false
 }
 
-// SetMedian gets a reference to the given int32 and assigns it to the Median field.
-func (o *SearchReportPositionChartItem) SetMedian(v int32) {
+// SetMedian gets a reference to the given int64 and assigns it to the Median field.
+func (o *SearchReportPositionChartItem) SetMedian(v int64) {
 	o.Median = &v
 }
 

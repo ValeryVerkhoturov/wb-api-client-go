@@ -20,13 +20,13 @@ var _ MappedNullable = &StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner{}
 // StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner struct for StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner
 type StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner struct {
 	// Количество просмотров
-	Views *int32 `json:"views,omitempty"`
+	Views *int64 `json:"views,omitempty"`
 	// Количество кликов
-	Clicks *int32 `json:"clicks,omitempty"`
+	Clicks *int64 `json:"clicks,omitempty"`
 	// Количество добавлений товаров в корзину
-	Atbs *int32 `json:"atbs,omitempty"`
+	Atbs *int64 `json:"atbs,omitempty"`
 	// Количество заказов
-	Orders *int32 `json:"orders,omitempty"`
+	Orders *int64 `json:"orders,omitempty"`
 	// CR(conversion rate) — отношение количества заказов к общему количеству посещений медиакампании
 	Cr *float32 `json:"cr,omitempty"`
 	// CTR (click-through rate) — показатель кликабельности, отношение числа кликов к количеству показов в рамках медиакампании
@@ -51,9 +51,9 @@ func NewStatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInnerWithDefaults() *Stat
 }
 
 // GetViews returns the Views field value if set, zero value otherwise.
-func (o *StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner) GetViews() int32 {
+func (o *StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner) GetViews() int64 {
 	if o == nil || IsNil(o.Views) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Views
@@ -61,7 +61,7 @@ func (o *StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner) GetViews() int32 
 
 // GetViewsOk returns a tuple with the Views field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner) GetViewsOk() (*int32, bool) {
+func (o *StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner) GetViewsOk() (*int64, bool) {
 	if o == nil || IsNil(o.Views) {
 		return nil, false
 	}
@@ -77,15 +77,15 @@ func (o *StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner) HasViews() bool {
 	return false
 }
 
-// SetViews gets a reference to the given int32 and assigns it to the Views field.
-func (o *StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner) SetViews(v int32) {
+// SetViews gets a reference to the given int64 and assigns it to the Views field.
+func (o *StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner) SetViews(v int64) {
 	o.Views = &v
 }
 
 // GetClicks returns the Clicks field value if set, zero value otherwise.
-func (o *StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner) GetClicks() int32 {
+func (o *StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner) GetClicks() int64 {
 	if o == nil || IsNil(o.Clicks) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Clicks
@@ -93,7 +93,7 @@ func (o *StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner) GetClicks() int32
 
 // GetClicksOk returns a tuple with the Clicks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner) GetClicksOk() (*int32, bool) {
+func (o *StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner) GetClicksOk() (*int64, bool) {
 	if o == nil || IsNil(o.Clicks) {
 		return nil, false
 	}
@@ -109,15 +109,15 @@ func (o *StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner) HasClicks() bool 
 	return false
 }
 
-// SetClicks gets a reference to the given int32 and assigns it to the Clicks field.
-func (o *StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner) SetClicks(v int32) {
+// SetClicks gets a reference to the given int64 and assigns it to the Clicks field.
+func (o *StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner) SetClicks(v int64) {
 	o.Clicks = &v
 }
 
 // GetAtbs returns the Atbs field value if set, zero value otherwise.
-func (o *StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner) GetAtbs() int32 {
+func (o *StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner) GetAtbs() int64 {
 	if o == nil || IsNil(o.Atbs) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Atbs
@@ -125,7 +125,7 @@ func (o *StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner) GetAtbs() int32 {
 
 // GetAtbsOk returns a tuple with the Atbs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner) GetAtbsOk() (*int32, bool) {
+func (o *StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner) GetAtbsOk() (*int64, bool) {
 	if o == nil || IsNil(o.Atbs) {
 		return nil, false
 	}
@@ -141,15 +141,15 @@ func (o *StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner) HasAtbs() bool {
 	return false
 }
 
-// SetAtbs gets a reference to the given int32 and assigns it to the Atbs field.
-func (o *StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner) SetAtbs(v int32) {
+// SetAtbs gets a reference to the given int64 and assigns it to the Atbs field.
+func (o *StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner) SetAtbs(v int64) {
 	o.Atbs = &v
 }
 
 // GetOrders returns the Orders field value if set, zero value otherwise.
-func (o *StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner) GetOrders() int32 {
+func (o *StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner) GetOrders() int64 {
 	if o == nil || IsNil(o.Orders) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Orders
@@ -157,7 +157,7 @@ func (o *StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner) GetOrders() int32
 
 // GetOrdersOk returns a tuple with the Orders field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner) GetOrdersOk() (*int32, bool) {
+func (o *StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner) GetOrdersOk() (*int64, bool) {
 	if o == nil || IsNil(o.Orders) {
 		return nil, false
 	}
@@ -173,8 +173,8 @@ func (o *StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner) HasOrders() bool 
 	return false
 }
 
-// SetOrders gets a reference to the given int32 and assigns it to the Orders field.
-func (o *StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner) SetOrders(v int32) {
+// SetOrders gets a reference to the given int64 and assigns it to the Orders field.
+func (o *StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner) SetOrders(v int64) {
 	o.Orders = &v
 }
 

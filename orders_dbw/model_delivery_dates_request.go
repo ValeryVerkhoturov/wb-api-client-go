@@ -20,7 +20,7 @@ var _ MappedNullable = &DeliveryDatesRequest{}
 // DeliveryDatesRequest struct for DeliveryDatesRequest
 type DeliveryDatesRequest struct {
 	// Список ID сборочных заданий
-	Orders []int32 `json:"orders,omitempty"`
+	Orders []int64 `json:"orders,omitempty"`
 }
 
 // NewDeliveryDatesRequest instantiates a new DeliveryDatesRequest object
@@ -41,9 +41,9 @@ func NewDeliveryDatesRequestWithDefaults() *DeliveryDatesRequest {
 }
 
 // GetOrders returns the Orders field value if set, zero value otherwise.
-func (o *DeliveryDatesRequest) GetOrders() []int32 {
+func (o *DeliveryDatesRequest) GetOrders() []int64 {
 	if o == nil || IsNil(o.Orders) {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.Orders
@@ -51,7 +51,7 @@ func (o *DeliveryDatesRequest) GetOrders() []int32 {
 
 // GetOrdersOk returns a tuple with the Orders field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DeliveryDatesRequest) GetOrdersOk() ([]int32, bool) {
+func (o *DeliveryDatesRequest) GetOrdersOk() ([]int64, bool) {
 	if o == nil || IsNil(o.Orders) {
 		return nil, false
 	}
@@ -67,8 +67,8 @@ func (o *DeliveryDatesRequest) HasOrders() bool {
 	return false
 }
 
-// SetOrders gets a reference to the given []int32 and assigns it to the Orders field.
-func (o *DeliveryDatesRequest) SetOrders(v []int32) {
+// SetOrders gets a reference to the given []int64 and assigns it to the Orders field.
+func (o *DeliveryDatesRequest) SetOrders(v []int64) {
 	o.Orders = v
 }
 

@@ -20,7 +20,7 @@ var _ MappedNullable = &ApiOrdersMetaDetailsResponseOrdersInner{}
 // ApiOrdersMetaDetailsResponseOrdersInner struct for ApiOrdersMetaDetailsResponseOrdersInner
 type ApiOrdersMetaDetailsResponseOrdersInner struct {
 	// ID сборочного задания
-	OrderId *int32 `json:"orderId,omitempty"`
+	OrderId *int64 `json:"orderId,omitempty"`
 	// Есть ли ошибки
 	IsError *bool `json:"isError,omitempty"`
 	// Информация об ошибке
@@ -47,9 +47,9 @@ func NewApiOrdersMetaDetailsResponseOrdersInnerWithDefaults() *ApiOrdersMetaDeta
 }
 
 // GetOrderId returns the OrderId field value if set, zero value otherwise.
-func (o *ApiOrdersMetaDetailsResponseOrdersInner) GetOrderId() int32 {
+func (o *ApiOrdersMetaDetailsResponseOrdersInner) GetOrderId() int64 {
 	if o == nil || IsNil(o.OrderId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OrderId
@@ -57,7 +57,7 @@ func (o *ApiOrdersMetaDetailsResponseOrdersInner) GetOrderId() int32 {
 
 // GetOrderIdOk returns a tuple with the OrderId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiOrdersMetaDetailsResponseOrdersInner) GetOrderIdOk() (*int32, bool) {
+func (o *ApiOrdersMetaDetailsResponseOrdersInner) GetOrderIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.OrderId) {
 		return nil, false
 	}
@@ -73,8 +73,8 @@ func (o *ApiOrdersMetaDetailsResponseOrdersInner) HasOrderId() bool {
 	return false
 }
 
-// SetOrderId gets a reference to the given int32 and assigns it to the OrderId field.
-func (o *ApiOrdersMetaDetailsResponseOrdersInner) SetOrderId(v int32) {
+// SetOrderId gets a reference to the given int64 and assigns it to the OrderId field.
+func (o *ApiOrdersMetaDetailsResponseOrdersInner) SetOrderId(v int64) {
 	o.OrderId = &v
 }
 

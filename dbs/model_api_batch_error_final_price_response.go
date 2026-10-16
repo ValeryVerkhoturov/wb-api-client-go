@@ -20,7 +20,7 @@ var _ MappedNullable = &ApiBatchErrorFinalPriceResponse{}
 // ApiBatchErrorFinalPriceResponse struct for ApiBatchErrorFinalPriceResponse
 type ApiBatchErrorFinalPriceResponse struct {
 	// Код ошибки:   - `404` — `NotFound`   - `400` — `StatusMismatch`   - `422` — `PriceNotCalculated`
-	Code *int32 `json:"code,omitempty"`
+	Code *int64 `json:"code,omitempty"`
 	// - `NotFound` — сборочное задание не найдено (`404`) - `StatusMismatch` — операция невозможна для этого статуса сборочного задания (`400`) - `PriceNotCalculated` — операция невозможна для сборочных заданий, созданных ранее 23.07.2026 (`422`)
 	Detail *string `json:"detail,omitempty"`
 }
@@ -43,9 +43,9 @@ func NewApiBatchErrorFinalPriceResponseWithDefaults() *ApiBatchErrorFinalPriceRe
 }
 
 // GetCode returns the Code field value if set, zero value otherwise.
-func (o *ApiBatchErrorFinalPriceResponse) GetCode() int32 {
+func (o *ApiBatchErrorFinalPriceResponse) GetCode() int64 {
 	if o == nil || IsNil(o.Code) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Code
@@ -53,7 +53,7 @@ func (o *ApiBatchErrorFinalPriceResponse) GetCode() int32 {
 
 // GetCodeOk returns a tuple with the Code field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiBatchErrorFinalPriceResponse) GetCodeOk() (*int32, bool) {
+func (o *ApiBatchErrorFinalPriceResponse) GetCodeOk() (*int64, bool) {
 	if o == nil || IsNil(o.Code) {
 		return nil, false
 	}
@@ -69,8 +69,8 @@ func (o *ApiBatchErrorFinalPriceResponse) HasCode() bool {
 	return false
 }
 
-// SetCode gets a reference to the given int32 and assigns it to the Code field.
-func (o *ApiBatchErrorFinalPriceResponse) SetCode(v int32) {
+// SetCode gets a reference to the given int64 and assigns it to the Code field.
+func (o *ApiBatchErrorFinalPriceResponse) SetCode(v int64) {
 	o.Code = &v
 }
 

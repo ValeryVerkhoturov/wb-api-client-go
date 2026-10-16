@@ -30,15 +30,15 @@ type GoodsReturn200ResponseReportInner struct {
 	// Код маркировки [Честного знака](https://честныйзнак.рф/)
 	Kiz NullableString `json:"kiz,omitempty"`
 	// ID ПВЗ для выдачи возврата продавцу
-	DstOfficeId *int32 `json:"dstOfficeId,omitempty"`
+	DstOfficeId *int64 `json:"dstOfficeId,omitempty"`
 	// Дата и время истечения срока хранения возврата
 	ExpiredDt NullableString `json:"expiredDt,omitempty"`
 	// Артикул WB
-	NmId *int32 `json:"nmId,omitempty"`
+	NmId *int64 `json:"nmId,omitempty"`
 	// Дата заказа на возврат
 	OrderDt *string `json:"orderDt,omitempty"`
 	// ID сборочного задания
-	OrderId *int32 `json:"orderId,omitempty"`
+	OrderId *int64 `json:"orderId,omitempty"`
 	// Дата и время готовности возврата к выдаче
 	ReadyToReturnDt NullableString `json:"readyToReturnDt,omitempty"`
 	// Причина возврата.  Поле возвращается только при `\"returnType\":\"Возврат неопознанного товара\"`
@@ -46,7 +46,7 @@ type GoodsReturn200ResponseReportInner struct {
 	// Тип возврата
 	ReturnType *string `json:"returnType,omitempty"`
 	// Штрихкод
-	ShkId *int32 `json:"shkId,omitempty"`
+	ShkId *int64 `json:"shkId,omitempty"`
 	// ID заказа на возврат
 	Srid *string `json:"srid,omitempty"`
 	// Статус возврата
@@ -259,9 +259,9 @@ func (o *GoodsReturn200ResponseReportInner) UnsetKiz() {
 }
 
 // GetDstOfficeId returns the DstOfficeId field value if set, zero value otherwise.
-func (o *GoodsReturn200ResponseReportInner) GetDstOfficeId() int32 {
+func (o *GoodsReturn200ResponseReportInner) GetDstOfficeId() int64 {
 	if o == nil || IsNil(o.DstOfficeId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.DstOfficeId
@@ -269,7 +269,7 @@ func (o *GoodsReturn200ResponseReportInner) GetDstOfficeId() int32 {
 
 // GetDstOfficeIdOk returns a tuple with the DstOfficeId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GoodsReturn200ResponseReportInner) GetDstOfficeIdOk() (*int32, bool) {
+func (o *GoodsReturn200ResponseReportInner) GetDstOfficeIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.DstOfficeId) {
 		return nil, false
 	}
@@ -285,8 +285,8 @@ func (o *GoodsReturn200ResponseReportInner) HasDstOfficeId() bool {
 	return false
 }
 
-// SetDstOfficeId gets a reference to the given int32 and assigns it to the DstOfficeId field.
-func (o *GoodsReturn200ResponseReportInner) SetDstOfficeId(v int32) {
+// SetDstOfficeId gets a reference to the given int64 and assigns it to the DstOfficeId field.
+func (o *GoodsReturn200ResponseReportInner) SetDstOfficeId(v int64) {
 	o.DstOfficeId = &v
 }
 
@@ -334,9 +334,9 @@ func (o *GoodsReturn200ResponseReportInner) UnsetExpiredDt() {
 }
 
 // GetNmId returns the NmId field value if set, zero value otherwise.
-func (o *GoodsReturn200ResponseReportInner) GetNmId() int32 {
+func (o *GoodsReturn200ResponseReportInner) GetNmId() int64 {
 	if o == nil || IsNil(o.NmId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmId
@@ -344,7 +344,7 @@ func (o *GoodsReturn200ResponseReportInner) GetNmId() int32 {
 
 // GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GoodsReturn200ResponseReportInner) GetNmIdOk() (*int32, bool) {
+func (o *GoodsReturn200ResponseReportInner) GetNmIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
@@ -360,8 +360,8 @@ func (o *GoodsReturn200ResponseReportInner) HasNmId() bool {
 	return false
 }
 
-// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
-func (o *GoodsReturn200ResponseReportInner) SetNmId(v int32) {
+// SetNmId gets a reference to the given int64 and assigns it to the NmId field.
+func (o *GoodsReturn200ResponseReportInner) SetNmId(v int64) {
 	o.NmId = &v
 }
 
@@ -398,9 +398,9 @@ func (o *GoodsReturn200ResponseReportInner) SetOrderDt(v string) {
 }
 
 // GetOrderId returns the OrderId field value if set, zero value otherwise.
-func (o *GoodsReturn200ResponseReportInner) GetOrderId() int32 {
+func (o *GoodsReturn200ResponseReportInner) GetOrderId() int64 {
 	if o == nil || IsNil(o.OrderId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OrderId
@@ -408,7 +408,7 @@ func (o *GoodsReturn200ResponseReportInner) GetOrderId() int32 {
 
 // GetOrderIdOk returns a tuple with the OrderId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GoodsReturn200ResponseReportInner) GetOrderIdOk() (*int32, bool) {
+func (o *GoodsReturn200ResponseReportInner) GetOrderIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.OrderId) {
 		return nil, false
 	}
@@ -424,8 +424,8 @@ func (o *GoodsReturn200ResponseReportInner) HasOrderId() bool {
 	return false
 }
 
-// SetOrderId gets a reference to the given int32 and assigns it to the OrderId field.
-func (o *GoodsReturn200ResponseReportInner) SetOrderId(v int32) {
+// SetOrderId gets a reference to the given int64 and assigns it to the OrderId field.
+func (o *GoodsReturn200ResponseReportInner) SetOrderId(v int64) {
 	o.OrderId = &v
 }
 
@@ -537,9 +537,9 @@ func (o *GoodsReturn200ResponseReportInner) SetReturnType(v string) {
 }
 
 // GetShkId returns the ShkId field value if set, zero value otherwise.
-func (o *GoodsReturn200ResponseReportInner) GetShkId() int32 {
+func (o *GoodsReturn200ResponseReportInner) GetShkId() int64 {
 	if o == nil || IsNil(o.ShkId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ShkId
@@ -547,7 +547,7 @@ func (o *GoodsReturn200ResponseReportInner) GetShkId() int32 {
 
 // GetShkIdOk returns a tuple with the ShkId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GoodsReturn200ResponseReportInner) GetShkIdOk() (*int32, bool) {
+func (o *GoodsReturn200ResponseReportInner) GetShkIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.ShkId) {
 		return nil, false
 	}
@@ -563,8 +563,8 @@ func (o *GoodsReturn200ResponseReportInner) HasShkId() bool {
 	return false
 }
 
-// SetShkId gets a reference to the given int32 and assigns it to the ShkId field.
-func (o *GoodsReturn200ResponseReportInner) SetShkId(v int32) {
+// SetShkId gets a reference to the given int64 and assigns it to the ShkId field.
+func (o *GoodsReturn200ResponseReportInner) SetShkId(v int64) {
 	o.ShkId = &v
 }
 

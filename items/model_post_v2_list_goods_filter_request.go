@@ -22,7 +22,7 @@ var _ MappedNullable = &PostV2ListGoodsFilterRequest{}
 // PostV2ListGoodsFilterRequest struct for PostV2ListGoodsFilterRequest
 type PostV2ListGoodsFilterRequest struct {
 	// Артикулы WB для поиска товара
-	NmList []int32 `json:"nmList"`
+	NmList []int64 `json:"nmList"`
 }
 
 type _PostV2ListGoodsFilterRequest PostV2ListGoodsFilterRequest
@@ -31,7 +31,7 @@ type _PostV2ListGoodsFilterRequest PostV2ListGoodsFilterRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostV2ListGoodsFilterRequest(nmList []int32) *PostV2ListGoodsFilterRequest {
+func NewPostV2ListGoodsFilterRequest(nmList []int64) *PostV2ListGoodsFilterRequest {
 	this := PostV2ListGoodsFilterRequest{}
 	this.NmList = nmList
 	return &this
@@ -46,9 +46,9 @@ func NewPostV2ListGoodsFilterRequestWithDefaults() *PostV2ListGoodsFilterRequest
 }
 
 // GetNmList returns the NmList field value
-func (o *PostV2ListGoodsFilterRequest) GetNmList() []int32 {
+func (o *PostV2ListGoodsFilterRequest) GetNmList() []int64 {
 	if o == nil {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 
@@ -57,7 +57,7 @@ func (o *PostV2ListGoodsFilterRequest) GetNmList() []int32 {
 
 // GetNmListOk returns a tuple with the NmList field value
 // and a boolean to check if the value has been set.
-func (o *PostV2ListGoodsFilterRequest) GetNmListOk() ([]int32, bool) {
+func (o *PostV2ListGoodsFilterRequest) GetNmListOk() ([]int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,7 +65,7 @@ func (o *PostV2ListGoodsFilterRequest) GetNmListOk() ([]int32, bool) {
 }
 
 // SetNmList sets field value
-func (o *PostV2ListGoodsFilterRequest) SetNmList(v []int32) {
+func (o *PostV2ListGoodsFilterRequest) SetNmList(v []int64) {
 	o.NmList = v
 }
 

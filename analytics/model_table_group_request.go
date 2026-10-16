@@ -38,9 +38,9 @@ type TableGroupRequest struct {
 	// Показать данные по поисковым запросам без учёта подменного артикула
 	IncludeSearchTexts *bool `json:"includeSearchTexts,omitempty"`
 	// Количество групп товаров в ответе
-	Limit int32 `json:"limit"`
+	Limit int64 `json:"limit"`
 	// После какого элемента выдавать данные
-	Offset int32 `json:"offset"`
+	Offset int64 `json:"offset"`
 }
 
 type _TableGroupRequest TableGroupRequest
@@ -49,7 +49,7 @@ type _TableGroupRequest TableGroupRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableGroupRequest(currentPeriod Period, orderBy OrderByGrTe, positionCluster PositionCluster, limit int32, offset int32) *TableGroupRequest {
+func NewTableGroupRequest(currentPeriod Period, orderBy OrderByGrTe, positionCluster PositionCluster, limit int64, offset int64) *TableGroupRequest {
 	this := TableGroupRequest{}
 	this.CurrentPeriod = currentPeriod
 	this.OrderBy = orderBy
@@ -372,9 +372,9 @@ func (o *TableGroupRequest) SetIncludeSearchTexts(v bool) {
 }
 
 // GetLimit returns the Limit field value
-func (o *TableGroupRequest) GetLimit() int32 {
+func (o *TableGroupRequest) GetLimit() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -383,7 +383,7 @@ func (o *TableGroupRequest) GetLimit() int32 {
 
 // GetLimitOk returns a tuple with the Limit field value
 // and a boolean to check if the value has been set.
-func (o *TableGroupRequest) GetLimitOk() (*int32, bool) {
+func (o *TableGroupRequest) GetLimitOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -391,14 +391,14 @@ func (o *TableGroupRequest) GetLimitOk() (*int32, bool) {
 }
 
 // SetLimit sets field value
-func (o *TableGroupRequest) SetLimit(v int32) {
+func (o *TableGroupRequest) SetLimit(v int64) {
 	o.Limit = v
 }
 
 // GetOffset returns the Offset field value
-func (o *TableGroupRequest) GetOffset() int32 {
+func (o *TableGroupRequest) GetOffset() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -407,7 +407,7 @@ func (o *TableGroupRequest) GetOffset() int32 {
 
 // GetOffsetOk returns a tuple with the Offset field value
 // and a boolean to check if the value has been set.
-func (o *TableGroupRequest) GetOffsetOk() (*int32, bool) {
+func (o *TableGroupRequest) GetOffsetOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -415,7 +415,7 @@ func (o *TableGroupRequest) GetOffsetOk() (*int32, bool) {
 }
 
 // SetOffset sets field value
-func (o *TableGroupRequest) SetOffset(v int32) {
+func (o *TableGroupRequest) SetOffset(v int64) {
 	o.Offset = v
 }
 

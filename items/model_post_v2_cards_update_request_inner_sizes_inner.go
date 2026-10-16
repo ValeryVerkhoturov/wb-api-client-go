@@ -20,13 +20,13 @@ var _ MappedNullable = &PostV2CardsUpdateRequestInnerSizesInner{}
 // PostV2CardsUpdateRequestInnerSizesInner struct for PostV2CardsUpdateRequestInnerSizesInner
 type PostV2CardsUpdateRequestInnerSizesInner struct {
 	// ID размера для данного артикула WB Обязателен к заполнению для существующих размеров Для добавляемых размеров не указывается
-	ChrtID *int32 `json:"chrtID,omitempty"`
+	ChrtID *int64 `json:"chrtID,omitempty"`
 	// Размер товара (например, XL, S, 45)
 	TechSize *string `json:"techSize,omitempty"`
 	// Российский размер товара
 	WbSize *string `json:"wbSize,omitempty"`
 	// Цена товара, ₽ Указывается при добавлении размера
-	Price *int32 `json:"price,omitempty"`
+	Price *int64 `json:"price,omitempty"`
 	// Баркоды
 	Skus []string `json:"skus,omitempty"`
 }
@@ -49,9 +49,9 @@ func NewPostV2CardsUpdateRequestInnerSizesInnerWithDefaults() *PostV2CardsUpdate
 }
 
 // GetChrtID returns the ChrtID field value if set, zero value otherwise.
-func (o *PostV2CardsUpdateRequestInnerSizesInner) GetChrtID() int32 {
+func (o *PostV2CardsUpdateRequestInnerSizesInner) GetChrtID() int64 {
 	if o == nil || IsNil(o.ChrtID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ChrtID
@@ -59,7 +59,7 @@ func (o *PostV2CardsUpdateRequestInnerSizesInner) GetChrtID() int32 {
 
 // GetChrtIDOk returns a tuple with the ChrtID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2CardsUpdateRequestInnerSizesInner) GetChrtIDOk() (*int32, bool) {
+func (o *PostV2CardsUpdateRequestInnerSizesInner) GetChrtIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.ChrtID) {
 		return nil, false
 	}
@@ -75,8 +75,8 @@ func (o *PostV2CardsUpdateRequestInnerSizesInner) HasChrtID() bool {
 	return false
 }
 
-// SetChrtID gets a reference to the given int32 and assigns it to the ChrtID field.
-func (o *PostV2CardsUpdateRequestInnerSizesInner) SetChrtID(v int32) {
+// SetChrtID gets a reference to the given int64 and assigns it to the ChrtID field.
+func (o *PostV2CardsUpdateRequestInnerSizesInner) SetChrtID(v int64) {
 	o.ChrtID = &v
 }
 
@@ -145,9 +145,9 @@ func (o *PostV2CardsUpdateRequestInnerSizesInner) SetWbSize(v string) {
 }
 
 // GetPrice returns the Price field value if set, zero value otherwise.
-func (o *PostV2CardsUpdateRequestInnerSizesInner) GetPrice() int32 {
+func (o *PostV2CardsUpdateRequestInnerSizesInner) GetPrice() int64 {
 	if o == nil || IsNil(o.Price) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Price
@@ -155,7 +155,7 @@ func (o *PostV2CardsUpdateRequestInnerSizesInner) GetPrice() int32 {
 
 // GetPriceOk returns a tuple with the Price field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2CardsUpdateRequestInnerSizesInner) GetPriceOk() (*int32, bool) {
+func (o *PostV2CardsUpdateRequestInnerSizesInner) GetPriceOk() (*int64, bool) {
 	if o == nil || IsNil(o.Price) {
 		return nil, false
 	}
@@ -171,8 +171,8 @@ func (o *PostV2CardsUpdateRequestInnerSizesInner) HasPrice() bool {
 	return false
 }
 
-// SetPrice gets a reference to the given int32 and assigns it to the Price field.
-func (o *PostV2CardsUpdateRequestInnerSizesInner) SetPrice(v int32) {
+// SetPrice gets a reference to the given int64 and assigns it to the Price field.
+func (o *PostV2CardsUpdateRequestInnerSizesInner) SetPrice(v int64) {
 	o.Price = &v
 }
 

@@ -20,9 +20,9 @@ var _ MappedNullable = &GetV1BalanceResponse200CashbacksInner{}
 // GetV1BalanceResponse200CashbacksInner struct for GetV1BalanceResponse200CashbacksInner
 type GetV1BalanceResponse200CashbacksInner struct {
 	// Промо-бонусы в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
-	Sum *int32 `json:"sum,omitempty"`
+	Sum *int64 `json:"sum,omitempty"`
 	// Процент от суммы пополнения бюджета кампании, который можно оплатить промо-бонусами за один раз
-	Percent *int32 `json:"percent,omitempty"`
+	Percent *int64 `json:"percent,omitempty"`
 	// Дата окончания действия промо-бонусов
 	ExpirationDate *string `json:"expiration_date,omitempty"`
 }
@@ -45,9 +45,9 @@ func NewGetV1BalanceResponse200CashbacksInnerWithDefaults() *GetV1BalanceRespons
 }
 
 // GetSum returns the Sum field value if set, zero value otherwise.
-func (o *GetV1BalanceResponse200CashbacksInner) GetSum() int32 {
+func (o *GetV1BalanceResponse200CashbacksInner) GetSum() int64 {
 	if o == nil || IsNil(o.Sum) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Sum
@@ -55,7 +55,7 @@ func (o *GetV1BalanceResponse200CashbacksInner) GetSum() int32 {
 
 // GetSumOk returns a tuple with the Sum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1BalanceResponse200CashbacksInner) GetSumOk() (*int32, bool) {
+func (o *GetV1BalanceResponse200CashbacksInner) GetSumOk() (*int64, bool) {
 	if o == nil || IsNil(o.Sum) {
 		return nil, false
 	}
@@ -71,15 +71,15 @@ func (o *GetV1BalanceResponse200CashbacksInner) HasSum() bool {
 	return false
 }
 
-// SetSum gets a reference to the given int32 and assigns it to the Sum field.
-func (o *GetV1BalanceResponse200CashbacksInner) SetSum(v int32) {
+// SetSum gets a reference to the given int64 and assigns it to the Sum field.
+func (o *GetV1BalanceResponse200CashbacksInner) SetSum(v int64) {
 	o.Sum = &v
 }
 
 // GetPercent returns the Percent field value if set, zero value otherwise.
-func (o *GetV1BalanceResponse200CashbacksInner) GetPercent() int32 {
+func (o *GetV1BalanceResponse200CashbacksInner) GetPercent() int64 {
 	if o == nil || IsNil(o.Percent) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Percent
@@ -87,7 +87,7 @@ func (o *GetV1BalanceResponse200CashbacksInner) GetPercent() int32 {
 
 // GetPercentOk returns a tuple with the Percent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1BalanceResponse200CashbacksInner) GetPercentOk() (*int32, bool) {
+func (o *GetV1BalanceResponse200CashbacksInner) GetPercentOk() (*int64, bool) {
 	if o == nil || IsNil(o.Percent) {
 		return nil, false
 	}
@@ -103,8 +103,8 @@ func (o *GetV1BalanceResponse200CashbacksInner) HasPercent() bool {
 	return false
 }
 
-// SetPercent gets a reference to the given int32 and assigns it to the Percent field.
-func (o *GetV1BalanceResponse200CashbacksInner) SetPercent(v int32) {
+// SetPercent gets a reference to the given int64 and assigns it to the Percent field.
+func (o *GetV1BalanceResponse200CashbacksInner) SetPercent(v int64) {
 	o.Percent = &v
 }
 

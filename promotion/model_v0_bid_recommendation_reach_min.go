@@ -20,9 +20,9 @@ var _ MappedNullable = &V0BidRecommendationReachMin{}
 // V0BidRecommendationReachMin Минимальный охват: 50-60%
 type V0BidRecommendationReachMin struct {
 	// Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
-	BidKopecks *int32 `json:"bidKopecks,omitempty"`
+	BidKopecks *int64 `json:"bidKopecks,omitempty"`
 	// Минимальная ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
-	BidKopecksMin *int32 `json:"bidKopecksMin,omitempty"`
+	BidKopecksMin *int64 `json:"bidKopecksMin,omitempty"`
 }
 
 // NewV0BidRecommendationReachMin instantiates a new V0BidRecommendationReachMin object
@@ -43,9 +43,9 @@ func NewV0BidRecommendationReachMinWithDefaults() *V0BidRecommendationReachMin {
 }
 
 // GetBidKopecks returns the BidKopecks field value if set, zero value otherwise.
-func (o *V0BidRecommendationReachMin) GetBidKopecks() int32 {
+func (o *V0BidRecommendationReachMin) GetBidKopecks() int64 {
 	if o == nil || IsNil(o.BidKopecks) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.BidKopecks
@@ -53,7 +53,7 @@ func (o *V0BidRecommendationReachMin) GetBidKopecks() int32 {
 
 // GetBidKopecksOk returns a tuple with the BidKopecks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V0BidRecommendationReachMin) GetBidKopecksOk() (*int32, bool) {
+func (o *V0BidRecommendationReachMin) GetBidKopecksOk() (*int64, bool) {
 	if o == nil || IsNil(o.BidKopecks) {
 		return nil, false
 	}
@@ -69,15 +69,15 @@ func (o *V0BidRecommendationReachMin) HasBidKopecks() bool {
 	return false
 }
 
-// SetBidKopecks gets a reference to the given int32 and assigns it to the BidKopecks field.
-func (o *V0BidRecommendationReachMin) SetBidKopecks(v int32) {
+// SetBidKopecks gets a reference to the given int64 and assigns it to the BidKopecks field.
+func (o *V0BidRecommendationReachMin) SetBidKopecks(v int64) {
 	o.BidKopecks = &v
 }
 
 // GetBidKopecksMin returns the BidKopecksMin field value if set, zero value otherwise.
-func (o *V0BidRecommendationReachMin) GetBidKopecksMin() int32 {
+func (o *V0BidRecommendationReachMin) GetBidKopecksMin() int64 {
 	if o == nil || IsNil(o.BidKopecksMin) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.BidKopecksMin
@@ -85,7 +85,7 @@ func (o *V0BidRecommendationReachMin) GetBidKopecksMin() int32 {
 
 // GetBidKopecksMinOk returns a tuple with the BidKopecksMin field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V0BidRecommendationReachMin) GetBidKopecksMinOk() (*int32, bool) {
+func (o *V0BidRecommendationReachMin) GetBidKopecksMinOk() (*int64, bool) {
 	if o == nil || IsNil(o.BidKopecksMin) {
 		return nil, false
 	}
@@ -101,8 +101,8 @@ func (o *V0BidRecommendationReachMin) HasBidKopecksMin() bool {
 	return false
 }
 
-// SetBidKopecksMin gets a reference to the given int32 and assigns it to the BidKopecksMin field.
-func (o *V0BidRecommendationReachMin) SetBidKopecksMin(v int32) {
+// SetBidKopecksMin gets a reference to the given int64 and assigns it to the BidKopecksMin field.
+func (o *V0BidRecommendationReachMin) SetBidKopecksMin(v int64) {
 	o.BidKopecksMin = &v
 }
 

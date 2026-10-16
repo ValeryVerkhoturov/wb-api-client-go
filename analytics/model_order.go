@@ -22,7 +22,7 @@ type Order struct {
 	// Артикул WB
 	NmId *int64 `json:"nmId,omitempty"`
 	// ID размера
-	ChrtId *int32 `json:"chrtId,omitempty"`
+	ChrtId *int64 `json:"chrtId,omitempty"`
 	// ID заказа
 	Srid *string `json:"srid,omitempty"`
 	// Дата и время оформления заказа
@@ -99,9 +99,9 @@ func (o *Order) SetNmId(v int64) {
 }
 
 // GetChrtId returns the ChrtId field value if set, zero value otherwise.
-func (o *Order) GetChrtId() int32 {
+func (o *Order) GetChrtId() int64 {
 	if o == nil || IsNil(o.ChrtId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ChrtId
@@ -109,7 +109,7 @@ func (o *Order) GetChrtId() int32 {
 
 // GetChrtIdOk returns a tuple with the ChrtId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Order) GetChrtIdOk() (*int32, bool) {
+func (o *Order) GetChrtIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.ChrtId) {
 		return nil, false
 	}
@@ -125,8 +125,8 @@ func (o *Order) HasChrtId() bool {
 	return false
 }
 
-// SetChrtId gets a reference to the given int32 and assigns it to the ChrtId field.
-func (o *Order) SetChrtId(v int32) {
+// SetChrtId gets a reference to the given int64 and assigns it to the ChrtId field.
+func (o *Order) SetChrtId(v int64) {
 	o.ChrtId = &v
 }
 

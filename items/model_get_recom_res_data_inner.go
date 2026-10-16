@@ -20,7 +20,7 @@ var _ MappedNullable = &GetRecomResDataInner{}
 // GetRecomResDataInner struct for GetRecomResDataInner
 type GetRecomResDataInner struct {
 	// Артикул WB
-	NmId *int32 `json:"nmId,omitempty"`
+	NmId *int64 `json:"nmId,omitempty"`
 	// ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
 	ImtId *int64 `json:"imtId,omitempty"`
 	// Артикул продавца
@@ -30,7 +30,7 @@ type GetRecomResDataInner struct {
 	// Дата и время последнего обновления рекомендаций
 	UpdatedAt NullableString `json:"updatedAt,omitempty"`
 	// Количество изображений в карточке товара
-	PicsCount *int32 `json:"picsCount,omitempty"`
+	PicsCount *int64 `json:"picsCount,omitempty"`
 	// Название товара
 	Title *string `json:"title,omitempty"`
 	// Предмет
@@ -38,11 +38,11 @@ type GetRecomResDataInner struct {
 	// URL основного изображения в карточке товара
 	Pic *string `json:"pic,omitempty"`
 	// Количество рекомендуемых товаров
-	RecomCount *int32 `json:"recomCount,omitempty"`
+	RecomCount *int64 `json:"recomCount,omitempty"`
 	// Список URL основных изображений рекомендуемых товаров
 	RecomPics []string `json:"recomPics,omitempty"`
 	// Список `nmId` рекомендуемых товаров
-	RecomNms []int32 `json:"recomNms,omitempty"`
+	RecomNms []int64 `json:"recomNms,omitempty"`
 }
 
 // NewGetRecomResDataInner instantiates a new GetRecomResDataInner object
@@ -63,9 +63,9 @@ func NewGetRecomResDataInnerWithDefaults() *GetRecomResDataInner {
 }
 
 // GetNmId returns the NmId field value if set, zero value otherwise.
-func (o *GetRecomResDataInner) GetNmId() int32 {
+func (o *GetRecomResDataInner) GetNmId() int64 {
 	if o == nil || IsNil(o.NmId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmId
@@ -73,7 +73,7 @@ func (o *GetRecomResDataInner) GetNmId() int32 {
 
 // GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetRecomResDataInner) GetNmIdOk() (*int32, bool) {
+func (o *GetRecomResDataInner) GetNmIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
@@ -89,8 +89,8 @@ func (o *GetRecomResDataInner) HasNmId() bool {
 	return false
 }
 
-// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
-func (o *GetRecomResDataInner) SetNmId(v int32) {
+// SetNmId gets a reference to the given int64 and assigns it to the NmId field.
+func (o *GetRecomResDataInner) SetNmId(v int64) {
 	o.NmId = &v
 }
 
@@ -234,9 +234,9 @@ func (o *GetRecomResDataInner) UnsetUpdatedAt() {
 }
 
 // GetPicsCount returns the PicsCount field value if set, zero value otherwise.
-func (o *GetRecomResDataInner) GetPicsCount() int32 {
+func (o *GetRecomResDataInner) GetPicsCount() int64 {
 	if o == nil || IsNil(o.PicsCount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.PicsCount
@@ -244,7 +244,7 @@ func (o *GetRecomResDataInner) GetPicsCount() int32 {
 
 // GetPicsCountOk returns a tuple with the PicsCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetRecomResDataInner) GetPicsCountOk() (*int32, bool) {
+func (o *GetRecomResDataInner) GetPicsCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.PicsCount) {
 		return nil, false
 	}
@@ -260,8 +260,8 @@ func (o *GetRecomResDataInner) HasPicsCount() bool {
 	return false
 }
 
-// SetPicsCount gets a reference to the given int32 and assigns it to the PicsCount field.
-func (o *GetRecomResDataInner) SetPicsCount(v int32) {
+// SetPicsCount gets a reference to the given int64 and assigns it to the PicsCount field.
+func (o *GetRecomResDataInner) SetPicsCount(v int64) {
 	o.PicsCount = &v
 }
 
@@ -362,9 +362,9 @@ func (o *GetRecomResDataInner) SetPic(v string) {
 }
 
 // GetRecomCount returns the RecomCount field value if set, zero value otherwise.
-func (o *GetRecomResDataInner) GetRecomCount() int32 {
+func (o *GetRecomResDataInner) GetRecomCount() int64 {
 	if o == nil || IsNil(o.RecomCount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.RecomCount
@@ -372,7 +372,7 @@ func (o *GetRecomResDataInner) GetRecomCount() int32 {
 
 // GetRecomCountOk returns a tuple with the RecomCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetRecomResDataInner) GetRecomCountOk() (*int32, bool) {
+func (o *GetRecomResDataInner) GetRecomCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.RecomCount) {
 		return nil, false
 	}
@@ -388,8 +388,8 @@ func (o *GetRecomResDataInner) HasRecomCount() bool {
 	return false
 }
 
-// SetRecomCount gets a reference to the given int32 and assigns it to the RecomCount field.
-func (o *GetRecomResDataInner) SetRecomCount(v int32) {
+// SetRecomCount gets a reference to the given int64 and assigns it to the RecomCount field.
+func (o *GetRecomResDataInner) SetRecomCount(v int64) {
 	o.RecomCount = &v
 }
 
@@ -426,9 +426,9 @@ func (o *GetRecomResDataInner) SetRecomPics(v []string) {
 }
 
 // GetRecomNms returns the RecomNms field value if set, zero value otherwise.
-func (o *GetRecomResDataInner) GetRecomNms() []int32 {
+func (o *GetRecomResDataInner) GetRecomNms() []int64 {
 	if o == nil || IsNil(o.RecomNms) {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.RecomNms
@@ -436,7 +436,7 @@ func (o *GetRecomResDataInner) GetRecomNms() []int32 {
 
 // GetRecomNmsOk returns a tuple with the RecomNms field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetRecomResDataInner) GetRecomNmsOk() ([]int32, bool) {
+func (o *GetRecomResDataInner) GetRecomNmsOk() ([]int64, bool) {
 	if o == nil || IsNil(o.RecomNms) {
 		return nil, false
 	}
@@ -452,8 +452,8 @@ func (o *GetRecomResDataInner) HasRecomNms() bool {
 	return false
 }
 
-// SetRecomNms gets a reference to the given []int32 and assigns it to the RecomNms field.
-func (o *GetRecomResDataInner) SetRecomNms(v []int32) {
+// SetRecomNms gets a reference to the given []int64 and assigns it to the RecomNms field.
+func (o *GetRecomResDataInner) SetRecomNms(v []int64) {
 	o.RecomNms = v
 }
 

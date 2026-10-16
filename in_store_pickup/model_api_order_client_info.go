@@ -24,9 +24,9 @@ type ApiOrderClientInfo struct {
 	// Имя покупателя
 	FirstName *string `json:"firstName,omitempty"`
 	// ID сборочного задания
-	OrderID *int32 `json:"orderID,omitempty"`
+	OrderID *int64 `json:"orderID,omitempty"`
 	// Добавочный код
-	PhoneCode *int32 `json:"phoneCode,omitempty"`
+	PhoneCode *int64 `json:"phoneCode,omitempty"`
 }
 
 // NewApiOrderClientInfo instantiates a new ApiOrderClientInfo object
@@ -111,9 +111,9 @@ func (o *ApiOrderClientInfo) SetFirstName(v string) {
 }
 
 // GetOrderID returns the OrderID field value if set, zero value otherwise.
-func (o *ApiOrderClientInfo) GetOrderID() int32 {
+func (o *ApiOrderClientInfo) GetOrderID() int64 {
 	if o == nil || IsNil(o.OrderID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OrderID
@@ -121,7 +121,7 @@ func (o *ApiOrderClientInfo) GetOrderID() int32 {
 
 // GetOrderIDOk returns a tuple with the OrderID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiOrderClientInfo) GetOrderIDOk() (*int32, bool) {
+func (o *ApiOrderClientInfo) GetOrderIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.OrderID) {
 		return nil, false
 	}
@@ -137,15 +137,15 @@ func (o *ApiOrderClientInfo) HasOrderID() bool {
 	return false
 }
 
-// SetOrderID gets a reference to the given int32 and assigns it to the OrderID field.
-func (o *ApiOrderClientInfo) SetOrderID(v int32) {
+// SetOrderID gets a reference to the given int64 and assigns it to the OrderID field.
+func (o *ApiOrderClientInfo) SetOrderID(v int64) {
 	o.OrderID = &v
 }
 
 // GetPhoneCode returns the PhoneCode field value if set, zero value otherwise.
-func (o *ApiOrderClientInfo) GetPhoneCode() int32 {
+func (o *ApiOrderClientInfo) GetPhoneCode() int64 {
 	if o == nil || IsNil(o.PhoneCode) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.PhoneCode
@@ -153,7 +153,7 @@ func (o *ApiOrderClientInfo) GetPhoneCode() int32 {
 
 // GetPhoneCodeOk returns a tuple with the PhoneCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiOrderClientInfo) GetPhoneCodeOk() (*int32, bool) {
+func (o *ApiOrderClientInfo) GetPhoneCodeOk() (*int64, bool) {
 	if o == nil || IsNil(o.PhoneCode) {
 		return nil, false
 	}
@@ -169,8 +169,8 @@ func (o *ApiOrderClientInfo) HasPhoneCode() bool {
 	return false
 }
 
-// SetPhoneCode gets a reference to the given int32 and assigns it to the PhoneCode field.
-func (o *ApiOrderClientInfo) SetPhoneCode(v int32) {
+// SetPhoneCode gets a reference to the given int64 and assigns it to the PhoneCode field.
+func (o *ApiOrderClientInfo) SetPhoneCode(v int64) {
 	o.PhoneCode = &v
 }
 

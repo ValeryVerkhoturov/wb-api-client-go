@@ -22,11 +22,11 @@ type FeeChinaReportInner struct {
 	// Комиссия для продавцов из Китая, %
 	KgvpChina *float32 `json:"kgvpChina,omitempty"`
 	// ID родительской категории
-	ParentID *int32 `json:"parentID,omitempty"`
+	ParentID *int64 `json:"parentID,omitempty"`
 	// Название родительской категории
 	ParentName *string `json:"parentName,omitempty"`
 	// ID предмета
-	SubjectID *int32 `json:"subjectID,omitempty"`
+	SubjectID *int64 `json:"subjectID,omitempty"`
 	// Название предмета
 	SubjectName *string `json:"subjectName,omitempty"`
 }
@@ -81,9 +81,9 @@ func (o *FeeChinaReportInner) SetKgvpChina(v float32) {
 }
 
 // GetParentID returns the ParentID field value if set, zero value otherwise.
-func (o *FeeChinaReportInner) GetParentID() int32 {
+func (o *FeeChinaReportInner) GetParentID() int64 {
 	if o == nil || IsNil(o.ParentID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ParentID
@@ -91,7 +91,7 @@ func (o *FeeChinaReportInner) GetParentID() int32 {
 
 // GetParentIDOk returns a tuple with the ParentID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FeeChinaReportInner) GetParentIDOk() (*int32, bool) {
+func (o *FeeChinaReportInner) GetParentIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.ParentID) {
 		return nil, false
 	}
@@ -107,8 +107,8 @@ func (o *FeeChinaReportInner) HasParentID() bool {
 	return false
 }
 
-// SetParentID gets a reference to the given int32 and assigns it to the ParentID field.
-func (o *FeeChinaReportInner) SetParentID(v int32) {
+// SetParentID gets a reference to the given int64 and assigns it to the ParentID field.
+func (o *FeeChinaReportInner) SetParentID(v int64) {
 	o.ParentID = &v
 }
 
@@ -145,9 +145,9 @@ func (o *FeeChinaReportInner) SetParentName(v string) {
 }
 
 // GetSubjectID returns the SubjectID field value if set, zero value otherwise.
-func (o *FeeChinaReportInner) GetSubjectID() int32 {
+func (o *FeeChinaReportInner) GetSubjectID() int64 {
 	if o == nil || IsNil(o.SubjectID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SubjectID
@@ -155,7 +155,7 @@ func (o *FeeChinaReportInner) GetSubjectID() int32 {
 
 // GetSubjectIDOk returns a tuple with the SubjectID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FeeChinaReportInner) GetSubjectIDOk() (*int32, bool) {
+func (o *FeeChinaReportInner) GetSubjectIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.SubjectID) {
 		return nil, false
 	}
@@ -171,8 +171,8 @@ func (o *FeeChinaReportInner) HasSubjectID() bool {
 	return false
 }
 
-// SetSubjectID gets a reference to the given int32 and assigns it to the SubjectID field.
-func (o *FeeChinaReportInner) SetSubjectID(v int32) {
+// SetSubjectID gets a reference to the given int64 and assigns it to the SubjectID field.
+func (o *FeeChinaReportInner) SetSubjectID(v int64) {
 	o.SubjectID = &v
 }
 

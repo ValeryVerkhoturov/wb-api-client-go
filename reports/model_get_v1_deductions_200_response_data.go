@@ -24,7 +24,7 @@ type GetV1Deductions200ResponseData struct {
 	// Удержания
 	Reports []GetV1Deductions200ResponseDataReportsInner `json:"reports"`
 	// Количество удержаний в отчёте. Без учёта `limit` и `offset`
-	Total int32 `json:"total"`
+	Total int64 `json:"total"`
 }
 
 type _GetV1Deductions200ResponseData GetV1Deductions200ResponseData
@@ -33,7 +33,7 @@ type _GetV1Deductions200ResponseData GetV1Deductions200ResponseData
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetV1Deductions200ResponseData(reports []GetV1Deductions200ResponseDataReportsInner, total int32) *GetV1Deductions200ResponseData {
+func NewGetV1Deductions200ResponseData(reports []GetV1Deductions200ResponseDataReportsInner, total int64) *GetV1Deductions200ResponseData {
 	this := GetV1Deductions200ResponseData{}
 	this.Reports = reports
 	this.Total = total
@@ -73,9 +73,9 @@ func (o *GetV1Deductions200ResponseData) SetReports(v []GetV1Deductions200Respon
 }
 
 // GetTotal returns the Total field value
-func (o *GetV1Deductions200ResponseData) GetTotal() int32 {
+func (o *GetV1Deductions200ResponseData) GetTotal() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -84,7 +84,7 @@ func (o *GetV1Deductions200ResponseData) GetTotal() int32 {
 
 // GetTotalOk returns a tuple with the Total field value
 // and a boolean to check if the value has been set.
-func (o *GetV1Deductions200ResponseData) GetTotalOk() (*int32, bool) {
+func (o *GetV1Deductions200ResponseData) GetTotalOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -92,7 +92,7 @@ func (o *GetV1Deductions200ResponseData) GetTotalOk() (*int32, bool) {
 }
 
 // SetTotal sets field value
-func (o *GetV1Deductions200ResponseData) SetTotal(v int32) {
+func (o *GetV1Deductions200ResponseData) SetTotal(v int64) {
 	o.Total = v
 }
 

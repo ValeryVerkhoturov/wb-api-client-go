@@ -819,8 +819,8 @@ type ApiGetV1DocumentsListRequest struct {
 	order       *string
 	category    *string
 	serviceName *string
-	limit       *int32
-	offset      *int32
+	limit       *int64
+	offset      *int64
 }
 
 // Язык поля &#x60;category&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский
@@ -866,13 +866,13 @@ func (r ApiGetV1DocumentsListRequest) ServiceName(serviceName string) ApiGetV1Do
 }
 
 // Максимальное количество строк ответа
-func (r ApiGetV1DocumentsListRequest) Limit(limit int32) ApiGetV1DocumentsListRequest {
+func (r ApiGetV1DocumentsListRequest) Limit(limit int64) ApiGetV1DocumentsListRequest {
 	r.limit = &limit
 	return r
 }
 
 // После какой строки выдавать данные
-func (r ApiGetV1DocumentsListRequest) Offset(offset int32) ApiGetV1DocumentsListRequest {
+func (r ApiGetV1DocumentsListRequest) Offset(offset int64) ApiGetV1DocumentsListRequest {
 	r.offset = &offset
 	return r
 }
@@ -961,13 +961,13 @@ func (a *FinancesAPIService) GetV1DocumentsListExecute(r ApiGetV1DocumentsListRe
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
 	} else {
-		var defaultValue int32 = 50
+		var defaultValue int64 = 50
 		r.limit = &defaultValue
 	}
 	if r.offset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
 	} else {
-		var defaultValue int32 = 0
+		var defaultValue int64 = 0
 		r.offset = &defaultValue
 	}
 	// to determine the Content-Type header

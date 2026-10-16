@@ -22,13 +22,13 @@ type PostV3DbsGroupsInfoResponse200Inner struct {
 	// ID группы сборочных заданий
 	GroupID *string `json:"groupID,omitempty"`
 	// Стоимость платной доставки в валюте продажи, умноженная на 100
-	DeliveryCost *int32 `json:"deliveryCost,omitempty"`
+	DeliveryCost *int64 `json:"deliveryCost,omitempty"`
 	// Стоимость платной доставки в валюте страны продавца, умноженная на 100. Предоставляется в информационных целях.
-	ConvertedDeliveryCost *int32 `json:"convertedDeliveryCost,omitempty"`
+	ConvertedDeliveryCost *int64 `json:"convertedDeliveryCost,omitempty"`
 	// Код валюты продажи
 	CurrencyCode *int32 `json:"currencyCode,omitempty"`
 	// Код валюты страны продавца
-	ConvertedCurrencyCode *int32 `json:"convertedCurrencyCode,omitempty"`
+	ConvertedCurrencyCode *int64 `json:"convertedCurrencyCode,omitempty"`
 }
 
 // NewPostV3DbsGroupsInfoResponse200Inner instantiates a new PostV3DbsGroupsInfoResponse200Inner object
@@ -81,9 +81,9 @@ func (o *PostV3DbsGroupsInfoResponse200Inner) SetGroupID(v string) {
 }
 
 // GetDeliveryCost returns the DeliveryCost field value if set, zero value otherwise.
-func (o *PostV3DbsGroupsInfoResponse200Inner) GetDeliveryCost() int32 {
+func (o *PostV3DbsGroupsInfoResponse200Inner) GetDeliveryCost() int64 {
 	if o == nil || IsNil(o.DeliveryCost) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.DeliveryCost
@@ -91,7 +91,7 @@ func (o *PostV3DbsGroupsInfoResponse200Inner) GetDeliveryCost() int32 {
 
 // GetDeliveryCostOk returns a tuple with the DeliveryCost field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV3DbsGroupsInfoResponse200Inner) GetDeliveryCostOk() (*int32, bool) {
+func (o *PostV3DbsGroupsInfoResponse200Inner) GetDeliveryCostOk() (*int64, bool) {
 	if o == nil || IsNil(o.DeliveryCost) {
 		return nil, false
 	}
@@ -107,15 +107,15 @@ func (o *PostV3DbsGroupsInfoResponse200Inner) HasDeliveryCost() bool {
 	return false
 }
 
-// SetDeliveryCost gets a reference to the given int32 and assigns it to the DeliveryCost field.
-func (o *PostV3DbsGroupsInfoResponse200Inner) SetDeliveryCost(v int32) {
+// SetDeliveryCost gets a reference to the given int64 and assigns it to the DeliveryCost field.
+func (o *PostV3DbsGroupsInfoResponse200Inner) SetDeliveryCost(v int64) {
 	o.DeliveryCost = &v
 }
 
 // GetConvertedDeliveryCost returns the ConvertedDeliveryCost field value if set, zero value otherwise.
-func (o *PostV3DbsGroupsInfoResponse200Inner) GetConvertedDeliveryCost() int32 {
+func (o *PostV3DbsGroupsInfoResponse200Inner) GetConvertedDeliveryCost() int64 {
 	if o == nil || IsNil(o.ConvertedDeliveryCost) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ConvertedDeliveryCost
@@ -123,7 +123,7 @@ func (o *PostV3DbsGroupsInfoResponse200Inner) GetConvertedDeliveryCost() int32 {
 
 // GetConvertedDeliveryCostOk returns a tuple with the ConvertedDeliveryCost field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV3DbsGroupsInfoResponse200Inner) GetConvertedDeliveryCostOk() (*int32, bool) {
+func (o *PostV3DbsGroupsInfoResponse200Inner) GetConvertedDeliveryCostOk() (*int64, bool) {
 	if o == nil || IsNil(o.ConvertedDeliveryCost) {
 		return nil, false
 	}
@@ -139,8 +139,8 @@ func (o *PostV3DbsGroupsInfoResponse200Inner) HasConvertedDeliveryCost() bool {
 	return false
 }
 
-// SetConvertedDeliveryCost gets a reference to the given int32 and assigns it to the ConvertedDeliveryCost field.
-func (o *PostV3DbsGroupsInfoResponse200Inner) SetConvertedDeliveryCost(v int32) {
+// SetConvertedDeliveryCost gets a reference to the given int64 and assigns it to the ConvertedDeliveryCost field.
+func (o *PostV3DbsGroupsInfoResponse200Inner) SetConvertedDeliveryCost(v int64) {
 	o.ConvertedDeliveryCost = &v
 }
 
@@ -177,9 +177,9 @@ func (o *PostV3DbsGroupsInfoResponse200Inner) SetCurrencyCode(v int32) {
 }
 
 // GetConvertedCurrencyCode returns the ConvertedCurrencyCode field value if set, zero value otherwise.
-func (o *PostV3DbsGroupsInfoResponse200Inner) GetConvertedCurrencyCode() int32 {
+func (o *PostV3DbsGroupsInfoResponse200Inner) GetConvertedCurrencyCode() int64 {
 	if o == nil || IsNil(o.ConvertedCurrencyCode) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ConvertedCurrencyCode
@@ -187,7 +187,7 @@ func (o *PostV3DbsGroupsInfoResponse200Inner) GetConvertedCurrencyCode() int32 {
 
 // GetConvertedCurrencyCodeOk returns a tuple with the ConvertedCurrencyCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV3DbsGroupsInfoResponse200Inner) GetConvertedCurrencyCodeOk() (*int32, bool) {
+func (o *PostV3DbsGroupsInfoResponse200Inner) GetConvertedCurrencyCodeOk() (*int64, bool) {
 	if o == nil || IsNil(o.ConvertedCurrencyCode) {
 		return nil, false
 	}
@@ -203,8 +203,8 @@ func (o *PostV3DbsGroupsInfoResponse200Inner) HasConvertedCurrencyCode() bool {
 	return false
 }
 
-// SetConvertedCurrencyCode gets a reference to the given int32 and assigns it to the ConvertedCurrencyCode field.
-func (o *PostV3DbsGroupsInfoResponse200Inner) SetConvertedCurrencyCode(v int32) {
+// SetConvertedCurrencyCode gets a reference to the given int64 and assigns it to the ConvertedCurrencyCode field.
+func (o *PostV3DbsGroupsInfoResponse200Inner) SetConvertedCurrencyCode(v int64) {
 	o.ConvertedCurrencyCode = &v
 }
 

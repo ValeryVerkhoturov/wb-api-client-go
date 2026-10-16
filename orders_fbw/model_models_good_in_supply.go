@@ -24,7 +24,7 @@ type ModelsGoodInSupply struct {
 	// Артикул продавца
 	VendorCode *string `json:"vendorCode,omitempty"`
 	// Артикул WB
-	NmID *int32 `json:"nmID,omitempty"`
+	NmID *int64 `json:"nmID,omitempty"`
 	// Нужен ли [код маркировки Честного знака](https://честныйзнак.рф/) для этого товара:   - `false` — не нужен   - `true` — нужен
 	NeedKiz *bool `json:"needKiz,omitempty"`
 	// Код ТНВЭД.  Если `\"needKiz\":true`, а `\"tnved\":null`, нужно заполнить характеристику товара \\*\\*ТН ВЭД\\*\\* в [личном кабинете](https://seller.wildberries.ru/new-goods) или по [API](./item-management#tag/listings/operation/postV2CardsUpdate)
@@ -34,15 +34,15 @@ type ModelsGoodInSupply struct {
 	// Цвет товара
 	Color NullableString `json:"color,omitempty"`
 	// Указано в упаковке, шт
-	SupplierBoxAmount NullableInt32 `json:"supplierBoxAmount,omitempty"`
+	SupplierBoxAmount NullableInt64 `json:"supplierBoxAmount,omitempty"`
 	// Указано в поставке/заказе, шт
-	Quantity *int32 `json:"quantity,omitempty"`
+	Quantity *int64 `json:"quantity,omitempty"`
 	// Поступило в продажу, шт
-	ReadyForSaleQuantity NullableInt32 `json:"readyForSaleQuantity,omitempty"`
+	ReadyForSaleQuantity NullableInt64 `json:"readyForSaleQuantity,omitempty"`
 	// Принято, шт
-	AcceptedQuantity NullableInt32 `json:"acceptedQuantity,omitempty"`
+	AcceptedQuantity NullableInt64 `json:"acceptedQuantity,omitempty"`
 	// Количество товара на раскладке, шт
-	UnloadingQuantity NullableInt32 `json:"unloadingQuantity,omitempty"`
+	UnloadingQuantity NullableInt64 `json:"unloadingQuantity,omitempty"`
 }
 
 // NewModelsGoodInSupply instantiates a new ModelsGoodInSupply object
@@ -127,9 +127,9 @@ func (o *ModelsGoodInSupply) SetVendorCode(v string) {
 }
 
 // GetNmID returns the NmID field value if set, zero value otherwise.
-func (o *ModelsGoodInSupply) GetNmID() int32 {
+func (o *ModelsGoodInSupply) GetNmID() int64 {
 	if o == nil || IsNil(o.NmID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmID
@@ -137,7 +137,7 @@ func (o *ModelsGoodInSupply) GetNmID() int32 {
 
 // GetNmIDOk returns a tuple with the NmID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsGoodInSupply) GetNmIDOk() (*int32, bool) {
+func (o *ModelsGoodInSupply) GetNmIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmID) {
 		return nil, false
 	}
@@ -153,8 +153,8 @@ func (o *ModelsGoodInSupply) HasNmID() bool {
 	return false
 }
 
-// SetNmID gets a reference to the given int32 and assigns it to the NmID field.
-func (o *ModelsGoodInSupply) SetNmID(v int32) {
+// SetNmID gets a reference to the given int64 and assigns it to the NmID field.
+func (o *ModelsGoodInSupply) SetNmID(v int64) {
 	o.NmID = &v
 }
 
@@ -309,9 +309,9 @@ func (o *ModelsGoodInSupply) UnsetColor() {
 }
 
 // GetSupplierBoxAmount returns the SupplierBoxAmount field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ModelsGoodInSupply) GetSupplierBoxAmount() int32 {
+func (o *ModelsGoodInSupply) GetSupplierBoxAmount() int64 {
 	if o == nil || IsNil(o.SupplierBoxAmount.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SupplierBoxAmount.Get()
@@ -320,7 +320,7 @@ func (o *ModelsGoodInSupply) GetSupplierBoxAmount() int32 {
 // GetSupplierBoxAmountOk returns a tuple with the SupplierBoxAmount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelsGoodInSupply) GetSupplierBoxAmountOk() (*int32, bool) {
+func (o *ModelsGoodInSupply) GetSupplierBoxAmountOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -336,8 +336,8 @@ func (o *ModelsGoodInSupply) HasSupplierBoxAmount() bool {
 	return false
 }
 
-// SetSupplierBoxAmount gets a reference to the given NullableInt32 and assigns it to the SupplierBoxAmount field.
-func (o *ModelsGoodInSupply) SetSupplierBoxAmount(v int32) {
+// SetSupplierBoxAmount gets a reference to the given NullableInt64 and assigns it to the SupplierBoxAmount field.
+func (o *ModelsGoodInSupply) SetSupplierBoxAmount(v int64) {
 	o.SupplierBoxAmount.Set(&v)
 }
 
@@ -352,9 +352,9 @@ func (o *ModelsGoodInSupply) UnsetSupplierBoxAmount() {
 }
 
 // GetQuantity returns the Quantity field value if set, zero value otherwise.
-func (o *ModelsGoodInSupply) GetQuantity() int32 {
+func (o *ModelsGoodInSupply) GetQuantity() int64 {
 	if o == nil || IsNil(o.Quantity) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Quantity
@@ -362,7 +362,7 @@ func (o *ModelsGoodInSupply) GetQuantity() int32 {
 
 // GetQuantityOk returns a tuple with the Quantity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsGoodInSupply) GetQuantityOk() (*int32, bool) {
+func (o *ModelsGoodInSupply) GetQuantityOk() (*int64, bool) {
 	if o == nil || IsNil(o.Quantity) {
 		return nil, false
 	}
@@ -378,15 +378,15 @@ func (o *ModelsGoodInSupply) HasQuantity() bool {
 	return false
 }
 
-// SetQuantity gets a reference to the given int32 and assigns it to the Quantity field.
-func (o *ModelsGoodInSupply) SetQuantity(v int32) {
+// SetQuantity gets a reference to the given int64 and assigns it to the Quantity field.
+func (o *ModelsGoodInSupply) SetQuantity(v int64) {
 	o.Quantity = &v
 }
 
 // GetReadyForSaleQuantity returns the ReadyForSaleQuantity field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ModelsGoodInSupply) GetReadyForSaleQuantity() int32 {
+func (o *ModelsGoodInSupply) GetReadyForSaleQuantity() int64 {
 	if o == nil || IsNil(o.ReadyForSaleQuantity.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ReadyForSaleQuantity.Get()
@@ -395,7 +395,7 @@ func (o *ModelsGoodInSupply) GetReadyForSaleQuantity() int32 {
 // GetReadyForSaleQuantityOk returns a tuple with the ReadyForSaleQuantity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelsGoodInSupply) GetReadyForSaleQuantityOk() (*int32, bool) {
+func (o *ModelsGoodInSupply) GetReadyForSaleQuantityOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -411,8 +411,8 @@ func (o *ModelsGoodInSupply) HasReadyForSaleQuantity() bool {
 	return false
 }
 
-// SetReadyForSaleQuantity gets a reference to the given NullableInt32 and assigns it to the ReadyForSaleQuantity field.
-func (o *ModelsGoodInSupply) SetReadyForSaleQuantity(v int32) {
+// SetReadyForSaleQuantity gets a reference to the given NullableInt64 and assigns it to the ReadyForSaleQuantity field.
+func (o *ModelsGoodInSupply) SetReadyForSaleQuantity(v int64) {
 	o.ReadyForSaleQuantity.Set(&v)
 }
 
@@ -427,9 +427,9 @@ func (o *ModelsGoodInSupply) UnsetReadyForSaleQuantity() {
 }
 
 // GetAcceptedQuantity returns the AcceptedQuantity field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ModelsGoodInSupply) GetAcceptedQuantity() int32 {
+func (o *ModelsGoodInSupply) GetAcceptedQuantity() int64 {
 	if o == nil || IsNil(o.AcceptedQuantity.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.AcceptedQuantity.Get()
@@ -438,7 +438,7 @@ func (o *ModelsGoodInSupply) GetAcceptedQuantity() int32 {
 // GetAcceptedQuantityOk returns a tuple with the AcceptedQuantity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelsGoodInSupply) GetAcceptedQuantityOk() (*int32, bool) {
+func (o *ModelsGoodInSupply) GetAcceptedQuantityOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -454,8 +454,8 @@ func (o *ModelsGoodInSupply) HasAcceptedQuantity() bool {
 	return false
 }
 
-// SetAcceptedQuantity gets a reference to the given NullableInt32 and assigns it to the AcceptedQuantity field.
-func (o *ModelsGoodInSupply) SetAcceptedQuantity(v int32) {
+// SetAcceptedQuantity gets a reference to the given NullableInt64 and assigns it to the AcceptedQuantity field.
+func (o *ModelsGoodInSupply) SetAcceptedQuantity(v int64) {
 	o.AcceptedQuantity.Set(&v)
 }
 
@@ -470,9 +470,9 @@ func (o *ModelsGoodInSupply) UnsetAcceptedQuantity() {
 }
 
 // GetUnloadingQuantity returns the UnloadingQuantity field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ModelsGoodInSupply) GetUnloadingQuantity() int32 {
+func (o *ModelsGoodInSupply) GetUnloadingQuantity() int64 {
 	if o == nil || IsNil(o.UnloadingQuantity.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.UnloadingQuantity.Get()
@@ -481,7 +481,7 @@ func (o *ModelsGoodInSupply) GetUnloadingQuantity() int32 {
 // GetUnloadingQuantityOk returns a tuple with the UnloadingQuantity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModelsGoodInSupply) GetUnloadingQuantityOk() (*int32, bool) {
+func (o *ModelsGoodInSupply) GetUnloadingQuantityOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -497,8 +497,8 @@ func (o *ModelsGoodInSupply) HasUnloadingQuantity() bool {
 	return false
 }
 
-// SetUnloadingQuantity gets a reference to the given NullableInt32 and assigns it to the UnloadingQuantity field.
-func (o *ModelsGoodInSupply) SetUnloadingQuantity(v int32) {
+// SetUnloadingQuantity gets a reference to the given NullableInt64 and assigns it to the UnloadingQuantity field.
+func (o *ModelsGoodInSupply) SetUnloadingQuantity(v int64) {
 	o.UnloadingQuantity.Set(&v)
 }
 

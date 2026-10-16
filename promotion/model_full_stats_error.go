@@ -27,7 +27,7 @@ type FullStatsError struct {
 	// ID запроса
 	RequestId *string `json:"request_id,omitempty"`
 	// HTTP статус-код
-	Status *int32 `json:"status,omitempty"`
+	Status *int64 `json:"status,omitempty"`
 	// Заголовок ошибки
 	Title *string `json:"title,omitempty"`
 	// Тип ошибки
@@ -180,9 +180,9 @@ func (o *FullStatsError) SetRequestId(v string) {
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
-func (o *FullStatsError) GetStatus() int32 {
+func (o *FullStatsError) GetStatus() int64 {
 	if o == nil || IsNil(o.Status) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Status
@@ -190,7 +190,7 @@ func (o *FullStatsError) GetStatus() int32 {
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FullStatsError) GetStatusOk() (*int32, bool) {
+func (o *FullStatsError) GetStatusOk() (*int64, bool) {
 	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
@@ -206,8 +206,8 @@ func (o *FullStatsError) HasStatus() bool {
 	return false
 }
 
-// SetStatus gets a reference to the given int32 and assigns it to the Status field.
-func (o *FullStatsError) SetStatus(v int32) {
+// SetStatus gets a reference to the given int64 and assigns it to the Status field.
+func (o *FullStatsError) SetStatus(v int64) {
 	o.Status = &v
 }
 

@@ -20,11 +20,11 @@ var _ MappedNullable = &V1BudgetAdvert{}
 // V1BudgetAdvert struct for V1BudgetAdvert
 type V1BudgetAdvert struct {
 	// ID кампании
-	AdvertId *int32 `json:"advertId,omitempty"`
+	AdvertId *int64 `json:"advertId,omitempty"`
 	// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Currency *string `json:"currency,omitempty"`
 	// Бюджет кампании в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
-	Total *int32 `json:"total,omitempty"`
+	Total *int64 `json:"total,omitempty"`
 }
 
 // NewV1BudgetAdvert instantiates a new V1BudgetAdvert object
@@ -45,9 +45,9 @@ func NewV1BudgetAdvertWithDefaults() *V1BudgetAdvert {
 }
 
 // GetAdvertId returns the AdvertId field value if set, zero value otherwise.
-func (o *V1BudgetAdvert) GetAdvertId() int32 {
+func (o *V1BudgetAdvert) GetAdvertId() int64 {
 	if o == nil || IsNil(o.AdvertId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.AdvertId
@@ -55,7 +55,7 @@ func (o *V1BudgetAdvert) GetAdvertId() int32 {
 
 // GetAdvertIdOk returns a tuple with the AdvertId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V1BudgetAdvert) GetAdvertIdOk() (*int32, bool) {
+func (o *V1BudgetAdvert) GetAdvertIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.AdvertId) {
 		return nil, false
 	}
@@ -71,8 +71,8 @@ func (o *V1BudgetAdvert) HasAdvertId() bool {
 	return false
 }
 
-// SetAdvertId gets a reference to the given int32 and assigns it to the AdvertId field.
-func (o *V1BudgetAdvert) SetAdvertId(v int32) {
+// SetAdvertId gets a reference to the given int64 and assigns it to the AdvertId field.
+func (o *V1BudgetAdvert) SetAdvertId(v int64) {
 	o.AdvertId = &v
 }
 
@@ -109,9 +109,9 @@ func (o *V1BudgetAdvert) SetCurrency(v string) {
 }
 
 // GetTotal returns the Total field value if set, zero value otherwise.
-func (o *V1BudgetAdvert) GetTotal() int32 {
+func (o *V1BudgetAdvert) GetTotal() int64 {
 	if o == nil || IsNil(o.Total) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Total
@@ -119,7 +119,7 @@ func (o *V1BudgetAdvert) GetTotal() int32 {
 
 // GetTotalOk returns a tuple with the Total field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V1BudgetAdvert) GetTotalOk() (*int32, bool) {
+func (o *V1BudgetAdvert) GetTotalOk() (*int64, bool) {
 	if o == nil || IsNil(o.Total) {
 		return nil, false
 	}
@@ -135,8 +135,8 @@ func (o *V1BudgetAdvert) HasTotal() bool {
 	return false
 }
 
-// SetTotal gets a reference to the given int32 and assigns it to the Total field.
-func (o *V1BudgetAdvert) SetTotal(v int32) {
+// SetTotal gets a reference to the given int64 and assigns it to the Total field.
+func (o *V1BudgetAdvert) SetTotal(v int64) {
 	o.Total = &v
 }
 

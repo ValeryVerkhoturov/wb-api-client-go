@@ -22,11 +22,11 @@ var _ MappedNullable = &WholesaleDiscountThresholdRes{}
 // WholesaleDiscountThresholdRes struct for WholesaleDiscountThresholdRes
 type WholesaleDiscountThresholdRes struct {
 	// Минимальное количество единиц товара для скидки
-	MinQuantity int32 `json:"minQuantity"`
+	MinQuantity int64 `json:"minQuantity"`
 	// Скидка, %
-	WholesaleDiscount int32 `json:"wholesaleDiscount"`
+	WholesaleDiscount int64 `json:"wholesaleDiscount"`
 	// Уровень скидки
-	Level int32 `json:"level"`
+	Level int64 `json:"level"`
 }
 
 type _WholesaleDiscountThresholdRes WholesaleDiscountThresholdRes
@@ -35,7 +35,7 @@ type _WholesaleDiscountThresholdRes WholesaleDiscountThresholdRes
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWholesaleDiscountThresholdRes(minQuantity int32, wholesaleDiscount int32, level int32) *WholesaleDiscountThresholdRes {
+func NewWholesaleDiscountThresholdRes(minQuantity int64, wholesaleDiscount int64, level int64) *WholesaleDiscountThresholdRes {
 	this := WholesaleDiscountThresholdRes{}
 	this.MinQuantity = minQuantity
 	this.WholesaleDiscount = wholesaleDiscount
@@ -52,9 +52,9 @@ func NewWholesaleDiscountThresholdResWithDefaults() *WholesaleDiscountThresholdR
 }
 
 // GetMinQuantity returns the MinQuantity field value
-func (o *WholesaleDiscountThresholdRes) GetMinQuantity() int32 {
+func (o *WholesaleDiscountThresholdRes) GetMinQuantity() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -63,7 +63,7 @@ func (o *WholesaleDiscountThresholdRes) GetMinQuantity() int32 {
 
 // GetMinQuantityOk returns a tuple with the MinQuantity field value
 // and a boolean to check if the value has been set.
-func (o *WholesaleDiscountThresholdRes) GetMinQuantityOk() (*int32, bool) {
+func (o *WholesaleDiscountThresholdRes) GetMinQuantityOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -71,14 +71,14 @@ func (o *WholesaleDiscountThresholdRes) GetMinQuantityOk() (*int32, bool) {
 }
 
 // SetMinQuantity sets field value
-func (o *WholesaleDiscountThresholdRes) SetMinQuantity(v int32) {
+func (o *WholesaleDiscountThresholdRes) SetMinQuantity(v int64) {
 	o.MinQuantity = v
 }
 
 // GetWholesaleDiscount returns the WholesaleDiscount field value
-func (o *WholesaleDiscountThresholdRes) GetWholesaleDiscount() int32 {
+func (o *WholesaleDiscountThresholdRes) GetWholesaleDiscount() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -87,7 +87,7 @@ func (o *WholesaleDiscountThresholdRes) GetWholesaleDiscount() int32 {
 
 // GetWholesaleDiscountOk returns a tuple with the WholesaleDiscount field value
 // and a boolean to check if the value has been set.
-func (o *WholesaleDiscountThresholdRes) GetWholesaleDiscountOk() (*int32, bool) {
+func (o *WholesaleDiscountThresholdRes) GetWholesaleDiscountOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -95,14 +95,14 @@ func (o *WholesaleDiscountThresholdRes) GetWholesaleDiscountOk() (*int32, bool) 
 }
 
 // SetWholesaleDiscount sets field value
-func (o *WholesaleDiscountThresholdRes) SetWholesaleDiscount(v int32) {
+func (o *WholesaleDiscountThresholdRes) SetWholesaleDiscount(v int64) {
 	o.WholesaleDiscount = v
 }
 
 // GetLevel returns the Level field value
-func (o *WholesaleDiscountThresholdRes) GetLevel() int32 {
+func (o *WholesaleDiscountThresholdRes) GetLevel() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -111,7 +111,7 @@ func (o *WholesaleDiscountThresholdRes) GetLevel() int32 {
 
 // GetLevelOk returns a tuple with the Level field value
 // and a boolean to check if the value has been set.
-func (o *WholesaleDiscountThresholdRes) GetLevelOk() (*int32, bool) {
+func (o *WholesaleDiscountThresholdRes) GetLevelOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -119,7 +119,7 @@ func (o *WholesaleDiscountThresholdRes) GetLevelOk() (*int32, bool) {
 }
 
 // SetLevel sets field value
-func (o *WholesaleDiscountThresholdRes) SetLevel(v int32) {
+func (o *WholesaleDiscountThresholdRes) SetLevel(v int64) {
 	o.Level = v
 }
 

@@ -20,7 +20,7 @@ var _ MappedNullable = &ModelsListDraftsResponse{}
 // ModelsListDraftsResponse struct for ModelsListDraftsResponse
 type ModelsListDraftsResponse struct {
 	// Общее количество черновиков
-	Total *int32 `json:"total,omitempty"`
+	Total *int64 `json:"total,omitempty"`
 	// Список черновиков
 	Drafts []ModelsDraftItem `json:"drafts,omitempty"`
 }
@@ -43,9 +43,9 @@ func NewModelsListDraftsResponseWithDefaults() *ModelsListDraftsResponse {
 }
 
 // GetTotal returns the Total field value if set, zero value otherwise.
-func (o *ModelsListDraftsResponse) GetTotal() int32 {
+func (o *ModelsListDraftsResponse) GetTotal() int64 {
 	if o == nil || IsNil(o.Total) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Total
@@ -53,7 +53,7 @@ func (o *ModelsListDraftsResponse) GetTotal() int32 {
 
 // GetTotalOk returns a tuple with the Total field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsListDraftsResponse) GetTotalOk() (*int32, bool) {
+func (o *ModelsListDraftsResponse) GetTotalOk() (*int64, bool) {
 	if o == nil || IsNil(o.Total) {
 		return nil, false
 	}
@@ -69,8 +69,8 @@ func (o *ModelsListDraftsResponse) HasTotal() bool {
 	return false
 }
 
-// SetTotal gets a reference to the given int32 and assigns it to the Total field.
-func (o *ModelsListDraftsResponse) SetTotal(v int32) {
+// SetTotal gets a reference to the given int64 and assigns it to the Total field.
+func (o *ModelsListDraftsResponse) SetTotal(v int64) {
 	o.Total = &v
 }
 

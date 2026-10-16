@@ -22,7 +22,7 @@ type OpenapiPinReviewItemResultDataInner struct {
 	// ID отзыва
 	FeedbackId *string `json:"feedbackId,omitempty"`
 	// ID операции закрепления. Если поле отсутствует — закрепить отзыв не удалось
-	PinId *int32 `json:"pinId,omitempty"`
+	PinId *int64 `json:"pinId,omitempty"`
 	// Метод закрепления:   - `subscription` — подписка Джем   - `tariff` — тарифная опция
 	PinMethod *string `json:"pinMethod,omitempty"`
 	// Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
@@ -83,9 +83,9 @@ func (o *OpenapiPinReviewItemResultDataInner) SetFeedbackId(v string) {
 }
 
 // GetPinId returns the PinId field value if set, zero value otherwise.
-func (o *OpenapiPinReviewItemResultDataInner) GetPinId() int32 {
+func (o *OpenapiPinReviewItemResultDataInner) GetPinId() int64 {
 	if o == nil || IsNil(o.PinId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.PinId
@@ -93,7 +93,7 @@ func (o *OpenapiPinReviewItemResultDataInner) GetPinId() int32 {
 
 // GetPinIdOk returns a tuple with the PinId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OpenapiPinReviewItemResultDataInner) GetPinIdOk() (*int32, bool) {
+func (o *OpenapiPinReviewItemResultDataInner) GetPinIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.PinId) {
 		return nil, false
 	}
@@ -109,8 +109,8 @@ func (o *OpenapiPinReviewItemResultDataInner) HasPinId() bool {
 	return false
 }
 
-// SetPinId gets a reference to the given int32 and assigns it to the PinId field.
-func (o *OpenapiPinReviewItemResultDataInner) SetPinId(v int32) {
+// SetPinId gets a reference to the given int64 and assigns it to the PinId field.
+func (o *OpenapiPinReviewItemResultDataInner) SetPinId(v int64) {
 	o.PinId = &v
 }
 

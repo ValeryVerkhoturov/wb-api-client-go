@@ -20,7 +20,7 @@ var _ MappedNullable = &V3SupplyOrderIDsAPI{}
 // V3SupplyOrderIDsAPI struct for V3SupplyOrderIDsAPI
 type V3SupplyOrderIDsAPI struct {
 	// ID сборочных заданий
-	OrderIds []int32 `json:"orderIds,omitempty"`
+	OrderIds []int64 `json:"orderIds,omitempty"`
 }
 
 // NewV3SupplyOrderIDsAPI instantiates a new V3SupplyOrderIDsAPI object
@@ -41,9 +41,9 @@ func NewV3SupplyOrderIDsAPIWithDefaults() *V3SupplyOrderIDsAPI {
 }
 
 // GetOrderIds returns the OrderIds field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *V3SupplyOrderIDsAPI) GetOrderIds() []int32 {
+func (o *V3SupplyOrderIDsAPI) GetOrderIds() []int64 {
 	if o == nil {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.OrderIds
@@ -52,7 +52,7 @@ func (o *V3SupplyOrderIDsAPI) GetOrderIds() []int32 {
 // GetOrderIdsOk returns a tuple with the OrderIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *V3SupplyOrderIDsAPI) GetOrderIdsOk() ([]int32, bool) {
+func (o *V3SupplyOrderIDsAPI) GetOrderIdsOk() ([]int64, bool) {
 	if o == nil || IsNil(o.OrderIds) {
 		return nil, false
 	}
@@ -68,8 +68,8 @@ func (o *V3SupplyOrderIDsAPI) HasOrderIds() bool {
 	return false
 }
 
-// SetOrderIds gets a reference to the given []int32 and assigns it to the OrderIds field.
-func (o *V3SupplyOrderIDsAPI) SetOrderIds(v []int32) {
+// SetOrderIds gets a reference to the given []int64 and assigns it to the OrderIds field.
+func (o *V3SupplyOrderIDsAPI) SetOrderIds(v []int64) {
 	o.OrderIds = v
 }
 

@@ -20,9 +20,9 @@ var _ MappedNullable = &TableItemAllOfPrice{}
 // TableItemAllOfPrice Цена
 type TableItemAllOfPrice struct {
 	// Минимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)
-	MinPrice *int32 `json:"minPrice,omitempty"`
+	MinPrice *int64 `json:"minPrice,omitempty"`
 	// Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)
-	MaxPrice *int32 `json:"maxPrice,omitempty"`
+	MaxPrice *int64 `json:"maxPrice,omitempty"`
 }
 
 // NewTableItemAllOfPrice instantiates a new TableItemAllOfPrice object
@@ -43,9 +43,9 @@ func NewTableItemAllOfPriceWithDefaults() *TableItemAllOfPrice {
 }
 
 // GetMinPrice returns the MinPrice field value if set, zero value otherwise.
-func (o *TableItemAllOfPrice) GetMinPrice() int32 {
+func (o *TableItemAllOfPrice) GetMinPrice() int64 {
 	if o == nil || IsNil(o.MinPrice) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.MinPrice
@@ -53,7 +53,7 @@ func (o *TableItemAllOfPrice) GetMinPrice() int32 {
 
 // GetMinPriceOk returns a tuple with the MinPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableItemAllOfPrice) GetMinPriceOk() (*int32, bool) {
+func (o *TableItemAllOfPrice) GetMinPriceOk() (*int64, bool) {
 	if o == nil || IsNil(o.MinPrice) {
 		return nil, false
 	}
@@ -69,15 +69,15 @@ func (o *TableItemAllOfPrice) HasMinPrice() bool {
 	return false
 }
 
-// SetMinPrice gets a reference to the given int32 and assigns it to the MinPrice field.
-func (o *TableItemAllOfPrice) SetMinPrice(v int32) {
+// SetMinPrice gets a reference to the given int64 and assigns it to the MinPrice field.
+func (o *TableItemAllOfPrice) SetMinPrice(v int64) {
 	o.MinPrice = &v
 }
 
 // GetMaxPrice returns the MaxPrice field value if set, zero value otherwise.
-func (o *TableItemAllOfPrice) GetMaxPrice() int32 {
+func (o *TableItemAllOfPrice) GetMaxPrice() int64 {
 	if o == nil || IsNil(o.MaxPrice) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.MaxPrice
@@ -85,7 +85,7 @@ func (o *TableItemAllOfPrice) GetMaxPrice() int32 {
 
 // GetMaxPriceOk returns a tuple with the MaxPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableItemAllOfPrice) GetMaxPriceOk() (*int32, bool) {
+func (o *TableItemAllOfPrice) GetMaxPriceOk() (*int64, bool) {
 	if o == nil || IsNil(o.MaxPrice) {
 		return nil, false
 	}
@@ -101,8 +101,8 @@ func (o *TableItemAllOfPrice) HasMaxPrice() bool {
 	return false
 }
 
-// SetMaxPrice gets a reference to the given int32 and assigns it to the MaxPrice field.
-func (o *TableItemAllOfPrice) SetMaxPrice(v int32) {
+// SetMaxPrice gets a reference to the given int64 and assigns it to the MaxPrice field.
+func (o *TableItemAllOfPrice) SetMaxPrice(v int64) {
 	o.MaxPrice = &v
 }
 

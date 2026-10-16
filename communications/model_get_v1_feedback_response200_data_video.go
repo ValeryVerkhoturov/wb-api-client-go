@@ -24,7 +24,7 @@ type GetV1FeedbackResponse200DataVideo struct {
 	// Ссылка на файл плейлиста видео (доступно по протоколу hls)
 	Link *string `json:"link,omitempty"`
 	// Общая продолжительность видео
-	DurationSec *int32 `json:"durationSec,omitempty"`
+	DurationSec *int64 `json:"durationSec,omitempty"`
 }
 
 // NewGetV1FeedbackResponse200DataVideo instantiates a new GetV1FeedbackResponse200DataVideo object
@@ -109,9 +109,9 @@ func (o *GetV1FeedbackResponse200DataVideo) SetLink(v string) {
 }
 
 // GetDurationSec returns the DurationSec field value if set, zero value otherwise.
-func (o *GetV1FeedbackResponse200DataVideo) GetDurationSec() int32 {
+func (o *GetV1FeedbackResponse200DataVideo) GetDurationSec() int64 {
 	if o == nil || IsNil(o.DurationSec) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.DurationSec
@@ -119,7 +119,7 @@ func (o *GetV1FeedbackResponse200DataVideo) GetDurationSec() int32 {
 
 // GetDurationSecOk returns a tuple with the DurationSec field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1FeedbackResponse200DataVideo) GetDurationSecOk() (*int32, bool) {
+func (o *GetV1FeedbackResponse200DataVideo) GetDurationSecOk() (*int64, bool) {
 	if o == nil || IsNil(o.DurationSec) {
 		return nil, false
 	}
@@ -135,8 +135,8 @@ func (o *GetV1FeedbackResponse200DataVideo) HasDurationSec() bool {
 	return false
 }
 
-// SetDurationSec gets a reference to the given int32 and assigns it to the DurationSec field.
-func (o *GetV1FeedbackResponse200DataVideo) SetDurationSec(v int32) {
+// SetDurationSec gets a reference to the given int64 and assigns it to the DurationSec field.
+func (o *GetV1FeedbackResponse200DataVideo) SetDurationSec(v int64) {
 	o.DurationSec = &v
 }
 

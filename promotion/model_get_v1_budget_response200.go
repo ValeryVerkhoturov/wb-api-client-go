@@ -20,11 +20,11 @@ var _ MappedNullable = &GetV1BudgetResponse200{}
 // GetV1BudgetResponse200 struct for GetV1BudgetResponse200
 type GetV1BudgetResponse200 struct {
 	// Поле не используется. Значение всегда 0.
-	Cash *int32 `json:"cash,omitempty"`
+	Cash *int64 `json:"cash,omitempty"`
 	// Поле не используется. Значение всегда 0.
-	Netting *int32 `json:"netting,omitempty"`
+	Netting *int64 `json:"netting,omitempty"`
 	// Бюджет кампании в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
-	Total *int32 `json:"total,omitempty"`
+	Total *int64 `json:"total,omitempty"`
 	// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Currency *string `json:"currency,omitempty"`
 }
@@ -47,9 +47,9 @@ func NewGetV1BudgetResponse200WithDefaults() *GetV1BudgetResponse200 {
 }
 
 // GetCash returns the Cash field value if set, zero value otherwise.
-func (o *GetV1BudgetResponse200) GetCash() int32 {
+func (o *GetV1BudgetResponse200) GetCash() int64 {
 	if o == nil || IsNil(o.Cash) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Cash
@@ -57,7 +57,7 @@ func (o *GetV1BudgetResponse200) GetCash() int32 {
 
 // GetCashOk returns a tuple with the Cash field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1BudgetResponse200) GetCashOk() (*int32, bool) {
+func (o *GetV1BudgetResponse200) GetCashOk() (*int64, bool) {
 	if o == nil || IsNil(o.Cash) {
 		return nil, false
 	}
@@ -73,15 +73,15 @@ func (o *GetV1BudgetResponse200) HasCash() bool {
 	return false
 }
 
-// SetCash gets a reference to the given int32 and assigns it to the Cash field.
-func (o *GetV1BudgetResponse200) SetCash(v int32) {
+// SetCash gets a reference to the given int64 and assigns it to the Cash field.
+func (o *GetV1BudgetResponse200) SetCash(v int64) {
 	o.Cash = &v
 }
 
 // GetNetting returns the Netting field value if set, zero value otherwise.
-func (o *GetV1BudgetResponse200) GetNetting() int32 {
+func (o *GetV1BudgetResponse200) GetNetting() int64 {
 	if o == nil || IsNil(o.Netting) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Netting
@@ -89,7 +89,7 @@ func (o *GetV1BudgetResponse200) GetNetting() int32 {
 
 // GetNettingOk returns a tuple with the Netting field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1BudgetResponse200) GetNettingOk() (*int32, bool) {
+func (o *GetV1BudgetResponse200) GetNettingOk() (*int64, bool) {
 	if o == nil || IsNil(o.Netting) {
 		return nil, false
 	}
@@ -105,15 +105,15 @@ func (o *GetV1BudgetResponse200) HasNetting() bool {
 	return false
 }
 
-// SetNetting gets a reference to the given int32 and assigns it to the Netting field.
-func (o *GetV1BudgetResponse200) SetNetting(v int32) {
+// SetNetting gets a reference to the given int64 and assigns it to the Netting field.
+func (o *GetV1BudgetResponse200) SetNetting(v int64) {
 	o.Netting = &v
 }
 
 // GetTotal returns the Total field value if set, zero value otherwise.
-func (o *GetV1BudgetResponse200) GetTotal() int32 {
+func (o *GetV1BudgetResponse200) GetTotal() int64 {
 	if o == nil || IsNil(o.Total) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Total
@@ -121,7 +121,7 @@ func (o *GetV1BudgetResponse200) GetTotal() int32 {
 
 // GetTotalOk returns a tuple with the Total field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1BudgetResponse200) GetTotalOk() (*int32, bool) {
+func (o *GetV1BudgetResponse200) GetTotalOk() (*int64, bool) {
 	if o == nil || IsNil(o.Total) {
 		return nil, false
 	}
@@ -137,8 +137,8 @@ func (o *GetV1BudgetResponse200) HasTotal() bool {
 	return false
 }
 
-// SetTotal gets a reference to the given int32 and assigns it to the Total field.
-func (o *GetV1BudgetResponse200) SetTotal(v int32) {
+// SetTotal gets a reference to the given int64 and assigns it to the Total field.
+func (o *GetV1BudgetResponse200) SetTotal(v int64) {
 	o.Total = &v
 }
 

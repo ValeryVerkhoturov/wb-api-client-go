@@ -22,7 +22,7 @@ var _ MappedNullable = &PostV2CardsUpdateRequestInner{}
 // PostV2CardsUpdateRequestInner struct for PostV2CardsUpdateRequestInner
 type PostV2CardsUpdateRequestInner struct {
 	// Артикул WB
-	NmID int32 `json:"nmID"`
+	NmID int64 `json:"nmID"`
 	// Артикул продавца
 	VendorCode string `json:"vendorCode"`
 	// Подтверждение, что на товар нанесён обязательный код маркировки [Честного знака](https://честныйзнак.рф/):   - `true` — продавец подтверждает, что на товар нанесён обязательный код маркировки.   - `false` — продавец не подтверждает, что на товар нанесён обязательный код маркировки. Передайте в запросе `true`, чтобы подтвердить наличие на товаре обязательного кода маркировки. Карточка товара не пройдёт проверку, если нет подтверждения продавца о том, что обязательный код маркировки нанесён на товар.  Чтобы проверить, является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, используйте метод [Список карточек товаров](./item-management#tag/listings/operation/postV2GetCardsList), поле ответа `needKiz`
@@ -49,7 +49,7 @@ type _PostV2CardsUpdateRequestInner PostV2CardsUpdateRequestInner
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostV2CardsUpdateRequestInner(nmID int32, vendorCode string, sizes []PostV2CardsUpdateRequestInnerSizesInner) *PostV2CardsUpdateRequestInner {
+func NewPostV2CardsUpdateRequestInner(nmID int64, vendorCode string, sizes []PostV2CardsUpdateRequestInnerSizesInner) *PostV2CardsUpdateRequestInner {
 	this := PostV2CardsUpdateRequestInner{}
 	this.NmID = nmID
 	this.VendorCode = vendorCode
@@ -70,9 +70,9 @@ func NewPostV2CardsUpdateRequestInnerWithDefaults() *PostV2CardsUpdateRequestInn
 }
 
 // GetNmID returns the NmID field value
-func (o *PostV2CardsUpdateRequestInner) GetNmID() int32 {
+func (o *PostV2CardsUpdateRequestInner) GetNmID() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -81,7 +81,7 @@ func (o *PostV2CardsUpdateRequestInner) GetNmID() int32 {
 
 // GetNmIDOk returns a tuple with the NmID field value
 // and a boolean to check if the value has been set.
-func (o *PostV2CardsUpdateRequestInner) GetNmIDOk() (*int32, bool) {
+func (o *PostV2CardsUpdateRequestInner) GetNmIDOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -89,7 +89,7 @@ func (o *PostV2CardsUpdateRequestInner) GetNmIDOk() (*int32, bool) {
 }
 
 // SetNmID sets field value
-func (o *PostV2CardsUpdateRequestInner) SetNmID(v int32) {
+func (o *PostV2CardsUpdateRequestInner) SetNmID(v int64) {
 	o.NmID = v
 }
 

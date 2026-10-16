@@ -20,7 +20,7 @@ var _ MappedNullable = &GetUsersResponseUsersInner{}
 // GetUsersResponseUsersInner struct for GetUsersResponseUsersInner
 type GetUsersResponseUsersInner struct {
 	// ID пользователя
-	Id *int32 `json:"id,omitempty"`
+	Id *int64 `json:"id,omitempty"`
 	// Роль пользователя:   * `user` — пользователь, который активировал доступ   * ` ` (пустая строка) — пользователь, который не активировал доступ
 	Role *string `json:"role,omitempty"`
 	// Должность пользователя
@@ -64,9 +64,9 @@ func NewGetUsersResponseUsersInnerWithDefaults() *GetUsersResponseUsersInner {
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *GetUsersResponseUsersInner) GetId() int32 {
+func (o *GetUsersResponseUsersInner) GetId() int64 {
 	if o == nil || IsNil(o.Id) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Id
@@ -74,7 +74,7 @@ func (o *GetUsersResponseUsersInner) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetUsersResponseUsersInner) GetIdOk() (*int32, bool) {
+func (o *GetUsersResponseUsersInner) GetIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -90,8 +90,8 @@ func (o *GetUsersResponseUsersInner) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *GetUsersResponseUsersInner) SetId(v int32) {
+// SetId gets a reference to the given int64 and assigns it to the Id field.
+func (o *GetUsersResponseUsersInner) SetId(v int64) {
 	o.Id = &v
 }
 

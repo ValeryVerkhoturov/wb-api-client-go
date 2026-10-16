@@ -20,14 +20,14 @@ var _ MappedNullable = &TableShippingOfficeMetrics{}
 // TableShippingOfficeMetrics Общие метрики по регионам/складам отгрузки
 type TableShippingOfficeMetrics struct {
 	// Остатки на текущий день, шт.
-	StockCount *int32 `json:"stockCount,omitempty"`
+	StockCount *int64 `json:"stockCount,omitempty"`
 	// Остатки на текущий день, сумма
-	StockSum *int32                      `json:"stockSum,omitempty"`
+	StockSum *int64                      `json:"stockSum,omitempty"`
 	SaleRate *TableCommonMetricsSaleRate `json:"saleRate,omitempty"`
 	// В пути к клиенту, шт.
-	ToClientCount *int32 `json:"toClientCount,omitempty"`
+	ToClientCount *int64 `json:"toClientCount,omitempty"`
 	// В пути от клиента, шт.
-	FromClientCount *int32 `json:"fromClientCount,omitempty"`
+	FromClientCount *int64 `json:"fromClientCount,omitempty"`
 }
 
 // NewTableShippingOfficeMetrics instantiates a new TableShippingOfficeMetrics object
@@ -48,9 +48,9 @@ func NewTableShippingOfficeMetricsWithDefaults() *TableShippingOfficeMetrics {
 }
 
 // GetStockCount returns the StockCount field value if set, zero value otherwise.
-func (o *TableShippingOfficeMetrics) GetStockCount() int32 {
+func (o *TableShippingOfficeMetrics) GetStockCount() int64 {
 	if o == nil || IsNil(o.StockCount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.StockCount
@@ -58,7 +58,7 @@ func (o *TableShippingOfficeMetrics) GetStockCount() int32 {
 
 // GetStockCountOk returns a tuple with the StockCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableShippingOfficeMetrics) GetStockCountOk() (*int32, bool) {
+func (o *TableShippingOfficeMetrics) GetStockCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.StockCount) {
 		return nil, false
 	}
@@ -74,15 +74,15 @@ func (o *TableShippingOfficeMetrics) HasStockCount() bool {
 	return false
 }
 
-// SetStockCount gets a reference to the given int32 and assigns it to the StockCount field.
-func (o *TableShippingOfficeMetrics) SetStockCount(v int32) {
+// SetStockCount gets a reference to the given int64 and assigns it to the StockCount field.
+func (o *TableShippingOfficeMetrics) SetStockCount(v int64) {
 	o.StockCount = &v
 }
 
 // GetStockSum returns the StockSum field value if set, zero value otherwise.
-func (o *TableShippingOfficeMetrics) GetStockSum() int32 {
+func (o *TableShippingOfficeMetrics) GetStockSum() int64 {
 	if o == nil || IsNil(o.StockSum) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.StockSum
@@ -90,7 +90,7 @@ func (o *TableShippingOfficeMetrics) GetStockSum() int32 {
 
 // GetStockSumOk returns a tuple with the StockSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableShippingOfficeMetrics) GetStockSumOk() (*int32, bool) {
+func (o *TableShippingOfficeMetrics) GetStockSumOk() (*int64, bool) {
 	if o == nil || IsNil(o.StockSum) {
 		return nil, false
 	}
@@ -106,8 +106,8 @@ func (o *TableShippingOfficeMetrics) HasStockSum() bool {
 	return false
 }
 
-// SetStockSum gets a reference to the given int32 and assigns it to the StockSum field.
-func (o *TableShippingOfficeMetrics) SetStockSum(v int32) {
+// SetStockSum gets a reference to the given int64 and assigns it to the StockSum field.
+func (o *TableShippingOfficeMetrics) SetStockSum(v int64) {
 	o.StockSum = &v
 }
 
@@ -144,9 +144,9 @@ func (o *TableShippingOfficeMetrics) SetSaleRate(v TableCommonMetricsSaleRate) {
 }
 
 // GetToClientCount returns the ToClientCount field value if set, zero value otherwise.
-func (o *TableShippingOfficeMetrics) GetToClientCount() int32 {
+func (o *TableShippingOfficeMetrics) GetToClientCount() int64 {
 	if o == nil || IsNil(o.ToClientCount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ToClientCount
@@ -154,7 +154,7 @@ func (o *TableShippingOfficeMetrics) GetToClientCount() int32 {
 
 // GetToClientCountOk returns a tuple with the ToClientCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableShippingOfficeMetrics) GetToClientCountOk() (*int32, bool) {
+func (o *TableShippingOfficeMetrics) GetToClientCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.ToClientCount) {
 		return nil, false
 	}
@@ -170,15 +170,15 @@ func (o *TableShippingOfficeMetrics) HasToClientCount() bool {
 	return false
 }
 
-// SetToClientCount gets a reference to the given int32 and assigns it to the ToClientCount field.
-func (o *TableShippingOfficeMetrics) SetToClientCount(v int32) {
+// SetToClientCount gets a reference to the given int64 and assigns it to the ToClientCount field.
+func (o *TableShippingOfficeMetrics) SetToClientCount(v int64) {
 	o.ToClientCount = &v
 }
 
 // GetFromClientCount returns the FromClientCount field value if set, zero value otherwise.
-func (o *TableShippingOfficeMetrics) GetFromClientCount() int32 {
+func (o *TableShippingOfficeMetrics) GetFromClientCount() int64 {
 	if o == nil || IsNil(o.FromClientCount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.FromClientCount
@@ -186,7 +186,7 @@ func (o *TableShippingOfficeMetrics) GetFromClientCount() int32 {
 
 // GetFromClientCountOk returns a tuple with the FromClientCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableShippingOfficeMetrics) GetFromClientCountOk() (*int32, bool) {
+func (o *TableShippingOfficeMetrics) GetFromClientCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.FromClientCount) {
 		return nil, false
 	}
@@ -202,8 +202,8 @@ func (o *TableShippingOfficeMetrics) HasFromClientCount() bool {
 	return false
 }
 
-// SetFromClientCount gets a reference to the given int32 and assigns it to the FromClientCount field.
-func (o *TableShippingOfficeMetrics) SetFromClientCount(v int32) {
+// SetFromClientCount gets a reference to the given int64 and assigns it to the FromClientCount field.
+func (o *TableShippingOfficeMetrics) SetFromClientCount(v int64) {
 	o.FromClientCount = &v
 }
 

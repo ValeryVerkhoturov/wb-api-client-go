@@ -22,7 +22,7 @@ var _ MappedNullable = &RequestMoveNmsImtDisconn{}
 // RequestMoveNmsImtDisconn struct for RequestMoveNmsImtDisconn
 type RequestMoveNmsImtDisconn struct {
 	// `nmID`, которые необходимо разъединить
-	NmIDs []int32 `json:"nmIDs"`
+	NmIDs []int64 `json:"nmIDs"`
 }
 
 type _RequestMoveNmsImtDisconn RequestMoveNmsImtDisconn
@@ -31,7 +31,7 @@ type _RequestMoveNmsImtDisconn RequestMoveNmsImtDisconn
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRequestMoveNmsImtDisconn(nmIDs []int32) *RequestMoveNmsImtDisconn {
+func NewRequestMoveNmsImtDisconn(nmIDs []int64) *RequestMoveNmsImtDisconn {
 	this := RequestMoveNmsImtDisconn{}
 	this.NmIDs = nmIDs
 	return &this
@@ -46,9 +46,9 @@ func NewRequestMoveNmsImtDisconnWithDefaults() *RequestMoveNmsImtDisconn {
 }
 
 // GetNmIDs returns the NmIDs field value
-func (o *RequestMoveNmsImtDisconn) GetNmIDs() []int32 {
+func (o *RequestMoveNmsImtDisconn) GetNmIDs() []int64 {
 	if o == nil {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 
@@ -57,7 +57,7 @@ func (o *RequestMoveNmsImtDisconn) GetNmIDs() []int32 {
 
 // GetNmIDsOk returns a tuple with the NmIDs field value
 // and a boolean to check if the value has been set.
-func (o *RequestMoveNmsImtDisconn) GetNmIDsOk() ([]int32, bool) {
+func (o *RequestMoveNmsImtDisconn) GetNmIDsOk() ([]int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,7 +65,7 @@ func (o *RequestMoveNmsImtDisconn) GetNmIDsOk() ([]int32, bool) {
 }
 
 // SetNmIDs sets field value
-func (o *RequestMoveNmsImtDisconn) SetNmIDs(v []int32) {
+func (o *RequestMoveNmsImtDisconn) SetNmIDs(v []int64) {
 	o.NmIDs = v
 }
 

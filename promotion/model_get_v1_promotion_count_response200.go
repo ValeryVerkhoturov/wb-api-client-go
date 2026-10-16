@@ -22,7 +22,7 @@ type GetV1PromotionCountResponse200 struct {
 	// Данные по кампаниям
 	Adverts []GetV1PromotionCountResponse200AdvertsInner `json:"adverts,omitempty"`
 	// Общее количество кампаний всех статусов и типов
-	All *int32 `json:"all,omitempty"`
+	All *int64 `json:"all,omitempty"`
 }
 
 // NewGetV1PromotionCountResponse200 instantiates a new GetV1PromotionCountResponse200 object
@@ -76,9 +76,9 @@ func (o *GetV1PromotionCountResponse200) SetAdverts(v []GetV1PromotionCountRespo
 }
 
 // GetAll returns the All field value if set, zero value otherwise.
-func (o *GetV1PromotionCountResponse200) GetAll() int32 {
+func (o *GetV1PromotionCountResponse200) GetAll() int64 {
 	if o == nil || IsNil(o.All) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.All
@@ -86,7 +86,7 @@ func (o *GetV1PromotionCountResponse200) GetAll() int32 {
 
 // GetAllOk returns a tuple with the All field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1PromotionCountResponse200) GetAllOk() (*int32, bool) {
+func (o *GetV1PromotionCountResponse200) GetAllOk() (*int64, bool) {
 	if o == nil || IsNil(o.All) {
 		return nil, false
 	}
@@ -102,8 +102,8 @@ func (o *GetV1PromotionCountResponse200) HasAll() bool {
 	return false
 }
 
-// SetAll gets a reference to the given int32 and assigns it to the All field.
-func (o *GetV1PromotionCountResponse200) SetAll(v int32) {
+// SetAll gets a reference to the given int64 and assigns it to the All field.
+func (o *GetV1PromotionCountResponse200) SetAll(v int64) {
 	o.All = &v
 }
 

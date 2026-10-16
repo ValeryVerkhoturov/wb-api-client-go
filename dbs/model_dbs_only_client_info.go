@@ -32,9 +32,9 @@ type DbsOnlyClientInfo struct {
 	// Дополнительные подменные номера телефонов для связи с покупателем. Пустое значение означает, что номер не указан
 	ReplacementAdditionalPhones []string `json:"replacementAdditionalPhones,omitempty"`
 	// ID сборочного задания
-	OrderID *int32 `json:"orderID,omitempty"`
+	OrderID *int64 `json:"orderID,omitempty"`
 	// Добавочный код. Пустое значение `\"\"` указывает, что код ещё не назначен
-	PhoneCode *int32 `json:"phoneCode,omitempty"`
+	PhoneCode *int64 `json:"phoneCode,omitempty"`
 	// Дополнительные добавочные коды. Используйте, если не получилось дозвониться по добавочному коду из `phoneCode`. Пустое значение `\"\"` указывает, что код ещё не назначен
 	AdditionalPhoneCodes []string `json:"additionalPhoneCodes,omitempty"`
 }
@@ -249,9 +249,9 @@ func (o *DbsOnlyClientInfo) SetReplacementAdditionalPhones(v []string) {
 }
 
 // GetOrderID returns the OrderID field value if set, zero value otherwise.
-func (o *DbsOnlyClientInfo) GetOrderID() int32 {
+func (o *DbsOnlyClientInfo) GetOrderID() int64 {
 	if o == nil || IsNil(o.OrderID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OrderID
@@ -259,7 +259,7 @@ func (o *DbsOnlyClientInfo) GetOrderID() int32 {
 
 // GetOrderIDOk returns a tuple with the OrderID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DbsOnlyClientInfo) GetOrderIDOk() (*int32, bool) {
+func (o *DbsOnlyClientInfo) GetOrderIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.OrderID) {
 		return nil, false
 	}
@@ -275,15 +275,15 @@ func (o *DbsOnlyClientInfo) HasOrderID() bool {
 	return false
 }
 
-// SetOrderID gets a reference to the given int32 and assigns it to the OrderID field.
-func (o *DbsOnlyClientInfo) SetOrderID(v int32) {
+// SetOrderID gets a reference to the given int64 and assigns it to the OrderID field.
+func (o *DbsOnlyClientInfo) SetOrderID(v int64) {
 	o.OrderID = &v
 }
 
 // GetPhoneCode returns the PhoneCode field value if set, zero value otherwise.
-func (o *DbsOnlyClientInfo) GetPhoneCode() int32 {
+func (o *DbsOnlyClientInfo) GetPhoneCode() int64 {
 	if o == nil || IsNil(o.PhoneCode) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.PhoneCode
@@ -291,7 +291,7 @@ func (o *DbsOnlyClientInfo) GetPhoneCode() int32 {
 
 // GetPhoneCodeOk returns a tuple with the PhoneCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DbsOnlyClientInfo) GetPhoneCodeOk() (*int32, bool) {
+func (o *DbsOnlyClientInfo) GetPhoneCodeOk() (*int64, bool) {
 	if o == nil || IsNil(o.PhoneCode) {
 		return nil, false
 	}
@@ -307,8 +307,8 @@ func (o *DbsOnlyClientInfo) HasPhoneCode() bool {
 	return false
 }
 
-// SetPhoneCode gets a reference to the given int32 and assigns it to the PhoneCode field.
-func (o *DbsOnlyClientInfo) SetPhoneCode(v int32) {
+// SetPhoneCode gets a reference to the given int64 and assigns it to the PhoneCode field.
+func (o *DbsOnlyClientInfo) SetPhoneCode(v int64) {
 	o.PhoneCode = &v
 }
 

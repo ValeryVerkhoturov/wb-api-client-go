@@ -552,32 +552,32 @@ type InStorePickupAPIService service
 type ApiGetV3ClickCollectOrdersRequest struct {
 	ctx        context.Context
 	ApiService InStorePickupAPI
-	limit      *int32
-	next       *int32
-	dateFrom   *int32
-	dateTo     *int32
+	limit      *int64
+	next       *int64
+	dateFrom   *int64
+	dateTo     *int64
 }
 
 // Количество элементов в ответе
-func (r ApiGetV3ClickCollectOrdersRequest) Limit(limit int32) ApiGetV3ClickCollectOrdersRequest {
+func (r ApiGetV3ClickCollectOrdersRequest) Limit(limit int64) ApiGetV3ClickCollectOrdersRequest {
 	r.limit = &limit
 	return r
 }
 
 // Параметр пагинации. Чтобы получить полный список данных, укажите &#x60;0&#x60; в первом запросе. Чтобы получить следующий пакет данных, используйте значение &#x60;next&#x60; из ответа
-func (r ApiGetV3ClickCollectOrdersRequest) Next(next int32) ApiGetV3ClickCollectOrdersRequest {
+func (r ApiGetV3ClickCollectOrdersRequest) Next(next int64) ApiGetV3ClickCollectOrdersRequest {
 	r.next = &next
 	return r
 }
 
 // Дата начала периода в формате Unix timestamp
-func (r ApiGetV3ClickCollectOrdersRequest) DateFrom(dateFrom int32) ApiGetV3ClickCollectOrdersRequest {
+func (r ApiGetV3ClickCollectOrdersRequest) DateFrom(dateFrom int64) ApiGetV3ClickCollectOrdersRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
 
 // Дата конца периода в формате Unix timestamp
-func (r ApiGetV3ClickCollectOrdersRequest) DateTo(dateTo int32) ApiGetV3ClickCollectOrdersRequest {
+func (r ApiGetV3ClickCollectOrdersRequest) DateTo(dateTo int64) ApiGetV3ClickCollectOrdersRequest {
 	r.dateTo = &dateTo
 	return r
 }

@@ -20,7 +20,7 @@ var _ MappedNullable = &ModelsWarehousesResultItems{}
 // ModelsWarehousesResultItems struct for ModelsWarehousesResultItems
 type ModelsWarehousesResultItems struct {
 	// ID склада
-	ID *int32 `json:"ID,omitempty"`
+	ID *int64 `json:"ID,omitempty"`
 	// Название склада
 	Name *string `json:"name,omitempty"`
 	// Адрес склада
@@ -51,9 +51,9 @@ func NewModelsWarehousesResultItemsWithDefaults() *ModelsWarehousesResultItems {
 }
 
 // GetID returns the ID field value if set, zero value otherwise.
-func (o *ModelsWarehousesResultItems) GetID() int32 {
+func (o *ModelsWarehousesResultItems) GetID() int64 {
 	if o == nil || IsNil(o.ID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ID
@@ -61,7 +61,7 @@ func (o *ModelsWarehousesResultItems) GetID() int32 {
 
 // GetIDOk returns a tuple with the ID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsWarehousesResultItems) GetIDOk() (*int32, bool) {
+func (o *ModelsWarehousesResultItems) GetIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.ID) {
 		return nil, false
 	}
@@ -77,8 +77,8 @@ func (o *ModelsWarehousesResultItems) HasID() bool {
 	return false
 }
 
-// SetID gets a reference to the given int32 and assigns it to the ID field.
-func (o *ModelsWarehousesResultItems) SetID(v int32) {
+// SetID gets a reference to the given int64 and assigns it to the ID field.
+func (o *ModelsWarehousesResultItems) SetID(v int64) {
 	o.ID = &v
 }
 

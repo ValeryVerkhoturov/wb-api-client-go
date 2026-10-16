@@ -21,7 +21,7 @@ var _ MappedNullable = &V3GetMetaMultiRequest{}
 
 // V3GetMetaMultiRequest ID сборочных заданий
 type V3GetMetaMultiRequest struct {
-	Orders []int32 `json:"orders"`
+	Orders []int64 `json:"orders"`
 }
 
 type _V3GetMetaMultiRequest V3GetMetaMultiRequest
@@ -30,7 +30,7 @@ type _V3GetMetaMultiRequest V3GetMetaMultiRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV3GetMetaMultiRequest(orders []int32) *V3GetMetaMultiRequest {
+func NewV3GetMetaMultiRequest(orders []int64) *V3GetMetaMultiRequest {
 	this := V3GetMetaMultiRequest{}
 	this.Orders = orders
 	return &this
@@ -45,9 +45,9 @@ func NewV3GetMetaMultiRequestWithDefaults() *V3GetMetaMultiRequest {
 }
 
 // GetOrders returns the Orders field value
-func (o *V3GetMetaMultiRequest) GetOrders() []int32 {
+func (o *V3GetMetaMultiRequest) GetOrders() []int64 {
 	if o == nil {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 
@@ -56,7 +56,7 @@ func (o *V3GetMetaMultiRequest) GetOrders() []int32 {
 
 // GetOrdersOk returns a tuple with the Orders field value
 // and a boolean to check if the value has been set.
-func (o *V3GetMetaMultiRequest) GetOrdersOk() ([]int32, bool) {
+func (o *V3GetMetaMultiRequest) GetOrdersOk() ([]int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -64,7 +64,7 @@ func (o *V3GetMetaMultiRequest) GetOrdersOk() ([]int32, bool) {
 }
 
 // SetOrders sets field value
-func (o *V3GetMetaMultiRequest) SetOrders(v []int32) {
+func (o *V3GetMetaMultiRequest) SetOrders(v []int64) {
 	o.Orders = v
 }
 

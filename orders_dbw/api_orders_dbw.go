@@ -512,14 +512,14 @@ type OrdersDbwAPIService service
 type ApiGetV3DbwOrdersRequest struct {
 	ctx        context.Context
 	ApiService OrdersDbwAPI
-	limit      *int32
+	limit      *int64
 	next       *int64
-	dateFrom   *int32
-	dateTo     *int32
+	dateFrom   *int64
+	dateTo     *int64
 }
 
 // Параметр пагинации. Устанавливает предельное количество возвращаемых данных
-func (r ApiGetV3DbwOrdersRequest) Limit(limit int32) ApiGetV3DbwOrdersRequest {
+func (r ApiGetV3DbwOrdersRequest) Limit(limit int64) ApiGetV3DbwOrdersRequest {
 	r.limit = &limit
 	return r
 }
@@ -531,13 +531,13 @@ func (r ApiGetV3DbwOrdersRequest) Next(next int64) ApiGetV3DbwOrdersRequest {
 }
 
 // Дата начала периода в формате Unix timestamp
-func (r ApiGetV3DbwOrdersRequest) DateFrom(dateFrom int32) ApiGetV3DbwOrdersRequest {
+func (r ApiGetV3DbwOrdersRequest) DateFrom(dateFrom int64) ApiGetV3DbwOrdersRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
 
 // Дата конца периода в формате Unix timestamp
-func (r ApiGetV3DbwOrdersRequest) DateTo(dateTo int32) ApiGetV3DbwOrdersRequest {
+func (r ApiGetV3DbwOrdersRequest) DateTo(dateTo int64) ApiGetV3DbwOrdersRequest {
 	r.dateTo = &dateTo
 	return r
 }
@@ -2723,8 +2723,8 @@ type ApiPostV3DbwOrdersStickersRequest struct {
 	ctx                            context.Context
 	ApiService                     OrdersDbwAPI
 	type_                          *string
-	width                          *int32
-	height                         *int32
+	width                          *int64
+	height                         *int64
 	postV3DbwOrdersStickersRequest *PostV3DbwOrdersStickersRequest
 }
 
@@ -2735,13 +2735,13 @@ func (r ApiPostV3DbwOrdersStickersRequest) Type_(type_ string) ApiPostV3DbwOrder
 }
 
 // Ширина стикера
-func (r ApiPostV3DbwOrdersStickersRequest) Width(width int32) ApiPostV3DbwOrdersStickersRequest {
+func (r ApiPostV3DbwOrdersStickersRequest) Width(width int64) ApiPostV3DbwOrdersStickersRequest {
 	r.width = &width
 	return r
 }
 
 // Высота стикера
-func (r ApiPostV3DbwOrdersStickersRequest) Height(height int32) ApiPostV3DbwOrdersStickersRequest {
+func (r ApiPostV3DbwOrdersStickersRequest) Height(height int64) ApiPostV3DbwOrdersStickersRequest {
 	r.height = &height
 	return r
 }

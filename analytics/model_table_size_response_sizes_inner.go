@@ -22,7 +22,7 @@ type TableSizeResponseSizesInner struct {
 	// Название размера
 	Name *string `json:"name,omitempty"`
 	// ID размера
-	ChrtID *int32 `json:"chrtID,omitempty"`
+	ChrtID *int64 `json:"chrtID,omitempty"`
 	// Склады
 	Offices []TableOfficeItem                   `json:"offices,omitempty"`
 	Metrics *TableSizeResponseSizesInnerMetrics `json:"metrics,omitempty"`
@@ -78,9 +78,9 @@ func (o *TableSizeResponseSizesInner) SetName(v string) {
 }
 
 // GetChrtID returns the ChrtID field value if set, zero value otherwise.
-func (o *TableSizeResponseSizesInner) GetChrtID() int32 {
+func (o *TableSizeResponseSizesInner) GetChrtID() int64 {
 	if o == nil || IsNil(o.ChrtID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ChrtID
@@ -88,7 +88,7 @@ func (o *TableSizeResponseSizesInner) GetChrtID() int32 {
 
 // GetChrtIDOk returns a tuple with the ChrtID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableSizeResponseSizesInner) GetChrtIDOk() (*int32, bool) {
+func (o *TableSizeResponseSizesInner) GetChrtIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.ChrtID) {
 		return nil, false
 	}
@@ -104,8 +104,8 @@ func (o *TableSizeResponseSizesInner) HasChrtID() bool {
 	return false
 }
 
-// SetChrtID gets a reference to the given int32 and assigns it to the ChrtID field.
-func (o *TableSizeResponseSizesInner) SetChrtID(v int32) {
+// SetChrtID gets a reference to the given int64 and assigns it to the ChrtID field.
+func (o *TableSizeResponseSizesInner) SetChrtID(v int64) {
 	o.ChrtID = &v
 }
 

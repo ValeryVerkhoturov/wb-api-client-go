@@ -20,9 +20,9 @@ var _ MappedNullable = &V1SetNormQueryBidsSuccessResponseItem{}
 // V1SetNormQueryBidsSuccessResponseItem struct for V1SetNormQueryBidsSuccessResponseItem
 type V1SetNormQueryBidsSuccessResponseItem struct {
 	// ID кампании
-	AdvertId *int32 `json:"advertId,omitempty"`
+	AdvertId *int64 `json:"advertId,omitempty"`
 	// Артикул WB
-	NmId *int32 `json:"nmId,omitempty"`
+	NmId *int64 `json:"nmId,omitempty"`
 	// Поисковый кластер — это группа похожих поисковых запросов, по которым покупатели находят товары
 	NormQuery *string `json:"normQuery,omitempty"`
 	// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
@@ -47,9 +47,9 @@ func NewV1SetNormQueryBidsSuccessResponseItemWithDefaults() *V1SetNormQueryBidsS
 }
 
 // GetAdvertId returns the AdvertId field value if set, zero value otherwise.
-func (o *V1SetNormQueryBidsSuccessResponseItem) GetAdvertId() int32 {
+func (o *V1SetNormQueryBidsSuccessResponseItem) GetAdvertId() int64 {
 	if o == nil || IsNil(o.AdvertId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.AdvertId
@@ -57,7 +57,7 @@ func (o *V1SetNormQueryBidsSuccessResponseItem) GetAdvertId() int32 {
 
 // GetAdvertIdOk returns a tuple with the AdvertId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V1SetNormQueryBidsSuccessResponseItem) GetAdvertIdOk() (*int32, bool) {
+func (o *V1SetNormQueryBidsSuccessResponseItem) GetAdvertIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.AdvertId) {
 		return nil, false
 	}
@@ -73,15 +73,15 @@ func (o *V1SetNormQueryBidsSuccessResponseItem) HasAdvertId() bool {
 	return false
 }
 
-// SetAdvertId gets a reference to the given int32 and assigns it to the AdvertId field.
-func (o *V1SetNormQueryBidsSuccessResponseItem) SetAdvertId(v int32) {
+// SetAdvertId gets a reference to the given int64 and assigns it to the AdvertId field.
+func (o *V1SetNormQueryBidsSuccessResponseItem) SetAdvertId(v int64) {
 	o.AdvertId = &v
 }
 
 // GetNmId returns the NmId field value if set, zero value otherwise.
-func (o *V1SetNormQueryBidsSuccessResponseItem) GetNmId() int32 {
+func (o *V1SetNormQueryBidsSuccessResponseItem) GetNmId() int64 {
 	if o == nil || IsNil(o.NmId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmId
@@ -89,7 +89,7 @@ func (o *V1SetNormQueryBidsSuccessResponseItem) GetNmId() int32 {
 
 // GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V1SetNormQueryBidsSuccessResponseItem) GetNmIdOk() (*int32, bool) {
+func (o *V1SetNormQueryBidsSuccessResponseItem) GetNmIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
@@ -105,8 +105,8 @@ func (o *V1SetNormQueryBidsSuccessResponseItem) HasNmId() bool {
 	return false
 }
 
-// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
-func (o *V1SetNormQueryBidsSuccessResponseItem) SetNmId(v int32) {
+// SetNmId gets a reference to the given int64 and assigns it to the NmId field.
+func (o *V1SetNormQueryBidsSuccessResponseItem) SetNmId(v int64) {
 	o.NmId = &v
 }
 

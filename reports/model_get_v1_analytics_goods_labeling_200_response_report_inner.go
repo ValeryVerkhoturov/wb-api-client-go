@@ -24,13 +24,13 @@ type GetV1AnalyticsGoodsLabeling200ResponseReportInner struct {
 	// Дата
 	Date *string `json:"date,omitempty"`
 	// Номер поставки
-	IncomeId *int32 `json:"incomeId,omitempty"`
+	IncomeId *int64 `json:"incomeId,omitempty"`
 	// Артикул WB
-	NmID *int32 `json:"nmID,omitempty"`
+	NmID *int64 `json:"nmID,omitempty"`
 	// URL фото товара
 	PhotoUrls []string `json:"photoUrls,omitempty"`
 	// Штрихкод товара в WB
-	ShkID *int32 `json:"shkID,omitempty"`
+	ShkID *int64 `json:"shkID,omitempty"`
 	// Баркод из карточки товара
 	Sku *string `json:"sku,omitempty"`
 }
@@ -117,9 +117,9 @@ func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) SetDate(v string) {
 }
 
 // GetIncomeId returns the IncomeId field value if set, zero value otherwise.
-func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetIncomeId() int32 {
+func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetIncomeId() int64 {
 	if o == nil || IsNil(o.IncomeId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.IncomeId
@@ -127,7 +127,7 @@ func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetIncomeId() int32 
 
 // GetIncomeIdOk returns a tuple with the IncomeId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetIncomeIdOk() (*int32, bool) {
+func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetIncomeIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.IncomeId) {
 		return nil, false
 	}
@@ -143,15 +143,15 @@ func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) HasIncomeId() bool {
 	return false
 }
 
-// SetIncomeId gets a reference to the given int32 and assigns it to the IncomeId field.
-func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) SetIncomeId(v int32) {
+// SetIncomeId gets a reference to the given int64 and assigns it to the IncomeId field.
+func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) SetIncomeId(v int64) {
 	o.IncomeId = &v
 }
 
 // GetNmID returns the NmID field value if set, zero value otherwise.
-func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetNmID() int32 {
+func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetNmID() int64 {
 	if o == nil || IsNil(o.NmID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmID
@@ -159,7 +159,7 @@ func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetNmID() int32 {
 
 // GetNmIDOk returns a tuple with the NmID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetNmIDOk() (*int32, bool) {
+func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetNmIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmID) {
 		return nil, false
 	}
@@ -175,8 +175,8 @@ func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) HasNmID() bool {
 	return false
 }
 
-// SetNmID gets a reference to the given int32 and assigns it to the NmID field.
-func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) SetNmID(v int32) {
+// SetNmID gets a reference to the given int64 and assigns it to the NmID field.
+func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) SetNmID(v int64) {
 	o.NmID = &v
 }
 
@@ -213,9 +213,9 @@ func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) SetPhotoUrls(v []str
 }
 
 // GetShkID returns the ShkID field value if set, zero value otherwise.
-func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetShkID() int32 {
+func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetShkID() int64 {
 	if o == nil || IsNil(o.ShkID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ShkID
@@ -223,7 +223,7 @@ func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetShkID() int32 {
 
 // GetShkIDOk returns a tuple with the ShkID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetShkIDOk() (*int32, bool) {
+func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetShkIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.ShkID) {
 		return nil, false
 	}
@@ -239,8 +239,8 @@ func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) HasShkID() bool {
 	return false
 }
 
-// SetShkID gets a reference to the given int32 and assigns it to the ShkID field.
-func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) SetShkID(v int32) {
+// SetShkID gets a reference to the given int64 and assigns it to the ShkID field.
+func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) SetShkID(v int64) {
 	o.ShkID = &v
 }
 

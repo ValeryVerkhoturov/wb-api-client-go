@@ -20,7 +20,7 @@ var _ MappedNullable = &StatsBlok2DailyStatsInnerAppTypeStatsInner{}
 // StatsBlok2DailyStatsInnerAppTypeStatsInner struct for StatsBlok2DailyStatsInnerAppTypeStatsInner
 type StatsBlok2DailyStatsInnerAppTypeStatsInner struct {
 	// Тип платформы: - `1` — сайт - `32` — Android - `64` — IOS
-	AppType *int32                                                 `json:"app_type,omitempty"`
+	AppType *int64                                                 `json:"app_type,omitempty"`
 	Stats   []StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner `json:"stats,omitempty"`
 }
 
@@ -42,9 +42,9 @@ func NewStatsBlok2DailyStatsInnerAppTypeStatsInnerWithDefaults() *StatsBlok2Dail
 }
 
 // GetAppType returns the AppType field value if set, zero value otherwise.
-func (o *StatsBlok2DailyStatsInnerAppTypeStatsInner) GetAppType() int32 {
+func (o *StatsBlok2DailyStatsInnerAppTypeStatsInner) GetAppType() int64 {
 	if o == nil || IsNil(o.AppType) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.AppType
@@ -52,7 +52,7 @@ func (o *StatsBlok2DailyStatsInnerAppTypeStatsInner) GetAppType() int32 {
 
 // GetAppTypeOk returns a tuple with the AppType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *StatsBlok2DailyStatsInnerAppTypeStatsInner) GetAppTypeOk() (*int32, bool) {
+func (o *StatsBlok2DailyStatsInnerAppTypeStatsInner) GetAppTypeOk() (*int64, bool) {
 	if o == nil || IsNil(o.AppType) {
 		return nil, false
 	}
@@ -68,8 +68,8 @@ func (o *StatsBlok2DailyStatsInnerAppTypeStatsInner) HasAppType() bool {
 	return false
 }
 
-// SetAppType gets a reference to the given int32 and assigns it to the AppType field.
-func (o *StatsBlok2DailyStatsInnerAppTypeStatsInner) SetAppType(v int32) {
+// SetAppType gets a reference to the given int64 and assigns it to the AppType field.
+func (o *StatsBlok2DailyStatsInnerAppTypeStatsInner) SetAppType(v int64) {
 	o.AppType = &v
 }
 

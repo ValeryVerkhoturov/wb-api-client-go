@@ -22,13 +22,13 @@ type V0GetNormQueryStatsItemStat struct {
 	// Поисковый кластер
 	NormQuery *string `json:"norm_query,omitempty"`
 	// Количество просмотров.  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null`
-	Views NullableInt32 `json:"views,omitempty"`
+	Views NullableInt64 `json:"views,omitempty"`
 	// Количество кликов
-	Clicks *int32 `json:"clicks,omitempty"`
+	Clicks *int64 `json:"clicks,omitempty"`
 	// Количество добавлений товаров в корзину
-	Atbs *int32 `json:"atbs,omitempty"`
+	Atbs *int64 `json:"atbs,omitempty"`
 	// Количество заказов
-	Orders *int32 `json:"orders,omitempty"`
+	Orders *int64 `json:"orders,omitempty"`
 	// Кликабельность — отношение числа кликов к количеству показов, %.  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null`
 	Ctr NullableFloat64 `json:"ctr,omitempty"`
 	// Стоимость одного клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
@@ -38,7 +38,7 @@ type V0GetNormQueryStatsItemStat struct {
 	// Средняя позиция товара на страницах поисковой выдачи
 	AvgPos *float64 `json:"avg_pos,omitempty"`
 	// Количество заказанных товаров, шт.
-	Shks *int32 `json:"shks,omitempty"`
+	Shks *int64 `json:"shks,omitempty"`
 	// Затраты на продвижение товаров в конкретном поисковом кластере кампании
 	Spend *float64 `json:"spend,omitempty"`
 	// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
@@ -95,9 +95,9 @@ func (o *V0GetNormQueryStatsItemStat) SetNormQuery(v string) {
 }
 
 // GetViews returns the Views field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *V0GetNormQueryStatsItemStat) GetViews() int32 {
+func (o *V0GetNormQueryStatsItemStat) GetViews() int64 {
 	if o == nil || IsNil(o.Views.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Views.Get()
@@ -106,7 +106,7 @@ func (o *V0GetNormQueryStatsItemStat) GetViews() int32 {
 // GetViewsOk returns a tuple with the Views field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *V0GetNormQueryStatsItemStat) GetViewsOk() (*int32, bool) {
+func (o *V0GetNormQueryStatsItemStat) GetViewsOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -122,8 +122,8 @@ func (o *V0GetNormQueryStatsItemStat) HasViews() bool {
 	return false
 }
 
-// SetViews gets a reference to the given NullableInt32 and assigns it to the Views field.
-func (o *V0GetNormQueryStatsItemStat) SetViews(v int32) {
+// SetViews gets a reference to the given NullableInt64 and assigns it to the Views field.
+func (o *V0GetNormQueryStatsItemStat) SetViews(v int64) {
 	o.Views.Set(&v)
 }
 
@@ -138,9 +138,9 @@ func (o *V0GetNormQueryStatsItemStat) UnsetViews() {
 }
 
 // GetClicks returns the Clicks field value if set, zero value otherwise.
-func (o *V0GetNormQueryStatsItemStat) GetClicks() int32 {
+func (o *V0GetNormQueryStatsItemStat) GetClicks() int64 {
 	if o == nil || IsNil(o.Clicks) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Clicks
@@ -148,7 +148,7 @@ func (o *V0GetNormQueryStatsItemStat) GetClicks() int32 {
 
 // GetClicksOk returns a tuple with the Clicks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V0GetNormQueryStatsItemStat) GetClicksOk() (*int32, bool) {
+func (o *V0GetNormQueryStatsItemStat) GetClicksOk() (*int64, bool) {
 	if o == nil || IsNil(o.Clicks) {
 		return nil, false
 	}
@@ -164,15 +164,15 @@ func (o *V0GetNormQueryStatsItemStat) HasClicks() bool {
 	return false
 }
 
-// SetClicks gets a reference to the given int32 and assigns it to the Clicks field.
-func (o *V0GetNormQueryStatsItemStat) SetClicks(v int32) {
+// SetClicks gets a reference to the given int64 and assigns it to the Clicks field.
+func (o *V0GetNormQueryStatsItemStat) SetClicks(v int64) {
 	o.Clicks = &v
 }
 
 // GetAtbs returns the Atbs field value if set, zero value otherwise.
-func (o *V0GetNormQueryStatsItemStat) GetAtbs() int32 {
+func (o *V0GetNormQueryStatsItemStat) GetAtbs() int64 {
 	if o == nil || IsNil(o.Atbs) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Atbs
@@ -180,7 +180,7 @@ func (o *V0GetNormQueryStatsItemStat) GetAtbs() int32 {
 
 // GetAtbsOk returns a tuple with the Atbs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V0GetNormQueryStatsItemStat) GetAtbsOk() (*int32, bool) {
+func (o *V0GetNormQueryStatsItemStat) GetAtbsOk() (*int64, bool) {
 	if o == nil || IsNil(o.Atbs) {
 		return nil, false
 	}
@@ -196,15 +196,15 @@ func (o *V0GetNormQueryStatsItemStat) HasAtbs() bool {
 	return false
 }
 
-// SetAtbs gets a reference to the given int32 and assigns it to the Atbs field.
-func (o *V0GetNormQueryStatsItemStat) SetAtbs(v int32) {
+// SetAtbs gets a reference to the given int64 and assigns it to the Atbs field.
+func (o *V0GetNormQueryStatsItemStat) SetAtbs(v int64) {
 	o.Atbs = &v
 }
 
 // GetOrders returns the Orders field value if set, zero value otherwise.
-func (o *V0GetNormQueryStatsItemStat) GetOrders() int32 {
+func (o *V0GetNormQueryStatsItemStat) GetOrders() int64 {
 	if o == nil || IsNil(o.Orders) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Orders
@@ -212,7 +212,7 @@ func (o *V0GetNormQueryStatsItemStat) GetOrders() int32 {
 
 // GetOrdersOk returns a tuple with the Orders field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V0GetNormQueryStatsItemStat) GetOrdersOk() (*int32, bool) {
+func (o *V0GetNormQueryStatsItemStat) GetOrdersOk() (*int64, bool) {
 	if o == nil || IsNil(o.Orders) {
 		return nil, false
 	}
@@ -228,8 +228,8 @@ func (o *V0GetNormQueryStatsItemStat) HasOrders() bool {
 	return false
 }
 
-// SetOrders gets a reference to the given int32 and assigns it to the Orders field.
-func (o *V0GetNormQueryStatsItemStat) SetOrders(v int32) {
+// SetOrders gets a reference to the given int64 and assigns it to the Orders field.
+func (o *V0GetNormQueryStatsItemStat) SetOrders(v int64) {
 	o.Orders = &v
 }
 
@@ -384,9 +384,9 @@ func (o *V0GetNormQueryStatsItemStat) SetAvgPos(v float64) {
 }
 
 // GetShks returns the Shks field value if set, zero value otherwise.
-func (o *V0GetNormQueryStatsItemStat) GetShks() int32 {
+func (o *V0GetNormQueryStatsItemStat) GetShks() int64 {
 	if o == nil || IsNil(o.Shks) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Shks
@@ -394,7 +394,7 @@ func (o *V0GetNormQueryStatsItemStat) GetShks() int32 {
 
 // GetShksOk returns a tuple with the Shks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V0GetNormQueryStatsItemStat) GetShksOk() (*int32, bool) {
+func (o *V0GetNormQueryStatsItemStat) GetShksOk() (*int64, bool) {
 	if o == nil || IsNil(o.Shks) {
 		return nil, false
 	}
@@ -410,8 +410,8 @@ func (o *V0GetNormQueryStatsItemStat) HasShks() bool {
 	return false
 }
 
-// SetShks gets a reference to the given int32 and assigns it to the Shks field.
-func (o *V0GetNormQueryStatsItemStat) SetShks(v int32) {
+// SetShks gets a reference to the given int64 and assigns it to the Shks field.
+func (o *V0GetNormQueryStatsItemStat) SetShks(v int64) {
 	o.Shks = &v
 }
 

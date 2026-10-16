@@ -30,7 +30,7 @@ type ShippingPoint struct {
 	// Тип пункта отгрузки:   - `sc` — сортировочный центр   - `sw` — склад   - `pp` — ПВЗ
 	OfficeType *string `json:"officeType,omitempty"`
 	// Типы товаров, которые принимает пункт отгрузки:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+)
-	CargoTypes []int32 `json:"cargoTypes,omitempty"`
+	CargoTypes []int64 `json:"cargoTypes,omitempty"`
 	// Широта
 	Latitude *float32 `json:"latitude,omitempty"`
 	// Долгота
@@ -217,9 +217,9 @@ func (o *ShippingPoint) SetOfficeType(v string) {
 }
 
 // GetCargoTypes returns the CargoTypes field value if set, zero value otherwise.
-func (o *ShippingPoint) GetCargoTypes() []int32 {
+func (o *ShippingPoint) GetCargoTypes() []int64 {
 	if o == nil || IsNil(o.CargoTypes) {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.CargoTypes
@@ -227,7 +227,7 @@ func (o *ShippingPoint) GetCargoTypes() []int32 {
 
 // GetCargoTypesOk returns a tuple with the CargoTypes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ShippingPoint) GetCargoTypesOk() ([]int32, bool) {
+func (o *ShippingPoint) GetCargoTypesOk() ([]int64, bool) {
 	if o == nil || IsNil(o.CargoTypes) {
 		return nil, false
 	}
@@ -243,8 +243,8 @@ func (o *ShippingPoint) HasCargoTypes() bool {
 	return false
 }
 
-// SetCargoTypes gets a reference to the given []int32 and assigns it to the CargoTypes field.
-func (o *ShippingPoint) SetCargoTypes(v []int32) {
+// SetCargoTypes gets a reference to the given []int64 and assigns it to the CargoTypes field.
+func (o *ShippingPoint) SetCargoTypes(v []int64) {
 	o.CargoTypes = v
 }
 

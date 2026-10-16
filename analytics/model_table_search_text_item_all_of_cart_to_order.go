@@ -20,11 +20,11 @@ var _ MappedNullable = &TableSearchTextItemAllOfCartToOrder{}
 // TableSearchTextItemAllOfCartToOrder Конверсия в заказ из поиска — доля заказов товара по отношению ко всем добавлениям товара из поиска в корзину
 type TableSearchTextItemAllOfCartToOrder struct {
 	// Текущая конверсия
-	Current *int32 `json:"current,omitempty"`
+	Current *int64 `json:"current,omitempty"`
 	// Динамика по сравнению с предыдущим периодом, %
-	Dynamics *int32 `json:"dynamics,omitempty"`
+	Dynamics *int64 `json:"dynamics,omitempty"`
 	// Процент, на который показатель конверсии в заказ выше, чем у карточек других продавцов по поисковому запросу
-	Percentile *int32 `json:"percentile,omitempty"`
+	Percentile *int64 `json:"percentile,omitempty"`
 }
 
 // NewTableSearchTextItemAllOfCartToOrder instantiates a new TableSearchTextItemAllOfCartToOrder object
@@ -45,9 +45,9 @@ func NewTableSearchTextItemAllOfCartToOrderWithDefaults() *TableSearchTextItemAl
 }
 
 // GetCurrent returns the Current field value if set, zero value otherwise.
-func (o *TableSearchTextItemAllOfCartToOrder) GetCurrent() int32 {
+func (o *TableSearchTextItemAllOfCartToOrder) GetCurrent() int64 {
 	if o == nil || IsNil(o.Current) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Current
@@ -55,7 +55,7 @@ func (o *TableSearchTextItemAllOfCartToOrder) GetCurrent() int32 {
 
 // GetCurrentOk returns a tuple with the Current field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableSearchTextItemAllOfCartToOrder) GetCurrentOk() (*int32, bool) {
+func (o *TableSearchTextItemAllOfCartToOrder) GetCurrentOk() (*int64, bool) {
 	if o == nil || IsNil(o.Current) {
 		return nil, false
 	}
@@ -71,15 +71,15 @@ func (o *TableSearchTextItemAllOfCartToOrder) HasCurrent() bool {
 	return false
 }
 
-// SetCurrent gets a reference to the given int32 and assigns it to the Current field.
-func (o *TableSearchTextItemAllOfCartToOrder) SetCurrent(v int32) {
+// SetCurrent gets a reference to the given int64 and assigns it to the Current field.
+func (o *TableSearchTextItemAllOfCartToOrder) SetCurrent(v int64) {
 	o.Current = &v
 }
 
 // GetDynamics returns the Dynamics field value if set, zero value otherwise.
-func (o *TableSearchTextItemAllOfCartToOrder) GetDynamics() int32 {
+func (o *TableSearchTextItemAllOfCartToOrder) GetDynamics() int64 {
 	if o == nil || IsNil(o.Dynamics) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Dynamics
@@ -87,7 +87,7 @@ func (o *TableSearchTextItemAllOfCartToOrder) GetDynamics() int32 {
 
 // GetDynamicsOk returns a tuple with the Dynamics field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableSearchTextItemAllOfCartToOrder) GetDynamicsOk() (*int32, bool) {
+func (o *TableSearchTextItemAllOfCartToOrder) GetDynamicsOk() (*int64, bool) {
 	if o == nil || IsNil(o.Dynamics) {
 		return nil, false
 	}
@@ -103,15 +103,15 @@ func (o *TableSearchTextItemAllOfCartToOrder) HasDynamics() bool {
 	return false
 }
 
-// SetDynamics gets a reference to the given int32 and assigns it to the Dynamics field.
-func (o *TableSearchTextItemAllOfCartToOrder) SetDynamics(v int32) {
+// SetDynamics gets a reference to the given int64 and assigns it to the Dynamics field.
+func (o *TableSearchTextItemAllOfCartToOrder) SetDynamics(v int64) {
 	o.Dynamics = &v
 }
 
 // GetPercentile returns the Percentile field value if set, zero value otherwise.
-func (o *TableSearchTextItemAllOfCartToOrder) GetPercentile() int32 {
+func (o *TableSearchTextItemAllOfCartToOrder) GetPercentile() int64 {
 	if o == nil || IsNil(o.Percentile) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Percentile
@@ -119,7 +119,7 @@ func (o *TableSearchTextItemAllOfCartToOrder) GetPercentile() int32 {
 
 // GetPercentileOk returns a tuple with the Percentile field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableSearchTextItemAllOfCartToOrder) GetPercentileOk() (*int32, bool) {
+func (o *TableSearchTextItemAllOfCartToOrder) GetPercentileOk() (*int64, bool) {
 	if o == nil || IsNil(o.Percentile) {
 		return nil, false
 	}
@@ -135,8 +135,8 @@ func (o *TableSearchTextItemAllOfCartToOrder) HasPercentile() bool {
 	return false
 }
 
-// SetPercentile gets a reference to the given int32 and assigns it to the Percentile field.
-func (o *TableSearchTextItemAllOfCartToOrder) SetPercentile(v int32) {
+// SetPercentile gets a reference to the given int64 and assigns it to the Percentile field.
+func (o *TableSearchTextItemAllOfCartToOrder) SetPercentile(v int64) {
 	o.Percentile = &v
 }
 

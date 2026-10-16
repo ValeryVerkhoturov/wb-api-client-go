@@ -24,7 +24,7 @@ type PostV3OrdersStatusHistoryResponse200OrdersInner struct {
 	// Статусы
 	Statuses []PostV3OrdersStatusHistoryResponse200OrdersInnerStatusesInner `json:"statuses,omitempty"`
 	// ID сборочного задания
-	OrderID *int32 `json:"orderID,omitempty"`
+	OrderID *int64 `json:"orderID,omitempty"`
 }
 
 // NewPostV3OrdersStatusHistoryResponse200OrdersInner instantiates a new PostV3OrdersStatusHistoryResponse200OrdersInner object
@@ -109,9 +109,9 @@ func (o *PostV3OrdersStatusHistoryResponse200OrdersInner) SetStatuses(v []PostV3
 }
 
 // GetOrderID returns the OrderID field value if set, zero value otherwise.
-func (o *PostV3OrdersStatusHistoryResponse200OrdersInner) GetOrderID() int32 {
+func (o *PostV3OrdersStatusHistoryResponse200OrdersInner) GetOrderID() int64 {
 	if o == nil || IsNil(o.OrderID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OrderID
@@ -119,7 +119,7 @@ func (o *PostV3OrdersStatusHistoryResponse200OrdersInner) GetOrderID() int32 {
 
 // GetOrderIDOk returns a tuple with the OrderID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV3OrdersStatusHistoryResponse200OrdersInner) GetOrderIDOk() (*int32, bool) {
+func (o *PostV3OrdersStatusHistoryResponse200OrdersInner) GetOrderIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.OrderID) {
 		return nil, false
 	}
@@ -135,8 +135,8 @@ func (o *PostV3OrdersStatusHistoryResponse200OrdersInner) HasOrderID() bool {
 	return false
 }
 
-// SetOrderID gets a reference to the given int32 and assigns it to the OrderID field.
-func (o *PostV3OrdersStatusHistoryResponse200OrdersInner) SetOrderID(v int32) {
+// SetOrderID gets a reference to the given int64 and assigns it to the OrderID field.
+func (o *PostV3OrdersStatusHistoryResponse200OrdersInner) SetOrderID(v int64) {
 	o.OrderID = &v
 }
 

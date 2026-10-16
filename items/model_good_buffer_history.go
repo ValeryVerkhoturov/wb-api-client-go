@@ -20,23 +20,23 @@ var _ MappedNullable = &GoodBufferHistory{}
 // GoodBufferHistory struct for GoodBufferHistory
 type GoodBufferHistory struct {
 	// Артикул WB
-	NmID *int32 `json:"nmID,omitempty"`
+	NmID *int64 `json:"nmID,omitempty"`
 	// Артикул продавца
 	VendorCode *string `json:"vendorCode,omitempty"`
 	// ID размера. В методах Контента это поле `chrtID`
-	SizeID *int32 `json:"sizeID,omitempty"`
+	SizeID *int64 `json:"sizeID,omitempty"`
 	// Размер
 	TechSizeName *string `json:"techSizeName,omitempty"`
 	// Цена
-	Price *int32 `json:"price,omitempty"`
+	Price *int64 `json:"price,omitempty"`
 	// Валюта, по стандарту ISO 4217
 	CurrencyIsoCode4217 *string `json:"currencyIsoCode4217,omitempty"`
 	// Скидка, %
-	Discount *int32 `json:"discount,omitempty"`
+	Discount *int64 `json:"discount,omitempty"`
 	// Скидка WB Клуба, %
-	ClubDiscount *int32 `json:"clubDiscount,omitempty"`
+	ClubDiscount *int64 `json:"clubDiscount,omitempty"`
 	// Статус товара: `1` — в обработке
-	Status *int32 `json:"status,omitempty"`
+	Status *int64 `json:"status,omitempty"`
 	// Описание ошибки
 	ErrorText NullableString `json:"errorText,omitempty"`
 }
@@ -59,9 +59,9 @@ func NewGoodBufferHistoryWithDefaults() *GoodBufferHistory {
 }
 
 // GetNmID returns the NmID field value if set, zero value otherwise.
-func (o *GoodBufferHistory) GetNmID() int32 {
+func (o *GoodBufferHistory) GetNmID() int64 {
 	if o == nil || IsNil(o.NmID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmID
@@ -69,7 +69,7 @@ func (o *GoodBufferHistory) GetNmID() int32 {
 
 // GetNmIDOk returns a tuple with the NmID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GoodBufferHistory) GetNmIDOk() (*int32, bool) {
+func (o *GoodBufferHistory) GetNmIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmID) {
 		return nil, false
 	}
@@ -85,8 +85,8 @@ func (o *GoodBufferHistory) HasNmID() bool {
 	return false
 }
 
-// SetNmID gets a reference to the given int32 and assigns it to the NmID field.
-func (o *GoodBufferHistory) SetNmID(v int32) {
+// SetNmID gets a reference to the given int64 and assigns it to the NmID field.
+func (o *GoodBufferHistory) SetNmID(v int64) {
 	o.NmID = &v
 }
 
@@ -123,9 +123,9 @@ func (o *GoodBufferHistory) SetVendorCode(v string) {
 }
 
 // GetSizeID returns the SizeID field value if set, zero value otherwise.
-func (o *GoodBufferHistory) GetSizeID() int32 {
+func (o *GoodBufferHistory) GetSizeID() int64 {
 	if o == nil || IsNil(o.SizeID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SizeID
@@ -133,7 +133,7 @@ func (o *GoodBufferHistory) GetSizeID() int32 {
 
 // GetSizeIDOk returns a tuple with the SizeID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GoodBufferHistory) GetSizeIDOk() (*int32, bool) {
+func (o *GoodBufferHistory) GetSizeIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.SizeID) {
 		return nil, false
 	}
@@ -149,8 +149,8 @@ func (o *GoodBufferHistory) HasSizeID() bool {
 	return false
 }
 
-// SetSizeID gets a reference to the given int32 and assigns it to the SizeID field.
-func (o *GoodBufferHistory) SetSizeID(v int32) {
+// SetSizeID gets a reference to the given int64 and assigns it to the SizeID field.
+func (o *GoodBufferHistory) SetSizeID(v int64) {
 	o.SizeID = &v
 }
 
@@ -187,9 +187,9 @@ func (o *GoodBufferHistory) SetTechSizeName(v string) {
 }
 
 // GetPrice returns the Price field value if set, zero value otherwise.
-func (o *GoodBufferHistory) GetPrice() int32 {
+func (o *GoodBufferHistory) GetPrice() int64 {
 	if o == nil || IsNil(o.Price) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Price
@@ -197,7 +197,7 @@ func (o *GoodBufferHistory) GetPrice() int32 {
 
 // GetPriceOk returns a tuple with the Price field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GoodBufferHistory) GetPriceOk() (*int32, bool) {
+func (o *GoodBufferHistory) GetPriceOk() (*int64, bool) {
 	if o == nil || IsNil(o.Price) {
 		return nil, false
 	}
@@ -213,8 +213,8 @@ func (o *GoodBufferHistory) HasPrice() bool {
 	return false
 }
 
-// SetPrice gets a reference to the given int32 and assigns it to the Price field.
-func (o *GoodBufferHistory) SetPrice(v int32) {
+// SetPrice gets a reference to the given int64 and assigns it to the Price field.
+func (o *GoodBufferHistory) SetPrice(v int64) {
 	o.Price = &v
 }
 
@@ -251,9 +251,9 @@ func (o *GoodBufferHistory) SetCurrencyIsoCode4217(v string) {
 }
 
 // GetDiscount returns the Discount field value if set, zero value otherwise.
-func (o *GoodBufferHistory) GetDiscount() int32 {
+func (o *GoodBufferHistory) GetDiscount() int64 {
 	if o == nil || IsNil(o.Discount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Discount
@@ -261,7 +261,7 @@ func (o *GoodBufferHistory) GetDiscount() int32 {
 
 // GetDiscountOk returns a tuple with the Discount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GoodBufferHistory) GetDiscountOk() (*int32, bool) {
+func (o *GoodBufferHistory) GetDiscountOk() (*int64, bool) {
 	if o == nil || IsNil(o.Discount) {
 		return nil, false
 	}
@@ -277,15 +277,15 @@ func (o *GoodBufferHistory) HasDiscount() bool {
 	return false
 }
 
-// SetDiscount gets a reference to the given int32 and assigns it to the Discount field.
-func (o *GoodBufferHistory) SetDiscount(v int32) {
+// SetDiscount gets a reference to the given int64 and assigns it to the Discount field.
+func (o *GoodBufferHistory) SetDiscount(v int64) {
 	o.Discount = &v
 }
 
 // GetClubDiscount returns the ClubDiscount field value if set, zero value otherwise.
-func (o *GoodBufferHistory) GetClubDiscount() int32 {
+func (o *GoodBufferHistory) GetClubDiscount() int64 {
 	if o == nil || IsNil(o.ClubDiscount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ClubDiscount
@@ -293,7 +293,7 @@ func (o *GoodBufferHistory) GetClubDiscount() int32 {
 
 // GetClubDiscountOk returns a tuple with the ClubDiscount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GoodBufferHistory) GetClubDiscountOk() (*int32, bool) {
+func (o *GoodBufferHistory) GetClubDiscountOk() (*int64, bool) {
 	if o == nil || IsNil(o.ClubDiscount) {
 		return nil, false
 	}
@@ -309,15 +309,15 @@ func (o *GoodBufferHistory) HasClubDiscount() bool {
 	return false
 }
 
-// SetClubDiscount gets a reference to the given int32 and assigns it to the ClubDiscount field.
-func (o *GoodBufferHistory) SetClubDiscount(v int32) {
+// SetClubDiscount gets a reference to the given int64 and assigns it to the ClubDiscount field.
+func (o *GoodBufferHistory) SetClubDiscount(v int64) {
 	o.ClubDiscount = &v
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
-func (o *GoodBufferHistory) GetStatus() int32 {
+func (o *GoodBufferHistory) GetStatus() int64 {
 	if o == nil || IsNil(o.Status) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Status
@@ -325,7 +325,7 @@ func (o *GoodBufferHistory) GetStatus() int32 {
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GoodBufferHistory) GetStatusOk() (*int32, bool) {
+func (o *GoodBufferHistory) GetStatusOk() (*int64, bool) {
 	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
@@ -341,8 +341,8 @@ func (o *GoodBufferHistory) HasStatus() bool {
 	return false
 }
 
-// SetStatus gets a reference to the given int32 and assigns it to the Status field.
-func (o *GoodBufferHistory) SetStatus(v int32) {
+// SetStatus gets a reference to the given int64 and assigns it to the Status field.
+func (o *GoodBufferHistory) SetStatus(v int64) {
 	o.Status = &v
 }
 

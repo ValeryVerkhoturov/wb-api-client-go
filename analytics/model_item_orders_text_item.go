@@ -22,7 +22,7 @@ type ItemOrdersTextItem struct {
 	// Текст поискового запроса
 	Text *string `json:"text,omitempty"`
 	// Количество обращений с поисковым запросом
-	Frequency *int32 `json:"frequency,omitempty"`
+	Frequency *int64 `json:"frequency,omitempty"`
 	// Статистика по датам
 	DateItems []ItemOrdersMetrics `json:"dateItems,omitempty"`
 }
@@ -77,9 +77,9 @@ func (o *ItemOrdersTextItem) SetText(v string) {
 }
 
 // GetFrequency returns the Frequency field value if set, zero value otherwise.
-func (o *ItemOrdersTextItem) GetFrequency() int32 {
+func (o *ItemOrdersTextItem) GetFrequency() int64 {
 	if o == nil || IsNil(o.Frequency) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Frequency
@@ -87,7 +87,7 @@ func (o *ItemOrdersTextItem) GetFrequency() int32 {
 
 // GetFrequencyOk returns a tuple with the Frequency field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ItemOrdersTextItem) GetFrequencyOk() (*int32, bool) {
+func (o *ItemOrdersTextItem) GetFrequencyOk() (*int64, bool) {
 	if o == nil || IsNil(o.Frequency) {
 		return nil, false
 	}
@@ -103,8 +103,8 @@ func (o *ItemOrdersTextItem) HasFrequency() bool {
 	return false
 }
 
-// SetFrequency gets a reference to the given int32 and assigns it to the Frequency field.
-func (o *ItemOrdersTextItem) SetFrequency(v int32) {
+// SetFrequency gets a reference to the given int64 and assigns it to the Frequency field.
+func (o *ItemOrdersTextItem) SetFrequency(v int64) {
 	o.Frequency = &v
 }
 

@@ -30,7 +30,7 @@ type GetAdvertsAdvertsInner struct {
 	Settings     *AdvertSettings                     `json:"settings,omitempty"`
 	Restrictions *GetAdvertsAdvertsInnerRestrictions `json:"restrictions,omitempty"`
 	// Статус кампании: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе
-	Status     *int32      `json:"status,omitempty"`
+	Status     *int64      `json:"status,omitempty"`
 	Timestamps *Timestamps `json:"timestamps,omitempty"`
 }
 
@@ -245,9 +245,9 @@ func (o *GetAdvertsAdvertsInner) SetRestrictions(v GetAdvertsAdvertsInnerRestric
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
-func (o *GetAdvertsAdvertsInner) GetStatus() int32 {
+func (o *GetAdvertsAdvertsInner) GetStatus() int64 {
 	if o == nil || IsNil(o.Status) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Status
@@ -255,7 +255,7 @@ func (o *GetAdvertsAdvertsInner) GetStatus() int32 {
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetAdvertsAdvertsInner) GetStatusOk() (*int32, bool) {
+func (o *GetAdvertsAdvertsInner) GetStatusOk() (*int64, bool) {
 	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
@@ -271,8 +271,8 @@ func (o *GetAdvertsAdvertsInner) HasStatus() bool {
 	return false
 }
 
-// SetStatus gets a reference to the given int32 and assigns it to the Status field.
-func (o *GetAdvertsAdvertsInner) SetStatus(v int32) {
+// SetStatus gets a reference to the given int64 and assigns it to the Status field.
+func (o *GetAdvertsAdvertsInner) SetStatus(v int64) {
 	o.Status = &v
 }
 

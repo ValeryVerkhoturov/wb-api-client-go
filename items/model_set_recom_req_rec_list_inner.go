@@ -20,7 +20,7 @@ var _ MappedNullable = &SetRecomReqRecListInner{}
 // SetRecomReqRecListInner struct for SetRecomReqRecListInner
 type SetRecomReqRecListInner struct {
 	// Артикул WB
-	NmId *int32 `json:"nmId,omitempty"`
+	NmId *int64 `json:"nmId,omitempty"`
 	// Рекомендуемые товары.  Укажите `recomNm` товаров, чтобы добавить их в рекомендации к указанному `nmId`.  При отправке пустого массива `[]` все текущие рекомендации для указанного `nmId` будут удалены.
 	Recommendations []SetRecomReqRecListInnerRecommendationsInner `json:"recommendations,omitempty"`
 }
@@ -31,7 +31,7 @@ type SetRecomReqRecListInner struct {
 // will change when the set of required properties is changed
 func NewSetRecomReqRecListInner() *SetRecomReqRecListInner {
 	this := SetRecomReqRecListInner{}
-	var nmId int32 = 0
+	var nmId int64 = 0
 	this.NmId = &nmId
 	return &this
 }
@@ -41,15 +41,15 @@ func NewSetRecomReqRecListInner() *SetRecomReqRecListInner {
 // but it doesn't guarantee that properties required by API are set
 func NewSetRecomReqRecListInnerWithDefaults() *SetRecomReqRecListInner {
 	this := SetRecomReqRecListInner{}
-	var nmId int32 = 0
+	var nmId int64 = 0
 	this.NmId = &nmId
 	return &this
 }
 
 // GetNmId returns the NmId field value if set, zero value otherwise.
-func (o *SetRecomReqRecListInner) GetNmId() int32 {
+func (o *SetRecomReqRecListInner) GetNmId() int64 {
 	if o == nil || IsNil(o.NmId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmId
@@ -57,7 +57,7 @@ func (o *SetRecomReqRecListInner) GetNmId() int32 {
 
 // GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SetRecomReqRecListInner) GetNmIdOk() (*int32, bool) {
+func (o *SetRecomReqRecListInner) GetNmIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
@@ -73,8 +73,8 @@ func (o *SetRecomReqRecListInner) HasNmId() bool {
 	return false
 }
 
-// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
-func (o *SetRecomReqRecListInner) SetNmId(v int32) {
+// SetNmId gets a reference to the given int64 and assigns it to the NmId field.
+func (o *SetRecomReqRecListInner) SetNmId(v int64) {
 	o.NmId = &v
 }
 

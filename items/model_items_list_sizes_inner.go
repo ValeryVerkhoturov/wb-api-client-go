@@ -24,7 +24,7 @@ type ItemsListSizesInner struct {
 	// ID размера. В методах Контента это поле `chrtID`
 	SizeID int64 `json:"sizeID"`
 	// Цена
-	Price int32 `json:"price"`
+	Price int64 `json:"price"`
 	// Цена со скидкой
 	DiscountedPrice float32 `json:"discountedPrice"`
 	// Цена со скидкой, включая скидку WB Клуба
@@ -39,7 +39,7 @@ type _ItemsListSizesInner ItemsListSizesInner
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemsListSizesInner(sizeID int64, price int32, discountedPrice float32, clubDiscountedPrice float32, techSizeName string) *ItemsListSizesInner {
+func NewItemsListSizesInner(sizeID int64, price int64, discountedPrice float32, clubDiscountedPrice float32, techSizeName string) *ItemsListSizesInner {
 	this := ItemsListSizesInner{}
 	this.SizeID = sizeID
 	this.Price = price
@@ -82,9 +82,9 @@ func (o *ItemsListSizesInner) SetSizeID(v int64) {
 }
 
 // GetPrice returns the Price field value
-func (o *ItemsListSizesInner) GetPrice() int32 {
+func (o *ItemsListSizesInner) GetPrice() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -93,7 +93,7 @@ func (o *ItemsListSizesInner) GetPrice() int32 {
 
 // GetPriceOk returns a tuple with the Price field value
 // and a boolean to check if the value has been set.
-func (o *ItemsListSizesInner) GetPriceOk() (*int32, bool) {
+func (o *ItemsListSizesInner) GetPriceOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -101,7 +101,7 @@ func (o *ItemsListSizesInner) GetPriceOk() (*int32, bool) {
 }
 
 // SetPrice sets field value
-func (o *ItemsListSizesInner) SetPrice(v int32) {
+func (o *ItemsListSizesInner) SetPrice(v int64) {
 	o.Price = v
 }
 

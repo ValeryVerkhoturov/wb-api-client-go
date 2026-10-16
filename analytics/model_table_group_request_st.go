@@ -37,9 +37,9 @@ type TableGroupRequestSt struct {
 	AvailabilityFilters []string     `json:"availabilityFilters"`
 	OrderBy             TableOrderBy `json:"orderBy"`
 	// Количество групп в ответе
-	Limit *int32 `json:"limit,omitempty"`
+	Limit *int64 `json:"limit,omitempty"`
 	// После какого элемента выдавать данные
-	Offset int32 `json:"offset"`
+	Offset int64 `json:"offset"`
 }
 
 type _TableGroupRequestSt TableGroupRequestSt
@@ -48,14 +48,14 @@ type _TableGroupRequestSt TableGroupRequestSt
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableGroupRequestSt(currentPeriod PeriodInv, stockType StockType, skipDeletedNm bool, availabilityFilters []string, orderBy TableOrderBy, offset int32) *TableGroupRequestSt {
+func NewTableGroupRequestSt(currentPeriod PeriodInv, stockType StockType, skipDeletedNm bool, availabilityFilters []string, orderBy TableOrderBy, offset int64) *TableGroupRequestSt {
 	this := TableGroupRequestSt{}
 	this.CurrentPeriod = currentPeriod
 	this.StockType = stockType
 	this.SkipDeletedNm = skipDeletedNm
 	this.AvailabilityFilters = availabilityFilters
 	this.OrderBy = orderBy
-	var limit int32 = 100
+	var limit int64 = 100
 	this.Limit = &limit
 	this.Offset = offset
 	return &this
@@ -66,7 +66,7 @@ func NewTableGroupRequestSt(currentPeriod PeriodInv, stockType StockType, skipDe
 // but it doesn't guarantee that properties required by API are set
 func NewTableGroupRequestStWithDefaults() *TableGroupRequestSt {
 	this := TableGroupRequestSt{}
-	var limit int32 = 100
+	var limit int64 = 100
 	this.Limit = &limit
 	return &this
 }
@@ -320,9 +320,9 @@ func (o *TableGroupRequestSt) SetOrderBy(v TableOrderBy) {
 }
 
 // GetLimit returns the Limit field value if set, zero value otherwise.
-func (o *TableGroupRequestSt) GetLimit() int32 {
+func (o *TableGroupRequestSt) GetLimit() int64 {
 	if o == nil || IsNil(o.Limit) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Limit
@@ -330,7 +330,7 @@ func (o *TableGroupRequestSt) GetLimit() int32 {
 
 // GetLimitOk returns a tuple with the Limit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableGroupRequestSt) GetLimitOk() (*int32, bool) {
+func (o *TableGroupRequestSt) GetLimitOk() (*int64, bool) {
 	if o == nil || IsNil(o.Limit) {
 		return nil, false
 	}
@@ -346,15 +346,15 @@ func (o *TableGroupRequestSt) HasLimit() bool {
 	return false
 }
 
-// SetLimit gets a reference to the given int32 and assigns it to the Limit field.
-func (o *TableGroupRequestSt) SetLimit(v int32) {
+// SetLimit gets a reference to the given int64 and assigns it to the Limit field.
+func (o *TableGroupRequestSt) SetLimit(v int64) {
 	o.Limit = &v
 }
 
 // GetOffset returns the Offset field value
-func (o *TableGroupRequestSt) GetOffset() int32 {
+func (o *TableGroupRequestSt) GetOffset() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -363,7 +363,7 @@ func (o *TableGroupRequestSt) GetOffset() int32 {
 
 // GetOffsetOk returns a tuple with the Offset field value
 // and a boolean to check if the value has been set.
-func (o *TableGroupRequestSt) GetOffsetOk() (*int32, bool) {
+func (o *TableGroupRequestSt) GetOffsetOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -371,7 +371,7 @@ func (o *TableGroupRequestSt) GetOffsetOk() (*int32, bool) {
 }
 
 // SetOffset sets field value
-func (o *TableGroupRequestSt) SetOffset(v int32) {
+func (o *TableGroupRequestSt) SetOffset(v int64) {
 	o.Offset = v
 }
 

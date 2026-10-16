@@ -20,7 +20,7 @@ var _ MappedNullable = &DeleteV1PinsResponse200{}
 // DeleteV1PinsResponse200 struct for DeleteV1PinsResponse200
 type DeleteV1PinsResponse200 struct {
 	// Список `pinId` — ID операций закрепления отзывов, которые были успешно откреплены
-	Data []int32 `json:"data,omitempty"`
+	Data []int64 `json:"data,omitempty"`
 }
 
 // NewDeleteV1PinsResponse200 instantiates a new DeleteV1PinsResponse200 object
@@ -41,9 +41,9 @@ func NewDeleteV1PinsResponse200WithDefaults() *DeleteV1PinsResponse200 {
 }
 
 // GetData returns the Data field value if set, zero value otherwise.
-func (o *DeleteV1PinsResponse200) GetData() []int32 {
+func (o *DeleteV1PinsResponse200) GetData() []int64 {
 	if o == nil || IsNil(o.Data) {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.Data
@@ -51,7 +51,7 @@ func (o *DeleteV1PinsResponse200) GetData() []int32 {
 
 // GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DeleteV1PinsResponse200) GetDataOk() ([]int32, bool) {
+func (o *DeleteV1PinsResponse200) GetDataOk() ([]int64, bool) {
 	if o == nil || IsNil(o.Data) {
 		return nil, false
 	}
@@ -67,8 +67,8 @@ func (o *DeleteV1PinsResponse200) HasData() bool {
 	return false
 }
 
-// SetData gets a reference to the given []int32 and assigns it to the Data field.
-func (o *DeleteV1PinsResponse200) SetData(v []int32) {
+// SetData gets a reference to the given []int64 and assigns it to the Data field.
+func (o *DeleteV1PinsResponse200) SetData(v []int64) {
 	o.Data = v
 }
 

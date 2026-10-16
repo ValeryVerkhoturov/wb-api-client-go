@@ -20,7 +20,7 @@ var _ MappedNullable = &GetV1AnalyticsBrandShareParentSubjects200ResponseDataInn
 // GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner struct for GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner
 type GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner struct {
 	// ID родительской категории
-	ParentId *int32 `json:"parentId,omitempty"`
+	ParentId *int64 `json:"parentId,omitempty"`
 	// Название родительской категории
 	ParentName *string `json:"parentName,omitempty"`
 }
@@ -43,9 +43,9 @@ func NewGetV1AnalyticsBrandShareParentSubjects200ResponseDataInnerWithDefaults()
 }
 
 // GetParentId returns the ParentId field value if set, zero value otherwise.
-func (o *GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner) GetParentId() int32 {
+func (o *GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner) GetParentId() int64 {
 	if o == nil || IsNil(o.ParentId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ParentId
@@ -53,7 +53,7 @@ func (o *GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner) GetParentId
 
 // GetParentIdOk returns a tuple with the ParentId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner) GetParentIdOk() (*int32, bool) {
+func (o *GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner) GetParentIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.ParentId) {
 		return nil, false
 	}
@@ -69,8 +69,8 @@ func (o *GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner) HasParentId
 	return false
 }
 
-// SetParentId gets a reference to the given int32 and assigns it to the ParentId field.
-func (o *GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner) SetParentId(v int32) {
+// SetParentId gets a reference to the given int64 and assigns it to the ParentId field.
+func (o *GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner) SetParentId(v int64) {
 	o.ParentId = &v
 }
 

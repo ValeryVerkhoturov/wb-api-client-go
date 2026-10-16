@@ -24,20 +24,20 @@ type ItemsRequest struct {
 	SelectedPeriod ItemsRequestSelectedPeriod `json:"selectedPeriod"`
 	PastPeriod     *ItemsRequestPastPeriod    `json:"pastPeriod,omitempty"`
 	// Артикулы WB, по которым нужно составить отчёт. Оставьте пустым, чтобы получить отчёт обо всех товарах
-	NmIds []int32 `json:"nmIds,omitempty"`
+	NmIds []int64 `json:"nmIds,omitempty"`
 	// Список брендов для фильтрации
 	BrandNames []string `json:"brandNames,omitempty"`
 	// Список ID предметов для фильтрации
-	SubjectIds []int32 `json:"subjectIds,omitempty"`
+	SubjectIds []int64 `json:"subjectIds,omitempty"`
 	// Список ID ярлыков для фильтрации
-	TagIds []int32 `json:"tagIds,omitempty"`
+	TagIds []int64 `json:"tagIds,omitempty"`
 	// Скрыть удалённые товары
 	SkipDeletedNm *bool    `json:"skipDeletedNm,omitempty"`
 	OrderBy       *OrderBy `json:"orderBy,omitempty"`
 	// Количество карточек товара в ответе
-	Limit *int32 `json:"limit,omitempty"`
+	Limit *int64 `json:"limit,omitempty"`
 	// Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента
-	Offset *int32 `json:"offset,omitempty"`
+	Offset *int64 `json:"offset,omitempty"`
 }
 
 type _ItemsRequest ItemsRequest
@@ -49,9 +49,9 @@ type _ItemsRequest ItemsRequest
 func NewItemsRequest(selectedPeriod ItemsRequestSelectedPeriod) *ItemsRequest {
 	this := ItemsRequest{}
 	this.SelectedPeriod = selectedPeriod
-	var limit int32 = 50
+	var limit int64 = 50
 	this.Limit = &limit
-	var offset int32 = 0
+	var offset int64 = 0
 	this.Offset = &offset
 	return &this
 }
@@ -61,9 +61,9 @@ func NewItemsRequest(selectedPeriod ItemsRequestSelectedPeriod) *ItemsRequest {
 // but it doesn't guarantee that properties required by API are set
 func NewItemsRequestWithDefaults() *ItemsRequest {
 	this := ItemsRequest{}
-	var limit int32 = 50
+	var limit int64 = 50
 	this.Limit = &limit
-	var offset int32 = 0
+	var offset int64 = 0
 	this.Offset = &offset
 	return &this
 }
@@ -125,9 +125,9 @@ func (o *ItemsRequest) SetPastPeriod(v ItemsRequestPastPeriod) {
 }
 
 // GetNmIds returns the NmIds field value if set, zero value otherwise.
-func (o *ItemsRequest) GetNmIds() []int32 {
+func (o *ItemsRequest) GetNmIds() []int64 {
 	if o == nil || IsNil(o.NmIds) {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.NmIds
@@ -135,7 +135,7 @@ func (o *ItemsRequest) GetNmIds() []int32 {
 
 // GetNmIdsOk returns a tuple with the NmIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ItemsRequest) GetNmIdsOk() ([]int32, bool) {
+func (o *ItemsRequest) GetNmIdsOk() ([]int64, bool) {
 	if o == nil || IsNil(o.NmIds) {
 		return nil, false
 	}
@@ -151,8 +151,8 @@ func (o *ItemsRequest) HasNmIds() bool {
 	return false
 }
 
-// SetNmIds gets a reference to the given []int32 and assigns it to the NmIds field.
-func (o *ItemsRequest) SetNmIds(v []int32) {
+// SetNmIds gets a reference to the given []int64 and assigns it to the NmIds field.
+func (o *ItemsRequest) SetNmIds(v []int64) {
 	o.NmIds = v
 }
 
@@ -189,9 +189,9 @@ func (o *ItemsRequest) SetBrandNames(v []string) {
 }
 
 // GetSubjectIds returns the SubjectIds field value if set, zero value otherwise.
-func (o *ItemsRequest) GetSubjectIds() []int32 {
+func (o *ItemsRequest) GetSubjectIds() []int64 {
 	if o == nil || IsNil(o.SubjectIds) {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.SubjectIds
@@ -199,7 +199,7 @@ func (o *ItemsRequest) GetSubjectIds() []int32 {
 
 // GetSubjectIdsOk returns a tuple with the SubjectIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ItemsRequest) GetSubjectIdsOk() ([]int32, bool) {
+func (o *ItemsRequest) GetSubjectIdsOk() ([]int64, bool) {
 	if o == nil || IsNil(o.SubjectIds) {
 		return nil, false
 	}
@@ -215,15 +215,15 @@ func (o *ItemsRequest) HasSubjectIds() bool {
 	return false
 }
 
-// SetSubjectIds gets a reference to the given []int32 and assigns it to the SubjectIds field.
-func (o *ItemsRequest) SetSubjectIds(v []int32) {
+// SetSubjectIds gets a reference to the given []int64 and assigns it to the SubjectIds field.
+func (o *ItemsRequest) SetSubjectIds(v []int64) {
 	o.SubjectIds = v
 }
 
 // GetTagIds returns the TagIds field value if set, zero value otherwise.
-func (o *ItemsRequest) GetTagIds() []int32 {
+func (o *ItemsRequest) GetTagIds() []int64 {
 	if o == nil || IsNil(o.TagIds) {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.TagIds
@@ -231,7 +231,7 @@ func (o *ItemsRequest) GetTagIds() []int32 {
 
 // GetTagIdsOk returns a tuple with the TagIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ItemsRequest) GetTagIdsOk() ([]int32, bool) {
+func (o *ItemsRequest) GetTagIdsOk() ([]int64, bool) {
 	if o == nil || IsNil(o.TagIds) {
 		return nil, false
 	}
@@ -247,8 +247,8 @@ func (o *ItemsRequest) HasTagIds() bool {
 	return false
 }
 
-// SetTagIds gets a reference to the given []int32 and assigns it to the TagIds field.
-func (o *ItemsRequest) SetTagIds(v []int32) {
+// SetTagIds gets a reference to the given []int64 and assigns it to the TagIds field.
+func (o *ItemsRequest) SetTagIds(v []int64) {
 	o.TagIds = v
 }
 
@@ -317,9 +317,9 @@ func (o *ItemsRequest) SetOrderBy(v OrderBy) {
 }
 
 // GetLimit returns the Limit field value if set, zero value otherwise.
-func (o *ItemsRequest) GetLimit() int32 {
+func (o *ItemsRequest) GetLimit() int64 {
 	if o == nil || IsNil(o.Limit) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Limit
@@ -327,7 +327,7 @@ func (o *ItemsRequest) GetLimit() int32 {
 
 // GetLimitOk returns a tuple with the Limit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ItemsRequest) GetLimitOk() (*int32, bool) {
+func (o *ItemsRequest) GetLimitOk() (*int64, bool) {
 	if o == nil || IsNil(o.Limit) {
 		return nil, false
 	}
@@ -343,15 +343,15 @@ func (o *ItemsRequest) HasLimit() bool {
 	return false
 }
 
-// SetLimit gets a reference to the given int32 and assigns it to the Limit field.
-func (o *ItemsRequest) SetLimit(v int32) {
+// SetLimit gets a reference to the given int64 and assigns it to the Limit field.
+func (o *ItemsRequest) SetLimit(v int64) {
 	o.Limit = &v
 }
 
 // GetOffset returns the Offset field value if set, zero value otherwise.
-func (o *ItemsRequest) GetOffset() int32 {
+func (o *ItemsRequest) GetOffset() int64 {
 	if o == nil || IsNil(o.Offset) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Offset
@@ -359,7 +359,7 @@ func (o *ItemsRequest) GetOffset() int32 {
 
 // GetOffsetOk returns a tuple with the Offset field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ItemsRequest) GetOffsetOk() (*int32, bool) {
+func (o *ItemsRequest) GetOffsetOk() (*int64, bool) {
 	if o == nil || IsNil(o.Offset) {
 		return nil, false
 	}
@@ -375,8 +375,8 @@ func (o *ItemsRequest) HasOffset() bool {
 	return false
 }
 
-// SetOffset gets a reference to the given int32 and assigns it to the Offset field.
-func (o *ItemsRequest) SetOffset(v int32) {
+// SetOffset gets a reference to the given int64 and assigns it to the Offset field.
+func (o *ItemsRequest) SetOffset(v int64) {
 	o.Offset = &v
 }
 

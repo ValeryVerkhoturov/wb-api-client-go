@@ -22,11 +22,11 @@ var _ MappedNullable = &Item{}
 // Item struct for Item
 type Item struct {
 	// Артикул WB
-	NmID int32 `json:"nmID"`
+	NmID int64 `json:"nmID"`
 	// Цена. Валюту можно получить с помощью методов [Получить товары с ценами](./item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) и [Получить товары с ценами по артикулам](./item-management#tag/pricesAndDiscounts/operation/postV2ListGoodsFilter), поле `currencyIsoCode4217`
-	Price NullableInt32 `json:"price,omitempty"`
+	Price NullableInt64 `json:"price,omitempty"`
 	// Скидка, %
-	Discount NullableInt32 `json:"discount,omitempty"`
+	Discount NullableInt64 `json:"discount,omitempty"`
 }
 
 type _Item Item
@@ -35,7 +35,7 @@ type _Item Item
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItem(nmID int32) *Item {
+func NewItem(nmID int64) *Item {
 	this := Item{}
 	this.NmID = nmID
 	return &this
@@ -50,9 +50,9 @@ func NewItemWithDefaults() *Item {
 }
 
 // GetNmID returns the NmID field value
-func (o *Item) GetNmID() int32 {
+func (o *Item) GetNmID() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -61,7 +61,7 @@ func (o *Item) GetNmID() int32 {
 
 // GetNmIDOk returns a tuple with the NmID field value
 // and a boolean to check if the value has been set.
-func (o *Item) GetNmIDOk() (*int32, bool) {
+func (o *Item) GetNmIDOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -69,14 +69,14 @@ func (o *Item) GetNmIDOk() (*int32, bool) {
 }
 
 // SetNmID sets field value
-func (o *Item) SetNmID(v int32) {
+func (o *Item) SetNmID(v int64) {
 	o.NmID = v
 }
 
 // GetPrice returns the Price field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Item) GetPrice() int32 {
+func (o *Item) GetPrice() int64 {
 	if o == nil || IsNil(o.Price.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Price.Get()
@@ -85,7 +85,7 @@ func (o *Item) GetPrice() int32 {
 // GetPriceOk returns a tuple with the Price field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Item) GetPriceOk() (*int32, bool) {
+func (o *Item) GetPriceOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -101,8 +101,8 @@ func (o *Item) HasPrice() bool {
 	return false
 }
 
-// SetPrice gets a reference to the given NullableInt32 and assigns it to the Price field.
-func (o *Item) SetPrice(v int32) {
+// SetPrice gets a reference to the given NullableInt64 and assigns it to the Price field.
+func (o *Item) SetPrice(v int64) {
 	o.Price.Set(&v)
 }
 
@@ -117,9 +117,9 @@ func (o *Item) UnsetPrice() {
 }
 
 // GetDiscount returns the Discount field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Item) GetDiscount() int32 {
+func (o *Item) GetDiscount() int64 {
 	if o == nil || IsNil(o.Discount.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Discount.Get()
@@ -128,7 +128,7 @@ func (o *Item) GetDiscount() int32 {
 // GetDiscountOk returns a tuple with the Discount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Item) GetDiscountOk() (*int32, bool) {
+func (o *Item) GetDiscountOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -144,8 +144,8 @@ func (o *Item) HasDiscount() bool {
 	return false
 }
 
-// SetDiscount gets a reference to the given NullableInt32 and assigns it to the Discount field.
-func (o *Item) SetDiscount(v int32) {
+// SetDiscount gets a reference to the given NullableInt64 and assigns it to the Discount field.
+func (o *Item) SetDiscount(v int64) {
 	o.Discount.Set(&v)
 }
 

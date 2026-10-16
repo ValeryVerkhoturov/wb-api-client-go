@@ -22,7 +22,7 @@ type TableGroupItem struct {
 	// Название предмета
 	SubjectName *string `json:"subjectName,omitempty"`
 	// ID предмета
-	SubjectId *int32 `json:"subjectId,omitempty"`
+	SubjectId *int64 `json:"subjectId,omitempty"`
 	// Бренд
 	BrandName *string `json:"brandName,omitempty"`
 	// Название ярлыка
@@ -84,9 +84,9 @@ func (o *TableGroupItem) SetSubjectName(v string) {
 }
 
 // GetSubjectId returns the SubjectId field value if set, zero value otherwise.
-func (o *TableGroupItem) GetSubjectId() int32 {
+func (o *TableGroupItem) GetSubjectId() int64 {
 	if o == nil || IsNil(o.SubjectId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SubjectId
@@ -94,7 +94,7 @@ func (o *TableGroupItem) GetSubjectId() int32 {
 
 // GetSubjectIdOk returns a tuple with the SubjectId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableGroupItem) GetSubjectIdOk() (*int32, bool) {
+func (o *TableGroupItem) GetSubjectIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.SubjectId) {
 		return nil, false
 	}
@@ -110,8 +110,8 @@ func (o *TableGroupItem) HasSubjectId() bool {
 	return false
 }
 
-// SetSubjectId gets a reference to the given int32 and assigns it to the SubjectId field.
-func (o *TableGroupItem) SetSubjectId(v int32) {
+// SetSubjectId gets a reference to the given int64 and assigns it to the SubjectId field.
+func (o *TableGroupItem) SetSubjectId(v int64) {
 	o.SubjectId = &v
 }
 

@@ -28,7 +28,7 @@ type ModelsTransitTariff struct {
 	// Тариф за транзит коробов. Если `null`, транзит для коробов недоступен
 	BoxTariff []ModelsVolumeTariff `json:"boxTariff,omitempty"`
 	// Тариф за паллету, ₽
-	PalletTariff *int32 `json:"palletTariff,omitempty"`
+	PalletTariff *int64 `json:"palletTariff,omitempty"`
 }
 
 // NewModelsTransitTariff instantiates a new ModelsTransitTariff object
@@ -178,9 +178,9 @@ func (o *ModelsTransitTariff) SetBoxTariff(v []ModelsVolumeTariff) {
 }
 
 // GetPalletTariff returns the PalletTariff field value if set, zero value otherwise.
-func (o *ModelsTransitTariff) GetPalletTariff() int32 {
+func (o *ModelsTransitTariff) GetPalletTariff() int64 {
 	if o == nil || IsNil(o.PalletTariff) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.PalletTariff
@@ -188,7 +188,7 @@ func (o *ModelsTransitTariff) GetPalletTariff() int32 {
 
 // GetPalletTariffOk returns a tuple with the PalletTariff field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsTransitTariff) GetPalletTariffOk() (*int32, bool) {
+func (o *ModelsTransitTariff) GetPalletTariffOk() (*int64, bool) {
 	if o == nil || IsNil(o.PalletTariff) {
 		return nil, false
 	}
@@ -204,8 +204,8 @@ func (o *ModelsTransitTariff) HasPalletTariff() bool {
 	return false
 }
 
-// SetPalletTariff gets a reference to the given int32 and assigns it to the PalletTariff field.
-func (o *ModelsTransitTariff) SetPalletTariff(v int32) {
+// SetPalletTariff gets a reference to the given int64 and assigns it to the PalletTariff field.
+func (o *ModelsTransitTariff) SetPalletTariff(v int64) {
 	o.PalletTariff = &v
 }
 

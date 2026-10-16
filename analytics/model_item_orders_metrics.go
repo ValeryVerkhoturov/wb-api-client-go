@@ -22,9 +22,9 @@ type ItemOrdersMetrics struct {
 	// Дата сбора статистики
 	Dt *string `json:"dt,omitempty"`
 	// Средняя позиция товара в результатах поиска
-	AvgPosition *int32 `json:"avgPosition,omitempty"`
+	AvgPosition *int64 `json:"avgPosition,omitempty"`
 	// Сколько раз товары из поиска заказали
-	Orders *int32 `json:"orders,omitempty"`
+	Orders *int64 `json:"orders,omitempty"`
 }
 
 // NewItemOrdersMetrics instantiates a new ItemOrdersMetrics object
@@ -77,9 +77,9 @@ func (o *ItemOrdersMetrics) SetDt(v string) {
 }
 
 // GetAvgPosition returns the AvgPosition field value if set, zero value otherwise.
-func (o *ItemOrdersMetrics) GetAvgPosition() int32 {
+func (o *ItemOrdersMetrics) GetAvgPosition() int64 {
 	if o == nil || IsNil(o.AvgPosition) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.AvgPosition
@@ -87,7 +87,7 @@ func (o *ItemOrdersMetrics) GetAvgPosition() int32 {
 
 // GetAvgPositionOk returns a tuple with the AvgPosition field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ItemOrdersMetrics) GetAvgPositionOk() (*int32, bool) {
+func (o *ItemOrdersMetrics) GetAvgPositionOk() (*int64, bool) {
 	if o == nil || IsNil(o.AvgPosition) {
 		return nil, false
 	}
@@ -103,15 +103,15 @@ func (o *ItemOrdersMetrics) HasAvgPosition() bool {
 	return false
 }
 
-// SetAvgPosition gets a reference to the given int32 and assigns it to the AvgPosition field.
-func (o *ItemOrdersMetrics) SetAvgPosition(v int32) {
+// SetAvgPosition gets a reference to the given int64 and assigns it to the AvgPosition field.
+func (o *ItemOrdersMetrics) SetAvgPosition(v int64) {
 	o.AvgPosition = &v
 }
 
 // GetOrders returns the Orders field value if set, zero value otherwise.
-func (o *ItemOrdersMetrics) GetOrders() int32 {
+func (o *ItemOrdersMetrics) GetOrders() int64 {
 	if o == nil || IsNil(o.Orders) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Orders
@@ -119,7 +119,7 @@ func (o *ItemOrdersMetrics) GetOrders() int32 {
 
 // GetOrdersOk returns a tuple with the Orders field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ItemOrdersMetrics) GetOrdersOk() (*int32, bool) {
+func (o *ItemOrdersMetrics) GetOrdersOk() (*int64, bool) {
 	if o == nil || IsNil(o.Orders) {
 		return nil, false
 	}
@@ -135,8 +135,8 @@ func (o *ItemOrdersMetrics) HasOrders() bool {
 	return false
 }
 
-// SetOrders gets a reference to the given int32 and assigns it to the Orders field.
-func (o *ItemOrdersMetrics) SetOrders(v int32) {
+// SetOrders gets a reference to the given int64 and assigns it to the Orders field.
+func (o *ItemOrdersMetrics) SetOrders(v int64) {
 	o.Orders = &v
 }
 

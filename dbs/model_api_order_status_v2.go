@@ -22,7 +22,7 @@ type ApiOrderStatusV2 struct {
 	// Информация об ошибке
 	Errors []ApiBatchErrorResponse `json:"errors,omitempty"`
 	// ID сборочного задания
-	OrderId *int32 `json:"orderId,omitempty"`
+	OrderId *int64 `json:"orderId,omitempty"`
 	// Статус сборочного задания, установленный продавцом
 	SupplierStatus *string `json:"supplierStatus,omitempty"`
 	// Статус сборочного задания в системе Wildberries
@@ -79,9 +79,9 @@ func (o *ApiOrderStatusV2) SetErrors(v []ApiBatchErrorResponse) {
 }
 
 // GetOrderId returns the OrderId field value if set, zero value otherwise.
-func (o *ApiOrderStatusV2) GetOrderId() int32 {
+func (o *ApiOrderStatusV2) GetOrderId() int64 {
 	if o == nil || IsNil(o.OrderId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OrderId
@@ -89,7 +89,7 @@ func (o *ApiOrderStatusV2) GetOrderId() int32 {
 
 // GetOrderIdOk returns a tuple with the OrderId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiOrderStatusV2) GetOrderIdOk() (*int32, bool) {
+func (o *ApiOrderStatusV2) GetOrderIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.OrderId) {
 		return nil, false
 	}
@@ -105,8 +105,8 @@ func (o *ApiOrderStatusV2) HasOrderId() bool {
 	return false
 }
 
-// SetOrderId gets a reference to the given int32 and assigns it to the OrderId field.
-func (o *ApiOrderStatusV2) SetOrderId(v int32) {
+// SetOrderId gets a reference to the given int64 and assigns it to the OrderId field.
+func (o *ApiOrderStatusV2) SetOrderId(v int64) {
 	o.OrderId = &v
 }
 

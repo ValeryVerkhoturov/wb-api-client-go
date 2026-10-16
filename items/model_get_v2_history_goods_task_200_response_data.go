@@ -20,7 +20,7 @@ var _ MappedNullable = &GetV2HistoryGoodsTask200ResponseData{}
 // GetV2HistoryGoodsTask200ResponseData Данные ответа
 type GetV2HistoryGoodsTask200ResponseData struct {
 	// ID загрузки
-	UploadID NullableInt32 `json:"uploadID,omitempty"`
+	UploadID NullableInt64 `json:"uploadID,omitempty"`
 	// Информация о товарах в загрузке
 	HistoryGoods []GoodHistory `json:"historyGoods,omitempty"`
 }
@@ -43,9 +43,9 @@ func NewGetV2HistoryGoodsTask200ResponseDataWithDefaults() *GetV2HistoryGoodsTas
 }
 
 // GetUploadID returns the UploadID field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GetV2HistoryGoodsTask200ResponseData) GetUploadID() int32 {
+func (o *GetV2HistoryGoodsTask200ResponseData) GetUploadID() int64 {
 	if o == nil || IsNil(o.UploadID.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.UploadID.Get()
@@ -54,7 +54,7 @@ func (o *GetV2HistoryGoodsTask200ResponseData) GetUploadID() int32 {
 // GetUploadIDOk returns a tuple with the UploadID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GetV2HistoryGoodsTask200ResponseData) GetUploadIDOk() (*int32, bool) {
+func (o *GetV2HistoryGoodsTask200ResponseData) GetUploadIDOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -70,8 +70,8 @@ func (o *GetV2HistoryGoodsTask200ResponseData) HasUploadID() bool {
 	return false
 }
 
-// SetUploadID gets a reference to the given NullableInt32 and assigns it to the UploadID field.
-func (o *GetV2HistoryGoodsTask200ResponseData) SetUploadID(v int32) {
+// SetUploadID gets a reference to the given NullableInt64 and assigns it to the UploadID field.
+func (o *GetV2HistoryGoodsTask200ResponseData) SetUploadID(v int64) {
 	o.UploadID.Set(&v)
 }
 

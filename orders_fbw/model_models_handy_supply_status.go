@@ -16,7 +16,7 @@ import (
 )
 
 // ModelsHandySupplyStatus the model 'ModelsHandySupplyStatus'
-type ModelsHandySupplyStatus int32
+type ModelsHandySupplyStatus int64
 
 // List of models.HandySupplyStatus
 const (
@@ -39,7 +39,7 @@ var AllowedModelsHandySupplyStatusEnumValues = []ModelsHandySupplyStatus{
 }
 
 func (v *ModelsHandySupplyStatus) UnmarshalJSON(src []byte) error {
-	var value int32
+	var value int64
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -57,7 +57,7 @@ func (v *ModelsHandySupplyStatus) UnmarshalJSON(src []byte) error {
 
 // NewModelsHandySupplyStatusFromValue returns a pointer to a valid ModelsHandySupplyStatus
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewModelsHandySupplyStatusFromValue(v int32) (*ModelsHandySupplyStatus, error) {
+func NewModelsHandySupplyStatusFromValue(v int64) (*ModelsHandySupplyStatus, error) {
 	ev := ModelsHandySupplyStatus(v)
 	if ev.IsValid() {
 		return &ev, nil

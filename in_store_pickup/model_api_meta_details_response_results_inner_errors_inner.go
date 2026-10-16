@@ -20,7 +20,7 @@ var _ MappedNullable = &ApiMetaDetailsResponseResultsInnerErrorsInner{}
 // ApiMetaDetailsResponseResultsInnerErrorsInner struct for ApiMetaDetailsResponseResultsInnerErrorsInner
 type ApiMetaDetailsResponseResultsInnerErrorsInner struct {
 	// Код ошибки
-	Code *int32 `json:"code,omitempty"`
+	Code *int64 `json:"code,omitempty"`
 	// - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `MetaValidationFail` — идентификаторы маркировки не прошли проверку
 	Detail *string `json:"detail,omitempty"`
 	// Ошибки проверки идентификаторов маркировки
@@ -45,9 +45,9 @@ func NewApiMetaDetailsResponseResultsInnerErrorsInnerWithDefaults() *ApiMetaDeta
 }
 
 // GetCode returns the Code field value if set, zero value otherwise.
-func (o *ApiMetaDetailsResponseResultsInnerErrorsInner) GetCode() int32 {
+func (o *ApiMetaDetailsResponseResultsInnerErrorsInner) GetCode() int64 {
 	if o == nil || IsNil(o.Code) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Code
@@ -55,7 +55,7 @@ func (o *ApiMetaDetailsResponseResultsInnerErrorsInner) GetCode() int32 {
 
 // GetCodeOk returns a tuple with the Code field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiMetaDetailsResponseResultsInnerErrorsInner) GetCodeOk() (*int32, bool) {
+func (o *ApiMetaDetailsResponseResultsInnerErrorsInner) GetCodeOk() (*int64, bool) {
 	if o == nil || IsNil(o.Code) {
 		return nil, false
 	}
@@ -71,8 +71,8 @@ func (o *ApiMetaDetailsResponseResultsInnerErrorsInner) HasCode() bool {
 	return false
 }
 
-// SetCode gets a reference to the given int32 and assigns it to the Code field.
-func (o *ApiMetaDetailsResponseResultsInnerErrorsInner) SetCode(v int32) {
+// SetCode gets a reference to the given int64 and assigns it to the Code field.
+func (o *ApiMetaDetailsResponseResultsInnerErrorsInner) SetCode(v int64) {
 	o.Code = &v
 }
 

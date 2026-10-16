@@ -20,15 +20,15 @@ var _ MappedNullable = &OpenapiSellerLimit{}
 // OpenapiSellerLimit struct for OpenapiSellerLimit
 type OpenapiSellerLimit struct {
 	// Максимальное количество закреплённых отзывов в одной карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек
-	PerUnitLimit *int32 `json:"perUnitLimit,omitempty"`
+	PerUnitLimit *int64 `json:"perUnitLimit,omitempty"`
 	// Сколько ещё отзывов можно закрепить
-	Remaining *int32 `json:"remaining,omitempty"`
+	Remaining *int64 `json:"remaining,omitempty"`
 	// Общий лимит закреплений
-	TotalLimit *int32 `json:"totalLimit,omitempty"`
+	TotalLimit *int64 `json:"totalLimit,omitempty"`
 	// Количество закреплённых отзывов не ограничено:   - `true` — да   - `false` — нет
 	Unlimited *bool `json:"unlimited,omitempty"`
 	// Текущее количество закреплённых отзывов
-	Used *int32 `json:"used,omitempty"`
+	Used *int64 `json:"used,omitempty"`
 }
 
 // NewOpenapiSellerLimit instantiates a new OpenapiSellerLimit object
@@ -49,9 +49,9 @@ func NewOpenapiSellerLimitWithDefaults() *OpenapiSellerLimit {
 }
 
 // GetPerUnitLimit returns the PerUnitLimit field value if set, zero value otherwise.
-func (o *OpenapiSellerLimit) GetPerUnitLimit() int32 {
+func (o *OpenapiSellerLimit) GetPerUnitLimit() int64 {
 	if o == nil || IsNil(o.PerUnitLimit) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.PerUnitLimit
@@ -59,7 +59,7 @@ func (o *OpenapiSellerLimit) GetPerUnitLimit() int32 {
 
 // GetPerUnitLimitOk returns a tuple with the PerUnitLimit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OpenapiSellerLimit) GetPerUnitLimitOk() (*int32, bool) {
+func (o *OpenapiSellerLimit) GetPerUnitLimitOk() (*int64, bool) {
 	if o == nil || IsNil(o.PerUnitLimit) {
 		return nil, false
 	}
@@ -75,15 +75,15 @@ func (o *OpenapiSellerLimit) HasPerUnitLimit() bool {
 	return false
 }
 
-// SetPerUnitLimit gets a reference to the given int32 and assigns it to the PerUnitLimit field.
-func (o *OpenapiSellerLimit) SetPerUnitLimit(v int32) {
+// SetPerUnitLimit gets a reference to the given int64 and assigns it to the PerUnitLimit field.
+func (o *OpenapiSellerLimit) SetPerUnitLimit(v int64) {
 	o.PerUnitLimit = &v
 }
 
 // GetRemaining returns the Remaining field value if set, zero value otherwise.
-func (o *OpenapiSellerLimit) GetRemaining() int32 {
+func (o *OpenapiSellerLimit) GetRemaining() int64 {
 	if o == nil || IsNil(o.Remaining) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Remaining
@@ -91,7 +91,7 @@ func (o *OpenapiSellerLimit) GetRemaining() int32 {
 
 // GetRemainingOk returns a tuple with the Remaining field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OpenapiSellerLimit) GetRemainingOk() (*int32, bool) {
+func (o *OpenapiSellerLimit) GetRemainingOk() (*int64, bool) {
 	if o == nil || IsNil(o.Remaining) {
 		return nil, false
 	}
@@ -107,15 +107,15 @@ func (o *OpenapiSellerLimit) HasRemaining() bool {
 	return false
 }
 
-// SetRemaining gets a reference to the given int32 and assigns it to the Remaining field.
-func (o *OpenapiSellerLimit) SetRemaining(v int32) {
+// SetRemaining gets a reference to the given int64 and assigns it to the Remaining field.
+func (o *OpenapiSellerLimit) SetRemaining(v int64) {
 	o.Remaining = &v
 }
 
 // GetTotalLimit returns the TotalLimit field value if set, zero value otherwise.
-func (o *OpenapiSellerLimit) GetTotalLimit() int32 {
+func (o *OpenapiSellerLimit) GetTotalLimit() int64 {
 	if o == nil || IsNil(o.TotalLimit) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.TotalLimit
@@ -123,7 +123,7 @@ func (o *OpenapiSellerLimit) GetTotalLimit() int32 {
 
 // GetTotalLimitOk returns a tuple with the TotalLimit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OpenapiSellerLimit) GetTotalLimitOk() (*int32, bool) {
+func (o *OpenapiSellerLimit) GetTotalLimitOk() (*int64, bool) {
 	if o == nil || IsNil(o.TotalLimit) {
 		return nil, false
 	}
@@ -139,8 +139,8 @@ func (o *OpenapiSellerLimit) HasTotalLimit() bool {
 	return false
 }
 
-// SetTotalLimit gets a reference to the given int32 and assigns it to the TotalLimit field.
-func (o *OpenapiSellerLimit) SetTotalLimit(v int32) {
+// SetTotalLimit gets a reference to the given int64 and assigns it to the TotalLimit field.
+func (o *OpenapiSellerLimit) SetTotalLimit(v int64) {
 	o.TotalLimit = &v
 }
 
@@ -177,9 +177,9 @@ func (o *OpenapiSellerLimit) SetUnlimited(v bool) {
 }
 
 // GetUsed returns the Used field value if set, zero value otherwise.
-func (o *OpenapiSellerLimit) GetUsed() int32 {
+func (o *OpenapiSellerLimit) GetUsed() int64 {
 	if o == nil || IsNil(o.Used) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Used
@@ -187,7 +187,7 @@ func (o *OpenapiSellerLimit) GetUsed() int32 {
 
 // GetUsedOk returns a tuple with the Used field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OpenapiSellerLimit) GetUsedOk() (*int32, bool) {
+func (o *OpenapiSellerLimit) GetUsedOk() (*int64, bool) {
 	if o == nil || IsNil(o.Used) {
 		return nil, false
 	}
@@ -203,8 +203,8 @@ func (o *OpenapiSellerLimit) HasUsed() bool {
 	return false
 }
 
-// SetUsed gets a reference to the given int32 and assigns it to the Used field.
-func (o *OpenapiSellerLimit) SetUsed(v int32) {
+// SetUsed gets a reference to the given int64 and assigns it to the Used field.
+func (o *OpenapiSellerLimit) SetUsed(v int64) {
 	o.Used = &v
 }
 

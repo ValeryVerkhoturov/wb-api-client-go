@@ -36,7 +36,7 @@ type OrdersItem struct {
 	// Артикул продавца
 	SupplierArticle *string `json:"supplierArticle,omitempty"`
 	// Артикул WB
-	NmId *int32 `json:"nmId,omitempty"`
+	NmId *int64 `json:"nmId,omitempty"`
 	// Баркод
 	Barcode *string `json:"barcode,omitempty"`
 	// Категория
@@ -48,7 +48,7 @@ type OrdersItem struct {
 	// Размер товара
 	TechSize *string `json:"techSize,omitempty"`
 	// Номер поставки
-	IncomeID *int32 `json:"incomeID,omitempty"`
+	IncomeID *int64 `json:"incomeID,omitempty"`
 	// Договор поставки
 	IsSupply *bool `json:"isSupply,omitempty"`
 	// Договор реализации
@@ -56,7 +56,7 @@ type OrdersItem struct {
 	// Цена без скидок
 	TotalPrice *float32 `json:"totalPrice,omitempty"`
 	// Скидка продавца, %
-	DiscountPercent *int32 `json:"discountPercent,omitempty"`
+	DiscountPercent *int64 `json:"discountPercent,omitempty"`
 	// Скидка WB, %
 	Spp *float32 `json:"spp,omitempty"`
 	// Цена с учетом всех скидок, кроме суммы по WB Кошельку
@@ -349,9 +349,9 @@ func (o *OrdersItem) SetSupplierArticle(v string) {
 }
 
 // GetNmId returns the NmId field value if set, zero value otherwise.
-func (o *OrdersItem) GetNmId() int32 {
+func (o *OrdersItem) GetNmId() int64 {
 	if o == nil || IsNil(o.NmId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmId
@@ -359,7 +359,7 @@ func (o *OrdersItem) GetNmId() int32 {
 
 // GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OrdersItem) GetNmIdOk() (*int32, bool) {
+func (o *OrdersItem) GetNmIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
@@ -375,8 +375,8 @@ func (o *OrdersItem) HasNmId() bool {
 	return false
 }
 
-// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
-func (o *OrdersItem) SetNmId(v int32) {
+// SetNmId gets a reference to the given int64 and assigns it to the NmId field.
+func (o *OrdersItem) SetNmId(v int64) {
 	o.NmId = &v
 }
 
@@ -541,9 +541,9 @@ func (o *OrdersItem) SetTechSize(v string) {
 }
 
 // GetIncomeID returns the IncomeID field value if set, zero value otherwise.
-func (o *OrdersItem) GetIncomeID() int32 {
+func (o *OrdersItem) GetIncomeID() int64 {
 	if o == nil || IsNil(o.IncomeID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.IncomeID
@@ -551,7 +551,7 @@ func (o *OrdersItem) GetIncomeID() int32 {
 
 // GetIncomeIDOk returns a tuple with the IncomeID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OrdersItem) GetIncomeIDOk() (*int32, bool) {
+func (o *OrdersItem) GetIncomeIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.IncomeID) {
 		return nil, false
 	}
@@ -567,8 +567,8 @@ func (o *OrdersItem) HasIncomeID() bool {
 	return false
 }
 
-// SetIncomeID gets a reference to the given int32 and assigns it to the IncomeID field.
-func (o *OrdersItem) SetIncomeID(v int32) {
+// SetIncomeID gets a reference to the given int64 and assigns it to the IncomeID field.
+func (o *OrdersItem) SetIncomeID(v int64) {
 	o.IncomeID = &v
 }
 
@@ -669,9 +669,9 @@ func (o *OrdersItem) SetTotalPrice(v float32) {
 }
 
 // GetDiscountPercent returns the DiscountPercent field value if set, zero value otherwise.
-func (o *OrdersItem) GetDiscountPercent() int32 {
+func (o *OrdersItem) GetDiscountPercent() int64 {
 	if o == nil || IsNil(o.DiscountPercent) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.DiscountPercent
@@ -679,7 +679,7 @@ func (o *OrdersItem) GetDiscountPercent() int32 {
 
 // GetDiscountPercentOk returns a tuple with the DiscountPercent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OrdersItem) GetDiscountPercentOk() (*int32, bool) {
+func (o *OrdersItem) GetDiscountPercentOk() (*int64, bool) {
 	if o == nil || IsNil(o.DiscountPercent) {
 		return nil, false
 	}
@@ -695,8 +695,8 @@ func (o *OrdersItem) HasDiscountPercent() bool {
 	return false
 }
 
-// SetDiscountPercent gets a reference to the given int32 and assigns it to the DiscountPercent field.
-func (o *OrdersItem) SetDiscountPercent(v int32) {
+// SetDiscountPercent gets a reference to the given int64 and assigns it to the DiscountPercent field.
+func (o *OrdersItem) SetDiscountPercent(v int64) {
 	o.DiscountPercent = &v
 }
 

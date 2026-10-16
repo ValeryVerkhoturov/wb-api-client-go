@@ -20,9 +20,9 @@ var _ MappedNullable = &ModelsVolumeTariff{}
 // ModelsVolumeTariff struct for ModelsVolumeTariff
 type ModelsVolumeTariff struct {
 	// Объём поставки от, литры
-	From *int32 `json:"from,omitempty"`
+	From *int64 `json:"from,omitempty"`
 	// Объём поставки до, литры
-	To *int32 `json:"to,omitempty"`
+	To *int64 `json:"to,omitempty"`
 	// Тариф, ₽ за литр
 	Value *float32 `json:"value,omitempty"`
 }
@@ -45,9 +45,9 @@ func NewModelsVolumeTariffWithDefaults() *ModelsVolumeTariff {
 }
 
 // GetFrom returns the From field value if set, zero value otherwise.
-func (o *ModelsVolumeTariff) GetFrom() int32 {
+func (o *ModelsVolumeTariff) GetFrom() int64 {
 	if o == nil || IsNil(o.From) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.From
@@ -55,7 +55,7 @@ func (o *ModelsVolumeTariff) GetFrom() int32 {
 
 // GetFromOk returns a tuple with the From field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsVolumeTariff) GetFromOk() (*int32, bool) {
+func (o *ModelsVolumeTariff) GetFromOk() (*int64, bool) {
 	if o == nil || IsNil(o.From) {
 		return nil, false
 	}
@@ -71,15 +71,15 @@ func (o *ModelsVolumeTariff) HasFrom() bool {
 	return false
 }
 
-// SetFrom gets a reference to the given int32 and assigns it to the From field.
-func (o *ModelsVolumeTariff) SetFrom(v int32) {
+// SetFrom gets a reference to the given int64 and assigns it to the From field.
+func (o *ModelsVolumeTariff) SetFrom(v int64) {
 	o.From = &v
 }
 
 // GetTo returns the To field value if set, zero value otherwise.
-func (o *ModelsVolumeTariff) GetTo() int32 {
+func (o *ModelsVolumeTariff) GetTo() int64 {
 	if o == nil || IsNil(o.To) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.To
@@ -87,7 +87,7 @@ func (o *ModelsVolumeTariff) GetTo() int32 {
 
 // GetToOk returns a tuple with the To field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsVolumeTariff) GetToOk() (*int32, bool) {
+func (o *ModelsVolumeTariff) GetToOk() (*int64, bool) {
 	if o == nil || IsNil(o.To) {
 		return nil, false
 	}
@@ -103,8 +103,8 @@ func (o *ModelsVolumeTariff) HasTo() bool {
 	return false
 }
 
-// SetTo gets a reference to the given int32 and assigns it to the To field.
-func (o *ModelsVolumeTariff) SetTo(v int32) {
+// SetTo gets a reference to the given int64 and assigns it to the To field.
+func (o *ModelsVolumeTariff) SetTo(v int64) {
 	o.To = &v
 }
 

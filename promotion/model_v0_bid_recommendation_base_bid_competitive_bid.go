@@ -20,7 +20,7 @@ var _ MappedNullable = &V0BidRecommendationBaseBidCompetitiveBid{}
 // V0BidRecommendationBaseBidCompetitiveBid Конкурентная ставка — расчётная средняя ставка других продавцов, продающих аналогичные товары по похожей цене. У половины продавцов из расчёта ставка выше конкурентной, а другой половины — ниже
 type V0BidRecommendationBaseBidCompetitiveBid struct {
 	// Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
-	BidKopecks *int32 `json:"bidKopecks,omitempty"`
+	BidKopecks *int64 `json:"bidKopecks,omitempty"`
 }
 
 // NewV0BidRecommendationBaseBidCompetitiveBid instantiates a new V0BidRecommendationBaseBidCompetitiveBid object
@@ -41,9 +41,9 @@ func NewV0BidRecommendationBaseBidCompetitiveBidWithDefaults() *V0BidRecommendat
 }
 
 // GetBidKopecks returns the BidKopecks field value if set, zero value otherwise.
-func (o *V0BidRecommendationBaseBidCompetitiveBid) GetBidKopecks() int32 {
+func (o *V0BidRecommendationBaseBidCompetitiveBid) GetBidKopecks() int64 {
 	if o == nil || IsNil(o.BidKopecks) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.BidKopecks
@@ -51,7 +51,7 @@ func (o *V0BidRecommendationBaseBidCompetitiveBid) GetBidKopecks() int32 {
 
 // GetBidKopecksOk returns a tuple with the BidKopecks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V0BidRecommendationBaseBidCompetitiveBid) GetBidKopecksOk() (*int32, bool) {
+func (o *V0BidRecommendationBaseBidCompetitiveBid) GetBidKopecksOk() (*int64, bool) {
 	if o == nil || IsNil(o.BidKopecks) {
 		return nil, false
 	}
@@ -67,8 +67,8 @@ func (o *V0BidRecommendationBaseBidCompetitiveBid) HasBidKopecks() bool {
 	return false
 }
 
-// SetBidKopecks gets a reference to the given int32 and assigns it to the BidKopecks field.
-func (o *V0BidRecommendationBaseBidCompetitiveBid) SetBidKopecks(v int32) {
+// SetBidKopecks gets a reference to the given int64 and assigns it to the BidKopecks field.
+func (o *V0BidRecommendationBaseBidCompetitiveBid) SetBidKopecks(v int64) {
 	o.BidKopecks = &v
 }
 

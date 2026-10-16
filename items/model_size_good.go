@@ -20,13 +20,13 @@ var _ MappedNullable = &SizeGood{}
 // SizeGood Информация о размере
 type SizeGood struct {
 	// Артикул WB
-	NmID *int32 `json:"nmID,omitempty"`
+	NmID *int64 `json:"nmID,omitempty"`
 	// ID размера. Можно получить с помощью метода [Получение списка товаров по артикулам](./item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter), поле `sizeID`. В методах Контента это поле `chrtID`
-	SizeID *int32 `json:"sizeID,omitempty"`
+	SizeID *int64 `json:"sizeID,omitempty"`
 	// Артикул продавца
 	VendorCode *string `json:"vendorCode,omitempty"`
 	// Цена
-	Price *int32 `json:"price,omitempty"`
+	Price *int64 `json:"price,omitempty"`
 	// Валюта, по стандарту ISO 4217
 	CurrencyIsoCode4217 *string `json:"currencyIsoCode4217,omitempty"`
 	// Цена со скидкой
@@ -34,9 +34,9 @@ type SizeGood struct {
 	// Цена со скидкой, включая скидку WB Клуба
 	ClubDiscountedPrice *float32 `json:"clubDiscountedPrice,omitempty"`
 	// Скидка, %
-	Discount *int32 `json:"discount,omitempty"`
+	Discount *int64 `json:"discount,omitempty"`
 	// Скидка WB Клуба, %
-	ClubDiscount *int32 `json:"clubDiscount,omitempty"`
+	ClubDiscount *int64 `json:"clubDiscount,omitempty"`
 	// Размер товара
 	TechSizeName *string `json:"techSizeName,omitempty"`
 	// Можно ли устанавливать цены отдельно для разных размеров (зависит от категории товара):   - `true` — можно   - `false` — нельзя
@@ -61,9 +61,9 @@ func NewSizeGoodWithDefaults() *SizeGood {
 }
 
 // GetNmID returns the NmID field value if set, zero value otherwise.
-func (o *SizeGood) GetNmID() int32 {
+func (o *SizeGood) GetNmID() int64 {
 	if o == nil || IsNil(o.NmID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NmID
@@ -71,7 +71,7 @@ func (o *SizeGood) GetNmID() int32 {
 
 // GetNmIDOk returns a tuple with the NmID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SizeGood) GetNmIDOk() (*int32, bool) {
+func (o *SizeGood) GetNmIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmID) {
 		return nil, false
 	}
@@ -87,15 +87,15 @@ func (o *SizeGood) HasNmID() bool {
 	return false
 }
 
-// SetNmID gets a reference to the given int32 and assigns it to the NmID field.
-func (o *SizeGood) SetNmID(v int32) {
+// SetNmID gets a reference to the given int64 and assigns it to the NmID field.
+func (o *SizeGood) SetNmID(v int64) {
 	o.NmID = &v
 }
 
 // GetSizeID returns the SizeID field value if set, zero value otherwise.
-func (o *SizeGood) GetSizeID() int32 {
+func (o *SizeGood) GetSizeID() int64 {
 	if o == nil || IsNil(o.SizeID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SizeID
@@ -103,7 +103,7 @@ func (o *SizeGood) GetSizeID() int32 {
 
 // GetSizeIDOk returns a tuple with the SizeID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SizeGood) GetSizeIDOk() (*int32, bool) {
+func (o *SizeGood) GetSizeIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.SizeID) {
 		return nil, false
 	}
@@ -119,8 +119,8 @@ func (o *SizeGood) HasSizeID() bool {
 	return false
 }
 
-// SetSizeID gets a reference to the given int32 and assigns it to the SizeID field.
-func (o *SizeGood) SetSizeID(v int32) {
+// SetSizeID gets a reference to the given int64 and assigns it to the SizeID field.
+func (o *SizeGood) SetSizeID(v int64) {
 	o.SizeID = &v
 }
 
@@ -157,9 +157,9 @@ func (o *SizeGood) SetVendorCode(v string) {
 }
 
 // GetPrice returns the Price field value if set, zero value otherwise.
-func (o *SizeGood) GetPrice() int32 {
+func (o *SizeGood) GetPrice() int64 {
 	if o == nil || IsNil(o.Price) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Price
@@ -167,7 +167,7 @@ func (o *SizeGood) GetPrice() int32 {
 
 // GetPriceOk returns a tuple with the Price field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SizeGood) GetPriceOk() (*int32, bool) {
+func (o *SizeGood) GetPriceOk() (*int64, bool) {
 	if o == nil || IsNil(o.Price) {
 		return nil, false
 	}
@@ -183,8 +183,8 @@ func (o *SizeGood) HasPrice() bool {
 	return false
 }
 
-// SetPrice gets a reference to the given int32 and assigns it to the Price field.
-func (o *SizeGood) SetPrice(v int32) {
+// SetPrice gets a reference to the given int64 and assigns it to the Price field.
+func (o *SizeGood) SetPrice(v int64) {
 	o.Price = &v
 }
 
@@ -285,9 +285,9 @@ func (o *SizeGood) SetClubDiscountedPrice(v float32) {
 }
 
 // GetDiscount returns the Discount field value if set, zero value otherwise.
-func (o *SizeGood) GetDiscount() int32 {
+func (o *SizeGood) GetDiscount() int64 {
 	if o == nil || IsNil(o.Discount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Discount
@@ -295,7 +295,7 @@ func (o *SizeGood) GetDiscount() int32 {
 
 // GetDiscountOk returns a tuple with the Discount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SizeGood) GetDiscountOk() (*int32, bool) {
+func (o *SizeGood) GetDiscountOk() (*int64, bool) {
 	if o == nil || IsNil(o.Discount) {
 		return nil, false
 	}
@@ -311,15 +311,15 @@ func (o *SizeGood) HasDiscount() bool {
 	return false
 }
 
-// SetDiscount gets a reference to the given int32 and assigns it to the Discount field.
-func (o *SizeGood) SetDiscount(v int32) {
+// SetDiscount gets a reference to the given int64 and assigns it to the Discount field.
+func (o *SizeGood) SetDiscount(v int64) {
 	o.Discount = &v
 }
 
 // GetClubDiscount returns the ClubDiscount field value if set, zero value otherwise.
-func (o *SizeGood) GetClubDiscount() int32 {
+func (o *SizeGood) GetClubDiscount() int64 {
 	if o == nil || IsNil(o.ClubDiscount) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ClubDiscount
@@ -327,7 +327,7 @@ func (o *SizeGood) GetClubDiscount() int32 {
 
 // GetClubDiscountOk returns a tuple with the ClubDiscount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SizeGood) GetClubDiscountOk() (*int32, bool) {
+func (o *SizeGood) GetClubDiscountOk() (*int64, bool) {
 	if o == nil || IsNil(o.ClubDiscount) {
 		return nil, false
 	}
@@ -343,8 +343,8 @@ func (o *SizeGood) HasClubDiscount() bool {
 	return false
 }
 
-// SetClubDiscount gets a reference to the given int32 and assigns it to the ClubDiscount field.
-func (o *SizeGood) SetClubDiscount(v int32) {
+// SetClubDiscount gets a reference to the given int64 and assigns it to the ClubDiscount field.
+func (o *SizeGood) SetClubDiscount(v int64) {
 	o.ClubDiscount = &v
 }
 

@@ -20,9 +20,9 @@ var _ MappedNullable = &TableSearchTextItemAllOfMedianPosition{}
 // TableSearchTextItemAllOfMedianPosition Медианная позиция. Учитываются только те позиции, из которых пользователи добавляли товар в корзину или переходили в его карточку. Серединное значение позиции в поисковой выдаче, которое исключает сильные отклонения данных от среднего значения
 type TableSearchTextItemAllOfMedianPosition struct {
 	// Текущая медианная позиция
-	Current *int32 `json:"current,omitempty"`
+	Current *int64 `json:"current,omitempty"`
 	// Динамика по сравнению с предыдущим периодом, %
-	Dynamics *int32 `json:"dynamics,omitempty"`
+	Dynamics *int64 `json:"dynamics,omitempty"`
 }
 
 // NewTableSearchTextItemAllOfMedianPosition instantiates a new TableSearchTextItemAllOfMedianPosition object
@@ -43,9 +43,9 @@ func NewTableSearchTextItemAllOfMedianPositionWithDefaults() *TableSearchTextIte
 }
 
 // GetCurrent returns the Current field value if set, zero value otherwise.
-func (o *TableSearchTextItemAllOfMedianPosition) GetCurrent() int32 {
+func (o *TableSearchTextItemAllOfMedianPosition) GetCurrent() int64 {
 	if o == nil || IsNil(o.Current) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Current
@@ -53,7 +53,7 @@ func (o *TableSearchTextItemAllOfMedianPosition) GetCurrent() int32 {
 
 // GetCurrentOk returns a tuple with the Current field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableSearchTextItemAllOfMedianPosition) GetCurrentOk() (*int32, bool) {
+func (o *TableSearchTextItemAllOfMedianPosition) GetCurrentOk() (*int64, bool) {
 	if o == nil || IsNil(o.Current) {
 		return nil, false
 	}
@@ -69,15 +69,15 @@ func (o *TableSearchTextItemAllOfMedianPosition) HasCurrent() bool {
 	return false
 }
 
-// SetCurrent gets a reference to the given int32 and assigns it to the Current field.
-func (o *TableSearchTextItemAllOfMedianPosition) SetCurrent(v int32) {
+// SetCurrent gets a reference to the given int64 and assigns it to the Current field.
+func (o *TableSearchTextItemAllOfMedianPosition) SetCurrent(v int64) {
 	o.Current = &v
 }
 
 // GetDynamics returns the Dynamics field value if set, zero value otherwise.
-func (o *TableSearchTextItemAllOfMedianPosition) GetDynamics() int32 {
+func (o *TableSearchTextItemAllOfMedianPosition) GetDynamics() int64 {
 	if o == nil || IsNil(o.Dynamics) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Dynamics
@@ -85,7 +85,7 @@ func (o *TableSearchTextItemAllOfMedianPosition) GetDynamics() int32 {
 
 // GetDynamicsOk returns a tuple with the Dynamics field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableSearchTextItemAllOfMedianPosition) GetDynamicsOk() (*int32, bool) {
+func (o *TableSearchTextItemAllOfMedianPosition) GetDynamicsOk() (*int64, bool) {
 	if o == nil || IsNil(o.Dynamics) {
 		return nil, false
 	}
@@ -101,8 +101,8 @@ func (o *TableSearchTextItemAllOfMedianPosition) HasDynamics() bool {
 	return false
 }
 
-// SetDynamics gets a reference to the given int32 and assigns it to the Dynamics field.
-func (o *TableSearchTextItemAllOfMedianPosition) SetDynamics(v int32) {
+// SetDynamics gets a reference to the given int64 and assigns it to the Dynamics field.
+func (o *TableSearchTextItemAllOfMedianPosition) SetDynamics(v int64) {
 	o.Dynamics = &v
 }
 

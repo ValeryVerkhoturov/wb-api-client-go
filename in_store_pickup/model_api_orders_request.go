@@ -20,7 +20,7 @@ var _ MappedNullable = &ApiOrdersRequest{}
 // ApiOrdersRequest struct for ApiOrdersRequest
 type ApiOrdersRequest struct {
 	// Список ID сборочных заданий
-	Orders []int32 `json:"orders,omitempty"`
+	Orders []int64 `json:"orders,omitempty"`
 }
 
 // NewApiOrdersRequest instantiates a new ApiOrdersRequest object
@@ -41,9 +41,9 @@ func NewApiOrdersRequestWithDefaults() *ApiOrdersRequest {
 }
 
 // GetOrders returns the Orders field value if set, zero value otherwise.
-func (o *ApiOrdersRequest) GetOrders() []int32 {
+func (o *ApiOrdersRequest) GetOrders() []int64 {
 	if o == nil || IsNil(o.Orders) {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.Orders
@@ -51,7 +51,7 @@ func (o *ApiOrdersRequest) GetOrders() []int32 {
 
 // GetOrdersOk returns a tuple with the Orders field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiOrdersRequest) GetOrdersOk() ([]int32, bool) {
+func (o *ApiOrdersRequest) GetOrdersOk() ([]int64, bool) {
 	if o == nil || IsNil(o.Orders) {
 		return nil, false
 	}
@@ -67,8 +67,8 @@ func (o *ApiOrdersRequest) HasOrders() bool {
 	return false
 }
 
-// SetOrders gets a reference to the given []int32 and assigns it to the Orders field.
-func (o *ApiOrdersRequest) SetOrders(v []int32) {
+// SetOrders gets a reference to the given []int64 and assigns it to the Orders field.
+func (o *ApiOrdersRequest) SetOrders(v []int64) {
 	o.Orders = v
 }
 
