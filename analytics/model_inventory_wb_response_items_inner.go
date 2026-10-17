@@ -23,11 +23,11 @@ type InventoryWbResponseItemsInner struct {
 	NmId *int64 `json:"nmId,omitempty"`
 	// ID размера
 	ChrtId *int64 `json:"chrtId,omitempty"`
-	// ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `-999999`
+	// ID склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `-999999`
 	WarehouseId *int64 `json:"warehouseId,omitempty"`
-	// Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB`
+	// Название склада. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB`
 	WarehouseName *string `json:"warehouseName,omitempty"`
-	// Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB`
+	// Регион отгрузки. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB`
 	RegionName *string `json:"regionName,omitempty"`
 	// Количество товара на складе, доступное клиентам для добавления в корзину
 	Quantity *int64 `json:"quantity,omitempty"`
