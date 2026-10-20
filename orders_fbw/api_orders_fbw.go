@@ -250,7 +250,7 @@ type OrdersFbwAPI interface {
 	/*
 			GetV1TransitTariffs Транзитные направления
 
-			Метод ]временно отключён](https://dev.wildberries.ru/release-notes?id=570)
+			Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
 
 		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 		| Тип | Период | Лимит | Интервал | Всплеск |
@@ -274,7 +274,7 @@ type OrdersFbwAPI interface {
 	/*
 			GetV1Warehouses Список складов
 
-			Метод ]временно отключён](https://dev.wildberries.ru/release-notes?id=570)
+			Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
 
 		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 		| Тип | Период | Лимит | Интервал | Всплеск |
@@ -302,7 +302,7 @@ type OrdersFbwAPI interface {
 	/*
 			PostV1AcceptanceOptions Опции приёмки
 
-			Метод ]временно отключён](https://dev.wildberries.ru/release-notes?id=570)
+			Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
 
 		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 		| Тип | Период | Лимит | Интервал | Всплеск |
@@ -1893,7 +1893,7 @@ func (r ApiGetV1TransitTariffsRequest) Execute() ([]ModelsTransitTariff, *http.R
 /*
 GetV1TransitTariffs Транзитные направления
 
-Метод ]временно отключён](https://dev.wildberries.ru/release-notes?id=570)
+Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
 
 [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2035,7 +2035,7 @@ func (r ApiGetV1WarehousesRequest) Execute() ([]ModelsWarehousesResultItems, *ht
 /*
 GetV1Warehouses Список складов
 
-Метод ]временно отключён](https://dev.wildberries.ru/release-notes?id=570)
+Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
 
 [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2194,7 +2194,7 @@ func (r ApiPostV1AcceptanceOptionsRequest) Execute() (*ModelsOptionsResultModel,
 /*
 PostV1AcceptanceOptions Опции приёмки
 
-Метод ]временно отключён](https://dev.wildberries.ru/release-notes?id=570)
+Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
 
 [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |

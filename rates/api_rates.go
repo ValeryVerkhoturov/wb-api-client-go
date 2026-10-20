@@ -23,7 +23,7 @@ type RatesAPI interface {
 	/*
 			GetV1AcceptanceCoefficients Тарифы на поставку
 
-			Метод ]временно отключён](https://dev.wildberries.ru/release-notes?id=570)
+			Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
 
 		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 		| Тип | Период | Лимит | Интервал | Всплеск |
@@ -175,7 +175,7 @@ func (r ApiGetV1AcceptanceCoefficientsRequest) Execute() ([]ModelsAcceptanceCoef
 /*
 GetV1AcceptanceCoefficients Тарифы на поставку
 
-Метод ]временно отключён](https://dev.wildberries.ru/release-notes?id=570)
+Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
 
 [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |

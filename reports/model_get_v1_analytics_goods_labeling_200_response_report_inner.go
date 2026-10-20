@@ -29,7 +29,7 @@ type GetV1AnalyticsGoodsLabeling200ResponseReportInner struct {
 	NmID *int64 `json:"nmID,omitempty"`
 	// URL фото товара
 	PhotoUrls []string `json:"photoUrls,omitempty"`
-	// Штрихкод товара в WB
+	// Штрихкод
 	ShkID *int64 `json:"shkID,omitempty"`
 	// Баркод из карточки товара
 	Sku *string `json:"sku,omitempty"`

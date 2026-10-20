@@ -45,7 +45,7 @@ type Statistic struct {
 	// Добавили в **Отложенные**
 	AddToWishlist *int64                `json:"addToWishlist,omitempty"`
 	TimeToReady   *StatisticTimeToReady `json:"timeToReady,omitempty"`
-	// Локальные заказы в рамках одного региона. ]На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `100`
+	// Локальные заказы в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `100`
 	LocalizationPercent *int64                `json:"localizationPercent,omitempty"`
 	WbClub              *StatisticWbClub      `json:"wbClub,omitempty"`
 	Conversions         *StatisticConversions `json:"conversions,omitempty"`
