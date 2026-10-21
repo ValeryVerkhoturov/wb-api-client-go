@@ -37,6 +37,8 @@ type ShippingPoint struct {
 	Longitude *float32 `json:"longitude,omitempty"`
 	// Услуга **Фулфилмент в СЦ** для поставки по модели FBS:   - `true` — доступна   - `false` — недоступна
 	Fulfillment *bool `json:"fulfillment,omitempty"`
+	// Доступен ли пункт для отгрузки поставки:   - `true` — доступен   - `false` — недоступен. Возвращается для ПВЗ, если ПВЗ перегружен в планируемую дату отгрузки
+	Available *bool `json:"available,omitempty"`
 }
 
 // NewShippingPoint instantiates a new ShippingPoint object
@@ -344,6 +346,38 @@ func (o *ShippingPoint) SetFulfillment(v bool) {
 	o.Fulfillment = &v
 }
 
+// GetAvailable returns the Available field value if set, zero value otherwise.
+func (o *ShippingPoint) GetAvailable() bool {
+	if o == nil || IsNil(o.Available) {
+		var ret bool
+		return ret
+	}
+	return *o.Available
+}
+
+// GetAvailableOk returns a tuple with the Available field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ShippingPoint) GetAvailableOk() (*bool, bool) {
+	if o == nil || IsNil(o.Available) {
+		return nil, false
+	}
+	return o.Available, true
+}
+
+// HasAvailable returns a boolean if a field has been set.
+func (o *ShippingPoint) HasAvailable() bool {
+	if o != nil && !IsNil(o.Available) {
+		return true
+	}
+
+	return false
+}
+
+// SetAvailable gets a reference to the given bool and assigns it to the Available field.
+func (o *ShippingPoint) SetAvailable(v bool) {
+	o.Available = &v
+}
+
 func (o ShippingPoint) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -380,6 +414,9 @@ func (o ShippingPoint) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Fulfillment) {
 		toSerialize["fulfillment"] = o.Fulfillment
+	}
+	if !IsNil(o.Available) {
+		toSerialize["available"] = o.Available
 	}
 	return toSerialize, nil
 }

@@ -14,11 +14,11 @@ import (
 	"encoding/json"
 )
 
-// checks if the GetV3FbsShippingPoints403Response type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &GetV3FbsShippingPoints403Response{}
+// checks if the GetV3FbsSuppliesSupplyIdShippingPoints403Response type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetV3FbsSuppliesSupplyIdShippingPoints403Response{}
 
-// GetV3FbsShippingPoints403Response struct for GetV3FbsShippingPoints403Response
-type GetV3FbsShippingPoints403Response struct {
+// GetV3FbsSuppliesSupplyIdShippingPoints403Response struct for GetV3FbsSuppliesSupplyIdShippingPoints403Response
+type GetV3FbsSuppliesSupplyIdShippingPoints403Response struct {
 	// Заголовок ошибки
 	Title *string `json:"title,omitempty"`
 	// Детали ошибки
@@ -37,25 +37,25 @@ type GetV3FbsShippingPoints403Response struct {
 	Timestamp *string `json:"timestamp,omitempty"`
 }
 
-// NewGetV3FbsShippingPoints403Response instantiates a new GetV3FbsShippingPoints403Response object
+// NewGetV3FbsSuppliesSupplyIdShippingPoints403Response instantiates a new GetV3FbsSuppliesSupplyIdShippingPoints403Response object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetV3FbsShippingPoints403Response() *GetV3FbsShippingPoints403Response {
-	this := GetV3FbsShippingPoints403Response{}
+func NewGetV3FbsSuppliesSupplyIdShippingPoints403Response() *GetV3FbsSuppliesSupplyIdShippingPoints403Response {
+	this := GetV3FbsSuppliesSupplyIdShippingPoints403Response{}
 	return &this
 }
 
-// NewGetV3FbsShippingPoints403ResponseWithDefaults instantiates a new GetV3FbsShippingPoints403Response object
+// NewGetV3FbsSuppliesSupplyIdShippingPoints403ResponseWithDefaults instantiates a new GetV3FbsSuppliesSupplyIdShippingPoints403Response object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewGetV3FbsShippingPoints403ResponseWithDefaults() *GetV3FbsShippingPoints403Response {
-	this := GetV3FbsShippingPoints403Response{}
+func NewGetV3FbsSuppliesSupplyIdShippingPoints403ResponseWithDefaults() *GetV3FbsSuppliesSupplyIdShippingPoints403Response {
+	this := GetV3FbsSuppliesSupplyIdShippingPoints403Response{}
 	return &this
 }
 
 // GetTitle returns the Title field value if set, zero value otherwise.
-func (o *GetV3FbsShippingPoints403Response) GetTitle() string {
+func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) GetTitle() string {
 	if o == nil || IsNil(o.Title) {
 		var ret string
 		return ret
@@ -65,7 +65,7 @@ func (o *GetV3FbsShippingPoints403Response) GetTitle() string {
 
 // GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV3FbsShippingPoints403Response) GetTitleOk() (*string, bool) {
+func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) GetTitleOk() (*string, bool) {
 	if o == nil || IsNil(o.Title) {
 		return nil, false
 	}
@@ -73,7 +73,7 @@ func (o *GetV3FbsShippingPoints403Response) GetTitleOk() (*string, bool) {
 }
 
 // HasTitle returns a boolean if a field has been set.
-func (o *GetV3FbsShippingPoints403Response) HasTitle() bool {
+func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) HasTitle() bool {
 	if o != nil && !IsNil(o.Title) {
 		return true
 	}
@@ -82,12 +82,12 @@ func (o *GetV3FbsShippingPoints403Response) HasTitle() bool {
 }
 
 // SetTitle gets a reference to the given string and assigns it to the Title field.
-func (o *GetV3FbsShippingPoints403Response) SetTitle(v string) {
+func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) SetTitle(v string) {
 	o.Title = &v
 }
 
 // GetDetail returns the Detail field value if set, zero value otherwise.
-func (o *GetV3FbsShippingPoints403Response) GetDetail() string {
+func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) GetDetail() string {
 	if o == nil || IsNil(o.Detail) {
 		var ret string
 		return ret
@@ -97,7 +97,7 @@ func (o *GetV3FbsShippingPoints403Response) GetDetail() string {
 
 // GetDetailOk returns a tuple with the Detail field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV3FbsShippingPoints403Response) GetDetailOk() (*string, bool) {
+func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) GetDetailOk() (*string, bool) {
 	if o == nil || IsNil(o.Detail) {
 		return nil, false
 	}
@@ -105,7 +105,7 @@ func (o *GetV3FbsShippingPoints403Response) GetDetailOk() (*string, bool) {
 }
 
 // HasDetail returns a boolean if a field has been set.
-func (o *GetV3FbsShippingPoints403Response) HasDetail() bool {
+func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) HasDetail() bool {
 	if o != nil && !IsNil(o.Detail) {
 		return true
 	}
@@ -114,12 +114,12 @@ func (o *GetV3FbsShippingPoints403Response) HasDetail() bool {
 }
 
 // SetDetail gets a reference to the given string and assigns it to the Detail field.
-func (o *GetV3FbsShippingPoints403Response) SetDetail(v string) {
+func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) SetDetail(v string) {
 	o.Detail = &v
 }
 
 // GetCode returns the Code field value if set, zero value otherwise.
-func (o *GetV3FbsShippingPoints403Response) GetCode() string {
+func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) GetCode() string {
 	if o == nil || IsNil(o.Code) {
 		var ret string
 		return ret
@@ -129,7 +129,7 @@ func (o *GetV3FbsShippingPoints403Response) GetCode() string {
 
 // GetCodeOk returns a tuple with the Code field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV3FbsShippingPoints403Response) GetCodeOk() (*string, bool) {
+func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) GetCodeOk() (*string, bool) {
 	if o == nil || IsNil(o.Code) {
 		return nil, false
 	}
@@ -137,7 +137,7 @@ func (o *GetV3FbsShippingPoints403Response) GetCodeOk() (*string, bool) {
 }
 
 // HasCode returns a boolean if a field has been set.
-func (o *GetV3FbsShippingPoints403Response) HasCode() bool {
+func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) HasCode() bool {
 	if o != nil && !IsNil(o.Code) {
 		return true
 	}
@@ -146,12 +146,12 @@ func (o *GetV3FbsShippingPoints403Response) HasCode() bool {
 }
 
 // SetCode gets a reference to the given string and assigns it to the Code field.
-func (o *GetV3FbsShippingPoints403Response) SetCode(v string) {
+func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) SetCode(v string) {
 	o.Code = &v
 }
 
 // GetRequestId returns the RequestId field value if set, zero value otherwise.
-func (o *GetV3FbsShippingPoints403Response) GetRequestId() string {
+func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) GetRequestId() string {
 	if o == nil || IsNil(o.RequestId) {
 		var ret string
 		return ret
@@ -161,7 +161,7 @@ func (o *GetV3FbsShippingPoints403Response) GetRequestId() string {
 
 // GetRequestIdOk returns a tuple with the RequestId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV3FbsShippingPoints403Response) GetRequestIdOk() (*string, bool) {
+func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) GetRequestIdOk() (*string, bool) {
 	if o == nil || IsNil(o.RequestId) {
 		return nil, false
 	}
@@ -169,7 +169,7 @@ func (o *GetV3FbsShippingPoints403Response) GetRequestIdOk() (*string, bool) {
 }
 
 // HasRequestId returns a boolean if a field has been set.
-func (o *GetV3FbsShippingPoints403Response) HasRequestId() bool {
+func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) HasRequestId() bool {
 	if o != nil && !IsNil(o.RequestId) {
 		return true
 	}
@@ -178,12 +178,12 @@ func (o *GetV3FbsShippingPoints403Response) HasRequestId() bool {
 }
 
 // SetRequestId gets a reference to the given string and assigns it to the RequestId field.
-func (o *GetV3FbsShippingPoints403Response) SetRequestId(v string) {
+func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) SetRequestId(v string) {
 	o.RequestId = &v
 }
 
 // GetOrigin returns the Origin field value if set, zero value otherwise.
-func (o *GetV3FbsShippingPoints403Response) GetOrigin() string {
+func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) GetOrigin() string {
 	if o == nil || IsNil(o.Origin) {
 		var ret string
 		return ret
@@ -193,7 +193,7 @@ func (o *GetV3FbsShippingPoints403Response) GetOrigin() string {
 
 // GetOriginOk returns a tuple with the Origin field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV3FbsShippingPoints403Response) GetOriginOk() (*string, bool) {
+func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) GetOriginOk() (*string, bool) {
 	if o == nil || IsNil(o.Origin) {
 		return nil, false
 	}
@@ -201,7 +201,7 @@ func (o *GetV3FbsShippingPoints403Response) GetOriginOk() (*string, bool) {
 }
 
 // HasOrigin returns a boolean if a field has been set.
-func (o *GetV3FbsShippingPoints403Response) HasOrigin() bool {
+func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) HasOrigin() bool {
 	if o != nil && !IsNil(o.Origin) {
 		return true
 	}
@@ -210,12 +210,12 @@ func (o *GetV3FbsShippingPoints403Response) HasOrigin() bool {
 }
 
 // SetOrigin gets a reference to the given string and assigns it to the Origin field.
-func (o *GetV3FbsShippingPoints403Response) SetOrigin(v string) {
+func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) SetOrigin(v string) {
 	o.Origin = &v
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
-func (o *GetV3FbsShippingPoints403Response) GetStatus() float32 {
+func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) GetStatus() float32 {
 	if o == nil || IsNil(o.Status) {
 		var ret float32
 		return ret
@@ -225,7 +225,7 @@ func (o *GetV3FbsShippingPoints403Response) GetStatus() float32 {
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV3FbsShippingPoints403Response) GetStatusOk() (*float32, bool) {
+func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) GetStatusOk() (*float32, bool) {
 	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
@@ -233,7 +233,7 @@ func (o *GetV3FbsShippingPoints403Response) GetStatusOk() (*float32, bool) {
 }
 
 // HasStatus returns a boolean if a field has been set.
-func (o *GetV3FbsShippingPoints403Response) HasStatus() bool {
+func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) HasStatus() bool {
 	if o != nil && !IsNil(o.Status) {
 		return true
 	}
@@ -242,12 +242,12 @@ func (o *GetV3FbsShippingPoints403Response) HasStatus() bool {
 }
 
 // SetStatus gets a reference to the given float32 and assigns it to the Status field.
-func (o *GetV3FbsShippingPoints403Response) SetStatus(v float32) {
+func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) SetStatus(v float32) {
 	o.Status = &v
 }
 
 // GetStatusText returns the StatusText field value if set, zero value otherwise.
-func (o *GetV3FbsShippingPoints403Response) GetStatusText() string {
+func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) GetStatusText() string {
 	if o == nil || IsNil(o.StatusText) {
 		var ret string
 		return ret
@@ -257,7 +257,7 @@ func (o *GetV3FbsShippingPoints403Response) GetStatusText() string {
 
 // GetStatusTextOk returns a tuple with the StatusText field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV3FbsShippingPoints403Response) GetStatusTextOk() (*string, bool) {
+func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) GetStatusTextOk() (*string, bool) {
 	if o == nil || IsNil(o.StatusText) {
 		return nil, false
 	}
@@ -265,7 +265,7 @@ func (o *GetV3FbsShippingPoints403Response) GetStatusTextOk() (*string, bool) {
 }
 
 // HasStatusText returns a boolean if a field has been set.
-func (o *GetV3FbsShippingPoints403Response) HasStatusText() bool {
+func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) HasStatusText() bool {
 	if o != nil && !IsNil(o.StatusText) {
 		return true
 	}
@@ -274,12 +274,12 @@ func (o *GetV3FbsShippingPoints403Response) HasStatusText() bool {
 }
 
 // SetStatusText gets a reference to the given string and assigns it to the StatusText field.
-func (o *GetV3FbsShippingPoints403Response) SetStatusText(v string) {
+func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) SetStatusText(v string) {
 	o.StatusText = &v
 }
 
 // GetTimestamp returns the Timestamp field value if set, zero value otherwise.
-func (o *GetV3FbsShippingPoints403Response) GetTimestamp() string {
+func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) GetTimestamp() string {
 	if o == nil || IsNil(o.Timestamp) {
 		var ret string
 		return ret
@@ -289,7 +289,7 @@ func (o *GetV3FbsShippingPoints403Response) GetTimestamp() string {
 
 // GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV3FbsShippingPoints403Response) GetTimestampOk() (*string, bool) {
+func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) GetTimestampOk() (*string, bool) {
 	if o == nil || IsNil(o.Timestamp) {
 		return nil, false
 	}
@@ -297,7 +297,7 @@ func (o *GetV3FbsShippingPoints403Response) GetTimestampOk() (*string, bool) {
 }
 
 // HasTimestamp returns a boolean if a field has been set.
-func (o *GetV3FbsShippingPoints403Response) HasTimestamp() bool {
+func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) HasTimestamp() bool {
 	if o != nil && !IsNil(o.Timestamp) {
 		return true
 	}
@@ -306,11 +306,11 @@ func (o *GetV3FbsShippingPoints403Response) HasTimestamp() bool {
 }
 
 // SetTimestamp gets a reference to the given string and assigns it to the Timestamp field.
-func (o *GetV3FbsShippingPoints403Response) SetTimestamp(v string) {
+func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) SetTimestamp(v string) {
 	o.Timestamp = &v
 }
 
-func (o GetV3FbsShippingPoints403Response) MarshalJSON() ([]byte, error) {
+func (o GetV3FbsSuppliesSupplyIdShippingPoints403Response) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -318,7 +318,7 @@ func (o GetV3FbsShippingPoints403Response) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o GetV3FbsShippingPoints403Response) ToMap() (map[string]interface{}, error) {
+func (o GetV3FbsSuppliesSupplyIdShippingPoints403Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Title) {
 		toSerialize["title"] = o.Title
@@ -347,38 +347,38 @@ func (o GetV3FbsShippingPoints403Response) ToMap() (map[string]interface{}, erro
 	return toSerialize, nil
 }
 
-type NullableGetV3FbsShippingPoints403Response struct {
-	value *GetV3FbsShippingPoints403Response
+type NullableGetV3FbsSuppliesSupplyIdShippingPoints403Response struct {
+	value *GetV3FbsSuppliesSupplyIdShippingPoints403Response
 	isSet bool
 }
 
-func (v NullableGetV3FbsShippingPoints403Response) Get() *GetV3FbsShippingPoints403Response {
+func (v NullableGetV3FbsSuppliesSupplyIdShippingPoints403Response) Get() *GetV3FbsSuppliesSupplyIdShippingPoints403Response {
 	return v.value
 }
 
-func (v *NullableGetV3FbsShippingPoints403Response) Set(val *GetV3FbsShippingPoints403Response) {
+func (v *NullableGetV3FbsSuppliesSupplyIdShippingPoints403Response) Set(val *GetV3FbsSuppliesSupplyIdShippingPoints403Response) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableGetV3FbsShippingPoints403Response) IsSet() bool {
+func (v NullableGetV3FbsSuppliesSupplyIdShippingPoints403Response) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableGetV3FbsShippingPoints403Response) Unset() {
+func (v *NullableGetV3FbsSuppliesSupplyIdShippingPoints403Response) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableGetV3FbsShippingPoints403Response(val *GetV3FbsShippingPoints403Response) *NullableGetV3FbsShippingPoints403Response {
-	return &NullableGetV3FbsShippingPoints403Response{value: val, isSet: true}
+func NewNullableGetV3FbsSuppliesSupplyIdShippingPoints403Response(val *GetV3FbsSuppliesSupplyIdShippingPoints403Response) *NullableGetV3FbsSuppliesSupplyIdShippingPoints403Response {
+	return &NullableGetV3FbsSuppliesSupplyIdShippingPoints403Response{value: val, isSet: true}
 }
 
-func (v NullableGetV3FbsShippingPoints403Response) MarshalJSON() ([]byte, error) {
+func (v NullableGetV3FbsSuppliesSupplyIdShippingPoints403Response) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableGetV3FbsShippingPoints403Response) UnmarshalJSON(src []byte) error {
+func (v *NullableGetV3FbsSuppliesSupplyIdShippingPoints403Response) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

@@ -169,6 +169,12 @@ func NewConfiguration() *Configuration {
 					Description: "No description provided",
 				},
 			},
+			"OrdersFbsAPIService.GetV3FbsSuppliesSupplyIdShippingPoints": {
+				{
+					URL:         "https://marketplace-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
 			"OrdersFbsAPIService.GetV3FbsSuppliesSupplyIdStickersSpot": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
