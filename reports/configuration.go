@@ -204,21 +204,13 @@ func NewConfiguration() *Configuration {
 			"ReportsAPIService.GetV1SupplierOrders": {
 				{
 					URL:         "https://statistics-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL:         "https://statistics-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
+					Description: "No description provided",
 				},
 			},
 			"ReportsAPIService.GetV1SupplierSales": {
 				{
 					URL:         "https://statistics-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL:         "https://statistics-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
+					Description: "No description provided",
 				},
 			},
 			"ReportsAPIService.GetV1WarehouseMeasurements": {

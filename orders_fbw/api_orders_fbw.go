@@ -1,7 +1,7 @@
 /*
 Поставки FBW
 
-Узнать больше о поставках FBW можно в [справочном центре](https://seller.wildberries.ru/instructions/subcategory/5a8e1202-0865-45b7-acae-5d0afc7add56?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e)  В разделе описаны методы получения: - [информации для формирования поставок](https://dev.wildberries.ru/openapi/orders-fbw#tag/informationForFormingSupplies) - [информации о поставках](https://dev.wildberries.ru/openapi/orders-fbw#tag/suppliesInformation) Вы можете создавать карточки товара в песочнице [Контента](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kategorii-tokenov), а потом использовать баркоды товаров в [песочнице](https://dev.wildberries.ru/sandbox) Поставок
+Узнать больше о поставках FBW можно в [справочном центре](https://seller.wildberries.ru/instructions/subcategory/5a8e1202-0865-45b7-acae-5d0afc7add56?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e)  В разделе описаны методы получения: - [информации для формирования поставок](https://dev.wildberries.ru/openapi/orders-fbw#tag/informationForFormingSupplies) - [информации о поставках](https://dev.wildberries.ru/openapi/orders-fbw#tag/suppliesInformation)
 
 API version: ordersfbw
 */
@@ -284,10 +284,6 @@ type OrdersFbwAPI interface {
 		| Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов |
 		| Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |
 
-		---
-
-		В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
-
 		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-warehouses
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -311,10 +307,6 @@ type OrdersFbwAPI interface {
 		| Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов |
 		| Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов |
 		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-
-		---
-
-		В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
 
 		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-v1-acceptance-options
 
@@ -2045,10 +2037,6 @@ GetV1Warehouses Список складов
 | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов |
 | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |
 
----
-
-В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
-
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-warehouses
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2203,10 +2191,6 @@ PostV1AcceptanceOptions Опции приёмки
 | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов |
 | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов |
 | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-
----
-
-В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-v1-acceptance-options
 

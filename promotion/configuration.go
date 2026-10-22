@@ -1,7 +1,7 @@
 /*
 Маркетинг и продвижение
 
-Узнать больше о маркетинге и продвижении можно в [справочном центре](https://seller.wildberries.ru/instructions/category/59d92bd3-6ea0-40f2-b762-ca8835d7d42e?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e)  Методы маркетинга и продвижения позволяют: 1. Получать информацию о кампаниях [продвижения](https://dev.wildberries.ru/openapi/promotion#tag/campaigns) и [медиакампаниях](https://dev.wildberries.ru/openapi/promotion#tag/media) 2. [Создавать](https://dev.wildberries.ru/openapi/promotion#tag/creatingCampaigns) и [управлять](https://dev.wildberries.ru/openapi/promotion#tag/campaignManagement) кампаниями 3. Управлять [финансами](https://dev.wildberries.ru/openapi/promotion#tag/finances) кампаний 4. Выгружать [статистику](https://dev.wildberries.ru/openapi/promotion#tag/statistics) кампаний продвижения и медиакампаний 5. Работать с [календарём акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar) Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.  Вы можете протестировать методы продвижения в [песочнице](https://dev.wildberries.ru/sandbox). Также в песочнице доступны [специальные методы](https://dev.wildberries.ru/docs/openapi-other/sandbox-environment#tag/promotion) для управления тестовым балансом
+Узнать больше о маркетинге и продвижении можно в [справочном центре](https://seller.wildberries.ru/instructions/category/59d92bd3-6ea0-40f2-b762-ca8835d7d42e?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e)  Методы маркетинга и продвижения позволяют: 1. Получать информацию о кампаниях [продвижения](https://dev.wildberries.ru/openapi/promotion#tag/campaigns) и [медиакампаниях](https://dev.wildberries.ru/openapi/promotion#tag/media) 2. [Создавать](https://dev.wildberries.ru/openapi/promotion#tag/creatingCampaigns) и [управлять](https://dev.wildberries.ru/openapi/promotion#tag/campaignManagement) кампаниями 3. Управлять [финансами](https://dev.wildberries.ru/openapi/promotion#tag/finances) кампаний 4. Выгружать [статистику](https://dev.wildberries.ru/openapi/promotion#tag/statistics) кампаний продвижения и медиакампаний 5. Работать с [календарём акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar) Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.
 
 API version: promotion
 */
@@ -114,47 +114,31 @@ func NewConfiguration() *Configuration {
 			"PromotionAPIService.GetV0DailyLimits": {
 				{
 					URL:         "https://advert-api.wildberries.ru",
-					Description: "**Prod** ",
+					Description: "No description provided",
 				},
 			},
 			"PromotionAPIService.GetV0Delete": {
 				{
 					URL:         "https://advert-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL:         "https://advert-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
+					Description: "No description provided",
 				},
 			},
 			"PromotionAPIService.GetV0Pause": {
 				{
 					URL:         "https://advert-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL:         "https://advert-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
+					Description: "No description provided",
 				},
 			},
 			"PromotionAPIService.GetV0Start": {
 				{
 					URL:         "https://advert-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL:         "https://advert-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
+					Description: "No description provided",
 				},
 			},
 			"PromotionAPIService.GetV0Stop": {
 				{
 					URL:         "https://advert-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL:         "https://advert-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
+					Description: "No description provided",
 				},
 			},
 			"PromotionAPIService.GetV1Advert": {
@@ -172,21 +156,13 @@ func NewConfiguration() *Configuration {
 			"PromotionAPIService.GetV1Balance": {
 				{
 					URL:         "https://advert-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL:         "https://advert-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
+					Description: "No description provided",
 				},
 			},
 			"PromotionAPIService.GetV1Budget": {
 				{
 					URL:         "https://advert-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL:         "https://advert-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
+					Description: "No description provided",
 				},
 			},
 			"PromotionAPIService.GetV1CalendarPromotions": {
@@ -222,41 +198,25 @@ func NewConfiguration() *Configuration {
 			"PromotionAPIService.GetV1Payments": {
 				{
 					URL:         "https://advert-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL:         "https://advert-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
+					Description: "No description provided",
 				},
 			},
 			"PromotionAPIService.GetV1PromotionCount": {
 				{
 					URL:         "https://advert-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL:         "https://advert-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
+					Description: "No description provided",
 				},
 			},
 			"PromotionAPIService.GetV1SupplierSubjects": {
 				{
 					URL:         "https://advert-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL:         "https://advert-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
+					Description: "No description provided",
 				},
 			},
 			"PromotionAPIService.GetV1Upd": {
 				{
 					URL:         "https://advert-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL:         "https://advert-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
+					Description: "No description provided",
 				},
 			},
 			"PromotionAPIService.GetV2Adverts": {
@@ -322,11 +282,7 @@ func NewConfiguration() *Configuration {
 			"PromotionAPIService.PostV0Rename": {
 				{
 					URL:         "https://advert-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL:         "https://advert-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
+					Description: "No description provided",
 				},
 			},
 			"PromotionAPIService.PostV1BidsMin": {
@@ -338,11 +294,7 @@ func NewConfiguration() *Configuration {
 			"PromotionAPIService.PostV1BudgetDeposit": {
 				{
 					URL:         "https://advert-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL:         "https://advert-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
+					Description: "No description provided",
 				},
 			},
 			"PromotionAPIService.PostV1CalendarPromotionsUpload": {
@@ -372,27 +324,19 @@ func NewConfiguration() *Configuration {
 			"PromotionAPIService.PostV2Budget": {
 				{
 					URL:         "https://advert-api.wildberries.ru",
-					Description: "**Prod** ",
+					Description: "No description provided",
 				},
 			},
 			"PromotionAPIService.PostV2SeacatSaveAd": {
 				{
 					URL:         "https://advert-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL:         "https://advert-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
+					Description: "No description provided",
 				},
 			},
 			"PromotionAPIService.PostV2SupplierNms": {
 				{
 					URL:         "https://advert-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL:         "https://advert-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
+					Description: "No description provided",
 				},
 			},
 			"PromotionAPIService.PutV0AuctionPlacements": {
@@ -404,7 +348,7 @@ func NewConfiguration() *Configuration {
 			"PromotionAPIService.PutV0DailyLimits": {
 				{
 					URL:         "https://advert-api.wildberries.ru",
-					Description: "**Prod** ",
+					Description: "No description provided",
 				},
 			},
 		},

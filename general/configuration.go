@@ -143,16 +143,8 @@ func NewConfiguration() *Configuration {
 					Description: "**Статистика** ",
 				},
 				{
-					URL:         "https://statistics-api-sandbox.wildberries.ru",
-					Description: "**Песочница Статистика** ",
-				},
-				{
 					URL:         "https://advert-api.wildberries.ru",
 					Description: "**Продвижение** ",
-				},
-				{
-					URL:         "https://advert-api-sandbox.wildberries.ru",
-					Description: "**Песочница Продвижение** ",
 				},
 				{
 					URL:         "https://feedbacks-api.wildberries.ru",
