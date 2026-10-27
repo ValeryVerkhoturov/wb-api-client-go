@@ -1,7 +1,7 @@
 /*
 Общее
 
-В этом разделе: - [общая информация о WB API](https://dev.wildberries.ru/openapi/api-information#tag/introduction) - как [начать работу с WB API](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Kak-nachat-rabotu-s-API) - как [авторизоваться](https://dev.wildberries.ru/openapi/api-information#tag/authorization) и [создавать токены](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token) - основные [статус-коды ответов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Status-kody-HTTP) - [лимиты запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) - как обратиться в [поддержку](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Podderzhka) С помощью методов этого раздела вы можете: - проверить [подключение к WB API](https://dev.wildberries.ru/openapi/api-information#tag/connectionCheck/operation/getPing) - получить [новости портала продавцов](https://dev.wildberries.ru/openapi/api-information#tag/newsApi/operation/getV2News) - получить [информацию о продавце](https://dev.wildberries.ru/openapi/api-information#tag/sellerInformation/operation/getV1SellerInfo) - [управлять пользователями продавца](https://dev.wildberries.ru/openapi/api-information#tag/sellerUserManagement)
+В этом разделе: - [общая информация о WB API](https://dev.wildberries.ru/openapi/api-information#tag/introduction) - как [начать работу с WB API](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Kak-nachat-rabotu-s-API) - как [авторизоваться](https://dev.wildberries.ru/openapi/api-information#tag/authorization) и [создавать токены](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token) - основные [статус-коды ответов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Status-kody-HTTP) - [лимиты запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) - как обратиться в [поддержку](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Podderzhka) С помощью методов этого раздела вы можете: - проверить [подключение к WB API](https://dev.wildberries.ru/openapi/api-information#tag/connectionCheck/operation/getPing) - получить [новости](https://dev.wildberries.ru/openapi/api-information#tag/newsApi/operation/getV2News) и [уведомления](https://dev.wildberries.ru/openapi/api-information#tag/newsApi/operation/getV1Notifications) портала продавцов - получить [информацию о продавце](https://dev.wildberries.ru/openapi/api-information#tag/sellerInformation/operation/getV1SellerInfo) - [управлять пользователями продавца](https://dev.wildberries.ru/openapi/api-information#tag/sellerUserManagement)
 
 API version: general
 */
@@ -72,6 +72,31 @@ type GeneralAPI interface {
 	// GetPingExecute executes the request
 	//  @return GetPingResponse200
 	GetPingExecute(r ApiGetPingRequest) (*GetPingResponse200, *http.Response, error)
+
+	/*
+			GetV1Notifications Получить уведомления портала продавцов
+
+			Метод возвращает список уведомлений из [профиля](https://seller.wildberries.ru) продавца на русском языке. Порядок уведомлений в ответе — от новых к старым.
+		Доступно только для продавцов из РФ.
+
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов |
+		| Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов |
+		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
+		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-communications-v1-notifications
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1NotificationsRequest
+	*/
+	GetV1Notifications(ctx context.Context) ApiGetV1NotificationsRequest
+
+	// GetV1NotificationsExecute executes the request
+	//  @return GetV1NotificationsResponse200
+	GetV1NotificationsExecute(r ApiGetV1NotificationsRequest) (*GetV1NotificationsResponse200, *http.Response, error)
 
 	/*
 			GetV1Rating Получить рейтинг продавца
@@ -223,9 +248,9 @@ type GeneralAPI interface {
 	GetV1UsersExecute(r ApiGetV1UsersRequest) (*GetUsersResponse, *http.Response, error)
 
 	/*
-			GetV2News Получение новостей портала продавцов
+			GetV2News Получить новости портала продавцов
 
-			Метод позволяет получать новости портала продавцов.
+			Метод позволяет получать [новости](https://seller.wildberries.ru/news-v2) портала продавцов.
 		 Для получения успешного ответа необходимо указать
 		один из параметров `from` или `fromID`.
 		 За один запрос можно получить не более 100 новостей.
@@ -576,6 +601,196 @@ func (a *GeneralAPIService) GetPingExecute(r ApiGetPingRequest) (*GetPingRespons
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v GetPing403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetPing401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetV1NotificationsRequest struct {
+	ctx        context.Context
+	ApiService GeneralAPI
+	from       *string
+	timezone   *string
+	limit      *int64
+}
+
+// Фильтр по дате и времени: в ответе возвращаются только уведомления, полученные до указанной даты и времени. Указывайте значения не позднее текущих. Чтобы получить самые новые уведомления, не передавайте в запросе этот параметр. Используйте параметр для пагинации: 1. Отправьте первый запрос запрос без параметра &#x60;from&#x60;. 2. В следующих запросах передайте в параметре &#x60;from&#x60; значение &#x60;date&#x60; последнего уведомления в ответе.
+func (r ApiGetV1NotificationsRequest) From(from string) ApiGetV1NotificationsRequest {
+	r.from = &from
+	return r
+}
+
+// Временная зона в формате [IANA](https://nodatime.org/TimeZones)
+func (r ApiGetV1NotificationsRequest) Timezone(timezone string) ApiGetV1NotificationsRequest {
+	r.timezone = &timezone
+	return r
+}
+
+// Количество уведомлений в ответе
+func (r ApiGetV1NotificationsRequest) Limit(limit int64) ApiGetV1NotificationsRequest {
+	r.limit = &limit
+	return r
+}
+
+func (r ApiGetV1NotificationsRequest) Execute() (*GetV1NotificationsResponse200, *http.Response, error) {
+	return r.ApiService.GetV1NotificationsExecute(r)
+}
+
+/*
+GetV1Notifications Получить уведомления портала продавцов
+
+Метод возвращает список уведомлений из [профиля](https://seller.wildberries.ru) продавца на русском языке. Порядок уведомлений в ответе — от новых к старым.
+Доступно только для продавцов из РФ.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов |
+| Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов |
+| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/general/get-api-communications-v1-notifications
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1NotificationsRequest
+*/
+func (a *GeneralAPIService) GetV1Notifications(ctx context.Context) ApiGetV1NotificationsRequest {
+	return ApiGetV1NotificationsRequest{
+		ApiService: a,
+		ctx:        ctx,
+	}
+}
+
+// Execute executes the request
+//
+//	@return GetV1NotificationsResponse200
+func (a *GeneralAPIService) GetV1NotificationsExecute(r ApiGetV1NotificationsRequest) (*GetV1NotificationsResponse200, *http.Response, error) {
+	var (
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetV1NotificationsResponse200
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GeneralAPIService.GetV1Notifications")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/communications/v1/notifications"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.from != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "from", r.from, "form", "")
+	}
+	if r.timezone != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "timezone", r.timezone, "form", "")
+	} else {
+		var defaultValue string = "Europe/Moscow"
+		r.timezone = &defaultValue
+	}
+	if r.limit != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
+	} else {
+		var defaultValue int64 = 10
+		r.limit = &defaultValue
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v SellerNotificationsError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetPing401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1Notifications403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1480,9 +1695,9 @@ func (r ApiGetV2NewsRequest) Execute() (*GetV2NewsResponse200, *http.Response, e
 }
 
 /*
-GetV2News Получение новостей портала продавцов
+GetV2News Получить новости портала продавцов
 
-Метод позволяет получать новости портала продавцов.
+Метод позволяет получать [новости](https://seller.wildberries.ru/news-v2) портала продавцов.
 
 	Для получения успешного ответа необходимо указать
 
