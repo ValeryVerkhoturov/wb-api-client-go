@@ -1,7 +1,7 @@
 /*
 Отчёты
 
-Узнать больше об отчётах можно в [справочном центре](https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0)  С помощью этих методов вы можете получать [основные отчёты](https://dev.wildberries.ru/openapi/reports#tag/mainReports) и отчёты о: 1. [Остатках на складах](https://dev.wildberries.ru/openapi/reports#tag/warehousesInventoryReport) 2. [Товарах с обязательной маркировкой](https://dev.wildberries.ru/openapi/reports#tag/reportOnItemsWithMandatoryLabeling) 3. [Удержаниях](https://dev.wildberries.ru/openapi/reports#tag/retentionReports) 4. [Операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses) 5. [Платном хранении](https://dev.wildberries.ru/openapi/reports#tag/paidStorage) 6. [Продажах по регионам](https://dev.wildberries.ru/openapi/reports#tag/salesByRegions) 7. [Доле бренда в продажах](https://dev.wildberries.ru/openapi/reports#tag/shareOfBrandInSales) 8. [Заблокированных карточках](https://dev.wildberries.ru/openapi/reports#tag/blockedItems) 9. [Возвратах и перемещении товаров](https://dev.wildberries.ru/openapi/reports#tag/returnsAndItemMovementReport)
+Узнать больше об отчётах можно в [справочном центре](https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0)  С помощью этих методов вы можете получать [основные отчёты](https://dev.wildberries.ru/openapi/reports#tag/mainReports) и отчёты о: 1. [Остатках на складах](https://dev.wildberries.ru/openapi/reports#tag/warehousesInventoryReport) 2. [Товарах с обязательной маркировкой](https://dev.wildberries.ru/openapi/reports#tag/reportOnItemsWithMandatoryLabeling) 3. [Удержаниях](https://dev.wildberries.ru/openapi/reports#tag/retentionReports) 4. [Операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses) 5. [Платном хранении](https://dev.wildberries.ru/openapi/reports#tag/paidStorage) 6. [Доле бренда в продажах](https://dev.wildberries.ru/openapi/reports#tag/shareOfBrandInSales) 7. [Заблокированных карточках](https://dev.wildberries.ru/openapi/reports#tag/blockedItems) 8. [Возвратах и перемещении товаров](https://dev.wildberries.ru/openapi/reports#tag/returnsAndItemMovementReport)
 
 API version: reports
 */
@@ -14,11 +14,11 @@ import (
 	"encoding/json"
 )
 
-// checks if the GoodsReturn200ResponseReportInner type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &GoodsReturn200ResponseReportInner{}
+// checks if the ItemReturns200ResponseReportInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ItemReturns200ResponseReportInner{}
 
-// GoodsReturn200ResponseReportInner struct for GoodsReturn200ResponseReportInner
-type GoodsReturn200ResponseReportInner struct {
+// ItemReturns200ResponseReportInner struct for ItemReturns200ResponseReportInner
+type ItemReturns200ResponseReportInner struct {
 	// Баркод
 	Sku *string `json:"sku,omitempty"`
 	// Бренд
@@ -59,25 +59,25 @@ type GoodsReturn200ResponseReportInner struct {
 	TechSize *string `json:"techSize,omitempty"`
 }
 
-// NewGoodsReturn200ResponseReportInner instantiates a new GoodsReturn200ResponseReportInner object
+// NewItemReturns200ResponseReportInner instantiates a new ItemReturns200ResponseReportInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGoodsReturn200ResponseReportInner() *GoodsReturn200ResponseReportInner {
-	this := GoodsReturn200ResponseReportInner{}
+func NewItemReturns200ResponseReportInner() *ItemReturns200ResponseReportInner {
+	this := ItemReturns200ResponseReportInner{}
 	return &this
 }
 
-// NewGoodsReturn200ResponseReportInnerWithDefaults instantiates a new GoodsReturn200ResponseReportInner object
+// NewItemReturns200ResponseReportInnerWithDefaults instantiates a new ItemReturns200ResponseReportInner object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewGoodsReturn200ResponseReportInnerWithDefaults() *GoodsReturn200ResponseReportInner {
-	this := GoodsReturn200ResponseReportInner{}
+func NewItemReturns200ResponseReportInnerWithDefaults() *ItemReturns200ResponseReportInner {
+	this := ItemReturns200ResponseReportInner{}
 	return &this
 }
 
 // GetSku returns the Sku field value if set, zero value otherwise.
-func (o *GoodsReturn200ResponseReportInner) GetSku() string {
+func (o *ItemReturns200ResponseReportInner) GetSku() string {
 	if o == nil || IsNil(o.Sku) {
 		var ret string
 		return ret
@@ -87,7 +87,7 @@ func (o *GoodsReturn200ResponseReportInner) GetSku() string {
 
 // GetSkuOk returns a tuple with the Sku field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GoodsReturn200ResponseReportInner) GetSkuOk() (*string, bool) {
+func (o *ItemReturns200ResponseReportInner) GetSkuOk() (*string, bool) {
 	if o == nil || IsNil(o.Sku) {
 		return nil, false
 	}
@@ -95,7 +95,7 @@ func (o *GoodsReturn200ResponseReportInner) GetSkuOk() (*string, bool) {
 }
 
 // HasSku returns a boolean if a field has been set.
-func (o *GoodsReturn200ResponseReportInner) HasSku() bool {
+func (o *ItemReturns200ResponseReportInner) HasSku() bool {
 	if o != nil && !IsNil(o.Sku) {
 		return true
 	}
@@ -104,12 +104,12 @@ func (o *GoodsReturn200ResponseReportInner) HasSku() bool {
 }
 
 // SetSku gets a reference to the given string and assigns it to the Sku field.
-func (o *GoodsReturn200ResponseReportInner) SetSku(v string) {
+func (o *ItemReturns200ResponseReportInner) SetSku(v string) {
 	o.Sku = &v
 }
 
 // GetBrand returns the Brand field value if set, zero value otherwise.
-func (o *GoodsReturn200ResponseReportInner) GetBrand() string {
+func (o *ItemReturns200ResponseReportInner) GetBrand() string {
 	if o == nil || IsNil(o.Brand) {
 		var ret string
 		return ret
@@ -119,7 +119,7 @@ func (o *GoodsReturn200ResponseReportInner) GetBrand() string {
 
 // GetBrandOk returns a tuple with the Brand field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GoodsReturn200ResponseReportInner) GetBrandOk() (*string, bool) {
+func (o *ItemReturns200ResponseReportInner) GetBrandOk() (*string, bool) {
 	if o == nil || IsNil(o.Brand) {
 		return nil, false
 	}
@@ -127,7 +127,7 @@ func (o *GoodsReturn200ResponseReportInner) GetBrandOk() (*string, bool) {
 }
 
 // HasBrand returns a boolean if a field has been set.
-func (o *GoodsReturn200ResponseReportInner) HasBrand() bool {
+func (o *ItemReturns200ResponseReportInner) HasBrand() bool {
 	if o != nil && !IsNil(o.Brand) {
 		return true
 	}
@@ -136,12 +136,12 @@ func (o *GoodsReturn200ResponseReportInner) HasBrand() bool {
 }
 
 // SetBrand gets a reference to the given string and assigns it to the Brand field.
-func (o *GoodsReturn200ResponseReportInner) SetBrand(v string) {
+func (o *ItemReturns200ResponseReportInner) SetBrand(v string) {
 	o.Brand = &v
 }
 
 // GetCompletedDt returns the CompletedDt field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GoodsReturn200ResponseReportInner) GetCompletedDt() string {
+func (o *ItemReturns200ResponseReportInner) GetCompletedDt() string {
 	if o == nil || IsNil(o.CompletedDt.Get()) {
 		var ret string
 		return ret
@@ -152,7 +152,7 @@ func (o *GoodsReturn200ResponseReportInner) GetCompletedDt() string {
 // GetCompletedDtOk returns a tuple with the CompletedDt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GoodsReturn200ResponseReportInner) GetCompletedDtOk() (*string, bool) {
+func (o *ItemReturns200ResponseReportInner) GetCompletedDtOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -160,7 +160,7 @@ func (o *GoodsReturn200ResponseReportInner) GetCompletedDtOk() (*string, bool) {
 }
 
 // HasCompletedDt returns a boolean if a field has been set.
-func (o *GoodsReturn200ResponseReportInner) HasCompletedDt() bool {
+func (o *ItemReturns200ResponseReportInner) HasCompletedDt() bool {
 	if o != nil && o.CompletedDt.IsSet() {
 		return true
 	}
@@ -169,22 +169,22 @@ func (o *GoodsReturn200ResponseReportInner) HasCompletedDt() bool {
 }
 
 // SetCompletedDt gets a reference to the given NullableString and assigns it to the CompletedDt field.
-func (o *GoodsReturn200ResponseReportInner) SetCompletedDt(v string) {
+func (o *ItemReturns200ResponseReportInner) SetCompletedDt(v string) {
 	o.CompletedDt.Set(&v)
 }
 
 // SetCompletedDtNil sets the value for CompletedDt to be an explicit nil
-func (o *GoodsReturn200ResponseReportInner) SetCompletedDtNil() {
+func (o *ItemReturns200ResponseReportInner) SetCompletedDtNil() {
 	o.CompletedDt.Set(nil)
 }
 
 // UnsetCompletedDt ensures that no value is present for CompletedDt, not even an explicit nil
-func (o *GoodsReturn200ResponseReportInner) UnsetCompletedDt() {
+func (o *ItemReturns200ResponseReportInner) UnsetCompletedDt() {
 	o.CompletedDt.Unset()
 }
 
 // GetDstOfficeAddress returns the DstOfficeAddress field value if set, zero value otherwise.
-func (o *GoodsReturn200ResponseReportInner) GetDstOfficeAddress() string {
+func (o *ItemReturns200ResponseReportInner) GetDstOfficeAddress() string {
 	if o == nil || IsNil(o.DstOfficeAddress) {
 		var ret string
 		return ret
@@ -194,7 +194,7 @@ func (o *GoodsReturn200ResponseReportInner) GetDstOfficeAddress() string {
 
 // GetDstOfficeAddressOk returns a tuple with the DstOfficeAddress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GoodsReturn200ResponseReportInner) GetDstOfficeAddressOk() (*string, bool) {
+func (o *ItemReturns200ResponseReportInner) GetDstOfficeAddressOk() (*string, bool) {
 	if o == nil || IsNil(o.DstOfficeAddress) {
 		return nil, false
 	}
@@ -202,7 +202,7 @@ func (o *GoodsReturn200ResponseReportInner) GetDstOfficeAddressOk() (*string, bo
 }
 
 // HasDstOfficeAddress returns a boolean if a field has been set.
-func (o *GoodsReturn200ResponseReportInner) HasDstOfficeAddress() bool {
+func (o *ItemReturns200ResponseReportInner) HasDstOfficeAddress() bool {
 	if o != nil && !IsNil(o.DstOfficeAddress) {
 		return true
 	}
@@ -211,12 +211,12 @@ func (o *GoodsReturn200ResponseReportInner) HasDstOfficeAddress() bool {
 }
 
 // SetDstOfficeAddress gets a reference to the given string and assigns it to the DstOfficeAddress field.
-func (o *GoodsReturn200ResponseReportInner) SetDstOfficeAddress(v string) {
+func (o *ItemReturns200ResponseReportInner) SetDstOfficeAddress(v string) {
 	o.DstOfficeAddress = &v
 }
 
 // GetKiz returns the Kiz field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GoodsReturn200ResponseReportInner) GetKiz() string {
+func (o *ItemReturns200ResponseReportInner) GetKiz() string {
 	if o == nil || IsNil(o.Kiz.Get()) {
 		var ret string
 		return ret
@@ -227,7 +227,7 @@ func (o *GoodsReturn200ResponseReportInner) GetKiz() string {
 // GetKizOk returns a tuple with the Kiz field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GoodsReturn200ResponseReportInner) GetKizOk() (*string, bool) {
+func (o *ItemReturns200ResponseReportInner) GetKizOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -235,7 +235,7 @@ func (o *GoodsReturn200ResponseReportInner) GetKizOk() (*string, bool) {
 }
 
 // HasKiz returns a boolean if a field has been set.
-func (o *GoodsReturn200ResponseReportInner) HasKiz() bool {
+func (o *ItemReturns200ResponseReportInner) HasKiz() bool {
 	if o != nil && o.Kiz.IsSet() {
 		return true
 	}
@@ -244,22 +244,22 @@ func (o *GoodsReturn200ResponseReportInner) HasKiz() bool {
 }
 
 // SetKiz gets a reference to the given NullableString and assigns it to the Kiz field.
-func (o *GoodsReturn200ResponseReportInner) SetKiz(v string) {
+func (o *ItemReturns200ResponseReportInner) SetKiz(v string) {
 	o.Kiz.Set(&v)
 }
 
 // SetKizNil sets the value for Kiz to be an explicit nil
-func (o *GoodsReturn200ResponseReportInner) SetKizNil() {
+func (o *ItemReturns200ResponseReportInner) SetKizNil() {
 	o.Kiz.Set(nil)
 }
 
 // UnsetKiz ensures that no value is present for Kiz, not even an explicit nil
-func (o *GoodsReturn200ResponseReportInner) UnsetKiz() {
+func (o *ItemReturns200ResponseReportInner) UnsetKiz() {
 	o.Kiz.Unset()
 }
 
 // GetDstOfficeId returns the DstOfficeId field value if set, zero value otherwise.
-func (o *GoodsReturn200ResponseReportInner) GetDstOfficeId() int64 {
+func (o *ItemReturns200ResponseReportInner) GetDstOfficeId() int64 {
 	if o == nil || IsNil(o.DstOfficeId) {
 		var ret int64
 		return ret
@@ -269,7 +269,7 @@ func (o *GoodsReturn200ResponseReportInner) GetDstOfficeId() int64 {
 
 // GetDstOfficeIdOk returns a tuple with the DstOfficeId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GoodsReturn200ResponseReportInner) GetDstOfficeIdOk() (*int64, bool) {
+func (o *ItemReturns200ResponseReportInner) GetDstOfficeIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.DstOfficeId) {
 		return nil, false
 	}
@@ -277,7 +277,7 @@ func (o *GoodsReturn200ResponseReportInner) GetDstOfficeIdOk() (*int64, bool) {
 }
 
 // HasDstOfficeId returns a boolean if a field has been set.
-func (o *GoodsReturn200ResponseReportInner) HasDstOfficeId() bool {
+func (o *ItemReturns200ResponseReportInner) HasDstOfficeId() bool {
 	if o != nil && !IsNil(o.DstOfficeId) {
 		return true
 	}
@@ -286,12 +286,12 @@ func (o *GoodsReturn200ResponseReportInner) HasDstOfficeId() bool {
 }
 
 // SetDstOfficeId gets a reference to the given int64 and assigns it to the DstOfficeId field.
-func (o *GoodsReturn200ResponseReportInner) SetDstOfficeId(v int64) {
+func (o *ItemReturns200ResponseReportInner) SetDstOfficeId(v int64) {
 	o.DstOfficeId = &v
 }
 
 // GetExpiredDt returns the ExpiredDt field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GoodsReturn200ResponseReportInner) GetExpiredDt() string {
+func (o *ItemReturns200ResponseReportInner) GetExpiredDt() string {
 	if o == nil || IsNil(o.ExpiredDt.Get()) {
 		var ret string
 		return ret
@@ -302,7 +302,7 @@ func (o *GoodsReturn200ResponseReportInner) GetExpiredDt() string {
 // GetExpiredDtOk returns a tuple with the ExpiredDt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GoodsReturn200ResponseReportInner) GetExpiredDtOk() (*string, bool) {
+func (o *ItemReturns200ResponseReportInner) GetExpiredDtOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -310,7 +310,7 @@ func (o *GoodsReturn200ResponseReportInner) GetExpiredDtOk() (*string, bool) {
 }
 
 // HasExpiredDt returns a boolean if a field has been set.
-func (o *GoodsReturn200ResponseReportInner) HasExpiredDt() bool {
+func (o *ItemReturns200ResponseReportInner) HasExpiredDt() bool {
 	if o != nil && o.ExpiredDt.IsSet() {
 		return true
 	}
@@ -319,22 +319,22 @@ func (o *GoodsReturn200ResponseReportInner) HasExpiredDt() bool {
 }
 
 // SetExpiredDt gets a reference to the given NullableString and assigns it to the ExpiredDt field.
-func (o *GoodsReturn200ResponseReportInner) SetExpiredDt(v string) {
+func (o *ItemReturns200ResponseReportInner) SetExpiredDt(v string) {
 	o.ExpiredDt.Set(&v)
 }
 
 // SetExpiredDtNil sets the value for ExpiredDt to be an explicit nil
-func (o *GoodsReturn200ResponseReportInner) SetExpiredDtNil() {
+func (o *ItemReturns200ResponseReportInner) SetExpiredDtNil() {
 	o.ExpiredDt.Set(nil)
 }
 
 // UnsetExpiredDt ensures that no value is present for ExpiredDt, not even an explicit nil
-func (o *GoodsReturn200ResponseReportInner) UnsetExpiredDt() {
+func (o *ItemReturns200ResponseReportInner) UnsetExpiredDt() {
 	o.ExpiredDt.Unset()
 }
 
 // GetNmId returns the NmId field value if set, zero value otherwise.
-func (o *GoodsReturn200ResponseReportInner) GetNmId() int64 {
+func (o *ItemReturns200ResponseReportInner) GetNmId() int64 {
 	if o == nil || IsNil(o.NmId) {
 		var ret int64
 		return ret
@@ -344,7 +344,7 @@ func (o *GoodsReturn200ResponseReportInner) GetNmId() int64 {
 
 // GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GoodsReturn200ResponseReportInner) GetNmIdOk() (*int64, bool) {
+func (o *ItemReturns200ResponseReportInner) GetNmIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
@@ -352,7 +352,7 @@ func (o *GoodsReturn200ResponseReportInner) GetNmIdOk() (*int64, bool) {
 }
 
 // HasNmId returns a boolean if a field has been set.
-func (o *GoodsReturn200ResponseReportInner) HasNmId() bool {
+func (o *ItemReturns200ResponseReportInner) HasNmId() bool {
 	if o != nil && !IsNil(o.NmId) {
 		return true
 	}
@@ -361,12 +361,12 @@ func (o *GoodsReturn200ResponseReportInner) HasNmId() bool {
 }
 
 // SetNmId gets a reference to the given int64 and assigns it to the NmId field.
-func (o *GoodsReturn200ResponseReportInner) SetNmId(v int64) {
+func (o *ItemReturns200ResponseReportInner) SetNmId(v int64) {
 	o.NmId = &v
 }
 
 // GetOrderDt returns the OrderDt field value if set, zero value otherwise.
-func (o *GoodsReturn200ResponseReportInner) GetOrderDt() string {
+func (o *ItemReturns200ResponseReportInner) GetOrderDt() string {
 	if o == nil || IsNil(o.OrderDt) {
 		var ret string
 		return ret
@@ -376,7 +376,7 @@ func (o *GoodsReturn200ResponseReportInner) GetOrderDt() string {
 
 // GetOrderDtOk returns a tuple with the OrderDt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GoodsReturn200ResponseReportInner) GetOrderDtOk() (*string, bool) {
+func (o *ItemReturns200ResponseReportInner) GetOrderDtOk() (*string, bool) {
 	if o == nil || IsNil(o.OrderDt) {
 		return nil, false
 	}
@@ -384,7 +384,7 @@ func (o *GoodsReturn200ResponseReportInner) GetOrderDtOk() (*string, bool) {
 }
 
 // HasOrderDt returns a boolean if a field has been set.
-func (o *GoodsReturn200ResponseReportInner) HasOrderDt() bool {
+func (o *ItemReturns200ResponseReportInner) HasOrderDt() bool {
 	if o != nil && !IsNil(o.OrderDt) {
 		return true
 	}
@@ -393,12 +393,12 @@ func (o *GoodsReturn200ResponseReportInner) HasOrderDt() bool {
 }
 
 // SetOrderDt gets a reference to the given string and assigns it to the OrderDt field.
-func (o *GoodsReturn200ResponseReportInner) SetOrderDt(v string) {
+func (o *ItemReturns200ResponseReportInner) SetOrderDt(v string) {
 	o.OrderDt = &v
 }
 
 // GetOrderId returns the OrderId field value if set, zero value otherwise.
-func (o *GoodsReturn200ResponseReportInner) GetOrderId() int64 {
+func (o *ItemReturns200ResponseReportInner) GetOrderId() int64 {
 	if o == nil || IsNil(o.OrderId) {
 		var ret int64
 		return ret
@@ -408,7 +408,7 @@ func (o *GoodsReturn200ResponseReportInner) GetOrderId() int64 {
 
 // GetOrderIdOk returns a tuple with the OrderId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GoodsReturn200ResponseReportInner) GetOrderIdOk() (*int64, bool) {
+func (o *ItemReturns200ResponseReportInner) GetOrderIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.OrderId) {
 		return nil, false
 	}
@@ -416,7 +416,7 @@ func (o *GoodsReturn200ResponseReportInner) GetOrderIdOk() (*int64, bool) {
 }
 
 // HasOrderId returns a boolean if a field has been set.
-func (o *GoodsReturn200ResponseReportInner) HasOrderId() bool {
+func (o *ItemReturns200ResponseReportInner) HasOrderId() bool {
 	if o != nil && !IsNil(o.OrderId) {
 		return true
 	}
@@ -425,12 +425,12 @@ func (o *GoodsReturn200ResponseReportInner) HasOrderId() bool {
 }
 
 // SetOrderId gets a reference to the given int64 and assigns it to the OrderId field.
-func (o *GoodsReturn200ResponseReportInner) SetOrderId(v int64) {
+func (o *ItemReturns200ResponseReportInner) SetOrderId(v int64) {
 	o.OrderId = &v
 }
 
 // GetReadyToReturnDt returns the ReadyToReturnDt field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GoodsReturn200ResponseReportInner) GetReadyToReturnDt() string {
+func (o *ItemReturns200ResponseReportInner) GetReadyToReturnDt() string {
 	if o == nil || IsNil(o.ReadyToReturnDt.Get()) {
 		var ret string
 		return ret
@@ -441,7 +441,7 @@ func (o *GoodsReturn200ResponseReportInner) GetReadyToReturnDt() string {
 // GetReadyToReturnDtOk returns a tuple with the ReadyToReturnDt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GoodsReturn200ResponseReportInner) GetReadyToReturnDtOk() (*string, bool) {
+func (o *ItemReturns200ResponseReportInner) GetReadyToReturnDtOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -449,7 +449,7 @@ func (o *GoodsReturn200ResponseReportInner) GetReadyToReturnDtOk() (*string, boo
 }
 
 // HasReadyToReturnDt returns a boolean if a field has been set.
-func (o *GoodsReturn200ResponseReportInner) HasReadyToReturnDt() bool {
+func (o *ItemReturns200ResponseReportInner) HasReadyToReturnDt() bool {
 	if o != nil && o.ReadyToReturnDt.IsSet() {
 		return true
 	}
@@ -458,22 +458,22 @@ func (o *GoodsReturn200ResponseReportInner) HasReadyToReturnDt() bool {
 }
 
 // SetReadyToReturnDt gets a reference to the given NullableString and assigns it to the ReadyToReturnDt field.
-func (o *GoodsReturn200ResponseReportInner) SetReadyToReturnDt(v string) {
+func (o *ItemReturns200ResponseReportInner) SetReadyToReturnDt(v string) {
 	o.ReadyToReturnDt.Set(&v)
 }
 
 // SetReadyToReturnDtNil sets the value for ReadyToReturnDt to be an explicit nil
-func (o *GoodsReturn200ResponseReportInner) SetReadyToReturnDtNil() {
+func (o *ItemReturns200ResponseReportInner) SetReadyToReturnDtNil() {
 	o.ReadyToReturnDt.Set(nil)
 }
 
 // UnsetReadyToReturnDt ensures that no value is present for ReadyToReturnDt, not even an explicit nil
-func (o *GoodsReturn200ResponseReportInner) UnsetReadyToReturnDt() {
+func (o *ItemReturns200ResponseReportInner) UnsetReadyToReturnDt() {
 	o.ReadyToReturnDt.Unset()
 }
 
 // GetReturnReason returns the ReturnReason field value if set, zero value otherwise.
-func (o *GoodsReturn200ResponseReportInner) GetReturnReason() string {
+func (o *ItemReturns200ResponseReportInner) GetReturnReason() string {
 	if o == nil || IsNil(o.ReturnReason) {
 		var ret string
 		return ret
@@ -483,7 +483,7 @@ func (o *GoodsReturn200ResponseReportInner) GetReturnReason() string {
 
 // GetReturnReasonOk returns a tuple with the ReturnReason field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GoodsReturn200ResponseReportInner) GetReturnReasonOk() (*string, bool) {
+func (o *ItemReturns200ResponseReportInner) GetReturnReasonOk() (*string, bool) {
 	if o == nil || IsNil(o.ReturnReason) {
 		return nil, false
 	}
@@ -491,7 +491,7 @@ func (o *GoodsReturn200ResponseReportInner) GetReturnReasonOk() (*string, bool) 
 }
 
 // HasReturnReason returns a boolean if a field has been set.
-func (o *GoodsReturn200ResponseReportInner) HasReturnReason() bool {
+func (o *ItemReturns200ResponseReportInner) HasReturnReason() bool {
 	if o != nil && !IsNil(o.ReturnReason) {
 		return true
 	}
@@ -500,12 +500,12 @@ func (o *GoodsReturn200ResponseReportInner) HasReturnReason() bool {
 }
 
 // SetReturnReason gets a reference to the given string and assigns it to the ReturnReason field.
-func (o *GoodsReturn200ResponseReportInner) SetReturnReason(v string) {
+func (o *ItemReturns200ResponseReportInner) SetReturnReason(v string) {
 	o.ReturnReason = &v
 }
 
 // GetReturnType returns the ReturnType field value if set, zero value otherwise.
-func (o *GoodsReturn200ResponseReportInner) GetReturnType() string {
+func (o *ItemReturns200ResponseReportInner) GetReturnType() string {
 	if o == nil || IsNil(o.ReturnType) {
 		var ret string
 		return ret
@@ -515,7 +515,7 @@ func (o *GoodsReturn200ResponseReportInner) GetReturnType() string {
 
 // GetReturnTypeOk returns a tuple with the ReturnType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GoodsReturn200ResponseReportInner) GetReturnTypeOk() (*string, bool) {
+func (o *ItemReturns200ResponseReportInner) GetReturnTypeOk() (*string, bool) {
 	if o == nil || IsNil(o.ReturnType) {
 		return nil, false
 	}
@@ -523,7 +523,7 @@ func (o *GoodsReturn200ResponseReportInner) GetReturnTypeOk() (*string, bool) {
 }
 
 // HasReturnType returns a boolean if a field has been set.
-func (o *GoodsReturn200ResponseReportInner) HasReturnType() bool {
+func (o *ItemReturns200ResponseReportInner) HasReturnType() bool {
 	if o != nil && !IsNil(o.ReturnType) {
 		return true
 	}
@@ -532,12 +532,12 @@ func (o *GoodsReturn200ResponseReportInner) HasReturnType() bool {
 }
 
 // SetReturnType gets a reference to the given string and assigns it to the ReturnType field.
-func (o *GoodsReturn200ResponseReportInner) SetReturnType(v string) {
+func (o *ItemReturns200ResponseReportInner) SetReturnType(v string) {
 	o.ReturnType = &v
 }
 
 // GetShkId returns the ShkId field value if set, zero value otherwise.
-func (o *GoodsReturn200ResponseReportInner) GetShkId() int64 {
+func (o *ItemReturns200ResponseReportInner) GetShkId() int64 {
 	if o == nil || IsNil(o.ShkId) {
 		var ret int64
 		return ret
@@ -547,7 +547,7 @@ func (o *GoodsReturn200ResponseReportInner) GetShkId() int64 {
 
 // GetShkIdOk returns a tuple with the ShkId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GoodsReturn200ResponseReportInner) GetShkIdOk() (*int64, bool) {
+func (o *ItemReturns200ResponseReportInner) GetShkIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.ShkId) {
 		return nil, false
 	}
@@ -555,7 +555,7 @@ func (o *GoodsReturn200ResponseReportInner) GetShkIdOk() (*int64, bool) {
 }
 
 // HasShkId returns a boolean if a field has been set.
-func (o *GoodsReturn200ResponseReportInner) HasShkId() bool {
+func (o *ItemReturns200ResponseReportInner) HasShkId() bool {
 	if o != nil && !IsNil(o.ShkId) {
 		return true
 	}
@@ -564,12 +564,12 @@ func (o *GoodsReturn200ResponseReportInner) HasShkId() bool {
 }
 
 // SetShkId gets a reference to the given int64 and assigns it to the ShkId field.
-func (o *GoodsReturn200ResponseReportInner) SetShkId(v int64) {
+func (o *ItemReturns200ResponseReportInner) SetShkId(v int64) {
 	o.ShkId = &v
 }
 
 // GetSrid returns the Srid field value if set, zero value otherwise.
-func (o *GoodsReturn200ResponseReportInner) GetSrid() string {
+func (o *ItemReturns200ResponseReportInner) GetSrid() string {
 	if o == nil || IsNil(o.Srid) {
 		var ret string
 		return ret
@@ -579,7 +579,7 @@ func (o *GoodsReturn200ResponseReportInner) GetSrid() string {
 
 // GetSridOk returns a tuple with the Srid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GoodsReturn200ResponseReportInner) GetSridOk() (*string, bool) {
+func (o *ItemReturns200ResponseReportInner) GetSridOk() (*string, bool) {
 	if o == nil || IsNil(o.Srid) {
 		return nil, false
 	}
@@ -587,7 +587,7 @@ func (o *GoodsReturn200ResponseReportInner) GetSridOk() (*string, bool) {
 }
 
 // HasSrid returns a boolean if a field has been set.
-func (o *GoodsReturn200ResponseReportInner) HasSrid() bool {
+func (o *ItemReturns200ResponseReportInner) HasSrid() bool {
 	if o != nil && !IsNil(o.Srid) {
 		return true
 	}
@@ -596,12 +596,12 @@ func (o *GoodsReturn200ResponseReportInner) HasSrid() bool {
 }
 
 // SetSrid gets a reference to the given string and assigns it to the Srid field.
-func (o *GoodsReturn200ResponseReportInner) SetSrid(v string) {
+func (o *ItemReturns200ResponseReportInner) SetSrid(v string) {
 	o.Srid = &v
 }
 
 // GetReturnStatus returns the ReturnStatus field value if set, zero value otherwise.
-func (o *GoodsReturn200ResponseReportInner) GetReturnStatus() string {
+func (o *ItemReturns200ResponseReportInner) GetReturnStatus() string {
 	if o == nil || IsNil(o.ReturnStatus) {
 		var ret string
 		return ret
@@ -611,7 +611,7 @@ func (o *GoodsReturn200ResponseReportInner) GetReturnStatus() string {
 
 // GetReturnStatusOk returns a tuple with the ReturnStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GoodsReturn200ResponseReportInner) GetReturnStatusOk() (*string, bool) {
+func (o *ItemReturns200ResponseReportInner) GetReturnStatusOk() (*string, bool) {
 	if o == nil || IsNil(o.ReturnStatus) {
 		return nil, false
 	}
@@ -619,7 +619,7 @@ func (o *GoodsReturn200ResponseReportInner) GetReturnStatusOk() (*string, bool) 
 }
 
 // HasReturnStatus returns a boolean if a field has been set.
-func (o *GoodsReturn200ResponseReportInner) HasReturnStatus() bool {
+func (o *ItemReturns200ResponseReportInner) HasReturnStatus() bool {
 	if o != nil && !IsNil(o.ReturnStatus) {
 		return true
 	}
@@ -628,12 +628,12 @@ func (o *GoodsReturn200ResponseReportInner) HasReturnStatus() bool {
 }
 
 // SetReturnStatus gets a reference to the given string and assigns it to the ReturnStatus field.
-func (o *GoodsReturn200ResponseReportInner) SetReturnStatus(v string) {
+func (o *ItemReturns200ResponseReportInner) SetReturnStatus(v string) {
 	o.ReturnStatus = &v
 }
 
 // GetStickerId returns the StickerId field value if set, zero value otherwise.
-func (o *GoodsReturn200ResponseReportInner) GetStickerId() string {
+func (o *ItemReturns200ResponseReportInner) GetStickerId() string {
 	if o == nil || IsNil(o.StickerId) {
 		var ret string
 		return ret
@@ -643,7 +643,7 @@ func (o *GoodsReturn200ResponseReportInner) GetStickerId() string {
 
 // GetStickerIdOk returns a tuple with the StickerId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GoodsReturn200ResponseReportInner) GetStickerIdOk() (*string, bool) {
+func (o *ItemReturns200ResponseReportInner) GetStickerIdOk() (*string, bool) {
 	if o == nil || IsNil(o.StickerId) {
 		return nil, false
 	}
@@ -651,7 +651,7 @@ func (o *GoodsReturn200ResponseReportInner) GetStickerIdOk() (*string, bool) {
 }
 
 // HasStickerId returns a boolean if a field has been set.
-func (o *GoodsReturn200ResponseReportInner) HasStickerId() bool {
+func (o *ItemReturns200ResponseReportInner) HasStickerId() bool {
 	if o != nil && !IsNil(o.StickerId) {
 		return true
 	}
@@ -660,12 +660,12 @@ func (o *GoodsReturn200ResponseReportInner) HasStickerId() bool {
 }
 
 // SetStickerId gets a reference to the given string and assigns it to the StickerId field.
-func (o *GoodsReturn200ResponseReportInner) SetStickerId(v string) {
+func (o *ItemReturns200ResponseReportInner) SetStickerId(v string) {
 	o.StickerId = &v
 }
 
 // GetSubjectName returns the SubjectName field value if set, zero value otherwise.
-func (o *GoodsReturn200ResponseReportInner) GetSubjectName() string {
+func (o *ItemReturns200ResponseReportInner) GetSubjectName() string {
 	if o == nil || IsNil(o.SubjectName) {
 		var ret string
 		return ret
@@ -675,7 +675,7 @@ func (o *GoodsReturn200ResponseReportInner) GetSubjectName() string {
 
 // GetSubjectNameOk returns a tuple with the SubjectName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GoodsReturn200ResponseReportInner) GetSubjectNameOk() (*string, bool) {
+func (o *ItemReturns200ResponseReportInner) GetSubjectNameOk() (*string, bool) {
 	if o == nil || IsNil(o.SubjectName) {
 		return nil, false
 	}
@@ -683,7 +683,7 @@ func (o *GoodsReturn200ResponseReportInner) GetSubjectNameOk() (*string, bool) {
 }
 
 // HasSubjectName returns a boolean if a field has been set.
-func (o *GoodsReturn200ResponseReportInner) HasSubjectName() bool {
+func (o *ItemReturns200ResponseReportInner) HasSubjectName() bool {
 	if o != nil && !IsNil(o.SubjectName) {
 		return true
 	}
@@ -692,12 +692,12 @@ func (o *GoodsReturn200ResponseReportInner) HasSubjectName() bool {
 }
 
 // SetSubjectName gets a reference to the given string and assigns it to the SubjectName field.
-func (o *GoodsReturn200ResponseReportInner) SetSubjectName(v string) {
+func (o *ItemReturns200ResponseReportInner) SetSubjectName(v string) {
 	o.SubjectName = &v
 }
 
 // GetTechSize returns the TechSize field value if set, zero value otherwise.
-func (o *GoodsReturn200ResponseReportInner) GetTechSize() string {
+func (o *ItemReturns200ResponseReportInner) GetTechSize() string {
 	if o == nil || IsNil(o.TechSize) {
 		var ret string
 		return ret
@@ -707,7 +707,7 @@ func (o *GoodsReturn200ResponseReportInner) GetTechSize() string {
 
 // GetTechSizeOk returns a tuple with the TechSize field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GoodsReturn200ResponseReportInner) GetTechSizeOk() (*string, bool) {
+func (o *ItemReturns200ResponseReportInner) GetTechSizeOk() (*string, bool) {
 	if o == nil || IsNil(o.TechSize) {
 		return nil, false
 	}
@@ -715,7 +715,7 @@ func (o *GoodsReturn200ResponseReportInner) GetTechSizeOk() (*string, bool) {
 }
 
 // HasTechSize returns a boolean if a field has been set.
-func (o *GoodsReturn200ResponseReportInner) HasTechSize() bool {
+func (o *ItemReturns200ResponseReportInner) HasTechSize() bool {
 	if o != nil && !IsNil(o.TechSize) {
 		return true
 	}
@@ -724,11 +724,11 @@ func (o *GoodsReturn200ResponseReportInner) HasTechSize() bool {
 }
 
 // SetTechSize gets a reference to the given string and assigns it to the TechSize field.
-func (o *GoodsReturn200ResponseReportInner) SetTechSize(v string) {
+func (o *ItemReturns200ResponseReportInner) SetTechSize(v string) {
 	o.TechSize = &v
 }
 
-func (o GoodsReturn200ResponseReportInner) MarshalJSON() ([]byte, error) {
+func (o ItemReturns200ResponseReportInner) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -736,7 +736,7 @@ func (o GoodsReturn200ResponseReportInner) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o GoodsReturn200ResponseReportInner) ToMap() (map[string]interface{}, error) {
+func (o ItemReturns200ResponseReportInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Sku) {
 		toSerialize["sku"] = o.Sku
@@ -798,38 +798,38 @@ func (o GoodsReturn200ResponseReportInner) ToMap() (map[string]interface{}, erro
 	return toSerialize, nil
 }
 
-type NullableGoodsReturn200ResponseReportInner struct {
-	value *GoodsReturn200ResponseReportInner
+type NullableItemReturns200ResponseReportInner struct {
+	value *ItemReturns200ResponseReportInner
 	isSet bool
 }
 
-func (v NullableGoodsReturn200ResponseReportInner) Get() *GoodsReturn200ResponseReportInner {
+func (v NullableItemReturns200ResponseReportInner) Get() *ItemReturns200ResponseReportInner {
 	return v.value
 }
 
-func (v *NullableGoodsReturn200ResponseReportInner) Set(val *GoodsReturn200ResponseReportInner) {
+func (v *NullableItemReturns200ResponseReportInner) Set(val *ItemReturns200ResponseReportInner) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableGoodsReturn200ResponseReportInner) IsSet() bool {
+func (v NullableItemReturns200ResponseReportInner) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableGoodsReturn200ResponseReportInner) Unset() {
+func (v *NullableItemReturns200ResponseReportInner) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableGoodsReturn200ResponseReportInner(val *GoodsReturn200ResponseReportInner) *NullableGoodsReturn200ResponseReportInner {
-	return &NullableGoodsReturn200ResponseReportInner{value: val, isSet: true}
+func NewNullableItemReturns200ResponseReportInner(val *ItemReturns200ResponseReportInner) *NullableItemReturns200ResponseReportInner {
+	return &NullableItemReturns200ResponseReportInner{value: val, isSet: true}
 }
 
-func (v NullableGoodsReturn200ResponseReportInner) MarshalJSON() ([]byte, error) {
+func (v NullableItemReturns200ResponseReportInner) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableGoodsReturn200ResponseReportInner) UnmarshalJSON(src []byte) error {
+func (v *NullableItemReturns200ResponseReportInner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

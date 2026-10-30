@@ -1,7 +1,7 @@
 /*
 Отчёты
 
-Узнать больше об отчётах можно в [справочном центре](https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0)  С помощью этих методов вы можете получать [основные отчёты](https://dev.wildberries.ru/openapi/reports#tag/mainReports) и отчёты о: 1. [Остатках на складах](https://dev.wildberries.ru/openapi/reports#tag/warehousesInventoryReport) 2. [Товарах с обязательной маркировкой](https://dev.wildberries.ru/openapi/reports#tag/reportOnItemsWithMandatoryLabeling) 3. [Удержаниях](https://dev.wildberries.ru/openapi/reports#tag/retentionReports) 4. [Операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses) 5. [Платном хранении](https://dev.wildberries.ru/openapi/reports#tag/paidStorage) 6. [Продажах по регионам](https://dev.wildberries.ru/openapi/reports#tag/salesByRegions) 7. [Доле бренда в продажах](https://dev.wildberries.ru/openapi/reports#tag/shareOfBrandInSales) 8. [Заблокированных карточках](https://dev.wildberries.ru/openapi/reports#tag/blockedItems) 9. [Возвратах и перемещении товаров](https://dev.wildberries.ru/openapi/reports#tag/returnsAndItemMovementReport)
+Узнать больше об отчётах можно в [справочном центре](https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0)  С помощью этих методов вы можете получать [основные отчёты](https://dev.wildberries.ru/openapi/reports#tag/mainReports) и отчёты о: 1. [Остатках на складах](https://dev.wildberries.ru/openapi/reports#tag/warehousesInventoryReport) 2. [Товарах с обязательной маркировкой](https://dev.wildberries.ru/openapi/reports#tag/reportOnItemsWithMandatoryLabeling) 3. [Удержаниях](https://dev.wildberries.ru/openapi/reports#tag/retentionReports) 4. [Операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses) 5. [Платном хранении](https://dev.wildberries.ru/openapi/reports#tag/paidStorage) 6. [Доле бренда в продажах](https://dev.wildberries.ru/openapi/reports#tag/shareOfBrandInSales) 7. [Заблокированных карточках](https://dev.wildberries.ru/openapi/reports#tag/blockedItems) 8. [Возвратах и перемещении товаров](https://dev.wildberries.ru/openapi/reports#tag/returnsAndItemMovementReport)
 
 API version: reports
 */
@@ -258,25 +258,6 @@ type ReportsAPI interface {
 	GetV1AnalyticsGoodsLabelingExecute(r ApiGetV1AnalyticsGoodsLabelingRequest) (*GetV1AnalyticsGoodsLabeling200Response, *http.Response, error)
 
 	/*
-			GetV1AnalyticsGoodsReturn Получить отчёт
-
-			Метод будет отключен [26 октября](https://dev.wildberries.ru/release-notes?id=577).
-
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-goods-return
-
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV1AnalyticsGoodsReturnRequest
-
-			Deprecated
-	*/
-	GetV1AnalyticsGoodsReturn(ctx context.Context) ApiGetV1AnalyticsGoodsReturnRequest
-
-	// GetV1AnalyticsGoodsReturnExecute executes the request
-	//  @return GetV1AnalyticsGoodsReturnResponse200
-	// Deprecated
-	GetV1AnalyticsGoodsReturnExecute(r ApiGetV1AnalyticsGoodsReturnRequest) (*GetV1AnalyticsGoodsReturnResponse200, *http.Response, error)
-
-	/*
 			GetV1AnalyticsRegionSale Получить отчёт
 
 			Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).
@@ -328,7 +309,7 @@ type ReportsAPI interface {
 	GetV1DeductionsExecute(r ApiGetV1DeductionsRequest) (*GetV1Deductions200Response, *http.Response, error)
 
 	/*
-			GetV1GoodsReturn Получить отчёт
+			GetV1ItemReturns Получить отчёт
 
 			Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports).
 
@@ -343,13 +324,13 @@ type ReportsAPI interface {
 		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-item-returns
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV1GoodsReturnRequest
+			@return ApiGetV1ItemReturnsRequest
 	*/
-	GetV1GoodsReturn(ctx context.Context) ApiGetV1GoodsReturnRequest
+	GetV1ItemReturns(ctx context.Context) ApiGetV1ItemReturnsRequest
 
-	// GetV1GoodsReturnExecute executes the request
-	//  @return GoodsReturn200Response
-	GetV1GoodsReturnExecute(r ApiGetV1GoodsReturnRequest) (*GoodsReturn200Response, *http.Response, error)
+	// GetV1ItemReturnsExecute executes the request
+	//  @return ItemReturns200Response
+	GetV1ItemReturnsExecute(r ApiGetV1ItemReturnsRequest) (*ItemReturns200Response, *http.Response, error)
 
 	/*
 			GetV1MeasurementPenalties Удержания за занижение габаритов упаковки
@@ -2328,188 +2309,6 @@ func (a *ReportsAPIService) GetV1AnalyticsGoodsLabelingExecute(r ApiGetV1Analyti
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetV1AnalyticsGoodsReturnRequest struct {
-	ctx        context.Context
-	ApiService ReportsAPI
-	dateFrom   *string
-	dateTo     *string
-}
-
-// Дата начала отчётного периода
-func (r ApiGetV1AnalyticsGoodsReturnRequest) DateFrom(dateFrom string) ApiGetV1AnalyticsGoodsReturnRequest {
-	r.dateFrom = &dateFrom
-	return r
-}
-
-// Дата окончания отчётного периода
-func (r ApiGetV1AnalyticsGoodsReturnRequest) DateTo(dateTo string) ApiGetV1AnalyticsGoodsReturnRequest {
-	r.dateTo = &dateTo
-	return r
-}
-
-func (r ApiGetV1AnalyticsGoodsReturnRequest) Execute() (*GetV1AnalyticsGoodsReturnResponse200, *http.Response, error) {
-	return r.ApiService.GetV1AnalyticsGoodsReturnExecute(r)
-}
-
-/*
-GetV1AnalyticsGoodsReturn Получить отчёт
-
-Метод будет отключен [26 октября](https://dev.wildberries.ru/release-notes?id=577).
-
-Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-goods-return
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1AnalyticsGoodsReturnRequest
-
-Deprecated
-*/
-func (a *ReportsAPIService) GetV1AnalyticsGoodsReturn(ctx context.Context) ApiGetV1AnalyticsGoodsReturnRequest {
-	return ApiGetV1AnalyticsGoodsReturnRequest{
-		ApiService: a,
-		ctx:        ctx,
-	}
-}
-
-// Execute executes the request
-//
-//	@return GetV1AnalyticsGoodsReturnResponse200
-//
-// Deprecated
-func (a *ReportsAPIService) GetV1AnalyticsGoodsReturnExecute(r ApiGetV1AnalyticsGoodsReturnRequest) (*GetV1AnalyticsGoodsReturnResponse200, *http.Response, error) {
-	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV1AnalyticsGoodsReturnResponse200
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsAPIService.GetV1AnalyticsGoodsReturn")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/analytics/goods-return"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.dateFrom == nil {
-		return localVarReturnValue, nil, reportError("dateFrom is required and must be specified")
-	}
-	if r.dateTo == nil {
-		return localVarReturnValue, nil, reportError("dateTo is required and must be specified")
-	}
-
-	parameterAddToHeaderOrQuery(localVarQueryParams, "dateFrom", r.dateFrom, "form", "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "dateTo", r.dateTo, "form", "")
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v Http4XXResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v GetV1SupplierOrders401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetV1SupplierOrders402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v GetV1SupplierOrders403Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetV1SupplierOrders401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
 type ApiGetV1AnalyticsRegionSaleRequest struct {
 	ctx        context.Context
 	ApiService ReportsAPI
@@ -2938,7 +2737,7 @@ func (a *ReportsAPIService) GetV1DeductionsExecute(r ApiGetV1DeductionsRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetV1GoodsReturnRequest struct {
+type ApiGetV1ItemReturnsRequest struct {
 	ctx        context.Context
 	ApiService ReportsAPI
 	dateFrom   *string
@@ -2949,41 +2748,41 @@ type ApiGetV1GoodsReturnRequest struct {
 }
 
 // Дата начала отчётного периода
-func (r ApiGetV1GoodsReturnRequest) DateFrom(dateFrom string) ApiGetV1GoodsReturnRequest {
+func (r ApiGetV1ItemReturnsRequest) DateFrom(dateFrom string) ApiGetV1ItemReturnsRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
 
 // Дата окончания отчётного периода
-func (r ApiGetV1GoodsReturnRequest) DateTo(dateTo string) ApiGetV1GoodsReturnRequest {
+func (r ApiGetV1ItemReturnsRequest) DateTo(dateTo string) ApiGetV1ItemReturnsRequest {
 	r.dateTo = &dateTo
 	return r
 }
 
 // Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный
-func (r ApiGetV1GoodsReturnRequest) Status(status string) ApiGetV1GoodsReturnRequest {
+func (r ApiGetV1ItemReturnsRequest) Status(status string) ApiGetV1ItemReturnsRequest {
 	r.status = &status
 	return r
 }
 
 // Количество возвратов в ответе
-func (r ApiGetV1GoodsReturnRequest) Limit(limit int32) ApiGetV1GoodsReturnRequest {
+func (r ApiGetV1ItemReturnsRequest) Limit(limit int32) ApiGetV1ItemReturnsRequest {
 	r.limit = &limit
 	return r
 }
 
 // Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
-func (r ApiGetV1GoodsReturnRequest) Offset(offset int32) ApiGetV1GoodsReturnRequest {
+func (r ApiGetV1ItemReturnsRequest) Offset(offset int32) ApiGetV1ItemReturnsRequest {
 	r.offset = &offset
 	return r
 }
 
-func (r ApiGetV1GoodsReturnRequest) Execute() (*GoodsReturn200Response, *http.Response, error) {
-	return r.ApiService.GetV1GoodsReturnExecute(r)
+func (r ApiGetV1ItemReturnsRequest) Execute() (*ItemReturns200Response, *http.Response, error) {
+	return r.ApiService.GetV1ItemReturnsExecute(r)
 }
 
 /*
-GetV1GoodsReturn Получить отчёт
+GetV1ItemReturns Получить отчёт
 
 Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports).
 
@@ -2998,10 +2797,10 @@ GetV1GoodsReturn Получить отчёт
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-item-returns
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1GoodsReturnRequest
+	@return ApiGetV1ItemReturnsRequest
 */
-func (a *ReportsAPIService) GetV1GoodsReturn(ctx context.Context) ApiGetV1GoodsReturnRequest {
-	return ApiGetV1GoodsReturnRequest{
+func (a *ReportsAPIService) GetV1ItemReturns(ctx context.Context) ApiGetV1ItemReturnsRequest {
+	return ApiGetV1ItemReturnsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -3009,16 +2808,16 @@ func (a *ReportsAPIService) GetV1GoodsReturn(ctx context.Context) ApiGetV1GoodsR
 
 // Execute executes the request
 //
-//	@return GoodsReturn200Response
-func (a *ReportsAPIService) GetV1GoodsReturnExecute(r ApiGetV1GoodsReturnRequest) (*GoodsReturn200Response, *http.Response, error) {
+//	@return ItemReturns200Response
+func (a *ReportsAPIService) GetV1ItemReturnsExecute(r ApiGetV1ItemReturnsRequest) (*ItemReturns200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
 		formFiles           []formFile
-		localVarReturnValue *GoodsReturn200Response
+		localVarReturnValue *ItemReturns200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsAPIService.GetV1GoodsReturn")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsAPIService.GetV1ItemReturns")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
