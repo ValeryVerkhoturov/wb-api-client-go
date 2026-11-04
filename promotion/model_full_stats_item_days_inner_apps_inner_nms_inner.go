@@ -481,7 +481,7 @@ func (o *FullStatsItemDaysInnerAppsInnerNmsInner) SetViews(v int64) {
 }
 
 func (o FullStatsItemDaysInnerAppsInnerNmsInner) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -567,3 +567,5 @@ func (v *NullableFullStatsItemDaysInnerAppsInnerNmsInner) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

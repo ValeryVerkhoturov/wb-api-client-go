@@ -65,9 +65,9 @@ type ServerVariable struct {
 
 // ServerConfiguration stores the information about a server
 type ServerConfiguration struct {
-	URL         string
+	URL string
 	Description string
-	Variables   map[string]ServerVariable
+	Variables map[string]ServerVariable
 }
 
 // ServerConfigurations stores multiple ServerConfiguration items
@@ -76,11 +76,11 @@ type ServerConfigurations []ServerConfiguration
 // Configuration stores the configuration of the API client
 type Configuration struct {
 	AccessToken      *secrecy.SecretString `json:"-"`
-	Host             string                `json:"host,omitempty"`
-	Scheme           string                `json:"scheme,omitempty"`
-	DefaultHeader    map[string]string     `json:"defaultHeader,omitempty"`
-	UserAgent        string                `json:"userAgent,omitempty"`
-	Debug            bool                  `json:"debug,omitempty"`
+	Host             string            `json:"host,omitempty"`
+	Scheme           string            `json:"scheme,omitempty"`
+	DefaultHeader    map[string]string `json:"defaultHeader,omitempty"`
+	UserAgent        string            `json:"userAgent,omitempty"`
+	Debug            bool              `json:"debug,omitempty"`
 	Servers          ServerConfigurations
 	OperationServers map[string]ServerConfigurations
 	HTTPClient       *http.Client
@@ -89,147 +89,147 @@ type Configuration struct {
 // NewConfiguration returns a new Configuration object
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
-		DefaultHeader: make(map[string]string),
-		UserAgent:     "ValeryVerkhoturov/wb-api-client/go",
-		Debug:         false,
-		Servers: ServerConfigurations{
+		DefaultHeader:    make(map[string]string),
+		UserAgent:        "ValeryVerkhoturov/wb-api-client/go",
+		Debug:            false,
+		Servers:          ServerConfigurations{
 			{
-				URL:         "",
+				URL: "",
 				Description: "No description provided",
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{
 			"GeneralAPIService.DeleteV1User": {
 				{
-					URL:         "https://user-management-api.wildberries.ru",
+					URL: "https://user-management-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"GeneralAPIService.GetPing": {
 				{
-					URL:         "https://common-api.wildberries.ru",
+					URL: "https://common-api.wildberries.ru",
 					Description: "**Тарифы, Новости, Информация о продавце** ",
 				},
 				{
-					URL:         "https://content-api.wildberries.ru",
+					URL: "https://content-api.wildberries.ru",
 					Description: "**Контент** ",
 				},
 				{
-					URL:         "https://content-api-sandbox.wildberries.ru",
+					URL: "https://content-api-sandbox.wildberries.ru",
 					Description: "**Песочница Контент** ",
 				},
 				{
-					URL:         "https://seller-analytics-api.wildberries.ru",
+					URL: "https://seller-analytics-api.wildberries.ru",
 					Description: "**Аналитика** ",
 				},
 				{
-					URL:         "https://discounts-prices-api.wildberries.ru",
+					URL: "https://discounts-prices-api.wildberries.ru",
 					Description: "**Цены и скидки** ",
 				},
 				{
-					URL:         "https://discounts-prices-api-sandbox.wildberries.ru",
+					URL: "https://discounts-prices-api-sandbox.wildberries.ru",
 					Description: "**Песочница Цены и скидки** ",
 				},
 				{
-					URL:         "https://marketplace-api.wildberries.ru",
+					URL: "https://marketplace-api.wildberries.ru",
 					Description: "**Маркетплейс** ",
 				},
 				{
-					URL:         "https://marketplace-api-sandbox.wildberries.ru",
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Песочница Маркетплейс** ",
 				},
 				{
-					URL:         "https://statistics-api.wildberries.ru",
+					URL: "https://statistics-api.wildberries.ru",
 					Description: "**Статистика** ",
 				},
 				{
-					URL:         "https://advert-api.wildberries.ru",
+					URL: "https://advert-api.wildberries.ru",
 					Description: "**Продвижение** ",
 				},
 				{
-					URL:         "https://feedbacks-api.wildberries.ru",
+					URL: "https://feedbacks-api.wildberries.ru",
 					Description: "**Вопросы и отзывы** ",
 				},
 				{
-					URL:         "https://feedbacks-api-sandbox.wildberries.ru",
+					URL: "https://feedbacks-api-sandbox.wildberries.ru",
 					Description: "**Песочница Вопросы и отзывы** ",
 				},
 				{
-					URL:         "https://buyer-chat-api.wildberries.ru",
+					URL: "https://buyer-chat-api.wildberries.ru",
 					Description: "**Чат с покупателями** ",
 				},
 				{
-					URL:         "https://supplies-api.wildberries.ru",
+					URL: "https://supplies-api.wildberries.ru",
 					Description: "**Поставки** ",
 				},
 				{
-					URL:         "https://returns-api.wildberries.ru",
+					URL: "https://returns-api.wildberries.ru",
 					Description: "**Возвраты покупателями** ",
 				},
 				{
-					URL:         "https://documents-api.wildberries.ru",
+					URL: "https://documents-api.wildberries.ru",
 					Description: "**Документы** ",
 				},
 				{
-					URL:         "https://finance-api.wildberries.ru",
+					URL: "https://finance-api.wildberries.ru",
 					Description: "**Финансы** ",
 				},
 				{
-					URL:         "https://user-management-api.wildberries.ru",
+					URL: "https://user-management-api.wildberries.ru",
 					Description: "**Управление пользователями продавца** ",
 				},
 			},
 			"GeneralAPIService.GetV1Notifications": {
 				{
-					URL:         "https://common-api.wildberries.ru",
+					URL: "https://common-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"GeneralAPIService.GetV1Rating": {
 				{
-					URL:         "https://feedbacks-api.wildberries.ru",
+					URL: "https://feedbacks-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"GeneralAPIService.GetV1SellerInfo": {
 				{
-					URL:         "https://common-api.wildberries.ru",
+					URL: "https://common-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"GeneralAPIService.GetV1Subscriptions": {
 				{
-					URL:         "https://common-api.wildberries.ru",
+					URL: "https://common-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"GeneralAPIService.GetV1TariffConstructorOptions": {
 				{
-					URL:         "https://common-api.wildberries.ru",
+					URL: "https://common-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"GeneralAPIService.GetV1Users": {
 				{
-					URL:         "https://user-management-api.wildberries.ru",
+					URL: "https://user-management-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"GeneralAPIService.GetV2News": {
 				{
-					URL:         "https://common-api.wildberries.ru",
+					URL: "https://common-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"GeneralAPIService.PostV1Invite": {
 				{
-					URL:         "https://user-management-api.wildberries.ru",
+					URL: "https://user-management-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"GeneralAPIService.PutV1UsersAccess": {
 				{
-					URL:         "https://user-management-api.wildberries.ru",
+					URL: "https://user-management-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},

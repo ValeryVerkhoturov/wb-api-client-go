@@ -33,7 +33,7 @@ type PostV2CardsUpdateRequestInnerDocumentsItemsInner struct {
 	StartDate *string `json:"startDate,omitempty"`
 	// Дата и время окончания срока действия документа
 	EndDate *string `json:"endDate,omitempty"`
-	// Бессрочный ли документ:   - `true` — да, документ бессрочный   - `false` — нет, у документа есть срок действия
+	// Бессрочный ли документ:   - `true` — да, документ бессрочный   - `false` — нет, у документа есть срок действия 
 	IsEndless *bool `json:"isEndless,omitempty"`
 	// ID документа, прикреплённого к карточке. Укажите `id`, чтобы внести изменения в прикреплённый ранее документ. ID документа указан в [списке карточек товаров](https://dev.wildberries.ru/item-management#tag/listings/operation/postV2GetCardsList). Чтобы добавить новый документ, указывать `id` не нужно.
 	Id *string `json:"id,omitempty"`
@@ -345,7 +345,7 @@ func (o *PostV2CardsUpdateRequestInnerDocumentsItemsInner) SetId(v string) {
 }
 
 func (o PostV2CardsUpdateRequestInnerDocumentsItemsInner) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -419,3 +419,5 @@ func (v *NullablePostV2CardsUpdateRequestInnerDocumentsItemsInner) UnmarshalJSON
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

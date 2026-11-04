@@ -18,29 +18,30 @@ import (
 	"net/url"
 )
 
+
 type InStorePickupAPI interface {
 
 	/*
-			GetV3ClickCollectOrders Получить информацию о завершённых сборочных заданиях
+	GetV3ClickCollectOrders Получить информацию о завершённых сборочных заданиях
 
-			Метод возвращает информацию о завершённых сборочных заданиях после продажи или отмены заказа.
+	Метод возвращает информацию о завершённых сборочных заданиях после продажи или отмены заказа.
 
-		Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.
+Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий Самовывоз**:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 300 запросов | 200 мс | 20 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий Самовывоз**:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/get-api-v3-click-collect-orders
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/get-api-v3-click-collect-orders
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV3ClickCollectOrdersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV3ClickCollectOrdersRequest
 	*/
 	GetV3ClickCollectOrders(ctx context.Context) ApiGetV3ClickCollectOrdersRequest
 
@@ -49,24 +50,24 @@ type InStorePickupAPI interface {
 	GetV3ClickCollectOrdersExecute(r ApiGetV3ClickCollectOrdersRequest) (*ApiOrders, *http.Response, error)
 
 	/*
-			GetV3ClickCollectOrdersNew Получить список новых сборочных заданий
+	GetV3ClickCollectOrdersNew Получить список новых сборочных заданий
 
-			Метод возвращает список всех новых [сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders), которые есть у продавца на момент запроса.
+	Метод возвращает список всех новых [сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders), которые есть у продавца на момент запроса.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий Самовывоз**:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 300 запросов | 200 мс | 20 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий Самовывоз**:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/get-api-v3-click-collect-orders-new
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/get-api-v3-click-collect-orders-new
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV3ClickCollectOrdersNewRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV3ClickCollectOrdersNewRequest
 	*/
 	GetV3ClickCollectOrdersNew(ctx context.Context) ApiGetV3ClickCollectOrdersNewRequest
 
@@ -75,28 +76,28 @@ type InStorePickupAPI interface {
 	GetV3ClickCollectOrdersNewExecute(r ApiGetV3ClickCollectOrdersNewRequest) (*ApiNewOrders, *http.Response, error)
 
 	/*
-			PostV3ClickCollectOrdersClient Информация о покупателе
+	PostV3ClickCollectOrdersClient Информация о покупателе
 
-			Метод возвращает информацию о покупателе по ID сборочного задания.
+	Метод возвращает информацию о покупателе по ID сборочного задания.
 
-		Доступно только для сборочных заданий в статусах:
-		- `confirm` — на сборке
-		- `prepare` — готов к выдаче
+Доступно только для сборочных заданий в статусах:
+- `confirm` — на сборке
+- `prepare` — готов к выдаче
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий Самовывоз**:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 300 запросов | 200 мс | 20 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий Самовывоз**:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-v3-click-collect-orders-client
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-v3-click-collect-orders-client
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV3ClickCollectOrdersClientRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3ClickCollectOrdersClientRequest
 	*/
 	PostV3ClickCollectOrdersClient(ctx context.Context) ApiPostV3ClickCollectOrdersClientRequest
 
@@ -105,26 +106,26 @@ type InStorePickupAPI interface {
 	PostV3ClickCollectOrdersClientExecute(r ApiPostV3ClickCollectOrdersClientRequest) (*ApiOrderClientInfoResp, *http.Response, error)
 
 	/*
-			PostV3ClickCollectOrdersClientIdentity Проверить, что заказ принадлежит покупателю
+	PostV3ClickCollectOrdersClientIdentity Проверить, что заказ принадлежит покупателю
 
-			Метод сообщает, принадлежит ли проверяемый заказ покупателю или нет по переданному коду.
+	Метод сообщает, принадлежит ли проверяемый заказ покупателю или нет по переданному коду.
 
-		Доступно, если хотя бы одно сборочное задание из заказа находится в статусе prepare - готов к выдаче.
+Доступно, если хотя бы одно сборочное задание из заказа находится в статусе prepare - готов к выдаче.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 30 запросов | 2 сек | 20 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 30 запросов | 2 сек | 20 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-v3-click-collect-orders-client-identity
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-v3-click-collect-orders-client-identity
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV3ClickCollectOrdersClientIdentityRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3ClickCollectOrdersClientIdentityRequest
 	*/
 	PostV3ClickCollectOrdersClientIdentity(ctx context.Context) ApiPostV3ClickCollectOrdersClientIdentityRequest
 
@@ -133,26 +134,26 @@ type InStorePickupAPI interface {
 	PostV3ClickCollectOrdersClientIdentityExecute(r ApiPostV3ClickCollectOrdersClientIdentityRequest) (*ApiCheckedIdentity, *http.Response, error)
 
 	/*
-			PostV3ClickCollectOrdersFinalPrice Получить цены продавца и суммы к оплате
+	PostV3ClickCollectOrdersFinalPrice Получить цены продавца и суммы к оплате
 
-			Метод возвращает:
-		- цены продавца без учёта скидок
-		- суммы к оплате покупателем с учетом всех скидок и кэшбека
+	Метод возвращает:
+- цены продавца без учёта скидок
+- суммы к оплате покупателем с учетом всех скидок и кэшбека
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **получения и удаления идентификаторов маркировки Самовывоз**:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 150 запросов | 400 мс | 20 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **получения и удаления идентификаторов маркировки Самовывоз**:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 150 запросов | 400 мс | 20 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-final-price
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-final-price
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV3ClickCollectOrdersFinalPriceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3ClickCollectOrdersFinalPriceRequest
 	*/
 	PostV3ClickCollectOrdersFinalPrice(ctx context.Context) ApiPostV3ClickCollectOrdersFinalPriceRequest
 
@@ -161,28 +162,28 @@ type InStorePickupAPI interface {
 	PostV3ClickCollectOrdersFinalPriceExecute(r ApiPostV3ClickCollectOrdersFinalPriceRequest) (*ApiOrdersFinalPriceResponse, *http.Response, error)
 
 	/*
-			PostV3ClickCollectOrdersMetaCustomsDeclaration Закрепить номера ДТ за сборочными заданиями
+	PostV3ClickCollectOrdersMetaCustomsDeclaration Закрепить номера ДТ за сборочными заданиями
 
-			Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). У одного сборочного задания может быть только один номер ДТ.
-		Закрепить номер ДТ можно, только если выполняются все условия:
-		- сборочное задание имеет признак B2B-продажи — `"isB2b":true` в ответе метода [получения новых сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew)
-		- сборочное задание находится в [статусах](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` или `prepare`
-		- поле `customsDeclaration` есть в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails)
+	Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). У одного сборочного задания может быть только один номер ДТ.
+Закрепить номер ДТ можно, только если выполняются все условия:
+- сборочное задание имеет признак B2B-продажи — `"isB2b":true` в ответе метода [получения новых сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew)
+- сборочное задание находится в [статусах](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` или `prepare`
+- поле `customsDeclaration` есть в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails)
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **закрепления идентификаторов маркировки Самовывоз**:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 20 запросов | 3 сек | 500 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **закрепления идентификаторов маркировки Самовывоз**:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 20 запросов | 3 сек | 500 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-customs-declaration
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-customs-declaration
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV3ClickCollectOrdersMetaCustomsDeclarationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3ClickCollectOrdersMetaCustomsDeclarationRequest
 	*/
 	PostV3ClickCollectOrdersMetaCustomsDeclaration(ctx context.Context) ApiPostV3ClickCollectOrdersMetaCustomsDeclarationRequest
 
@@ -191,31 +192,31 @@ type InStorePickupAPI interface {
 	PostV3ClickCollectOrdersMetaCustomsDeclarationExecute(r ApiPostV3ClickCollectOrdersMetaCustomsDeclarationRequest) (*ApiCustomsDeclarationSetResponse, *http.Response, error)
 
 	/*
-			PostV3ClickCollectOrdersMetaDelete Удалить идентификаторы маркировки сборочных заданий
+	PostV3ClickCollectOrdersMetaDelete Удалить идентификаторы маркировки сборочных заданий
 
-			Метод удаляет значения указанных [идентификаторов маркировки сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails).
+	Метод удаляет значения указанных [идентификаторов маркировки сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails).
 
-		В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:
-		- `imei` — [IMEI](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)
-		- `uin` — [УИН](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)
-		- `gtin` — [GTIN](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)
-		- `sgtin` — [код маркировки](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)
-		- `customsDeclaration` — [номер ДТ](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration). При удалении номера ДТ также удаляется код страны происхождения товара — `originCountryCode`
+В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:
+- `imei` — [IMEI](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)
+- `uin` — [УИН](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)
+- `gtin` — [GTIN](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)
+- `sgtin` — [код маркировки](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)
+- `customsDeclaration` — [номер ДТ](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration). При удалении номера ДТ также удаляется код страны происхождения товара — `originCountryCode`
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **получения и удаления идентификаторов маркировки Самовывоз**:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 150 запросов | 400 мс | 20 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **получения и удаления идентификаторов маркировки Самовывоз**:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 150 запросов | 400 мс | 20 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-delete
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-delete
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV3ClickCollectOrdersMetaDeleteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3ClickCollectOrdersMetaDeleteRequest
 	*/
 	PostV3ClickCollectOrdersMetaDelete(ctx context.Context) ApiPostV3ClickCollectOrdersMetaDeleteRequest
 
@@ -224,29 +225,29 @@ type InStorePickupAPI interface {
 	PostV3ClickCollectOrdersMetaDeleteExecute(r ApiPostV3ClickCollectOrdersMetaDeleteRequest) (*ApiOrdersResponses, *http.Response, error)
 
 	/*
-			PostV3ClickCollectOrdersMetaDetails Получить идентификаторы маркировки сборочных заданий
+	PostV3ClickCollectOrdersMetaDetails Получить идентификаторы маркировки сборочных заданий
 
-			Метод возвращает идентификаторы маркировки [сборочных заданий ](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и статусы их проверки.
+	Метод возвращает идентификаторы маркировки [сборочных заданий ](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и статусы их проверки.
 
-		Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew), поле `requiredMeta`. Если поле `requiredMeta` не содержит какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.
-		Возможные идентификаторы маркировки:
-		- `imei` — [IMEI](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)
-		- `uin` — [УИН](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)
-		- `gtin` — [GTIN](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)
-		- `sgtin` — [код маркировки](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)
-		- `customsDeclaration` — [номер ДТ](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration)
-		- `originCountryCode` — [числовой код страны происхождения товара](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)
+Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew), поле `requiredMeta`. Если поле `requiredMeta` не содержит какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.
+Возможные идентификаторы маркировки:
+- `imei` — [IMEI](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)
+- `uin` — [УИН](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)
+- `gtin` — [GTIN](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)
+- `sgtin` — [код маркировки](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)
+- `customsDeclaration` — [номер ДТ](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration)
+- `originCountryCode` — [числовой код страны происхождения товара](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **получения и удаления идентификаторов маркировки Самовывоз**:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 150 запросов | 400 мс | 20 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **получения и удаления идентификаторов маркировки Самовывоз**:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 150 запросов | 400 мс | 20 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-details
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-details
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV3ClickCollectOrdersMetaDetailsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3ClickCollectOrdersMetaDetailsRequest
 	*/
 	PostV3ClickCollectOrdersMetaDetails(ctx context.Context) ApiPostV3ClickCollectOrdersMetaDetailsRequest
 
@@ -255,25 +256,25 @@ type InStorePickupAPI interface {
 	PostV3ClickCollectOrdersMetaDetailsExecute(r ApiPostV3ClickCollectOrdersMetaDetailsRequest) (*ApiOrdersMetaDetailsResponse, *http.Response, error)
 
 	/*
-			PostV3ClickCollectOrdersMetaGtin Закрепить GTIN за сборочными заданиями
+	PostV3ClickCollectOrdersMetaGtin Закрепить GTIN за сборочными заданиями
 
-			Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). У одного сборочного задания может быть только один GTIN.
-		Закрепить GTIN можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) есть поле `gtin`.
+	Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). У одного сборочного задания может быть только один GTIN.
+Закрепить GTIN можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) есть поле `gtin`.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **закрепления идентификаторов маркировки Самовывоз**:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 20 запросов | 3 сек | 500 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **закрепления идентификаторов маркировки Самовывоз**:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 20 запросов | 3 сек | 500 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-gtin
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-gtin
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV3ClickCollectOrdersMetaGtinRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3ClickCollectOrdersMetaGtinRequest
 	*/
 	PostV3ClickCollectOrdersMetaGtin(ctx context.Context) ApiPostV3ClickCollectOrdersMetaGtinRequest
 
@@ -282,26 +283,26 @@ type InStorePickupAPI interface {
 	PostV3ClickCollectOrdersMetaGtinExecute(r ApiPostV3ClickCollectOrdersMetaGtinRequest) (*ApiMetaSetResponses, *http.Response, error)
 
 	/*
-			PostV3ClickCollectOrdersMetaImei Закрепить IMEI за сборочными заданиями
+	PostV3ClickCollectOrdersMetaImei Закрепить IMEI за сборочными заданиями
 
-			Метод обновляет IMEI в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails).
-		У одного сборочного задания может быть только один IMEI. Если у устройства два IMEI — \*\*IMEI\*\* и \*\*IMEI2\*\* или \*\*IMEI1\*\* и \*\*IMEI2\*\* — укажите только \*\*IMEI\*\* или \*\*IMEI1\*\*. \*\*IMEI2\*\* указывать не нужно.
-		Закрепить IMEI можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) есть поле `imei`.
+	Метод обновляет IMEI в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails).
+У одного сборочного задания может быть только один IMEI. Если у устройства два IMEI — \*\*IMEI\*\* и \*\*IMEI2\*\* или \*\*IMEI1\*\* и \*\*IMEI2\*\* — укажите только \*\*IMEI\*\* или \*\*IMEI1\*\*. \*\*IMEI2\*\* указывать не нужно.
+Закрепить IMEI можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) есть поле `imei`.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **закрепления идентификаторов маркировки Самовывоз**:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 20 запросов | 3 сек | 500 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **закрепления идентификаторов маркировки Самовывоз**:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 20 запросов | 3 сек | 500 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-imei
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-imei
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV3ClickCollectOrdersMetaImeiRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3ClickCollectOrdersMetaImeiRequest
 	*/
 	PostV3ClickCollectOrdersMetaImei(ctx context.Context) ApiPostV3ClickCollectOrdersMetaImeiRequest
 
@@ -310,27 +311,27 @@ type InStorePickupAPI interface {
 	PostV3ClickCollectOrdersMetaImeiExecute(r ApiPostV3ClickCollectOrdersMetaImeiRequest) (*ApiMetaSetResponses, *http.Response, error)
 
 	/*
-			PostV3ClickCollectOrdersMetaSgtin Закрепить коды маркировки Честного знака за сборочными заданиями
+	PostV3ClickCollectOrdersMetaSgtin Закрепить коды маркировки Честного знака за сборочными заданиями
 
-			Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails).
-		Закрепить код маркировки можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) есть поле `sgtin`.
+	Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails).
+Закрепить код маркировки можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) есть поле `sgtin`.
 
-		Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails).
+Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails).
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **закрепления идентификаторов маркировки Самовывоз**:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 20 запросов | 3 сек | 500 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **закрепления идентификаторов маркировки Самовывоз**:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 20 запросов | 3 сек | 500 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-sgtin
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-sgtin
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV3ClickCollectOrdersMetaSgtinRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3ClickCollectOrdersMetaSgtinRequest
 	*/
 	PostV3ClickCollectOrdersMetaSgtin(ctx context.Context) ApiPostV3ClickCollectOrdersMetaSgtinRequest
 
@@ -339,25 +340,25 @@ type InStorePickupAPI interface {
 	PostV3ClickCollectOrdersMetaSgtinExecute(r ApiPostV3ClickCollectOrdersMetaSgtinRequest) (*ApiMetaSetResponses, *http.Response, error)
 
 	/*
-			PostV3ClickCollectOrdersMetaUin Закрепить УИН за сборочными заданиями
+	PostV3ClickCollectOrdersMetaUin Закрепить УИН за сборочными заданиями
 
-			Метод обновляет УИН, уникальные идентификационные номера, в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). У одного сборочного задания может быть только один УИН.
-		Закрепить УИН можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) есть поле `uin`.
+	Метод обновляет УИН, уникальные идентификационные номера, в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). У одного сборочного задания может быть только один УИН.
+Закрепить УИН можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) есть поле `uin`.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **закрепления идентификаторов маркировки Самовывоз**:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 20 запросов | 3 сек | 500 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **закрепления идентификаторов маркировки Самовывоз**:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 20 запросов | 3 сек | 500 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-uin
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-uin
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV3ClickCollectOrdersMetaUinRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3ClickCollectOrdersMetaUinRequest
 	*/
 	PostV3ClickCollectOrdersMetaUin(ctx context.Context) ApiPostV3ClickCollectOrdersMetaUinRequest
 
@@ -366,24 +367,24 @@ type InStorePickupAPI interface {
 	PostV3ClickCollectOrdersMetaUinExecute(r ApiPostV3ClickCollectOrdersMetaUinRequest) (*ApiMetaSetResponses, *http.Response, error)
 
 	/*
-			PostV3ClickCollectOrdersStatusCancel Отменить сборочные задания
+	PostV3ClickCollectOrdersStatusCancel Отменить сборочные задания
 
-			Переводит [сборочные задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статусов](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `new`, `confirm`, `prepare` в статус `cancel` — отменено продавцом.
+	Переводит [сборочные задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статусов](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `new`, `confirm`, `prepare` в статус `cancel` — отменено продавцом.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 сек | 1 запрос | 1 сек | 10 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 сек | 1 запрос | 1 сек | 10 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-cancel
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-cancel
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV3ClickCollectOrdersStatusCancelRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3ClickCollectOrdersStatusCancelRequest
 	*/
 	PostV3ClickCollectOrdersStatusCancel(ctx context.Context) ApiPostV3ClickCollectOrdersStatusCancelRequest
 
@@ -392,24 +393,24 @@ type InStorePickupAPI interface {
 	PostV3ClickCollectOrdersStatusCancelExecute(r ApiPostV3ClickCollectOrdersStatusCancelRequest) (*ApiStatusSetResponses, *http.Response, error)
 
 	/*
-			PostV3ClickCollectOrdersStatusConfirm Перевести сборочные задания на сборку
+	PostV3ClickCollectOrdersStatusConfirm Перевести сборочные задания на сборку
 
-			Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `new` — новый — в статус `confirm` — на сборке.
+	Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `new` — новый — в статус `confirm` — на сборке.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 сек | 1 запрос | 1 сек | 10 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 сек | 1 запрос | 1 сек | 10 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-confirm
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-confirm
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV3ClickCollectOrdersStatusConfirmRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3ClickCollectOrdersStatusConfirmRequest
 	*/
 	PostV3ClickCollectOrdersStatusConfirm(ctx context.Context) ApiPostV3ClickCollectOrdersStatusConfirmRequest
 
@@ -418,48 +419,48 @@ type InStorePickupAPI interface {
 	PostV3ClickCollectOrdersStatusConfirmExecute(r ApiPostV3ClickCollectOrdersStatusConfirmRequest) (*ApiStatusSetResponses, *http.Response, error)
 
 	/*
-			PostV3ClickCollectOrdersStatusInfo Получить статусы сборочных заданий
+	PostV3ClickCollectOrdersStatusInfo Получить статусы сборочных заданий
 
-			Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) по их ID.
+	Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) по их ID.
 
-		`supplierStatus` — статус сборочного задания. Триггер его изменения - действие самого продавца.
-		Возможные значения `supplierStatus`:
-		| Статус | Описание | Как перевести сборочное задание в данный статус |
-		| ------- | --------- | --------------------------------------|
-		| `new` | \*\*Новое сборочное задание\*\* |
-		| `confirm` | \*\*На сборке\*\* | [Перевести сборочное задание на сборку](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusConfirm)
-		| `prepare` | \*\*Готов к выдаче\*\* | [Сообщить, что сборочное задание готово к выдаче](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusPrepare)
-		| `receive` | \*\*Получено покупателем\*\* | [Сообщить, что заказ принят покупателем](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusReceive)
-		| `reject` | \*\*Отказ покупателя при получении\*\* | [Сообщить, что покупатель отказался от заказа](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusReject)
-		| `cancel` | \*\*Отменено продавцом\*\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusCancel)
-		| `cancel\_shelf\_life` | \*\*Отмена по истечении срока хранения\*\* | Переводится автоматически по возникновению события
+`supplierStatus` — статус сборочного задания. Триггер его изменения - действие самого продавца.
+Возможные значения `supplierStatus`:
+| Статус | Описание | Как перевести сборочное задание в данный статус |
+| ------- | --------- | --------------------------------------|
+| `new` | \*\*Новое сборочное задание\*\* |
+| `confirm` | \*\*На сборке\*\* | [Перевести сборочное задание на сборку](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusConfirm)
+| `prepare` | \*\*Готов к выдаче\*\* | [Сообщить, что сборочное задание готово к выдаче](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusPrepare)
+| `receive` | \*\*Получено покупателем\*\* | [Сообщить, что заказ принят покупателем](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusReceive)
+| `reject` | \*\*Отказ покупателя при получении\*\* | [Сообщить, что покупатель отказался от заказа](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusReject)
+| `cancel` | \*\*Отменено продавцом\*\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusCancel)
+| `cancel\_shelf\_life` | \*\*Отмена по истечении срока хранения\*\* | Переводится автоматически по возникновению события
 
-		`wbStatus` — статус системы Wildberries.
-		Возможные значения `wbStatus`:
-		- `waiting` - сборочное задание в работе
-		- `sold` - заказ получен покупателем
-		- `canceled` - отмена сборочного задания
-		- `canceled\_by\_client` - покупатель отменил заказ при получении
-		- `declined\_by\_client` - покупатель отменил заказ в первый чаc
+`wbStatus` — статус системы Wildberries.
+Возможные значения `wbStatus`:
+- `waiting` - сборочное задание в работе
+- `sold` - заказ получен покупателем
+- `canceled` - отмена сборочного задания
+- `canceled\_by\_client` - покупатель отменил заказ при получении
+- `declined\_by\_client` - покупатель отменил заказ в первый чаc
 
-		 Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку
-		- `defect` - отмена заказа по причине брака
-		- `ready\_for\_pickup` - заказ готов к выдаче
+ Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку
+- `defect` - отмена заказа по причине брака
+- `ready\_for\_pickup` - заказ готов к выдаче
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 сек | 1 запрос | 1 сек | 10 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 сек | 1 запрос | 1 сек | 10 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-info
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-info
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV3ClickCollectOrdersStatusInfoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3ClickCollectOrdersStatusInfoRequest
 	*/
 	PostV3ClickCollectOrdersStatusInfo(ctx context.Context) ApiPostV3ClickCollectOrdersStatusInfoRequest
 
@@ -468,24 +469,24 @@ type InStorePickupAPI interface {
 	PostV3ClickCollectOrdersStatusInfoExecute(r ApiPostV3ClickCollectOrdersStatusInfoRequest) (*ApiOrderStatusesV2, *http.Response, error)
 
 	/*
-			PostV3ClickCollectOrdersStatusPrepare Сообщить, что сборочные задания готовы к выдаче
+	PostV3ClickCollectOrdersStatusPrepare Сообщить, что сборочные задания готовы к выдаче
 
-			Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` — на сборке — в статус `prepare` — готово к выдаче.
+	Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` — на сборке — в статус `prepare` — готово к выдаче.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 сек | 1 запрос | 1 сек | 10 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 сек | 1 запрос | 1 сек | 10 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-prepare
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-prepare
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV3ClickCollectOrdersStatusPrepareRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3ClickCollectOrdersStatusPrepareRequest
 	*/
 	PostV3ClickCollectOrdersStatusPrepare(ctx context.Context) ApiPostV3ClickCollectOrdersStatusPrepareRequest
 
@@ -494,24 +495,24 @@ type InStorePickupAPI interface {
 	PostV3ClickCollectOrdersStatusPrepareExecute(r ApiPostV3ClickCollectOrdersStatusPrepareRequest) (*ApiMetaDetailsResponse, *http.Response, error)
 
 	/*
-			PostV3ClickCollectOrdersStatusReceive Сообщить, что заказы приняты покупателями
+	PostV3ClickCollectOrdersStatusReceive Сообщить, что заказы приняты покупателями
 
-			Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `prepare` — готово к выдаче — в статус `receive` — получено покупателем.
+	Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `prepare` — готово к выдаче — в статус `receive` — получено покупателем.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 сек | 1 запрос | 1 сек | 10 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 сек | 1 запрос | 1 сек | 10 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-receive
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-receive
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV3ClickCollectOrdersStatusReceiveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3ClickCollectOrdersStatusReceiveRequest
 	*/
 	PostV3ClickCollectOrdersStatusReceive(ctx context.Context) ApiPostV3ClickCollectOrdersStatusReceiveRequest
 
@@ -520,24 +521,24 @@ type InStorePickupAPI interface {
 	PostV3ClickCollectOrdersStatusReceiveExecute(r ApiPostV3ClickCollectOrdersStatusReceiveRequest) (*ApiStatusSetResponses, *http.Response, error)
 
 	/*
-			PostV3ClickCollectOrdersStatusReject Сообщить об отказе от заказов
+	PostV3ClickCollectOrdersStatusReject Сообщить об отказе от заказов
 
-			Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `prepare` — готово к выдаче — в статус `reject` — отказ при получении.
+	Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `prepare` — готово к выдаче — в статус `reject` — отказ при получении.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 сек | 1 запрос | 1 сек | 10 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 сек | 1 запрос | 1 сек | 10 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-reject
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-reject
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV3ClickCollectOrdersStatusRejectRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3ClickCollectOrdersStatusRejectRequest
 	*/
 	PostV3ClickCollectOrdersStatusReject(ctx context.Context) ApiPostV3ClickCollectOrdersStatusRejectRequest
 
@@ -550,21 +551,21 @@ type InStorePickupAPI interface {
 type InStorePickupAPIService service
 
 type ApiGetV3ClickCollectOrdersRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService InStorePickupAPI
-	limit      *int64
-	next       *int64
-	dateFrom   *int64
-	dateTo     *int64
+	limit *int64
+	next *int64
+	dateFrom *int64
+	dateTo *int64
 }
 
-// Количество элементов в ответе
+// Количество элементов в ответе 
 func (r ApiGetV3ClickCollectOrdersRequest) Limit(limit int64) ApiGetV3ClickCollectOrdersRequest {
 	r.limit = &limit
 	return r
 }
 
-// Параметр пагинации. Чтобы получить полный список данных, укажите &#x60;0&#x60; в первом запросе. Чтобы получить следующий пакет данных, используйте значение &#x60;next&#x60; из ответа
+// Параметр пагинации. Чтобы получить полный список данных, укажите &#x60;0&#x60; в первом запросе. Чтобы получить следующий пакет данных, используйте значение &#x60;next&#x60; из ответа 
 func (r ApiGetV3ClickCollectOrdersRequest) Next(next int64) ApiGetV3ClickCollectOrdersRequest {
 	r.next = &next
 	return r
@@ -605,25 +606,24 @@ GetV3ClickCollectOrders Получить информацию о завершё�
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/get-api-v3-click-collect-orders
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV3ClickCollectOrdersRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV3ClickCollectOrdersRequest
 */
 func (a *InStorePickupAPIService) GetV3ClickCollectOrders(ctx context.Context) ApiGetV3ClickCollectOrdersRequest {
 	return ApiGetV3ClickCollectOrdersRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ApiOrders
+//  @return ApiOrders
 func (a *InStorePickupAPIService) GetV3ClickCollectOrdersExecute(r ApiGetV3ClickCollectOrdersRequest) (*ApiOrders, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ApiOrders
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiOrders
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InStorePickupAPIService.GetV3ClickCollectOrders")
@@ -705,8 +705,8 @@ func (a *InStorePickupAPIService) GetV3ClickCollectOrdersExecute(r ApiGetV3Click
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -716,8 +716,8 @@ func (a *InStorePickupAPIService) GetV3ClickCollectOrdersExecute(r ApiGetV3Click
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -727,8 +727,8 @@ func (a *InStorePickupAPIService) GetV3ClickCollectOrdersExecute(r ApiGetV3Click
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -738,8 +738,8 @@ func (a *InStorePickupAPIService) GetV3ClickCollectOrdersExecute(r ApiGetV3Click
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -749,8 +749,8 @@ func (a *InStorePickupAPIService) GetV3ClickCollectOrdersExecute(r ApiGetV3Click
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -768,7 +768,7 @@ func (a *InStorePickupAPIService) GetV3ClickCollectOrdersExecute(r ApiGetV3Click
 }
 
 type ApiGetV3ClickCollectOrdersNewRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService InStorePickupAPI
 }
 
@@ -793,25 +793,24 @@ GetV3ClickCollectOrdersNew Получить список новых сбороч
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/get-api-v3-click-collect-orders-new
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV3ClickCollectOrdersNewRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV3ClickCollectOrdersNewRequest
 */
 func (a *InStorePickupAPIService) GetV3ClickCollectOrdersNew(ctx context.Context) ApiGetV3ClickCollectOrdersNewRequest {
 	return ApiGetV3ClickCollectOrdersNewRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ApiNewOrders
+//  @return ApiNewOrders
 func (a *InStorePickupAPIService) GetV3ClickCollectOrdersNewExecute(r ApiGetV3ClickCollectOrdersNewRequest) (*ApiNewOrders, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ApiNewOrders
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiNewOrders
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InStorePickupAPIService.GetV3ClickCollectOrdersNew")
@@ -871,8 +870,8 @@ func (a *InStorePickupAPIService) GetV3ClickCollectOrdersNewExecute(r ApiGetV3Cl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -882,8 +881,8 @@ func (a *InStorePickupAPIService) GetV3ClickCollectOrdersNewExecute(r ApiGetV3Cl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -893,8 +892,8 @@ func (a *InStorePickupAPIService) GetV3ClickCollectOrdersNewExecute(r ApiGetV3Cl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -904,8 +903,8 @@ func (a *InStorePickupAPIService) GetV3ClickCollectOrdersNewExecute(r ApiGetV3Cl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -923,8 +922,8 @@ func (a *InStorePickupAPIService) GetV3ClickCollectOrdersNewExecute(r ApiGetV3Cl
 }
 
 type ApiPostV3ClickCollectOrdersClientRequest struct {
-	ctx              context.Context
-	ApiService       InStorePickupAPI
+	ctx context.Context
+	ApiService InStorePickupAPI
 	apiOrdersRequest *ApiOrdersRequest
 }
 
@@ -958,25 +957,24 @@ PostV3ClickCollectOrdersClient Информация о покупателе
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-v3-click-collect-orders-client
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3ClickCollectOrdersClientRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3ClickCollectOrdersClientRequest
 */
 func (a *InStorePickupAPIService) PostV3ClickCollectOrdersClient(ctx context.Context) ApiPostV3ClickCollectOrdersClientRequest {
 	return ApiPostV3ClickCollectOrdersClientRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ApiOrderClientInfoResp
+//  @return ApiOrderClientInfoResp
 func (a *InStorePickupAPIService) PostV3ClickCollectOrdersClientExecute(r ApiPostV3ClickCollectOrdersClientRequest) (*ApiOrderClientInfoResp, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ApiOrderClientInfoResp
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiOrderClientInfoResp
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InStorePickupAPIService.PostV3ClickCollectOrdersClient")
@@ -1041,8 +1039,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersClientExecute(r ApiPos
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1052,8 +1050,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersClientExecute(r ApiPos
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1063,8 +1061,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersClientExecute(r ApiPos
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1074,8 +1072,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersClientExecute(r ApiPos
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1085,8 +1083,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersClientExecute(r ApiPos
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1104,8 +1102,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersClientExecute(r ApiPos
 }
 
 type ApiPostV3ClickCollectOrdersClientIdentityRequest struct {
-	ctx                     context.Context
-	ApiService              InStorePickupAPI
+	ctx context.Context
+	ApiService InStorePickupAPI
 	apiCheckIdentityRequest *ApiCheckIdentityRequest
 }
 
@@ -1137,25 +1135,24 @@ PostV3ClickCollectOrdersClientIdentity Проверить, что заказ п�
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-v3-click-collect-orders-client-identity
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3ClickCollectOrdersClientIdentityRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3ClickCollectOrdersClientIdentityRequest
 */
 func (a *InStorePickupAPIService) PostV3ClickCollectOrdersClientIdentity(ctx context.Context) ApiPostV3ClickCollectOrdersClientIdentityRequest {
 	return ApiPostV3ClickCollectOrdersClientIdentityRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ApiCheckedIdentity
+//  @return ApiCheckedIdentity
 func (a *InStorePickupAPIService) PostV3ClickCollectOrdersClientIdentityExecute(r ApiPostV3ClickCollectOrdersClientIdentityRequest) (*ApiCheckedIdentity, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ApiCheckedIdentity
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiCheckedIdentity
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InStorePickupAPIService.PostV3ClickCollectOrdersClientIdentity")
@@ -1220,8 +1217,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersClientIdentityExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1231,8 +1228,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersClientIdentityExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1242,8 +1239,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersClientIdentityExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1253,8 +1250,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersClientIdentityExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1264,8 +1261,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersClientIdentityExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1275,8 +1272,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersClientIdentityExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1286,8 +1283,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersClientIdentityExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1305,8 +1302,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersClientIdentityExecute(
 }
 
 type ApiPostV3ClickCollectOrdersFinalPriceRequest struct {
-	ctx              context.Context
-	ApiService       InStorePickupAPI
+	ctx context.Context
+	ApiService InStorePickupAPI
 	apiOrdersRequest *ApiOrdersRequest
 }
 
@@ -1338,25 +1335,24 @@ PostV3ClickCollectOrdersFinalPrice Получить цены продавца и
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-final-price
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3ClickCollectOrdersFinalPriceRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3ClickCollectOrdersFinalPriceRequest
 */
 func (a *InStorePickupAPIService) PostV3ClickCollectOrdersFinalPrice(ctx context.Context) ApiPostV3ClickCollectOrdersFinalPriceRequest {
 	return ApiPostV3ClickCollectOrdersFinalPriceRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ApiOrdersFinalPriceResponse
+//  @return ApiOrdersFinalPriceResponse
 func (a *InStorePickupAPIService) PostV3ClickCollectOrdersFinalPriceExecute(r ApiPostV3ClickCollectOrdersFinalPriceRequest) (*ApiOrdersFinalPriceResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ApiOrdersFinalPriceResponse
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiOrdersFinalPriceResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InStorePickupAPIService.PostV3ClickCollectOrdersFinalPrice")
@@ -1418,8 +1414,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersFinalPriceExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1429,8 +1425,19 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersFinalPriceExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV3ClickCollectOrdersNew402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1440,8 +1447,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersFinalPriceExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1451,8 +1458,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersFinalPriceExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1470,8 +1477,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersFinalPriceExecute(r Ap
 }
 
 type ApiPostV3ClickCollectOrdersMetaCustomsDeclarationRequest struct {
-	ctx                                                   context.Context
-	ApiService                                            InStorePickupAPI
+	ctx context.Context
+	ApiService InStorePickupAPI
 	postV3ClickCollectOrdersMetaCustomsDeclarationRequest *PostV3ClickCollectOrdersMetaCustomsDeclarationRequest
 }
 
@@ -1505,25 +1512,24 @@ PostV3ClickCollectOrdersMetaCustomsDeclaration Закрепить номера �
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-customs-declaration
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3ClickCollectOrdersMetaCustomsDeclarationRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3ClickCollectOrdersMetaCustomsDeclarationRequest
 */
 func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaCustomsDeclaration(ctx context.Context) ApiPostV3ClickCollectOrdersMetaCustomsDeclarationRequest {
 	return ApiPostV3ClickCollectOrdersMetaCustomsDeclarationRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ApiCustomsDeclarationSetResponse
+//  @return ApiCustomsDeclarationSetResponse
 func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaCustomsDeclarationExecute(r ApiPostV3ClickCollectOrdersMetaCustomsDeclarationRequest) (*ApiCustomsDeclarationSetResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ApiCustomsDeclarationSetResponse
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiCustomsDeclarationSetResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InStorePickupAPIService.PostV3ClickCollectOrdersMetaCustomsDeclaration")
@@ -1588,8 +1594,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaCustomsDeclaration
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1599,8 +1605,19 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaCustomsDeclaration
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV3ClickCollectOrdersNew402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1610,8 +1627,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaCustomsDeclaration
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1621,8 +1638,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaCustomsDeclaration
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1640,8 +1657,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaCustomsDeclaration
 }
 
 type ApiPostV3ClickCollectOrdersMetaDeleteRequest struct {
-	ctx                        context.Context
-	ApiService                 InStorePickupAPI
+	ctx context.Context
+	ApiService InStorePickupAPI
 	apiOrdersMetaDeleteRequest *ApiOrdersMetaDeleteRequest
 }
 
@@ -1678,25 +1695,24 @@ PostV3ClickCollectOrdersMetaDelete Удалить идентификаторы �
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3ClickCollectOrdersMetaDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3ClickCollectOrdersMetaDeleteRequest
 */
 func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaDelete(ctx context.Context) ApiPostV3ClickCollectOrdersMetaDeleteRequest {
 	return ApiPostV3ClickCollectOrdersMetaDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ApiOrdersResponses
+//  @return ApiOrdersResponses
 func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaDeleteExecute(r ApiPostV3ClickCollectOrdersMetaDeleteRequest) (*ApiOrdersResponses, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ApiOrdersResponses
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiOrdersResponses
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InStorePickupAPIService.PostV3ClickCollectOrdersMetaDelete")
@@ -1761,8 +1777,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaDeleteExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1772,8 +1788,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaDeleteExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1783,8 +1799,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaDeleteExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1794,8 +1810,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaDeleteExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1805,8 +1821,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaDeleteExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1824,8 +1840,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaDeleteExecute(r Ap
 }
 
 type ApiPostV3ClickCollectOrdersMetaDetailsRequest struct {
-	ctx                context.Context
-	ApiService         InStorePickupAPI
+	ctx context.Context
+	ApiService InStorePickupAPI
 	apiOrdersRequestV2 *ApiOrdersRequestV2
 }
 
@@ -1860,25 +1876,24 @@ PostV3ClickCollectOrdersMetaDetails Получить идентификатор�
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-details
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3ClickCollectOrdersMetaDetailsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3ClickCollectOrdersMetaDetailsRequest
 */
 func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaDetails(ctx context.Context) ApiPostV3ClickCollectOrdersMetaDetailsRequest {
 	return ApiPostV3ClickCollectOrdersMetaDetailsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ApiOrdersMetaDetailsResponse
+//  @return ApiOrdersMetaDetailsResponse
 func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaDetailsExecute(r ApiPostV3ClickCollectOrdersMetaDetailsRequest) (*ApiOrdersMetaDetailsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ApiOrdersMetaDetailsResponse
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiOrdersMetaDetailsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InStorePickupAPIService.PostV3ClickCollectOrdersMetaDetails")
@@ -1943,8 +1958,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaDetailsExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1954,8 +1969,19 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaDetailsExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV3ClickCollectOrdersNew402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1965,8 +1991,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaDetailsExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1976,8 +2002,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaDetailsExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1995,8 +2021,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaDetailsExecute(r A
 }
 
 type ApiPostV3ClickCollectOrdersMetaGtinRequest struct {
-	ctx                     context.Context
-	ApiService              InStorePickupAPI
+	ctx context.Context
+	ApiService InStorePickupAPI
 	apiOrdersGTINSetRequest *ApiOrdersGTINSetRequest
 }
 
@@ -2027,25 +2053,24 @@ PostV3ClickCollectOrdersMetaGtin Закрепить GTIN за сборочным
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-gtin
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3ClickCollectOrdersMetaGtinRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3ClickCollectOrdersMetaGtinRequest
 */
 func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaGtin(ctx context.Context) ApiPostV3ClickCollectOrdersMetaGtinRequest {
 	return ApiPostV3ClickCollectOrdersMetaGtinRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ApiMetaSetResponses
+//  @return ApiMetaSetResponses
 func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaGtinExecute(r ApiPostV3ClickCollectOrdersMetaGtinRequest) (*ApiMetaSetResponses, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ApiMetaSetResponses
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiMetaSetResponses
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InStorePickupAPIService.PostV3ClickCollectOrdersMetaGtin")
@@ -2110,8 +2135,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaGtinExecute(r ApiP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2121,8 +2146,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaGtinExecute(r ApiP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2132,8 +2157,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaGtinExecute(r ApiP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2143,8 +2168,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaGtinExecute(r ApiP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2154,8 +2179,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaGtinExecute(r ApiP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2173,8 +2198,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaGtinExecute(r ApiP
 }
 
 type ApiPostV3ClickCollectOrdersMetaImeiRequest struct {
-	ctx                     context.Context
-	ApiService              InStorePickupAPI
+	ctx context.Context
+	ApiService InStorePickupAPI
 	apiOrdersIMEISetRequest *ApiOrdersIMEISetRequest
 }
 
@@ -2206,25 +2231,24 @@ PostV3ClickCollectOrdersMetaImei Закрепить IMEI за сборочным
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-imei
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3ClickCollectOrdersMetaImeiRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3ClickCollectOrdersMetaImeiRequest
 */
 func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaImei(ctx context.Context) ApiPostV3ClickCollectOrdersMetaImeiRequest {
 	return ApiPostV3ClickCollectOrdersMetaImeiRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ApiMetaSetResponses
+//  @return ApiMetaSetResponses
 func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaImeiExecute(r ApiPostV3ClickCollectOrdersMetaImeiRequest) (*ApiMetaSetResponses, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ApiMetaSetResponses
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiMetaSetResponses
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InStorePickupAPIService.PostV3ClickCollectOrdersMetaImei")
@@ -2289,8 +2313,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaImeiExecute(r ApiP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2300,8 +2324,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaImeiExecute(r ApiP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2311,8 +2335,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaImeiExecute(r ApiP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2322,8 +2346,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaImeiExecute(r ApiP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2333,8 +2357,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaImeiExecute(r ApiP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2352,8 +2376,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaImeiExecute(r ApiP
 }
 
 type ApiPostV3ClickCollectOrdersMetaSgtinRequest struct {
-	ctx                       context.Context
-	ApiService                InStorePickupAPI
+	ctx context.Context
+	ApiService InStorePickupAPI
 	apiOrdersSGTINsSetRequest *ApiOrdersSGTINsSetRequest
 }
 
@@ -2386,25 +2410,24 @@ PostV3ClickCollectOrdersMetaSgtin Закрепить коды маркировк
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-sgtin
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3ClickCollectOrdersMetaSgtinRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3ClickCollectOrdersMetaSgtinRequest
 */
 func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaSgtin(ctx context.Context) ApiPostV3ClickCollectOrdersMetaSgtinRequest {
 	return ApiPostV3ClickCollectOrdersMetaSgtinRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ApiMetaSetResponses
+//  @return ApiMetaSetResponses
 func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaSgtinExecute(r ApiPostV3ClickCollectOrdersMetaSgtinRequest) (*ApiMetaSetResponses, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ApiMetaSetResponses
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiMetaSetResponses
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InStorePickupAPIService.PostV3ClickCollectOrdersMetaSgtin")
@@ -2469,8 +2492,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaSgtinExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2480,8 +2503,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaSgtinExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2491,8 +2514,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaSgtinExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2502,8 +2525,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaSgtinExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2513,8 +2536,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaSgtinExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2532,8 +2555,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaSgtinExecute(r Api
 }
 
 type ApiPostV3ClickCollectOrdersMetaUinRequest struct {
-	ctx                    context.Context
-	ApiService             InStorePickupAPI
+	ctx context.Context
+	ApiService InStorePickupAPI
 	apiOrdersUINSetRequest *ApiOrdersUINSetRequest
 }
 
@@ -2564,25 +2587,24 @@ PostV3ClickCollectOrdersMetaUin Закрепить УИН за сборочны�
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-meta-uin
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3ClickCollectOrdersMetaUinRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3ClickCollectOrdersMetaUinRequest
 */
 func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaUin(ctx context.Context) ApiPostV3ClickCollectOrdersMetaUinRequest {
 	return ApiPostV3ClickCollectOrdersMetaUinRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ApiMetaSetResponses
+//  @return ApiMetaSetResponses
 func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaUinExecute(r ApiPostV3ClickCollectOrdersMetaUinRequest) (*ApiMetaSetResponses, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ApiMetaSetResponses
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiMetaSetResponses
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InStorePickupAPIService.PostV3ClickCollectOrdersMetaUin")
@@ -2647,8 +2669,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaUinExecute(r ApiPo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2658,8 +2680,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaUinExecute(r ApiPo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2669,8 +2691,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaUinExecute(r ApiPo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2680,8 +2702,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaUinExecute(r ApiPo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2691,8 +2713,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaUinExecute(r ApiPo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2710,8 +2732,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersMetaUinExecute(r ApiPo
 }
 
 type ApiPostV3ClickCollectOrdersStatusCancelRequest struct {
-	ctx                context.Context
-	ApiService         InStorePickupAPI
+	ctx context.Context
+	ApiService InStorePickupAPI
 	apiOrdersRequestV2 *ApiOrdersRequestV2
 }
 
@@ -2741,25 +2763,24 @@ PostV3ClickCollectOrdersStatusCancel Отменить сборочные зад�
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-cancel
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3ClickCollectOrdersStatusCancelRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3ClickCollectOrdersStatusCancelRequest
 */
 func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusCancel(ctx context.Context) ApiPostV3ClickCollectOrdersStatusCancelRequest {
 	return ApiPostV3ClickCollectOrdersStatusCancelRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ApiStatusSetResponses
+//  @return ApiStatusSetResponses
 func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusCancelExecute(r ApiPostV3ClickCollectOrdersStatusCancelRequest) (*ApiStatusSetResponses, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ApiStatusSetResponses
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiStatusSetResponses
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InStorePickupAPIService.PostV3ClickCollectOrdersStatusCancel")
@@ -2821,8 +2842,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusCancelExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2832,8 +2853,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusCancelExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2843,8 +2864,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusCancelExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2854,8 +2875,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusCancelExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2865,8 +2886,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusCancelExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2884,8 +2905,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusCancelExecute(r 
 }
 
 type ApiPostV3ClickCollectOrdersStatusConfirmRequest struct {
-	ctx                context.Context
-	ApiService         InStorePickupAPI
+	ctx context.Context
+	ApiService InStorePickupAPI
 	apiOrdersRequestV2 *ApiOrdersRequestV2
 }
 
@@ -2915,25 +2936,24 @@ PostV3ClickCollectOrdersStatusConfirm Перевести сборочные за
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-confirm
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3ClickCollectOrdersStatusConfirmRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3ClickCollectOrdersStatusConfirmRequest
 */
 func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusConfirm(ctx context.Context) ApiPostV3ClickCollectOrdersStatusConfirmRequest {
 	return ApiPostV3ClickCollectOrdersStatusConfirmRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ApiStatusSetResponses
+//  @return ApiStatusSetResponses
 func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusConfirmExecute(r ApiPostV3ClickCollectOrdersStatusConfirmRequest) (*ApiStatusSetResponses, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ApiStatusSetResponses
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiStatusSetResponses
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InStorePickupAPIService.PostV3ClickCollectOrdersStatusConfirm")
@@ -2995,8 +3015,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusConfirmExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3006,8 +3026,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusConfirmExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3017,8 +3037,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusConfirmExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3028,8 +3048,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusConfirmExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3039,8 +3059,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusConfirmExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3058,8 +3078,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusConfirmExecute(r
 }
 
 type ApiPostV3ClickCollectOrdersStatusInfoRequest struct {
-	ctx                context.Context
-	ApiService         InStorePickupAPI
+	ctx context.Context
+	ApiService InStorePickupAPI
 	apiOrdersRequestV2 *ApiOrdersRequestV2
 }
 
@@ -3097,8 +3117,7 @@ PostV3ClickCollectOrdersStatusInfo Получить статусы сбороч�
 - `canceled\_by\_client` - покупатель отменил заказ при получении
 - `declined\_by\_client` - покупатель отменил заказ в первый чаc
 
-	Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку
-
+ Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку
 - `defect` - отмена заказа по причине брака
 - `ready\_for\_pickup` - заказ готов к выдаче
 
@@ -3114,25 +3133,24 @@ PostV3ClickCollectOrdersStatusInfo Получить статусы сбороч�
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-info
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3ClickCollectOrdersStatusInfoRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3ClickCollectOrdersStatusInfoRequest
 */
 func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusInfo(ctx context.Context) ApiPostV3ClickCollectOrdersStatusInfoRequest {
 	return ApiPostV3ClickCollectOrdersStatusInfoRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ApiOrderStatusesV2
+//  @return ApiOrderStatusesV2
 func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusInfoExecute(r ApiPostV3ClickCollectOrdersStatusInfoRequest) (*ApiOrderStatusesV2, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ApiOrderStatusesV2
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiOrderStatusesV2
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InStorePickupAPIService.PostV3ClickCollectOrdersStatusInfo")
@@ -3197,8 +3215,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusInfoExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3208,8 +3226,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusInfoExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3219,8 +3237,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusInfoExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3230,8 +3248,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusInfoExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3241,8 +3259,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusInfoExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3260,8 +3278,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusInfoExecute(r Ap
 }
 
 type ApiPostV3ClickCollectOrdersStatusPrepareRequest struct {
-	ctx                context.Context
-	ApiService         InStorePickupAPI
+	ctx context.Context
+	ApiService InStorePickupAPI
 	apiOrdersRequestV2 *ApiOrdersRequestV2
 }
 
@@ -3291,25 +3309,24 @@ PostV3ClickCollectOrdersStatusPrepare Сообщить, что сборочны�
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-prepare
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3ClickCollectOrdersStatusPrepareRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3ClickCollectOrdersStatusPrepareRequest
 */
 func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusPrepare(ctx context.Context) ApiPostV3ClickCollectOrdersStatusPrepareRequest {
 	return ApiPostV3ClickCollectOrdersStatusPrepareRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ApiMetaDetailsResponse
+//  @return ApiMetaDetailsResponse
 func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusPrepareExecute(r ApiPostV3ClickCollectOrdersStatusPrepareRequest) (*ApiMetaDetailsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ApiMetaDetailsResponse
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiMetaDetailsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InStorePickupAPIService.PostV3ClickCollectOrdersStatusPrepare")
@@ -3371,8 +3388,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusPrepareExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3382,8 +3399,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusPrepareExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3393,8 +3410,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusPrepareExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3404,8 +3421,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusPrepareExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3415,8 +3432,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusPrepareExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3434,8 +3451,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusPrepareExecute(r
 }
 
 type ApiPostV3ClickCollectOrdersStatusReceiveRequest struct {
-	ctx                context.Context
-	ApiService         InStorePickupAPI
+	ctx context.Context
+	ApiService InStorePickupAPI
 	apiOrdersRequestV2 *ApiOrdersRequestV2
 }
 
@@ -3465,25 +3482,24 @@ PostV3ClickCollectOrdersStatusReceive Сообщить, что заказы пр
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-receive
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3ClickCollectOrdersStatusReceiveRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3ClickCollectOrdersStatusReceiveRequest
 */
 func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusReceive(ctx context.Context) ApiPostV3ClickCollectOrdersStatusReceiveRequest {
 	return ApiPostV3ClickCollectOrdersStatusReceiveRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ApiStatusSetResponses
+//  @return ApiStatusSetResponses
 func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusReceiveExecute(r ApiPostV3ClickCollectOrdersStatusReceiveRequest) (*ApiStatusSetResponses, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ApiStatusSetResponses
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiStatusSetResponses
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InStorePickupAPIService.PostV3ClickCollectOrdersStatusReceive")
@@ -3545,8 +3561,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusReceiveExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3556,8 +3572,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusReceiveExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3567,8 +3583,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusReceiveExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3578,8 +3594,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusReceiveExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3589,8 +3605,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusReceiveExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3608,8 +3624,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusReceiveExecute(r
 }
 
 type ApiPostV3ClickCollectOrdersStatusRejectRequest struct {
-	ctx                context.Context
-	ApiService         InStorePickupAPI
+	ctx context.Context
+	ApiService InStorePickupAPI
 	apiOrdersRequestV2 *ApiOrdersRequestV2
 }
 
@@ -3639,25 +3655,24 @@ PostV3ClickCollectOrdersStatusReject Сообщить об отказе от з�
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/in-store-pickup/post-api-marketplace-v3-click-collect-orders-status-reject
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3ClickCollectOrdersStatusRejectRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3ClickCollectOrdersStatusRejectRequest
 */
 func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusReject(ctx context.Context) ApiPostV3ClickCollectOrdersStatusRejectRequest {
 	return ApiPostV3ClickCollectOrdersStatusRejectRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ApiStatusSetResponses
+//  @return ApiStatusSetResponses
 func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusRejectExecute(r ApiPostV3ClickCollectOrdersStatusRejectRequest) (*ApiStatusSetResponses, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ApiStatusSetResponses
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiStatusSetResponses
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InStorePickupAPIService.PostV3ClickCollectOrdersStatusReject")
@@ -3719,8 +3734,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusRejectExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3730,8 +3745,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusRejectExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3741,8 +3756,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusRejectExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3752,8 +3767,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusRejectExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3763,8 +3778,8 @@ func (a *InStorePickupAPIService) PostV3ClickCollectOrdersStatusRejectExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

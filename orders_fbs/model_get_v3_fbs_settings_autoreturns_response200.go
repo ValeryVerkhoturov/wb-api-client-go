@@ -19,7 +19,7 @@ var _ MappedNullable = &GetV3FbsSettingsAutoreturnsResponse200{}
 
 // GetV3FbsSettingsAutoreturnsResponse200 struct for GetV3FbsSettingsAutoreturnsResponse200
 type GetV3FbsSettingsAutoreturnsResponse200 struct {
-	// Тип автовозврата:   - `allToWarehouse` — все товары отправляются на склад WB, кроме товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ   - `allToPickupPoint` — все товары отправляются на пункт выдачи заказов   - `manual` — используются ручные настройки
+	// Тип автовозврата:   - `allToWarehouse` — все товары отправляются на склад WB, кроме товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ   - `allToPickupPoint` — все товары отправляются на пункт выдачи заказов   - `manual` — используются ручные настройки 
 	Type *string `json:"type,omitempty"`
 }
 
@@ -73,7 +73,7 @@ func (o *GetV3FbsSettingsAutoreturnsResponse200) SetType(v string) {
 }
 
 func (o GetV3FbsSettingsAutoreturnsResponse200) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,3 +123,5 @@ func (v *NullableGetV3FbsSettingsAutoreturnsResponse200) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

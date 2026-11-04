@@ -243,7 +243,7 @@ func (o *PostV3SalesFunnelProductsHistoryResponse200InnerProduct) SetSubjectName
 }
 
 func (o PostV3SalesFunnelProductsHistoryResponse200InnerProduct) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -308,3 +308,5 @@ func (v *NullablePostV3SalesFunnelProductsHistoryResponse200InnerProduct) Unmars
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

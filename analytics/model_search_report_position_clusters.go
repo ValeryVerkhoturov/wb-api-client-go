@@ -17,11 +17,11 @@ import (
 // checks if the SearchReportPositionClusters type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &SearchReportPositionClusters{}
 
-// SearchReportPositionClusters Количество товаров со средней позицией в поиске:   - `firstHundred` — от 1 до 100   - `secondHundred` — от 101 до 200   - `below` — от 201 и ниже
+// SearchReportPositionClusters Количество товаров со средней позицией в поиске:   - `firstHundred` — от 1 до 100   - `secondHundred` — от 101 до 200   - `below` — от 201 и ниже 
 type SearchReportPositionClusters struct {
-	FirstHundred  *SearchReportPositionClustersFirstHundred  `json:"firstHundred,omitempty"`
+	FirstHundred *SearchReportPositionClustersFirstHundred `json:"firstHundred,omitempty"`
 	SecondHundred *SearchReportPositionClustersSecondHundred `json:"secondHundred,omitempty"`
-	Below         *SearchReportPositionClustersBelow         `json:"below,omitempty"`
+	Below *SearchReportPositionClustersBelow `json:"below,omitempty"`
 }
 
 // NewSearchReportPositionClusters instantiates a new SearchReportPositionClusters object
@@ -138,7 +138,7 @@ func (o *SearchReportPositionClusters) SetBelow(v SearchReportPositionClustersBe
 }
 
 func (o SearchReportPositionClusters) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -194,3 +194,5 @@ func (v *NullableSearchReportPositionClusters) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

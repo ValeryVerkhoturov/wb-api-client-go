@@ -73,7 +73,7 @@ func (o *V0GetNormQueryListResponse) SetItems(v []V0GetNormQueryListResponseItem
 }
 
 func (o V0GetNormQueryListResponse) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,3 +123,5 @@ func (v *NullableV0GetNormQueryListResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

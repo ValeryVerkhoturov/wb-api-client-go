@@ -21,13 +21,13 @@ var _ MappedNullable = &ApiOrder{}
 type ApiOrder struct {
 	// Артикул продавца
 	Article *string `json:"article,omitempty"`
-	// Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+)
+	// Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) 
 	CargoType *int64 `json:"cargoType,omitempty"`
 	// ID размера товара в системе WB
 	ChrtId *int64 `json:"chrtId,omitempty"`
 	// Дата и время создания сборочного задания
 	CreatedAt *string `json:"createdAt,omitempty"`
-	// Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
+	// Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях 
 	Price *int64 `json:"price,omitempty"`
 	// Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100.  Код валюты продажи указан в поле `currencyCode`.  Предоставляется в информационных целях.  Используйте значение поля `finalPrice`, только если в ответе метода [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа указанного метода
 	FinalPrice *int64 `json:"finalPrice,omitempty"`
@@ -41,13 +41,13 @@ type ApiOrder struct {
 	ConvertedCurrencyCode *int32 `json:"convertedCurrencyCode,omitempty"`
 	// ID сборочного задания
 	Id *int64 `json:"id,omitempty"`
-	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
+	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену 
 	IsZeroOrder *bool `json:"isZeroOrder,omitempty"`
 	// Артикул WB
 	NmId *int64 `json:"nmId,omitempty"`
-	// Уникальный ID заказа покупателя
+	// Уникальный ID заказа покупателя 
 	OrderCode *string `json:"orderCode,omitempty"`
-	// Режим оплаты:   - `prepaid` — предоплатный   - `postpaid` — постоплатный   - `unknown` — неизвестный
+	// Режим оплаты:   - `prepaid` — предоплатный   - `postpaid` — постоплатный   - `unknown` — неизвестный 
 	PayMode *string `json:"payMode,omitempty"`
 	// Уникальный ID заказа. Примечание: `rid` — это `srid` в ответах методов: - [Заявки покупателей на возврат](./customer-communication#tag/buyersReturns/operation/getV1Claims) - [Лента заказов](./analytics#tag/orderFeed/operation/postV1OrderFeed) - [Заказы](./reports#tag/mainReports/operation/getV1SupplierOrders) - [Продажи](./reports#tag/mainReports/operation/getV1SupplierSales) - [Отчет о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport) - [Детализации к отчётам реализации по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId) - [Детализации к отчётам реализации за период](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed) - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId) - [Детализации к отчётам об издержках на приём платежей за период](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)
 	Rid *string `json:"rid,omitempty"`
@@ -57,9 +57,9 @@ type ApiOrder struct {
 	WarehouseAddress *string `json:"warehouseAddress,omitempty"`
 	// ID склада продавца, на который поступило сборочное задание
 	WarehouseId *int64 `json:"warehouseId,omitempty"`
-	// Указал ли покупатель, что ему требуется услуга шиномонтажа:   - `false` — нет, услуга шиномонтажа не требуется   - `true` — да, услуга шиномонтажа требуется
-	TireService *bool            `json:"tireService,omitempty"`
-	Options     *ApiOrderOptions `json:"options,omitempty"`
+	// Указал ли покупатель, что ему требуется услуга шиномонтажа:   - `false` — нет, услуга шиномонтажа не требуется   - `true` — да, услуга шиномонтажа требуется 
+	TireService *bool `json:"tireService,omitempty"`
+	Options *ApiOrderOptions `json:"options,omitempty"`
 }
 
 // NewApiOrder instantiates a new ApiOrder object
@@ -752,7 +752,7 @@ func (o *ApiOrder) SetOptions(v ApiOrderOptions) {
 }
 
 func (o ApiOrder) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -862,3 +862,5 @@ func (v *NullableApiOrder) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

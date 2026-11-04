@@ -19,8 +19,8 @@ var _ MappedNullable = &PostV2GetCardsTrashRequestSettings{}
 
 // PostV2GetCardsTrashRequestSettings Настройки
 type PostV2GetCardsTrashRequestSettings struct {
-	Sort   NullablePostV2GetCardsTrashRequestSettingsSort   `json:"sort,omitempty"`
-	Cursor *PostV2GetCardsTrashRequestSettingsCursor        `json:"cursor,omitempty"`
+	Sort NullablePostV2GetCardsTrashRequestSettingsSort `json:"sort,omitempty"`
+	Cursor *PostV2GetCardsTrashRequestSettingsCursor `json:"cursor,omitempty"`
 	Filter NullablePostV2GetCardsTrashRequestSettingsFilter `json:"filter,omitempty"`
 }
 
@@ -73,7 +73,6 @@ func (o *PostV2GetCardsTrashRequestSettings) HasSort() bool {
 func (o *PostV2GetCardsTrashRequestSettings) SetSort(v PostV2GetCardsTrashRequestSettingsSort) {
 	o.Sort.Set(&v)
 }
-
 // SetSortNil sets the value for Sort to be an explicit nil
 func (o *PostV2GetCardsTrashRequestSettings) SetSortNil() {
 	o.Sort.Set(nil)
@@ -148,7 +147,6 @@ func (o *PostV2GetCardsTrashRequestSettings) HasFilter() bool {
 func (o *PostV2GetCardsTrashRequestSettings) SetFilter(v PostV2GetCardsTrashRequestSettingsFilter) {
 	o.Filter.Set(&v)
 }
-
 // SetFilterNil sets the value for Filter to be an explicit nil
 func (o *PostV2GetCardsTrashRequestSettings) SetFilterNil() {
 	o.Filter.Set(nil)
@@ -160,7 +158,7 @@ func (o *PostV2GetCardsTrashRequestSettings) UnsetFilter() {
 }
 
 func (o PostV2GetCardsTrashRequestSettings) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -216,3 +214,5 @@ func (v *NullablePostV2GetCardsTrashRequestSettings) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -11,8 +11,8 @@ API version: items
 package items
 
 import (
-	"bytes"
 	"encoding/json"
+	"bytes"
 	"fmt"
 )
 
@@ -25,21 +25,21 @@ type PostV2CardsUploadAddRequestCardsToAddInner struct {
 	Brand *string `json:"brand,omitempty"`
 	// Артикул продавца
 	VendorCode string `json:"vendorCode"`
-	// Подтверждение, что на товар нанесён обязательный код маркировки [Честного знака](https://честныйзнак.рф/):   - `true` — продавец подтверждает, что на товар нанесён обязательный код маркировки   - `false` — продавец не подтверждает, что на товар нанесён обязательный код маркировки. Передайте в запросе `true`, чтобы подтвердить наличие на товаре обязательного кода маркировки. Карточка товара не пройдёт проверку, если нет подтверждения продавца о том, что обязательный код маркировки нанесён на товар  Чтобы проверить, является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, используйте метод [Список карточек товаров](./item-management#tag/listings/operation/postV2GetCardsList), поле ответа `needKiz`
-	KizMarked *bool                                                `json:"kizMarked,omitempty"`
+	// Подтверждение, что на товар нанесён обязательный код маркировки [Честного знака](https://честныйзнак.рф/):   - `true` — продавец подтверждает, что на товар нанесён обязательный код маркировки   - `false` — продавец не подтверждает, что на товар нанесён обязательный код маркировки. Передайте в запросе `true`, чтобы подтвердить наличие на товаре обязательного кода маркировки. Карточка товара не пройдёт проверку, если нет подтверждения продавца о том, что обязательный код маркировки нанесён на товар  Чтобы проверить, является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, используйте метод [Список карточек товаров](./item-management#tag/listings/operation/postV2GetCardsList), поле ответа `needKiz` 
+	KizMarked *bool `json:"kizMarked,omitempty"`
 	Wholesale *PostV2CardsUploadRequestInnerVariantsInnerWholesale `json:"wholesale,omitempty"`
 	// Наименование товара
 	Title *string `json:"title,omitempty"`
 	// Дополнительный GTIN. Укажите этот параметр, если тот же GTIN вы ранее указывали в одной из карточек товара в параметре `skus`. Нельзя указывать один и тот же GTIN в `skus` для разных карточек или размеров товаров.   Только для продавцов из РФ
 	Gtin *string `json:"gtin,omitempty"`
 	// Описание товара. Максимальное количество символов зависит от категории товара Стандарт — 2000, минимум — 1000, максимум — 5000 Подробно о \\*\\*правилах заполнения карточки товара\\*\\* в [Справочном центре](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-create-card) на портале продавцов
-	Description *string                                               `json:"description,omitempty"`
-	Dimensions  *PostV2CardsUploadAddRequestCardsToAddInnerDimensions `json:"dimensions,omitempty"`
+	Description *string `json:"description,omitempty"`
+	Dimensions *PostV2CardsUploadAddRequestCardsToAddInnerDimensions `json:"dimensions,omitempty"`
 	// Массив размеров. Если не указать для размерного товара (обувь, одежда и др.), сгенерируется автоматически с `techSize` = \"A\", `wbSize` = \"1\" и баркодом
 	Sizes []PostV2CardsUploadAddRequestCardsToAddInnerSizesInner `json:"sizes,omitempty"`
 	// Характеристики товара.  Можно получить методом [Характеристики предмета](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId)
-	Characteristics []PostV2CardsUpdateRequestInnerCharacteristicsInner  `json:"characteristics,omitempty"`
-	Documents       *PostV2CardsUploadAddRequestCardsToAddInnerDocuments `json:"documents,omitempty"`
+	Characteristics []PostV2CardsUpdateRequestInnerCharacteristicsInner `json:"characteristics,omitempty"`
+	Documents *PostV2CardsUploadAddRequestCardsToAddInnerDocuments `json:"documents,omitempty"`
 }
 
 type _PostV2CardsUploadAddRequestCardsToAddInner PostV2CardsUploadAddRequestCardsToAddInner
@@ -411,7 +411,7 @@ func (o *PostV2CardsUploadAddRequestCardsToAddInner) SetDocuments(v PostV2CardsU
 }
 
 func (o PostV2CardsUploadAddRequestCardsToAddInner) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -467,10 +467,10 @@ func (o *PostV2CardsUploadAddRequestCardsToAddInner) UnmarshalJSON(data []byte) 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err
+		return err;
 	}
 
-	for _, requiredProperty := range requiredProperties {
+	for _, requiredProperty := range(requiredProperties) {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -526,3 +526,5 @@ func (v *NullablePostV2CardsUploadAddRequestCardsToAddInner) UnmarshalJSON(src [
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

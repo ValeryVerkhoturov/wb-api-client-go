@@ -31,7 +31,7 @@ type SalesReportListRes struct {
 	CreateDate *string `json:"createDate,omitempty"`
 	// Валюта отчёта
 	Currency *string `json:"currency,omitempty"`
-	// Тип отчёта:   - `1` — основной   - `2` — по выкупам
+	// Тип отчёта:   - `1` — основной   - `2` — по выкупам 
 	ReportType *int64 `json:"reportType,omitempty"`
 	// Продажа
 	RetailAmountSum *string `json:"retailAmountSum,omitempty"`
@@ -753,7 +753,7 @@ func (o *SalesReportListRes) SetBankPaymentSum(v string) {
 }
 
 func (o SalesReportListRes) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -863,3 +863,5 @@ func (v *NullableSalesReportListRes) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

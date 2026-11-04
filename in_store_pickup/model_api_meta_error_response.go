@@ -21,7 +21,7 @@ var _ MappedNullable = &ApiMetaErrorResponse{}
 type ApiMetaErrorResponse struct {
 	// Код ошибки
 	Code *int64 `json:"code,omitempty"`
-	// - `NotFound` — сборочное задание не найдено - `IncorrectRequestBody` — неправильный запрос - `IncorrectRequest` — передан некорректный параметр
+	// - `NotFound` — сборочное задание не найдено - `IncorrectRequestBody` — неправильный запрос - `IncorrectRequest` — передан некорректный параметр 
 	Detail *string `json:"detail,omitempty"`
 }
 
@@ -107,7 +107,7 @@ func (o *ApiMetaErrorResponse) SetDetail(v string) {
 }
 
 func (o ApiMetaErrorResponse) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,3 +160,5 @@ func (v *NullableApiMetaErrorResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

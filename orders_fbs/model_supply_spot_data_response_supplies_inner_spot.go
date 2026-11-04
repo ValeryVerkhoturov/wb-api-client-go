@@ -19,7 +19,7 @@ var _ MappedNullable = &SupplySpotDataResponseSuppliesInnerSpot{}
 
 // SupplySpotDataResponseSuppliesInnerSpot struct for SupplySpotDataResponseSuppliesInnerSpot
 type SupplySpotDataResponseSuppliesInnerSpot struct {
-	// Статус СПОТ:   - `pending` — ожидается результат формирования ДОПП — документа о предстоящей поставке   - `completed` — ДОПП успешно сформирован. Можно [получить QR-код](./orders-fbs#tag/fbsSupplies/operation/getV3FbsSuppliesSupplyIdStickersSpot)   - `failed` — ошибка формирования ДОПП. Подробнее в поле `errorCode`
+	// Статус СПОТ:   - `pending` — ожидается результат формирования ДОПП — документа о предстоящей поставке   - `completed` — ДОПП успешно сформирован. Можно [получить QR-код](./orders-fbs#tag/fbsSupplies/operation/getV3FbsSuppliesSupplyIdStickersSpot)   - `failed` — ошибка формирования ДОПП. Подробнее в поле `errorCode` 
 	Status *string `json:"status,omitempty"`
 	// Наименование перевозчика
 	CarrierName *string `json:"carrierName,omitempty"`
@@ -31,7 +31,7 @@ type SupplySpotDataResponseSuppliesInnerSpot struct {
 	VehicleRegistrationNumber *string `json:"vehicleRegistrationNumber,omitempty"`
 	// Регистрационный номер прицепа
 	TrailerRegistrationNumber *string `json:"trailerRegistrationNumber,omitempty"`
-	// Код ошибки от сервиса формирования ДОПП — документа о предстоящей поставке. Возвращается при `\"status\": \"failed\"`. Чтобы исправить ошибку, проверьте данные СПОТ и [добавьте их в поставку](./orders-fbs#tag/fbsSupplies/operation/getV3FbsSuppliesSupplyIdSpot) ещё раз
+	// Код ошибки от сервиса формирования ДОПП — документа о предстоящей поставке. Возвращается при `\"status\": \"failed\"`. Чтобы исправить ошибку, проверьте данные СПОТ и [добавьте их в поставку](./orders-fbs#tag/fbsSupplies/operation/getV3FbsSuppliesSupplyIdSpot) ещё раз 
 	ErrorCode *string `json:"errorCode,omitempty"`
 }
 
@@ -277,7 +277,7 @@ func (o *SupplySpotDataResponseSuppliesInnerSpot) SetErrorCode(v string) {
 }
 
 func (o SupplySpotDataResponseSuppliesInnerSpot) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -345,3 +345,5 @@ func (v *NullableSupplySpotDataResponseSuppliesInnerSpot) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

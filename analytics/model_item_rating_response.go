@@ -19,7 +19,7 @@ var _ MappedNullable = &ItemRatingResponse{}
 
 // ItemRatingResponse Данные ответа
 type ItemRatingResponse struct {
-	SellerRating     *TableItemFloat        `json:"sellerRating,omitempty"`
+	SellerRating *TableItemFloat `json:"sellerRating,omitempty"`
 	FeedbackIncrease *FeedbacksIncreaseItem `json:"feedbackIncrease,omitempty"`
 	// Данные по товарам
 	Items []DistributionTableItem `json:"items,omitempty"`
@@ -139,7 +139,7 @@ func (o *ItemRatingResponse) SetItems(v []DistributionTableItem) {
 }
 
 func (o ItemRatingResponse) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,3 +195,5 @@ func (v *NullableItemRatingResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

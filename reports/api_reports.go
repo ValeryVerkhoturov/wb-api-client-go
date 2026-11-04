@@ -19,27 +19,28 @@ import (
 	"strings"
 )
 
+
 type ReportsAPI interface {
 
 	/*
-			GetV1AcceptanceReport Создать отчёт
+	GetV1AcceptanceReport Создать отчёт
 
-			Метод создаёт [задание на генерацию](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdStatus) отчёта об [операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).
+	Метод создаёт [задание на генерацию](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdStatus) отчёта об [операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).
 
-		Можно получить отчёт максимум за 31 день.
+Можно получить отчёт максимум за 31 день.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
-		| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
-		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
-		| Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV1AcceptanceReportRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1AcceptanceReportRequest
 	*/
 	GetV1AcceptanceReport(ctx context.Context) ApiGetV1AcceptanceReportRequest
 
@@ -48,23 +49,23 @@ type ReportsAPI interface {
 	GetV1AcceptanceReportExecute(r ApiGetV1AcceptanceReportRequest) (*CreateTaskResponse, *http.Response, error)
 
 	/*
-			GetV1AcceptanceReportTasksTaskIdDownload Получить отчёт
+	GetV1AcceptanceReportTasksTaskIdDownload Получить отчёт
 
-			Метод возвращает отчёт об [операциях при приёмке](https://seller.wildberries.ru/analytics-reports/acceptance-report) по ID [задания на генерацию](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReport).
+	Метод возвращает отчёт об [операциях при приёмке](https://seller.wildberries.ru/analytics-reports/acceptance-report) по ID [задания на генерацию](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReport).
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
-		| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
-		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report-tasks-task-id-download
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report-tasks-task-id-download
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@param taskId ID задания на генерацию
-			@return ApiGetV1AcceptanceReportTasksTaskIdDownloadRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param taskId ID задания на генерацию 
+	@return ApiGetV1AcceptanceReportTasksTaskIdDownloadRequest
 	*/
 	GetV1AcceptanceReportTasksTaskIdDownload(ctx context.Context, taskId string) ApiGetV1AcceptanceReportTasksTaskIdDownloadRequest
 
@@ -73,23 +74,23 @@ type ReportsAPI interface {
 	GetV1AcceptanceReportTasksTaskIdDownloadExecute(r ApiGetV1AcceptanceReportTasksTaskIdDownloadRequest) ([]GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner, *http.Response, error)
 
 	/*
-			GetV1AcceptanceReportTasksTaskIdStatus Проверить статус
+	GetV1AcceptanceReportTasksTaskIdStatus Проверить статус
 
-			Метод возвращает статус [задания на генерацию](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReport) отчёта об [операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).
+	Метод возвращает статус [задания на генерацию](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReport) отчёта об [операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 5 сек | 1 запрос | 5 сек | 1 запрос |
-		| Сервисный | 5 сек | 1 запрос | 5 сек | 1 запрос |
-		| Базовый с секретом | 5 сек | 1 запрос | 5 сек | 1 запрос |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 5 сек | 1 запрос | 5 сек | 1 запрос |
+| Сервисный | 5 сек | 1 запрос | 5 сек | 1 запрос |
+| Базовый с секретом | 5 сек | 1 запрос | 5 сек | 1 запрос |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report-tasks-task-id-status
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report-tasks-task-id-status
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@param taskId ID задания на генерацию
-			@return ApiGetV1AcceptanceReportTasksTaskIdStatusRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param taskId ID задания на генерацию 
+	@return ApiGetV1AcceptanceReportTasksTaskIdStatusRequest
 	*/
 	GetV1AcceptanceReportTasksTaskIdStatus(ctx context.Context, taskId string) ApiGetV1AcceptanceReportTasksTaskIdStatusRequest
 
@@ -98,27 +99,27 @@ type ReportsAPI interface {
 	GetV1AcceptanceReportTasksTaskIdStatusExecute(r ApiGetV1AcceptanceReportTasksTaskIdStatusRequest) (*GetTasksResponse, *http.Response, error)
 
 	/*
-			GetV1AnalyticsAntifraudDetails Самовыкупы
+	GetV1AnalyticsAntifraudDetails Самовыкупы
 
-			Метод возвращает отчёт об удержаниях за самовыкупы. Отчёт формируется каждую неделю по средам, до 7:00 по московскому времени, и содержит данные за одну неделю.
+	Метод возвращает отчёт об удержаниях за самовыкупы. Отчёт формируется каждую неделю по средам, до 7:00 по московскому времени, и содержит данные за одну неделю.
 
-		Удержание за самовыкуп — 30% от стоимости товаров.
-		Минимальная сумма всех удержаний — 100 000 ₽, если за неделю в ПВЗ привезли ваших товаров больше, чем на сумму 100 000 ₽.
+Удержание за самовыкуп — 30% от стоимости товаров.
+Минимальная сумма всех удержаний — 100 000 ₽, если за неделю в ПВЗ привезли ваших товаров больше, чем на сумму 100 000 ₽.
 
-		Данные доступны с августа 2023.
+Данные доступны с августа 2023.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 10 мин | 1 запрос | 10 мин | 10 запросов |
-		| Сервисный | 10 мин | 1 запрос | 10 мин | 10 запросов |
-		| Базовый с секретом | 10 мин | 1 запрос | 10 мин | 10 запросов |
-		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 10 мин | 1 запрос | 10 мин | 10 запросов |
+| Сервисный | 10 мин | 1 запрос | 10 мин | 10 запросов |
+| Базовый с секретом | 10 мин | 1 запрос | 10 мин | 10 запросов |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-antifraud-details
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-antifraud-details
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV1AnalyticsAntifraudDetailsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1AnalyticsAntifraudDetailsRequest
 	*/
 	GetV1AnalyticsAntifraudDetails(ctx context.Context) ApiGetV1AnalyticsAntifraudDetailsRequest
 
@@ -127,22 +128,22 @@ type ReportsAPI interface {
 	GetV1AnalyticsAntifraudDetailsExecute(r ApiGetV1AnalyticsAntifraudDetailsRequest) (*GetV1AnalyticsAntifraudDetails200Response, *http.Response, error)
 
 	/*
-			GetV1AnalyticsBannedProducsBlocked Получить отчёт
+	GetV1AnalyticsBannedProducsBlocked Получить отчёт
 
-			Метод возвращает список [заблокированных карточек товаров продавца](https://seller.wildberries.ru/analytics-reports/banned-products) с причинами блокировки.
+	Метод возвращает список [заблокированных карточек товаров продавца](https://seller.wildberries.ru/analytics-reports/banned-products) с причинами блокировки.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 10 сек | 1 запрос | 10 сек | 6 запросов |
-		| Сервисный | 10 сек | 1 запрос | 10 сек | 6 запросов |
-		| Базовый с секретом | 10 сек | 1 запрос | 10 сек | 6 запросов |
-		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 10 сек | 1 запрос | 10 сек | 6 запросов |
+| Сервисный | 10 сек | 1 запрос | 10 сек | 6 запросов |
+| Базовый с секретом | 10 сек | 1 запрос | 10 сек | 6 запросов |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-banned-products-blocked
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-banned-products-blocked
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV1AnalyticsBannedProducsBlockedRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1AnalyticsBannedProducsBlockedRequest
 	*/
 	GetV1AnalyticsBannedProducsBlocked(ctx context.Context) ApiGetV1AnalyticsBannedProducsBlockedRequest
 
@@ -151,24 +152,24 @@ type ReportsAPI interface {
 	GetV1AnalyticsBannedProducsBlockedExecute(r ApiGetV1AnalyticsBannedProducsBlockedRequest) (*GetV1AnalyticsBannedProducsBlockedResponse200, *http.Response, error)
 
 	/*
-			GetV1AnalyticsBrandShare Получить отчёт
+	GetV1AnalyticsBrandShare Получить отчёт
 
-			Метод возвращает отчёт о [доле бренда продавца в продажах](https://seller.wildberries.ru/analytics-reports/brand-share).
+	Метод возвращает отчёт о [доле бренда продавца в продажах](https://seller.wildberries.ru/analytics-reports/brand-share).
 
-		Можно получить отчёт максимум за 365 дней. Данные доступны с 1 ноября 2022.
+Можно получить отчёт максимум за 365 дней. Данные доступны с 1 ноября 2022.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 5 сек | 1 запрос | 5 сек | 20 запросов |
-		| Сервисный | 5 сек | 1 запрос | 5 сек | 20 запросов |
-		| Базовый с секретом | 5 сек | 1 запрос | 5 сек | 20 запросов |
-		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 5 сек | 1 запрос | 5 сек | 20 запросов |
+| Сервисный | 5 сек | 1 запрос | 5 сек | 20 запросов |
+| Базовый с секретом | 5 сек | 1 запрос | 5 сек | 20 запросов |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-brand-share
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-brand-share
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV1AnalyticsBrandShareRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1AnalyticsBrandShareRequest
 	*/
 	GetV1AnalyticsBrandShare(ctx context.Context) ApiGetV1AnalyticsBrandShareRequest
 
@@ -177,26 +178,26 @@ type ReportsAPI interface {
 	GetV1AnalyticsBrandShareExecute(r ApiGetV1AnalyticsBrandShareRequest) (*GetV1AnalyticsBrandShare200Response, *http.Response, error)
 
 	/*
-			GetV1AnalyticsBrandShareBrands Бренды продавца
+	GetV1AnalyticsBrandShareBrands Бренды продавца
 
-			Метод возвращает список брендов продавца для отчёта о [доле бренда в продажах](https://seller.wildberries.ru/analytics-reports/brand-share).
+	Метод возвращает список брендов продавца для отчёта о [доле бренда в продажах](https://seller.wildberries.ru/analytics-reports/brand-share).
 
-		Можно получить только бренды, которые:
-		- Продавались за последние 90 дней
-		- Есть в наличии, вне зависимости от склада хранения
+Можно получить только бренды, которые:
+- Продавались за последние 90 дней
+- Есть в наличии, вне зависимости от склада хранения
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов |
-		| Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов |
-		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
-		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов |
+| Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов |
+| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-brand-share-brands
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-brand-share-brands
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV1AnalyticsBrandShareBrandsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1AnalyticsBrandShareBrandsRequest
 	*/
 	GetV1AnalyticsBrandShareBrands(ctx context.Context) ApiGetV1AnalyticsBrandShareBrandsRequest
 
@@ -205,24 +206,24 @@ type ReportsAPI interface {
 	GetV1AnalyticsBrandShareBrandsExecute(r ApiGetV1AnalyticsBrandShareBrandsRequest) (*GetV1AnalyticsBrandShareBrands200Response, *http.Response, error)
 
 	/*
-			GetV1AnalyticsBrandShareParentSubjects Родительские категории бренда
+	GetV1AnalyticsBrandShareParentSubjects Родительские категории бренда
 
-			Метод возвращает родительские категории бренда продавца для отчёта о [доле бренда в продажах](https://seller.wildberries.ru/analytics-reports/brand-share).
+	Метод возвращает родительские категории бренда продавца для отчёта о [доле бренда в продажах](https://seller.wildberries.ru/analytics-reports/brand-share).
 
-		Можно получить отчёт максимум за 365 дней. Данные доступны с 1 ноября 2022.
+Можно получить отчёт максимум за 365 дней. Данные доступны с 1 ноября 2022.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 5 сек | 1 запрос | 5 сек | 20 запросов |
-		| Сервисный | 5 сек | 1 запрос | 5 сек | 20 запросов |
-		| Базовый с секретом | 5 сек | 1 запрос | 5 сек | 20 запросов |
-		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 5 сек | 1 запрос | 5 сек | 20 запросов |
+| Сервисный | 5 сек | 1 запрос | 5 сек | 20 запросов |
+| Базовый с секретом | 5 сек | 1 запрос | 5 сек | 20 запросов |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-brand-share-parent-subjects
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-brand-share-parent-subjects
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV1AnalyticsBrandShareParentSubjectsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1AnalyticsBrandShareParentSubjectsRequest
 	*/
 	GetV1AnalyticsBrandShareParentSubjects(ctx context.Context) ApiGetV1AnalyticsBrandShareParentSubjectsRequest
 
@@ -231,25 +232,25 @@ type ReportsAPI interface {
 	GetV1AnalyticsBrandShareParentSubjectsExecute(r ApiGetV1AnalyticsBrandShareParentSubjectsRequest) (*GetV1AnalyticsBrandShareParentSubjects200Response, *http.Response, error)
 
 	/*
-			GetV1AnalyticsGoodsLabeling Маркировка товара
+	GetV1AnalyticsGoodsLabeling Маркировка товара
 
-			Метод возвращает отчёт о штрафах за отсутствие обязательной маркировки товаров.
-		В отчёте представлены фотографии товаров, на которых маркировка отсутствует либо не считывается.
+	Метод возвращает отчёт о штрафах за отсутствие обязательной маркировки товаров.
+В отчёте представлены фотографии товаров, на которых маркировка отсутствует либо не считывается.
 
-		Можно получить данные максимум за 31 день. Данные доступны с марта 2024.
+Можно получить данные максимум за 31 день. Данные доступны с марта 2024.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов |
-		| Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов |
-		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
-		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов |
+| Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов |
+| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-goods-labeling
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-goods-labeling
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV1AnalyticsGoodsLabelingRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1AnalyticsGoodsLabelingRequest
 	*/
 	GetV1AnalyticsGoodsLabeling(ctx context.Context) ApiGetV1AnalyticsGoodsLabelingRequest
 
@@ -258,24 +259,24 @@ type ReportsAPI interface {
 	GetV1AnalyticsGoodsLabelingExecute(r ApiGetV1AnalyticsGoodsLabelingRequest) (*GetV1AnalyticsGoodsLabeling200Response, *http.Response, error)
 
 	/*
-			GetV1AnalyticsRegionSale Получить отчёт
+	GetV1AnalyticsRegionSale Получить отчёт
 
-			Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).
+	Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов |
-		| Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов |
-		| Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
-		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов |
+| Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов |
+| Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-region-sale
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-region-sale
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV1AnalyticsRegionSaleRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1AnalyticsRegionSaleRequest
 
-			Deprecated
+	Deprecated
 	*/
 	GetV1AnalyticsRegionSale(ctx context.Context) ApiGetV1AnalyticsRegionSaleRequest
 
@@ -285,22 +286,22 @@ type ReportsAPI interface {
 	GetV1AnalyticsRegionSaleExecute(r ApiGetV1AnalyticsRegionSaleRequest) (*GetV1AnalyticsRegionSale200Response, *http.Response, error)
 
 	/*
-			GetV1Deductions Подмены и неверные вложения
+	GetV1Deductions Подмены и неверные вложения
 
-			Метод возвращает отчёт об удержаниях за [подмены и неверные вложения](https://seller.wildberries.ru/analytics-reports/dimensions-penalties/retentions)
+	Метод возвращает отчёт об удержаниях за [подмены и неверные вложения](https://seller.wildberries.ru/analytics-reports/dimensions-penalties/retentions)
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
-		| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
-		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
-		| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-deductions
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-deductions
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV1DeductionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1DeductionsRequest
 	*/
 	GetV1Deductions(ctx context.Context) ApiGetV1DeductionsRequest
 
@@ -309,22 +310,22 @@ type ReportsAPI interface {
 	GetV1DeductionsExecute(r ApiGetV1DeductionsRequest) (*GetV1Deductions200Response, *http.Response, error)
 
 	/*
-			GetV1ItemReturns Получить отчёт
+	GetV1ItemReturns Получить отчёт
 
-			Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports).
+	Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports).
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов |
-		| Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов |
-		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов |
+| Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов |
+| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-item-returns
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-item-returns
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV1ItemReturnsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1ItemReturnsRequest
 	*/
 	GetV1ItemReturns(ctx context.Context) ApiGetV1ItemReturnsRequest
 
@@ -333,22 +334,22 @@ type ReportsAPI interface {
 	GetV1ItemReturnsExecute(r ApiGetV1ItemReturnsRequest) (*ItemReturns200Response, *http.Response, error)
 
 	/*
-			GetV1MeasurementPenalties Удержания за занижение габаритов упаковки
+	GetV1MeasurementPenalties Удержания за занижение габаритов упаковки
 
-			Метод возвращает отчёт об [удержаниях за занижение габаритов упаковки](https://seller.wildberries.ru/analytics-reports/dimensions-penalties)
+	Метод возвращает отчёт об [удержаниях за занижение габаритов упаковки](https://seller.wildberries.ru/analytics-reports/dimensions-penalties)
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
-		| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
-		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
-		| Базовый | 6 ч | 1 запрос | 6 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Базовый | 6 ч | 1 запрос | 6 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-measurement-penalties
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-measurement-penalties
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV1MeasurementPenaltiesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1MeasurementPenaltiesRequest
 	*/
 	GetV1MeasurementPenalties(ctx context.Context) ApiGetV1MeasurementPenaltiesRequest
 
@@ -357,24 +358,24 @@ type ReportsAPI interface {
 	GetV1MeasurementPenaltiesExecute(r ApiGetV1MeasurementPenaltiesRequest) (*MeasurementPenalties, *http.Response, error)
 
 	/*
-			GetV1PaidStorage Создать отчёт
+	GetV1PaidStorage Создать отчёт
 
-			Метод создаёт [задание на генерацию](https://dev.wildberries.ru/openapi/reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdStatus) отчёта о [платном хранении](https://dev.wildberries.ru/openapi/reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdDownload).
+	Метод создаёт [задание на генерацию](https://dev.wildberries.ru/openapi/reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdStatus) отчёта о [платном хранении](https://dev.wildberries.ru/openapi/reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdDownload).
 
-		Можно получить отчёт максимум за 8 дней.
+Можно получить отчёт максимум за 8 дней.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 1 запрос | 1 мин | 5 запросов |
-		| Сервисный | 1 мин | 1 запрос | 1 мин | 5 запросов |
-		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 5 запросов |
-		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 1 запрос | 1 мин | 5 запросов |
+| Сервисный | 1 мин | 1 запрос | 1 мин | 5 запросов |
+| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 5 запросов |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-paid-storage
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-paid-storage
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV1PaidStorageRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1PaidStorageRequest
 	*/
 	GetV1PaidStorage(ctx context.Context) ApiGetV1PaidStorageRequest
 
@@ -383,23 +384,23 @@ type ReportsAPI interface {
 	GetV1PaidStorageExecute(r ApiGetV1PaidStorageRequest) (*CreateTaskResponse, *http.Response, error)
 
 	/*
-			GetV1PaidStorageTasksTaskIdDownload Получить отчёт
+	GetV1PaidStorageTasksTaskIdDownload Получить отчёт
 
-			Метод возвращает отчёт о [платном хранении](https://seller.wildberries.ru/analytics-reports/paid-storage/storage) по ID [задания на генерацию](https://dev.wildberries.ru/openapi/reports#tag/paidStorage/operation/getV1PaidStorage).
+	Метод возвращает отчёт о [платном хранении](https://seller.wildberries.ru/analytics-reports/paid-storage/storage) по ID [задания на генерацию](https://dev.wildberries.ru/openapi/reports#tag/paidStorage/operation/getV1PaidStorage).
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
-		| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
-		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-paid-storage-tasks-task-id-download
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-paid-storage-tasks-task-id-download
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@param taskId ID задания на генерацию
-			@return ApiGetV1PaidStorageTasksTaskIdDownloadRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param taskId ID задания на генерацию 
+	@return ApiGetV1PaidStorageTasksTaskIdDownloadRequest
 	*/
 	GetV1PaidStorageTasksTaskIdDownload(ctx context.Context, taskId string) ApiGetV1PaidStorageTasksTaskIdDownloadRequest
 
@@ -408,23 +409,23 @@ type ReportsAPI interface {
 	GetV1PaidStorageTasksTaskIdDownloadExecute(r ApiGetV1PaidStorageTasksTaskIdDownloadRequest) ([]GetV1PaidStorageTasksTaskIdDownloadResponse200Inner, *http.Response, error)
 
 	/*
-			GetV1PaidStorageTasksTaskIdStatus Проверить статус
+	GetV1PaidStorageTasksTaskIdStatus Проверить статус
 
-			Метод возвращает статус [задания на генерацию](https://dev.wildberries.ru/openapi/reports#tag/paidStorage/operation/getV1PaidStorage) отчёта о [платном хранении](https://dev.wildberries.ru/openapi/reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdDownload).
+	Метод возвращает статус [задания на генерацию](https://dev.wildberries.ru/openapi/reports#tag/paidStorage/operation/getV1PaidStorage) отчёта о [платном хранении](https://dev.wildberries.ru/openapi/reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdDownload).
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 5 сек | 1 запрос | 5 сек | 5 запросов |
-		| Сервисный | 5 сек | 1 запрос | 5 сек | 5 запросов |
-		| Базовый с секретом | 5 сек | 1 запрос | 5 сек | 5 запросов |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 2 запроса |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 5 сек | 1 запрос | 5 сек | 5 запросов |
+| Сервисный | 5 сек | 1 запрос | 5 сек | 5 запросов |
+| Базовый с секретом | 5 сек | 1 запрос | 5 сек | 5 запросов |
+| Базовый | 1 ч | 2 запроса | 30 мин | 2 запроса |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-paid-storage-tasks-task-id-status
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-paid-storage-tasks-task-id-status
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@param taskId ID задания на генерацию
-			@return ApiGetV1PaidStorageTasksTaskIdStatusRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param taskId ID задания на генерацию 
+	@return ApiGetV1PaidStorageTasksTaskIdStatusRequest
 	*/
 	GetV1PaidStorageTasksTaskIdStatus(ctx context.Context, taskId string) ApiGetV1PaidStorageTasksTaskIdStatusRequest
 
@@ -433,36 +434,36 @@ type ReportsAPI interface {
 	GetV1PaidStorageTasksTaskIdStatusExecute(r ApiGetV1PaidStorageTasksTaskIdStatusRequest) (*GetTasksResponse, *http.Response, error)
 
 	/*
-			GetV1SupplierOrders Заказы
+	GetV1SupplierOrders Заказы
 
-			Метод возвращает информацию о заказах.
-		Данные обновляются раз в 30 минут.
+	Метод возвращает информацию о заказах.
+Данные обновляются раз в 30 минут.
 
-		1 строка = 1 заказ = 1 сборочное задание = 1 единица товара.
-		Для определения заказа рекомендуем использовать поле `srid`.
+1 строка = 1 заказ = 1 сборочное задание = 1 единица товара.
+Для определения заказа рекомендуем использовать поле `srid`.
 
-		Информация о заказе хранится 90 дней с момента оформления.
+Информация о заказе хранится 90 дней с момента оформления.
 
-		В ответах могут отсутствовать заказы, по которым не подтверждена оплата. Например, заказы с отложенными платежами или оплатой в рассрочку. При этом, если по таким заказам есть продажи, вы можете получить их с помощью [детализаций к отчётам реализации](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports).
-		Чтобы получить все оформленные заказы, используйте [Ленту заказов](https://dev.wildberries.ru/openapi/analytics#tag/orderFeed).
+В ответах могут отсутствовать заказы, по которым не подтверждена оплата. Например, заказы с отложенными платежами или оплатой в рассрочку. При этом, если по таким заказам есть продажи, вы можете получить их с помощью [детализаций к отчётам реализации](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports).
+Чтобы получить все оформленные заказы, используйте [Ленту заказов](https://dev.wildberries.ru/openapi/analytics#tag/orderFeed).
 
-		Данные этого отчёта являются предварительными и служат для оперативного мониторинга
+Данные этого отчёта являются предварительными и служат для оперативного мониторинга
 
-		Для одного ответа на запрос с `flag=0` или без `flag` в системе установлено условное ограничение 80000 строк. Поэтому, чтобы получить все заказы, может потребоваться более, чем один запрос. Во втором и далее запросе в параметре `dateFrom` используйте полное значение поля `lastChangeDate` из последней строки ответа на предыдущий запрос.
-		 Если в ответе отдаётся пустой массив `[]`, все заказы уже выгружены.
+Для одного ответа на запрос с `flag=0` или без `flag` в системе установлено условное ограничение 80000 строк. Поэтому, чтобы получить все заказы, может потребоваться более, чем один запрос. Во втором и далее запросе в параметре `dateFrom` используйте полное значение поля `lastChangeDate` из последней строки ответа на предыдущий запрос.
+ Если в ответе отдаётся пустой массив `[]`, все заказы уже выгружены.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов |
-		| Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов |
-		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
-		| Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов |
+| Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов |
+| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
+| Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-supplier-orders
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-supplier-orders
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV1SupplierOrdersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1SupplierOrdersRequest
 	*/
 	GetV1SupplierOrders(ctx context.Context) ApiGetV1SupplierOrdersRequest
 
@@ -471,39 +472,39 @@ type ReportsAPI interface {
 	GetV1SupplierOrdersExecute(r ApiGetV1SupplierOrdersRequest) ([]OrdersItem, *http.Response, error)
 
 	/*
-			GetV1SupplierSales Продажи
+	GetV1SupplierSales Продажи
 
-			Метод возвращает информацию о продажах и возвратах.
-		Данные обновляются раз в 30 минут.
+	Метод возвращает информацию о продажах и возвратах.
+Данные обновляются раз в 30 минут.
 
-		1 строка = 1 заказ = 1 сборочное задание = 1 единица товара.
-		Для определения заказа рекомендуем использовать поле `srid`.
+1 строка = 1 заказ = 1 сборочное задание = 1 единица товара.
+Для определения заказа рекомендуем использовать поле `srid`.
 
-		Информация о заказе хранится 90 дней с момента оформления.
+Информация о заказе хранится 90 дней с момента оформления.
 
-		Данные этого отчёта являются предварительными и служат для оперативного мониторинга
+Данные этого отчёта являются предварительными и служат для оперативного мониторинга
 
-		- В ответах могут отсутствовать заказы, по которым не подтверждена оплата, даже если эти заказы есть в детализациях к отчётам реализации. Например, заказы с отложенными платежами или оплатой в рассрочку
-		- Значения полей `priceWithDisc` и `forPay` рассчитываются по упрощённой логике и могут отличаться от `retail\_price\_withdisc\_rub` и `ppvz\_for\_pay` соответственно в детализациях к отчётам реализации
-		- Поля `finishedPrice`, `priceWithDisc`, `forPay` могут временно иметь значение `0`: данные заполняются асинхронно, актуализируются в течение 24 часов
-		- Для заказов, которые оплачены в валюте, отличной от валюты продавца, возможны округления цен из-за конвертации валют
-		Для точных финансовых расчётов, сверки и отчётности используйте [детализации к отчётам реализации](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports).
+- В ответах могут отсутствовать заказы, по которым не подтверждена оплата, даже если эти заказы есть в детализациях к отчётам реализации. Например, заказы с отложенными платежами или оплатой в рассрочку
+- Значения полей `priceWithDisc` и `forPay` рассчитываются по упрощённой логике и могут отличаться от `retail\_price\_withdisc\_rub` и `ppvz\_for\_pay` соответственно в детализациях к отчётам реализации
+- Поля `finishedPrice`, `priceWithDisc`, `forPay` могут временно иметь значение `0`: данные заполняются асинхронно, актуализируются в течение 24 часов
+- Для заказов, которые оплачены в валюте, отличной от валюты продавца, возможны округления цен из-за конвертации валют
+Для точных финансовых расчётов, сверки и отчётности используйте [детализации к отчётам реализации](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports).
 
-		Для одного ответа на запрос с `flag=0` или без `flag` в системе установлено условное ограничение 80000 строк. Поэтому, чтобы получить все продажи и возвраты, может потребоваться более, чем один запрос. Во втором и далее запросе в параметре `dateFrom `используйте полное значение поля `lastChangeDate` из последней строки ответа на предыдущий запрос.
-		 Если в ответе отдаётся пустой массив `[]`, все продажи и возвраты уже выгружены.
+Для одного ответа на запрос с `flag=0` или без `flag` в системе установлено условное ограничение 80000 строк. Поэтому, чтобы получить все продажи и возвраты, может потребоваться более, чем один запрос. Во втором и далее запросе в параметре `dateFrom `используйте полное значение поля `lastChangeDate` из последней строки ответа на предыдущий запрос.
+ Если в ответе отдаётся пустой массив `[]`, все продажи и возвраты уже выгружены.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
-		| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
-		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
-		| Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-supplier-sales
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-supplier-sales
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV1SupplierSalesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1SupplierSalesRequest
 	*/
 	GetV1SupplierSales(ctx context.Context) ApiGetV1SupplierSalesRequest
 
@@ -512,22 +513,22 @@ type ReportsAPI interface {
 	GetV1SupplierSalesExecute(r ApiGetV1SupplierSalesRequest) ([]SalesItem, *http.Response, error)
 
 	/*
-			GetV1WarehouseMeasurements Замеры склада
+	GetV1WarehouseMeasurements Замеры склада
 
-			Метод возвращает отчёт о [замерах склада](https://seller.wildberries.ru/analytics-reports/dimensions-penalties/warehouse-measurements)
+	Метод возвращает отчёт о [замерах склада](https://seller.wildberries.ru/analytics-reports/dimensions-penalties/warehouse-measurements)
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
-		| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
-		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
-		| Базовый | 6 ч | 1 запрос | 6 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Базовый | 6 ч | 1 запрос | 6 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-warehouse-measurements
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-warehouse-measurements
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV1WarehouseMeasurementsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1WarehouseMeasurementsRequest
 	*/
 	GetV1WarehouseMeasurements(ctx context.Context) ApiGetV1WarehouseMeasurementsRequest
 
@@ -536,24 +537,24 @@ type ReportsAPI interface {
 	GetV1WarehouseMeasurementsExecute(r ApiGetV1WarehouseMeasurementsRequest) (*WHM, *http.Response, error)
 
 	/*
-			GetV1WarehouseRemains Создать отчёт
+	GetV1WarehouseRemains Создать отчёт
 
-			Метод создаёт [задание на генерацию](https://dev.wildberries.ru/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemainsTasksTaskIdStatus) отчёта об [остатках на складах WB](https://dev.wildberries.ru/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemainsTasksTaskIdDownload).
+	Метод создаёт [задание на генерацию](https://dev.wildberries.ru/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemainsTasksTaskIdStatus) отчёта об [остатках на складах WB](https://dev.wildberries.ru/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemainsTasksTaskIdDownload).
 
-		Параметры `groupBy` и `filter` (группировки и фильтры) можно задать в любой комбинации — аналогично [версии](https://seller.wildberries.ru/analytics-reports/warehouse-remains) в личном кабинете.
+Параметры `groupBy` и `filter` (группировки и фильтры) можно задать в любой комбинации — аналогично [версии](https://seller.wildberries.ru/analytics-reports/warehouse-remains) в личном кабинете.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 1 запрос | 1 мин | 5 запросов |
-		| Сервисный | 1 мин | 1 запрос | 1 мин | 5 запросов |
-		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 5 запросов |
-		| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 1 запрос | 1 мин | 5 запросов |
+| Сервисный | 1 мин | 1 запрос | 1 мин | 5 запросов |
+| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 5 запросов |
+| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-warehouse-remains
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-warehouse-remains
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV1WarehouseRemainsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1WarehouseRemainsRequest
 	*/
 	GetV1WarehouseRemains(ctx context.Context) ApiGetV1WarehouseRemainsRequest
 
@@ -562,23 +563,23 @@ type ReportsAPI interface {
 	GetV1WarehouseRemainsExecute(r ApiGetV1WarehouseRemainsRequest) (*CreateTaskResponse, *http.Response, error)
 
 	/*
-			GetV1WarehouseRemainsTasksTaskIdDownload Получить отчёт
+	GetV1WarehouseRemainsTasksTaskIdDownload Получить отчёт
 
-			Метод возвращает отчёт об [остатках на складах WB](https://seller.wildberries.ru/analytics-reports/warehouse-remains) по ID [задания на генерацию](https://dev.wildberries.ru/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemains).
+	Метод возвращает отчёт об [остатках на складах WB](https://seller.wildberries.ru/analytics-reports/warehouse-remains) по ID [задания на генерацию](https://dev.wildberries.ru/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemains).
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
-		| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
-		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
-		| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-warehouse-remains-tasks-task-id-download
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-warehouse-remains-tasks-task-id-download
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@param taskId ID задания на генерацию
-			@return ApiGetV1WarehouseRemainsTasksTaskIdDownloadRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param taskId ID задания на генерацию 
+	@return ApiGetV1WarehouseRemainsTasksTaskIdDownloadRequest
 	*/
 	GetV1WarehouseRemainsTasksTaskIdDownload(ctx context.Context, taskId string) ApiGetV1WarehouseRemainsTasksTaskIdDownloadRequest
 
@@ -587,23 +588,23 @@ type ReportsAPI interface {
 	GetV1WarehouseRemainsTasksTaskIdDownloadExecute(r ApiGetV1WarehouseRemainsTasksTaskIdDownloadRequest) ([]GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner, *http.Response, error)
 
 	/*
-			GetV1WarehouseRemainsTasksTaskIdStatus Проверить статус
+	GetV1WarehouseRemainsTasksTaskIdStatus Проверить статус
 
-			Метод возвращает статус [задания на генерацию](https://dev.wildberries.ru/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemains) отчёта об [остатках на складах WB](https://dev.wildberries.ru/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemainsTasksTaskIdDownload).
+	Метод возвращает статус [задания на генерацию](https://dev.wildberries.ru/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemains) отчёта об [остатках на складах WB](https://dev.wildberries.ru/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemainsTasksTaskIdDownload).
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 5 сек | 1 запрос | 5 сек | 5 запросов |
-		| Сервисный | 5 сек | 1 запрос | 5 сек | 5 запросов |
-		| Базовый с секретом | 5 сек | 1 запрос | 5 сек | 5 запросов |
-		| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 5 сек | 1 запрос | 5 сек | 5 запросов |
+| Сервисный | 5 сек | 1 запрос | 5 сек | 5 запросов |
+| Базовый с секретом | 5 сек | 1 запрос | 5 сек | 5 запросов |
+| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-warehouse-remains-tasks-task-id-status
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-warehouse-remains-tasks-task-id-status
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@param taskId ID задания на генерацию
-			@return ApiGetV1WarehouseRemainsTasksTaskIdStatusRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param taskId ID задания на генерацию 
+	@return ApiGetV1WarehouseRemainsTasksTaskIdStatusRequest
 	*/
 	GetV1WarehouseRemainsTasksTaskIdStatus(ctx context.Context, taskId string) ApiGetV1WarehouseRemainsTasksTaskIdStatusRequest
 
@@ -612,24 +613,24 @@ type ReportsAPI interface {
 	GetV1WarehouseRemainsTasksTaskIdStatusExecute(r ApiGetV1WarehouseRemainsTasksTaskIdStatusRequest) (*GetTasksResponse, *http.Response, error)
 
 	/*
-			PostV1AnalyticsExciseReport Получить отчёт
+	PostV1AnalyticsExciseReport Получить отчёт
 
-			Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).
+	Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).
 
-		Данный отчёт можно сохранить в [формате таблиц](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3).
+Данный отчёт можно сохранить в [формате таблиц](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3).
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 5 ч | 10 запросов | 30 мин | 10 запросов |
-		| Сервисный | 5 ч | 10 запросов | 30 мин | 10 запросов |
-		| Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов |
-		| Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 5 ч | 10 запросов | 30 мин | 10 запросов |
+| Сервисный | 5 ч | 10 запросов | 30 мин | 10 запросов |
+| Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов |
+| Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/post-api-v1-analytics-excise-report
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/post-api-v1-analytics-excise-report
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV1AnalyticsExciseReportRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV1AnalyticsExciseReportRequest
 	*/
 	PostV1AnalyticsExciseReport(ctx context.Context) ApiPostV1AnalyticsExciseReportRequest
 
@@ -642,10 +643,10 @@ type ReportsAPI interface {
 type ReportsAPIService service
 
 type ApiGetV1AcceptanceReportRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ReportsAPI
-	dateFrom   *string
-	dateTo     *string
+	dateFrom *string
+	dateTo *string
 }
 
 // Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
@@ -681,25 +682,24 @@ GetV1AcceptanceReport Создать отчёт
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1AcceptanceReportRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1AcceptanceReportRequest
 */
 func (a *ReportsAPIService) GetV1AcceptanceReport(ctx context.Context) ApiGetV1AcceptanceReportRequest {
 	return ApiGetV1AcceptanceReportRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return CreateTaskResponse
+//  @return CreateTaskResponse
 func (a *ReportsAPIService) GetV1AcceptanceReportExecute(r ApiGetV1AcceptanceReportRequest) (*CreateTaskResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *CreateTaskResponse
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CreateTaskResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsAPIService.GetV1AcceptanceReport")
@@ -767,8 +767,8 @@ func (a *ReportsAPIService) GetV1AcceptanceReportExecute(r ApiGetV1AcceptanceRep
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -778,8 +778,8 @@ func (a *ReportsAPIService) GetV1AcceptanceReportExecute(r ApiGetV1AcceptanceRep
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -789,8 +789,8 @@ func (a *ReportsAPIService) GetV1AcceptanceReportExecute(r ApiGetV1AcceptanceRep
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -800,8 +800,8 @@ func (a *ReportsAPIService) GetV1AcceptanceReportExecute(r ApiGetV1AcceptanceRep
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -811,8 +811,8 @@ func (a *ReportsAPIService) GetV1AcceptanceReportExecute(r ApiGetV1AcceptanceRep
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -830,9 +830,9 @@ func (a *ReportsAPIService) GetV1AcceptanceReportExecute(r ApiGetV1AcceptanceRep
 }
 
 type ApiGetV1AcceptanceReportTasksTaskIdDownloadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ReportsAPI
-	taskId     string
+	taskId string
 }
 
 func (r ApiGetV1AcceptanceReportTasksTaskIdDownloadRequest) Execute() ([]GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner, *http.Response, error) {
@@ -854,27 +854,26 @@ GetV1AcceptanceReportTasksTaskIdDownload Получить отчёт
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report-tasks-task-id-download
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param taskId ID задания на генерацию
-	@return ApiGetV1AcceptanceReportTasksTaskIdDownloadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param taskId ID задания на генерацию 
+ @return ApiGetV1AcceptanceReportTasksTaskIdDownloadRequest
 */
 func (a *ReportsAPIService) GetV1AcceptanceReportTasksTaskIdDownload(ctx context.Context, taskId string) ApiGetV1AcceptanceReportTasksTaskIdDownloadRequest {
 	return ApiGetV1AcceptanceReportTasksTaskIdDownloadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		taskId:     taskId,
+		ctx: ctx,
+		taskId: taskId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner
+//  @return []GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner
 func (a *ReportsAPIService) GetV1AcceptanceReportTasksTaskIdDownloadExecute(r ApiGetV1AcceptanceReportTasksTaskIdDownloadRequest) ([]GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsAPIService.GetV1AcceptanceReportTasksTaskIdDownload")
@@ -935,8 +934,8 @@ func (a *ReportsAPIService) GetV1AcceptanceReportTasksTaskIdDownloadExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -946,8 +945,8 @@ func (a *ReportsAPIService) GetV1AcceptanceReportTasksTaskIdDownloadExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -957,8 +956,8 @@ func (a *ReportsAPIService) GetV1AcceptanceReportTasksTaskIdDownloadExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -968,8 +967,8 @@ func (a *ReportsAPIService) GetV1AcceptanceReportTasksTaskIdDownloadExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -979,8 +978,8 @@ func (a *ReportsAPIService) GetV1AcceptanceReportTasksTaskIdDownloadExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -990,8 +989,8 @@ func (a *ReportsAPIService) GetV1AcceptanceReportTasksTaskIdDownloadExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1009,9 +1008,9 @@ func (a *ReportsAPIService) GetV1AcceptanceReportTasksTaskIdDownloadExecute(r Ap
 }
 
 type ApiGetV1AcceptanceReportTasksTaskIdStatusRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ReportsAPI
-	taskId     string
+	taskId string
 }
 
 func (r ApiGetV1AcceptanceReportTasksTaskIdStatusRequest) Execute() (*GetTasksResponse, *http.Response, error) {
@@ -1033,27 +1032,26 @@ GetV1AcceptanceReportTasksTaskIdStatus Проверить статус
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-acceptance-report-tasks-task-id-status
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param taskId ID задания на генерацию
-	@return ApiGetV1AcceptanceReportTasksTaskIdStatusRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param taskId ID задания на генерацию 
+ @return ApiGetV1AcceptanceReportTasksTaskIdStatusRequest
 */
 func (a *ReportsAPIService) GetV1AcceptanceReportTasksTaskIdStatus(ctx context.Context, taskId string) ApiGetV1AcceptanceReportTasksTaskIdStatusRequest {
 	return ApiGetV1AcceptanceReportTasksTaskIdStatusRequest{
 		ApiService: a,
-		ctx:        ctx,
-		taskId:     taskId,
+		ctx: ctx,
+		taskId: taskId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetTasksResponse
+//  @return GetTasksResponse
 func (a *ReportsAPIService) GetV1AcceptanceReportTasksTaskIdStatusExecute(r ApiGetV1AcceptanceReportTasksTaskIdStatusRequest) (*GetTasksResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetTasksResponse
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetTasksResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsAPIService.GetV1AcceptanceReportTasksTaskIdStatus")
@@ -1114,8 +1112,8 @@ func (a *ReportsAPIService) GetV1AcceptanceReportTasksTaskIdStatusExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1125,8 +1123,8 @@ func (a *ReportsAPIService) GetV1AcceptanceReportTasksTaskIdStatusExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1136,8 +1134,8 @@ func (a *ReportsAPIService) GetV1AcceptanceReportTasksTaskIdStatusExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1147,8 +1145,8 @@ func (a *ReportsAPIService) GetV1AcceptanceReportTasksTaskIdStatusExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1158,8 +1156,8 @@ func (a *ReportsAPIService) GetV1AcceptanceReportTasksTaskIdStatusExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1177,9 +1175,9 @@ func (a *ReportsAPIService) GetV1AcceptanceReportTasksTaskIdStatusExecute(r ApiG
 }
 
 type ApiGetV1AnalyticsAntifraudDetailsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ReportsAPI
-	date       *string
+	date *string
 }
 
 // Дата, которая входит в отчётный период, &#x60;ГГГГ-ММ-ДД&#x60;. Чтобы получить данные за всё время с августа 2023, не указывайте этот параметр
@@ -1212,25 +1210,24 @@ GetV1AnalyticsAntifraudDetails Самовыкупы
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-antifraud-details
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1AnalyticsAntifraudDetailsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1AnalyticsAntifraudDetailsRequest
 */
 func (a *ReportsAPIService) GetV1AnalyticsAntifraudDetails(ctx context.Context) ApiGetV1AnalyticsAntifraudDetailsRequest {
 	return ApiGetV1AnalyticsAntifraudDetailsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV1AnalyticsAntifraudDetails200Response
+//  @return GetV1AnalyticsAntifraudDetails200Response
 func (a *ReportsAPIService) GetV1AnalyticsAntifraudDetailsExecute(r ApiGetV1AnalyticsAntifraudDetailsRequest) (*GetV1AnalyticsAntifraudDetails200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV1AnalyticsAntifraudDetails200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV1AnalyticsAntifraudDetails200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsAPIService.GetV1AnalyticsAntifraudDetails")
@@ -1293,8 +1290,8 @@ func (a *ReportsAPIService) GetV1AnalyticsAntifraudDetailsExecute(r ApiGetV1Anal
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1304,8 +1301,8 @@ func (a *ReportsAPIService) GetV1AnalyticsAntifraudDetailsExecute(r ApiGetV1Anal
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1315,8 +1312,8 @@ func (a *ReportsAPIService) GetV1AnalyticsAntifraudDetailsExecute(r ApiGetV1Anal
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1326,8 +1323,8 @@ func (a *ReportsAPIService) GetV1AnalyticsAntifraudDetailsExecute(r ApiGetV1Anal
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1337,8 +1334,8 @@ func (a *ReportsAPIService) GetV1AnalyticsAntifraudDetailsExecute(r ApiGetV1Anal
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1356,19 +1353,19 @@ func (a *ReportsAPIService) GetV1AnalyticsAntifraudDetailsExecute(r ApiGetV1Anal
 }
 
 type ApiGetV1AnalyticsBannedProducsBlockedRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ReportsAPI
-	sort       *string
-	order      *string
+	sort *string
+	order *string
 }
 
-// Сортировка - &#x60;brand&#x60; — по бренду - &#x60;nmId&#x60; — по артикулу WB - &#x60;title&#x60; — по наименованию товара - &#x60;vendorCode&#x60; — по артикулу продавца - &#x60;reason&#x60; — по причине блокировки
+// Сортировка - &#x60;brand&#x60; — по бренду - &#x60;nmId&#x60; — по артикулу WB - &#x60;title&#x60; — по наименованию товара - &#x60;vendorCode&#x60; — по артикулу продавца - &#x60;reason&#x60; — по причине блокировки 
 func (r ApiGetV1AnalyticsBannedProducsBlockedRequest) Sort(sort string) ApiGetV1AnalyticsBannedProducsBlockedRequest {
 	r.sort = &sort
 	return r
 }
 
-// Порядок выдачи - &#x60;desc&#x60; — от наибольшего числового значения к наименьшему, от последнего по алфавиту значения к первому - &#x60;asc&#x60; — от наименьшего числового значения к наибольшему, от первого по алфавиту значения к последнему
+// Порядок выдачи - &#x60;desc&#x60; — от наибольшего числового значения к наименьшему, от последнего по алфавиту значения к первому - &#x60;asc&#x60; — от наименьшего числового значения к наибольшему, от первого по алфавиту значения к последнему 
 func (r ApiGetV1AnalyticsBannedProducsBlockedRequest) Order(order string) ApiGetV1AnalyticsBannedProducsBlockedRequest {
 	r.order = &order
 	return r
@@ -1393,25 +1390,24 @@ GetV1AnalyticsBannedProducsBlocked Получить отчёт
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-banned-products-blocked
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1AnalyticsBannedProducsBlockedRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1AnalyticsBannedProducsBlockedRequest
 */
 func (a *ReportsAPIService) GetV1AnalyticsBannedProducsBlocked(ctx context.Context) ApiGetV1AnalyticsBannedProducsBlockedRequest {
 	return ApiGetV1AnalyticsBannedProducsBlockedRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV1AnalyticsBannedProducsBlockedResponse200
+//  @return GetV1AnalyticsBannedProducsBlockedResponse200
 func (a *ReportsAPIService) GetV1AnalyticsBannedProducsBlockedExecute(r ApiGetV1AnalyticsBannedProducsBlockedRequest) (*GetV1AnalyticsBannedProducsBlockedResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV1AnalyticsBannedProducsBlockedResponse200
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV1AnalyticsBannedProducsBlockedResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsAPIService.GetV1AnalyticsBannedProducsBlocked")
@@ -1479,8 +1475,8 @@ func (a *ReportsAPIService) GetV1AnalyticsBannedProducsBlockedExecute(r ApiGetV1
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1490,8 +1486,8 @@ func (a *ReportsAPIService) GetV1AnalyticsBannedProducsBlockedExecute(r ApiGetV1
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1501,8 +1497,8 @@ func (a *ReportsAPIService) GetV1AnalyticsBannedProducsBlockedExecute(r ApiGetV1
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1512,8 +1508,8 @@ func (a *ReportsAPIService) GetV1AnalyticsBannedProducsBlockedExecute(r ApiGetV1
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1523,8 +1519,8 @@ func (a *ReportsAPIService) GetV1AnalyticsBannedProducsBlockedExecute(r ApiGetV1
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1542,12 +1538,12 @@ func (a *ReportsAPIService) GetV1AnalyticsBannedProducsBlockedExecute(r ApiGetV1
 }
 
 type ApiGetV1AnalyticsBrandShareRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ReportsAPI
-	parentId   *int64
-	brand      *string
-	dateFrom   *string
-	dateTo     *string
+	parentId *int64
+	brand *string
+	dateFrom *string
+	dateTo *string
 }
 
 // ID родительской категории
@@ -1595,25 +1591,24 @@ GetV1AnalyticsBrandShare Получить отчёт
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-brand-share
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1AnalyticsBrandShareRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1AnalyticsBrandShareRequest
 */
 func (a *ReportsAPIService) GetV1AnalyticsBrandShare(ctx context.Context) ApiGetV1AnalyticsBrandShareRequest {
 	return ApiGetV1AnalyticsBrandShareRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV1AnalyticsBrandShare200Response
+//  @return GetV1AnalyticsBrandShare200Response
 func (a *ReportsAPIService) GetV1AnalyticsBrandShareExecute(r ApiGetV1AnalyticsBrandShareRequest) (*GetV1AnalyticsBrandShare200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV1AnalyticsBrandShare200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV1AnalyticsBrandShare200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsAPIService.GetV1AnalyticsBrandShare")
@@ -1689,8 +1684,8 @@ func (a *ReportsAPIService) GetV1AnalyticsBrandShareExecute(r ApiGetV1AnalyticsB
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1700,8 +1695,8 @@ func (a *ReportsAPIService) GetV1AnalyticsBrandShareExecute(r ApiGetV1AnalyticsB
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1711,8 +1706,8 @@ func (a *ReportsAPIService) GetV1AnalyticsBrandShareExecute(r ApiGetV1AnalyticsB
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1722,8 +1717,8 @@ func (a *ReportsAPIService) GetV1AnalyticsBrandShareExecute(r ApiGetV1AnalyticsB
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1733,8 +1728,8 @@ func (a *ReportsAPIService) GetV1AnalyticsBrandShareExecute(r ApiGetV1AnalyticsB
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1752,7 +1747,7 @@ func (a *ReportsAPIService) GetV1AnalyticsBrandShareExecute(r ApiGetV1AnalyticsB
 }
 
 type ApiGetV1AnalyticsBrandShareBrandsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ReportsAPI
 }
 
@@ -1779,25 +1774,24 @@ GetV1AnalyticsBrandShareBrands Бренды продавца
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-brand-share-brands
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1AnalyticsBrandShareBrandsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1AnalyticsBrandShareBrandsRequest
 */
 func (a *ReportsAPIService) GetV1AnalyticsBrandShareBrands(ctx context.Context) ApiGetV1AnalyticsBrandShareBrandsRequest {
 	return ApiGetV1AnalyticsBrandShareBrandsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV1AnalyticsBrandShareBrands200Response
+//  @return GetV1AnalyticsBrandShareBrands200Response
 func (a *ReportsAPIService) GetV1AnalyticsBrandShareBrandsExecute(r ApiGetV1AnalyticsBrandShareBrandsRequest) (*GetV1AnalyticsBrandShareBrands200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV1AnalyticsBrandShareBrands200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV1AnalyticsBrandShareBrands200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsAPIService.GetV1AnalyticsBrandShareBrands")
@@ -1857,8 +1851,8 @@ func (a *ReportsAPIService) GetV1AnalyticsBrandShareBrandsExecute(r ApiGetV1Anal
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1868,8 +1862,8 @@ func (a *ReportsAPIService) GetV1AnalyticsBrandShareBrandsExecute(r ApiGetV1Anal
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1879,8 +1873,8 @@ func (a *ReportsAPIService) GetV1AnalyticsBrandShareBrandsExecute(r ApiGetV1Anal
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1890,8 +1884,8 @@ func (a *ReportsAPIService) GetV1AnalyticsBrandShareBrandsExecute(r ApiGetV1Anal
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1909,12 +1903,12 @@ func (a *ReportsAPIService) GetV1AnalyticsBrandShareBrandsExecute(r ApiGetV1Anal
 }
 
 type ApiGetV1AnalyticsBrandShareParentSubjectsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ReportsAPI
-	brand      *string
-	dateFrom   *string
-	dateTo     *string
-	locale     *string
+	brand *string
+	dateFrom *string
+	dateTo *string
+	locale *string
 }
 
 // Бренд
@@ -1935,7 +1929,7 @@ func (r ApiGetV1AnalyticsBrandShareParentSubjectsRequest) DateTo(dateTo string) 
 	return r
 }
 
-// Язык поля ответа &#x60;parentName&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский
+// Язык поля ответа &#x60;parentName&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский 
 func (r ApiGetV1AnalyticsBrandShareParentSubjectsRequest) Locale(locale string) ApiGetV1AnalyticsBrandShareParentSubjectsRequest {
 	r.locale = &locale
 	return r
@@ -1962,25 +1956,24 @@ GetV1AnalyticsBrandShareParentSubjects Родительские категори
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-brand-share-parent-subjects
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1AnalyticsBrandShareParentSubjectsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1AnalyticsBrandShareParentSubjectsRequest
 */
 func (a *ReportsAPIService) GetV1AnalyticsBrandShareParentSubjects(ctx context.Context) ApiGetV1AnalyticsBrandShareParentSubjectsRequest {
 	return ApiGetV1AnalyticsBrandShareParentSubjectsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV1AnalyticsBrandShareParentSubjects200Response
+//  @return GetV1AnalyticsBrandShareParentSubjects200Response
 func (a *ReportsAPIService) GetV1AnalyticsBrandShareParentSubjectsExecute(r ApiGetV1AnalyticsBrandShareParentSubjectsRequest) (*GetV1AnalyticsBrandShareParentSubjects200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV1AnalyticsBrandShareParentSubjects200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV1AnalyticsBrandShareParentSubjects200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsAPIService.GetV1AnalyticsBrandShareParentSubjects")
@@ -2058,8 +2051,8 @@ func (a *ReportsAPIService) GetV1AnalyticsBrandShareParentSubjectsExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2069,8 +2062,8 @@ func (a *ReportsAPIService) GetV1AnalyticsBrandShareParentSubjectsExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2080,8 +2073,8 @@ func (a *ReportsAPIService) GetV1AnalyticsBrandShareParentSubjectsExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2091,8 +2084,8 @@ func (a *ReportsAPIService) GetV1AnalyticsBrandShareParentSubjectsExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2102,8 +2095,8 @@ func (a *ReportsAPIService) GetV1AnalyticsBrandShareParentSubjectsExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2121,10 +2114,10 @@ func (a *ReportsAPIService) GetV1AnalyticsBrandShareParentSubjectsExecute(r ApiG
 }
 
 type ApiGetV1AnalyticsGoodsLabelingRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ReportsAPI
-	dateFrom   *string
-	dateTo     *string
+	dateFrom *string
+	dateTo *string
 }
 
 // Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
@@ -2161,25 +2154,24 @@ GetV1AnalyticsGoodsLabeling Маркировка товара
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-goods-labeling
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1AnalyticsGoodsLabelingRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1AnalyticsGoodsLabelingRequest
 */
 func (a *ReportsAPIService) GetV1AnalyticsGoodsLabeling(ctx context.Context) ApiGetV1AnalyticsGoodsLabelingRequest {
 	return ApiGetV1AnalyticsGoodsLabelingRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV1AnalyticsGoodsLabeling200Response
+//  @return GetV1AnalyticsGoodsLabeling200Response
 func (a *ReportsAPIService) GetV1AnalyticsGoodsLabelingExecute(r ApiGetV1AnalyticsGoodsLabelingRequest) (*GetV1AnalyticsGoodsLabeling200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV1AnalyticsGoodsLabeling200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV1AnalyticsGoodsLabeling200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsAPIService.GetV1AnalyticsGoodsLabeling")
@@ -2247,8 +2239,8 @@ func (a *ReportsAPIService) GetV1AnalyticsGoodsLabelingExecute(r ApiGetV1Analyti
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2258,8 +2250,8 @@ func (a *ReportsAPIService) GetV1AnalyticsGoodsLabelingExecute(r ApiGetV1Analyti
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2269,8 +2261,8 @@ func (a *ReportsAPIService) GetV1AnalyticsGoodsLabelingExecute(r ApiGetV1Analyti
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2280,8 +2272,8 @@ func (a *ReportsAPIService) GetV1AnalyticsGoodsLabelingExecute(r ApiGetV1Analyti
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2291,8 +2283,8 @@ func (a *ReportsAPIService) GetV1AnalyticsGoodsLabelingExecute(r ApiGetV1Analyti
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2310,10 +2302,10 @@ func (a *ReportsAPIService) GetV1AnalyticsGoodsLabelingExecute(r ApiGetV1Analyti
 }
 
 type ApiGetV1AnalyticsRegionSaleRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ReportsAPI
-	dateFrom   *string
-	dateTo     *string
+	dateFrom *string
+	dateTo *string
 }
 
 // Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
@@ -2347,29 +2339,27 @@ GetV1AnalyticsRegionSale Получить отчёт
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-region-sale
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1AnalyticsRegionSaleRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1AnalyticsRegionSaleRequest
 
 Deprecated
 */
 func (a *ReportsAPIService) GetV1AnalyticsRegionSale(ctx context.Context) ApiGetV1AnalyticsRegionSaleRequest {
 	return ApiGetV1AnalyticsRegionSaleRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV1AnalyticsRegionSale200Response
-//
+//  @return GetV1AnalyticsRegionSale200Response
 // Deprecated
 func (a *ReportsAPIService) GetV1AnalyticsRegionSaleExecute(r ApiGetV1AnalyticsRegionSaleRequest) (*GetV1AnalyticsRegionSale200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV1AnalyticsRegionSale200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV1AnalyticsRegionSale200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsAPIService.GetV1AnalyticsRegionSale")
@@ -2437,8 +2427,8 @@ func (a *ReportsAPIService) GetV1AnalyticsRegionSaleExecute(r ApiGetV1AnalyticsR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2448,19 +2438,8 @@ func (a *ReportsAPIService) GetV1AnalyticsRegionSaleExecute(r ApiGetV1AnalyticsR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetV1SupplierOrders402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2470,8 +2449,8 @@ func (a *ReportsAPIService) GetV1AnalyticsRegionSaleExecute(r ApiGetV1AnalyticsR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2481,8 +2460,8 @@ func (a *ReportsAPIService) GetV1AnalyticsRegionSaleExecute(r ApiGetV1AnalyticsR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2500,14 +2479,14 @@ func (a *ReportsAPIService) GetV1AnalyticsRegionSaleExecute(r ApiGetV1AnalyticsR
 }
 
 type ApiGetV1DeductionsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ReportsAPI
-	dateTo     *string
-	limit      *int64
-	dateFrom   *string
-	sort       *string
-	order      *string
-	offset     *int64
+	dateTo *string
+	limit *int64
+	dateFrom *string
+	sort *string
+	order *string
+	offset *int64
 }
 
 // Конец отчётного периода
@@ -2528,13 +2507,13 @@ func (r ApiGetV1DeductionsRequest) DateFrom(dateFrom string) ApiGetV1DeductionsR
 	return r
 }
 
-// Сортировка: - &#x60;nmId&#x60; — по артикулу WB - &#x60;dtBonus&#x60; — по дате и времени удержания - &#x60;bonusSumm&#x60; — по сумме удержания
+// Сортировка: - &#x60;nmId&#x60; — по артикулу WB - &#x60;dtBonus&#x60; — по дате и времени удержания - &#x60;bonusSumm&#x60; — по сумме удержания 
 func (r ApiGetV1DeductionsRequest) Sort(sort string) ApiGetV1DeductionsRequest {
 	r.sort = &sort
 	return r
 }
 
-// Порядок выдачи: - &#x60;desc&#x60; — по убыванию - &#x60;asc&#x60; — по возрастанию
+// Порядок выдачи: - &#x60;desc&#x60; — по убыванию - &#x60;asc&#x60; — по возрастанию 
 func (r ApiGetV1DeductionsRequest) Order(order string) ApiGetV1DeductionsRequest {
 	r.order = &order
 	return r
@@ -2565,25 +2544,24 @@ GetV1Deductions Подмены и неверные вложения
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-deductions
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1DeductionsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1DeductionsRequest
 */
 func (a *ReportsAPIService) GetV1Deductions(ctx context.Context) ApiGetV1DeductionsRequest {
 	return ApiGetV1DeductionsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV1Deductions200Response
+//  @return GetV1Deductions200Response
 func (a *ReportsAPIService) GetV1DeductionsExecute(r ApiGetV1DeductionsRequest) (*GetV1Deductions200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV1Deductions200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV1Deductions200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsAPIService.GetV1Deductions")
@@ -2675,8 +2653,8 @@ func (a *ReportsAPIService) GetV1DeductionsExecute(r ApiGetV1DeductionsRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2686,8 +2664,8 @@ func (a *ReportsAPIService) GetV1DeductionsExecute(r ApiGetV1DeductionsRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2697,8 +2675,8 @@ func (a *ReportsAPIService) GetV1DeductionsExecute(r ApiGetV1DeductionsRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2708,8 +2686,8 @@ func (a *ReportsAPIService) GetV1DeductionsExecute(r ApiGetV1DeductionsRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2719,8 +2697,8 @@ func (a *ReportsAPIService) GetV1DeductionsExecute(r ApiGetV1DeductionsRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2738,13 +2716,13 @@ func (a *ReportsAPIService) GetV1DeductionsExecute(r ApiGetV1DeductionsRequest) 
 }
 
 type ApiGetV1ItemReturnsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ReportsAPI
-	dateFrom   *string
-	dateTo     *string
-	status     *string
-	limit      *int32
-	offset     *int32
+	dateFrom *string
+	dateTo *string
+	status *string
+	limit *int32
+	offset *int32
 }
 
 // Дата начала отчётного периода
@@ -2759,7 +2737,7 @@ func (r ApiGetV1ItemReturnsRequest) DateTo(dateTo string) ApiGetV1ItemReturnsReq
 	return r
 }
 
-// Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный
+// Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный 
 func (r ApiGetV1ItemReturnsRequest) Status(status string) ApiGetV1ItemReturnsRequest {
 	r.status = &status
 	return r
@@ -2796,25 +2774,24 @@ GetV1ItemReturns Получить отчёт
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-item-returns
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1ItemReturnsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1ItemReturnsRequest
 */
 func (a *ReportsAPIService) GetV1ItemReturns(ctx context.Context) ApiGetV1ItemReturnsRequest {
 	return ApiGetV1ItemReturnsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ItemReturns200Response
+//  @return ItemReturns200Response
 func (a *ReportsAPIService) GetV1ItemReturnsExecute(r ApiGetV1ItemReturnsRequest) (*ItemReturns200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ItemReturns200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ItemReturns200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsAPIService.GetV1ItemReturns")
@@ -2891,8 +2868,8 @@ func (a *ReportsAPIService) GetV1ItemReturnsExecute(r ApiGetV1ItemReturnsRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2902,8 +2879,19 @@ func (a *ReportsAPIService) GetV1ItemReturnsExecute(r ApiGetV1ItemReturnsRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV1SupplierOrders402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2913,8 +2901,8 @@ func (a *ReportsAPIService) GetV1ItemReturnsExecute(r ApiGetV1ItemReturnsRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2932,12 +2920,12 @@ func (a *ReportsAPIService) GetV1ItemReturnsExecute(r ApiGetV1ItemReturnsRequest
 }
 
 type ApiGetV1MeasurementPenaltiesRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ReportsAPI
-	dateTo     *string
-	limit      *int64
-	dateFrom   *string
-	offset     *int64
+	dateTo *string
+	limit *int64
+	dateFrom *string
+	offset *int64
 }
 
 // Конец отчётного периода
@@ -2983,25 +2971,24 @@ GetV1MeasurementPenalties Удержания за занижение габар�
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-measurement-penalties
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1MeasurementPenaltiesRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1MeasurementPenaltiesRequest
 */
 func (a *ReportsAPIService) GetV1MeasurementPenalties(ctx context.Context) ApiGetV1MeasurementPenaltiesRequest {
 	return ApiGetV1MeasurementPenaltiesRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return MeasurementPenalties
+//  @return MeasurementPenalties
 func (a *ReportsAPIService) GetV1MeasurementPenaltiesExecute(r ApiGetV1MeasurementPenaltiesRequest) (*MeasurementPenalties, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *MeasurementPenalties
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *MeasurementPenalties
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsAPIService.GetV1MeasurementPenalties")
@@ -3081,8 +3068,8 @@ func (a *ReportsAPIService) GetV1MeasurementPenaltiesExecute(r ApiGetV1Measureme
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3092,8 +3079,8 @@ func (a *ReportsAPIService) GetV1MeasurementPenaltiesExecute(r ApiGetV1Measureme
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3103,8 +3090,8 @@ func (a *ReportsAPIService) GetV1MeasurementPenaltiesExecute(r ApiGetV1Measureme
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3114,8 +3101,8 @@ func (a *ReportsAPIService) GetV1MeasurementPenaltiesExecute(r ApiGetV1Measureme
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3125,8 +3112,8 @@ func (a *ReportsAPIService) GetV1MeasurementPenaltiesExecute(r ApiGetV1Measureme
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3144,19 +3131,19 @@ func (a *ReportsAPIService) GetV1MeasurementPenaltiesExecute(r ApiGetV1Measureme
 }
 
 type ApiGetV1PaidStorageRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ReportsAPI
-	dateFrom   *string
-	dateTo     *string
+	dateFrom *string
+	dateTo *string
 }
 
-// Начало отчётного периода в формате RFC3339. Можно передать дату или дату со временем. Примеры:    * &#x60;2019-06-20&#x60;   * &#x60;2019-06-20T23:59:59&#x60;   * &#x60;2019-06-20T00:00:00.12345&#x60;   * &#x60;2017-03-25T00:00:00&#x60;
+// Начало отчётного периода в формате RFC3339. Можно передать дату или дату со временем. Примеры:    * &#x60;2019-06-20&#x60;   * &#x60;2019-06-20T23:59:59&#x60;   * &#x60;2019-06-20T00:00:00.12345&#x60;   * &#x60;2017-03-25T00:00:00&#x60; 
 func (r ApiGetV1PaidStorageRequest) DateFrom(dateFrom string) ApiGetV1PaidStorageRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
 
-// Конец отчётного периода в формате RFC3339. Можно передать дату или дату со временем. Примеры:    * &#x60;2019-06-20&#x60;   * &#x60;2019-06-20T23:59:59&#x60;   * &#x60;2019-06-20T00:00:00.12345&#x60;   * &#x60;2017-03-25T00:00:00&#x60;
+// Конец отчётного периода в формате RFC3339. Можно передать дату или дату со временем. Примеры:    * &#x60;2019-06-20&#x60;   * &#x60;2019-06-20T23:59:59&#x60;   * &#x60;2019-06-20T00:00:00.12345&#x60;   * &#x60;2017-03-25T00:00:00&#x60; 
 func (r ApiGetV1PaidStorageRequest) DateTo(dateTo string) ApiGetV1PaidStorageRequest {
 	r.dateTo = &dateTo
 	return r
@@ -3183,25 +3170,24 @@ GetV1PaidStorage Создать отчёт
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-paid-storage
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1PaidStorageRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1PaidStorageRequest
 */
 func (a *ReportsAPIService) GetV1PaidStorage(ctx context.Context) ApiGetV1PaidStorageRequest {
 	return ApiGetV1PaidStorageRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return CreateTaskResponse
+//  @return CreateTaskResponse
 func (a *ReportsAPIService) GetV1PaidStorageExecute(r ApiGetV1PaidStorageRequest) (*CreateTaskResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *CreateTaskResponse
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CreateTaskResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsAPIService.GetV1PaidStorage")
@@ -3269,8 +3255,8 @@ func (a *ReportsAPIService) GetV1PaidStorageExecute(r ApiGetV1PaidStorageRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3280,8 +3266,8 @@ func (a *ReportsAPIService) GetV1PaidStorageExecute(r ApiGetV1PaidStorageRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3291,8 +3277,8 @@ func (a *ReportsAPIService) GetV1PaidStorageExecute(r ApiGetV1PaidStorageRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3302,8 +3288,8 @@ func (a *ReportsAPIService) GetV1PaidStorageExecute(r ApiGetV1PaidStorageRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3313,8 +3299,8 @@ func (a *ReportsAPIService) GetV1PaidStorageExecute(r ApiGetV1PaidStorageRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3332,9 +3318,9 @@ func (a *ReportsAPIService) GetV1PaidStorageExecute(r ApiGetV1PaidStorageRequest
 }
 
 type ApiGetV1PaidStorageTasksTaskIdDownloadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ReportsAPI
-	taskId     string
+	taskId string
 }
 
 func (r ApiGetV1PaidStorageTasksTaskIdDownloadRequest) Execute() ([]GetV1PaidStorageTasksTaskIdDownloadResponse200Inner, *http.Response, error) {
@@ -3356,27 +3342,26 @@ GetV1PaidStorageTasksTaskIdDownload Получить отчёт
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-paid-storage-tasks-task-id-download
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param taskId ID задания на генерацию
-	@return ApiGetV1PaidStorageTasksTaskIdDownloadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param taskId ID задания на генерацию 
+ @return ApiGetV1PaidStorageTasksTaskIdDownloadRequest
 */
 func (a *ReportsAPIService) GetV1PaidStorageTasksTaskIdDownload(ctx context.Context, taskId string) ApiGetV1PaidStorageTasksTaskIdDownloadRequest {
 	return ApiGetV1PaidStorageTasksTaskIdDownloadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		taskId:     taskId,
+		ctx: ctx,
+		taskId: taskId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []GetV1PaidStorageTasksTaskIdDownloadResponse200Inner
+//  @return []GetV1PaidStorageTasksTaskIdDownloadResponse200Inner
 func (a *ReportsAPIService) GetV1PaidStorageTasksTaskIdDownloadExecute(r ApiGetV1PaidStorageTasksTaskIdDownloadRequest) ([]GetV1PaidStorageTasksTaskIdDownloadResponse200Inner, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []GetV1PaidStorageTasksTaskIdDownloadResponse200Inner
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []GetV1PaidStorageTasksTaskIdDownloadResponse200Inner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsAPIService.GetV1PaidStorageTasksTaskIdDownload")
@@ -3437,8 +3422,8 @@ func (a *ReportsAPIService) GetV1PaidStorageTasksTaskIdDownloadExecute(r ApiGetV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3448,8 +3433,8 @@ func (a *ReportsAPIService) GetV1PaidStorageTasksTaskIdDownloadExecute(r ApiGetV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3459,8 +3444,8 @@ func (a *ReportsAPIService) GetV1PaidStorageTasksTaskIdDownloadExecute(r ApiGetV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3470,8 +3455,8 @@ func (a *ReportsAPIService) GetV1PaidStorageTasksTaskIdDownloadExecute(r ApiGetV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3481,8 +3466,8 @@ func (a *ReportsAPIService) GetV1PaidStorageTasksTaskIdDownloadExecute(r ApiGetV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3492,8 +3477,8 @@ func (a *ReportsAPIService) GetV1PaidStorageTasksTaskIdDownloadExecute(r ApiGetV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3511,9 +3496,9 @@ func (a *ReportsAPIService) GetV1PaidStorageTasksTaskIdDownloadExecute(r ApiGetV
 }
 
 type ApiGetV1PaidStorageTasksTaskIdStatusRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ReportsAPI
-	taskId     string
+	taskId string
 }
 
 func (r ApiGetV1PaidStorageTasksTaskIdStatusRequest) Execute() (*GetTasksResponse, *http.Response, error) {
@@ -3535,27 +3520,26 @@ GetV1PaidStorageTasksTaskIdStatus Проверить статус
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-paid-storage-tasks-task-id-status
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param taskId ID задания на генерацию
-	@return ApiGetV1PaidStorageTasksTaskIdStatusRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param taskId ID задания на генерацию 
+ @return ApiGetV1PaidStorageTasksTaskIdStatusRequest
 */
 func (a *ReportsAPIService) GetV1PaidStorageTasksTaskIdStatus(ctx context.Context, taskId string) ApiGetV1PaidStorageTasksTaskIdStatusRequest {
 	return ApiGetV1PaidStorageTasksTaskIdStatusRequest{
 		ApiService: a,
-		ctx:        ctx,
-		taskId:     taskId,
+		ctx: ctx,
+		taskId: taskId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetTasksResponse
+//  @return GetTasksResponse
 func (a *ReportsAPIService) GetV1PaidStorageTasksTaskIdStatusExecute(r ApiGetV1PaidStorageTasksTaskIdStatusRequest) (*GetTasksResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetTasksResponse
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetTasksResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsAPIService.GetV1PaidStorageTasksTaskIdStatus")
@@ -3616,8 +3600,8 @@ func (a *ReportsAPIService) GetV1PaidStorageTasksTaskIdStatusExecute(r ApiGetV1P
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3627,8 +3611,8 @@ func (a *ReportsAPIService) GetV1PaidStorageTasksTaskIdStatusExecute(r ApiGetV1P
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3638,8 +3622,8 @@ func (a *ReportsAPIService) GetV1PaidStorageTasksTaskIdStatusExecute(r ApiGetV1P
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3649,8 +3633,8 @@ func (a *ReportsAPIService) GetV1PaidStorageTasksTaskIdStatusExecute(r ApiGetV1P
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3660,8 +3644,8 @@ func (a *ReportsAPIService) GetV1PaidStorageTasksTaskIdStatusExecute(r ApiGetV1P
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3679,10 +3663,10 @@ func (a *ReportsAPIService) GetV1PaidStorageTasksTaskIdStatusExecute(r ApiGetV1P
 }
 
 type ApiGetV1SupplierOrdersRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ReportsAPI
-	dateFrom   *string
-	flag       *int64
+	dateFrom *string
+	flag *int64
 }
 
 // Дата и время последнего изменения по заказу. Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. Время передаётся в часовом поясе Москва (UTC+3).  Примеры: - &#x60;2019-06-20&#x60; - &#x60;2019-06-20T23:59:59&#x60; - &#x60;2019-06-20T00:00:00.12345&#x60; - &#x60;2017-03-25T00:00:00&#x60;
@@ -3715,11 +3699,10 @@ GetV1SupplierOrders Заказы
 В ответах могут отсутствовать заказы, по которым не подтверждена оплата. Например, заказы с отложенными платежами или оплатой в рассрочку. При этом, если по таким заказам есть продажи, вы можете получить их с помощью [детализаций к отчётам реализации](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports).
 Чтобы получить все оформленные заказы, используйте [Ленту заказов](https://dev.wildberries.ru/openapi/analytics#tag/orderFeed).
 
-# Данные этого отчёта являются предварительными и служат для оперативного мониторинга
+Данные этого отчёта являются предварительными и служат для оперативного мониторинга
 
 Для одного ответа на запрос с `flag=0` или без `flag` в системе установлено условное ограничение 80000 строк. Поэтому, чтобы получить все заказы, может потребоваться более, чем один запрос. Во втором и далее запросе в параметре `dateFrom` используйте полное значение поля `lastChangeDate` из последней строки ответа на предыдущий запрос.
-
-	Если в ответе отдаётся пустой массив `[]`, все заказы уже выгружены.
+ Если в ответе отдаётся пустой массив `[]`, все заказы уже выгружены.
 
 [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3731,25 +3714,24 @@ GetV1SupplierOrders Заказы
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-supplier-orders
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1SupplierOrdersRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1SupplierOrdersRequest
 */
 func (a *ReportsAPIService) GetV1SupplierOrders(ctx context.Context) ApiGetV1SupplierOrdersRequest {
 	return ApiGetV1SupplierOrdersRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []OrdersItem
+//  @return []OrdersItem
 func (a *ReportsAPIService) GetV1SupplierOrdersExecute(r ApiGetV1SupplierOrdersRequest) ([]OrdersItem, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []OrdersItem
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []OrdersItem
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsAPIService.GetV1SupplierOrders")
@@ -3819,8 +3801,8 @@ func (a *ReportsAPIService) GetV1SupplierOrdersExecute(r ApiGetV1SupplierOrdersR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3830,8 +3812,8 @@ func (a *ReportsAPIService) GetV1SupplierOrdersExecute(r ApiGetV1SupplierOrdersR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3841,8 +3823,8 @@ func (a *ReportsAPIService) GetV1SupplierOrdersExecute(r ApiGetV1SupplierOrdersR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3852,8 +3834,8 @@ func (a *ReportsAPIService) GetV1SupplierOrdersExecute(r ApiGetV1SupplierOrdersR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3863,8 +3845,8 @@ func (a *ReportsAPIService) GetV1SupplierOrdersExecute(r ApiGetV1SupplierOrdersR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3882,10 +3864,10 @@ func (a *ReportsAPIService) GetV1SupplierOrdersExecute(r ApiGetV1SupplierOrdersR
 }
 
 type ApiGetV1SupplierSalesRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ReportsAPI
-	dateFrom   *string
-	flag       *int64
+	dateFrom *string
+	flag *int64
 }
 
 // Дата и время последнего изменения по продаже/возврату. Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. Время передаётся в часовом поясе Москва (UTC+3).  Примеры: - &#x60;2019-06-20&#x60; - &#x60;2019-06-20T23:59:59&#x60; - &#x60;2019-06-20T00:00:00.12345&#x60; - &#x60;2017-03-25T00:00:00&#x60;
@@ -3915,7 +3897,7 @@ GetV1SupplierSales Продажи
 
 Информация о заказе хранится 90 дней с момента оформления.
 
-# Данные этого отчёта являются предварительными и служат для оперативного мониторинга
+Данные этого отчёта являются предварительными и служат для оперативного мониторинга
 
 - В ответах могут отсутствовать заказы, по которым не подтверждена оплата, даже если эти заказы есть в детализациях к отчётам реализации. Например, заказы с отложенными платежами или оплатой в рассрочку
 - Значения полей `priceWithDisc` и `forPay` рассчитываются по упрощённой логике и могут отличаться от `retail\_price\_withdisc\_rub` и `ppvz\_for\_pay` соответственно в детализациях к отчётам реализации
@@ -3924,8 +3906,7 @@ GetV1SupplierSales Продажи
 Для точных финансовых расчётов, сверки и отчётности используйте [детализации к отчётам реализации](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports).
 
 Для одного ответа на запрос с `flag=0` или без `flag` в системе установлено условное ограничение 80000 строк. Поэтому, чтобы получить все продажи и возвраты, может потребоваться более, чем один запрос. Во втором и далее запросе в параметре `dateFrom `используйте полное значение поля `lastChangeDate` из последней строки ответа на предыдущий запрос.
-
-	Если в ответе отдаётся пустой массив `[]`, все продажи и возвраты уже выгружены.
+ Если в ответе отдаётся пустой массив `[]`, все продажи и возвраты уже выгружены.
 
 [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3937,25 +3918,24 @@ GetV1SupplierSales Продажи
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-supplier-sales
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1SupplierSalesRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1SupplierSalesRequest
 */
 func (a *ReportsAPIService) GetV1SupplierSales(ctx context.Context) ApiGetV1SupplierSalesRequest {
 	return ApiGetV1SupplierSalesRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []SalesItem
+//  @return []SalesItem
 func (a *ReportsAPIService) GetV1SupplierSalesExecute(r ApiGetV1SupplierSalesRequest) ([]SalesItem, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []SalesItem
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []SalesItem
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsAPIService.GetV1SupplierSales")
@@ -4025,8 +4005,8 @@ func (a *ReportsAPIService) GetV1SupplierSalesExecute(r ApiGetV1SupplierSalesReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4036,8 +4016,8 @@ func (a *ReportsAPIService) GetV1SupplierSalesExecute(r ApiGetV1SupplierSalesReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -4047,8 +4027,8 @@ func (a *ReportsAPIService) GetV1SupplierSalesExecute(r ApiGetV1SupplierSalesReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4058,8 +4038,8 @@ func (a *ReportsAPIService) GetV1SupplierSalesExecute(r ApiGetV1SupplierSalesReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4069,8 +4049,8 @@ func (a *ReportsAPIService) GetV1SupplierSalesExecute(r ApiGetV1SupplierSalesReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4088,12 +4068,12 @@ func (a *ReportsAPIService) GetV1SupplierSalesExecute(r ApiGetV1SupplierSalesReq
 }
 
 type ApiGetV1WarehouseMeasurementsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ReportsAPI
-	dateTo     *string
-	limit      *int64
-	dateFrom   *string
-	offset     *int64
+	dateTo *string
+	limit *int64
+	dateFrom *string
+	offset *int64
 }
 
 // Конец отчётного периода
@@ -4139,25 +4119,24 @@ GetV1WarehouseMeasurements Замеры склада
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-warehouse-measurements
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1WarehouseMeasurementsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1WarehouseMeasurementsRequest
 */
 func (a *ReportsAPIService) GetV1WarehouseMeasurements(ctx context.Context) ApiGetV1WarehouseMeasurementsRequest {
 	return ApiGetV1WarehouseMeasurementsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return WHM
+//  @return WHM
 func (a *ReportsAPIService) GetV1WarehouseMeasurementsExecute(r ApiGetV1WarehouseMeasurementsRequest) (*WHM, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *WHM
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WHM
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsAPIService.GetV1WarehouseMeasurements")
@@ -4237,8 +4216,8 @@ func (a *ReportsAPIService) GetV1WarehouseMeasurementsExecute(r ApiGetV1Warehous
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4248,8 +4227,8 @@ func (a *ReportsAPIService) GetV1WarehouseMeasurementsExecute(r ApiGetV1Warehous
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -4259,8 +4238,8 @@ func (a *ReportsAPIService) GetV1WarehouseMeasurementsExecute(r ApiGetV1Warehous
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4270,8 +4249,8 @@ func (a *ReportsAPIService) GetV1WarehouseMeasurementsExecute(r ApiGetV1Warehous
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4281,8 +4260,8 @@ func (a *ReportsAPIService) GetV1WarehouseMeasurementsExecute(r ApiGetV1Warehous
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4300,20 +4279,20 @@ func (a *ReportsAPIService) GetV1WarehouseMeasurementsExecute(r ApiGetV1Warehous
 }
 
 type ApiGetV1WarehouseRemainsRequest struct {
-	ctx            context.Context
-	ApiService     ReportsAPI
-	locale         *string
-	groupByBrand   *bool
+	ctx context.Context
+	ApiService ReportsAPI
+	locale *string
+	groupByBrand *bool
 	groupBySubject *bool
-	groupBySa      *bool
-	groupByNm      *bool
+	groupBySa *bool
+	groupByNm *bool
 	groupByBarcode *bool
-	groupBySize    *bool
-	filterPics     *int64
-	filterVolume   *int64
+	groupBySize *bool
+	filterPics *int64
+	filterVolume *int64
 }
 
-// Язык полей ответа &#x60;subjectName&#x60; и &#x60;warehouseName&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский. Значения &#x60;warehouseName&#x60; на английском
+// Язык полей ответа &#x60;subjectName&#x60; и &#x60;warehouseName&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский. Значения &#x60;warehouseName&#x60; на английском 
 func (r ApiGetV1WarehouseRemainsRequest) Locale(locale string) ApiGetV1WarehouseRemainsRequest {
 	r.locale = &locale
 	return r
@@ -4355,13 +4334,13 @@ func (r ApiGetV1WarehouseRemainsRequest) GroupBySize(groupBySize bool) ApiGetV1W
 	return r
 }
 
-// Фильтр по фото:   - &#x60;-1&#x60; — без фото   - &#x60;0&#x60; — не применять фильтр   - &#x60;1&#x60; — с фото
+// Фильтр по фото:   - &#x60;-1&#x60; — без фото   - &#x60;0&#x60; — не применять фильтр   - &#x60;1&#x60; — с фото 
 func (r ApiGetV1WarehouseRemainsRequest) FilterPics(filterPics int64) ApiGetV1WarehouseRemainsRequest {
 	r.filterPics = &filterPics
 	return r
 }
 
-// Фильтр по объёму:   - &#x60;-1&#x60; — без габаритов   - &#x60;0&#x60; — не применять фильтр   - &#x60;3&#x60; — свыше трёх литров
+// Фильтр по объёму:   - &#x60;-1&#x60; — без габаритов   - &#x60;0&#x60; — не применять фильтр   - &#x60;3&#x60; — свыше трёх литров 
 func (r ApiGetV1WarehouseRemainsRequest) FilterVolume(filterVolume int64) ApiGetV1WarehouseRemainsRequest {
 	r.filterVolume = &filterVolume
 	return r
@@ -4388,25 +4367,24 @@ GetV1WarehouseRemains Создать отчёт
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-warehouse-remains
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1WarehouseRemainsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1WarehouseRemainsRequest
 */
 func (a *ReportsAPIService) GetV1WarehouseRemains(ctx context.Context) ApiGetV1WarehouseRemainsRequest {
 	return ApiGetV1WarehouseRemainsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return CreateTaskResponse
+//  @return CreateTaskResponse
 func (a *ReportsAPIService) GetV1WarehouseRemainsExecute(r ApiGetV1WarehouseRemainsRequest) (*CreateTaskResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *CreateTaskResponse
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CreateTaskResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsAPIService.GetV1WarehouseRemains")
@@ -4520,8 +4498,8 @@ func (a *ReportsAPIService) GetV1WarehouseRemainsExecute(r ApiGetV1WarehouseRema
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4531,8 +4509,8 @@ func (a *ReportsAPIService) GetV1WarehouseRemainsExecute(r ApiGetV1WarehouseRema
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -4542,8 +4520,8 @@ func (a *ReportsAPIService) GetV1WarehouseRemainsExecute(r ApiGetV1WarehouseRema
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4553,8 +4531,8 @@ func (a *ReportsAPIService) GetV1WarehouseRemainsExecute(r ApiGetV1WarehouseRema
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4564,8 +4542,8 @@ func (a *ReportsAPIService) GetV1WarehouseRemainsExecute(r ApiGetV1WarehouseRema
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4583,9 +4561,9 @@ func (a *ReportsAPIService) GetV1WarehouseRemainsExecute(r ApiGetV1WarehouseRema
 }
 
 type ApiGetV1WarehouseRemainsTasksTaskIdDownloadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ReportsAPI
-	taskId     string
+	taskId string
 }
 
 func (r ApiGetV1WarehouseRemainsTasksTaskIdDownloadRequest) Execute() ([]GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner, *http.Response, error) {
@@ -4607,27 +4585,26 @@ GetV1WarehouseRemainsTasksTaskIdDownload Получить отчёт
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-warehouse-remains-tasks-task-id-download
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param taskId ID задания на генерацию
-	@return ApiGetV1WarehouseRemainsTasksTaskIdDownloadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param taskId ID задания на генерацию 
+ @return ApiGetV1WarehouseRemainsTasksTaskIdDownloadRequest
 */
 func (a *ReportsAPIService) GetV1WarehouseRemainsTasksTaskIdDownload(ctx context.Context, taskId string) ApiGetV1WarehouseRemainsTasksTaskIdDownloadRequest {
 	return ApiGetV1WarehouseRemainsTasksTaskIdDownloadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		taskId:     taskId,
+		ctx: ctx,
+		taskId: taskId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner
+//  @return []GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner
 func (a *ReportsAPIService) GetV1WarehouseRemainsTasksTaskIdDownloadExecute(r ApiGetV1WarehouseRemainsTasksTaskIdDownloadRequest) ([]GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsAPIService.GetV1WarehouseRemainsTasksTaskIdDownload")
@@ -4688,8 +4665,8 @@ func (a *ReportsAPIService) GetV1WarehouseRemainsTasksTaskIdDownloadExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4699,8 +4676,8 @@ func (a *ReportsAPIService) GetV1WarehouseRemainsTasksTaskIdDownloadExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -4710,8 +4687,8 @@ func (a *ReportsAPIService) GetV1WarehouseRemainsTasksTaskIdDownloadExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4721,8 +4698,8 @@ func (a *ReportsAPIService) GetV1WarehouseRemainsTasksTaskIdDownloadExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -4732,8 +4709,8 @@ func (a *ReportsAPIService) GetV1WarehouseRemainsTasksTaskIdDownloadExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4743,8 +4720,8 @@ func (a *ReportsAPIService) GetV1WarehouseRemainsTasksTaskIdDownloadExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4762,9 +4739,9 @@ func (a *ReportsAPIService) GetV1WarehouseRemainsTasksTaskIdDownloadExecute(r Ap
 }
 
 type ApiGetV1WarehouseRemainsTasksTaskIdStatusRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ReportsAPI
-	taskId     string
+	taskId string
 }
 
 func (r ApiGetV1WarehouseRemainsTasksTaskIdStatusRequest) Execute() (*GetTasksResponse, *http.Response, error) {
@@ -4786,27 +4763,26 @@ GetV1WarehouseRemainsTasksTaskIdStatus Проверить статус
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-warehouse-remains-tasks-task-id-status
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param taskId ID задания на генерацию
-	@return ApiGetV1WarehouseRemainsTasksTaskIdStatusRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param taskId ID задания на генерацию 
+ @return ApiGetV1WarehouseRemainsTasksTaskIdStatusRequest
 */
 func (a *ReportsAPIService) GetV1WarehouseRemainsTasksTaskIdStatus(ctx context.Context, taskId string) ApiGetV1WarehouseRemainsTasksTaskIdStatusRequest {
 	return ApiGetV1WarehouseRemainsTasksTaskIdStatusRequest{
 		ApiService: a,
-		ctx:        ctx,
-		taskId:     taskId,
+		ctx: ctx,
+		taskId: taskId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetTasksResponse
+//  @return GetTasksResponse
 func (a *ReportsAPIService) GetV1WarehouseRemainsTasksTaskIdStatusExecute(r ApiGetV1WarehouseRemainsTasksTaskIdStatusRequest) (*GetTasksResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetTasksResponse
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetTasksResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsAPIService.GetV1WarehouseRemainsTasksTaskIdStatus")
@@ -4867,8 +4843,8 @@ func (a *ReportsAPIService) GetV1WarehouseRemainsTasksTaskIdStatusExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4878,8 +4854,8 @@ func (a *ReportsAPIService) GetV1WarehouseRemainsTasksTaskIdStatusExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4889,8 +4865,8 @@ func (a *ReportsAPIService) GetV1WarehouseRemainsTasksTaskIdStatusExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -4900,8 +4876,8 @@ func (a *ReportsAPIService) GetV1WarehouseRemainsTasksTaskIdStatusExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4911,8 +4887,8 @@ func (a *ReportsAPIService) GetV1WarehouseRemainsTasksTaskIdStatusExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4930,10 +4906,10 @@ func (a *ReportsAPIService) GetV1WarehouseRemainsTasksTaskIdStatusExecute(r ApiG
 }
 
 type ApiPostV1AnalyticsExciseReportRequest struct {
-	ctx                 context.Context
-	ApiService          ReportsAPI
-	dateFrom            *string
-	dateTo              *string
+	ctx context.Context
+	ApiService ReportsAPI
+	dateFrom *string
+	dateTo *string
 	exciseReportRequest *ExciseReportRequest
 }
 
@@ -4975,25 +4951,24 @@ PostV1AnalyticsExciseReport Получить отчёт
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/post-api-v1-analytics-excise-report
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV1AnalyticsExciseReportRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV1AnalyticsExciseReportRequest
 */
 func (a *ReportsAPIService) PostV1AnalyticsExciseReport(ctx context.Context) ApiPostV1AnalyticsExciseReportRequest {
 	return ApiPostV1AnalyticsExciseReportRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ExciseReportResponse
+//  @return ExciseReportResponse
 func (a *ReportsAPIService) PostV1AnalyticsExciseReportExecute(r ApiPostV1AnalyticsExciseReportRequest) (*ExciseReportResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ExciseReportResponse
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ExciseReportResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsAPIService.PostV1AnalyticsExciseReport")
@@ -5063,8 +5038,8 @@ func (a *ReportsAPIService) PostV1AnalyticsExciseReportExecute(r ApiPostV1Analyt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5074,8 +5049,8 @@ func (a *ReportsAPIService) PostV1AnalyticsExciseReportExecute(r ApiPostV1Analyt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -5085,8 +5060,8 @@ func (a *ReportsAPIService) PostV1AnalyticsExciseReportExecute(r ApiPostV1Analyt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5096,8 +5071,8 @@ func (a *ReportsAPIService) PostV1AnalyticsExciseReportExecute(r ApiPostV1Analyt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5107,8 +5082,8 @@ func (a *ReportsAPIService) PostV1AnalyticsExciseReportExecute(r ApiPostV1Analyt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

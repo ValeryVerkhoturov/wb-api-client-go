@@ -107,7 +107,7 @@ func (o *PatchV1BidsResponse200BidsInner) SetNmBids(v []PatchV1BidsResponse200Bi
 }
 
 func (o PatchV1BidsResponse200BidsInner) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,3 +160,5 @@ func (v *NullablePatchV1BidsResponse200BidsInner) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

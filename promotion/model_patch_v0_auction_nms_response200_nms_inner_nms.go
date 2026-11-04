@@ -107,7 +107,7 @@ func (o *PatchV0AuctionNmsResponse200NmsInnerNms) SetDeleted(v []int64) {
 }
 
 func (o PatchV0AuctionNmsResponse200NmsInnerNms) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,3 +160,5 @@ func (v *NullablePatchV0AuctionNmsResponse200NmsInnerNms) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

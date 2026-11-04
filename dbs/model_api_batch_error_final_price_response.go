@@ -19,9 +19,9 @@ var _ MappedNullable = &ApiBatchErrorFinalPriceResponse{}
 
 // ApiBatchErrorFinalPriceResponse struct for ApiBatchErrorFinalPriceResponse
 type ApiBatchErrorFinalPriceResponse struct {
-	// Код ошибки:   - `404` — `NotFound`   - `400` — `StatusMismatch`   - `422` — `PriceNotCalculated`
+	// Код ошибки:   - `404` — `NotFound`   - `400` — `StatusMismatch`   - `422` — `PriceNotCalculated` 
 	Code *int64 `json:"code,omitempty"`
-	// - `NotFound` — сборочное задание не найдено (`404`) - `StatusMismatch` — операция невозможна для этого статуса сборочного задания (`400`) - `PriceNotCalculated` — операция невозможна для сборочных заданий, созданных ранее 23.07.2026 (`422`)
+	// - `NotFound` — сборочное задание не найдено (`404`) - `StatusMismatch` — операция невозможна для этого статуса сборочного задания (`400`) - `PriceNotCalculated` — операция невозможна для сборочных заданий, созданных ранее 23.07.2026 (`422`) 
 	Detail *string `json:"detail,omitempty"`
 }
 
@@ -107,7 +107,7 @@ func (o *ApiBatchErrorFinalPriceResponse) SetDetail(v string) {
 }
 
 func (o ApiBatchErrorFinalPriceResponse) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,3 +160,5 @@ func (v *NullableApiBatchErrorFinalPriceResponse) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

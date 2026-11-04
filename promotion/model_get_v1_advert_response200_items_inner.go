@@ -37,7 +37,7 @@ type GetV1AdvertResponse200ItemsInner struct {
 	Cpm *int64 `json:"cpm,omitempty"`
 	// URL страницы, на которую попадает пользователь при клике по баннеру
 	Url *string `json:"url,omitempty"`
-	// Тип продвижения: - `1` — баннер - `2` — всплывающее меню - `3` — почтовая рассылка - `4` — социальные сети - `5` — push-уведомления в мобильном приложении
+	// Тип продвижения: - `1` — баннер - `2` — всплывающее меню - `3` — почтовая рассылка - `4` — социальные сети - `5` — push-уведомления в мобильном приложении 
 	AdvertType *int64 `json:"advert_type,omitempty"`
 	// Дата создания баннера
 	CreatedAt *string `json:"created_at,omitempty"`
@@ -55,7 +55,7 @@ type GetV1AdvertResponse200ItemsInner struct {
 	BottomText2 *string `json:"bottomText2,omitempty"`
 	// Текст push-уведомления или рассылки
 	Message *string `json:"message,omitempty"`
-	// Дополнительные настройки.  Формат почтовой рассылки: - `1` — общий - `2` — частичный - `3` — уникальный   Социальная сеть: - `1` — VK - `2` — OK (Одноклассники)
+	// Дополнительные настройки.  Формат почтовой рассылки: - `1` — общий - `2` — частичный - `3` — уникальный   Социальная сеть: - `1` — VK - `2` — OK (Одноклассники) 
 	AdditionalSettings *int64 `json:"additionalSettings,omitempty"`
 	// Кол-во получателей push-уведомлений
 	ReceiversCount *int64 `json:"receiversCount,omitempty"`
@@ -889,7 +889,7 @@ func (o *GetV1AdvertResponse200ItemsInner) SetErid(v string) {
 }
 
 func (o GetV1AdvertResponse200ItemsInner) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1011,3 +1011,5 @@ func (v *NullableGetV1AdvertResponse200ItemsInner) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

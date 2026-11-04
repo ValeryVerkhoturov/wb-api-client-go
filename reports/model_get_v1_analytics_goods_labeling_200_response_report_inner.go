@@ -277,7 +277,7 @@ func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) SetSku(v string) {
 }
 
 func (o GetV1AnalyticsGoodsLabeling200ResponseReportInner) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -345,3 +345,5 @@ func (v *NullableGetV1AnalyticsGoodsLabeling200ResponseReportInner) UnmarshalJSO
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

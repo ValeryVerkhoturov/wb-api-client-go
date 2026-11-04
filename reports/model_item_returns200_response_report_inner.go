@@ -172,7 +172,6 @@ func (o *ItemReturns200ResponseReportInner) HasCompletedDt() bool {
 func (o *ItemReturns200ResponseReportInner) SetCompletedDt(v string) {
 	o.CompletedDt.Set(&v)
 }
-
 // SetCompletedDtNil sets the value for CompletedDt to be an explicit nil
 func (o *ItemReturns200ResponseReportInner) SetCompletedDtNil() {
 	o.CompletedDt.Set(nil)
@@ -247,7 +246,6 @@ func (o *ItemReturns200ResponseReportInner) HasKiz() bool {
 func (o *ItemReturns200ResponseReportInner) SetKiz(v string) {
 	o.Kiz.Set(&v)
 }
-
 // SetKizNil sets the value for Kiz to be an explicit nil
 func (o *ItemReturns200ResponseReportInner) SetKizNil() {
 	o.Kiz.Set(nil)
@@ -322,7 +320,6 @@ func (o *ItemReturns200ResponseReportInner) HasExpiredDt() bool {
 func (o *ItemReturns200ResponseReportInner) SetExpiredDt(v string) {
 	o.ExpiredDt.Set(&v)
 }
-
 // SetExpiredDtNil sets the value for ExpiredDt to be an explicit nil
 func (o *ItemReturns200ResponseReportInner) SetExpiredDtNil() {
 	o.ExpiredDt.Set(nil)
@@ -461,7 +458,6 @@ func (o *ItemReturns200ResponseReportInner) HasReadyToReturnDt() bool {
 func (o *ItemReturns200ResponseReportInner) SetReadyToReturnDt(v string) {
 	o.ReadyToReturnDt.Set(&v)
 }
-
 // SetReadyToReturnDtNil sets the value for ReadyToReturnDt to be an explicit nil
 func (o *ItemReturns200ResponseReportInner) SetReadyToReturnDtNil() {
 	o.ReadyToReturnDt.Set(nil)
@@ -729,7 +725,7 @@ func (o *ItemReturns200ResponseReportInner) SetTechSize(v string) {
 }
 
 func (o ItemReturns200ResponseReportInner) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -833,3 +829,5 @@ func (v *NullableItemReturns200ResponseReportInner) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

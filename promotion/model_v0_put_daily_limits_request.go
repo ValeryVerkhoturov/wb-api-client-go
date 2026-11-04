@@ -11,8 +11,8 @@ API version: promotion
 package promotion
 
 import (
-	"bytes"
 	"encoding/json"
+	"bytes"
 	"fmt"
 )
 
@@ -23,11 +23,11 @@ var _ MappedNullable = &V0PutDailyLimitsRequest{}
 type V0PutDailyLimitsRequest struct {
 	// ID кампаний
 	AdvertIds []int64 `json:"advertIds"`
-	// Включить лимит:   - `true` — да   - `false` — нет
+	// Включить лимит:   - `true` — да   - `false` — нет 
 	Enabled bool `json:"enabled"`
-	// Сумма дневного лимита. Параметр обязателен при `\"enabled\": true`. Минимально допустимая сумма указана в поле `minDailyLimit` метода [GET /api/advert/v1/config](./promotion#tag/campaignManagement/operation/getV1Config)
+	// Сумма дневного лимита. Параметр обязателен при `\"enabled\": true`. Минимально допустимая сумма указана в поле `minDailyLimit` метода [GET /api/advert/v1/config](./promotion#tag/campaignManagement/operation/getV1Config) 
 	DailyLimit *int64 `json:"dailyLimit,omitempty"`
-	// Переносить неиспользованный остаток лимита на следующий день:   - `true` — да   - `false` — нет  Параметр обязателен при `\"enabled\": true`
+	// Переносить неиспользованный остаток лимита на следующий день:   - `true` — да   - `false` — нет  Параметр обязателен при `\"enabled\": true` 
 	CarryOverEnabled *bool `json:"carryOverEnabled,omitempty"`
 }
 
@@ -165,7 +165,7 @@ func (o *V0PutDailyLimitsRequest) SetCarryOverEnabled(v bool) {
 }
 
 func (o V0PutDailyLimitsRequest) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -199,10 +199,10 @@ func (o *V0PutDailyLimitsRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err
+		return err;
 	}
 
-	for _, requiredProperty := range requiredProperties {
+	for _, requiredProperty := range(requiredProperties) {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -258,3 +258,5 @@ func (v *NullableV0PutDailyLimitsRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

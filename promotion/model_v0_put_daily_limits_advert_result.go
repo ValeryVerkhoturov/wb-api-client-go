@@ -21,9 +21,9 @@ var _ MappedNullable = &V0PutDailyLimitsAdvertResult{}
 type V0PutDailyLimitsAdvertResult struct {
 	// ID кампании
 	AdvertId *int64 `json:"advertId,omitempty"`
-	// Установленный размер дневного лимита ниже рекомендуемого минимума относительно текущих ставок `requiredLimit`:   - `true` — да   - `false` — нет
+	// Установленный размер дневного лимита ниже рекомендуемого минимума относительно текущих ставок `requiredLimit`:   - `true` — да   - `false` — нет 
 	BelowMinLimit *bool `json:"belowMinLimit,omitempty"`
-	// Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances). С меньшим лимитом бюджет может расходоваться неравномерно и в кампании возникнут ошибки
+	// Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances). С меньшим лимитом бюджет может расходоваться неравномерно и в кампании возникнут ошибки 
 	RequiredLimit *int64 `json:"requiredLimit,omitempty"`
 }
 
@@ -141,7 +141,7 @@ func (o *V0PutDailyLimitsAdvertResult) SetRequiredLimit(v int64) {
 }
 
 func (o V0PutDailyLimitsAdvertResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -197,3 +197,5 @@ func (v *NullableV0PutDailyLimitsAdvertResult) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

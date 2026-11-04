@@ -23,7 +23,7 @@ type PatchV1BidsResponse200BidsInnerNmBidsInner struct {
 	NmId *int64 `json:"nm_id,omitempty"`
 	// Ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	BidKopecks *int64 `json:"bid_kopecks,omitempty"`
-	// Место размещения:   - `search` — в поиске   - `recommendations`— в рекомендациях
+	// Место размещения:   - `search` — в поиске   - `recommendations`— в рекомендациях 
 	Placement *string `json:"placement,omitempty"`
 }
 
@@ -141,7 +141,7 @@ func (o *PatchV1BidsResponse200BidsInnerNmBidsInner) SetPlacement(v string) {
 }
 
 func (o PatchV1BidsResponse200BidsInnerNmBidsInner) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -197,3 +197,5 @@ func (v *NullablePatchV1BidsResponse200BidsInnerNmBidsInner) UnmarshalJSON(src [
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

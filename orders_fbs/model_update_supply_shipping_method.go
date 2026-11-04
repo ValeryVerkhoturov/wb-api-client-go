@@ -11,8 +11,8 @@ API version: order
 package orders_fbs
 
 import (
-	"bytes"
 	"encoding/json"
+	"bytes"
 	"fmt"
 )
 
@@ -25,7 +25,7 @@ type UpdateSupplyShippingMethod struct {
 	ShippingDt string `json:"shippingDt"`
 	// ID пункта отгрузки. Можно получить с помощью [отдельного метода](./orders-fbs#tag/fbsSupplies/operation/getV3FbsShippingPoints)
 	ShippingPointId int64 `json:"shippingPointId"`
-	// Способ доставки до пункта отгрузки:   - `selfShipping` — доставка силами продавца   - `transportCompany` — доставка через транспортную компанию
+	// Способ доставки до пункта отгрузки:   - `selfShipping` — доставка силами продавца   - `transportCompany` — доставка через транспортную компанию 
 	ShippingType string `json:"shippingType"`
 	// ID поставки
 	SupplyId string `json:"supplyId"`
@@ -151,7 +151,7 @@ func (o *UpdateSupplyShippingMethod) SetSupplyId(v string) {
 }
 
 func (o UpdateSupplyShippingMethod) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -183,10 +183,10 @@ func (o *UpdateSupplyShippingMethod) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err
+		return err;
 	}
 
-	for _, requiredProperty := range requiredProperties {
+	for _, requiredProperty := range(requiredProperties) {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -242,3 +242,5 @@ func (v *NullableUpdateSupplyShippingMethod) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

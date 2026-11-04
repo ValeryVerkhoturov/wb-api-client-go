@@ -21,7 +21,7 @@ var _ MappedNullable = &V0DailyLimitAdvert{}
 type V0DailyLimitAdvert struct {
 	// ID кампании
 	AdvertId *int64 `json:"advertId,omitempty"`
-	// - `true` — дневной лимит включен - `false` — дневной лимит отключен
+	// - `true` — дневной лимит включен - `false` — дневной лимит отключен 
 	Enabled *bool `json:"enabled,omitempty"`
 	// Размер дневного лимита в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	DailyLimit *int64 `json:"dailyLimit,omitempty"`
@@ -29,11 +29,11 @@ type V0DailyLimitAdvert struct {
 	SpentToday *int64 `json:"spentToday,omitempty"`
 	// Код валюты
 	Currency *string `json:"currency,omitempty"`
-	// Перенос остатка дневного лимита на следующий день. Если за 24 часа лимит потратится не полностью, добавим остаток суммы к лимиту следующего дня. Расходы на продвижение не увеличатся.   - `true` — перенос остатка включен   - `false` — перенос остатка отключен
+	// Перенос остатка дневного лимита на следующий день. Если за 24 часа лимит потратится не полностью, добавим остаток суммы к лимиту следующего дня. Расходы на продвижение не увеличатся.   - `true` — перенос остатка включен   - `false` — перенос остатка отключен 
 	CarryOverEnabled *bool `json:"carryOverEnabled,omitempty"`
-	// Хватает ли текущего размера лимита на установку ставок кампании:   - `true` — да   - `false` — нет, рекомендуем повысить лимит, иначе бюджет кампании может расходоваться неравномерно
+	// Хватает ли текущего размера лимита на установку ставок кампании:   - `true` — да   - `false` — нет, рекомендуем повысить лимит, иначе бюджет кампании может расходоваться неравномерно 
 	Valid *bool `json:"valid,omitempty"`
-	// Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) 
 	RequiredLimit *int64 `json:"requiredLimit,omitempty"`
 }
 
@@ -311,7 +311,7 @@ func (o *V0DailyLimitAdvert) SetRequiredLimit(v int64) {
 }
 
 func (o V0DailyLimitAdvert) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -382,3 +382,5 @@ func (v *NullableV0DailyLimitAdvert) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

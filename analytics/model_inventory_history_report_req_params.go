@@ -11,8 +11,8 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
+	"bytes"
 	"fmt"
 )
 
@@ -28,9 +28,9 @@ type InventoryHistoryReportReqParams struct {
 	// Список брендов для фильтрации
 	BrandNames []string `json:"brandNames,omitempty"`
 	// Список ID ярлыков для фильтрации
-	TagIds        []int64   `json:"tagIds,omitempty"`
+	TagIds []int64 `json:"tagIds,omitempty"`
 	CurrentPeriod PeriodInv `json:"currentPeriod"`
-	StockType     StockType `json:"stockType"`
+	StockType StockType `json:"stockType"`
 	// Скрыть удалённые товары
 	SkipDeletedNm bool `json:"skipDeletedNm"`
 }
@@ -258,7 +258,7 @@ func (o *InventoryHistoryReportReqParams) SetSkipDeletedNm(v bool) {
 }
 
 func (o InventoryHistoryReportReqParams) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -300,10 +300,10 @@ func (o *InventoryHistoryReportReqParams) UnmarshalJSON(data []byte) (err error)
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err
+		return err;
 	}
 
-	for _, requiredProperty := range requiredProperties {
+	for _, requiredProperty := range(requiredProperties) {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -359,3 +359,5 @@ func (v *NullableInventoryHistoryReportReqParams) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

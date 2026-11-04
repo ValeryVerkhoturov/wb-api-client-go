@@ -20,12 +20,12 @@ var _ MappedNullable = &TableGroupItemMetrics{}
 // TableGroupItemMetrics Метрики товара в таблице
 type TableGroupItemMetrics struct {
 	AvgPosition *TableGroupItemMetricsAvgPosition `json:"avgPosition,omitempty"`
-	OpenCard    *VisibilityInfoOpenCard           `json:"openCard,omitempty"`
-	AddToCart   *TableGroupItemMetricsAddToCart   `json:"addToCart,omitempty"`
-	OpenToCart  *TableGroupItemMetricsOpenToCart  `json:"openToCart,omitempty"`
-	Orders      *TableGroupItemMetricsOrders      `json:"orders,omitempty"`
+	OpenCard *VisibilityInfoOpenCard `json:"openCard,omitempty"`
+	AddToCart *TableGroupItemMetricsAddToCart `json:"addToCart,omitempty"`
+	OpenToCart *TableGroupItemMetricsOpenToCart `json:"openToCart,omitempty"`
+	Orders *TableGroupItemMetricsOrders `json:"orders,omitempty"`
 	CartToOrder *TableGroupItemMetricsCartToOrder `json:"cartToOrder,omitempty"`
-	Visibility  *TableGroupItemMetricsVisibility  `json:"visibility,omitempty"`
+	Visibility *TableGroupItemMetricsVisibility `json:"visibility,omitempty"`
 }
 
 // NewTableGroupItemMetrics instantiates a new TableGroupItemMetrics object
@@ -270,7 +270,7 @@ func (o *TableGroupItemMetrics) SetVisibility(v TableGroupItemMetricsVisibility)
 }
 
 func (o TableGroupItemMetrics) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -338,3 +338,5 @@ func (v *NullableTableGroupItemMetrics) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

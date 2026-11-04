@@ -19,30 +19,31 @@ import (
 	"strings"
 )
 
+
 type OrdersDbwAPI interface {
 
 	/*
-			GetV3DbwOrders Получить информацию о завершенных сборочных заданиях
+	GetV3DbwOrders Получить информацию о завершенных сборочных заданиях
 
-			Метод возвращает информацию о завершенных [сборочных заданиях](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders).
+	Метод возвращает информацию о завершенных [сборочных заданиях](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders).
 
-		Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.
+Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:
 
-		* получение и обновление списка контактов
-		* получение и удаление идентификаторов маркировки
-		* методы сборочных заданий
+* получение и обновление списка контактов
+* получение и удаление идентификаторов маркировки
+* методы сборочных заданий
 
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 300 запросов | 200 мс | 20 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/get-api-v3-dbw-orders
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/get-api-v3-dbw-orders
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV3DbwOrdersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV3DbwOrdersRequest
 	*/
 	GetV3DbwOrders(ctx context.Context) ApiGetV3DbwOrdersRequest
 
@@ -51,25 +52,25 @@ type OrdersDbwAPI interface {
 	GetV3DbwOrdersExecute(r ApiGetV3DbwOrdersRequest) (*GetV3DbwOrdersResponse200, *http.Response, error)
 
 	/*
-			GetV3DbwOrdersNew Получить список новых сборочных заданий
+	GetV3DbwOrdersNew Получить список новых сборочных заданий
 
-			Метод возвращает список всех новых [сборочных заданий](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders), которые есть у продавца на момент запроса.
+	Метод возвращает список всех новых [сборочных заданий](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders), которые есть у продавца на момент запроса.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:
 
-		* получение и обновление списка контактов
-		* получение и удаление идентификаторов маркировки
-		* методы сборочных заданий
+* получение и обновление списка контактов
+* получение и удаление идентификаторов маркировки
+* методы сборочных заданий
 
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 300 запросов | 200 мс | 20 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/get-api-v3-dbw-orders-new
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/get-api-v3-dbw-orders-new
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV3DbwOrdersNewRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV3DbwOrdersNewRequest
 	*/
 	GetV3DbwOrdersNew(ctx context.Context) ApiGetV3DbwOrdersNewRequest
 
@@ -78,29 +79,29 @@ type OrdersDbwAPI interface {
 	GetV3DbwOrdersNewExecute(r ApiGetV3DbwOrdersNewRequest) (*GetV3DbwOrdersNewResponse200, *http.Response, error)
 
 	/*
-			PatchV3DbwOrdersOrderIdCancel Отменить сборочное задание
+	PatchV3DbwOrdersOrderIdCancel Отменить сборочное задание
 
-			Метод отменяет [сборочное задание](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders) и переводит в [статус](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `cancel` — отменено продавцом.
+	Метод отменяет [сборочное задание](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders) и переводит в [статус](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `cancel` — отменено продавцом.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов DBW:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов DBW:
 
-		* получение и обновление списка контактов
-		* получение и удаление идентификаторов маркировки
-		* управление сборочными заданиями
+* получение и обновление списка контактов
+* получение и удаление идентификаторов маркировки
+* управление сборочными заданиями
 
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 300 запросов | 200 мс | 20 запросов |
-		| Сервисный | 1 мин | 300 запросов | 200 мс | 20 запросов |
-		| Базовый с секретом | 1 мин | 300 запросов | 200 мс | 20 запросов |
-		| Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 300 запросов | 200 мс | 20 запросов |
+| Сервисный | 1 мин | 300 запросов | 200 мс | 20 запросов |
+| Базовый с секретом | 1 мин | 300 запросов | 200 мс | 20 запросов |
+| Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/patch-api-v3-dbw-orders-orderid-cancel
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/patch-api-v3-dbw-orders-orderid-cancel
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@param orderId ID сборочного задания
-			@return ApiPatchV3DbwOrdersOrderIdCancelRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param orderId ID сборочного задания
+	@return ApiPatchV3DbwOrdersOrderIdCancelRequest
 	*/
 	PatchV3DbwOrdersOrderIdCancel(ctx context.Context, orderId int64) ApiPatchV3DbwOrdersOrderIdCancelRequest
 
@@ -108,26 +109,26 @@ type OrdersDbwAPI interface {
 	PatchV3DbwOrdersOrderIdCancelExecute(r ApiPatchV3DbwOrdersOrderIdCancelRequest) (*http.Response, error)
 
 	/*
-			PatchV3DbwOrdersOrderIdConfirm Перевести на сборку
+	PatchV3DbwOrdersOrderIdConfirm Перевести на сборку
 
-			Метод переводит [сборочное задание](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders) в [статус](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` — на сборке.
+	Метод переводит [сборочное задание](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders) в [статус](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` — на сборке.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:
 
-		* получение и обновление списка контактов
-		* получение и удаление идентификаторов маркировки
-		* методы сборочных заданий
+* получение и обновление списка контактов
+* получение и удаление идентификаторов маркировки
+* методы сборочных заданий
 
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 300 запросов | 200 мс | 20 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/patch-api-v3-dbw-orders-orderid-confirm
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/patch-api-v3-dbw-orders-orderid-confirm
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@param orderId ID сборочного задания
-			@return ApiPatchV3DbwOrdersOrderIdConfirmRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param orderId ID сборочного задания
+	@return ApiPatchV3DbwOrdersOrderIdConfirmRequest
 	*/
 	PatchV3DbwOrdersOrderIdConfirm(ctx context.Context, orderId int64) ApiPatchV3DbwOrdersOrderIdConfirmRequest
 
@@ -135,25 +136,25 @@ type OrdersDbwAPI interface {
 	PatchV3DbwOrdersOrderIdConfirmExecute(r ApiPatchV3DbwOrdersOrderIdConfirmRequest) (*http.Response, error)
 
 	/*
-			PostV3DbwOrdersClient Информация о покупателе
+	PostV3DbwOrdersClient Информация о покупателе
 
-			Метод возвращает информацию о покупателях по ID сборочных заданий.
+	Метод возвращает информацию о покупателях по ID сборочных заданий.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:
 
-		* получение и обновление списка контактов
-		* получение и удаление идентификаторов маркировки
-		* методы сборочных заданий
+* получение и обновление списка контактов
+* получение и удаление идентификаторов маркировки
+* методы сборочных заданий
 
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 300 запросов | 200 мс | 20 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-client
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-client
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV3DbwOrdersClientRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3DbwOrdersClientRequest
 	*/
 	PostV3DbwOrdersClient(ctx context.Context) ApiPostV3DbwOrdersClientRequest
 
@@ -162,26 +163,26 @@ type OrdersDbwAPI interface {
 	PostV3DbwOrdersClientExecute(r ApiPostV3DbwOrdersClientRequest) (*ClientInfoResp, *http.Response, error)
 
 	/*
-			PostV3DbwOrdersCourier Информация о курьере
+	PostV3DbwOrdersCourier Информация о курьере
 
-			Метод возвращает контактные данные и номер автомобиля курьера по ID сборочного задания.
-		 Для сборочных заданий в статусах `confirm`, `complete`.
+	Метод возвращает контактные данные и номер автомобиля курьера по ID сборочного задания.
+ Для сборочных заданий в статусах `confirm`, `complete`.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:
 
-		* получение и обновление списка контактов
-		* получение и удаление идентификаторов маркировки
-		* методы сборочных заданий
+* получение и обновление списка контактов
+* получение и удаление идентификаторов маркировки
+* методы сборочных заданий
 
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 300 запросов | 200 мс | 20 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-courier
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-courier
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV3DbwOrdersCourierRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3DbwOrdersCourierRequest
 	*/
 	PostV3DbwOrdersCourier(ctx context.Context) ApiPostV3DbwOrdersCourierRequest
 
@@ -190,25 +191,25 @@ type OrdersDbwAPI interface {
 	PostV3DbwOrdersCourierExecute(r ApiPostV3DbwOrdersCourierRequest) (*OrderCourierInfoResp, *http.Response, error)
 
 	/*
-			PostV3DbwOrdersDeliveryDate Получить дату и время доставки
+	PostV3DbwOrdersDeliveryDate Получить дату и время доставки
 
-			Метод возвращает информацию о выбранных покупателем дате и времени доставки сборочных заданий.
+	Метод возвращает информацию о выбранных покупателем дате и времени доставки сборочных заданий.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:
 
-		* получение и обновление списка контактов
-		* получение и удаление идентификаторов маркировки
-		* методы сборочных заданий
+* получение и обновление списка контактов
+* получение и удаление идентификаторов маркировки
+* методы сборочных заданий
 
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 300 запросов | 200 мс | 20 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-delivery-date
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-delivery-date
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV3DbwOrdersDeliveryDateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3DbwOrdersDeliveryDateRequest
 	*/
 	PostV3DbwOrdersDeliveryDate(ctx context.Context) ApiPostV3DbwOrdersDeliveryDateRequest
 
@@ -217,32 +218,32 @@ type OrdersDbwAPI interface {
 	PostV3DbwOrdersDeliveryDateExecute(r ApiPostV3DbwOrdersDeliveryDateRequest) (*DeliveryDatesInfoResp, *http.Response, error)
 
 	/*
-			PostV3DbwOrdersMetaDelete Удалить идентификаторы маркировки сборочных заданий
+	PostV3DbwOrdersMetaDelete Удалить идентификаторы маркировки сборочных заданий
 
-			Метод удаляет значение указанных [идентификаторов маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) для переданного ключа.
+	Метод удаляет значение указанных [идентификаторов маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) для переданного ключа.
 
-		В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:
-		- `imei` — [IMEI](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei)
-		- `uin` — [УИН](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaUin)
-		- `gtin` — [GTIN](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei)
-		- `sgtin` — [код маркировки Честного знака](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaSgtin)
-		Можно передать только один ключ.
+В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:
+- `imei` — [IMEI](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei)
+- `uin` — [УИН](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaUin)
+- `gtin` — [GTIN](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei)
+- `sgtin` — [код маркировки Честного знака](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaSgtin)
+Можно передать только один ключ.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:
 
-		* получение и обновление списка контактов
-		* получение и удаление идентификаторов маркировки
-		* методы сборочных заданий
+* получение и обновление списка контактов
+* получение и удаление идентификаторов маркировки
+* методы сборочных заданий
 
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 300 запросов | 200 мс | 20 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-meta-delete
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-meta-delete
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV3DbwOrdersMetaDeleteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3DbwOrdersMetaDeleteRequest
 	*/
 	PostV3DbwOrdersMetaDelete(ctx context.Context) ApiPostV3DbwOrdersMetaDeleteRequest
 
@@ -251,32 +252,32 @@ type OrdersDbwAPI interface {
 	PostV3DbwOrdersMetaDeleteExecute(r ApiPostV3DbwOrdersMetaDeleteRequest) (*PostV3DbwOrdersMetaDeleteResponse200, *http.Response, error)
 
 	/*
-			PostV3DbwOrdersMetaDetails Получить идентификаторы маркировки сборочных заданий
+	PostV3DbwOrdersMetaDetails Получить идентификаторы маркировки сборочных заданий
 
-			Метод возвращает идентификаторы маркировки [сборочных заданий](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrders) и статусы их проверки.
+	Метод возвращает идентификаторы маркировки [сборочных заданий](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrders) и статусы их проверки.
 
-		Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrdersNew), поле `requiredMeta`. Если поле `requiredMeta` не содержит какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.
-		Возможные идентификаторы маркировки:
-		- `imei` — [IMEI](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei)
-		- `uin` — [УИН](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaUin)
-		- `gtin` — [GTIN](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaGtin)
-		- `sgtin` — [код маркировки Честного знака](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaSgtin)
+Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrdersNew), поле `requiredMeta`. Если поле `requiredMeta` не содержит какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.
+Возможные идентификаторы маркировки:
+- `imei` — [IMEI](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei)
+- `uin` — [УИН](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaUin)
+- `gtin` — [GTIN](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaGtin)
+- `sgtin` — [код маркировки Честного знака](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaSgtin)
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:
 
-		* получение и обновление списка контактов
-		* получение и удаление идентификаторов маркировки
-		* методы сборочных заданий
+* получение и обновление списка контактов
+* получение и удаление идентификаторов маркировки
+* методы сборочных заданий
 
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 300 запросов | 200 мс | 20 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-meta-details
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-meta-details
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV3DbwOrdersMetaDetailsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3DbwOrdersMetaDetailsRequest
 	*/
 	PostV3DbwOrdersMetaDetails(ctx context.Context) ApiPostV3DbwOrdersMetaDetailsRequest
 
@@ -285,28 +286,28 @@ type OrdersDbwAPI interface {
 	PostV3DbwOrdersMetaDetailsExecute(r ApiPostV3DbwOrdersMetaDetailsRequest) (*ApiOrdersMetaDetailsResponse, *http.Response, error)
 
 	/*
-			PostV3DbwOrdersMetaSgtin Закрепить коды маркировки Честного знака за сборочными заданиями
+	PostV3DbwOrdersMetaSgtin Закрепить коды маркировки Честного знака за сборочными заданиями
 
-			Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails).
-		Закрепить код маркировки можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) есть поле `sgtin`.
+	Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails).
+Закрепить код маркировки можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) есть поле `sgtin`.
 
-		Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails).
+Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails).
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:
 
-		* получение и обновление списка контактов
-		* получение и удаление идентификаторов маркировки
-		* методы сборочных заданий
+* получение и обновление списка контактов
+* получение и удаление идентификаторов маркировки
+* методы сборочных заданий
 
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 300 запросов | 200 мс | 20 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-meta-sgtin
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-meta-sgtin
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV3DbwOrdersMetaSgtinRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3DbwOrdersMetaSgtinRequest
 	*/
 	PostV3DbwOrdersMetaSgtin(ctx context.Context) ApiPostV3DbwOrdersMetaSgtinRequest
 
@@ -315,52 +316,52 @@ type OrdersDbwAPI interface {
 	PostV3DbwOrdersMetaSgtinExecute(r ApiPostV3DbwOrdersMetaSgtinRequest) (*ApiStatusSetResponses, *http.Response, error)
 
 	/*
-			PostV3DbwOrdersStatus Получить статусы сборочных заданий
+	PostV3DbwOrdersStatus Получить статусы сборочных заданий
 
-			Метод возвращает статусы сборочных заданий по их ID.
+	Метод возвращает статусы сборочных заданий по их ID.
 
-		`supplierStatus` — статус сборочного задания.
-		Триггер его изменения — действие самого продавца.
-		Возможные значения `supplierStatus`:
-		| Статус | Описание | Как перевести сборочное задание в данный статус |
-		| ------- | --------- | --------------------------------------|
-		| `new` | \*\*Новое сборочное задание\*\* | |
-		| `confirm` | \*\*На сборке\*\* | [Перевести сборочное задание на сборку](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/patchV3DbwOrdersOrderIdConfirm)
-		| `complete` | \*\*В доставке\*\* | [Перевести сборочное задание в доставку](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatusDeliver) |
-		| `receive` | \*\*Получено покупателем\*\*| Переводится курьером
-		| `reject` | \*\*Отказ покупателя при получении\*\*| Переводится курьером
-		| `cancel` | \*\*Отменено продавцом\*\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/patchV3DbwOrdersOrderIdCancel)
-		| `cancel\_missed\_call` | \*\*Отмена по причине недозвона\*\*
-		 | Статус меняется автоматически |
+`supplierStatus` — статус сборочного задания.
+Триггер его изменения — действие самого продавца.
+Возможные значения `supplierStatus`:
+| Статус | Описание | Как перевести сборочное задание в данный статус |
+| ------- | --------- | --------------------------------------|
+| `new` | \*\*Новое сборочное задание\*\* | |
+| `confirm` | \*\*На сборке\*\* | [Перевести сборочное задание на сборку](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/patchV3DbwOrdersOrderIdConfirm)
+| `complete` | \*\*В доставке\*\* | [Перевести сборочное задание в доставку](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatusDeliver) |
+| `receive` | \*\*Получено покупателем\*\*| Переводится курьером
+| `reject` | \*\*Отказ покупателя при получении\*\*| Переводится курьером
+| `cancel` | \*\*Отменено продавцом\*\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/patchV3DbwOrdersOrderIdCancel)
+| `cancel\_missed\_call` | \*\*Отмена по причине недозвона\*\*
+ | Статус меняется автоматически |
 
-		`wbStatus` — статус системы Wildberries.
-		Возможные значения `wbStatus`:
-		- `waiting` — сборочное задание в работе
-		- `sold` — заказ получен покупателем
-		- `canceled` — отмена сборочного задания
-		- `canceled\_by\_client` — покупатель отменил заказ при получении
-		- `declined\_by\_client` — покупатель отменил заказ в первый чаc
+`wbStatus` — статус системы Wildberries.
+Возможные значения `wbStatus`:
+- `waiting` — сборочное задание в работе
+- `sold` — заказ получен покупателем
+- `canceled` — отмена сборочного задания
+- `canceled\_by\_client` — покупатель отменил заказ при получении
+- `declined\_by\_client` — покупатель отменил заказ в первый чаc
 
-		Отмена доступна покупателю в первый час с момента заказа, если заказ не переведен на сборку
-		- `defect` — отмена заказа по причине брака
-		- `canceled\_by\_missed\_call` — отмена заказа по причине недозвона
-		- `postponed\_delivery` — курьерская доставка отложена
+Отмена доступна покупателю в первый час с момента заказа, если заказ не переведен на сборку
+- `defect` — отмена заказа по причине брака
+- `canceled\_by\_missed\_call` — отмена заказа по причине недозвона
+- `postponed\_delivery` — курьерская доставка отложена
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:
 
-		* получение и обновление списка контактов
-		* получение и удаление идентификаторов маркировки
-		* методы сборочных заданий
+* получение и обновление списка контактов
+* получение и удаление идентификаторов маркировки
+* методы сборочных заданий
 
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 300 запросов | 200 мс | 20 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-status
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-status
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV3DbwOrdersStatusRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3DbwOrdersStatusRequest
 	*/
 	PostV3DbwOrdersStatus(ctx context.Context) ApiPostV3DbwOrdersStatusRequest
 
@@ -369,27 +370,27 @@ type OrdersDbwAPI interface {
 	PostV3DbwOrdersStatusExecute(r ApiPostV3DbwOrdersStatusRequest) (*PostV3DbwOrdersStatusResponse200, *http.Response, error)
 
 	/*
-			PostV3DbwOrdersStatusDeliver Перевести сборочные задания в доставку
+	PostV3DbwOrdersStatusDeliver Перевести сборочные задания в доставку
 
-			Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrders) из [статуса](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` в статус `complete` — в доставке.
+	Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrders) из [статуса](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` в статус `complete` — в доставке.
 
-		Проверяйте ответ метода. Сборочные задания, переведённые в доставку, вернутся с признаком `"isError":false`. Для остальных сборочных заданий смотрите причину ошибки в массиве `errors`
+Проверяйте ответ метода. Сборочные задания, переведённые в доставку, вернутся с признаком `"isError":false`. Для остальных сборочных заданий смотрите причину ошибки в массиве `errors`
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:
 
-		* получение и обновление списка контактов
-		* получение и удаление идентификаторов маркировки
-		* методы сборочных заданий
+* получение и обновление списка контактов
+* получение и удаление идентификаторов маркировки
+* методы сборочных заданий
 
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 300 запросов | 200 мс | 20 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-status-deliver
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-status-deliver
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV3DbwOrdersStatusDeliverRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3DbwOrdersStatusDeliverRequest
 	*/
 	PostV3DbwOrdersStatusDeliver(ctx context.Context) ApiPostV3DbwOrdersStatusDeliverRequest
 
@@ -398,36 +399,36 @@ type OrdersDbwAPI interface {
 	PostV3DbwOrdersStatusDeliverExecute(r ApiPostV3DbwOrdersStatusDeliverRequest) (*ApiStatusSetResponses, *http.Response, error)
 
 	/*
-			PostV3DbwOrdersStickers Получить стикеры сборочных заданий
+	PostV3DbwOrdersStickers Получить стикеры сборочных заданий
 
-			Метод возвращает список стикеров для [сборочных заданий](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrdersNew) в [статусах](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus):
-		- `confirm` — на сборке
-		- `complete` — в доставке
-		За один запрос можно получить максимум 100 стикеров.
-		Доступные форматы стикеров:
-		- SVG
-		- ZPLV (вертикальный)
-		- ZPLH (горизонтальный)
-		- PNG
-		Доступны размеры:
-		- 580x400 px при `width=58&height=40` в запросе
-		- 400x300 px при `width=40&height=30` в запросе
+	Метод возвращает список стикеров для [сборочных заданий](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrdersNew) в [статусах](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus):
+- `confirm` — на сборке
+- `complete` — в доставке
+За один запрос можно получить максимум 100 стикеров.
+Доступные форматы стикеров:
+- SVG
+- ZPLV (вертикальный)
+- ZPLH (горизонтальный)
+- PNG
+Доступны размеры:
+- 580x400 px при `width=58&height=40` в запросе
+- 400x300 px при `width=40&height=30` в запросе
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:
 
-		* получение и обновление списка контактов
-		* получение и удаление идентификаторов маркировки
-		* методы сборочных заданий
+* получение и обновление списка контактов
+* получение и удаление идентификаторов маркировки
+* методы сборочных заданий
 
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 300 запросов | 200 мс | 20 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-stickers
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-stickers
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV3DbwOrdersStickersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3DbwOrdersStickersRequest
 	*/
 	PostV3DbwOrdersStickers(ctx context.Context) ApiPostV3DbwOrdersStickersRequest
 
@@ -436,22 +437,22 @@ type OrdersDbwAPI interface {
 	PostV3DbwOrdersStickersExecute(r ApiPostV3DbwOrdersStickersRequest) (*PostV3DbwOrdersStickersResponse200, *http.Response, error)
 
 	/*
-			PutV3DbwOrdersOrderIdMetaGtin Закрепить GTIN за сборочным заданием
+	PutV3DbwOrdersOrderIdMetaGtin Закрепить GTIN за сборочным заданием
 
-			Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails). У одного сборочного задания может быть только один GTIN.
-		Закрепить GTIN можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) есть поле `gtin`.
+	Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails). У одного сборочного задания может быть только один GTIN.
+Закрепить GTIN можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) есть поле `gtin`.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **закрепления идентификаторов маркировки DBW**:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 1000 запросов | 60 мс | 20 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **закрепления идентификаторов маркировки DBW**:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 1000 запросов | 60 мс | 20 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/put-api-v3-dbw-orders-orderid-meta-gtin
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/put-api-v3-dbw-orders-orderid-meta-gtin
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@param orderId ID сборочного задания
-			@return ApiPutV3DbwOrdersOrderIdMetaGtinRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param orderId ID сборочного задания
+	@return ApiPutV3DbwOrdersOrderIdMetaGtinRequest
 	*/
 	PutV3DbwOrdersOrderIdMetaGtin(ctx context.Context, orderId int64) ApiPutV3DbwOrdersOrderIdMetaGtinRequest
 
@@ -459,23 +460,23 @@ type OrdersDbwAPI interface {
 	PutV3DbwOrdersOrderIdMetaGtinExecute(r ApiPutV3DbwOrdersOrderIdMetaGtinRequest) (*http.Response, error)
 
 	/*
-			PutV3DbwOrdersOrderIdMetaImei Закрепить IMEI за сборочным заданием
+	PutV3DbwOrdersOrderIdMetaImei Закрепить IMEI за сборочным заданием
 
-			Метод обновляет IMEI в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails).
-		У одного сборочного задания может быть только один IMEI. Если у устройства два IMEI — \*\*IMEI\*\* и \*\*IMEI2\*\* или \*\*IMEI1\*\* и \*\*IMEI2\*\* — укажите только \*\*IMEI\*\* или \*\*IMEI1\*\*. \*\*IMEI2\*\* указывать не нужно.
-		Закрепить IMEI можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) есть поле `imei`.
+	Метод обновляет IMEI в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails).
+У одного сборочного задания может быть только один IMEI. Если у устройства два IMEI — \*\*IMEI\*\* и \*\*IMEI2\*\* или \*\*IMEI1\*\* и \*\*IMEI2\*\* — укажите только \*\*IMEI\*\* или \*\*IMEI1\*\*. \*\*IMEI2\*\* указывать не нужно.
+Закрепить IMEI можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) есть поле `imei`.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **закрепления идентификаторов маркировки DBW**:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 1000 запросов | 60 мс | 20 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **закрепления идентификаторов маркировки DBW**:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 1000 запросов | 60 мс | 20 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/put-api-v3-dbw-orders-orderid-meta-imei
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/put-api-v3-dbw-orders-orderid-meta-imei
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@param orderId ID сборочного задания
-			@return ApiPutV3DbwOrdersOrderIdMetaImeiRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param orderId ID сборочного задания
+	@return ApiPutV3DbwOrdersOrderIdMetaImeiRequest
 	*/
 	PutV3DbwOrdersOrderIdMetaImei(ctx context.Context, orderId int64) ApiPutV3DbwOrdersOrderIdMetaImeiRequest
 
@@ -483,22 +484,22 @@ type OrdersDbwAPI interface {
 	PutV3DbwOrdersOrderIdMetaImeiExecute(r ApiPutV3DbwOrdersOrderIdMetaImeiRequest) (*http.Response, error)
 
 	/*
-			PutV3DbwOrdersOrderIdMetaUin Закрепить УИН за сборочным заданием
+	PutV3DbwOrdersOrderIdMetaUin Закрепить УИН за сборочным заданием
 
-			Метод обновляет УИН, уникальный идентификационный номер, в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails). У одного сборочного задания может быть только один УИН.
-		Закрепить УИН можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) есть поле `uin`.
+	Метод обновляет УИН, уникальный идентификационный номер, в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails). У одного сборочного задания может быть только один УИН.
+Закрепить УИН можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) есть поле `uin`.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **закрепления идентификаторов маркировки DBW**:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 1000 запросов | 60 мс | 20 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **закрепления идентификаторов маркировки DBW**:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 1000 запросов | 60 мс | 20 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/put-api-v3-dbw-orders-orderid-meta-uin
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/put-api-v3-dbw-orders-orderid-meta-uin
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@param orderId ID сборочного задания
-			@return ApiPutV3DbwOrdersOrderIdMetaUinRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param orderId ID сборочного задания
+	@return ApiPutV3DbwOrdersOrderIdMetaUinRequest
 	*/
 	PutV3DbwOrdersOrderIdMetaUin(ctx context.Context, orderId int64) ApiPutV3DbwOrdersOrderIdMetaUinRequest
 
@@ -510,12 +511,12 @@ type OrdersDbwAPI interface {
 type OrdersDbwAPIService service
 
 type ApiGetV3DbwOrdersRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService OrdersDbwAPI
-	limit      *int64
-	next       *int64
-	dateFrom   *int64
-	dateTo     *int64
+	limit *int64
+	next *int64
+	dateFrom *int64
+	dateTo *int64
 }
 
 // Параметр пагинации. Устанавливает предельное количество возвращаемых данных
@@ -530,7 +531,7 @@ func (r ApiGetV3DbwOrdersRequest) Next(next int64) ApiGetV3DbwOrdersRequest {
 	return r
 }
 
-// Дата начала периода в формате Unix timestamp
+// Дата начала периода в формате Unix timestamp 
 func (r ApiGetV3DbwOrdersRequest) DateFrom(dateFrom int64) ApiGetV3DbwOrdersRequest {
 	r.dateFrom = &dateFrom
 	return r
@@ -566,25 +567,24 @@ GetV3DbwOrders Получить информацию о завершенных �
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/get-api-v3-dbw-orders
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV3DbwOrdersRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV3DbwOrdersRequest
 */
 func (a *OrdersDbwAPIService) GetV3DbwOrders(ctx context.Context) ApiGetV3DbwOrdersRequest {
 	return ApiGetV3DbwOrdersRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV3DbwOrdersResponse200
+//  @return GetV3DbwOrdersResponse200
 func (a *OrdersDbwAPIService) GetV3DbwOrdersExecute(r ApiGetV3DbwOrdersRequest) (*GetV3DbwOrdersResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV3DbwOrdersResponse200
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV3DbwOrdersResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersDbwAPIService.GetV3DbwOrders")
@@ -666,8 +666,8 @@ func (a *OrdersDbwAPIService) GetV3DbwOrdersExecute(r ApiGetV3DbwOrdersRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -677,8 +677,8 @@ func (a *OrdersDbwAPIService) GetV3DbwOrdersExecute(r ApiGetV3DbwOrdersRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -688,8 +688,8 @@ func (a *OrdersDbwAPIService) GetV3DbwOrdersExecute(r ApiGetV3DbwOrdersRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -699,8 +699,8 @@ func (a *OrdersDbwAPIService) GetV3DbwOrdersExecute(r ApiGetV3DbwOrdersRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -710,8 +710,8 @@ func (a *OrdersDbwAPIService) GetV3DbwOrdersExecute(r ApiGetV3DbwOrdersRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -729,7 +729,7 @@ func (a *OrdersDbwAPIService) GetV3DbwOrdersExecute(r ApiGetV3DbwOrdersRequest) 
 }
 
 type ApiGetV3DbwOrdersNewRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService OrdersDbwAPI
 }
 
@@ -755,25 +755,24 @@ GetV3DbwOrdersNew Получить список новых сборочных з
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/get-api-v3-dbw-orders-new
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV3DbwOrdersNewRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV3DbwOrdersNewRequest
 */
 func (a *OrdersDbwAPIService) GetV3DbwOrdersNew(ctx context.Context) ApiGetV3DbwOrdersNewRequest {
 	return ApiGetV3DbwOrdersNewRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV3DbwOrdersNewResponse200
+//  @return GetV3DbwOrdersNewResponse200
 func (a *OrdersDbwAPIService) GetV3DbwOrdersNewExecute(r ApiGetV3DbwOrdersNewRequest) (*GetV3DbwOrdersNewResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV3DbwOrdersNewResponse200
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV3DbwOrdersNewResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersDbwAPIService.GetV3DbwOrdersNew")
@@ -833,8 +832,8 @@ func (a *OrdersDbwAPIService) GetV3DbwOrdersNewExecute(r ApiGetV3DbwOrdersNewReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -844,8 +843,8 @@ func (a *OrdersDbwAPIService) GetV3DbwOrdersNewExecute(r ApiGetV3DbwOrdersNewReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -855,8 +854,8 @@ func (a *OrdersDbwAPIService) GetV3DbwOrdersNewExecute(r ApiGetV3DbwOrdersNewReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -866,8 +865,8 @@ func (a *OrdersDbwAPIService) GetV3DbwOrdersNewExecute(r ApiGetV3DbwOrdersNewReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -885,9 +884,9 @@ func (a *OrdersDbwAPIService) GetV3DbwOrdersNewExecute(r ApiGetV3DbwOrdersNewReq
 }
 
 type ApiPatchV3DbwOrdersOrderIdCancelRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService OrdersDbwAPI
-	orderId    int64
+	orderId int64
 }
 
 func (r ApiPatchV3DbwOrdersOrderIdCancelRequest) Execute() (*http.Response, error) {
@@ -915,24 +914,24 @@ PatchV3DbwOrdersOrderIdCancel Отменить сборочное задание
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/patch-api-v3-dbw-orders-orderid-cancel
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param orderId ID сборочного задания
-	@return ApiPatchV3DbwOrdersOrderIdCancelRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param orderId ID сборочного задания
+ @return ApiPatchV3DbwOrdersOrderIdCancelRequest
 */
 func (a *OrdersDbwAPIService) PatchV3DbwOrdersOrderIdCancel(ctx context.Context, orderId int64) ApiPatchV3DbwOrdersOrderIdCancelRequest {
 	return ApiPatchV3DbwOrdersOrderIdCancelRequest{
 		ApiService: a,
-		ctx:        ctx,
-		orderId:    orderId,
+		ctx: ctx,
+		orderId: orderId,
 	}
 }
 
 // Execute executes the request
 func (a *OrdersDbwAPIService) PatchV3DbwOrdersOrderIdCancelExecute(r ApiPatchV3DbwOrdersOrderIdCancelRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPatch
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersDbwAPIService.PatchV3DbwOrdersOrderIdCancel")
@@ -993,8 +992,8 @@ func (a *OrdersDbwAPIService) PatchV3DbwOrdersOrderIdCancelExecute(r ApiPatchV3D
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1004,8 +1003,8 @@ func (a *OrdersDbwAPIService) PatchV3DbwOrdersOrderIdCancelExecute(r ApiPatchV3D
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1015,8 +1014,8 @@ func (a *OrdersDbwAPIService) PatchV3DbwOrdersOrderIdCancelExecute(r ApiPatchV3D
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1026,8 +1025,8 @@ func (a *OrdersDbwAPIService) PatchV3DbwOrdersOrderIdCancelExecute(r ApiPatchV3D
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1037,8 +1036,8 @@ func (a *OrdersDbwAPIService) PatchV3DbwOrdersOrderIdCancelExecute(r ApiPatchV3D
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1048,8 +1047,8 @@ func (a *OrdersDbwAPIService) PatchV3DbwOrdersOrderIdCancelExecute(r ApiPatchV3D
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1059,8 +1058,8 @@ func (a *OrdersDbwAPIService) PatchV3DbwOrdersOrderIdCancelExecute(r ApiPatchV3D
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1069,9 +1068,9 @@ func (a *OrdersDbwAPIService) PatchV3DbwOrdersOrderIdCancelExecute(r ApiPatchV3D
 }
 
 type ApiPatchV3DbwOrdersOrderIdConfirmRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService OrdersDbwAPI
-	orderId    int64
+	orderId int64
 }
 
 func (r ApiPatchV3DbwOrdersOrderIdConfirmRequest) Execute() (*http.Response, error) {
@@ -1096,24 +1095,24 @@ PatchV3DbwOrdersOrderIdConfirm Перевести на сборку
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/patch-api-v3-dbw-orders-orderid-confirm
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param orderId ID сборочного задания
-	@return ApiPatchV3DbwOrdersOrderIdConfirmRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param orderId ID сборочного задания
+ @return ApiPatchV3DbwOrdersOrderIdConfirmRequest
 */
 func (a *OrdersDbwAPIService) PatchV3DbwOrdersOrderIdConfirm(ctx context.Context, orderId int64) ApiPatchV3DbwOrdersOrderIdConfirmRequest {
 	return ApiPatchV3DbwOrdersOrderIdConfirmRequest{
 		ApiService: a,
-		ctx:        ctx,
-		orderId:    orderId,
+		ctx: ctx,
+		orderId: orderId,
 	}
 }
 
 // Execute executes the request
 func (a *OrdersDbwAPIService) PatchV3DbwOrdersOrderIdConfirmExecute(r ApiPatchV3DbwOrdersOrderIdConfirmRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPatch
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersDbwAPIService.PatchV3DbwOrdersOrderIdConfirm")
@@ -1174,8 +1173,8 @@ func (a *OrdersDbwAPIService) PatchV3DbwOrdersOrderIdConfirmExecute(r ApiPatchV3
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1185,8 +1184,8 @@ func (a *OrdersDbwAPIService) PatchV3DbwOrdersOrderIdConfirmExecute(r ApiPatchV3
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1196,8 +1195,8 @@ func (a *OrdersDbwAPIService) PatchV3DbwOrdersOrderIdConfirmExecute(r ApiPatchV3
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1207,8 +1206,8 @@ func (a *OrdersDbwAPIService) PatchV3DbwOrdersOrderIdConfirmExecute(r ApiPatchV3
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1218,8 +1217,8 @@ func (a *OrdersDbwAPIService) PatchV3DbwOrdersOrderIdConfirmExecute(r ApiPatchV3
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1229,8 +1228,8 @@ func (a *OrdersDbwAPIService) PatchV3DbwOrdersOrderIdConfirmExecute(r ApiPatchV3
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1240,8 +1239,8 @@ func (a *OrdersDbwAPIService) PatchV3DbwOrdersOrderIdConfirmExecute(r ApiPatchV3
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1250,8 +1249,8 @@ func (a *OrdersDbwAPIService) PatchV3DbwOrdersOrderIdConfirmExecute(r ApiPatchV3
 }
 
 type ApiPostV3DbwOrdersClientRequest struct {
-	ctx              context.Context
-	ApiService       OrdersDbwAPI
+	ctx context.Context
+	ApiService OrdersDbwAPI
 	ordersRequestAPI *OrdersRequestAPI
 }
 
@@ -1282,25 +1281,24 @@ PostV3DbwOrdersClient Информация о покупателе
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-client
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3DbwOrdersClientRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3DbwOrdersClientRequest
 */
 func (a *OrdersDbwAPIService) PostV3DbwOrdersClient(ctx context.Context) ApiPostV3DbwOrdersClientRequest {
 	return ApiPostV3DbwOrdersClientRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ClientInfoResp
+//  @return ClientInfoResp
 func (a *OrdersDbwAPIService) PostV3DbwOrdersClientExecute(r ApiPostV3DbwOrdersClientRequest) (*ClientInfoResp, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ClientInfoResp
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ClientInfoResp
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersDbwAPIService.PostV3DbwOrdersClient")
@@ -1365,8 +1363,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersClientExecute(r ApiPostV3DbwOrdersC
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1376,8 +1374,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersClientExecute(r ApiPostV3DbwOrdersC
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1387,8 +1385,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersClientExecute(r ApiPostV3DbwOrdersC
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1398,8 +1396,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersClientExecute(r ApiPostV3DbwOrdersC
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1409,8 +1407,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersClientExecute(r ApiPostV3DbwOrdersC
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1428,8 +1426,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersClientExecute(r ApiPostV3DbwOrdersC
 }
 
 type ApiPostV3DbwOrdersCourierRequest struct {
-	ctx              context.Context
-	ApiService       OrdersDbwAPI
+	ctx context.Context
+	ApiService OrdersDbwAPI
 	ordersRequestAPI *OrdersRequestAPI
 }
 
@@ -1446,8 +1444,7 @@ func (r ApiPostV3DbwOrdersCourierRequest) Execute() (*OrderCourierInfoResp, *htt
 PostV3DbwOrdersCourier Информация о курьере
 
 Метод возвращает контактные данные и номер автомобиля курьера по ID сборочного задания.
-
-	Для сборочных заданий в статусах `confirm`, `complete`.
+ Для сборочных заданий в статусах `confirm`, `complete`.
 
 [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:
 
@@ -1462,25 +1459,24 @@ PostV3DbwOrdersCourier Информация о курьере
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-courier
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3DbwOrdersCourierRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3DbwOrdersCourierRequest
 */
 func (a *OrdersDbwAPIService) PostV3DbwOrdersCourier(ctx context.Context) ApiPostV3DbwOrdersCourierRequest {
 	return ApiPostV3DbwOrdersCourierRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return OrderCourierInfoResp
+//  @return OrderCourierInfoResp
 func (a *OrdersDbwAPIService) PostV3DbwOrdersCourierExecute(r ApiPostV3DbwOrdersCourierRequest) (*OrderCourierInfoResp, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *OrderCourierInfoResp
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *OrderCourierInfoResp
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersDbwAPIService.PostV3DbwOrdersCourier")
@@ -1545,8 +1541,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersCourierExecute(r ApiPostV3DbwOrders
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1556,8 +1552,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersCourierExecute(r ApiPostV3DbwOrders
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1567,8 +1563,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersCourierExecute(r ApiPostV3DbwOrders
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1578,8 +1574,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersCourierExecute(r ApiPostV3DbwOrders
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1589,8 +1585,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersCourierExecute(r ApiPostV3DbwOrders
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1608,8 +1604,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersCourierExecute(r ApiPostV3DbwOrders
 }
 
 type ApiPostV3DbwOrdersDeliveryDateRequest struct {
-	ctx                  context.Context
-	ApiService           OrdersDbwAPI
+	ctx context.Context
+	ApiService OrdersDbwAPI
 	deliveryDatesRequest *DeliveryDatesRequest
 }
 
@@ -1640,25 +1636,24 @@ PostV3DbwOrdersDeliveryDate Получить дату и время достав
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-delivery-date
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3DbwOrdersDeliveryDateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3DbwOrdersDeliveryDateRequest
 */
 func (a *OrdersDbwAPIService) PostV3DbwOrdersDeliveryDate(ctx context.Context) ApiPostV3DbwOrdersDeliveryDateRequest {
 	return ApiPostV3DbwOrdersDeliveryDateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return DeliveryDatesInfoResp
+//  @return DeliveryDatesInfoResp
 func (a *OrdersDbwAPIService) PostV3DbwOrdersDeliveryDateExecute(r ApiPostV3DbwOrdersDeliveryDateRequest) (*DeliveryDatesInfoResp, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *DeliveryDatesInfoResp
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *DeliveryDatesInfoResp
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersDbwAPIService.PostV3DbwOrdersDeliveryDate")
@@ -1723,8 +1718,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersDeliveryDateExecute(r ApiPostV3DbwO
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1734,8 +1729,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersDeliveryDateExecute(r ApiPostV3DbwO
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1745,8 +1740,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersDeliveryDateExecute(r ApiPostV3DbwO
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1756,8 +1751,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersDeliveryDateExecute(r ApiPostV3DbwO
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1767,8 +1762,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersDeliveryDateExecute(r ApiPostV3DbwO
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1786,8 +1781,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersDeliveryDateExecute(r ApiPostV3DbwO
 }
 
 type ApiPostV3DbwOrdersMetaDeleteRequest struct {
-	ctx                         context.Context
-	ApiService                  OrdersDbwAPI
+	ctx context.Context
+	ApiService OrdersDbwAPI
 	apiOrdersMetaDleteRequestV2 *ApiOrdersMetaDleteRequestV2
 }
 
@@ -1825,25 +1820,24 @@ PostV3DbwOrdersMetaDelete Удалить идентификаторы марки
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-meta-delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3DbwOrdersMetaDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3DbwOrdersMetaDeleteRequest
 */
 func (a *OrdersDbwAPIService) PostV3DbwOrdersMetaDelete(ctx context.Context) ApiPostV3DbwOrdersMetaDeleteRequest {
 	return ApiPostV3DbwOrdersMetaDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PostV3DbwOrdersMetaDeleteResponse200
+//  @return PostV3DbwOrdersMetaDeleteResponse200
 func (a *OrdersDbwAPIService) PostV3DbwOrdersMetaDeleteExecute(r ApiPostV3DbwOrdersMetaDeleteRequest) (*PostV3DbwOrdersMetaDeleteResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PostV3DbwOrdersMetaDeleteResponse200
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV3DbwOrdersMetaDeleteResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersDbwAPIService.PostV3DbwOrdersMetaDelete")
@@ -1908,8 +1902,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersMetaDeleteExecute(r ApiPostV3DbwOrd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1919,8 +1913,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersMetaDeleteExecute(r ApiPostV3DbwOrd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1930,8 +1924,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersMetaDeleteExecute(r ApiPostV3DbwOrd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1941,8 +1935,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersMetaDeleteExecute(r ApiPostV3DbwOrd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1952,8 +1946,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersMetaDeleteExecute(r ApiPostV3DbwOrd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1971,8 +1965,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersMetaDeleteExecute(r ApiPostV3DbwOrd
 }
 
 type ApiPostV3DbwOrdersMetaDetailsRequest struct {
-	ctx                context.Context
-	ApiService         OrdersDbwAPI
+	ctx context.Context
+	ApiService OrdersDbwAPI
 	apiOrdersRequestV2 *ApiOrdersRequestV2
 }
 
@@ -2010,25 +2004,24 @@ PostV3DbwOrdersMetaDetails Получить идентификаторы мар�
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-meta-details
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3DbwOrdersMetaDetailsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3DbwOrdersMetaDetailsRequest
 */
 func (a *OrdersDbwAPIService) PostV3DbwOrdersMetaDetails(ctx context.Context) ApiPostV3DbwOrdersMetaDetailsRequest {
 	return ApiPostV3DbwOrdersMetaDetailsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ApiOrdersMetaDetailsResponse
+//  @return ApiOrdersMetaDetailsResponse
 func (a *OrdersDbwAPIService) PostV3DbwOrdersMetaDetailsExecute(r ApiPostV3DbwOrdersMetaDetailsRequest) (*ApiOrdersMetaDetailsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ApiOrdersMetaDetailsResponse
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiOrdersMetaDetailsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersDbwAPIService.PostV3DbwOrdersMetaDetails")
@@ -2093,8 +2086,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersMetaDetailsExecute(r ApiPostV3DbwOr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2104,8 +2097,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersMetaDetailsExecute(r ApiPostV3DbwOr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2115,8 +2108,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersMetaDetailsExecute(r ApiPostV3DbwOr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2126,8 +2119,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersMetaDetailsExecute(r ApiPostV3DbwOr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2137,8 +2130,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersMetaDetailsExecute(r ApiPostV3DbwOr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2156,8 +2149,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersMetaDetailsExecute(r ApiPostV3DbwOr
 }
 
 type ApiPostV3DbwOrdersMetaSgtinRequest struct {
-	ctx                       context.Context
-	ApiService                OrdersDbwAPI
+	ctx context.Context
+	ApiService OrdersDbwAPI
 	apiOrdersSGTINsSetRequest *ApiOrdersSGTINsSetRequest
 }
 
@@ -2191,25 +2184,24 @@ PostV3DbwOrdersMetaSgtin Закрепить коды маркировки Чес
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-meta-sgtin
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3DbwOrdersMetaSgtinRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3DbwOrdersMetaSgtinRequest
 */
 func (a *OrdersDbwAPIService) PostV3DbwOrdersMetaSgtin(ctx context.Context) ApiPostV3DbwOrdersMetaSgtinRequest {
 	return ApiPostV3DbwOrdersMetaSgtinRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ApiStatusSetResponses
+//  @return ApiStatusSetResponses
 func (a *OrdersDbwAPIService) PostV3DbwOrdersMetaSgtinExecute(r ApiPostV3DbwOrdersMetaSgtinRequest) (*ApiStatusSetResponses, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ApiStatusSetResponses
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiStatusSetResponses
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersDbwAPIService.PostV3DbwOrdersMetaSgtin")
@@ -2274,8 +2266,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersMetaSgtinExecute(r ApiPostV3DbwOrde
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2285,8 +2277,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersMetaSgtinExecute(r ApiPostV3DbwOrde
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2296,8 +2288,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersMetaSgtinExecute(r ApiPostV3DbwOrde
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2307,8 +2299,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersMetaSgtinExecute(r ApiPostV3DbwOrde
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2318,8 +2310,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersMetaSgtinExecute(r ApiPostV3DbwOrde
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2337,8 +2329,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersMetaSgtinExecute(r ApiPostV3DbwOrde
 }
 
 type ApiPostV3DbwOrdersStatusRequest struct {
-	ctx                          context.Context
-	ApiService                   OrdersDbwAPI
+	ctx context.Context
+	ApiService OrdersDbwAPI
 	postV3DbwOrdersStatusRequest *PostV3DbwOrdersStatusRequest
 }
 
@@ -2368,8 +2360,7 @@ PostV3DbwOrdersStatus Получить статусы сборочных зад�
 | `reject` | \*\*Отказ покупателя при получении\*\*| Переводится курьером
 | `cancel` | \*\*Отменено продавцом\*\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/patchV3DbwOrdersOrderIdCancel)
 | `cancel\_missed\_call` | \*\*Отмена по причине недозвона\*\*
-
-	| Статус меняется автоматически |
+ | Статус меняется автоматически |
 
 `wbStatus` — статус системы Wildberries.
 Возможные значения `wbStatus`:
@@ -2397,25 +2388,24 @@ PostV3DbwOrdersStatus Получить статусы сборочных зад�
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-status
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3DbwOrdersStatusRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3DbwOrdersStatusRequest
 */
 func (a *OrdersDbwAPIService) PostV3DbwOrdersStatus(ctx context.Context) ApiPostV3DbwOrdersStatusRequest {
 	return ApiPostV3DbwOrdersStatusRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PostV3DbwOrdersStatusResponse200
+//  @return PostV3DbwOrdersStatusResponse200
 func (a *OrdersDbwAPIService) PostV3DbwOrdersStatusExecute(r ApiPostV3DbwOrdersStatusRequest) (*PostV3DbwOrdersStatusResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PostV3DbwOrdersStatusResponse200
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV3DbwOrdersStatusResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersDbwAPIService.PostV3DbwOrdersStatus")
@@ -2477,8 +2467,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersStatusExecute(r ApiPostV3DbwOrdersS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2488,8 +2478,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersStatusExecute(r ApiPostV3DbwOrdersS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2499,8 +2489,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersStatusExecute(r ApiPostV3DbwOrdersS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2510,8 +2500,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersStatusExecute(r ApiPostV3DbwOrdersS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2521,8 +2511,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersStatusExecute(r ApiPostV3DbwOrdersS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2540,8 +2530,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersStatusExecute(r ApiPostV3DbwOrdersS
 }
 
 type ApiPostV3DbwOrdersStatusDeliverRequest struct {
-	ctx                context.Context
-	ApiService         OrdersDbwAPI
+	ctx context.Context
+	ApiService OrdersDbwAPI
 	apiOrdersRequestV2 *ApiOrdersRequestV2
 }
 
@@ -2574,25 +2564,24 @@ PostV3DbwOrdersStatusDeliver Перевести сборочные задани�
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-marketplace-v3-dbw-orders-status-deliver
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3DbwOrdersStatusDeliverRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3DbwOrdersStatusDeliverRequest
 */
 func (a *OrdersDbwAPIService) PostV3DbwOrdersStatusDeliver(ctx context.Context) ApiPostV3DbwOrdersStatusDeliverRequest {
 	return ApiPostV3DbwOrdersStatusDeliverRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ApiStatusSetResponses
+//  @return ApiStatusSetResponses
 func (a *OrdersDbwAPIService) PostV3DbwOrdersStatusDeliverExecute(r ApiPostV3DbwOrdersStatusDeliverRequest) (*ApiStatusSetResponses, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ApiStatusSetResponses
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiStatusSetResponses
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersDbwAPIService.PostV3DbwOrdersStatusDeliver")
@@ -2657,8 +2646,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersStatusDeliverExecute(r ApiPostV3Dbw
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2668,8 +2657,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersStatusDeliverExecute(r ApiPostV3Dbw
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2679,8 +2668,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersStatusDeliverExecute(r ApiPostV3Dbw
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2690,8 +2679,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersStatusDeliverExecute(r ApiPostV3Dbw
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2701,8 +2690,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersStatusDeliverExecute(r ApiPostV3Dbw
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2720,11 +2709,11 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersStatusDeliverExecute(r ApiPostV3Dbw
 }
 
 type ApiPostV3DbwOrdersStickersRequest struct {
-	ctx                            context.Context
-	ApiService                     OrdersDbwAPI
-	type_                          *string
-	width                          *int64
-	height                         *int64
+	ctx context.Context
+	ApiService OrdersDbwAPI
+	type_ *string
+	width *int64
+	height *int64
 	postV3DbwOrdersStickersRequest *PostV3DbwOrdersStickersRequest
 }
 
@@ -2784,25 +2773,24 @@ PostV3DbwOrdersStickers Получить стикеры сборочных за�
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/post-api-v3-dbw-orders-stickers
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3DbwOrdersStickersRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3DbwOrdersStickersRequest
 */
 func (a *OrdersDbwAPIService) PostV3DbwOrdersStickers(ctx context.Context) ApiPostV3DbwOrdersStickersRequest {
 	return ApiPostV3DbwOrdersStickersRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PostV3DbwOrdersStickersResponse200
+//  @return PostV3DbwOrdersStickersResponse200
 func (a *OrdersDbwAPIService) PostV3DbwOrdersStickersExecute(r ApiPostV3DbwOrdersStickersRequest) (*PostV3DbwOrdersStickersResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PostV3DbwOrdersStickersResponse200
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV3DbwOrdersStickersResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersDbwAPIService.PostV3DbwOrdersStickers")
@@ -2876,8 +2864,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersStickersExecute(r ApiPostV3DbwOrder
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2887,8 +2875,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersStickersExecute(r ApiPostV3DbwOrder
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2898,8 +2886,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersStickersExecute(r ApiPostV3DbwOrder
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2909,8 +2897,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersStickersExecute(r ApiPostV3DbwOrder
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2920,8 +2908,8 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersStickersExecute(r ApiPostV3DbwOrder
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2939,9 +2927,9 @@ func (a *OrdersDbwAPIService) PostV3DbwOrdersStickersExecute(r ApiPostV3DbwOrder
 }
 
 type ApiPutV3DbwOrdersOrderIdMetaGtinRequest struct {
-	ctx                                  context.Context
-	ApiService                           OrdersDbwAPI
-	orderId                              int64
+	ctx context.Context
+	ApiService OrdersDbwAPI
+	orderId int64
 	putV3DbwOrdersOrderIdMetaGtinRequest *PutV3DbwOrdersOrderIdMetaGtinRequest
 }
 
@@ -2968,24 +2956,24 @@ PutV3DbwOrdersOrderIdMetaGtin Закрепить GTIN за сборочным з
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/put-api-v3-dbw-orders-orderid-meta-gtin
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param orderId ID сборочного задания
-	@return ApiPutV3DbwOrdersOrderIdMetaGtinRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param orderId ID сборочного задания
+ @return ApiPutV3DbwOrdersOrderIdMetaGtinRequest
 */
 func (a *OrdersDbwAPIService) PutV3DbwOrdersOrderIdMetaGtin(ctx context.Context, orderId int64) ApiPutV3DbwOrdersOrderIdMetaGtinRequest {
 	return ApiPutV3DbwOrdersOrderIdMetaGtinRequest{
 		ApiService: a,
-		ctx:        ctx,
-		orderId:    orderId,
+		ctx: ctx,
+		orderId: orderId,
 	}
 }
 
 // Execute executes the request
 func (a *OrdersDbwAPIService) PutV3DbwOrdersOrderIdMetaGtinExecute(r ApiPutV3DbwOrdersOrderIdMetaGtinRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersDbwAPIService.PutV3DbwOrdersOrderIdMetaGtin")
@@ -3051,8 +3039,8 @@ func (a *OrdersDbwAPIService) PutV3DbwOrdersOrderIdMetaGtinExecute(r ApiPutV3Dbw
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3062,8 +3050,8 @@ func (a *OrdersDbwAPIService) PutV3DbwOrdersOrderIdMetaGtinExecute(r ApiPutV3Dbw
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3073,8 +3061,8 @@ func (a *OrdersDbwAPIService) PutV3DbwOrdersOrderIdMetaGtinExecute(r ApiPutV3Dbw
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3084,8 +3072,8 @@ func (a *OrdersDbwAPIService) PutV3DbwOrdersOrderIdMetaGtinExecute(r ApiPutV3Dbw
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3095,8 +3083,8 @@ func (a *OrdersDbwAPIService) PutV3DbwOrdersOrderIdMetaGtinExecute(r ApiPutV3Dbw
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -3106,8 +3094,8 @@ func (a *OrdersDbwAPIService) PutV3DbwOrdersOrderIdMetaGtinExecute(r ApiPutV3Dbw
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3117,8 +3105,8 @@ func (a *OrdersDbwAPIService) PutV3DbwOrdersOrderIdMetaGtinExecute(r ApiPutV3Dbw
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -3127,9 +3115,9 @@ func (a *OrdersDbwAPIService) PutV3DbwOrdersOrderIdMetaGtinExecute(r ApiPutV3Dbw
 }
 
 type ApiPutV3DbwOrdersOrderIdMetaImeiRequest struct {
-	ctx                                  context.Context
-	ApiService                           OrdersDbwAPI
-	orderId                              int64
+	ctx context.Context
+	ApiService OrdersDbwAPI
+	orderId int64
 	putV3DbwOrdersOrderIdMetaImeiRequest *PutV3DbwOrdersOrderIdMetaImeiRequest
 }
 
@@ -3157,24 +3145,24 @@ PutV3DbwOrdersOrderIdMetaImei Закрепить IMEI за сборочным з
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/put-api-v3-dbw-orders-orderid-meta-imei
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param orderId ID сборочного задания
-	@return ApiPutV3DbwOrdersOrderIdMetaImeiRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param orderId ID сборочного задания
+ @return ApiPutV3DbwOrdersOrderIdMetaImeiRequest
 */
 func (a *OrdersDbwAPIService) PutV3DbwOrdersOrderIdMetaImei(ctx context.Context, orderId int64) ApiPutV3DbwOrdersOrderIdMetaImeiRequest {
 	return ApiPutV3DbwOrdersOrderIdMetaImeiRequest{
 		ApiService: a,
-		ctx:        ctx,
-		orderId:    orderId,
+		ctx: ctx,
+		orderId: orderId,
 	}
 }
 
 // Execute executes the request
 func (a *OrdersDbwAPIService) PutV3DbwOrdersOrderIdMetaImeiExecute(r ApiPutV3DbwOrdersOrderIdMetaImeiRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersDbwAPIService.PutV3DbwOrdersOrderIdMetaImei")
@@ -3240,8 +3228,8 @@ func (a *OrdersDbwAPIService) PutV3DbwOrdersOrderIdMetaImeiExecute(r ApiPutV3Dbw
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3251,8 +3239,8 @@ func (a *OrdersDbwAPIService) PutV3DbwOrdersOrderIdMetaImeiExecute(r ApiPutV3Dbw
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3262,8 +3250,8 @@ func (a *OrdersDbwAPIService) PutV3DbwOrdersOrderIdMetaImeiExecute(r ApiPutV3Dbw
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3273,8 +3261,8 @@ func (a *OrdersDbwAPIService) PutV3DbwOrdersOrderIdMetaImeiExecute(r ApiPutV3Dbw
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3284,8 +3272,8 @@ func (a *OrdersDbwAPIService) PutV3DbwOrdersOrderIdMetaImeiExecute(r ApiPutV3Dbw
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -3295,8 +3283,8 @@ func (a *OrdersDbwAPIService) PutV3DbwOrdersOrderIdMetaImeiExecute(r ApiPutV3Dbw
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3306,8 +3294,8 @@ func (a *OrdersDbwAPIService) PutV3DbwOrdersOrderIdMetaImeiExecute(r ApiPutV3Dbw
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -3316,9 +3304,9 @@ func (a *OrdersDbwAPIService) PutV3DbwOrdersOrderIdMetaImeiExecute(r ApiPutV3Dbw
 }
 
 type ApiPutV3DbwOrdersOrderIdMetaUinRequest struct {
-	ctx                                 context.Context
-	ApiService                          OrdersDbwAPI
-	orderId                             int64
+	ctx context.Context
+	ApiService OrdersDbwAPI
+	orderId int64
 	putV3DbwOrdersOrderIdMetaUinRequest *PutV3DbwOrdersOrderIdMetaUinRequest
 }
 
@@ -3345,24 +3333,24 @@ PutV3DbwOrdersOrderIdMetaUin Закрепить УИН за сборочным �
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-dbw/put-api-v3-dbw-orders-orderid-meta-uin
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param orderId ID сборочного задания
-	@return ApiPutV3DbwOrdersOrderIdMetaUinRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param orderId ID сборочного задания
+ @return ApiPutV3DbwOrdersOrderIdMetaUinRequest
 */
 func (a *OrdersDbwAPIService) PutV3DbwOrdersOrderIdMetaUin(ctx context.Context, orderId int64) ApiPutV3DbwOrdersOrderIdMetaUinRequest {
 	return ApiPutV3DbwOrdersOrderIdMetaUinRequest{
 		ApiService: a,
-		ctx:        ctx,
-		orderId:    orderId,
+		ctx: ctx,
+		orderId: orderId,
 	}
 }
 
 // Execute executes the request
 func (a *OrdersDbwAPIService) PutV3DbwOrdersOrderIdMetaUinExecute(r ApiPutV3DbwOrdersOrderIdMetaUinRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersDbwAPIService.PutV3DbwOrdersOrderIdMetaUin")
@@ -3428,8 +3416,8 @@ func (a *OrdersDbwAPIService) PutV3DbwOrdersOrderIdMetaUinExecute(r ApiPutV3DbwO
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3439,8 +3427,8 @@ func (a *OrdersDbwAPIService) PutV3DbwOrdersOrderIdMetaUinExecute(r ApiPutV3DbwO
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3450,8 +3438,8 @@ func (a *OrdersDbwAPIService) PutV3DbwOrdersOrderIdMetaUinExecute(r ApiPutV3DbwO
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3461,8 +3449,8 @@ func (a *OrdersDbwAPIService) PutV3DbwOrdersOrderIdMetaUinExecute(r ApiPutV3DbwO
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3472,8 +3460,8 @@ func (a *OrdersDbwAPIService) PutV3DbwOrdersOrderIdMetaUinExecute(r ApiPutV3DbwO
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -3483,8 +3471,8 @@ func (a *OrdersDbwAPIService) PutV3DbwOrdersOrderIdMetaUinExecute(r ApiPutV3DbwO
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3494,8 +3482,8 @@ func (a *OrdersDbwAPIService) PutV3DbwOrdersOrderIdMetaUinExecute(r ApiPutV3DbwO
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

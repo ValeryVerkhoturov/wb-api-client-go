@@ -47,7 +47,7 @@ type MeasurementPenaltiesDataReportsInner struct {
 	PhotoUrls []string `json:"photoUrls,omitempty"`
 	// Дата штрафа
 	DtBonus *string `json:"dtBonus,omitempty"`
-	// Статус обмера:   - `false` — отменён   - `true` — подтверждён
+	// Статус обмера:   - `false` — отменён   - `true` — подтверждён 
 	IsValid *bool `json:"isValid,omitempty"`
 	// Дата и время подтверждения или отмены обмера
 	IsValidDt *string `json:"isValidDt,omitempty"`
@@ -719,7 +719,7 @@ func (o *MeasurementPenaltiesDataReportsInner) SetDateEnd(v string) {
 }
 
 func (o MeasurementPenaltiesDataReportsInner) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -826,3 +826,5 @@ func (v *NullableMeasurementPenaltiesDataReportsInner) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

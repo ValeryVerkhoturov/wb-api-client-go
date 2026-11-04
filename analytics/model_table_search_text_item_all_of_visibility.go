@@ -107,7 +107,7 @@ func (o *TableSearchTextItemAllOfVisibility) SetDynamics(v int64) {
 }
 
 func (o TableSearchTextItemAllOfVisibility) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,3 +160,5 @@ func (v *NullableTableSearchTextItemAllOfVisibility) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -17,7 +17,7 @@ import (
 // checks if the TableCommonMetricsAvgStockTurnover type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &TableCommonMetricsAvgStockTurnover{}
 
-// TableCommonMetricsAvgStockTurnover Оборачиваемость средних остатков. Особые случаи:   1. `\"hours\":-1` — бесконечная длительность   2. `\"hours\":-2` — нулевая длительность   3. `\"hours\":-3` — нерассчитанная длительность
+// TableCommonMetricsAvgStockTurnover Оборачиваемость средних остатков. Особые случаи:   1. `\"hours\":-1` — бесконечная длительность   2. `\"hours\":-2` — нулевая длительность   3. `\"hours\":-3` — нерассчитанная длительность 
 type TableCommonMetricsAvgStockTurnover struct {
 	// Количество дней
 	Days *int32 `json:"days,omitempty"`
@@ -107,7 +107,7 @@ func (o *TableCommonMetricsAvgStockTurnover) SetHours(v int32) {
 }
 
 func (o TableCommonMetricsAvgStockTurnover) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,3 +160,5 @@ func (v *NullableTableCommonMetricsAvgStockTurnover) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

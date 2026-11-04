@@ -11,8 +11,8 @@ API version: order
 package orders_fbs
 
 import (
-	"bytes"
 	"encoding/json"
+	"bytes"
 	"fmt"
 )
 
@@ -70,7 +70,7 @@ func (o *PutV3OrdersOrderIdMetaSgtinRequest) SetSgtins(v []string) {
 }
 
 func (o PutV3OrdersOrderIdMetaSgtinRequest) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -96,10 +96,10 @@ func (o *PutV3OrdersOrderIdMetaSgtinRequest) UnmarshalJSON(data []byte) (err err
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err
+		return err;
 	}
 
-	for _, requiredProperty := range requiredProperties {
+	for _, requiredProperty := range(requiredProperties) {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -155,3 +155,5 @@ func (v *NullablePutV3OrdersOrderIdMetaSgtinRequest) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

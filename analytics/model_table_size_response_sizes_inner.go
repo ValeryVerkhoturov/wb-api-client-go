@@ -24,7 +24,7 @@ type TableSizeResponseSizesInner struct {
 	// ID размера
 	ChrtID *int64 `json:"chrtID,omitempty"`
 	// Склады
-	Offices []TableOfficeItem                   `json:"offices,omitempty"`
+	Offices []TableOfficeItem `json:"offices,omitempty"`
 	Metrics *TableSizeResponseSizesInnerMetrics `json:"metrics,omitempty"`
 }
 
@@ -174,7 +174,7 @@ func (o *TableSizeResponseSizesInner) SetMetrics(v TableSizeResponseSizesInnerMe
 }
 
 func (o TableSizeResponseSizesInner) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -233,3 +233,5 @@ func (v *NullableTableSizeResponseSizesInner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

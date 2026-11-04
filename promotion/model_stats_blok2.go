@@ -25,7 +25,7 @@ type StatsBlok2 struct {
 	ItemName *string `json:"item_name,omitempty"`
 	// Название категории
 	CategoryName *string `json:"category_name,omitempty"`
-	// Тип медиакампании:   - `1` — размещение по дням   - `2` — размещение по просмотрам
+	// Тип медиакампании:   - `1` — размещение по дням   - `2` — размещение по просмотрам 
 	AdvertType *int64 `json:"advert_type,omitempty"`
 	// Место на странице
 	Place *int64 `json:"place,omitempty"`
@@ -33,9 +33,9 @@ type StatsBlok2 struct {
 	Views *int64 `json:"views,omitempty"`
 	// Количество кликов
 	Clicks *int64 `json:"clicks,omitempty"`
-	// CR(conversion rate) — это отношение количества заказов к общему количеству посещений медиакампании
+	// CR(conversion rate) — это отношение количества заказов к общему количеству посещений медиакампании 
 	Cr *float32 `json:"cr,omitempty"`
-	// CTR (click-through rate) — показатель кликабельности, отношение числа кликов к количеству показов в рамках медиакампании
+	// CTR (click-through rate) — показатель кликабельности, отношение числа кликов к количеству показов в рамках медиакампании 
 	Ctr *float32 `json:"ctr,omitempty"`
 	// Время начала размещения
 	DateFrom *string `json:"date_from,omitempty"`
@@ -52,7 +52,7 @@ type StatsBlok2 struct {
 	// (cost per click) — цена клика по продвигаемому товару
 	Cpc *float32 `json:"cpc,omitempty"`
 	// Статус медиакампании
-	Status     *int64                      `json:"status,omitempty"`
+	Status *int64 `json:"status,omitempty"`
 	DailyStats []StatsBlok2DailyStatsInner `json:"daily_stats,omitempty"`
 	// Стоимость размещения баннера
 	Expenses *float32 `json:"expenses,omitempty"`
@@ -752,7 +752,7 @@ func (o *StatsBlok2) SetCr2(v int64) {
 }
 
 func (o StatsBlok2) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -862,3 +862,5 @@ func (v *NullableStatsBlok2) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -19,8 +19,8 @@ var _ MappedNullable = &Statistics{}
 
 // Statistics struct for Statistics
 type Statistics struct {
-	Selected   *StatisticsSelected   `json:"selected,omitempty"`
-	Past       *StatisticsPast       `json:"past,omitempty"`
+	Selected *StatisticsSelected `json:"selected,omitempty"`
+	Past *StatisticsPast `json:"past,omitempty"`
 	Comparison *StatisticsComparison `json:"comparison,omitempty"`
 }
 
@@ -138,7 +138,7 @@ func (o *Statistics) SetComparison(v StatisticsComparison) {
 }
 
 func (o Statistics) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -194,3 +194,5 @@ func (v *NullableStatistics) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

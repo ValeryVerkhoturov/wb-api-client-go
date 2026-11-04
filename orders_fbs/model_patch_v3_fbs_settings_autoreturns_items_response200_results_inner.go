@@ -23,7 +23,7 @@ type PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner struct {
 	ChrtId *int64 `json:"chrtId,omitempty"`
 	// Детали ошибки
 	Error []PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner `json:"error,omitempty"`
-	// - `true` — настройки автовозврата товара обновлены
+	// - `true` — настройки автовозврата товара обновлены 
 	Success *bool `json:"success,omitempty"`
 }
 
@@ -141,7 +141,7 @@ func (o *PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) SetSuccess(v
 }
 
 func (o PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -197,3 +197,5 @@ func (v *NullablePatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) Unma
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

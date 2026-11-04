@@ -35,7 +35,7 @@ type GoodBufferHistory struct {
 	Discount *int64 `json:"discount,omitempty"`
 	// Скидка WB Клуба, %
 	ClubDiscount *int64 `json:"clubDiscount,omitempty"`
-	// Статус товара: `1` — в обработке
+	// Статус товара: `1` — в обработке 
 	Status *int64 `json:"status,omitempty"`
 	// Описание ошибки
 	ErrorText NullableString `json:"errorText,omitempty"`
@@ -378,7 +378,6 @@ func (o *GoodBufferHistory) HasErrorText() bool {
 func (o *GoodBufferHistory) SetErrorText(v string) {
 	o.ErrorText.Set(&v)
 }
-
 // SetErrorTextNil sets the value for ErrorText to be an explicit nil
 func (o *GoodBufferHistory) SetErrorTextNil() {
 	o.ErrorText.Set(nil)
@@ -390,7 +389,7 @@ func (o *GoodBufferHistory) UnsetErrorText() {
 }
 
 func (o GoodBufferHistory) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -467,3 +466,5 @@ func (v *NullableGoodBufferHistory) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

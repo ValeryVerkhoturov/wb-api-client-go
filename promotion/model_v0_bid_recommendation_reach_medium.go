@@ -17,7 +17,7 @@ import (
 // checks if the V0BidRecommendationReachMedium type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &V0BidRecommendationReachMedium{}
 
-// V0BidRecommendationReachMedium Средний охват: 61-75%
+// V0BidRecommendationReachMedium Средний охват: 61-75% 
 type V0BidRecommendationReachMedium struct {
 	// Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	BidKopecks *int64 `json:"bidKopecks,omitempty"`
@@ -107,7 +107,7 @@ func (o *V0BidRecommendationReachMedium) SetBidKopecksMin(v int64) {
 }
 
 func (o V0BidRecommendationReachMedium) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,3 +160,5 @@ func (v *NullableV0BidRecommendationReachMedium) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

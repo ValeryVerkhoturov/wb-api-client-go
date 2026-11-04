@@ -36,21 +36,21 @@ type TableCommonMetrics struct {
 	// Остатки на текущий день, шт.
 	StockCount *int64 `json:"stockCount,omitempty"`
 	// Стоимость остатков на текущий день
-	StockSum         *int64                              `json:"stockSum,omitempty"`
-	SaleRate         *TableCommonMetricsSaleRate         `json:"saleRate,omitempty"`
+	StockSum *int64 `json:"stockSum,omitempty"`
+	SaleRate *TableCommonMetricsSaleRate `json:"saleRate,omitempty"`
 	AvgStockTurnover *TableCommonMetricsAvgStockTurnover `json:"avgStockTurnover,omitempty"`
 	// В пути к клиенту, шт.
 	ToClientCount *int64 `json:"toClientCount,omitempty"`
 	// В пути от клиента, шт.
-	FromClientCount   *int64                               `json:"fromClientCount,omitempty"`
+	FromClientCount *int64 `json:"fromClientCount,omitempty"`
 	OfficeMissingTime *TableCommonMetricsOfficeMissingTime `json:"officeMissingTime,omitempty"`
-	// Упущенные заказы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
+	// Упущенные заказы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение 
 	LostOrdersCount *float32 `json:"lostOrdersCount,omitempty"`
-	// Упущенные заказы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
+	// Упущенные заказы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение 
 	LostOrdersSum *float32 `json:"lostOrdersSum,omitempty"`
-	// Упущенные выкупы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
+	// Упущенные выкупы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение 
 	LostBuyoutsCount *float32 `json:"lostBuyoutsCount,omitempty"`
-	// Упущенные выкупы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
+	// Упущенные выкупы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение 
 	LostBuyoutsSum *float32 `json:"lostBuyoutsSum,omitempty"`
 }
 
@@ -648,7 +648,7 @@ func (o *TableCommonMetrics) SetLostBuyoutsSum(v float32) {
 }
 
 func (o TableCommonMetrics) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -749,3 +749,5 @@ func (v *NullableTableCommonMetrics) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

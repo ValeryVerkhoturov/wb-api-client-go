@@ -311,7 +311,7 @@ func (o *PostV1FeedbacksAnswer403Response) SetTimestamp(v string) {
 }
 
 func (o PostV1FeedbacksAnswer403Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -382,3 +382,5 @@ func (v *NullablePostV1FeedbacksAnswer403Response) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

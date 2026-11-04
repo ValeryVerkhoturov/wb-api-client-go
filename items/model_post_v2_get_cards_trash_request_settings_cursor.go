@@ -112,7 +112,6 @@ func (o *PostV2GetCardsTrashRequestSettingsCursor) HasTrashedAt() bool {
 func (o *PostV2GetCardsTrashRequestSettingsCursor) SetTrashedAt(v string) {
 	o.TrashedAt.Set(&v)
 }
-
 // SetTrashedAtNil sets the value for TrashedAt to be an explicit nil
 func (o *PostV2GetCardsTrashRequestSettingsCursor) SetTrashedAtNil() {
 	o.TrashedAt.Set(nil)
@@ -155,7 +154,6 @@ func (o *PostV2GetCardsTrashRequestSettingsCursor) HasNmID() bool {
 func (o *PostV2GetCardsTrashRequestSettingsCursor) SetNmID(v int64) {
 	o.NmID.Set(&v)
 }
-
 // SetNmIDNil sets the value for NmID to be an explicit nil
 func (o *PostV2GetCardsTrashRequestSettingsCursor) SetNmIDNil() {
 	o.NmID.Set(nil)
@@ -167,7 +165,7 @@ func (o *PostV2GetCardsTrashRequestSettingsCursor) UnsetNmID() {
 }
 
 func (o PostV2GetCardsTrashRequestSettingsCursor) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -223,3 +221,5 @@ func (v *NullablePostV2GetCardsTrashRequestSettingsCursor) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

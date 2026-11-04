@@ -23,11 +23,11 @@ type InventoryWbResponseItemsInner struct {
 	NmId *int64 `json:"nmId,omitempty"`
 	// ID размера
 	ChrtId *int64 `json:"chrtId,omitempty"`
-	// ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `-999999`
+	// [ID склада](https://dev.wildberries.ru/release-notes?id=605) 
 	WarehouseId *int64 `json:"warehouseId,omitempty"`
-	// Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB`
+	// [Название склада](https://dev.wildberries.ru/release-notes?id=605) 
 	WarehouseName *string `json:"warehouseName,omitempty"`
-	// Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB`
+	// [Страна отгрузки](https://dev.wildberries.ru/release-notes?id=605) 
 	RegionName *string `json:"regionName,omitempty"`
 	// Количество товара на складе, доступное клиентам для добавления в корзину
 	Quantity *int64 `json:"quantity,omitempty"`
@@ -311,7 +311,7 @@ func (o *InventoryWbResponseItemsInner) SetInWayFromClient(v int64) {
 }
 
 func (o InventoryWbResponseItemsInner) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -382,3 +382,5 @@ func (v *NullableInventoryWbResponseItemsInner) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

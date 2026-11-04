@@ -12,13 +12,13 @@ package communications
 
 import (
 	"encoding/json"
-	"fmt"
 	"gopkg.in/validator.v2"
+	"fmt"
 )
 
 // PatchV1QuestionsRequest - struct for PatchV1QuestionsRequest
 type PatchV1QuestionsRequest struct {
-	PatchV1QuestionsRequestOneOf  *PatchV1QuestionsRequestOneOf
+	PatchV1QuestionsRequestOneOf *PatchV1QuestionsRequestOneOf
 	PatchV1QuestionsRequestOneOf1 *PatchV1QuestionsRequestOneOf1
 }
 
@@ -35,6 +35,7 @@ func PatchV1QuestionsRequestOneOf1AsPatchV1QuestionsRequest(v *PatchV1QuestionsR
 		PatchV1QuestionsRequestOneOf1: v,
 	}
 }
+
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *PatchV1QuestionsRequest) UnmarshalJSON(data []byte) error {
@@ -101,7 +102,7 @@ func (src PatchV1QuestionsRequest) MarshalJSON() ([]byte, error) {
 }
 
 // Get the actual instance
-func (obj *PatchV1QuestionsRequest) GetActualInstance() interface{} {
+func (obj *PatchV1QuestionsRequest) GetActualInstance() (interface{}) {
 	if obj == nil {
 		return nil
 	}
@@ -152,3 +153,5 @@ func (v *NullablePatchV1QuestionsRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

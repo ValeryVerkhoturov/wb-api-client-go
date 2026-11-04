@@ -21,7 +21,7 @@ var _ MappedNullable = &ApiMetaDetailsResponseResultsInnerErrorsInner{}
 type ApiMetaDetailsResponseResultsInnerErrorsInner struct {
 	// Код ошибки
 	Code *int64 `json:"code,omitempty"`
-	// - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `MetaValidationFail` — идентификаторы маркировки не прошли проверку
+	// - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `MetaValidationFail` — идентификаторы маркировки не прошли проверку 
 	Detail *string `json:"detail,omitempty"`
 	// Ошибки проверки идентификаторов маркировки
 	MetaDetails []ApiMetaDetailsResponseResultsInnerErrorsInnerMetaDetailsInner `json:"metaDetails,omitempty"`
@@ -141,7 +141,7 @@ func (o *ApiMetaDetailsResponseResultsInnerErrorsInner) SetMetaDetails(v []ApiMe
 }
 
 func (o ApiMetaDetailsResponseResultsInnerErrorsInner) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -197,3 +197,5 @@ func (v *NullableApiMetaDetailsResponseResultsInnerErrorsInner) UnmarshalJSON(sr
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

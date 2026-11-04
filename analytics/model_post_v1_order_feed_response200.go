@@ -72,7 +72,7 @@ func (o *PostV1OrderFeedResponse200) SetData(v OrderFeedResponse) {
 }
 
 func (o PostV1OrderFeedResponse200) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -122,3 +122,5 @@ func (v *NullablePostV1OrderFeedResponse200) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

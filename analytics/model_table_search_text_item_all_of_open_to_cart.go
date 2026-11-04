@@ -141,7 +141,7 @@ func (o *TableSearchTextItemAllOfOpenToCart) SetPercentile(v int64) {
 }
 
 func (o TableSearchTextItemAllOfOpenToCart) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -197,3 +197,5 @@ func (v *NullableTableSearchTextItemAllOfOpenToCart) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

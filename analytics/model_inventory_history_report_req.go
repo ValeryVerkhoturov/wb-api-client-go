@@ -11,8 +11,8 @@ API version: analytics
 package analytics
 
 import (
-	"bytes"
 	"encoding/json"
+	"bytes"
 	"fmt"
 )
 
@@ -26,8 +26,8 @@ type InventoryHistoryReportReq struct {
 	// Тип отчёта `STOCK_HISTORY_DAILY_CSV` — Отчёт по истории остатков
 	ReportType string `json:"reportType"`
 	// Название отчёта. Если не указано, сформируется автоматически
-	UserReportName *string                         `json:"userReportName,omitempty"`
-	Params         InventoryHistoryReportReqParams `json:"params"`
+	UserReportName *string `json:"userReportName,omitempty"`
+	Params InventoryHistoryReportReqParams `json:"params"`
 }
 
 type _InventoryHistoryReportReq InventoryHistoryReportReq
@@ -157,7 +157,7 @@ func (o *InventoryHistoryReportReq) SetParams(v InventoryHistoryReportReqParams)
 }
 
 func (o InventoryHistoryReportReq) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -190,10 +190,10 @@ func (o *InventoryHistoryReportReq) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err
+		return err;
 	}
 
-	for _, requiredProperty := range requiredProperties {
+	for _, requiredProperty := range(requiredProperties) {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -249,3 +249,5 @@ func (v *NullableInventoryHistoryReportReq) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -19,10 +19,10 @@ var _ MappedNullable = &AdvertSettings{}
 
 // AdvertSettings Настройки кампании
 type AdvertSettings struct {
-	// Тип оплаты: - `cpm` — за показы - `cpc` — за клик
+	// Тип оплаты: - `cpm` — за показы - `cpc` — за клик 
 	PaymentType *string `json:"payment_type,omitempty"`
 	// Название кампании
-	Name       *string                   `json:"name,omitempty"`
+	Name *string `json:"name,omitempty"`
 	Placements *AdvertSettingsPlacements `json:"placements,omitempty"`
 }
 
@@ -140,7 +140,7 @@ func (o *AdvertSettings) SetPlacements(v AdvertSettingsPlacements) {
 }
 
 func (o AdvertSettings) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -196,3 +196,5 @@ func (v *NullableAdvertSettings) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

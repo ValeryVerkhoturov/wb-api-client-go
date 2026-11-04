@@ -40,15 +40,15 @@ type TableItem struct {
 	// Рейтинг карточки товара
 	Rating *float32 `json:"rating,omitempty"`
 	// Рейтинг по отзывам
-	FeedbackRating *float32                          `json:"feedbackRating,omitempty"`
-	Price          *TableItemAllOfPrice              `json:"price,omitempty"`
-	AvgPosition    *TableGroupItemMetricsAvgPosition `json:"avgPosition,omitempty"`
-	OpenCard       *VisibilityInfoOpenCard           `json:"openCard,omitempty"`
-	AddToCart      *TableGroupItemMetricsAddToCart   `json:"addToCart,omitempty"`
-	OpenToCart     *TableGroupItemMetricsOpenToCart  `json:"openToCart,omitempty"`
-	Orders         *TableGroupItemMetricsOrders      `json:"orders,omitempty"`
-	CartToOrder    *TableGroupItemMetricsCartToOrder `json:"cartToOrder,omitempty"`
-	Visibility     *TableGroupItemMetricsVisibility  `json:"visibility,omitempty"`
+	FeedbackRating *float32 `json:"feedbackRating,omitempty"`
+	Price *TableItemAllOfPrice `json:"price,omitempty"`
+	AvgPosition *TableGroupItemMetricsAvgPosition `json:"avgPosition,omitempty"`
+	OpenCard *VisibilityInfoOpenCard `json:"openCard,omitempty"`
+	AddToCart *TableGroupItemMetricsAddToCart `json:"addToCart,omitempty"`
+	OpenToCart *TableGroupItemMetricsOpenToCart `json:"openToCart,omitempty"`
+	Orders *TableGroupItemMetricsOrders `json:"orders,omitempty"`
+	CartToOrder *TableGroupItemMetricsCartToOrder `json:"cartToOrder,omitempty"`
+	Visibility *TableGroupItemMetricsVisibility `json:"visibility,omitempty"`
 }
 
 // NewTableItem instantiates a new TableItem object
@@ -677,7 +677,7 @@ func (o *TableItem) SetVisibility(v TableGroupItemMetricsVisibility) {
 }
 
 func (o TableItem) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -781,3 +781,5 @@ func (v *NullableTableItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

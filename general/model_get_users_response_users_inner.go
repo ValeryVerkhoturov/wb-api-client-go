@@ -21,7 +21,7 @@ var _ MappedNullable = &GetUsersResponseUsersInner{}
 type GetUsersResponseUsersInner struct {
 	// ID пользователя
 	Id *int64 `json:"id,omitempty"`
-	// Роль пользователя:   * `user` — пользователь, который активировал доступ   * ` ` (пустая строка) — пользователь, который не активировал доступ
+	// Роль пользователя:   * `user` — пользователь, который активировал доступ   * ` ` (пустая строка) — пользователь, который не активировал доступ 
 	Role *string `json:"role,omitempty"`
 	// Должность пользователя
 	Position *string `json:"position,omitempty"`
@@ -40,7 +40,7 @@ type GetUsersResponseUsersInner struct {
 	// Может ли пользователь одобрять возвраты товаров
 	GoodsReturn *bool `json:"goodsReturn,omitempty"`
 	// Приглашён ли пользователь
-	IsInvitee   *bool                                         `json:"isInvitee,omitempty"`
+	IsInvitee *bool `json:"isInvitee,omitempty"`
 	InviteeInfo NullableGetUsersResponseUsersInnerInviteeInfo `json:"inviteeInfo,omitempty"`
 	// Настройки доступа к разделам профиля продавца
 	Access []GetUsersResponseUsersInnerAccessInner `json:"access,omitempty"`
@@ -447,7 +447,6 @@ func (o *GetUsersResponseUsersInner) HasInviteeInfo() bool {
 func (o *GetUsersResponseUsersInner) SetInviteeInfo(v GetUsersResponseUsersInnerInviteeInfo) {
 	o.InviteeInfo.Set(&v)
 }
-
 // SetInviteeInfoNil sets the value for InviteeInfo to be an explicit nil
 func (o *GetUsersResponseUsersInner) SetInviteeInfoNil() {
 	o.InviteeInfo.Set(nil)
@@ -491,7 +490,7 @@ func (o *GetUsersResponseUsersInner) SetAccess(v []GetUsersResponseUsersInnerAcc
 }
 
 func (o GetUsersResponseUsersInner) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -577,3 +576,5 @@ func (v *NullableGetUsersResponseUsersInner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

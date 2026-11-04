@@ -21,7 +21,7 @@ var _ MappedNullable = &PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInne
 type PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner struct {
 	// Код ошибки
 	Code *int64 `json:"code,omitempty"`
-	// Дополнительная информация об ошибке:   - `Not Found` — ID размера товара не найден или указан ID размера немалогабаритного товара
+	// Дополнительная информация об ошибке:   - `Not Found` — ID размера товара не найден или указан ID размера немалогабаритного товара 
 	Detail *string `json:"detail,omitempty"`
 }
 
@@ -107,7 +107,7 @@ func (o *PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner) Se
 }
 
 func (o PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,3 +160,5 @@ func (v *NullablePatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorI
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

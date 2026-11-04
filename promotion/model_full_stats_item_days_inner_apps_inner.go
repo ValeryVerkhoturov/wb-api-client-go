@@ -19,7 +19,7 @@ var _ MappedNullable = &FullStatsItemDaysInnerAppsInner{}
 
 // FullStatsItemDaysInnerAppsInner struct for FullStatsItemDaysInnerAppsInner
 type FullStatsItemDaysInnerAppsInner struct {
-	// Тип платформы:   - `1` — сайт   - `32` — Android   - `64` — IOS
+	// Тип платформы:   - `1` — сайт   - `32` — Android   - `64` — IOS 
 	AppType *int64 `json:"appType,omitempty"`
 	// Количество добавлений товаров в корзину
 	Atbs *int64 `json:"atbs,omitempty"`
@@ -481,7 +481,7 @@ func (o *FullStatsItemDaysInnerAppsInner) SetViews(v int64) {
 }
 
 func (o FullStatsItemDaysInnerAppsInner) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -567,3 +567,5 @@ func (v *NullableFullStatsItemDaysInnerAppsInner) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

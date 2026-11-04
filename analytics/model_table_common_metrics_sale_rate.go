@@ -17,7 +17,7 @@ import (
 // checks if the TableCommonMetricsSaleRate type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &TableCommonMetricsSaleRate{}
 
-// TableCommonMetricsSaleRate Оборачиваемость текущих остатков. Особые случаи:   1. `\"hours\":-1` — бесконечная длительность   2. `\"hours\":-2` — нулевая длительность   3. `\"hours\":-3` — нерассчитанная длительность
+// TableCommonMetricsSaleRate Оборачиваемость текущих остатков. Особые случаи:   1. `\"hours\":-1` — бесконечная длительность   2. `\"hours\":-2` — нулевая длительность   3. `\"hours\":-3` — нерассчитанная длительность 
 type TableCommonMetricsSaleRate struct {
 	// Количество дней
 	Days *int32 `json:"days,omitempty"`
@@ -107,7 +107,7 @@ func (o *TableCommonMetricsSaleRate) SetHours(v int32) {
 }
 
 func (o TableCommonMetricsSaleRate) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,3 +160,5 @@ func (v *NullableTableCommonMetricsSaleRate) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -20,7 +20,7 @@ var _ MappedNullable = &ModelsErrorTableListPublicRespV2{}
 // ModelsErrorTableListPublicRespV2 Данные ответа
 type ModelsErrorTableListPublicRespV2 struct {
 	// Пакеты данных
-	Items  []ModelsErrorTableListPublicRespV2Item  `json:"items,omitempty"`
+	Items []ModelsErrorTableListPublicRespV2Item `json:"items,omitempty"`
 	Cursor *ViewerContractPublicErrorsCursorOutput `json:"cursor,omitempty"`
 }
 
@@ -106,7 +106,7 @@ func (o *ModelsErrorTableListPublicRespV2) SetCursor(v ViewerContractPublicError
 }
 
 func (o ModelsErrorTableListPublicRespV2) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -159,3 +159,5 @@ func (v *NullableModelsErrorTableListPublicRespV2) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

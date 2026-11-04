@@ -19,9 +19,9 @@ var _ MappedNullable = &ApiBatchCustomsDeclarationErrorResponse{}
 
 // ApiBatchCustomsDeclarationErrorResponse struct for ApiBatchCustomsDeclarationErrorResponse
 type ApiBatchCustomsDeclarationErrorResponse struct {
-	// Код ошибки:   - `404`   - `409`   - `400`
+	// Код ошибки:   - `404`   - `409`   - `400` 
 	Code *int64 `json:"code,omitempty"`
-	// - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `OrderNotB2B` — операция доступна только для сборочных заданий с признаком B2B-продажи `\"isB2b\":true` - `InvalidOriginCountryCode` — некорректный код страны происхождения товара
+	// - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `OrderNotB2B` — операция доступна только для сборочных заданий с признаком B2B-продажи `\"isB2b\":true` - `InvalidOriginCountryCode` — некорректный код страны происхождения товара 
 	Detail *string `json:"detail,omitempty"`
 }
 
@@ -107,7 +107,7 @@ func (o *ApiBatchCustomsDeclarationErrorResponse) SetDetail(v string) {
 }
 
 func (o ApiBatchCustomsDeclarationErrorResponse) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,3 +160,5 @@ func (v *NullableApiBatchCustomsDeclarationErrorResponse) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

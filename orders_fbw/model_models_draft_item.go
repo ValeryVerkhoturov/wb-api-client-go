@@ -243,7 +243,7 @@ func (o *ModelsDraftItem) SetItemQuantity(v int64) {
 }
 
 func (o ModelsDraftItem) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -308,3 +308,5 @@ func (v *NullableModelsDraftItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

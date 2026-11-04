@@ -21,7 +21,7 @@ var _ MappedNullable = &ModelsDiscrepancyResponseItem{}
 type ModelsDiscrepancyResponseItem struct {
 	// Баркод, заявленный при формировании поставки
 	DeclaredSku *string `json:"declaredSku,omitempty"`
-	// Тип расхождения в целом по коробу:  - `surplus` — товара в коробе больше заявленного  - `shortage` — товара в коробе меньше заявленного  - `re-sorting` — баркод принятого товара не соответствует заявленному при формировании поставки
+	// Тип расхождения в целом по коробу:  - `surplus` — товара в коробе больше заявленного  - `shortage` — товара в коробе меньше заявленного  - `re-sorting` — баркод принятого товара не соответствует заявленному при формировании поставки 
 	DiscrepancyType *string `json:"discrepancyType,omitempty"`
 	// Количество товара, заявленное при формировании поставки
 	DeclaredAmount *int64 `json:"declaredAmount,omitempty"`
@@ -278,7 +278,7 @@ func (o *ModelsDiscrepancyResponseItem) SetSkuScans(v []ModelsItemScans) {
 }
 
 func (o ModelsDiscrepancyResponseItem) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -346,3 +346,5 @@ func (v *NullableModelsDiscrepancyResponseItem) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

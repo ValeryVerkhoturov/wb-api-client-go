@@ -12,13 +12,13 @@ package items
 
 import (
 	"encoding/json"
-	"fmt"
 	"gopkg.in/validator.v2"
+	"fmt"
 )
 
 // PostV2CardsMoveNmRequest - struct for PostV2CardsMoveNmRequest
 type PostV2CardsMoveNmRequest struct {
-	RequestMoveNmsImtConn    *RequestMoveNmsImtConn
+	RequestMoveNmsImtConn *RequestMoveNmsImtConn
 	RequestMoveNmsImtDisconn *RequestMoveNmsImtDisconn
 }
 
@@ -35,6 +35,7 @@ func RequestMoveNmsImtDisconnAsPostV2CardsMoveNmRequest(v *RequestMoveNmsImtDisc
 		RequestMoveNmsImtDisconn: v,
 	}
 }
+
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *PostV2CardsMoveNmRequest) UnmarshalJSON(data []byte) error {
@@ -101,7 +102,7 @@ func (src PostV2CardsMoveNmRequest) MarshalJSON() ([]byte, error) {
 }
 
 // Get the actual instance
-func (obj *PostV2CardsMoveNmRequest) GetActualInstance() interface{} {
+func (obj *PostV2CardsMoveNmRequest) GetActualInstance() (interface{}) {
 	if obj == nil {
 		return nil
 	}
@@ -152,3 +153,5 @@ func (v *NullablePostV2CardsMoveNmRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -33,9 +33,9 @@ type Office struct {
 	Longitude *float32 `json:"longitude,omitempty"`
 	// Широта
 	Latitude *float32 `json:"latitude,omitempty"`
-	// Тип товара, который принимает склад:   - `1` — малогабаритный товар (МГТ)   - `3` — крупногабаритный товар (КГТ+)
+	// Тип товара, который принимает склад:   - `1` — малогабаритный товар (МГТ)   - `3` — крупногабаритный товар (КГТ+) 
 	CargoType *int64 `json:"cargoType,omitempty"`
-	// Тип доставки, который принимает склад:   - `1` — доставка на склад WB (FBS)   - `2` — доставка силами продавца (DBS)   - `3` — Деливери WB (DBW)   - `5` — самовывоз (C&C)   - `6` — экспресс-доставка силами продавца (ЕDBS)
+	// Тип доставки, который принимает склад:   - `1` — доставка на склад WB (FBS)   - `2` — доставка силами продавца (DBS)   - `3` — Деливери WB (DBW)   - `5` — самовывоз (C&C)   - `6` — экспресс-доставка силами продавца (ЕDBS) 
 	DeliveryType *int64 `json:"deliveryType,omitempty"`
 	// Признак того, что склад уже выбран продавцом
 	Selected *bool `json:"selected,omitempty"`
@@ -90,7 +90,6 @@ func (o *Office) HasFederalDistrict() bool {
 func (o *Office) SetFederalDistrict(v string) {
 	o.FederalDistrict.Set(&v)
 }
-
 // SetFederalDistrictNil sets the value for FederalDistrict to be an explicit nil
 func (o *Office) SetFederalDistrictNil() {
 	o.FederalDistrict.Set(nil)
@@ -390,7 +389,7 @@ func (o *Office) SetSelected(v bool) {
 }
 
 func (o Office) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -467,3 +466,5 @@ func (v *NullableOffice) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

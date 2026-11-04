@@ -25,7 +25,7 @@ type PlanBuilderOption struct {
 	Slug *string `json:"slug,omitempty"`
 	// Название опции на языке из параметра `locale`
 	Name *string `json:"name,omitempty"`
-	// Статус опции:   - `active` — активна   - `pendingActivation` — подключена, начнёт работать с 00:00 следующего дня   - `pendingDeactivation` — отключена, перестанет работать с 00:00 следующего дня
+	// Статус опции:   - `active` — активна   - `pendingActivation` — подключена, начнёт работать с 00:00 следующего дня   - `pendingDeactivation` — отключена, перестанет работать с 00:00 следующего дня 
 	Status *string `json:"status,omitempty"`
 	// Дата активации опции
 	ActivatedAt *string `json:"activatedAt,omitempty"`
@@ -34,8 +34,8 @@ type PlanBuilderOption struct {
 	// Стоимость подключения опции, % от оборота. Возвращается, если в ответе нет объекта `promotion`
 	CommissionRate *float32 `json:"commissionRate,omitempty"`
 	// Минимальный срок действия опции в днях
-	PeriodDuration *float32                    `json:"periodDuration,omitempty"`
-	Promotion      *PlanBuilderOptionPromotion `json:"promotion,omitempty"`
+	PeriodDuration *float32 `json:"periodDuration,omitempty"`
+	Promotion *PlanBuilderOptionPromotion `json:"promotion,omitempty"`
 }
 
 // NewPlanBuilderOption instantiates a new PlanBuilderOption object
@@ -344,7 +344,7 @@ func (o *PlanBuilderOption) SetPromotion(v PlanBuilderOptionPromotion) {
 }
 
 func (o PlanBuilderOption) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -418,3 +418,5 @@ func (v *NullablePlanBuilderOption) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

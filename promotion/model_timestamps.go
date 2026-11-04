@@ -142,7 +142,6 @@ func (o *Timestamps) HasStarted() bool {
 func (o *Timestamps) SetStarted(v string) {
 	o.Started.Set(&v)
 }
-
 // SetStartedNil sets the value for Started to be an explicit nil
 func (o *Timestamps) SetStartedNil() {
 	o.Started.Set(nil)
@@ -186,7 +185,7 @@ func (o *Timestamps) SetDeleted(v string) {
 }
 
 func (o Timestamps) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -245,3 +244,5 @@ func (v *NullableTimestamps) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

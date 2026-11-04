@@ -107,7 +107,7 @@ func (o *ModelsErrorSubcategory) SetName(v string) {
 }
 
 func (o ModelsErrorSubcategory) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,3 +160,5 @@ func (v *NullableModelsErrorSubcategory) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

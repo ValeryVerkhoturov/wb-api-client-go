@@ -12,15 +12,15 @@ package items
 
 import (
 	"encoding/json"
-	"fmt"
 	"gopkg.in/validator.v2"
+	"fmt"
 )
 
 // ResponseItemListAdditionalErrors - Дополнительные ошибки
 type ResponseItemListAdditionalErrors struct {
-	ResponseItemListAdditionalErrorsOneOf  *ResponseItemListAdditionalErrorsOneOf
+	ResponseItemListAdditionalErrorsOneOf *ResponseItemListAdditionalErrorsOneOf
 	ResponseItemListAdditionalErrorsOneOf1 *ResponseItemListAdditionalErrorsOneOf1
-	String                                 *string
+	String *string
 }
 
 // ResponseItemListAdditionalErrorsOneOfAsResponseItemListAdditionalErrors is a convenience function that returns ResponseItemListAdditionalErrorsOneOf wrapped in ResponseItemListAdditionalErrors
@@ -43,6 +43,7 @@ func StringAsResponseItemListAdditionalErrors(v *string) ResponseItemListAdditio
 		String: v,
 	}
 }
+
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *ResponseItemListAdditionalErrors) UnmarshalJSON(data []byte) error {
@@ -131,7 +132,7 @@ func (src ResponseItemListAdditionalErrors) MarshalJSON() ([]byte, error) {
 }
 
 // Get the actual instance
-func (obj *ResponseItemListAdditionalErrors) GetActualInstance() interface{} {
+func (obj *ResponseItemListAdditionalErrors) GetActualInstance() (interface{}) {
 	if obj == nil {
 		return nil
 	}
@@ -186,3 +187,5 @@ func (v *NullableResponseItemListAdditionalErrors) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

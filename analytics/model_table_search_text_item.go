@@ -36,19 +36,19 @@ type TableSearchTextItem struct {
 	// Рейтинг карточки товара
 	Rating *float32 `json:"rating,omitempty"`
 	// Рейтинг по отзывам
-	FeedbackRating *float32                           `json:"feedbackRating,omitempty"`
-	Price          *TableItemAllOfPrice               `json:"price,omitempty"`
-	Frequency      *TableSearchTextItemAllOfFrequency `json:"frequency,omitempty"`
+	FeedbackRating *float32 `json:"feedbackRating,omitempty"`
+	Price *TableItemAllOfPrice `json:"price,omitempty"`
+	Frequency *TableSearchTextItemAllOfFrequency `json:"frequency,omitempty"`
 	// Количество обращений с поисковым запросом за неделю
-	WeekFrequency  *int64                                  `json:"weekFrequency,omitempty"`
+	WeekFrequency *int64 `json:"weekFrequency,omitempty"`
 	MedianPosition *TableSearchTextItemAllOfMedianPosition `json:"medianPosition,omitempty"`
-	AvgPosition    *TableGroupItemMetricsAvgPosition       `json:"avgPosition,omitempty"`
-	OpenCard       *TableSearchTextItemAllOfOpenCard       `json:"openCard,omitempty"`
-	AddToCart      *TableSearchTextItemAllOfAddToCart      `json:"addToCart,omitempty"`
-	OpenToCart     *TableSearchTextItemAllOfOpenToCart     `json:"openToCart,omitempty"`
-	Orders         *TableSearchTextItemAllOfOrders         `json:"orders,omitempty"`
-	CartToOrder    *TableSearchTextItemAllOfCartToOrder    `json:"cartToOrder,omitempty"`
-	Visibility     *TableSearchTextItemAllOfVisibility     `json:"visibility,omitempty"`
+	AvgPosition *TableGroupItemMetricsAvgPosition `json:"avgPosition,omitempty"`
+	OpenCard *TableSearchTextItemAllOfOpenCard `json:"openCard,omitempty"`
+	AddToCart *TableSearchTextItemAllOfAddToCart `json:"addToCart,omitempty"`
+	OpenToCart *TableSearchTextItemAllOfOpenToCart `json:"openToCart,omitempty"`
+	Orders *TableSearchTextItemAllOfOrders `json:"orders,omitempty"`
+	CartToOrder *TableSearchTextItemAllOfCartToOrder `json:"cartToOrder,omitempty"`
+	Visibility *TableSearchTextItemAllOfVisibility `json:"visibility,omitempty"`
 }
 
 // NewTableSearchTextItem instantiates a new TableSearchTextItem object
@@ -709,7 +709,7 @@ func (o *TableSearchTextItem) SetVisibility(v TableSearchTextItemAllOfVisibility
 }
 
 func (o TableSearchTextItem) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -816,3 +816,5 @@ func (v *NullableTableSearchTextItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

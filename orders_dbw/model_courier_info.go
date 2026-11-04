@@ -21,7 +21,7 @@ var _ MappedNullable = &CourierInfo{}
 type CourierInfo struct {
 	// Контактные данные курьера
 	Contacts NullableCourierContactsResponse `json:"contacts,omitempty"`
-	// Должен ли быть назначен курьер к текущему моменту:   - `false` — нет   - `true` — да    Если `\"mustBeAssigned\":true`, а `\"contacts\":null`, необходимо запросить контакты в [поддержке](https://seller.wildberries.ru/service-desk-v2)
+	// Должен ли быть назначен курьер к текущему моменту:   - `false` — нет   - `true` — да    Если `\"mustBeAssigned\":true`, а `\"contacts\":null`, необходимо запросить контакты в [поддержке](https://seller.wildberries.ru/service-desk-v2) 
 	MustBeAssigned *bool `json:"mustBeAssigned,omitempty"`
 	// Дата и время обновления информации о курьере.  Если `null`, информация не обновлялась
 	UpdatedAt NullableString `json:"updatedAt,omitempty"`
@@ -76,7 +76,6 @@ func (o *CourierInfo) HasContacts() bool {
 func (o *CourierInfo) SetContacts(v CourierContactsResponse) {
 	o.Contacts.Set(&v)
 }
-
 // SetContactsNil sets the value for Contacts to be an explicit nil
 func (o *CourierInfo) SetContactsNil() {
 	o.Contacts.Set(nil)
@@ -151,7 +150,6 @@ func (o *CourierInfo) HasUpdatedAt() bool {
 func (o *CourierInfo) SetUpdatedAt(v string) {
 	o.UpdatedAt.Set(&v)
 }
-
 // SetUpdatedAtNil sets the value for UpdatedAt to be an explicit nil
 func (o *CourierInfo) SetUpdatedAtNil() {
 	o.UpdatedAt.Set(nil)
@@ -163,7 +161,7 @@ func (o *CourierInfo) UnsetUpdatedAt() {
 }
 
 func (o CourierInfo) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -219,3 +217,5 @@ func (v *NullableCourierInfo) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

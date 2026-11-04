@@ -74,7 +74,6 @@ func (o *GetV2HistoryGoodsTask200ResponseData) HasUploadID() bool {
 func (o *GetV2HistoryGoodsTask200ResponseData) SetUploadID(v int64) {
 	o.UploadID.Set(&v)
 }
-
 // SetUploadIDNil sets the value for UploadID to be an explicit nil
 func (o *GetV2HistoryGoodsTask200ResponseData) SetUploadIDNil() {
 	o.UploadID.Set(nil)
@@ -119,7 +118,7 @@ func (o *GetV2HistoryGoodsTask200ResponseData) SetHistoryGoods(v []GoodHistory) 
 }
 
 func (o GetV2HistoryGoodsTask200ResponseData) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -172,3 +171,5 @@ func (v *NullableGetV2HistoryGoodsTask200ResponseData) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

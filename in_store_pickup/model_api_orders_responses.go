@@ -20,8 +20,8 @@ var _ MappedNullable = &ApiOrdersResponses{}
 // ApiOrdersResponses struct for ApiOrdersResponses
 type ApiOrdersResponses struct {
 	// Уникальный ID запроса
-	RequestId interface{}         `json:"requestId,omitempty"`
-	Results   []ApiOrdersResponse `json:"results,omitempty"`
+	RequestId interface{} `json:"requestId,omitempty"`
+	Results []ApiOrdersResponse `json:"results,omitempty"`
 }
 
 // NewApiOrdersResponses instantiates a new ApiOrdersResponses object
@@ -107,7 +107,7 @@ func (o *ApiOrdersResponses) SetResults(v []ApiOrdersResponse) {
 }
 
 func (o ApiOrdersResponses) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,3 +160,5 @@ func (v *NullableApiOrdersResponses) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

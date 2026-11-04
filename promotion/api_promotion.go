@@ -19,28 +19,29 @@ import (
 	"reflect"
 )
 
+
 type PromotionAPI interface {
 
 	/*
-			DeleteV0NormqueryBids Удалить ставки поисковых кластеров
+	DeleteV0NormqueryBids Удалить ставки поисковых кластеров
 
-			Метод удаляет ставки с поисковых кластеров.
-		Можно использовать только для кампаний с:
-		- ручной ставкой
-		- моделью оплаты `cpm` — за показы
+	Метод удаляет ставки с поисковых кластеров.
+Можно использовать только для кампаний с:
+- ручной ставкой
+- моделью оплаты `cpm` — за показы
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов |
-		| Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов |
-		| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов |
-		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов |
+| Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов |
+| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов |
+| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/delete-adv-v0-normquery-bids
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/delete-adv-v0-normquery-bids
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiDeleteV0NormqueryBidsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDeleteV0NormqueryBidsRequest
 	*/
 	DeleteV0NormqueryBids(ctx context.Context) ApiDeleteV0NormqueryBidsRequest
 
@@ -48,23 +49,23 @@ type PromotionAPI interface {
 	DeleteV0NormqueryBidsExecute(r ApiDeleteV0NormqueryBidsRequest) (*http.Response, error)
 
 	/*
-			GetV0BidsRecommendations Рекомендуемые ставки для карточек товаров и поисковых кластеров
+	GetV0BidsRecommendations Рекомендуемые ставки для карточек товаров и поисковых кластеров
 
-			Метод возвращает рекомендуемые ставки для карточек товаров и поисковых кластеров кампании.
-		Можно использовать для кампаний с типами оплаты `cpm` — за показы и `cpc` — за клики.
+	Метод возвращает рекомендуемые ставки для карточек товаров и поисковых кластеров кампании.
+Можно использовать для кампаний с типами оплаты `cpm` — за показы и `cpc` — за клики.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов |
-		| Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов |
-		| Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов |
-		| Базовый | 1 ч | 20 запросов | 3 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов |
+| Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов |
+| Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов |
+| Базовый | 1 ч | 20 запросов | 3 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-bids-recommendations
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-bids-recommendations
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV0BidsRecommendationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV0BidsRecommendationsRequest
 	*/
 	GetV0BidsRecommendations(ctx context.Context) ApiGetV0BidsRecommendationsRequest
 
@@ -73,24 +74,24 @@ type PromotionAPI interface {
 	GetV0BidsRecommendationsExecute(r ApiGetV0BidsRecommendationsRequest) (*GetV0BidsRecommendations200Response, *http.Response, error)
 
 	/*
-			GetV0DailyLimits Получить настройки дневных лимитов кампаний
+	GetV0DailyLimits Получить настройки дневных лимитов кампаний
 
-			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-		**Персональному** токену,
-		**Сервисному** токену
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Персональному** токену,
+**Сервисному** токену
 
-		Метод возвращает текущие настройки [дневных лимитов кампаний CPC](https://cmp.wildberries.ru/campaigns/help/knowledge-base/options#%D0%94%D0%BD%D0%B5%D0%B2%D0%BD%D0%BE%D0%B9%D0%BB%D0%B8%D0%BC%D0%B8%D1%82%D0%B2%D0%BA%D0%B0%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F%D1%85%D1%81%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%BE%D0%B9%D0%B7%D0%B0%D0%BA%D0%BB%D0%B8%D0%BA%D0%B8%D0%A1%D0%A0%D0%A1) — максимальных сумм, которые кампании могут потратить на продвижение в течение суток.
+Метод возвращает текущие настройки [дневных лимитов кампаний CPC](https://cmp.wildberries.ru/campaigns/help/knowledge-base/options#%D0%94%D0%BD%D0%B5%D0%B2%D0%BD%D0%BE%D0%B9%D0%BB%D0%B8%D0%BC%D0%B8%D1%82%D0%B2%D0%BA%D0%B0%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F%D1%85%D1%81%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%BE%D0%B9%D0%B7%D0%B0%D0%BA%D0%BB%D0%B8%D0%BA%D0%B8%D0%A1%D0%A0%D0%A1) — максимальных сумм, которые кампании могут потратить на продвижение в течение суток.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов |
-		| Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов |
+| Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-daily-limits
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-daily-limits
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV0DailyLimitsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV0DailyLimitsRequest
 	*/
 	GetV0DailyLimits(ctx context.Context) ApiGetV0DailyLimitsRequest
 
@@ -99,24 +100,24 @@ type PromotionAPI interface {
 	GetV0DailyLimitsExecute(r ApiGetV0DailyLimitsRequest) (*V0GetDailyLimitsResponse, *http.Response, error)
 
 	/*
-			GetV0Delete Удаление кампании
+	GetV0Delete Удаление кампании
 
-			Метод удаляет [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе `4` — готова к запуску.
+	Метод удаляет [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе `4` — готова к запуску.
 
-		После удаления кампания некоторое время будет находиться в статусе `-1` — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.
+После удаления кампания некоторое время будет находиться в статусе `-1` — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов |
-		| Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов |
-		| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
-		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов |
+| Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов |
+| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
+| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-delete
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-delete
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV0DeleteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV0DeleteRequest
 	*/
 	GetV0Delete(ctx context.Context) ApiGetV0DeleteRequest
 
@@ -124,22 +125,22 @@ type PromotionAPI interface {
 	GetV0DeleteExecute(r ApiGetV0DeleteRequest) (*http.Response, error)
 
 	/*
-			GetV0Pause Пауза кампании
+	GetV0Pause Пауза кампании
 
-			Метод ставит [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе `9` — активна — на паузу.
+	Метод ставит [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе `9` — активна — на паузу.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов |
-		| Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов |
-		| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
-		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов |
+| Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов |
+| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
+| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-pause
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-pause
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV0PauseRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV0PauseRequest
 	*/
 	GetV0Pause(ctx context.Context) ApiGetV0PauseRequest
 
@@ -147,23 +148,23 @@ type PromotionAPI interface {
 	GetV0PauseExecute(r ApiGetV0PauseRequest) (*http.Response, error)
 
 	/*
-			GetV0Start Запуск кампании
+	GetV0Start Запуск кампании
 
-			Метод запускает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах `4` — готово к запуску — или `11` — пауза.
-		Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](https://dev.wildberries.ru/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).
+	Метод запускает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах `4` — готово к запуску — или `11` — пауза.
+Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](https://dev.wildberries.ru/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов |
-		| Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов |
-		| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
-		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов |
+| Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов |
+| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
+| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-start
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-start
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV0StartRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV0StartRequest
 	*/
 	GetV0Start(ctx context.Context) ApiGetV0StartRequest
 
@@ -171,24 +172,24 @@ type PromotionAPI interface {
 	GetV0StartExecute(r ApiGetV0StartRequest) (*http.Response, error)
 
 	/*
-			GetV0Stop Завершение кампании
+	GetV0Stop Завершение кампании
 
-			Метод завершает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах:
-		- `9` — активна
-		- `11` — пауза
+	Метод завершает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах:
+- `9` — активна
+- `11` — пауза
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов |
-		| Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов |
-		| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
-		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов |
+| Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов |
+| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
+| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-stop
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-stop
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV0StopRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV0StopRequest
 	*/
 	GetV0Stop(ctx context.Context) ApiGetV0StopRequest
 
@@ -196,22 +197,22 @@ type PromotionAPI interface {
 	GetV0StopExecute(r ApiGetV0StopRequest) (*http.Response, error)
 
 	/*
-			GetV1Advert Информация о медиакампании
+	GetV1Advert Информация о медиакампании
 
-			Метод возвращает информацию о кампании [WB Медиа](https://cmp.wildberries.ru/cmpf/list). Вместо карточек товаров в медиакампаниях продвигаются рекламные баннеры продавца на сайте и в приложении WB.
+	Метод возвращает информацию о кампании [WB Медиа](https://cmp.wildberries.ru/cmpf/list). Вместо карточек товаров в медиакампаниях продвигаются рекламные баннеры продавца на сайте и в приложении WB.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов |
-		| Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов |
-		| Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов |
-		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов |
+| Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов |
+| Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов |
+| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-advert
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-advert
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV1AdvertRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1AdvertRequest
 	*/
 	GetV1Advert(ctx context.Context) ApiGetV1AdvertRequest
 
@@ -220,22 +221,22 @@ type PromotionAPI interface {
 	GetV1AdvertExecute(r ApiGetV1AdvertRequest) (*GetV1AdvertResponse200, *http.Response, error)
 
 	/*
-			GetV1Adverts Список медиакампаний
+	GetV1Adverts Список медиакампаний
 
-			Метод возвращает список всех [медиакампаний](https://dev.wildberries.ru/openapi/promotion#tag/media/operation/getV1Advert) продавца по их типам и статусам.
+	Метод возвращает список всех [медиакампаний](https://dev.wildberries.ru/openapi/promotion#tag/media/operation/getV1Advert) продавца по их типам и статусам.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов |
-		| Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов |
-		| Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов |
-		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов |
+| Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов |
+| Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-adverts
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-adverts
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV1AdvertsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1AdvertsRequest
 	*/
 	GetV1Adverts(ctx context.Context) ApiGetV1AdvertsRequest
 
@@ -244,26 +245,26 @@ type PromotionAPI interface {
 	GetV1AdvertsExecute(r ApiGetV1AdvertsRequest) ([]GetV1AdvertsResponse200Inner, *http.Response, error)
 
 	/*
-			GetV1Balance Баланс
+	GetV1Balance Баланс
 
-			Метод возвращает информацию о:
-		- счёте кабинета Продвижения WB. Его пополняет продавец.
-		- балансе — максимальной сумме для оплаты кампании по взаиморасчету: удержании средств из будущих продаж. Баланс пополнить нельзя, он рассчитывается автоматически на основе отчётов по продвижению.
-		- бонусных начислениях WB.
-		Чтобы получить информацию о бюджетах кампаний, используйте метод [Бюджеты кампаний](https://dev.wildberries.ru/openapi/promotion#tag/finances/operation/postV2Budget).
+	Метод возвращает информацию о:
+- счёте кабинета Продвижения WB. Его пополняет продавец.
+- балансе — максимальной сумме для оплаты кампании по взаиморасчету: удержании средств из будущих продаж. Баланс пополнить нельзя, он рассчитывается автоматически на основе отчётов по продвижению.
+- бонусных начислениях WB.
+Чтобы получить информацию о бюджетах кампаний, используйте метод [Бюджеты кампаний](https://dev.wildberries.ru/openapi/promotion#tag/finances/operation/postV2Budget).
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов |
-		| Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов |
-		| Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов |
+| Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов |
+| Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-balance
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-balance
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV1BalanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1BalanceRequest
 	*/
 	GetV1Balance(ctx context.Context) ApiGetV1BalanceRequest
 
@@ -272,24 +273,24 @@ type PromotionAPI interface {
 	GetV1BalanceExecute(r ApiGetV1BalanceRequest) (*GetV1BalanceResponse200, *http.Response, error)
 
 	/*
-			GetV1Budget Бюджет кампании
+	GetV1Budget Бюджет кампании
 
-			Метод будет отключен [16 ноября](https://dev.wildberries.ru/release-notes?id=582).
+	Метод будет отключен [16 ноября](https://dev.wildberries.ru/release-notes?id=582).
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 сек | 4 запроса | 250 мс | 4 запроса |
-		| Сервисный | 1 сек | 4 запроса | 250 мс | 4 запроса |
-		| Базовый с секретом | 1 сек | 4 запроса | 250 мс | 4 запроса |
-		| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 сек | 4 запроса | 250 мс | 4 запроса |
+| Сервисный | 1 сек | 4 запроса | 250 мс | 4 запроса |
+| Базовый с секретом | 1 сек | 4 запроса | 250 мс | 4 запроса |
+| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-budget
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-budget
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV1BudgetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1BudgetRequest
 
-			Deprecated
+	Deprecated
 	*/
 	GetV1Budget(ctx context.Context) ApiGetV1BudgetRequest
 
@@ -299,22 +300,22 @@ type PromotionAPI interface {
 	GetV1BudgetExecute(r ApiGetV1BudgetRequest) (*GetV1BudgetResponse200, *http.Response, error)
 
 	/*
-			GetV1CalendarPromotions Список акций
+	GetV1CalendarPromotions Список акций
 
-			Метод возвращает список [акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) в WB с датами и временем проведения.
+	Метод возвращает список [акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) в WB с датами и временем проведения.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Календарь акций**:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Календарь акций**:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-v1-calendar-promotions
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-v1-calendar-promotions
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV1CalendarPromotionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1CalendarPromotionsRequest
 	*/
 	GetV1CalendarPromotions(ctx context.Context) ApiGetV1CalendarPromotionsRequest
 
@@ -323,22 +324,22 @@ type PromotionAPI interface {
 	GetV1CalendarPromotionsExecute(r ApiGetV1CalendarPromotionsRequest) (*GetV1CalendarPromotions200Response, *http.Response, error)
 
 	/*
-			GetV1CalendarPromotionsDetails Детальная информация об акциях
+	GetV1CalendarPromotionsDetails Детальная информация об акциях
 
-			Метод возвращает подробную информацию об [акции](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) по ID.
+	Метод возвращает подробную информацию об [акции](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) по ID.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Календарь акций**:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Календарь акций**:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-v1-calendar-promotions-details
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-v1-calendar-promotions-details
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV1CalendarPromotionsDetailsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1CalendarPromotionsDetailsRequest
 	*/
 	GetV1CalendarPromotionsDetails(ctx context.Context) ApiGetV1CalendarPromotionsDetailsRequest
 
@@ -347,21 +348,21 @@ type PromotionAPI interface {
 	GetV1CalendarPromotionsDetailsExecute(r ApiGetV1CalendarPromotionsDetailsRequest) (*GetV1CalendarPromotionsDetails200Response, *http.Response, error)
 
 	/*
-			GetV1CalendarPromotionsNomenclatures Список товаров для участия в акции
+	GetV1CalendarPromotionsNomenclatures Список товаров для участия в акции
 
-			Метод формирует список товаров, подходящих для участия в [акции](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails). Эти товары можно добавить в акцию с помощью [отдельного метода](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar/operation/postV1CalendarPromotionsUpload).
+	Метод формирует список товаров, подходящих для участия в [акции](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails). Эти товары можно добавить в акцию с помощью [отдельного метода](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar/operation/postV1CalendarPromotionsUpload).
 
-		Данный метод неприменим для автоакций.
+Данный метод неприменим для автоакций.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Календарь акций**:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 6 сек | 10 запросов | 600 мс | 5 запросов |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Календарь акций**:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 6 сек | 10 запросов | 600 мс | 5 запросов |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-v1-calendar-promotions-nomenclatures
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-v1-calendar-promotions-nomenclatures
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV1CalendarPromotionsNomenclaturesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1CalendarPromotionsNomenclaturesRequest
 	*/
 	GetV1CalendarPromotionsNomenclatures(ctx context.Context) ApiGetV1CalendarPromotionsNomenclaturesRequest
 
@@ -370,23 +371,23 @@ type PromotionAPI interface {
 	GetV1CalendarPromotionsNomenclaturesExecute(r ApiGetV1CalendarPromotionsNomenclaturesRequest) (*GetV1CalendarPromotionsNomenclatures200Response, *http.Response, error)
 
 	/*
-			GetV1Config Конфигурационные значения продвижения
+	GetV1Config Конфигурационные значения продвижения
 
-			Метод возвращает валюту, код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [POST /api/advert/v1/normquery/bids](https://dev.wildberries.ru/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)
+	Метод возвращает валюту, код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [POST /api/advert/v1/normquery/bids](https://dev.wildberries.ru/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)
 
-		Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-		**Персональному** токену,
-		**Сервисному** токену
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Персональному** токену,
+**Сервисному** токену
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 1 запрос | 1 мин | 10 запросов |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 1 запрос | 1 мин | 10 запросов |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v1-config
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v1-config
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV1ConfigRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1ConfigRequest
 	*/
 	GetV1Config(ctx context.Context) ApiGetV1ConfigRequest
 
@@ -395,22 +396,22 @@ type PromotionAPI interface {
 	GetV1ConfigExecute(r ApiGetV1ConfigRequest) (*V2GetConfigResponse, *http.Response, error)
 
 	/*
-			GetV1Count Количество медиакампаний
+	GetV1Count Количество медиакампаний
 
-			Метод возвращает количество [медиакампаний](https://dev.wildberries.ru/openapi/promotion#tag/media/operation/getV1Advert) продавца с группировкой по статусам.
+	Метод возвращает количество [медиакампаний](https://dev.wildberries.ru/openapi/promotion#tag/media/operation/getV1Advert) продавца с группировкой по статусам.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов |
-		| Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов |
-		| Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов |
-		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов |
+| Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов |
+| Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-count
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-count
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV1CountRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1CountRequest
 	*/
 	GetV1Count(ctx context.Context) ApiGetV1CountRequest
 
@@ -419,22 +420,22 @@ type PromotionAPI interface {
 	GetV1CountExecute(r ApiGetV1CountRequest) (*GetV1CountResponse200, *http.Response, error)
 
 	/*
-			GetV1Payments Получение истории пополнений счёта
+	GetV1Payments Получение истории пополнений счёта
 
-			Метод возвращает историю пополнений счёта \*\*WB Продвижение\*\* за заданный период.
+	Метод возвращает историю пополнений счёта \*\*WB Продвижение\*\* за заданный период.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов |
-		| Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов |
-		| Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов |
-		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов |
+| Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов |
+| Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-payments
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-payments
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV1PaymentsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1PaymentsRequest
 	*/
 	GetV1Payments(ctx context.Context) ApiGetV1PaymentsRequest
 
@@ -443,22 +444,22 @@ type PromotionAPI interface {
 	GetV1PaymentsExecute(r ApiGetV1PaymentsRequest) ([]GetV1PaymentsResponse200Inner, *http.Response, error)
 
 	/*
-			GetV1PromotionCount Списки кампаний
+	GetV1PromotionCount Списки кампаний
 
-			Метод возвращает списки всех [рекламных кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.
+	Метод возвращает списки всех [рекламных кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов |
-		| Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов |
-		| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
-		| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов |
+| Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов |
+| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
+| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-promotion-count
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-promotion-count
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV1PromotionCountRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1PromotionCountRequest
 	*/
 	GetV1PromotionCount(ctx context.Context) ApiGetV1PromotionCountRequest
 
@@ -467,22 +468,22 @@ type PromotionAPI interface {
 	GetV1PromotionCountExecute(r ApiGetV1PromotionCountRequest) (*GetV1PromotionCountResponse200, *http.Response, error)
 
 	/*
-			GetV1SupplierSubjects Предметы для кампаний
+	GetV1SupplierSubjects Предметы для кампаний
 
-			Метод возвращает список [предметов](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts).
+	Метод возвращает список [предметов](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts).
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 12 сек | 1 запрос | 12 сек | 5 запросов |
-		| Сервисный | 12 сек | 1 запрос | 12 сек | 5 запросов |
-		| Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 12 сек | 1 запрос | 12 сек | 5 запросов |
+| Сервисный | 12 сек | 1 запрос | 12 сек | 5 запросов |
+| Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-supplier-subjects
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-supplier-subjects
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV1SupplierSubjectsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1SupplierSubjectsRequest
 	*/
 	GetV1SupplierSubjects(ctx context.Context) ApiGetV1SupplierSubjectsRequest
 
@@ -491,22 +492,22 @@ type PromotionAPI interface {
 	GetV1SupplierSubjectsExecute(r ApiGetV1SupplierSubjectsRequest) ([]GetV1SupplierSubjectsResponse200Inner, *http.Response, error)
 
 	/*
-			GetV1Upd Получение истории затрат
+	GetV1Upd Получение истории затрат
 
-			Метод формирует список фактических затрат на рекламные кампании за заданный период.
+	Метод формирует список фактических затрат на рекламные кампании за заданный период.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов |
-		| Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов |
-		| Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов |
-		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов |
+| Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов |
+| Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-upd
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-upd
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV1UpdRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1UpdRequest
 	*/
 	GetV1Upd(ctx context.Context) ApiGetV1UpdRequest
 
@@ -515,22 +516,22 @@ type PromotionAPI interface {
 	GetV1UpdExecute(r ApiGetV1UpdRequest) ([]GetV1UpdResponse200Inner, *http.Response, error)
 
 	/*
-			GetV2Adverts Информация о кампаниях
+	GetV2Adverts Информация о кампаниях
 
-			Метод возвращает информацию о рекламных кампаниях с единой или ручной ставкой по их статусам, типам оплаты и ID.
+	Метод возвращает информацию о рекламных кампаниях с единой или ручной ставкой по их статусам, типам оплаты и ID.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов |
-		| Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов |
-		| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
-		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов |
+| Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов |
+| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v2-adverts
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v2-adverts
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV2AdvertsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV2AdvertsRequest
 	*/
 	GetV2Adverts(ctx context.Context) ApiGetV2AdvertsRequest
 
@@ -539,26 +540,26 @@ type PromotionAPI interface {
 	GetV2AdvertsExecute(r ApiGetV2AdvertsRequest) (*GetAdverts, *http.Response, error)
 
 	/*
-			GetV3Fullstats Статистика кампаний
+	GetV3Fullstats Статистика кампаний
 
-			Метод формирует статистику для кампаний независимо от типа.
+	Метод формирует статистику для кампаний независимо от типа.
 
-		Максимальный период в запросе — 31 день.
+Максимальный период в запросе — 31 день.
 
-		Для кампаний в статусах `7`, `9` и `11`.
+Для кампаний в статусах `7`, `9` и `11`.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос |
-		| Сервисный | 1 мин | 3 запроса | 20 сек | 1 запрос |
-		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос |
-		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос |
+| Сервисный | 1 мин | 3 запроса | 20 сек | 1 запрос |
+| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v3-fullstats
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v3-fullstats
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV3FullstatsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV3FullstatsRequest
 	*/
 	GetV3Fullstats(ctx context.Context) ApiGetV3FullstatsRequest
 
@@ -567,26 +568,26 @@ type PromotionAPI interface {
 	GetV3FullstatsExecute(r ApiGetV3FullstatsRequest) ([]FullStatsItem, *http.Response, error)
 
 	/*
-			PatchV0AuctionNms Изменение списка карточек товаров в кампаниях
+	PatchV0AuctionNms Изменение списка карточек товаров в кампаниях
 
-			Метод добавляет и удаляет карточки товаров в кампаниях.
+	Метод добавляет и удаляет карточки товаров в кампаниях.
 
-		Для кампаний в статусах `4`, `9` и `11`.
+Для кампаний в статусах `4`, `9` и `11`.
 
-		Для добавляемых товаров устанавливается текущая минимальная ставка.
+Для добавляемых товаров устанавливается текущая минимальная ставка.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 сек | 1 запрос | 1 сек | 1 запрос |
-		| Сервисный | 1 сек | 1 запрос | 1 сек | 1 запрос |
-		| Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 сек | 1 запрос | 1 сек | 1 запрос |
+| Сервисный | 1 сек | 1 запрос | 1 сек | 1 запрос |
+| Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/patch-adv-v0-auction-nms
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/patch-adv-v0-auction-nms
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPatchV0AuctionNmsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPatchV0AuctionNmsRequest
 	*/
 	PatchV0AuctionNms(ctx context.Context) ApiPatchV0AuctionNmsRequest
 
@@ -595,30 +596,30 @@ type PromotionAPI interface {
 	PatchV0AuctionNmsExecute(r ApiPatchV0AuctionNmsRequest) (*PatchV0AuctionNmsResponse200, *http.Response, error)
 
 	/*
-			PatchV1Bids Изменение ставок в кампаниях
+	PatchV1Bids Изменение ставок в кампаниях
 
-			Метод меняет ставки карточек товаров по артикулам WB в кампаниях:
-		- с единой ставкой
-		- с ручной ставкой
-		- с моделью оплаты `cpc` — за клики
-		Для кампаний в статусах `4`, `9` и `11`.
+	Метод меняет ставки карточек товаров по артикулам WB в кампаниях:
+- с единой ставкой
+- с ручной ставкой
+- с моделью оплаты `cpc` — за клики
+Для кампаний в статусах `4`, `9` и `11`.
 
-		В запросе укажите место размещения в параметре `placement`:
-		- `combined` — в поиске и рекомендациях для кампаний с единой ставкой
-		- `search `или `recommendations` — в поиске или рекомендациях для кампаний с ручной ставкой
+В запросе укажите место размещения в параметре `placement`:
+- `combined` — в поиске и рекомендациях для кампаний с единой ставкой
+- `search `или `recommendations` — в поиске или рекомендациях для кампаний с ручной ставкой
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов |
-		| Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов |
-		| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов |
+| Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов |
+| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/patch-api-advert-v1-bids
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/patch-api-advert-v1-bids
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPatchV1BidsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPatchV1BidsRequest
 	*/
 	PatchV1Bids(ctx context.Context) ApiPatchV1BidsRequest
 
@@ -627,25 +628,25 @@ type PromotionAPI interface {
 	PatchV1BidsExecute(r ApiPatchV1BidsRequest) (*PatchV1BidsResponse200, *http.Response, error)
 
 	/*
-			PostV0NormqueryBids Установить ставки для поисковых кластеров
+	PostV0NormqueryBids Установить ставки для поисковых кластеров
 
-			Метод устанавливает ставки в рублях на поисковые кластеры.
-		Можно использовать только для кампаний с:
-		- ручной ставкой
-		- моделью оплаты `cpm` — за показы
+	Метод устанавливает ставки в рублях на поисковые кластеры.
+Можно использовать только для кампаний с:
+- ручной ставкой
+- моделью оплаты `cpm` — за показы
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса |
-		| Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса |
-		| Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса |
-		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса |
+| Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса |
+| Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса |
+| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-bids
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-bids
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV0NormqueryBidsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV0NormqueryBidsRequest
 	*/
 	PostV0NormqueryBids(ctx context.Context) ApiPostV0NormqueryBidsRequest
 
@@ -653,24 +654,24 @@ type PromotionAPI interface {
 	PostV0NormqueryBidsExecute(r ApiPostV0NormqueryBidsRequest) (*http.Response, error)
 
 	/*
-			PostV0NormqueryGetBids Список ставок поисковых кластеров
+	PostV0NormqueryGetBids Список ставок поисковых кластеров
 
-			Метод возвращает список поисковых кластеров со ставками по:
-		- ID кампаний
-		- артикулам WB
+	Метод возвращает список поисковых кластеров со ставками по:
+- ID кампаний
+- артикулам WB
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов |
-		| Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов |
-		| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов |
-		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов |
+| Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов |
+| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов |
+| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-get-bids
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-get-bids
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV0NormqueryGetBidsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV0NormqueryGetBidsRequest
 	*/
 	PostV0NormqueryGetBids(ctx context.Context) ApiPostV0NormqueryGetBidsRequest
 
@@ -679,24 +680,24 @@ type PromotionAPI interface {
 	PostV0NormqueryGetBidsExecute(r ApiPostV0NormqueryGetBidsRequest) (*V0GetNormQueryBidsResponse, *http.Response, error)
 
 	/*
-			PostV0NormqueryGetMinus Список минус-фраз кампаний
+	PostV0NormqueryGetMinus Список минус-фраз кампаний
 
-			Метод возвращает список минус-фраз по:
-		- ID кампаний
-		- артикулам WB
+	Метод возвращает список минус-фраз по:
+- ID кампаний
+- артикулам WB
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов |
-		| Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов |
-		| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов |
-		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов |
+| Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов |
+| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов |
+| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-get-minus
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-get-minus
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV0NormqueryGetMinusRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV0NormqueryGetMinusRequest
 	*/
 	PostV0NormqueryGetMinus(ctx context.Context) ApiPostV0NormqueryGetMinusRequest
 
@@ -705,22 +706,22 @@ type PromotionAPI interface {
 	PostV0NormqueryGetMinusExecute(r ApiPostV0NormqueryGetMinusRequest) (*V0GetNormQueryMinusResponse, *http.Response, error)
 
 	/*
-			PostV0NormqueryList Списки активных и неактивных поисковых кластеров
+	PostV0NormqueryList Списки активных и неактивных поисковых кластеров
 
-			Метод возвращает списки активных и неактивных поисковых кластеров, по которым было не меньше 100 показов.
+	Метод возвращает списки активных и неактивных поисковых кластеров, по которым было не меньше 100 показов.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов |
-		| Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов |
-		| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов |
-		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов |
+| Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов |
+| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов |
+| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-list
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-list
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV0NormqueryListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV0NormqueryListRequest
 	*/
 	PostV0NormqueryList(ctx context.Context) ApiPostV0NormqueryListRequest
 
@@ -729,24 +730,24 @@ type PromotionAPI interface {
 	PostV0NormqueryListExecute(r ApiPostV0NormqueryListRequest) (*V0GetNormQueryListResponse, *http.Response, error)
 
 	/*
-			PostV0NormquerySetMinus Установка и удаление минус-фраз
+	PostV0NormquerySetMinus Установка и удаление минус-фраз
 
-			Метод устанавливает и удаляет минус-фразы в кампаниях c единой и ручной ставкой.
+	Метод устанавливает и удаляет минус-фразы в кампаниях c единой и ручной ставкой.
 
-		Отправка пустого массива удаляет все минус-фразы
+Отправка пустого массива удаляет все минус-фразы
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов |
-		| Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов |
-		| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов |
-		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов |
+| Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов |
+| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов |
+| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-set-minus
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-set-minus
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV0NormquerySetMinusRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV0NormquerySetMinusRequest
 	*/
 	PostV0NormquerySetMinus(ctx context.Context) ApiPostV0NormquerySetMinusRequest
 
@@ -754,23 +755,23 @@ type PromotionAPI interface {
 	PostV0NormquerySetMinusExecute(r ApiPostV0NormquerySetMinusRequest) (*http.Response, error)
 
 	/*
-			PostV0NormqueryStats Статистика поисковых кластеров
+	PostV0NormqueryStats Статистика поисковых кластеров
 
-			Метод формирует статистику по поисковым кластерам за указанный период.
-		Можно использовать для кампаний с моделями оплаты `cpm` — за показы и `cpc` — за клики.
+	Метод формирует статистику по поисковым кластерам за указанный период.
+Можно использовать для кампаний с моделями оплаты `cpm` — за показы и `cpc` — за клики.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 10 запросов | 6 сек | 20 запросов |
-		| Сервисный | 1 мин | 10 запросов | 6 сек | 20 запросов |
-		| Базовый с секретом | 1 мин | 10 запросов | 6 сек | 20 запросов |
-		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 10 запросов | 6 сек | 20 запросов |
+| Сервисный | 1 мин | 10 запросов | 6 сек | 20 запросов |
+| Базовый с секретом | 1 мин | 10 запросов | 6 сек | 20 запросов |
+| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-stats
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-stats
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV0NormqueryStatsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV0NormqueryStatsRequest
 	*/
 	PostV0NormqueryStats(ctx context.Context) ApiPostV0NormqueryStatsRequest
 
@@ -779,22 +780,22 @@ type PromotionAPI interface {
 	PostV0NormqueryStatsExecute(r ApiPostV0NormqueryStatsRequest) (*V0GetNormQueryStatsResponse, *http.Response, error)
 
 	/*
-			PostV0Rename Переименование кампании
+	PostV0Rename Переименование кампании
 
-			Метод меняет название [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts). Это можно сделать в любой момент существования кампании.
+	Метод меняет название [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts). Это можно сделать в любой момент существования кампании.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов |
-		| Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов |
-		| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов |
+| Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов |
+| Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-rename
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-rename
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV0RenameRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV0RenameRequest
 	*/
 	PostV0Rename(ctx context.Context) ApiPostV0RenameRequest
 
@@ -802,22 +803,22 @@ type PromotionAPI interface {
 	PostV0RenameExecute(r ApiPostV0RenameRequest) (*http.Response, error)
 
 	/*
-			PostV1BidsMin Минимальные ставки для карточек товаров
+	PostV1BidsMin Минимальные ставки для карточек товаров
 
-			Метод возвращает минимальные ставки для карточек товаров в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) — по типу оплаты и местам размещения.
+	Метод возвращает минимальные ставки для карточек товаров в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) — по типу оплаты и местам размещения.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 20 запросов | 3 сек | 5 запросов |
-		| Сервисный | 1 мин | 20 запросов | 3 сек | 5 запросов |
-		| Базовый с секретом | 1 мин | 20 запросов | 3 сек | 5 запросов |
-		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 20 запросов | 3 сек | 5 запросов |
+| Сервисный | 1 мин | 20 запросов | 3 сек | 5 запросов |
+| Базовый с секретом | 1 мин | 20 запросов | 3 сек | 5 запросов |
+| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v1-bids-min
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v1-bids-min
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV1BidsMinRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV1BidsMinRequest
 	*/
 	PostV1BidsMin(ctx context.Context) ApiPostV1BidsMinRequest
 
@@ -826,23 +827,23 @@ type PromotionAPI interface {
 	PostV1BidsMinExecute(r ApiPostV1BidsMinRequest) (*PostV1BidsMinResponse200, *http.Response, error)
 
 	/*
-			PostV1BudgetDeposit Пополнение бюджета кампании
+	PostV1BudgetDeposit Пополнение бюджета кампании
 
-			Метод пополняет [бюджет](https://dev.wildberries.ru/openapi/promotion#tag/finances/operation/postV2Budget) кампании.
-		Чтобы запустить кампанию после пополнения бюджета, используйте метод [Запуск кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaignManagement/operation/getV0Start).
+	Метод пополняет [бюджет](https://dev.wildberries.ru/openapi/promotion#tag/finances/operation/postV2Budget) кампании.
+Чтобы запустить кампанию после пополнения бюджета, используйте метод [Запуск кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaignManagement/operation/getV0Start).
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов |
-		| Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов |
-		| Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов |
-		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов |
+| Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов |
+| Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов |
+| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v1-budget-deposit
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v1-budget-deposit
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV1BudgetDepositRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV1BudgetDepositRequest
 	*/
 	PostV1BudgetDeposit(ctx context.Context) ApiPostV1BudgetDepositRequest
 
@@ -851,25 +852,25 @@ type PromotionAPI interface {
 	PostV1BudgetDepositExecute(r ApiPostV1BudgetDepositRequest) (*ResponseWithReturn, *http.Response, error)
 
 	/*
-			PostV1CalendarPromotionsUpload Добавить товар в акцию
+	PostV1CalendarPromotionsUpload Добавить товар в акцию
 
-			Метод создаёт задание на загрузку товара в [акцию](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails).
-		Состояние загрузки можно проверить с помощью [отдельных методов](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks).
+	Метод создаёт задание на загрузку товара в [акцию](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails).
+Состояние загрузки можно проверить с помощью [отдельных методов](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks).
 
-		Данный метод неприменим для автоакций.
+Данный метод неприменим для автоакций.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Календарь акций**:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Календарь акций**:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-v1-calendar-promotions-upload
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-v1-calendar-promotions-upload
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV1CalendarPromotionsUploadRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV1CalendarPromotionsUploadRequest
 	*/
 	PostV1CalendarPromotionsUpload(ctx context.Context) ApiPostV1CalendarPromotionsUploadRequest
 
@@ -878,25 +879,25 @@ type PromotionAPI interface {
 	PostV1CalendarPromotionsUploadExecute(r ApiPostV1CalendarPromotionsUploadRequest) (*PostV1CalendarPromotionsUpload200Response, *http.Response, error)
 
 	/*
-			PostV1NormqueryBids Установить ставки для поисковых кластеров в валюте профиля продавца
+	PostV1NormqueryBids Установить ставки для поисковых кластеров в валюте профиля продавца
 
-			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-		**Персональному** токену,
-		**Сервисному** токену
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Персональному** токену,
+**Сервисному** токену
 
-		Метод устанавливает ставки на поисковые кластеры в валюте [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).
-		Можно использовать только для кампаний c ручной ставкой и моделью оплаты `cpm` — за показы.
+Метод устанавливает ставки на поисковые кластеры в валюте [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).
+Можно использовать только для кампаний c ручной ставкой и моделью оплаты `cpm` — за показы.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса |
-		| Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса |
+| Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v1-normquery-bids
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v1-normquery-bids
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV1NormqueryBidsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV1NormqueryBidsRequest
 	*/
 	PostV1NormqueryBids(ctx context.Context) ApiPostV1NormqueryBidsRequest
 
@@ -905,23 +906,23 @@ type PromotionAPI interface {
 	PostV1NormqueryBidsExecute(r ApiPostV1NormqueryBidsRequest) (*V1SetNormQueryBidsResponse, *http.Response, error)
 
 	/*
-			PostV1NormqueryStats Статистика по поисковым кластерам с детализацией по дням
+	PostV1NormqueryStats Статистика по поисковым кластерам с детализацией по дням
 
-			Метод формирует статистику по поисковым кластерам за указанный период с детализацией по дням.
-		Можно использовать для кампаний с моделями оплаты `cpm` — за показы и `cpc` — за клики.
+	Метод формирует статистику по поисковым кластерам за указанный период с детализацией по дням.
+Можно использовать для кампаний с моделями оплаты `cpm` — за показы и `cpc` — за клики.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 10 запросов | 6 сек | 20 запросов |
-		| Сервисный | 1 мин | 10 запросов | 6 сек | 20 запросов |
-		| Базовый с секретом | 1 мин | 10 запросов | 6 сек | 20 запросов |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 10 запросов | 6 сек | 20 запросов |
+| Сервисный | 1 мин | 10 запросов | 6 сек | 20 запросов |
+| Базовый с секретом | 1 мин | 10 запросов | 6 сек | 20 запросов |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v1-normquery-stats
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v1-normquery-stats
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV1NormqueryStatsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV1NormqueryStatsRequest
 	*/
 	PostV1NormqueryStats(ctx context.Context) ApiPostV1NormqueryStatsRequest
 
@@ -930,22 +931,22 @@ type PromotionAPI interface {
 	PostV1NormqueryStatsExecute(r ApiPostV1NormqueryStatsRequest) (*V1GetNormQueryStatsResponse, *http.Response, error)
 
 	/*
-			PostV1Stats Статистика медиакампаний
+	PostV1Stats Статистика медиакампаний
 
-			Метод формирует статистику кампаний сервиса [WB Медиа](https://cmp.wildberries.ru/cmpf/statistics). Статистику можно группировать по датам и/или интервалам.
+	Метод формирует статистику кампаний сервиса [WB Медиа](https://cmp.wildberries.ru/cmpf/statistics). Статистику можно группировать по датам и/или интервалам.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов |
-		| Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов |
-		| Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов |
-		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов |
+| Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов |
+| Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v1-stats
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v1-stats
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV1StatsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV1StatsRequest
 	*/
 	PostV1Stats(ctx context.Context) ApiPostV1StatsRequest
 
@@ -954,26 +955,26 @@ type PromotionAPI interface {
 	PostV1StatsExecute(r ApiPostV1StatsRequest) ([]PostV1StatsResponse200Inner, *http.Response, error)
 
 	/*
-			PostV2Budget Остатки бюджетов кампаний
+	PostV2Budget Остатки бюджетов кампаний
 
-			Метод возвращает информацию об остатках бюджетов [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts).
-		Для кампаний в [статусах](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV1PromotionCount):
-		- `4` — готова к запуску
-		- `9` — активна
-		- `11` — на паузе
+	Метод возвращает информацию об остатках бюджетов [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts).
+Для кампаний в [статусах](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV1PromotionCount):
+- `4` — готова к запуску
+- `9` — активна
+- `11` — на паузе
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 20 запросов | 3 сек | 4 запроса |
-		| Сервисный | 1 мин | 20 запросов | 3 сек | 4 запроса |
-		| Базовый с секретом | 1 мин | 20 запросов | 3 сек | 4 запроса |
-		| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 20 запросов | 3 сек | 4 запроса |
+| Сервисный | 1 мин | 20 запросов | 3 сек | 4 запроса |
+| Базовый с секретом | 1 мин | 20 запросов | 3 сек | 4 запроса |
+| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v2-budget
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v2-budget
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV2BudgetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV2BudgetRequest
 	*/
 	PostV2Budget(ctx context.Context) ApiPostV2BudgetRequest
 
@@ -982,24 +983,24 @@ type PromotionAPI interface {
 	PostV2BudgetExecute(r ApiPostV2BudgetRequest) (*V2BudgetResponse, *http.Response, error)
 
 	/*
-			PostV2SeacatSaveAd Создать кампанию
+	PostV2SeacatSaveAd Создать кампанию
 
-			Метод создаёт кампанию:
-		- с ручной ставкой для продвижения товаров в поиске и/или рекомендациях
-		- с единой ставкой для продвижения товаров одновременно в поиске и рекомендациях
+	Метод создаёт кампанию:
+- с ручной ставкой для продвижения товаров в поиске и/или рекомендациях
+- с единой ставкой для продвижения товаров одновременно в поиске и рекомендациях
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов |
-		| Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов |
-		| Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов |
-		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов |
+| Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов |
+| Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов |
+| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-seacat-save-ad
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-seacat-save-ad
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV2SeacatSaveAdRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV2SeacatSaveAdRequest
 	*/
 	PostV2SeacatSaveAd(ctx context.Context) ApiPostV2SeacatSaveAdRequest
 
@@ -1008,22 +1009,22 @@ type PromotionAPI interface {
 	PostV2SeacatSaveAdExecute(r ApiPostV2SeacatSaveAdRequest) (int64, *http.Response, error)
 
 	/*
-			PostV2SupplierNms Карточки товаров для кампаний
+	PostV2SupplierNms Карточки товаров для кампаний
 
-			Метод возвращает список [карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для получения карточек необходимы ID [предметов](https://dev.wildberries.ru/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.
+	Метод возвращает список [карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для получения карточек необходимы ID [предметов](https://dev.wildberries.ru/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов |
-		| Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов |
-		| Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов |
+| Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов |
+| Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-supplier-nms
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-supplier-nms
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV2SupplierNmsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV2SupplierNmsRequest
 	*/
 	PostV2SupplierNms(ctx context.Context) ApiPostV2SupplierNmsRequest
 
@@ -1032,24 +1033,24 @@ type PromotionAPI interface {
 	PostV2SupplierNmsExecute(r ApiPostV2SupplierNmsRequest) ([]PostV2SupplierNmsResponse200Inner, *http.Response, error)
 
 	/*
-			PutV0AuctionPlacements Изменение мест размещения в кампаниях с ручной ставкой
+	PutV0AuctionPlacements Изменение мест размещения в кампаниях с ручной ставкой
 
-			Метод меняет места размещения в кампаниях с ручной ставкой и моделью оплаты за показы — `cpm`.
+	Метод меняет места размещения в кампаниях с ручной ставкой и моделью оплаты за показы — `cpm`.
 
-		Для кампаний в статусах `4`, `9` и `11`.
+Для кампаний в статусах `4`, `9` и `11`.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 сек | 1 запрос | 1 сек | 1 запрос |
-		| Сервисный | 1 сек | 1 запрос | 1 сек | 1 запрос |
-		| Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 сек | 1 запрос | 1 сек | 1 запрос |
+| Сервисный | 1 сек | 1 запрос | 1 сек | 1 запрос |
+| Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/put-adv-v0-auction-placements
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/put-adv-v0-auction-placements
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPutV0AuctionPlacementsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPutV0AuctionPlacementsRequest
 	*/
 	PutV0AuctionPlacements(ctx context.Context) ApiPutV0AuctionPlacementsRequest
 
@@ -1057,24 +1058,24 @@ type PromotionAPI interface {
 	PutV0AuctionPlacementsExecute(r ApiPutV0AuctionPlacementsRequest) (*http.Response, error)
 
 	/*
-			PutV0DailyLimits Настройка дневных лимитов кампаний
+	PutV0DailyLimits Настройка дневных лимитов кампаний
 
-			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-		**Персональному** токену,
-		**Сервисному** токену
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Персональному** токену,
+**Сервисному** токену
 
-		Метод включает, выключает и обновляет дневной лимит кампаний.
+Метод включает, выключает и обновляет дневной лимит кампаний.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов |
-		| Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов |
+| Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/put-api-advert-v0-daily-limits
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/put-api-advert-v0-daily-limits
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPutV0DailyLimitsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPutV0DailyLimitsRequest
 	*/
 	PutV0DailyLimits(ctx context.Context) ApiPutV0DailyLimitsRequest
 
@@ -1087,8 +1088,8 @@ type PromotionAPI interface {
 type PromotionAPIService service
 
 type ApiDeleteV0NormqueryBidsRequest struct {
-	ctx                          context.Context
-	ApiService                   PromotionAPI
+	ctx context.Context
+	ApiService PromotionAPI
 	v0DeleteNormQueryBidsRequest *V0DeleteNormQueryBidsRequest
 }
 
@@ -1119,22 +1120,22 @@ DeleteV0NormqueryBids Удалить ставки поисковых класт�
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/delete-adv-v0-normquery-bids
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiDeleteV0NormqueryBidsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiDeleteV0NormqueryBidsRequest
 */
 func (a *PromotionAPIService) DeleteV0NormqueryBids(ctx context.Context) ApiDeleteV0NormqueryBidsRequest {
 	return ApiDeleteV0NormqueryBidsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
 func (a *PromotionAPIService) DeleteV0NormqueryBidsExecute(r ApiDeleteV0NormqueryBidsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.DeleteV0NormqueryBids")
@@ -1199,8 +1200,8 @@ func (a *PromotionAPIService) DeleteV0NormqueryBidsExecute(r ApiDeleteV0Normquer
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1210,8 +1211,8 @@ func (a *PromotionAPIService) DeleteV0NormqueryBidsExecute(r ApiDeleteV0Normquer
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1221,8 +1222,8 @@ func (a *PromotionAPIService) DeleteV0NormqueryBidsExecute(r ApiDeleteV0Normquer
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1232,8 +1233,8 @@ func (a *PromotionAPIService) DeleteV0NormqueryBidsExecute(r ApiDeleteV0Normquer
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1242,10 +1243,10 @@ func (a *PromotionAPIService) DeleteV0NormqueryBidsExecute(r ApiDeleteV0Normquer
 }
 
 type ApiGetV0BidsRecommendationsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService PromotionAPI
-	nmId       *int64
-	advertId   *int64
+	nmId *int64
+	advertId *int64
 }
 
 // Артикул WB
@@ -1280,25 +1281,24 @@ GetV0BidsRecommendations Рекомендуемые ставки для карт
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-bids-recommendations
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV0BidsRecommendationsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV0BidsRecommendationsRequest
 */
 func (a *PromotionAPIService) GetV0BidsRecommendations(ctx context.Context) ApiGetV0BidsRecommendationsRequest {
 	return ApiGetV0BidsRecommendationsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV0BidsRecommendations200Response
+//  @return GetV0BidsRecommendations200Response
 func (a *PromotionAPIService) GetV0BidsRecommendationsExecute(r ApiGetV0BidsRecommendationsRequest) (*GetV0BidsRecommendations200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV0BidsRecommendations200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV0BidsRecommendations200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.GetV0BidsRecommendations")
@@ -1366,8 +1366,8 @@ func (a *PromotionAPIService) GetV0BidsRecommendationsExecute(r ApiGetV0BidsReco
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1377,8 +1377,8 @@ func (a *PromotionAPIService) GetV0BidsRecommendationsExecute(r ApiGetV0BidsReco
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1388,8 +1388,8 @@ func (a *PromotionAPIService) GetV0BidsRecommendationsExecute(r ApiGetV0BidsReco
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1399,8 +1399,8 @@ func (a *PromotionAPIService) GetV0BidsRecommendationsExecute(r ApiGetV0BidsReco
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1418,9 +1418,9 @@ func (a *PromotionAPIService) GetV0BidsRecommendationsExecute(r ApiGetV0BidsReco
 }
 
 type ApiGetV0DailyLimitsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService PromotionAPI
-	advertIds  *string
+	advertIds *string
 }
 
 // ID кампаний, максимум 100. Укажите значения через запятую
@@ -1450,25 +1450,24 @@ GetV0DailyLimits Получить настройки дневных лимито
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-daily-limits
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV0DailyLimitsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV0DailyLimitsRequest
 */
 func (a *PromotionAPIService) GetV0DailyLimits(ctx context.Context) ApiGetV0DailyLimitsRequest {
 	return ApiGetV0DailyLimitsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return V0GetDailyLimitsResponse
+//  @return V0GetDailyLimitsResponse
 func (a *PromotionAPIService) GetV0DailyLimitsExecute(r ApiGetV0DailyLimitsRequest) (*V0GetDailyLimitsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *V0GetDailyLimitsResponse
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *V0GetDailyLimitsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.GetV0DailyLimits")
@@ -1532,8 +1531,8 @@ func (a *PromotionAPIService) GetV0DailyLimitsExecute(r ApiGetV0DailyLimitsReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1543,8 +1542,8 @@ func (a *PromotionAPIService) GetV0DailyLimitsExecute(r ApiGetV0DailyLimitsReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1554,8 +1553,8 @@ func (a *PromotionAPIService) GetV0DailyLimitsExecute(r ApiGetV0DailyLimitsReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1565,8 +1564,8 @@ func (a *PromotionAPIService) GetV0DailyLimitsExecute(r ApiGetV0DailyLimitsReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1584,9 +1583,9 @@ func (a *PromotionAPIService) GetV0DailyLimitsExecute(r ApiGetV0DailyLimitsReque
 }
 
 type ApiGetV0DeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService PromotionAPI
-	id         *int64
+	id *int64
 }
 
 // ID кампании
@@ -1616,22 +1615,22 @@ GetV0Delete Удаление кампании
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV0DeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV0DeleteRequest
 */
 func (a *PromotionAPIService) GetV0Delete(ctx context.Context) ApiGetV0DeleteRequest {
 	return ApiGetV0DeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
 func (a *PromotionAPIService) GetV0DeleteExecute(r ApiGetV0DeleteRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodGet
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.GetV0Delete")
@@ -1695,8 +1694,8 @@ func (a *PromotionAPIService) GetV0DeleteExecute(r ApiGetV0DeleteRequest) (*http
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1706,8 +1705,8 @@ func (a *PromotionAPIService) GetV0DeleteExecute(r ApiGetV0DeleteRequest) (*http
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1717,8 +1716,8 @@ func (a *PromotionAPIService) GetV0DeleteExecute(r ApiGetV0DeleteRequest) (*http
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1728,8 +1727,8 @@ func (a *PromotionAPIService) GetV0DeleteExecute(r ApiGetV0DeleteRequest) (*http
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1738,9 +1737,9 @@ func (a *PromotionAPIService) GetV0DeleteExecute(r ApiGetV0DeleteRequest) (*http
 }
 
 type ApiGetV0PauseRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService PromotionAPI
-	id         *int64
+	id *int64
 }
 
 // ID кампании
@@ -1768,22 +1767,22 @@ GetV0Pause Пауза кампании
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-pause
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV0PauseRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV0PauseRequest
 */
 func (a *PromotionAPIService) GetV0Pause(ctx context.Context) ApiGetV0PauseRequest {
 	return ApiGetV0PauseRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
 func (a *PromotionAPIService) GetV0PauseExecute(r ApiGetV0PauseRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodGet
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.GetV0Pause")
@@ -1847,8 +1846,8 @@ func (a *PromotionAPIService) GetV0PauseExecute(r ApiGetV0PauseRequest) (*http.R
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1858,8 +1857,8 @@ func (a *PromotionAPIService) GetV0PauseExecute(r ApiGetV0PauseRequest) (*http.R
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1869,8 +1868,8 @@ func (a *PromotionAPIService) GetV0PauseExecute(r ApiGetV0PauseRequest) (*http.R
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -1880,8 +1879,8 @@ func (a *PromotionAPIService) GetV0PauseExecute(r ApiGetV0PauseRequest) (*http.R
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1891,8 +1890,8 @@ func (a *PromotionAPIService) GetV0PauseExecute(r ApiGetV0PauseRequest) (*http.R
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1901,9 +1900,9 @@ func (a *PromotionAPIService) GetV0PauseExecute(r ApiGetV0PauseRequest) (*http.R
 }
 
 type ApiGetV0StartRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService PromotionAPI
-	id         *int64
+	id *int64
 }
 
 // ID кампании
@@ -1932,22 +1931,22 @@ GetV0Start Запуск кампании
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-start
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV0StartRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV0StartRequest
 */
 func (a *PromotionAPIService) GetV0Start(ctx context.Context) ApiGetV0StartRequest {
 	return ApiGetV0StartRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
 func (a *PromotionAPIService) GetV0StartExecute(r ApiGetV0StartRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodGet
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.GetV0Start")
@@ -2011,8 +2010,8 @@ func (a *PromotionAPIService) GetV0StartExecute(r ApiGetV0StartRequest) (*http.R
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2022,8 +2021,8 @@ func (a *PromotionAPIService) GetV0StartExecute(r ApiGetV0StartRequest) (*http.R
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2033,8 +2032,8 @@ func (a *PromotionAPIService) GetV0StartExecute(r ApiGetV0StartRequest) (*http.R
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -2044,8 +2043,8 @@ func (a *PromotionAPIService) GetV0StartExecute(r ApiGetV0StartRequest) (*http.R
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2055,8 +2054,8 @@ func (a *PromotionAPIService) GetV0StartExecute(r ApiGetV0StartRequest) (*http.R
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -2065,9 +2064,9 @@ func (a *PromotionAPIService) GetV0StartExecute(r ApiGetV0StartRequest) (*http.R
 }
 
 type ApiGetV0StopRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService PromotionAPI
-	id         *int64
+	id *int64
 }
 
 // ID кампании
@@ -2097,22 +2096,22 @@ GetV0Stop Завершение кампании
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-stop
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV0StopRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV0StopRequest
 */
 func (a *PromotionAPIService) GetV0Stop(ctx context.Context) ApiGetV0StopRequest {
 	return ApiGetV0StopRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
 func (a *PromotionAPIService) GetV0StopExecute(r ApiGetV0StopRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodGet
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.GetV0Stop")
@@ -2176,8 +2175,8 @@ func (a *PromotionAPIService) GetV0StopExecute(r ApiGetV0StopRequest) (*http.Res
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2187,8 +2186,8 @@ func (a *PromotionAPIService) GetV0StopExecute(r ApiGetV0StopRequest) (*http.Res
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2198,8 +2197,8 @@ func (a *PromotionAPIService) GetV0StopExecute(r ApiGetV0StopRequest) (*http.Res
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -2209,8 +2208,8 @@ func (a *PromotionAPIService) GetV0StopExecute(r ApiGetV0StopRequest) (*http.Res
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2220,8 +2219,8 @@ func (a *PromotionAPIService) GetV0StopExecute(r ApiGetV0StopRequest) (*http.Res
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -2230,9 +2229,9 @@ func (a *PromotionAPIService) GetV0StopExecute(r ApiGetV0StopRequest) (*http.Res
 }
 
 type ApiGetV1AdvertRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService PromotionAPI
-	id         *int64
+	id *int64
 }
 
 // ID медиакампании
@@ -2260,25 +2259,24 @@ GetV1Advert Информация о медиакампании
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-advert
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1AdvertRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1AdvertRequest
 */
 func (a *PromotionAPIService) GetV1Advert(ctx context.Context) ApiGetV1AdvertRequest {
 	return ApiGetV1AdvertRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV1AdvertResponse200
+//  @return GetV1AdvertResponse200
 func (a *PromotionAPIService) GetV1AdvertExecute(r ApiGetV1AdvertRequest) (*GetV1AdvertResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV1AdvertResponse200
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV1AdvertResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.GetV1Advert")
@@ -2342,8 +2340,8 @@ func (a *PromotionAPIService) GetV1AdvertExecute(r ApiGetV1AdvertRequest) (*GetV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2353,8 +2351,8 @@ func (a *PromotionAPIService) GetV1AdvertExecute(r ApiGetV1AdvertRequest) (*GetV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2364,8 +2362,8 @@ func (a *PromotionAPIService) GetV1AdvertExecute(r ApiGetV1AdvertRequest) (*GetV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2375,8 +2373,8 @@ func (a *PromotionAPIService) GetV1AdvertExecute(r ApiGetV1AdvertRequest) (*GetV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2394,23 +2392,23 @@ func (a *PromotionAPIService) GetV1AdvertExecute(r ApiGetV1AdvertRequest) (*GetV
 }
 
 type ApiGetV1AdvertsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService PromotionAPI
-	status     *string
-	type_      *int64
-	limit      *int64
-	offset     *int64
-	order      *string
-	direction  *string
+	status *string
+	type_ *int64
+	limit *int64
+	offset *int64
+	order *string
+	direction *string
 }
 
-// Статус медиакампании:   - &#x60;1&#x60; — черновик   - &#x60;2&#x60; — модерация   - &#x60;3&#x60; — отклонена (с возможностью вернуть на модерацию)   - &#x60;4&#x60; — готова к запуску   - &#x60;5&#x60; — запланирована   - &#x60;6&#x60; — на показах   - &#x60;7&#x60; — завершена   - &#x60;8&#x60; — отменена   - &#x60;9&#x60; — приостановлена продавцом   - &#x60;10&#x60; — пауза по дневному лимиту   - &#x60;11&#x60; — пауза
+// Статус медиакампании:   - &#x60;1&#x60; — черновик   - &#x60;2&#x60; — модерация   - &#x60;3&#x60; — отклонена (с возможностью вернуть на модерацию)   - &#x60;4&#x60; — готова к запуску   - &#x60;5&#x60; — запланирована   - &#x60;6&#x60; — на показах   - &#x60;7&#x60; — завершена   - &#x60;8&#x60; — отменена   - &#x60;9&#x60; — приостановлена продавцом   - &#x60;10&#x60; — пауза по дневному лимиту   - &#x60;11&#x60; — пауза 
 func (r ApiGetV1AdvertsRequest) Status(status string) ApiGetV1AdvertsRequest {
 	r.status = &status
 	return r
 }
 
-// Тип медиакампании: - &#x60;1&#x60; — размещение по дням - &#x60;2&#x60; — размещение по просмотрам
+// Тип медиакампании: - &#x60;1&#x60; — размещение по дням - &#x60;2&#x60; — размещение по просмотрам 
 func (r ApiGetV1AdvertsRequest) Type_(type_ int64) ApiGetV1AdvertsRequest {
 	r.type_ = &type_
 	return r
@@ -2428,13 +2426,13 @@ func (r ApiGetV1AdvertsRequest) Offset(offset int64) ApiGetV1AdvertsRequest {
 	return r
 }
 
-// Порядок вывода ответа: - &#x60;create&#x60; — по времени создания медиакампании - &#x60;id&#x60; — по ID медиакампании
+// Порядок вывода ответа: - &#x60;create&#x60; — по времени создания медиакампании - &#x60;id&#x60; — по ID медиакампании 
 func (r ApiGetV1AdvertsRequest) Order(order string) ApiGetV1AdvertsRequest {
 	r.order = &order
 	return r
 }
 
-// Порядок сортировки: - &#x60;desc&#x60; — от большего к меньшему - &#x60;asc&#x60; — от меньшего к большему
+// Порядок сортировки: - &#x60;desc&#x60; — от большего к меньшему - &#x60;asc&#x60; — от меньшего к большему 
 func (r ApiGetV1AdvertsRequest) Direction(direction string) ApiGetV1AdvertsRequest {
 	r.direction = &direction
 	return r
@@ -2459,25 +2457,24 @@ GetV1Adverts Список медиакампаний
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-adverts
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1AdvertsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1AdvertsRequest
 */
 func (a *PromotionAPIService) GetV1Adverts(ctx context.Context) ApiGetV1AdvertsRequest {
 	return ApiGetV1AdvertsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []GetV1AdvertsResponse200Inner
+//  @return []GetV1AdvertsResponse200Inner
 func (a *PromotionAPIService) GetV1AdvertsExecute(r ApiGetV1AdvertsRequest) ([]GetV1AdvertsResponse200Inner, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []GetV1AdvertsResponse200Inner
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []GetV1AdvertsResponse200Inner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.GetV1Adverts")
@@ -2555,8 +2552,8 @@ func (a *PromotionAPIService) GetV1AdvertsExecute(r ApiGetV1AdvertsRequest) ([]G
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2566,8 +2563,8 @@ func (a *PromotionAPIService) GetV1AdvertsExecute(r ApiGetV1AdvertsRequest) ([]G
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2577,8 +2574,8 @@ func (a *PromotionAPIService) GetV1AdvertsExecute(r ApiGetV1AdvertsRequest) ([]G
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2596,7 +2593,7 @@ func (a *PromotionAPIService) GetV1AdvertsExecute(r ApiGetV1AdvertsRequest) ([]G
 }
 
 type ApiGetV1BalanceRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService PromotionAPI
 }
 
@@ -2623,25 +2620,24 @@ GetV1Balance Баланс
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-balance
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1BalanceRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1BalanceRequest
 */
 func (a *PromotionAPIService) GetV1Balance(ctx context.Context) ApiGetV1BalanceRequest {
 	return ApiGetV1BalanceRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV1BalanceResponse200
+//  @return GetV1BalanceResponse200
 func (a *PromotionAPIService) GetV1BalanceExecute(r ApiGetV1BalanceRequest) (*GetV1BalanceResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV1BalanceResponse200
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV1BalanceResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.GetV1Balance")
@@ -2701,8 +2697,8 @@ func (a *PromotionAPIService) GetV1BalanceExecute(r ApiGetV1BalanceRequest) (*Ge
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2712,8 +2708,8 @@ func (a *PromotionAPIService) GetV1BalanceExecute(r ApiGetV1BalanceRequest) (*Ge
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2723,8 +2719,8 @@ func (a *PromotionAPIService) GetV1BalanceExecute(r ApiGetV1BalanceRequest) (*Ge
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2734,8 +2730,8 @@ func (a *PromotionAPIService) GetV1BalanceExecute(r ApiGetV1BalanceRequest) (*Ge
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2753,9 +2749,9 @@ func (a *PromotionAPIService) GetV1BalanceExecute(r ApiGetV1BalanceRequest) (*Ge
 }
 
 type ApiGetV1BudgetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService PromotionAPI
-	id         *int64
+	id *int64
 }
 
 // ID кампании
@@ -2783,29 +2779,27 @@ GetV1Budget Бюджет кампании
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-budget
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1BudgetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1BudgetRequest
 
 Deprecated
 */
 func (a *PromotionAPIService) GetV1Budget(ctx context.Context) ApiGetV1BudgetRequest {
 	return ApiGetV1BudgetRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV1BudgetResponse200
-//
+//  @return GetV1BudgetResponse200
 // Deprecated
 func (a *PromotionAPIService) GetV1BudgetExecute(r ApiGetV1BudgetRequest) (*GetV1BudgetResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV1BudgetResponse200
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV1BudgetResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.GetV1Budget")
@@ -2869,8 +2863,8 @@ func (a *PromotionAPIService) GetV1BudgetExecute(r ApiGetV1BudgetRequest) (*GetV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2880,8 +2874,8 @@ func (a *PromotionAPIService) GetV1BudgetExecute(r ApiGetV1BudgetRequest) (*GetV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2891,8 +2885,8 @@ func (a *PromotionAPIService) GetV1BudgetExecute(r ApiGetV1BudgetRequest) (*GetV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2902,8 +2896,8 @@ func (a *PromotionAPIService) GetV1BudgetExecute(r ApiGetV1BudgetRequest) (*GetV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2921,13 +2915,13 @@ func (a *PromotionAPIService) GetV1BudgetExecute(r ApiGetV1BudgetRequest) (*GetV
 }
 
 type ApiGetV1CalendarPromotionsRequest struct {
-	ctx           context.Context
-	ApiService    PromotionAPI
+	ctx context.Context
+	ApiService PromotionAPI
 	startDateTime *string
-	endDateTime   *string
-	allPromo      *bool
-	limit         *int32
-	offset        *int32
+	endDateTime *string
+	allPromo *bool
+	limit *int32
+	offset *int32
 }
 
 // Начало периода, формат &#x60;YYYY-MM-DDTHH:MM:SSZ&#x60;
@@ -2942,7 +2936,7 @@ func (r ApiGetV1CalendarPromotionsRequest) EndDateTime(endDateTime string) ApiGe
 	return r
 }
 
-// Показать акции:   - &#x60;false&#x60; — доступные для участия   - &#x60;true&#x60; — все акции
+// Показать акции:   - &#x60;false&#x60; — доступные для участия   - &#x60;true&#x60; — все акции 
 func (r ApiGetV1CalendarPromotionsRequest) AllPromo(allPromo bool) ApiGetV1CalendarPromotionsRequest {
 	r.allPromo = &allPromo
 	return r
@@ -2979,25 +2973,24 @@ GetV1CalendarPromotions Список акций
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-v1-calendar-promotions
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1CalendarPromotionsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1CalendarPromotionsRequest
 */
 func (a *PromotionAPIService) GetV1CalendarPromotions(ctx context.Context) ApiGetV1CalendarPromotionsRequest {
 	return ApiGetV1CalendarPromotionsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV1CalendarPromotions200Response
+//  @return GetV1CalendarPromotions200Response
 func (a *PromotionAPIService) GetV1CalendarPromotionsExecute(r ApiGetV1CalendarPromotionsRequest) (*GetV1CalendarPromotions200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV1CalendarPromotions200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV1CalendarPromotions200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.GetV1CalendarPromotions")
@@ -3075,8 +3068,8 @@ func (a *PromotionAPIService) GetV1CalendarPromotionsExecute(r ApiGetV1CalendarP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3086,8 +3079,8 @@ func (a *PromotionAPIService) GetV1CalendarPromotionsExecute(r ApiGetV1CalendarP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3097,8 +3090,8 @@ func (a *PromotionAPIService) GetV1CalendarPromotionsExecute(r ApiGetV1CalendarP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3108,8 +3101,8 @@ func (a *PromotionAPIService) GetV1CalendarPromotionsExecute(r ApiGetV1CalendarP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3119,8 +3112,8 @@ func (a *PromotionAPIService) GetV1CalendarPromotionsExecute(r ApiGetV1CalendarP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3138,8 +3131,8 @@ func (a *PromotionAPIService) GetV1CalendarPromotionsExecute(r ApiGetV1CalendarP
 }
 
 type ApiGetV1CalendarPromotionsDetailsRequest struct {
-	ctx          context.Context
-	ApiService   PromotionAPI
+	ctx context.Context
+	ApiService PromotionAPI
 	promotionIDs *[]int64
 }
 
@@ -3168,25 +3161,24 @@ GetV1CalendarPromotionsDetails Детальная информация об ак
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-v1-calendar-promotions-details
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1CalendarPromotionsDetailsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1CalendarPromotionsDetailsRequest
 */
 func (a *PromotionAPIService) GetV1CalendarPromotionsDetails(ctx context.Context) ApiGetV1CalendarPromotionsDetailsRequest {
 	return ApiGetV1CalendarPromotionsDetailsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV1CalendarPromotionsDetails200Response
+//  @return GetV1CalendarPromotionsDetails200Response
 func (a *PromotionAPIService) GetV1CalendarPromotionsDetailsExecute(r ApiGetV1CalendarPromotionsDetailsRequest) (*GetV1CalendarPromotionsDetails200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV1CalendarPromotionsDetails200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV1CalendarPromotionsDetails200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.GetV1CalendarPromotionsDetails")
@@ -3266,8 +3258,8 @@ func (a *PromotionAPIService) GetV1CalendarPromotionsDetailsExecute(r ApiGetV1Ca
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3277,8 +3269,8 @@ func (a *PromotionAPIService) GetV1CalendarPromotionsDetailsExecute(r ApiGetV1Ca
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3288,8 +3280,8 @@ func (a *PromotionAPIService) GetV1CalendarPromotionsDetailsExecute(r ApiGetV1Ca
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3299,8 +3291,8 @@ func (a *PromotionAPIService) GetV1CalendarPromotionsDetailsExecute(r ApiGetV1Ca
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3310,8 +3302,8 @@ func (a *PromotionAPIService) GetV1CalendarPromotionsDetailsExecute(r ApiGetV1Ca
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3329,12 +3321,12 @@ func (a *PromotionAPIService) GetV1CalendarPromotionsDetailsExecute(r ApiGetV1Ca
 }
 
 type ApiGetV1CalendarPromotionsNomenclaturesRequest struct {
-	ctx         context.Context
-	ApiService  PromotionAPI
+	ctx context.Context
+	ApiService PromotionAPI
 	promotionID *int64
-	inAction    *bool
-	limit       *int32
-	offset      *int32
+	inAction *bool
+	limit *int32
+	offset *int32
 }
 
 // ID акции
@@ -3343,7 +3335,7 @@ func (r ApiGetV1CalendarPromotionsNomenclaturesRequest) PromotionID(promotionID 
 	return r
 }
 
-// Участвует в акции:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет
+// Участвует в акции:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет 
 func (r ApiGetV1CalendarPromotionsNomenclaturesRequest) InAction(inAction bool) ApiGetV1CalendarPromotionsNomenclaturesRequest {
 	r.inAction = &inAction
 	return r
@@ -3379,25 +3371,24 @@ GetV1CalendarPromotionsNomenclatures Список товаров для учас
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-v1-calendar-promotions-nomenclatures
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1CalendarPromotionsNomenclaturesRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1CalendarPromotionsNomenclaturesRequest
 */
 func (a *PromotionAPIService) GetV1CalendarPromotionsNomenclatures(ctx context.Context) ApiGetV1CalendarPromotionsNomenclaturesRequest {
 	return ApiGetV1CalendarPromotionsNomenclaturesRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV1CalendarPromotionsNomenclatures200Response
+//  @return GetV1CalendarPromotionsNomenclatures200Response
 func (a *PromotionAPIService) GetV1CalendarPromotionsNomenclaturesExecute(r ApiGetV1CalendarPromotionsNomenclaturesRequest) (*GetV1CalendarPromotionsNomenclatures200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV1CalendarPromotionsNomenclatures200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV1CalendarPromotionsNomenclatures200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.GetV1CalendarPromotionsNomenclatures")
@@ -3471,8 +3462,8 @@ func (a *PromotionAPIService) GetV1CalendarPromotionsNomenclaturesExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3482,8 +3473,8 @@ func (a *PromotionAPIService) GetV1CalendarPromotionsNomenclaturesExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3493,8 +3484,8 @@ func (a *PromotionAPIService) GetV1CalendarPromotionsNomenclaturesExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3504,8 +3495,8 @@ func (a *PromotionAPIService) GetV1CalendarPromotionsNomenclaturesExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -3515,8 +3506,8 @@ func (a *PromotionAPIService) GetV1CalendarPromotionsNomenclaturesExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3526,8 +3517,8 @@ func (a *PromotionAPIService) GetV1CalendarPromotionsNomenclaturesExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3545,7 +3536,7 @@ func (a *PromotionAPIService) GetV1CalendarPromotionsNomenclaturesExecute(r ApiG
 }
 
 type ApiGetV1ConfigRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService PromotionAPI
 }
 
@@ -3569,25 +3560,24 @@ GetV1Config Конфигурационные значения продвижен
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v1-config
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1ConfigRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1ConfigRequest
 */
 func (a *PromotionAPIService) GetV1Config(ctx context.Context) ApiGetV1ConfigRequest {
 	return ApiGetV1ConfigRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return V2GetConfigResponse
+//  @return V2GetConfigResponse
 func (a *PromotionAPIService) GetV1ConfigExecute(r ApiGetV1ConfigRequest) (*V2GetConfigResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *V2GetConfigResponse
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *V2GetConfigResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.GetV1Config")
@@ -3647,8 +3637,8 @@ func (a *PromotionAPIService) GetV1ConfigExecute(r ApiGetV1ConfigRequest) (*V2Ge
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3658,8 +3648,8 @@ func (a *PromotionAPIService) GetV1ConfigExecute(r ApiGetV1ConfigRequest) (*V2Ge
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3669,8 +3659,8 @@ func (a *PromotionAPIService) GetV1ConfigExecute(r ApiGetV1ConfigRequest) (*V2Ge
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3688,7 +3678,7 @@ func (a *PromotionAPIService) GetV1ConfigExecute(r ApiGetV1ConfigRequest) (*V2Ge
 }
 
 type ApiGetV1CountRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService PromotionAPI
 }
 
@@ -3711,25 +3701,24 @@ GetV1Count Количество медиакампаний
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-count
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1CountRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1CountRequest
 */
 func (a *PromotionAPIService) GetV1Count(ctx context.Context) ApiGetV1CountRequest {
 	return ApiGetV1CountRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV1CountResponse200
+//  @return GetV1CountResponse200
 func (a *PromotionAPIService) GetV1CountExecute(r ApiGetV1CountRequest) (*GetV1CountResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV1CountResponse200
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV1CountResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.GetV1Count")
@@ -3789,8 +3778,8 @@ func (a *PromotionAPIService) GetV1CountExecute(r ApiGetV1CountRequest) (*GetV1C
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3800,8 +3789,8 @@ func (a *PromotionAPIService) GetV1CountExecute(r ApiGetV1CountRequest) (*GetV1C
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3811,8 +3800,8 @@ func (a *PromotionAPIService) GetV1CountExecute(r ApiGetV1CountRequest) (*GetV1C
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3830,10 +3819,10 @@ func (a *PromotionAPIService) GetV1CountExecute(r ApiGetV1CountRequest) (*GetV1C
 }
 
 type ApiGetV1PaymentsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService PromotionAPI
-	from       *string
-	to         *string
+	from *string
+	to *string
 }
 
 // Начало интервала
@@ -3867,25 +3856,24 @@ GetV1Payments Получение истории пополнений счёта
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-payments
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1PaymentsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1PaymentsRequest
 */
 func (a *PromotionAPIService) GetV1Payments(ctx context.Context) ApiGetV1PaymentsRequest {
 	return ApiGetV1PaymentsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []GetV1PaymentsResponse200Inner
+//  @return []GetV1PaymentsResponse200Inner
 func (a *PromotionAPIService) GetV1PaymentsExecute(r ApiGetV1PaymentsRequest) ([]GetV1PaymentsResponse200Inner, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []GetV1PaymentsResponse200Inner
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []GetV1PaymentsResponse200Inner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.GetV1Payments")
@@ -3951,8 +3939,8 @@ func (a *PromotionAPIService) GetV1PaymentsExecute(r ApiGetV1PaymentsRequest) ([
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3962,8 +3950,8 @@ func (a *PromotionAPIService) GetV1PaymentsExecute(r ApiGetV1PaymentsRequest) ([
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3973,8 +3961,8 @@ func (a *PromotionAPIService) GetV1PaymentsExecute(r ApiGetV1PaymentsRequest) ([
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3984,8 +3972,8 @@ func (a *PromotionAPIService) GetV1PaymentsExecute(r ApiGetV1PaymentsRequest) ([
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4003,7 +3991,7 @@ func (a *PromotionAPIService) GetV1PaymentsExecute(r ApiGetV1PaymentsRequest) ([
 }
 
 type ApiGetV1PromotionCountRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService PromotionAPI
 }
 
@@ -4026,25 +4014,24 @@ GetV1PromotionCount Списки кампаний
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-promotion-count
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1PromotionCountRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1PromotionCountRequest
 */
 func (a *PromotionAPIService) GetV1PromotionCount(ctx context.Context) ApiGetV1PromotionCountRequest {
 	return ApiGetV1PromotionCountRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV1PromotionCountResponse200
+//  @return GetV1PromotionCountResponse200
 func (a *PromotionAPIService) GetV1PromotionCountExecute(r ApiGetV1PromotionCountRequest) (*GetV1PromotionCountResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV1PromotionCountResponse200
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV1PromotionCountResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.GetV1PromotionCount")
@@ -4104,8 +4091,8 @@ func (a *PromotionAPIService) GetV1PromotionCountExecute(r ApiGetV1PromotionCoun
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4115,8 +4102,8 @@ func (a *PromotionAPIService) GetV1PromotionCountExecute(r ApiGetV1PromotionCoun
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4126,8 +4113,8 @@ func (a *PromotionAPIService) GetV1PromotionCountExecute(r ApiGetV1PromotionCoun
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4145,12 +4132,12 @@ func (a *PromotionAPIService) GetV1PromotionCountExecute(r ApiGetV1PromotionCoun
 }
 
 type ApiGetV1SupplierSubjectsRequest struct {
-	ctx         context.Context
-	ApiService  PromotionAPI
+	ctx context.Context
+	ApiService PromotionAPI
 	paymentType *string
 }
 
-// Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик
+// Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик 
 func (r ApiGetV1SupplierSubjectsRequest) PaymentType(paymentType string) ApiGetV1SupplierSubjectsRequest {
 	r.paymentType = &paymentType
 	return r
@@ -4175,25 +4162,24 @@ GetV1SupplierSubjects Предметы для кампаний
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-supplier-subjects
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1SupplierSubjectsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1SupplierSubjectsRequest
 */
 func (a *PromotionAPIService) GetV1SupplierSubjects(ctx context.Context) ApiGetV1SupplierSubjectsRequest {
 	return ApiGetV1SupplierSubjectsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []GetV1SupplierSubjectsResponse200Inner
+//  @return []GetV1SupplierSubjectsResponse200Inner
 func (a *PromotionAPIService) GetV1SupplierSubjectsExecute(r ApiGetV1SupplierSubjectsRequest) ([]GetV1SupplierSubjectsResponse200Inner, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []GetV1SupplierSubjectsResponse200Inner
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []GetV1SupplierSubjectsResponse200Inner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.GetV1SupplierSubjects")
@@ -4259,8 +4245,8 @@ func (a *PromotionAPIService) GetV1SupplierSubjectsExecute(r ApiGetV1SupplierSub
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4270,8 +4256,8 @@ func (a *PromotionAPIService) GetV1SupplierSubjectsExecute(r ApiGetV1SupplierSub
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4281,8 +4267,8 @@ func (a *PromotionAPIService) GetV1SupplierSubjectsExecute(r ApiGetV1SupplierSub
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4300,10 +4286,10 @@ func (a *PromotionAPIService) GetV1SupplierSubjectsExecute(r ApiGetV1SupplierSub
 }
 
 type ApiGetV1UpdRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService PromotionAPI
-	from       *string
-	to         *string
+	from *string
+	to *string
 }
 
 // Начало интервала
@@ -4337,25 +4323,24 @@ GetV1Upd Получение истории затрат
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-upd
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1UpdRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1UpdRequest
 */
 func (a *PromotionAPIService) GetV1Upd(ctx context.Context) ApiGetV1UpdRequest {
 	return ApiGetV1UpdRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []GetV1UpdResponse200Inner
+//  @return []GetV1UpdResponse200Inner
 func (a *PromotionAPIService) GetV1UpdExecute(r ApiGetV1UpdRequest) ([]GetV1UpdResponse200Inner, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []GetV1UpdResponse200Inner
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []GetV1UpdResponse200Inner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.GetV1Upd")
@@ -4423,8 +4408,8 @@ func (a *PromotionAPIService) GetV1UpdExecute(r ApiGetV1UpdRequest) ([]GetV1UpdR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4434,8 +4419,8 @@ func (a *PromotionAPIService) GetV1UpdExecute(r ApiGetV1UpdRequest) ([]GetV1UpdR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4445,8 +4430,8 @@ func (a *PromotionAPIService) GetV1UpdExecute(r ApiGetV1UpdRequest) ([]GetV1UpdR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4456,8 +4441,8 @@ func (a *PromotionAPIService) GetV1UpdExecute(r ApiGetV1UpdRequest) ([]GetV1UpdR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4475,10 +4460,10 @@ func (a *PromotionAPIService) GetV1UpdExecute(r ApiGetV1UpdRequest) ([]GetV1UpdR
 }
 
 type ApiGetV2AdvertsRequest struct {
-	ctx         context.Context
-	ApiService  PromotionAPI
-	ids         *string
-	statuses    *string
+	ctx context.Context
+	ApiService PromotionAPI
+	ids *string
+	statuses *string
 	paymentType *string
 }
 
@@ -4488,13 +4473,13 @@ func (r ApiGetV2AdvertsRequest) Ids(ids string) ApiGetV2AdvertsRequest {
 	return r
 }
 
-// Статусы кампаний: - &#x60;-1&#x60; — удалена, процесс удаления будет завершён в течение 10 минут - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — завершена - &#x60;8&#x60; — отменена - &#x60;9&#x60; — активна - &#x60;11&#x60; — на паузе
+// Статусы кампаний: - &#x60;-1&#x60; — удалена, процесс удаления будет завершён в течение 10 минут - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — завершена - &#x60;8&#x60; — отменена - &#x60;9&#x60; — активна - &#x60;11&#x60; — на паузе 
 func (r ApiGetV2AdvertsRequest) Statuses(statuses string) ApiGetV2AdvertsRequest {
 	r.statuses = &statuses
 	return r
 }
 
-// Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик
+// Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик 
 func (r ApiGetV2AdvertsRequest) PaymentType(paymentType string) ApiGetV2AdvertsRequest {
 	r.paymentType = &paymentType
 	return r
@@ -4519,25 +4504,24 @@ GetV2Adverts Информация о кампаниях
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v2-adverts
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV2AdvertsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV2AdvertsRequest
 */
 func (a *PromotionAPIService) GetV2Adverts(ctx context.Context) ApiGetV2AdvertsRequest {
 	return ApiGetV2AdvertsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetAdverts
+//  @return GetAdverts
 func (a *PromotionAPIService) GetV2AdvertsExecute(r ApiGetV2AdvertsRequest) (*GetAdverts, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetAdverts
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetAdverts
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.GetV2Adverts")
@@ -4606,8 +4590,8 @@ func (a *PromotionAPIService) GetV2AdvertsExecute(r ApiGetV2AdvertsRequest) (*Ge
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4617,8 +4601,8 @@ func (a *PromotionAPIService) GetV2AdvertsExecute(r ApiGetV2AdvertsRequest) (*Ge
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4628,8 +4612,8 @@ func (a *PromotionAPIService) GetV2AdvertsExecute(r ApiGetV2AdvertsRequest) (*Ge
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4639,8 +4623,8 @@ func (a *PromotionAPIService) GetV2AdvertsExecute(r ApiGetV2AdvertsRequest) (*Ge
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4658,11 +4642,11 @@ func (a *PromotionAPIService) GetV2AdvertsExecute(r ApiGetV2AdvertsRequest) (*Ge
 }
 
 type ApiGetV3FullstatsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService PromotionAPI
-	ids        *string
-	beginDate  *string
-	endDate    *string
+	ids *string
+	beginDate *string
+	endDate *string
 }
 
 // ID кампаний, максимум 50 значений
@@ -4706,25 +4690,24 @@ GetV3Fullstats Статистика кампаний
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v3-fullstats
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV3FullstatsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV3FullstatsRequest
 */
 func (a *PromotionAPIService) GetV3Fullstats(ctx context.Context) ApiGetV3FullstatsRequest {
 	return ApiGetV3FullstatsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []FullStatsItem
+//  @return []FullStatsItem
 func (a *PromotionAPIService) GetV3FullstatsExecute(r ApiGetV3FullstatsRequest) ([]FullStatsItem, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []FullStatsItem
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []FullStatsItem
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.GetV3Fullstats")
@@ -4796,8 +4779,8 @@ func (a *PromotionAPIService) GetV3FullstatsExecute(r ApiGetV3FullstatsRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4807,8 +4790,8 @@ func (a *PromotionAPIService) GetV3FullstatsExecute(r ApiGetV3FullstatsRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4818,8 +4801,8 @@ func (a *PromotionAPIService) GetV3FullstatsExecute(r ApiGetV3FullstatsRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4829,8 +4812,8 @@ func (a *PromotionAPIService) GetV3FullstatsExecute(r ApiGetV3FullstatsRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4848,8 +4831,8 @@ func (a *PromotionAPIService) GetV3FullstatsExecute(r ApiGetV3FullstatsRequest) 
 }
 
 type ApiPatchV0AuctionNmsRequest struct {
-	ctx                      context.Context
-	ApiService               PromotionAPI
+	ctx context.Context
+	ApiService PromotionAPI
 	patchV0AuctionNmsRequest *PatchV0AuctionNmsRequest
 }
 
@@ -4881,25 +4864,24 @@ PatchV0AuctionNms Изменение списка карточек товаро�
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/patch-adv-v0-auction-nms
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPatchV0AuctionNmsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPatchV0AuctionNmsRequest
 */
 func (a *PromotionAPIService) PatchV0AuctionNms(ctx context.Context) ApiPatchV0AuctionNmsRequest {
 	return ApiPatchV0AuctionNmsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PatchV0AuctionNmsResponse200
+//  @return PatchV0AuctionNmsResponse200
 func (a *PromotionAPIService) PatchV0AuctionNmsExecute(r ApiPatchV0AuctionNmsRequest) (*PatchV0AuctionNmsResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPatch
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PatchV0AuctionNmsResponse200
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PatchV0AuctionNmsResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.PatchV0AuctionNms")
@@ -4964,8 +4946,8 @@ func (a *PromotionAPIService) PatchV0AuctionNmsExecute(r ApiPatchV0AuctionNmsReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4975,8 +4957,8 @@ func (a *PromotionAPIService) PatchV0AuctionNmsExecute(r ApiPatchV0AuctionNmsReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4986,8 +4968,8 @@ func (a *PromotionAPIService) PatchV0AuctionNmsExecute(r ApiPatchV0AuctionNmsReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4997,8 +4979,8 @@ func (a *PromotionAPIService) PatchV0AuctionNmsExecute(r ApiPatchV0AuctionNmsReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5016,8 +4998,8 @@ func (a *PromotionAPIService) PatchV0AuctionNmsExecute(r ApiPatchV0AuctionNmsReq
 }
 
 type ApiPatchV1BidsRequest struct {
-	ctx                context.Context
-	ApiService         PromotionAPI
+	ctx context.Context
+	ApiService PromotionAPI
 	patchV1BidsRequest *PatchV1BidsRequest
 }
 
@@ -5053,25 +5035,24 @@ PatchV1Bids Изменение ставок в кампаниях
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/patch-api-advert-v1-bids
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPatchV1BidsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPatchV1BidsRequest
 */
 func (a *PromotionAPIService) PatchV1Bids(ctx context.Context) ApiPatchV1BidsRequest {
 	return ApiPatchV1BidsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PatchV1BidsResponse200
+//  @return PatchV1BidsResponse200
 func (a *PromotionAPIService) PatchV1BidsExecute(r ApiPatchV1BidsRequest) (*PatchV1BidsResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPatch
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PatchV1BidsResponse200
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PatchV1BidsResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.PatchV1Bids")
@@ -5136,8 +5117,8 @@ func (a *PromotionAPIService) PatchV1BidsExecute(r ApiPatchV1BidsRequest) (*Patc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5147,8 +5128,8 @@ func (a *PromotionAPIService) PatchV1BidsExecute(r ApiPatchV1BidsRequest) (*Patc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5158,8 +5139,8 @@ func (a *PromotionAPIService) PatchV1BidsExecute(r ApiPatchV1BidsRequest) (*Patc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5169,8 +5150,8 @@ func (a *PromotionAPIService) PatchV1BidsExecute(r ApiPatchV1BidsRequest) (*Patc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5188,8 +5169,8 @@ func (a *PromotionAPIService) PatchV1BidsExecute(r ApiPatchV1BidsRequest) (*Patc
 }
 
 type ApiPostV0NormqueryBidsRequest struct {
-	ctx                       context.Context
-	ApiService                PromotionAPI
+	ctx context.Context
+	ApiService PromotionAPI
 	v0SetNormQueryBidsRequest *V0SetNormQueryBidsRequest
 }
 
@@ -5220,22 +5201,22 @@ PostV0NormqueryBids Установить ставки для поисковых 
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-bids
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV0NormqueryBidsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV0NormqueryBidsRequest
 */
 func (a *PromotionAPIService) PostV0NormqueryBids(ctx context.Context) ApiPostV0NormqueryBidsRequest {
 	return ApiPostV0NormqueryBidsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
 func (a *PromotionAPIService) PostV0NormqueryBidsExecute(r ApiPostV0NormqueryBidsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.PostV0NormqueryBids")
@@ -5300,8 +5281,8 @@ func (a *PromotionAPIService) PostV0NormqueryBidsExecute(r ApiPostV0NormqueryBid
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5311,8 +5292,8 @@ func (a *PromotionAPIService) PostV0NormqueryBidsExecute(r ApiPostV0NormqueryBid
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5322,8 +5303,8 @@ func (a *PromotionAPIService) PostV0NormqueryBidsExecute(r ApiPostV0NormqueryBid
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5333,8 +5314,8 @@ func (a *PromotionAPIService) PostV0NormqueryBidsExecute(r ApiPostV0NormqueryBid
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -5343,8 +5324,8 @@ func (a *PromotionAPIService) PostV0NormqueryBidsExecute(r ApiPostV0NormqueryBid
 }
 
 type ApiPostV0NormqueryGetBidsRequest struct {
-	ctx                       context.Context
-	ApiService                PromotionAPI
+	ctx context.Context
+	ApiService PromotionAPI
 	v0GetNormQueryBidsRequest *V0GetNormQueryBidsRequest
 }
 
@@ -5374,25 +5355,24 @@ PostV0NormqueryGetBids Список ставок поисковых класте
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-get-bids
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV0NormqueryGetBidsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV0NormqueryGetBidsRequest
 */
 func (a *PromotionAPIService) PostV0NormqueryGetBids(ctx context.Context) ApiPostV0NormqueryGetBidsRequest {
 	return ApiPostV0NormqueryGetBidsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return V0GetNormQueryBidsResponse
+//  @return V0GetNormQueryBidsResponse
 func (a *PromotionAPIService) PostV0NormqueryGetBidsExecute(r ApiPostV0NormqueryGetBidsRequest) (*V0GetNormQueryBidsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *V0GetNormQueryBidsResponse
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *V0GetNormQueryBidsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.PostV0NormqueryGetBids")
@@ -5457,8 +5437,8 @@ func (a *PromotionAPIService) PostV0NormqueryGetBidsExecute(r ApiPostV0Normquery
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5468,8 +5448,8 @@ func (a *PromotionAPIService) PostV0NormqueryGetBidsExecute(r ApiPostV0Normquery
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5479,8 +5459,8 @@ func (a *PromotionAPIService) PostV0NormqueryGetBidsExecute(r ApiPostV0Normquery
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5490,8 +5470,8 @@ func (a *PromotionAPIService) PostV0NormqueryGetBidsExecute(r ApiPostV0Normquery
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5509,8 +5489,8 @@ func (a *PromotionAPIService) PostV0NormqueryGetBidsExecute(r ApiPostV0Normquery
 }
 
 type ApiPostV0NormqueryGetMinusRequest struct {
-	ctx                        context.Context
-	ApiService                 PromotionAPI
+	ctx context.Context
+	ApiService PromotionAPI
 	v0GetNormQueryMinusRequest *V0GetNormQueryMinusRequest
 }
 
@@ -5540,25 +5520,24 @@ PostV0NormqueryGetMinus Список минус-фраз кампаний
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-get-minus
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV0NormqueryGetMinusRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV0NormqueryGetMinusRequest
 */
 func (a *PromotionAPIService) PostV0NormqueryGetMinus(ctx context.Context) ApiPostV0NormqueryGetMinusRequest {
 	return ApiPostV0NormqueryGetMinusRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return V0GetNormQueryMinusResponse
+//  @return V0GetNormQueryMinusResponse
 func (a *PromotionAPIService) PostV0NormqueryGetMinusExecute(r ApiPostV0NormqueryGetMinusRequest) (*V0GetNormQueryMinusResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *V0GetNormQueryMinusResponse
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *V0GetNormQueryMinusResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.PostV0NormqueryGetMinus")
@@ -5623,8 +5602,8 @@ func (a *PromotionAPIService) PostV0NormqueryGetMinusExecute(r ApiPostV0Normquer
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5634,8 +5613,8 @@ func (a *PromotionAPIService) PostV0NormqueryGetMinusExecute(r ApiPostV0Normquer
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5645,8 +5624,8 @@ func (a *PromotionAPIService) PostV0NormqueryGetMinusExecute(r ApiPostV0Normquer
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5656,8 +5635,8 @@ func (a *PromotionAPIService) PostV0NormqueryGetMinusExecute(r ApiPostV0Normquer
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5675,8 +5654,8 @@ func (a *PromotionAPIService) PostV0NormqueryGetMinusExecute(r ApiPostV0Normquer
 }
 
 type ApiPostV0NormqueryListRequest struct {
-	ctx                       context.Context
-	ApiService                PromotionAPI
+	ctx context.Context
+	ApiService PromotionAPI
 	v0GetNormQueryListRequest *V0GetNormQueryListRequest
 }
 
@@ -5704,25 +5683,24 @@ PostV0NormqueryList Списки активных и неактивных пои
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-list
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV0NormqueryListRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV0NormqueryListRequest
 */
 func (a *PromotionAPIService) PostV0NormqueryList(ctx context.Context) ApiPostV0NormqueryListRequest {
 	return ApiPostV0NormqueryListRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return V0GetNormQueryListResponse
+//  @return V0GetNormQueryListResponse
 func (a *PromotionAPIService) PostV0NormqueryListExecute(r ApiPostV0NormqueryListRequest) (*V0GetNormQueryListResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *V0GetNormQueryListResponse
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *V0GetNormQueryListResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.PostV0NormqueryList")
@@ -5787,8 +5765,8 @@ func (a *PromotionAPIService) PostV0NormqueryListExecute(r ApiPostV0NormqueryLis
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5798,8 +5776,8 @@ func (a *PromotionAPIService) PostV0NormqueryListExecute(r ApiPostV0NormqueryLis
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5809,8 +5787,8 @@ func (a *PromotionAPIService) PostV0NormqueryListExecute(r ApiPostV0NormqueryLis
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5820,8 +5798,8 @@ func (a *PromotionAPIService) PostV0NormqueryListExecute(r ApiPostV0NormqueryLis
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5839,8 +5817,8 @@ func (a *PromotionAPIService) PostV0NormqueryListExecute(r ApiPostV0NormqueryLis
 }
 
 type ApiPostV0NormquerySetMinusRequest struct {
-	ctx                        context.Context
-	ApiService                 PromotionAPI
+	ctx context.Context
+	ApiService PromotionAPI
 	v0SetMinusNormQueryRequest *V0SetMinusNormQueryRequest
 }
 
@@ -5858,7 +5836,7 @@ PostV0NormquerySetMinus Установка и удаление минус-фра
 
 Метод устанавливает и удаляет минус-фразы в кампаниях c единой и ручной ставкой.
 
-# Отправка пустого массива удаляет все минус-фразы
+Отправка пустого массива удаляет все минус-фразы
 
 [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -5870,22 +5848,22 @@ PostV0NormquerySetMinus Установка и удаление минус-фра
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-set-minus
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV0NormquerySetMinusRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV0NormquerySetMinusRequest
 */
 func (a *PromotionAPIService) PostV0NormquerySetMinus(ctx context.Context) ApiPostV0NormquerySetMinusRequest {
 	return ApiPostV0NormquerySetMinusRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
 func (a *PromotionAPIService) PostV0NormquerySetMinusExecute(r ApiPostV0NormquerySetMinusRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.PostV0NormquerySetMinus")
@@ -5950,8 +5928,8 @@ func (a *PromotionAPIService) PostV0NormquerySetMinusExecute(r ApiPostV0Normquer
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5961,8 +5939,8 @@ func (a *PromotionAPIService) PostV0NormquerySetMinusExecute(r ApiPostV0Normquer
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5972,8 +5950,8 @@ func (a *PromotionAPIService) PostV0NormquerySetMinusExecute(r ApiPostV0Normquer
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5983,8 +5961,8 @@ func (a *PromotionAPIService) PostV0NormquerySetMinusExecute(r ApiPostV0Normquer
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -5993,8 +5971,8 @@ func (a *PromotionAPIService) PostV0NormquerySetMinusExecute(r ApiPostV0Normquer
 }
 
 type ApiPostV0NormqueryStatsRequest struct {
-	ctx                        context.Context
-	ApiService                 PromotionAPI
+	ctx context.Context
+	ApiService PromotionAPI
 	v0GetNormQueryStatsRequest *V0GetNormQueryStatsRequest
 }
 
@@ -6023,25 +6001,24 @@ PostV0NormqueryStats Статистика поисковых кластеров
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-normquery-stats
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV0NormqueryStatsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV0NormqueryStatsRequest
 */
 func (a *PromotionAPIService) PostV0NormqueryStats(ctx context.Context) ApiPostV0NormqueryStatsRequest {
 	return ApiPostV0NormqueryStatsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return V0GetNormQueryStatsResponse
+//  @return V0GetNormQueryStatsResponse
 func (a *PromotionAPIService) PostV0NormqueryStatsExecute(r ApiPostV0NormqueryStatsRequest) (*V0GetNormQueryStatsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *V0GetNormQueryStatsResponse
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *V0GetNormQueryStatsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.PostV0NormqueryStats")
@@ -6106,8 +6083,8 @@ func (a *PromotionAPIService) PostV0NormqueryStatsExecute(r ApiPostV0NormquerySt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6117,8 +6094,8 @@ func (a *PromotionAPIService) PostV0NormqueryStatsExecute(r ApiPostV0NormquerySt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6128,8 +6105,8 @@ func (a *PromotionAPIService) PostV0NormqueryStatsExecute(r ApiPostV0NormquerySt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6139,8 +6116,8 @@ func (a *PromotionAPIService) PostV0NormqueryStatsExecute(r ApiPostV0NormquerySt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6158,8 +6135,8 @@ func (a *PromotionAPIService) PostV0NormqueryStatsExecute(r ApiPostV0NormquerySt
 }
 
 type ApiPostV0RenameRequest struct {
-	ctx                 context.Context
-	ApiService          PromotionAPI
+	ctx context.Context
+	ApiService PromotionAPI
 	postV0RenameRequest *PostV0RenameRequest
 }
 
@@ -6187,22 +6164,22 @@ PostV0Rename Переименование кампании
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-rename
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV0RenameRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV0RenameRequest
 */
 func (a *PromotionAPIService) PostV0Rename(ctx context.Context) ApiPostV0RenameRequest {
 	return ApiPostV0RenameRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
 func (a *PromotionAPIService) PostV0RenameExecute(r ApiPostV0RenameRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.PostV0Rename")
@@ -6264,8 +6241,8 @@ func (a *PromotionAPIService) PostV0RenameExecute(r ApiPostV0RenameRequest) (*ht
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6275,8 +6252,8 @@ func (a *PromotionAPIService) PostV0RenameExecute(r ApiPostV0RenameRequest) (*ht
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6286,8 +6263,8 @@ func (a *PromotionAPIService) PostV0RenameExecute(r ApiPostV0RenameRequest) (*ht
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -6297,8 +6274,8 @@ func (a *PromotionAPIService) PostV0RenameExecute(r ApiPostV0RenameRequest) (*ht
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6308,8 +6285,8 @@ func (a *PromotionAPIService) PostV0RenameExecute(r ApiPostV0RenameRequest) (*ht
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -6318,8 +6295,8 @@ func (a *PromotionAPIService) PostV0RenameExecute(r ApiPostV0RenameRequest) (*ht
 }
 
 type ApiPostV1BidsMinRequest struct {
-	ctx                  context.Context
-	ApiService           PromotionAPI
+	ctx context.Context
+	ApiService PromotionAPI
 	postV1BidsMinRequest *PostV1BidsMinRequest
 }
 
@@ -6347,25 +6324,24 @@ PostV1BidsMin Минимальные ставки для карточек тов
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v1-bids-min
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV1BidsMinRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV1BidsMinRequest
 */
 func (a *PromotionAPIService) PostV1BidsMin(ctx context.Context) ApiPostV1BidsMinRequest {
 	return ApiPostV1BidsMinRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PostV1BidsMinResponse200
+//  @return PostV1BidsMinResponse200
 func (a *PromotionAPIService) PostV1BidsMinExecute(r ApiPostV1BidsMinRequest) (*PostV1BidsMinResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PostV1BidsMinResponse200
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV1BidsMinResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.PostV1BidsMin")
@@ -6430,8 +6406,8 @@ func (a *PromotionAPIService) PostV1BidsMinExecute(r ApiPostV1BidsMinRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6441,8 +6417,8 @@ func (a *PromotionAPIService) PostV1BidsMinExecute(r ApiPostV1BidsMinRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6452,8 +6428,8 @@ func (a *PromotionAPIService) PostV1BidsMinExecute(r ApiPostV1BidsMinRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6463,8 +6439,8 @@ func (a *PromotionAPIService) PostV1BidsMinExecute(r ApiPostV1BidsMinRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6482,9 +6458,9 @@ func (a *PromotionAPIService) PostV1BidsMinExecute(r ApiPostV1BidsMinRequest) (*
 }
 
 type ApiPostV1BudgetDepositRequest struct {
-	ctx                        context.Context
-	ApiService                 PromotionAPI
-	id                         *int64
+	ctx context.Context
+	ApiService PromotionAPI
+	id *int64
 	postV1BudgetDepositRequest *PostV1BudgetDepositRequest
 }
 
@@ -6519,25 +6495,24 @@ PostV1BudgetDeposit Пополнение бюджета кампании
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v1-budget-deposit
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV1BudgetDepositRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV1BudgetDepositRequest
 */
 func (a *PromotionAPIService) PostV1BudgetDeposit(ctx context.Context) ApiPostV1BudgetDepositRequest {
 	return ApiPostV1BudgetDepositRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ResponseWithReturn
+//  @return ResponseWithReturn
 func (a *PromotionAPIService) PostV1BudgetDepositExecute(r ApiPostV1BudgetDepositRequest) (*ResponseWithReturn, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ResponseWithReturn
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ResponseWithReturn
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.PostV1BudgetDeposit")
@@ -6606,8 +6581,8 @@ func (a *PromotionAPIService) PostV1BudgetDepositExecute(r ApiPostV1BudgetDeposi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6617,8 +6592,8 @@ func (a *PromotionAPIService) PostV1BudgetDepositExecute(r ApiPostV1BudgetDeposi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6628,8 +6603,8 @@ func (a *PromotionAPIService) PostV1BudgetDepositExecute(r ApiPostV1BudgetDeposi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6639,8 +6614,8 @@ func (a *PromotionAPIService) PostV1BudgetDepositExecute(r ApiPostV1BudgetDeposi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6658,8 +6633,8 @@ func (a *PromotionAPIService) PostV1BudgetDepositExecute(r ApiPostV1BudgetDeposi
 }
 
 type ApiPostV1CalendarPromotionsUploadRequest struct {
-	ctx                                   context.Context
-	ApiService                            PromotionAPI
+	ctx context.Context
+	ApiService PromotionAPI
 	postV1CalendarPromotionsUploadRequest *PostV1CalendarPromotionsUploadRequest
 }
 
@@ -6690,25 +6665,24 @@ PostV1CalendarPromotionsUpload Добавить товар в акцию
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-v1-calendar-promotions-upload
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV1CalendarPromotionsUploadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV1CalendarPromotionsUploadRequest
 */
 func (a *PromotionAPIService) PostV1CalendarPromotionsUpload(ctx context.Context) ApiPostV1CalendarPromotionsUploadRequest {
 	return ApiPostV1CalendarPromotionsUploadRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PostV1CalendarPromotionsUpload200Response
+//  @return PostV1CalendarPromotionsUpload200Response
 func (a *PromotionAPIService) PostV1CalendarPromotionsUploadExecute(r ApiPostV1CalendarPromotionsUploadRequest) (*PostV1CalendarPromotionsUpload200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PostV1CalendarPromotionsUpload200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV1CalendarPromotionsUpload200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.PostV1CalendarPromotionsUpload")
@@ -6773,8 +6747,8 @@ func (a *PromotionAPIService) PostV1CalendarPromotionsUploadExecute(r ApiPostV1C
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6784,8 +6758,8 @@ func (a *PromotionAPIService) PostV1CalendarPromotionsUploadExecute(r ApiPostV1C
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -6795,8 +6769,8 @@ func (a *PromotionAPIService) PostV1CalendarPromotionsUploadExecute(r ApiPostV1C
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6806,8 +6780,8 @@ func (a *PromotionAPIService) PostV1CalendarPromotionsUploadExecute(r ApiPostV1C
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -6817,8 +6791,8 @@ func (a *PromotionAPIService) PostV1CalendarPromotionsUploadExecute(r ApiPostV1C
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6828,8 +6802,8 @@ func (a *PromotionAPIService) PostV1CalendarPromotionsUploadExecute(r ApiPostV1C
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6847,8 +6821,8 @@ func (a *PromotionAPIService) PostV1CalendarPromotionsUploadExecute(r ApiPostV1C
 }
 
 type ApiPostV1NormqueryBidsRequest struct {
-	ctx                       context.Context
-	ApiService                PromotionAPI
+	ctx context.Context
+	ApiService PromotionAPI
 	v1SetNormQueryBidsRequest *V1SetNormQueryBidsRequest
 }
 
@@ -6879,25 +6853,24 @@ PostV1NormqueryBids Установить ставки для поисковых 
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v1-normquery-bids
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV1NormqueryBidsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV1NormqueryBidsRequest
 */
 func (a *PromotionAPIService) PostV1NormqueryBids(ctx context.Context) ApiPostV1NormqueryBidsRequest {
 	return ApiPostV1NormqueryBidsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return V1SetNormQueryBidsResponse
+//  @return V1SetNormQueryBidsResponse
 func (a *PromotionAPIService) PostV1NormqueryBidsExecute(r ApiPostV1NormqueryBidsRequest) (*V1SetNormQueryBidsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *V1SetNormQueryBidsResponse
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *V1SetNormQueryBidsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.PostV1NormqueryBids")
@@ -6962,8 +6935,8 @@ func (a *PromotionAPIService) PostV1NormqueryBidsExecute(r ApiPostV1NormqueryBid
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6973,8 +6946,8 @@ func (a *PromotionAPIService) PostV1NormqueryBidsExecute(r ApiPostV1NormqueryBid
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6984,8 +6957,8 @@ func (a *PromotionAPIService) PostV1NormqueryBidsExecute(r ApiPostV1NormqueryBid
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6995,8 +6968,8 @@ func (a *PromotionAPIService) PostV1NormqueryBidsExecute(r ApiPostV1NormqueryBid
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7014,8 +6987,8 @@ func (a *PromotionAPIService) PostV1NormqueryBidsExecute(r ApiPostV1NormqueryBid
 }
 
 type ApiPostV1NormqueryStatsRequest struct {
-	ctx                        context.Context
-	ApiService                 PromotionAPI
+	ctx context.Context
+	ApiService PromotionAPI
 	v1GetNormQueryStatsRequest *V1GetNormQueryStatsRequest
 }
 
@@ -7044,25 +7017,24 @@ PostV1NormqueryStats Статистика по поисковым кластер
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v1-normquery-stats
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV1NormqueryStatsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV1NormqueryStatsRequest
 */
 func (a *PromotionAPIService) PostV1NormqueryStats(ctx context.Context) ApiPostV1NormqueryStatsRequest {
 	return ApiPostV1NormqueryStatsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return V1GetNormQueryStatsResponse
+//  @return V1GetNormQueryStatsResponse
 func (a *PromotionAPIService) PostV1NormqueryStatsExecute(r ApiPostV1NormqueryStatsRequest) (*V1GetNormQueryStatsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *V1GetNormQueryStatsResponse
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *V1GetNormQueryStatsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.PostV1NormqueryStats")
@@ -7127,8 +7099,8 @@ func (a *PromotionAPIService) PostV1NormqueryStatsExecute(r ApiPostV1NormquerySt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7138,8 +7110,8 @@ func (a *PromotionAPIService) PostV1NormqueryStatsExecute(r ApiPostV1NormquerySt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7149,8 +7121,8 @@ func (a *PromotionAPIService) PostV1NormqueryStatsExecute(r ApiPostV1NormquerySt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7160,8 +7132,8 @@ func (a *PromotionAPIService) PostV1NormqueryStatsExecute(r ApiPostV1NormquerySt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7179,8 +7151,8 @@ func (a *PromotionAPIService) PostV1NormqueryStatsExecute(r ApiPostV1NormquerySt
 }
 
 type ApiPostV1StatsRequest struct {
-	ctx                     context.Context
-	ApiService              PromotionAPI
+	ctx context.Context
+	ApiService PromotionAPI
 	postV1StatsRequestInner *[]PostV1StatsRequestInner
 }
 
@@ -7208,25 +7180,24 @@ PostV1Stats Статистика медиакампаний
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v1-stats
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV1StatsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV1StatsRequest
 */
 func (a *PromotionAPIService) PostV1Stats(ctx context.Context) ApiPostV1StatsRequest {
 	return ApiPostV1StatsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []PostV1StatsResponse200Inner
+//  @return []PostV1StatsResponse200Inner
 func (a *PromotionAPIService) PostV1StatsExecute(r ApiPostV1StatsRequest) ([]PostV1StatsResponse200Inner, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []PostV1StatsResponse200Inner
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []PostV1StatsResponse200Inner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.PostV1Stats")
@@ -7297,8 +7268,8 @@ func (a *PromotionAPIService) PostV1StatsExecute(r ApiPostV1StatsRequest) ([]Pos
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7308,8 +7279,8 @@ func (a *PromotionAPIService) PostV1StatsExecute(r ApiPostV1StatsRequest) ([]Pos
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7319,8 +7290,8 @@ func (a *PromotionAPIService) PostV1StatsExecute(r ApiPostV1StatsRequest) ([]Pos
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7330,8 +7301,8 @@ func (a *PromotionAPIService) PostV1StatsExecute(r ApiPostV1StatsRequest) ([]Pos
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7349,8 +7320,8 @@ func (a *PromotionAPIService) PostV1StatsExecute(r ApiPostV1StatsRequest) ([]Pos
 }
 
 type ApiPostV2BudgetRequest struct {
-	ctx             context.Context
-	ApiService      PromotionAPI
+	ctx context.Context
+	ApiService PromotionAPI
 	v2BudgetRequest *V2BudgetRequest
 }
 
@@ -7382,25 +7353,24 @@ PostV2Budget Остатки бюджетов кампаний
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v2-budget
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV2BudgetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2BudgetRequest
 */
 func (a *PromotionAPIService) PostV2Budget(ctx context.Context) ApiPostV2BudgetRequest {
 	return ApiPostV2BudgetRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return V2BudgetResponse
+//  @return V2BudgetResponse
 func (a *PromotionAPIService) PostV2BudgetExecute(r ApiPostV2BudgetRequest) (*V2BudgetResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *V2BudgetResponse
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *V2BudgetResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.PostV2Budget")
@@ -7465,8 +7435,8 @@ func (a *PromotionAPIService) PostV2BudgetExecute(r ApiPostV2BudgetRequest) (*V2
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7476,8 +7446,8 @@ func (a *PromotionAPIService) PostV2BudgetExecute(r ApiPostV2BudgetRequest) (*V2
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7487,8 +7457,8 @@ func (a *PromotionAPIService) PostV2BudgetExecute(r ApiPostV2BudgetRequest) (*V2
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7498,8 +7468,8 @@ func (a *PromotionAPIService) PostV2BudgetExecute(r ApiPostV2BudgetRequest) (*V2
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7517,8 +7487,8 @@ func (a *PromotionAPIService) PostV2BudgetExecute(r ApiPostV2BudgetRequest) (*V2
 }
 
 type ApiPostV2SeacatSaveAdRequest struct {
-	ctx                       context.Context
-	ApiService                PromotionAPI
+	ctx context.Context
+	ApiService PromotionAPI
 	postV2SeacatSaveAdRequest *PostV2SeacatSaveAdRequest
 }
 
@@ -7548,25 +7518,24 @@ PostV2SeacatSaveAd Создать кампанию
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-seacat-save-ad
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV2SeacatSaveAdRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2SeacatSaveAdRequest
 */
 func (a *PromotionAPIService) PostV2SeacatSaveAd(ctx context.Context) ApiPostV2SeacatSaveAdRequest {
 	return ApiPostV2SeacatSaveAdRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return int64
+//  @return int64
 func (a *PromotionAPIService) PostV2SeacatSaveAdExecute(r ApiPostV2SeacatSaveAdRequest) (int64, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue int64
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  int64
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.PostV2SeacatSaveAd")
@@ -7628,8 +7597,8 @@ func (a *PromotionAPIService) PostV2SeacatSaveAdExecute(r ApiPostV2SeacatSaveAdR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7639,8 +7608,8 @@ func (a *PromotionAPIService) PostV2SeacatSaveAdExecute(r ApiPostV2SeacatSaveAdR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7650,8 +7619,8 @@ func (a *PromotionAPIService) PostV2SeacatSaveAdExecute(r ApiPostV2SeacatSaveAdR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7661,8 +7630,8 @@ func (a *PromotionAPIService) PostV2SeacatSaveAdExecute(r ApiPostV2SeacatSaveAdR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7680,8 +7649,8 @@ func (a *PromotionAPIService) PostV2SeacatSaveAdExecute(r ApiPostV2SeacatSaveAdR
 }
 
 type ApiPostV2SupplierNmsRequest struct {
-	ctx         context.Context
-	ApiService  PromotionAPI
+	ctx context.Context
+	ApiService PromotionAPI
 	requestBody *[]int64
 }
 
@@ -7710,25 +7679,24 @@ PostV2SupplierNms Карточки товаров для кампаний
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-supplier-nms
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV2SupplierNmsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2SupplierNmsRequest
 */
 func (a *PromotionAPIService) PostV2SupplierNms(ctx context.Context) ApiPostV2SupplierNmsRequest {
 	return ApiPostV2SupplierNmsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []PostV2SupplierNmsResponse200Inner
+//  @return []PostV2SupplierNmsResponse200Inner
 func (a *PromotionAPIService) PostV2SupplierNmsExecute(r ApiPostV2SupplierNmsRequest) ([]PostV2SupplierNmsResponse200Inner, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []PostV2SupplierNmsResponse200Inner
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []PostV2SupplierNmsResponse200Inner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.PostV2SupplierNms")
@@ -7790,8 +7758,8 @@ func (a *PromotionAPIService) PostV2SupplierNmsExecute(r ApiPostV2SupplierNmsReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7801,8 +7769,8 @@ func (a *PromotionAPIService) PostV2SupplierNmsExecute(r ApiPostV2SupplierNmsReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7812,8 +7780,8 @@ func (a *PromotionAPIService) PostV2SupplierNmsExecute(r ApiPostV2SupplierNmsReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7823,8 +7791,8 @@ func (a *PromotionAPIService) PostV2SupplierNmsExecute(r ApiPostV2SupplierNmsReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7842,8 +7810,8 @@ func (a *PromotionAPIService) PostV2SupplierNmsExecute(r ApiPostV2SupplierNmsReq
 }
 
 type ApiPutV0AuctionPlacementsRequest struct {
-	ctx                           context.Context
-	ApiService                    PromotionAPI
+	ctx context.Context
+	ApiService PromotionAPI
 	putV0AuctionPlacementsRequest *PutV0AuctionPlacementsRequest
 }
 
@@ -7873,22 +7841,22 @@ PutV0AuctionPlacements Изменение мест размещения в ка�
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/put-adv-v0-auction-placements
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPutV0AuctionPlacementsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPutV0AuctionPlacementsRequest
 */
 func (a *PromotionAPIService) PutV0AuctionPlacements(ctx context.Context) ApiPutV0AuctionPlacementsRequest {
 	return ApiPutV0AuctionPlacementsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
 func (a *PromotionAPIService) PutV0AuctionPlacementsExecute(r ApiPutV0AuctionPlacementsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.PutV0AuctionPlacements")
@@ -7953,8 +7921,8 @@ func (a *PromotionAPIService) PutV0AuctionPlacementsExecute(r ApiPutV0AuctionPla
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7964,8 +7932,8 @@ func (a *PromotionAPIService) PutV0AuctionPlacementsExecute(r ApiPutV0AuctionPla
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7975,8 +7943,8 @@ func (a *PromotionAPIService) PutV0AuctionPlacementsExecute(r ApiPutV0AuctionPla
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7986,8 +7954,8 @@ func (a *PromotionAPIService) PutV0AuctionPlacementsExecute(r ApiPutV0AuctionPla
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -7996,8 +7964,8 @@ func (a *PromotionAPIService) PutV0AuctionPlacementsExecute(r ApiPutV0AuctionPla
 }
 
 type ApiPutV0DailyLimitsRequest struct {
-	ctx                     context.Context
-	ApiService              PromotionAPI
+	ctx context.Context
+	ApiService PromotionAPI
 	v0PutDailyLimitsRequest *V0PutDailyLimitsRequest
 }
 
@@ -8027,25 +7995,24 @@ PutV0DailyLimits Настройка дневных лимитов кампани
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/put-api-advert-v0-daily-limits
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPutV0DailyLimitsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPutV0DailyLimitsRequest
 */
 func (a *PromotionAPIService) PutV0DailyLimits(ctx context.Context) ApiPutV0DailyLimitsRequest {
 	return ApiPutV0DailyLimitsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return V0PutDailyLimitsResponse
+//  @return V0PutDailyLimitsResponse
 func (a *PromotionAPIService) PutV0DailyLimitsExecute(r ApiPutV0DailyLimitsRequest) (*V0PutDailyLimitsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *V0PutDailyLimitsResponse
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *V0PutDailyLimitsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PromotionAPIService.PutV0DailyLimits")
@@ -8110,8 +8077,8 @@ func (a *PromotionAPIService) PutV0DailyLimitsExecute(r ApiPutV0DailyLimitsReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -8121,8 +8088,8 @@ func (a *PromotionAPIService) PutV0DailyLimitsExecute(r ApiPutV0DailyLimitsReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -8132,8 +8099,8 @@ func (a *PromotionAPIService) PutV0DailyLimitsExecute(r ApiPutV0DailyLimitsReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -8143,8 +8110,8 @@ func (a *PromotionAPIService) PutV0DailyLimitsExecute(r ApiPutV0DailyLimitsReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

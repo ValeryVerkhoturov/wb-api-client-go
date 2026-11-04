@@ -20,7 +20,7 @@ var _ MappedNullable = &VisibilityInfo{}
 // VisibilityInfo Видимость карточек и переходы в карточки. По дням, неделям, месяцам
 type VisibilityInfo struct {
 	Visibility *VisibilityInfoVisibility `json:"visibility,omitempty"`
-	OpenCard   *VisibilityInfoOpenCard   `json:"openCard,omitempty"`
+	OpenCard *VisibilityInfoOpenCard `json:"openCard,omitempty"`
 	// Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по дням
 	ByDay []VisibilityInfoByDayInner `json:"byDay,omitempty"`
 	// Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по неделям
@@ -207,7 +207,7 @@ func (o *VisibilityInfo) SetByMonth(v []VisibilityInfoByDayInner) {
 }
 
 func (o VisibilityInfo) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -269,3 +269,5 @@ func (v *NullableVisibilityInfo) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -20,8 +20,8 @@ var _ MappedNullable = &ApiCustomsDeclarationSetResponse{}
 // ApiCustomsDeclarationSetResponse struct for ApiCustomsDeclarationSetResponse
 type ApiCustomsDeclarationSetResponse struct {
 	// Уникальный ID запроса
-	RequestId interface{}                              `json:"requestId,omitempty"`
-	Results   []ApiStatusSetCustomsDeclarationResponse `json:"results,omitempty"`
+	RequestId interface{} `json:"requestId,omitempty"`
+	Results []ApiStatusSetCustomsDeclarationResponse `json:"results,omitempty"`
 }
 
 // NewApiCustomsDeclarationSetResponse instantiates a new ApiCustomsDeclarationSetResponse object
@@ -107,7 +107,7 @@ func (o *ApiCustomsDeclarationSetResponse) SetResults(v []ApiStatusSetCustomsDec
 }
 
 func (o ApiCustomsDeclarationSetResponse) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,3 +160,5 @@ func (v *NullableApiCustomsDeclarationSetResponse) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

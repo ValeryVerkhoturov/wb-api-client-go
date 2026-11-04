@@ -19,7 +19,7 @@ var _ MappedNullable = &CommonInfo{}
 
 // CommonInfo Общая информация
 type CommonInfo struct {
-	SupplierRating     *CommonInfoSupplierRating     `json:"supplierRating,omitempty"`
+	SupplierRating *CommonInfoSupplierRating `json:"supplierRating,omitempty"`
 	AdvertisedProducts *CommonInfoAdvertisedProducts `json:"advertisedProducts,omitempty"`
 	// Общее количество товаров
 	TotalProducts *int64 `json:"totalProducts,omitempty"`
@@ -139,7 +139,7 @@ func (o *CommonInfo) SetTotalProducts(v int64) {
 }
 
 func (o CommonInfo) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,3 +195,5 @@ func (v *NullableCommonInfo) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -72,7 +72,7 @@ func (o *PostV2StocksReportProductsProductsResponse200) SetData(v TableItemRespo
 }
 
 func (o PostV2StocksReportProductsProductsResponse200) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -122,3 +122,5 @@ func (v *NullablePostV2StocksReportProductsProductsResponse200) UnmarshalJSON(sr
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

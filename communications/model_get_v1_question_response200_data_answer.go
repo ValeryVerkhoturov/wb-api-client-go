@@ -141,7 +141,7 @@ func (o *GetV1QuestionResponse200DataAnswer) SetCreateDate(v string) {
 }
 
 func (o GetV1QuestionResponse200DataAnswer) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -197,3 +197,5 @@ func (v *NullableGetV1QuestionResponse200DataAnswer) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

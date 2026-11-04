@@ -107,7 +107,7 @@ func (o *TableSearchTextItemAllOfMedianPosition) SetDynamics(v int64) {
 }
 
 func (o TableSearchTextItemAllOfMedianPosition) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,3 +160,5 @@ func (v *NullableTableSearchTextItemAllOfMedianPosition) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

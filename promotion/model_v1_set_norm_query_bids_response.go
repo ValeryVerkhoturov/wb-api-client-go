@@ -20,7 +20,7 @@ var _ MappedNullable = &V1SetNormQueryBidsResponse{}
 // V1SetNormQueryBidsResponse struct for V1SetNormQueryBidsResponse
 type V1SetNormQueryBidsResponse struct {
 	Success []V1SetNormQueryBidsSuccessResponseItem `json:"success,omitempty"`
-	Failed  []NormQueryBidFailResponseItem          `json:"failed,omitempty"`
+	Failed []NormQueryBidFailResponseItem `json:"failed,omitempty"`
 }
 
 // NewV1SetNormQueryBidsResponse instantiates a new V1SetNormQueryBidsResponse object
@@ -105,7 +105,7 @@ func (o *V1SetNormQueryBidsResponse) SetFailed(v []NormQueryBidFailResponseItem)
 }
 
 func (o V1SetNormQueryBidsResponse) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,3 +158,5 @@ func (v *NullableV1SetNormQueryBidsResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

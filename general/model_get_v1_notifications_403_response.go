@@ -12,13 +12,13 @@ package general
 
 import (
 	"encoding/json"
-	"fmt"
 	"gopkg.in/validator.v2"
+	"fmt"
 )
 
 // GetV1Notifications403Response - struct for GetV1Notifications403Response
 type GetV1Notifications403Response struct {
-	Response4XX              *Response4XX
+	Response4XX *Response4XX
 	SellerNotificationsError *SellerNotificationsError
 }
 
@@ -35,6 +35,7 @@ func SellerNotificationsErrorAsGetV1Notifications403Response(v *SellerNotificati
 		SellerNotificationsError: v,
 	}
 }
+
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *GetV1Notifications403Response) UnmarshalJSON(data []byte) error {
@@ -101,7 +102,7 @@ func (src GetV1Notifications403Response) MarshalJSON() ([]byte, error) {
 }
 
 // Get the actual instance
-func (obj *GetV1Notifications403Response) GetActualInstance() interface{} {
+func (obj *GetV1Notifications403Response) GetActualInstance() (interface{}) {
 	if obj == nil {
 		return nil
 	}
@@ -152,3 +153,5 @@ func (v *NullableGetV1Notifications403Response) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

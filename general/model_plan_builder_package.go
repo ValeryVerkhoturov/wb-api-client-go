@@ -25,7 +25,7 @@ type PlanBuilderPackage struct {
 	Slug *string `json:"slug,omitempty"`
 	// Название пакета на языке из параметра `locale`
 	Name *string `json:"name,omitempty"`
-	// Статус пакета:   - `active` — активен   - `pendingActivation` — подключён, начнёт работать с 00:00 следующего дня   - `pendingDeactivation` — отключён, перестанет работать с 00:00 следующего дня
+	// Статус пакета:   - `active` — активен   - `pendingActivation` — подключён, начнёт работать с 00:00 следующего дня   - `pendingDeactivation` — отключён, перестанет работать с 00:00 следующего дня 
 	Status *string `json:"status,omitempty"`
 	// Дата активации пакета
 	ActivatedAt *string `json:"activatedAt,omitempty"`
@@ -345,7 +345,7 @@ func (o *PlanBuilderPackage) SetOptions(v []PlanBuilderOptionShort) {
 }
 
 func (o PlanBuilderPackage) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -419,3 +419,5 @@ func (v *NullablePlanBuilderPackage) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

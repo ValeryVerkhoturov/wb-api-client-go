@@ -23,7 +23,7 @@ type PostV2GetCardsTrashResponse200CardsInner struct {
 	NmID *int64 `json:"nmID,omitempty"`
 	// Артикул продавца
 	VendorCode *string `json:"vendorCode,omitempty"`
-	// Подтверждение, что на товар нанесён обязательный код маркировки [Честного знака](https://честныйзнак.рф/):   - `true` — продавец подтверждает, что на товар нанесён обязательный код маркировки.   - `false` — продавец не подтверждает, что на товар нанесён обязательный код маркировки. Передайте в запросе `true`, чтобы подтвердить наличие обязательного кода маркировки на товаре. Карточка товара не пройдёт проверку, если от продавца нет подтверждения о том, что на товар нанесён обязательный код маркировки.  Чтобы проверить, является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, используйте метод [Список карточек товаров](./item-management#tag/listings/operation/postV2GetCardsList), поле ответа `needKiz`
+	// Подтверждение, что на товар нанесён обязательный код маркировки [Честного знака](https://честныйзнак.рф/):   - `true` — продавец подтверждает, что на товар нанесён обязательный код маркировки.   - `false` — продавец не подтверждает, что на товар нанесён обязательный код маркировки. Передайте в запросе `true`, чтобы подтвердить наличие обязательного кода маркировки на товаре. Карточка товара не пройдёт проверку, если от продавца нет подтверждения о том, что на товар нанесён обязательный код маркировки.  Чтобы проверить, является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, используйте метод [Список карточек товаров](./item-management#tag/listings/operation/postV2GetCardsList), поле ответа `needKiz` 
 	KizMarked *bool `json:"kizMarked,omitempty"`
 	// ID предмета
 	SubjectID *int64 `json:"subjectID,omitempty"`
@@ -32,11 +32,11 @@ type PostV2GetCardsTrashResponse200CardsInner struct {
 	// Массив фото
 	Photos []PostV2GetCardsListResponse200CardsInnerPhotosInner `json:"photos,omitempty"`
 	// URL видео
-	Video     *string                                           `json:"video,omitempty"`
+	Video *string `json:"video,omitempty"`
 	Wholesale *PostV2GetCardsListResponse200CardsInnerWholesale `json:"wholesale,omitempty"`
 	// Массив размеров
-	Sizes      []PostV2GetCardsTrashResponse200CardsInnerSizesInner `json:"sizes,omitempty"`
-	Dimensions *PostV2GetCardsListResponse200CardsInnerDimensions   `json:"dimensions,omitempty"`
+	Sizes []PostV2GetCardsTrashResponse200CardsInnerSizesInner `json:"sizes,omitempty"`
+	Dimensions *PostV2GetCardsListResponse200CardsInnerDimensions `json:"dimensions,omitempty"`
 	// Характеристики
 	Characteristics []PostV2GetCardsListResponse200CardsInnerCharacteristicsInner `json:"characteristics,omitempty"`
 	// Date and time the item was listed
@@ -484,7 +484,7 @@ func (o *PostV2GetCardsTrashResponse200CardsInner) SetTrashedAt(v string) {
 }
 
 func (o PostV2GetCardsTrashResponse200CardsInner) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -570,3 +570,5 @@ func (v *NullablePostV2GetCardsTrashResponse200CardsInner) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -36,8 +36,8 @@ type Item struct {
 	// Оценка карточки
 	ProductRating *float32 `json:"productRating,omitempty"`
 	// Оценка пользователей
-	FeedbackRating *float32    `json:"feedbackRating,omitempty"`
-	Stocks         *ItemStocks `json:"stocks,omitempty"`
+	FeedbackRating *float32 `json:"feedbackRating,omitempty"`
+	Stocks *ItemStocks `json:"stocks,omitempty"`
 }
 
 // NewItem instantiates a new Item object
@@ -378,7 +378,7 @@ func (o *Item) SetStocks(v ItemStocks) {
 }
 
 func (o Item) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -455,3 +455,5 @@ func (v *NullableItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -24,12 +24,12 @@ type FeedbacksIncreaseItem struct {
 	// Всего оценок
 	Total *int64 `json:"total,omitempty"`
 	// Динамика по сравнению с предыдущим периодом, %
-	Dynamics  *int64                          `json:"dynamics,omitempty"`
-	FiveStar  *FeedbacksIncreaseItemFiveStar  `json:"fiveStar,omitempty"`
-	FourStar  *FeedbacksIncreaseItemFourStar  `json:"fourStar,omitempty"`
+	Dynamics *int64 `json:"dynamics,omitempty"`
+	FiveStar *FeedbacksIncreaseItemFiveStar `json:"fiveStar,omitempty"`
+	FourStar *FeedbacksIncreaseItemFourStar `json:"fourStar,omitempty"`
 	ThreeStar *FeedbacksIncreaseItemThreeStar `json:"threeStar,omitempty"`
-	TwoStar   *FeedbacksIncreaseItemTwoStar   `json:"twoStar,omitempty"`
-	OneStar   *FeedbacksIncreaseItemOneStar   `json:"oneStar,omitempty"`
+	TwoStar *FeedbacksIncreaseItemTwoStar `json:"twoStar,omitempty"`
+	OneStar *FeedbacksIncreaseItemOneStar `json:"oneStar,omitempty"`
 }
 
 // NewFeedbacksIncreaseItem instantiates a new FeedbacksIncreaseItem object
@@ -306,7 +306,7 @@ func (o *FeedbacksIncreaseItem) SetOneStar(v FeedbacksIncreaseItemOneStar) {
 }
 
 func (o FeedbacksIncreaseItem) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -377,3 +377,5 @@ func (v *NullableFeedbacksIncreaseItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

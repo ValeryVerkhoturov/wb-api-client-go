@@ -23,7 +23,7 @@ type CreateInviteResponse struct {
 	InviteID *string `json:"inviteID,omitempty"`
 	// Дата и время окончания срока действия приглашения
 	ExpiredAt *string `json:"expiredAt,omitempty"`
-	// - `true` — приглашение создано успешно - `false` — повторите запрос
+	// - `true` — приглашение создано успешно - `false` — повторите запрос 
 	IsSuccess *bool `json:"isSuccess,omitempty"`
 	// URL приглашения, по которому должен перейти пользователь
 	InviteUrl *string `json:"inviteUrl,omitempty"`
@@ -175,7 +175,7 @@ func (o *CreateInviteResponse) SetInviteUrl(v string) {
 }
 
 func (o CreateInviteResponse) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -234,3 +234,5 @@ func (v *NullableCreateInviteResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

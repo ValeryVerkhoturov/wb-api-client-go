@@ -25,7 +25,7 @@ type ModelsItemScans struct {
 	DeclaredSku *string `json:"declaredSku,omitempty"`
 	// Дата и время сканирования
 	ScanTime *string `json:"scanTime,omitempty"`
-	// Тип расхождения товара:  - `surplus` — товара больше, чем заявлено  - `shortage` — товара меньше, чем заявлено  - `re-sorting` — баркод принятого товара не соответствует заявленному при формировании поставки
+	// Тип расхождения товара:  - `surplus` — товара больше, чем заявлено  - `shortage` — товара меньше, чем заявлено  - `re-sorting` — баркод принятого товара не соответствует заявленному при формировании поставки 
 	DiscrepancyLabel *string `json:"discrepancyLabel,omitempty"`
 	// Фактический баркод
 	ActualSku *string `json:"actualSku,omitempty"`
@@ -209,7 +209,7 @@ func (o *ModelsItemScans) SetActualSku(v string) {
 }
 
 func (o ModelsItemScans) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -271,3 +271,5 @@ func (v *NullableModelsItemScans) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

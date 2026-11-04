@@ -12,8 +12,8 @@ package promotion
 
 import (
 	"encoding/json"
-	"fmt"
 	"gopkg.in/validator.v2"
+	"fmt"
 )
 
 // GetV0BidsRecommendations200Response - struct for GetV0BidsRecommendations200Response
@@ -35,6 +35,7 @@ func V0BidsRecommendationsCpmResponse1AsGetV0BidsRecommendations200Response(v *V
 		V0BidsRecommendationsCpmResponse1: v,
 	}
 }
+
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *GetV0BidsRecommendations200Response) UnmarshalJSON(data []byte) error {
@@ -101,7 +102,7 @@ func (src GetV0BidsRecommendations200Response) MarshalJSON() ([]byte, error) {
 }
 
 // Get the actual instance
-func (obj *GetV0BidsRecommendations200Response) GetActualInstance() interface{} {
+func (obj *GetV0BidsRecommendations200Response) GetActualInstance() (interface{}) {
 	if obj == nil {
 		return nil
 	}
@@ -152,3 +153,5 @@ func (v *NullableGetV0BidsRecommendations200Response) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

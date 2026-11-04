@@ -311,7 +311,7 @@ func (o *GetV3FbsSuppliesSupplyIdShippingPoints403Response) SetTimestamp(v strin
 }
 
 func (o GetV3FbsSuppliesSupplyIdShippingPoints403Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -382,3 +382,5 @@ func (v *NullableGetV3FbsSuppliesSupplyIdShippingPoints403Response) UnmarshalJSO
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

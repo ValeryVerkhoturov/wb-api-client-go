@@ -15,7 +15,7 @@ import (
 	"fmt"
 )
 
-// EventType Тип события: - `message` — сообщение
+// EventType Тип события: - `message` — сообщение 
 type EventType string
 
 // List of EventType
@@ -106,3 +106,4 @@ func (v *NullableEventType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

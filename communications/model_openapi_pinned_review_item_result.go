@@ -27,15 +27,15 @@ type OpenapiPinnedReviewItemResult struct {
 	NmId *int64 `json:"nmId,omitempty"`
 	// ID операции закрепления отзыва
 	PinId *int64 `json:"pinId,omitempty"`
-	// Метод закрепления:   - `subscription` — подписка Джем   - `tariff` — тарифная опция
+	// Метод закрепления:   - `subscription` — подписка Джем   - `tariff` — тарифная опция 
 	PinMethod *DomainReviewPinMethod `json:"pinMethod,omitempty"`
-	// Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
+	// Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
 	PinOn *DomainReviewPinOn `json:"pinOn,omitempty"`
 	// ID отзыва
 	FeedbackId *string `json:"feedbackId,omitempty"`
-	// Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет
+	// Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет 
 	State *DomainReviewState `json:"state,omitempty"`
-	// Причина открепления отзыва:   - `sysTariffUnpinned` — закончилась подписка или тарифная опция   - `sysLimitReached` — закончился общий лимит по подписке   - `sysNoratingUnpinned` — отзыв исключён из рейтинга. Например, удалён или забанен   - `sysAdditionalSlot` — к карточке или к группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек прикреплено максимальное количество отзывов
+	// Причина открепления отзыва:   - `sysTariffUnpinned` — закончилась подписка или тарифная опция   - `sysLimitReached` — закончился общий лимит по подписке   - `sysNoratingUnpinned` — отзыв исключён из рейтинга. Например, удалён или забанен   - `sysAdditionalSlot` — к карточке или к группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек прикреплено максимальное количество отзывов 
 	UnpinnedCause *string `json:"unpinnedCause,omitempty"`
 }
 
@@ -345,7 +345,7 @@ func (o *OpenapiPinnedReviewItemResult) SetUnpinnedCause(v string) {
 }
 
 func (o OpenapiPinnedReviewItemResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -419,3 +419,5 @@ func (v *NullableOpenapiPinnedReviewItemResult) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

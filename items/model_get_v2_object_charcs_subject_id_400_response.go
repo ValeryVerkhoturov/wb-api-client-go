@@ -12,14 +12,14 @@ package items
 
 import (
 	"encoding/json"
-	"fmt"
 	"gopkg.in/validator.v2"
+	"fmt"
 )
 
 // GetV2ObjectCharcsSubjectId400Response - struct for GetV2ObjectCharcsSubjectId400Response
 type GetV2ObjectCharcsSubjectId400Response struct {
 	ResponseBodyContentError400 *ResponseBodyContentError400
-	String                      *string
+	String *string
 }
 
 // ResponseBodyContentError400AsGetV2ObjectCharcsSubjectId400Response is a convenience function that returns ResponseBodyContentError400 wrapped in GetV2ObjectCharcsSubjectId400Response
@@ -35,6 +35,7 @@ func StringAsGetV2ObjectCharcsSubjectId400Response(v *string) GetV2ObjectCharcsS
 		String: v,
 	}
 }
+
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *GetV2ObjectCharcsSubjectId400Response) UnmarshalJSON(data []byte) error {
@@ -101,7 +102,7 @@ func (src GetV2ObjectCharcsSubjectId400Response) MarshalJSON() ([]byte, error) {
 }
 
 // Get the actual instance
-func (obj *GetV2ObjectCharcsSubjectId400Response) GetActualInstance() interface{} {
+func (obj *GetV2ObjectCharcsSubjectId400Response) GetActualInstance() (interface{}) {
 	if obj == nil {
 		return nil
 	}
@@ -152,3 +153,5 @@ func (v *NullableGetV2ObjectCharcsSubjectId400Response) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

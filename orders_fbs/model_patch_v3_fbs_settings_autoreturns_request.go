@@ -11,8 +11,8 @@ API version: order
 package orders_fbs
 
 import (
-	"bytes"
 	"encoding/json"
+	"bytes"
 	"fmt"
 )
 
@@ -21,7 +21,7 @@ var _ MappedNullable = &PatchV3FbsSettingsAutoreturnsRequest{}
 
 // PatchV3FbsSettingsAutoreturnsRequest struct for PatchV3FbsSettingsAutoreturnsRequest
 type PatchV3FbsSettingsAutoreturnsRequest struct {
-	// Тип автовозврата малогабаритных товаров:   - `allToWarehouse` — отправлять все товары на склад WB, кроме товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ   - `allToPickupPoint` — отправлять все товары на пункт выдачи заказов   - `manual` — использовать ручные настройки
+	// Тип автовозврата малогабаритных товаров:   - `allToWarehouse` — отправлять все товары на склад WB, кроме товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ   - `allToPickupPoint` — отправлять все товары на пункт выдачи заказов   - `manual` — использовать ручные настройки 
 	Type string `json:"type"`
 }
 
@@ -70,7 +70,7 @@ func (o *PatchV3FbsSettingsAutoreturnsRequest) SetType(v string) {
 }
 
 func (o PatchV3FbsSettingsAutoreturnsRequest) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -96,10 +96,10 @@ func (o *PatchV3FbsSettingsAutoreturnsRequest) UnmarshalJSON(data []byte) (err e
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err
+		return err;
 	}
 
-	for _, requiredProperty := range requiredProperties {
+	for _, requiredProperty := range(requiredProperties) {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -155,3 +155,5 @@ func (v *NullablePatchV3FbsSettingsAutoreturnsRequest) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

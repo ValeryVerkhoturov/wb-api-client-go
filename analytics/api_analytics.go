@@ -16,30 +16,31 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"os"
-	"reflect"
 	"strings"
+	"reflect"
+	"os"
 )
+
 
 type AnalyticsAPI interface {
 
 	/*
-			GetV2NmReportDownloads Получить список отчётов
+	GetV2NmReportDownloads Получить список отчётов
 
-			Метод возвращает список отчётов с расширенной аналитикой продавца. Ответ содержит ID [созданных отчётов](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) и статусы генерации.
+	Метод возвращает список отчётов с расширенной аналитикой продавца. Ответ содержит ID [созданных отчётов](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) и статусы генерации.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/get-api-v2-nm-report-downloads
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/get-api-v2-nm-report-downloads
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV2NmReportDownloadsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV2NmReportDownloadsRequest
 	*/
 	GetV2NmReportDownloads(ctx context.Context) ApiGetV2NmReportDownloadsRequest
 
@@ -48,26 +49,26 @@ type AnalyticsAPI interface {
 	GetV2NmReportDownloadsExecute(r ApiGetV2NmReportDownloadsRequest) (*NmReportGetReportsResponse, *http.Response, error)
 
 	/*
-			GetV2NmReportDownloadsFileDownloadId Получить отчёт
+	GetV2NmReportDownloadsFileDownloadId Получить отчёт
 
-			Метод возвращает отчёт с расширенной аналитикой продавца по ID [задания на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads).
+	Метод возвращает отчёт с расширенной аналитикой продавца по ID [задания на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads).
 
-		Можно получить отчёт, который сгенерирован за последние 48 часов.
-		Отчёт будет загружен внутри архива ZIP в формате CSV.
+Можно получить отчёт, который сгенерирован за последние 48 часов.
+Отчёт будет загружен внутри архива ZIP в формате CSV.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/get-api-v2-nm-report-downloads-file-downloadid
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/get-api-v2-nm-report-downloads-file-downloadid
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@param downloadId ID отчёта
-			@return ApiGetV2NmReportDownloadsFileDownloadIdRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param downloadId ID отчёта
+	@return ApiGetV2NmReportDownloadsFileDownloadIdRequest
 	*/
 	GetV2NmReportDownloadsFileDownloadId(ctx context.Context, downloadId string) ApiGetV2NmReportDownloadsFileDownloadIdRequest
 
@@ -76,34 +77,34 @@ type AnalyticsAPI interface {
 	GetV2NmReportDownloadsFileDownloadIdExecute(r ApiGetV2NmReportDownloadsFileDownloadIdRequest) (*os.File, *http.Response, error)
 
 	/*
-			PostV1OrderFeed Получить отчёт
+	PostV1OrderFeed Получить отчёт
 
-			Метод формирует набор данных о заказах и продажах.
+	Метод формирует набор данных о заказах и продажах.
 
-		Данные отчёта обновляются в режиме реального времени.
+Данные отчёта обновляются в режиме реального времени.
 
-		> 1 заказ = 1 сборочное задание = 1 единица товара
-		Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все заказы продавца.
-		Если вы указали несколько параметров, в ответе будут заказы, в которых есть одновременно все эти параметры. Если заказы не подходят по параметрам запроса, вернётся пустой массив `[]`.
+> 1 заказ = 1 сборочное задание = 1 единица товара
+Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все заказы продавца.
+Если вы указали несколько параметров, в ответе будут заказы, в которых есть одновременно все эти параметры. Если заказы не подходят по параметрам запроса, вернётся пустой массив `[]`.
 
-		Можно получить отчёт максимум за последние 31 день.
+Можно получить отчёт максимум за последние 31 день.
 
-		Заказы отдаются по времени текущего статуса, от самого нового к самому раннему.
+Заказы отдаются по времени текущего статуса, от самого нового к самому раннему.
 
-		Можно использовать пагинацию.
+Можно использовать пагинацию.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
-		| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
-		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
-		| Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v1-order-feed
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v1-order-feed
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV1OrderFeedRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV1OrderFeedRequest
 	*/
 	PostV1OrderFeed(ctx context.Context) ApiPostV1OrderFeedRequest
 
@@ -112,27 +113,27 @@ type AnalyticsAPI interface {
 	PostV1OrderFeedExecute(r ApiPostV1OrderFeedRequest) (*PostV1OrderFeedResponse200, *http.Response, error)
 
 	/*
-			PostV1StocksReportSellerWarehouses Остатки на складах продавца
+	PostV1StocksReportSellerWarehouses Остатки на складах продавца
 
-			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-		**Персональному** токену,
-		**Сервисному** токену
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Персональному** токену,
+**Сервисному** токену
 
-		Метод возвращает текущие остатки товаров на складах продавца.
+Метод возвращает текущие остатки товаров на складах продавца.
 
-		Данные обновляются 1 раз в 30 минут.
+Данные обновляются 1 раз в 30 минут.
 
-		1 строка ответа — данные об 1 размере товара на 1 складе продавца.
+1 строка ответа — данные об 1 размере товара на 1 складе продавца.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 3 запроса | 20 сек | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 3 запроса | 20 сек | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v1-stocks-report-seller-warehouses
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v1-stocks-report-seller-warehouses
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV1StocksReportSellerWarehousesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV1StocksReportSellerWarehousesRequest
 	*/
 	PostV1StocksReportSellerWarehouses(ctx context.Context) ApiPostV1StocksReportSellerWarehousesRequest
 
@@ -141,28 +142,28 @@ type AnalyticsAPI interface {
 	PostV1StocksReportSellerWarehousesExecute(r ApiPostV1StocksReportSellerWarehousesRequest) (*PostV1StocksReportSellerWarehousesResponse200, *http.Response, error)
 
 	/*
-			PostV1StocksReportWbWarehouses Остатки на складах WB
+	PostV1StocksReportWbWarehouses Остатки на складах WB
 
-			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-		**Персональному** токену,
-		**Сервисному** токену,
-		**Базовому** токену **с секретом**
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Персональному** токену,
+**Сервисному** токену,
+**Базовому** токену **с секретом**
 
-		Метод возвращает текущие остатки товаров на складах WB.
+Метод возвращает текущие остатки товаров на складах WB.
 
-		Данные обновляются 1 раз в 30 минут.
+Данные обновляются 1 раз в 30 минут.
 
-		1 строка ответа — данные об 1 размере товара на 1 складе WB.
+1 строка ответа — данные об 1 размере товара на 1 складе WB.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 3 запроса | 20 сек | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 3 запроса | 20 сек | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v1-stocks-report-wb-warehouses
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v1-stocks-report-wb-warehouses
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV1StocksReportWbWarehousesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV1StocksReportWbWarehousesRequest
 	*/
 	PostV1StocksReportWbWarehouses(ctx context.Context) ApiPostV1StocksReportWbWarehousesRequest
 
@@ -171,25 +172,25 @@ type AnalyticsAPI interface {
 	PostV1StocksReportWbWarehousesExecute(r ApiPostV1StocksReportWbWarehousesRequest) (*PostV1StocksReportWbWarehousesResponse200, *http.Response, error)
 
 	/*
-			PostV2ItemRating Получить отчёт
+	PostV2ItemRating Получить отчёт
 
-			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-		**Персональному** токену,
-		**Сервисному** токену
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Персональному** токену,
+**Сервисному** токену
 
-		Метод формирует набор данных об оценках товаров.
+Метод формирует набор данных об оценках товаров.
 
-		Данные отчёта обновляются 1 раз в час.
+Данные отчёта обновляются 1 раз в час.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 3 запроса | 20 сек | 3 запроса |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 3 запроса | 20 сек | 3 запроса |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v2-item-rating
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v2-item-rating
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV2ItemRatingRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV2ItemRatingRequest
 	*/
 	PostV2ItemRating(ctx context.Context) ApiPostV2ItemRatingRequest
 
@@ -198,43 +199,43 @@ type AnalyticsAPI interface {
 	PostV2ItemRatingExecute(r ApiPostV2ItemRatingRequest) (*PostV2ItemRatingResponse200, *http.Response, error)
 
 	/*
-			PostV2NmReportDownloads Создать отчёт
+	PostV2NmReportDownloads Создать отчёт
 
-			Метод создаёт задание на генерацию отчёта с расширенной аналитикой продавца.
+	Метод создаёт задание на генерацию отчёта с расширенной аналитикой продавца.
 
-		Вы можете создать CSV-версии отчётов по [воронке продаж](https://dev.wildberries.ru/openapi/analytics#tag/salesFunnel) или [параметрам поиска](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems) с группировкой по:
-		\* артикулам WB
-		\* предметам, брендам и ярлыкам
-		В отчётах по воронке продаж можно группировать данные по дням, неделям или месяцам.
+Вы можете создать CSV-версии отчётов по [воронке продаж](https://dev.wildberries.ru/openapi/analytics#tag/salesFunnel) или [параметрам поиска](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems) с группировкой по:
+\* артикулам WB
+\* предметам, брендам и ярлыкам
+В отчётах по воронке продаж можно группировать данные по дням, неделям или месяцам.
 
-		Также можете создать CSV-версии отчётов по [текстам поисковых запросов](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductSearchTexts) и [остаткам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport).
+Также можете создать CSV-версии отчётов по [текстам поисковых запросов](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductSearchTexts) и [остаткам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport).
 
-		Каждый новый отчёт должен иметь уникальный ID.
+Каждый новый отчёт должен иметь уникальный ID.
 
-		Не используйте одинаковые ID для разных отчётов — это может привести к ошибкам при генерации
+Не используйте одинаковые ID для разных отчётов — это может привести к ошибкам при генерации
 
-		Набор параметров запроса в объекте `params` зависит от типа отчёта. Чтобы получить описание параметров, выберите тип отчёта в раскрывающемся списке в описании параметра `reportType`.
+Набор параметров запроса в объекте `params` зависит от типа отчёта. Чтобы получить описание параметров, выберите тип отчёта в раскрывающемся списке в описании параметра `reportType`.
 
-		Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.
+Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.
 
-		Если не удалось [получить отчёт](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloadsFileDownloadId), можно создать [повторное задание на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloadsRetry). Также можно [получить список и проверить статусы](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) отчётов.
+Если не удалось [получить отчёт](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloadsFileDownloadId), можно создать [повторное задание на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloadsRetry). Также можно [получить список и проверить статусы](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) отчётов.
 
-		Данные отчётов обновляются 1 раз в 2 часа.
+Данные отчётов обновляются 1 раз в 2 часа.
 
-		Отчёты по [остаткам](https://seller.wildberries.ru/content-analytics/history-remains) — типы `STOCK_HISTORY_REPORT_CSV` и `STOCK_HISTORY_DAILY_CSV` — можно создать без подписки [Джем](https://seller.wildberries.ru/monetization/jam)
+Отчёты по [остаткам](https://seller.wildberries.ru/content-analytics/history-remains) — типы `STOCK_HISTORY_REPORT_CSV` и `STOCK_HISTORY_DAILY_CSV` — можно создать без подписки [Джем](https://seller.wildberries.ru/monetization/jam)
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-nm-report-downloads
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-nm-report-downloads
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV2NmReportDownloadsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV2NmReportDownloadsRequest
 	*/
 	PostV2NmReportDownloads(ctx context.Context) ApiPostV2NmReportDownloadsRequest
 
@@ -243,22 +244,22 @@ type AnalyticsAPI interface {
 	PostV2NmReportDownloadsExecute(r ApiPostV2NmReportDownloadsRequest) (*NmReportCreateReportResponse, *http.Response, error)
 
 	/*
-			PostV2NmReportDownloadsRetry Сгенерировать отчёт повторно
+	PostV2NmReportDownloadsRetry Сгенерировать отчёт повторно
 
-			Метод создает повторное [задание на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) отчёта с расширенной аналитикой продавца. Необходимо, если при генерации отчёта вы [получили статус](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) `FAILED`.
+	Метод создает повторное [задание на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) отчёта с расширенной аналитикой продавца. Необходимо, если при генерации отчёта вы [получили статус](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) `FAILED`.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-nm-report-downloads-retry
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-nm-report-downloads-retry
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV2NmReportDownloadsRetryRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV2NmReportDownloadsRetryRequest
 	*/
 	PostV2NmReportDownloadsRetry(ctx context.Context) ApiPostV2NmReportDownloadsRetryRequest
 
@@ -267,29 +268,29 @@ type AnalyticsAPI interface {
 	PostV2NmReportDownloadsRetryExecute(r ApiPostV2NmReportDownloadsRetryRequest) (*NmReportRetryReportResponse, *http.Response, error)
 
 	/*
-			PostV2SearchReportProductOrders Заказы и позиции по поисковым запросам товара
+	PostV2SearchReportProductOrders Заказы и позиции по поисковым запросам товара
 
-			Метод формирует данные для таблицы:
-		- о заказах по каждому поисковому запросу для конкретного товара
-		- о позициях товара в результатах поиска по каждому запросу
-		Данные указаны в рамках периода для [запрошенного товара](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductSearchTexts) и сгруппированы по дням. Максимальный период — 7 дней.
+	Метод формирует данные для таблицы:
+- о заказах по каждому поисковому запросу для конкретного товара
+- о позициях товара в результатах поиска по каждому запросу
+Данные указаны в рамках периода для [запрошенного товара](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductSearchTexts) и сгруппированы по дням. Максимальный период — 7 дней.
 
-		Данные отчёта обновляются 1 раз в 2 часа.
+Данные отчёта обновляются 1 раз в 2 часа.
 
-		Можно получить отчёт максимум за последние 365 дней с момента выполнения запроса
+Можно получить отчёт максимум за последние 365 дней с момента выполнения запроса
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-product-orders
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-product-orders
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV2SearchReportProductOrdersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV2SearchReportProductOrdersRequest
 	*/
 	PostV2SearchReportProductOrders(ctx context.Context) ApiPostV2SearchReportProductOrdersRequest
 
@@ -298,28 +299,28 @@ type AnalyticsAPI interface {
 	PostV2SearchReportProductOrdersExecute(r ApiPostV2SearchReportProductOrdersRequest) (*PostV2SearchReportProductOrdersResponse200, *http.Response, error)
 
 	/*
-			PostV2SearchReportProductSearchTexts Поисковые запросы по товару
+	PostV2SearchReportProductSearchTexts Поисковые запросы по товару
 
-			Метод формирует топ поисковых запросов по товару.
-		Параметры выбора поисковых запросов:
-		- `limit` — количество запросов, максимум 30. Для тарифов [Джема](https://seller.wildberries.ru/monetization/tariffs) \*\*Продвинутый\*\* и \*\*Премиальный\*\* максимум — 100.
-		- `topOrderBy` — способ выбора топа запросов
-		Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.
+	Метод формирует топ поисковых запросов по товару.
+Параметры выбора поисковых запросов:
+- `limit` — количество запросов, максимум 30. Для тарифов [Джема](https://seller.wildberries.ru/monetization/tariffs) \*\*Продвинутый\*\* и \*\*Премиальный\*\* максимум — 100.
+- `topOrderBy` — способ выбора топа запросов
+Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.
 
-		Данные отчёта обновляются 1 раз в 2 часа.
+Данные отчёта обновляются 1 раз в 2 часа.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-product-search-texts
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-product-search-texts
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV2SearchReportProductSearchTextsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV2SearchReportProductSearchTextsRequest
 	*/
 	PostV2SearchReportProductSearchTexts(ctx context.Context) ApiPostV2SearchReportProductSearchTextsRequest
 
@@ -328,34 +329,34 @@ type AnalyticsAPI interface {
 	PostV2SearchReportProductSearchTextsExecute(r ApiPostV2SearchReportProductSearchTextsRequest) (*PostV2SearchReportProductSearchTextsResponse200, *http.Response, error)
 
 	/*
-			PostV2SearchReportReport Основная страница
+	PostV2SearchReportReport Основная страница
 
-			Метод формирует набор данных для основной страницы отчёта по поисковым запросам с:
-		- общей информацией
-		- позициями товаров
-		- данными по видимости и переходам в карточку
-		- данными для таблицы по группам
-		Для получения дополнительных данных в таблице используйте отдельный запрос для:
-		- [пагинации по группам](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportTableGroups)
-		- [получения по товарам в группе](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportTableDetails)
-		Дополнительный параметр выбора списка товаров в таблице:
-		- `positionCluster` — средняя позиция в поиске
-		Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.
+	Метод формирует набор данных для основной страницы отчёта по поисковым запросам с:
+- общей информацией
+- позициями товаров
+- данными по видимости и переходам в карточку
+- данными для таблицы по группам
+Для получения дополнительных данных в таблице используйте отдельный запрос для:
+- [пагинации по группам](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportTableGroups)
+- [получения по товарам в группе](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportTableDetails)
+Дополнительный параметр выбора списка товаров в таблице:
+- `positionCluster` — средняя позиция в поиске
+Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.
 
-		Данные отчёта обновляются 1 раз в 2 часа.
+Данные отчёта обновляются 1 раз в 2 часа.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-report
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-report
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV2SearchReportReportRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV2SearchReportReportRequest
 	*/
 	PostV2SearchReportReport(ctx context.Context) ApiPostV2SearchReportReportRequest
 
@@ -364,31 +365,31 @@ type AnalyticsAPI interface {
 	PostV2SearchReportReportExecute(r ApiPostV2SearchReportReportRequest) (*PostV2SearchReportReportResponse200, *http.Response, error)
 
 	/*
-			PostV2SearchReportTableDetails Пагинация по товарам в группе
+	PostV2SearchReportTableDetails Пагинация по товарам в группе
 
-			Метод формирует дополнительные данные к [основному отчёту](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportReport) с пагинацией по товарам в группе. Пагинация возможна вне зависимости от наличия фильтров.
+	Метод формирует дополнительные данные к [основному отчёту](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportReport) с пагинацией по товарам в группе. Пагинация возможна вне зависимости от наличия фильтров.
 
-		Фильтры для пагинации по товарам в группе или без фильтров:
-		- кортеж `subjectId`,`brandName`,`tagId` — фильтр для группы
-		- `nmIds` — фильтр по карточке товара
-		Дополнительный параметр выбора списка товаров:
-		- `positionCluster` — средняя позиция в поиске
-		Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.
+Фильтры для пагинации по товарам в группе или без фильтров:
+- кортеж `subjectId`,`brandName`,`tagId` — фильтр для группы
+- `nmIds` — фильтр по карточке товара
+Дополнительный параметр выбора списка товаров:
+- `positionCluster` — средняя позиция в поиске
+Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.
 
-		Данные отчёта обновляются 1 раз в 2 часа.
+Данные отчёта обновляются 1 раз в 2 часа.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-table-details
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-table-details
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV2SearchReportTableDetailsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV2SearchReportTableDetailsRequest
 	*/
 	PostV2SearchReportTableDetails(ctx context.Context) ApiPostV2SearchReportTableDetailsRequest
 
@@ -397,28 +398,28 @@ type AnalyticsAPI interface {
 	PostV2SearchReportTableDetailsExecute(r ApiPostV2SearchReportTableDetailsRequest) (*PostV2SearchReportTableDetailsResponse200, *http.Response, error)
 
 	/*
-			PostV2SearchReportTableGroups Пагинация по группам
+	PostV2SearchReportTableGroups Пагинация по группам
 
-			Метод формирует дополнительные данные к [основному отчёту](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportReport) с пагинацией по группам. Пагинация возможна только при наличии фильтра по бренду, предмету или ярлыку.
+	Метод формирует дополнительные данные к [основному отчёту](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportReport) с пагинацией по группам. Пагинация возможна только при наличии фильтра по бренду, предмету или ярлыку.
 
-		Дополнительный параметр выбора списка товаров в таблице:
-		- `positionCluster` — средняя позиция в поиске
-		Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.
+Дополнительный параметр выбора списка товаров в таблице:
+- `positionCluster` — средняя позиция в поиске
+Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.
 
-		Данные отчёта обновляются 1 раз в 2 часа.
+Данные отчёта обновляются 1 раз в 2 часа.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-table-groups
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-table-groups
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV2SearchReportTableGroupsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV2SearchReportTableGroupsRequest
 	*/
 	PostV2SearchReportTableGroups(ctx context.Context) ApiPostV2SearchReportTableGroupsRequest
 
@@ -427,26 +428,26 @@ type AnalyticsAPI interface {
 	PostV2SearchReportTableGroupsExecute(r ApiPostV2SearchReportTableGroupsRequest) (*PostV2SearchReportTableGroupsResponse200, *http.Response, error)
 
 	/*
-			PostV2StocksReportOffices Данные по складам
+	PostV2StocksReportOffices Данные по складам
 
-			Метод формирует набор данных об остатках по складам.
+	Метод формирует набор данных об остатках по складам.
 
-		Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `"regionName":"Свой склад"` и `"offices":[]`.
+Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с `"regionName":"Свой склад"` или `"regionName":"Свой склад СГТ"` и `"offices":[]`.
 
-		Данные отчёта обновляются 1 раз в 2 часа.
+Данные отчёта обновляются 1 раз в 2 часа.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV2StocksReportOfficesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV2StocksReportOfficesRequest
 	*/
 	PostV2StocksReportOffices(ctx context.Context) ApiPostV2StocksReportOfficesRequest
 
@@ -455,26 +456,26 @@ type AnalyticsAPI interface {
 	PostV2StocksReportOfficesExecute(r ApiPostV2StocksReportOfficesRequest) (*PostV2StocksReportOfficesResponse200, *http.Response, error)
 
 	/*
-			PostV2StocksReportProductsGroups Данные по группам
+	PostV2StocksReportProductsGroups Данные по группам
 
-			Метод формирует набор данных об остатках по группам товаров.
+	Метод формирует набор данных об остатках по группам товаров.
 
-		Группа товаров описывается кортежем `subjectID, brandName, tagID`.
+Группа товаров описывается кортежем `subjectID, brandName, tagID`.
 
-		Данные отчёта обновляются 1 раз в 2 часа.
+Данные отчёта обновляются 1 раз в 2 часа.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-groups
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-groups
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV2StocksReportProductsGroupsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV2StocksReportProductsGroupsRequest
 	*/
 	PostV2StocksReportProductsGroups(ctx context.Context) ApiPostV2StocksReportProductsGroupsRequest
 
@@ -483,26 +484,26 @@ type AnalyticsAPI interface {
 	PostV2StocksReportProductsGroupsExecute(r ApiPostV2StocksReportProductsGroupsRequest) (*PostV2StocksReportProductsGroupsResponse200, *http.Response, error)
 
 	/*
-			PostV2StocksReportProductsProducts Данные по товарам
+	PostV2StocksReportProductsProducts Данные по товарам
 
-			Метод формирует набор данных об остатках по товарам.
+	Метод формирует набор данных об остатках по товарам.
 
-		Можно получить данные как по отдельным товарам, так и в рамках всего отчёта — если в запросе отсутствуют фильтры: `nmIDs`, `subjectID`, `brandName`, `tagID`.
+Можно получить данные как по отдельным товарам, так и в рамках всего отчёта — если в запросе отсутствуют фильтры: `nmIDs`, `subjectID`, `brandName`, `tagID`.
 
-		Данные отчёта обновляются 1 раз в 2 часа.
+Данные отчёта обновляются 1 раз в 2 часа.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-products
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-products
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV2StocksReportProductsProductsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV2StocksReportProductsProductsRequest
 	*/
 	PostV2StocksReportProductsProducts(ctx context.Context) ApiPostV2StocksReportProductsProductsRequest
 
@@ -511,32 +512,32 @@ type AnalyticsAPI interface {
 	PostV2StocksReportProductsProductsExecute(r ApiPostV2StocksReportProductsProductsRequest) (*PostV2StocksReportProductsProductsResponse200, *http.Response, error)
 
 	/*
-			PostV2StocksReportProductsSizes Данные по размерам
+	PostV2StocksReportProductsSizes Данные по размерам
 
-			Метод формирует набор данных об остатках по размерам товара.
+	Метод формирует набор данных об остатках по размерам товара.
 
-		Возможны случаи:
-		1. Товар имеет размеры и `"includeOffice":true`, тогда в ответе будут данные об остатках по каждому из размеров с вложенной детализацией по складам.
-		2. Товар имеет размеры и `"includeOffice":false`, тогда в ответе будут данные об остатках по каждому из размеров без вложенной детализации по складам.
-		3. Товар не имеет размера и `"includeOffice":true`, тогда в ответе будет детализация по складам. Без данных об остатках по каждому из размеров.
-		4. Товар не имеет размера и `"includeOffice":false`, тогда тело ответа будет пустым.
-		Товар не имеет размера, если у него единственный размер с `"techSize":"0"`. В ответах метода получения данных по [товарам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts) у таких товаров `"hasSizes":false`.
-		Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `"regionName":"Свой склад"` и `"officeName":""`.
+Возможны случаи:
+1. Товар имеет размеры и `"includeOffice":true`, тогда в ответе будут данные об остатках по каждому из размеров с вложенной детализацией по складам.
+2. Товар имеет размеры и `"includeOffice":false`, тогда в ответе будут данные об остатках по каждому из размеров без вложенной детализации по складам.
+3. Товар не имеет размера и `"includeOffice":true`, тогда в ответе будет детализация по складам. Без данных об остатках по каждому из размеров.
+4. Товар не имеет размера и `"includeOffice":false`, тогда тело ответа будет пустым.
+Товар не имеет размера, если у него единственный размер с `"techSize":"0"`. В ответах метода получения данных по [товарам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts) у таких товаров `"hasSizes":false`.
+Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с `"regionName":"Свой склад"` или `"regionName":"Свой склад СГТ"` и `"officeName":""`.
 
-		Данные отчёта обновляются 1 раз в 2 часа.
+Данные отчёта обновляются 1 раз в 2 часа.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-sizes
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-sizes
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV2StocksReportProductsSizesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV2StocksReportProductsSizesRequest
 	*/
 	PostV2StocksReportProductsSizes(ctx context.Context) ApiPostV2StocksReportProductsSizesRequest
 
@@ -545,41 +546,41 @@ type AnalyticsAPI interface {
 	PostV2StocksReportProductsSizesExecute(r ApiPostV2StocksReportProductsSizesRequest) (*PostV2StocksReportProductsSizesResponse200, *http.Response, error)
 
 	/*
-			PostV3SalesFunnelGroupedHistory Статистика групп карточек товаров по дням
+	PostV3SalesFunnelGroupedHistory Статистика групп карточек товаров по дням
 
-			Метод возвращает статистику карточек товаров по дням или неделям.
-		Карточки товаров сгруппированы по предметам, брендам и ярлыкам.
-		Можно получить данные максимум за последнюю неделю.
+	Метод возвращает статистику карточек товаров по дням или неделям.
+Карточки товаров сгруппированы по предметам, брендам и ярлыкам.
+Можно получить данные максимум за последнюю неделю.
 
-		Данные отчёта обновляются 1 раз в 2 часа.
+Данные отчёта обновляются 1 раз в 2 часа.
 
-		В течение часа после события появляется большая часть данных:
-		- о заказах
-		- о переходах в карточку товара
-		- о добавлениях товаров в корзину
-		Малая часть этих данных может появляться в течение нескольких дней.
+В течение часа после события появляется большая часть данных:
+- о заказах
+- о переходах в карточку товара
+- о добавлениях товаров в корзину
+Малая часть этих данных может появляться в течение нескольких дней.
 
-		Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.
-		Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports).
+Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.
+Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports).
 
-		Параметры `brandNames`, `subjectIds`, `tagIds` могут быть пустыми `[]`, тогда группировка происходит по всем карточкам продавца.
+Параметры `brandNames`, `subjectIds`, `tagIds` могут быть пустыми `[]`, тогда группировка происходит по всем карточкам продавца.
 
-		Произведение количества предметов, брендов, ярлыков в запросе может быть не больше 16. Например, 4 бренда и 4 предмета или 2 предмета, 2 ярлыка и 4 бренда.
+Произведение количества предметов, брендов, ярлыков в запросе может быть не больше 16. Например, 4 бренда и 4 предмета или 2 предмета, 2 ярлыка и 4 бренда.
 
-		Чтобы получать отчёты за период до года, используйте методы [Аналитика продавца CSV](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv) — тип `GROUPED_HISTORY_REPORT`. Отчёты этого типа доступны только с подпиской [Джем](https://seller.wildberries.ru/monetization/jam)
+Чтобы получать отчёты за период до года, используйте методы [Аналитика продавца CSV](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv) — тип `GROUPED_HISTORY_REPORT`. Отчёты этого типа доступны только с подпиской [Джем](https://seller.wildberries.ru/monetization/jam)
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v3-sales-funnel-grouped-history
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v3-sales-funnel-grouped-history
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV3SalesFunnelGroupedHistoryRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3SalesFunnelGroupedHistoryRequest
 	*/
 	PostV3SalesFunnelGroupedHistory(ctx context.Context) ApiPostV3SalesFunnelGroupedHistoryRequest
 
@@ -588,44 +589,44 @@ type AnalyticsAPI interface {
 	PostV3SalesFunnelGroupedHistoryExecute(r ApiPostV3SalesFunnelGroupedHistoryRequest) (*PostV3SalesFunnelGroupedHistoryResponse200, *http.Response, error)
 
 	/*
-			PostV3SalesFunnelProducts Статистика карточек товаров за период
+	PostV3SalesFunnelProducts Статистика карточек товаров за период
 
-			Метод формирует отчёт о товарах, сравнивая ключевые показатели за текущий период с аналогичным прошлым.
+	Метод формирует отчёт о товарах, сравнивая ключевые показатели за текущий период с аналогичным прошлым.
 
-		Данные отчёта обновляются 1 раз в 2 часа.
+Данные отчёта обновляются 1 раз в 2 часа.
 
-		В течение часа после события появляется большая часть данных:
-		- о заказах
-		- о переходах в карточку товара
-		- о добавлениях товаров в корзину
-		Малая часть этих данных может появляться в течение нескольких дней.
+В течение часа после события появляется большая часть данных:
+- о заказах
+- о переходах в карточку товара
+- о добавлениях товаров в корзину
+Малая часть этих данных может появляться в течение нескольких дней.
 
-		Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.
-		Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports).
+Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.
+Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports).
 
-		Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все карточки продавца.
+Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все карточки продавца.
 
-		Если вы указали несколько параметров, в ответе будут карточки, в которых есть одновременно все эти параметры. Если карточки не подходят по параметрам запроса, вернётся пустой ответ `[]`.
+Если вы указали несколько параметров, в ответе будут карточки, в которых есть одновременно все эти параметры. Если карточки не подходят по параметрам запроса, вернётся пустой ответ `[]`.
 
-		Можно получить отчёт максимум за последние 365 дней.
+Можно получить отчёт максимум за последние 365 дней.
 
-		В данных предыдущего периода:
-		\* Данные в `pastPeriod` указаны за такой же период, что и в `selectedPeriod`
-		\* Если дата начала `pastPeriod` раньше, чем год назад от текущей даты, она будет приведена к виду: `pastPeriod.start = текущая дата — 365 дней`
-		Можно использовать пагинацию.
+В данных предыдущего периода:
+\* Данные в `pastPeriod` указаны за такой же период, что и в `selectedPeriod`
+\* Если дата начала `pastPeriod` раньше, чем год назад от текущей даты, она будет приведена к виду: `pastPeriod.start = текущая дата — 365 дней`
+Можно использовать пагинацию.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v3-sales-funnel-products
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v3-sales-funnel-products
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV3SalesFunnelProductsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3SalesFunnelProductsRequest
 	*/
 	PostV3SalesFunnelProducts(ctx context.Context) ApiPostV3SalesFunnelProductsRequest
 
@@ -634,36 +635,36 @@ type AnalyticsAPI interface {
 	PostV3SalesFunnelProductsExecute(r ApiPostV3SalesFunnelProductsRequest) (*PostV3SalesFunnelProductsResponse200, *http.Response, error)
 
 	/*
-			PostV3SalesFunnelProductsHistory Статистика карточек товаров по дням
+	PostV3SalesFunnelProductsHistory Статистика карточек товаров по дням
 
-			Метод возвращает статистику карточек товаров по дням или неделям.
-		Можно получить данные максимум за последнюю неделю.
+	Метод возвращает статистику карточек товаров по дням или неделям.
+Можно получить данные максимум за последнюю неделю.
 
-		Данные отчёта обновляются 1 раз в 2 часа.
+Данные отчёта обновляются 1 раз в 2 часа.
 
-		В течение часа после события появляется большая часть данных:
-		- о заказах
-		- о переходах в карточку товара
-		- о добавлениях товаров в корзину
-		Малая часть этих данных может появляться в течение нескольких дней.
+В течение часа после события появляется большая часть данных:
+- о заказах
+- о переходах в карточку товара
+- о добавлениях товаров в корзину
+Малая часть этих данных может появляться в течение нескольких дней.
 
-		Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.
-		Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports).
+Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.
+Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports).
 
-		Чтобы получать отчёты за период до года, используйте методы [Аналитика продавца CSV](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv) — тип `DETAIL_HISTORY_REPORT`. Отчёты этого типа доступны только с подпиской [Джем](https://seller.wildberries.ru/monetization/jam)
+Чтобы получать отчёты за период до года, используйте методы [Аналитика продавца CSV](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv) — тип `DETAIL_HISTORY_REPORT`. Отчёты этого типа доступны только с подпиской [Джем](https://seller.wildberries.ru/monetization/jam)
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v3-sales-funnel-products-history
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v3-sales-funnel-products-history
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV3SalesFunnelProductsHistoryRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3SalesFunnelProductsHistoryRequest
 	*/
 	PostV3SalesFunnelProductsHistory(ctx context.Context) ApiPostV3SalesFunnelProductsHistoryRequest
 
@@ -676,8 +677,8 @@ type AnalyticsAPI interface {
 type AnalyticsAPIService service
 
 type ApiGetV2NmReportDownloadsRequest struct {
-	ctx               context.Context
-	ApiService        AnalyticsAPI
+	ctx context.Context
+	ApiService AnalyticsAPI
 	filterDownloadIds *[]string
 }
 
@@ -706,25 +707,24 @@ GetV2NmReportDownloads Получить список отчётов
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/get-api-v2-nm-report-downloads
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV2NmReportDownloadsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV2NmReportDownloadsRequest
 */
 func (a *AnalyticsAPIService) GetV2NmReportDownloads(ctx context.Context) ApiGetV2NmReportDownloadsRequest {
 	return ApiGetV2NmReportDownloadsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return NmReportGetReportsResponse
+//  @return NmReportGetReportsResponse
 func (a *AnalyticsAPIService) GetV2NmReportDownloadsExecute(r ApiGetV2NmReportDownloadsRequest) (*NmReportGetReportsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *NmReportGetReportsResponse
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *NmReportGetReportsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnalyticsAPIService.GetV2NmReportDownloads")
@@ -795,8 +795,8 @@ func (a *AnalyticsAPIService) GetV2NmReportDownloadsExecute(r ApiGetV2NmReportDo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -806,8 +806,8 @@ func (a *AnalyticsAPIService) GetV2NmReportDownloadsExecute(r ApiGetV2NmReportDo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -817,8 +817,8 @@ func (a *AnalyticsAPIService) GetV2NmReportDownloadsExecute(r ApiGetV2NmReportDo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -828,8 +828,8 @@ func (a *AnalyticsAPIService) GetV2NmReportDownloadsExecute(r ApiGetV2NmReportDo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -847,7 +847,7 @@ func (a *AnalyticsAPIService) GetV2NmReportDownloadsExecute(r ApiGetV2NmReportDo
 }
 
 type ApiGetV2NmReportDownloadsFileDownloadIdRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService AnalyticsAPI
 	downloadId string
 }
@@ -874,27 +874,26 @@ GetV2NmReportDownloadsFileDownloadId Получить отчёт
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/get-api-v2-nm-report-downloads-file-downloadid
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param downloadId ID отчёта
-	@return ApiGetV2NmReportDownloadsFileDownloadIdRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param downloadId ID отчёта
+ @return ApiGetV2NmReportDownloadsFileDownloadIdRequest
 */
 func (a *AnalyticsAPIService) GetV2NmReportDownloadsFileDownloadId(ctx context.Context, downloadId string) ApiGetV2NmReportDownloadsFileDownloadIdRequest {
 	return ApiGetV2NmReportDownloadsFileDownloadIdRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 		downloadId: downloadId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return *os.File
+//  @return *os.File
 func (a *AnalyticsAPIService) GetV2NmReportDownloadsFileDownloadIdExecute(r ApiGetV2NmReportDownloadsFileDownloadIdRequest) (*os.File, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *os.File
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnalyticsAPIService.GetV2NmReportDownloadsFileDownloadId")
@@ -955,8 +954,8 @@ func (a *AnalyticsAPIService) GetV2NmReportDownloadsFileDownloadIdExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -966,8 +965,8 @@ func (a *AnalyticsAPIService) GetV2NmReportDownloadsFileDownloadIdExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -977,8 +976,8 @@ func (a *AnalyticsAPIService) GetV2NmReportDownloadsFileDownloadIdExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -988,8 +987,8 @@ func (a *AnalyticsAPIService) GetV2NmReportDownloadsFileDownloadIdExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -999,8 +998,8 @@ func (a *AnalyticsAPIService) GetV2NmReportDownloadsFileDownloadIdExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1018,8 +1017,8 @@ func (a *AnalyticsAPIService) GetV2NmReportDownloadsFileDownloadIdExecute(r ApiG
 }
 
 type ApiPostV1OrderFeedRequest struct {
-	ctx              context.Context
-	ApiService       AnalyticsAPI
+	ctx context.Context
+	ApiService AnalyticsAPI
 	orderFeedRequest *OrderFeedRequest
 }
 
@@ -1059,25 +1058,24 @@ PostV1OrderFeed Получить отчёт
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v1-order-feed
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV1OrderFeedRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV1OrderFeedRequest
 */
 func (a *AnalyticsAPIService) PostV1OrderFeed(ctx context.Context) ApiPostV1OrderFeedRequest {
 	return ApiPostV1OrderFeedRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PostV1OrderFeedResponse200
+//  @return PostV1OrderFeedResponse200
 func (a *AnalyticsAPIService) PostV1OrderFeedExecute(r ApiPostV1OrderFeedRequest) (*PostV1OrderFeedResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PostV1OrderFeedResponse200
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV1OrderFeedResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnalyticsAPIService.PostV1OrderFeed")
@@ -1139,8 +1137,8 @@ func (a *AnalyticsAPIService) PostV1OrderFeedExecute(r ApiPostV1OrderFeedRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1150,8 +1148,19 @@ func (a *AnalyticsAPIService) PostV1OrderFeedExecute(r ApiPostV1OrderFeedRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v PostV3SalesFunnelProducts402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1161,8 +1170,8 @@ func (a *AnalyticsAPIService) PostV1OrderFeedExecute(r ApiPostV1OrderFeedRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1172,8 +1181,8 @@ func (a *AnalyticsAPIService) PostV1OrderFeedExecute(r ApiPostV1OrderFeedRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1191,8 +1200,8 @@ func (a *AnalyticsAPIService) PostV1OrderFeedExecute(r ApiPostV1OrderFeedRequest
 }
 
 type ApiPostV1StocksReportSellerWarehousesRequest struct {
-	ctx              context.Context
-	ApiService       AnalyticsAPI
+	ctx context.Context
+	ApiService AnalyticsAPI
 	inventoryRequest *InventoryRequest
 }
 
@@ -1225,25 +1234,24 @@ PostV1StocksReportSellerWarehouses Остатки на складах прода
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v1-stocks-report-seller-warehouses
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV1StocksReportSellerWarehousesRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV1StocksReportSellerWarehousesRequest
 */
 func (a *AnalyticsAPIService) PostV1StocksReportSellerWarehouses(ctx context.Context) ApiPostV1StocksReportSellerWarehousesRequest {
 	return ApiPostV1StocksReportSellerWarehousesRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PostV1StocksReportSellerWarehousesResponse200
+//  @return PostV1StocksReportSellerWarehousesResponse200
 func (a *AnalyticsAPIService) PostV1StocksReportSellerWarehousesExecute(r ApiPostV1StocksReportSellerWarehousesRequest) (*PostV1StocksReportSellerWarehousesResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PostV1StocksReportSellerWarehousesResponse200
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV1StocksReportSellerWarehousesResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnalyticsAPIService.PostV1StocksReportSellerWarehouses")
@@ -1308,8 +1316,8 @@ func (a *AnalyticsAPIService) PostV1StocksReportSellerWarehousesExecute(r ApiPos
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1319,8 +1327,19 @@ func (a *AnalyticsAPIService) PostV1StocksReportSellerWarehousesExecute(r ApiPos
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v PostV3SalesFunnelProducts402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1330,8 +1349,8 @@ func (a *AnalyticsAPIService) PostV1StocksReportSellerWarehousesExecute(r ApiPos
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1341,8 +1360,8 @@ func (a *AnalyticsAPIService) PostV1StocksReportSellerWarehousesExecute(r ApiPos
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1360,8 +1379,8 @@ func (a *AnalyticsAPIService) PostV1StocksReportSellerWarehousesExecute(r ApiPos
 }
 
 type ApiPostV1StocksReportWbWarehousesRequest struct {
-	ctx              context.Context
-	ApiService       AnalyticsAPI
+	ctx context.Context
+	ApiService AnalyticsAPI
 	inventoryRequest *InventoryRequest
 }
 
@@ -1395,25 +1414,24 @@ PostV1StocksReportWbWarehouses Остатки на складах WB
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v1-stocks-report-wb-warehouses
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV1StocksReportWbWarehousesRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV1StocksReportWbWarehousesRequest
 */
 func (a *AnalyticsAPIService) PostV1StocksReportWbWarehouses(ctx context.Context) ApiPostV1StocksReportWbWarehousesRequest {
 	return ApiPostV1StocksReportWbWarehousesRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PostV1StocksReportWbWarehousesResponse200
+//  @return PostV1StocksReportWbWarehousesResponse200
 func (a *AnalyticsAPIService) PostV1StocksReportWbWarehousesExecute(r ApiPostV1StocksReportWbWarehousesRequest) (*PostV1StocksReportWbWarehousesResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PostV1StocksReportWbWarehousesResponse200
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV1StocksReportWbWarehousesResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnalyticsAPIService.PostV1StocksReportWbWarehouses")
@@ -1478,8 +1496,8 @@ func (a *AnalyticsAPIService) PostV1StocksReportWbWarehousesExecute(r ApiPostV1S
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1489,8 +1507,8 @@ func (a *AnalyticsAPIService) PostV1StocksReportWbWarehousesExecute(r ApiPostV1S
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1500,8 +1518,8 @@ func (a *AnalyticsAPIService) PostV1StocksReportWbWarehousesExecute(r ApiPostV1S
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1511,8 +1529,8 @@ func (a *AnalyticsAPIService) PostV1StocksReportWbWarehousesExecute(r ApiPostV1S
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1522,8 +1540,8 @@ func (a *AnalyticsAPIService) PostV1StocksReportWbWarehousesExecute(r ApiPostV1S
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1541,8 +1559,8 @@ func (a *AnalyticsAPIService) PostV1StocksReportWbWarehousesExecute(r ApiPostV1S
 }
 
 type ApiPostV2ItemRatingRequest struct {
-	ctx               context.Context
-	ApiService        AnalyticsAPI
+	ctx context.Context
+	ApiService AnalyticsAPI
 	itemRatingRequest *ItemRatingRequest
 }
 
@@ -1573,25 +1591,24 @@ PostV2ItemRating Получить отчёт
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v2-item-rating
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV2ItemRatingRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2ItemRatingRequest
 */
 func (a *AnalyticsAPIService) PostV2ItemRating(ctx context.Context) ApiPostV2ItemRatingRequest {
 	return ApiPostV2ItemRatingRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PostV2ItemRatingResponse200
+//  @return PostV2ItemRatingResponse200
 func (a *AnalyticsAPIService) PostV2ItemRatingExecute(r ApiPostV2ItemRatingRequest) (*PostV2ItemRatingResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PostV2ItemRatingResponse200
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV2ItemRatingResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnalyticsAPIService.PostV2ItemRating")
@@ -1656,8 +1673,8 @@ func (a *AnalyticsAPIService) PostV2ItemRatingExecute(r ApiPostV2ItemRatingReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1667,8 +1684,19 @@ func (a *AnalyticsAPIService) PostV2ItemRatingExecute(r ApiPostV2ItemRatingReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v PostV3SalesFunnelProducts402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1678,8 +1706,8 @@ func (a *AnalyticsAPIService) PostV2ItemRatingExecute(r ApiPostV2ItemRatingReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1689,8 +1717,8 @@ func (a *AnalyticsAPIService) PostV2ItemRatingExecute(r ApiPostV2ItemRatingReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1708,8 +1736,8 @@ func (a *AnalyticsAPIService) PostV2ItemRatingExecute(r ApiPostV2ItemRatingReque
 }
 
 type ApiPostV2NmReportDownloadsRequest struct {
-	ctx                            context.Context
-	ApiService                     AnalyticsAPI
+	ctx context.Context
+	ApiService AnalyticsAPI
 	postV2NmReportDownloadsRequest *PostV2NmReportDownloadsRequest
 }
 
@@ -1736,7 +1764,7 @@ PostV2NmReportDownloads Создать отчёт
 
 Каждый новый отчёт должен иметь уникальный ID.
 
-# Не используйте одинаковые ID для разных отчётов — это может привести к ошибкам при генерации
+Не используйте одинаковые ID для разных отчётов — это может привести к ошибкам при генерации
 
 Набор параметров запроса в объекте `params` зависит от типа отчёта. Чтобы получить описание параметров, выберите тип отчёта в раскрывающемся списке в описании параметра `reportType`.
 
@@ -1758,25 +1786,24 @@ PostV2NmReportDownloads Создать отчёт
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-nm-report-downloads
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV2NmReportDownloadsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2NmReportDownloadsRequest
 */
 func (a *AnalyticsAPIService) PostV2NmReportDownloads(ctx context.Context) ApiPostV2NmReportDownloadsRequest {
 	return ApiPostV2NmReportDownloadsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return NmReportCreateReportResponse
+//  @return NmReportCreateReportResponse
 func (a *AnalyticsAPIService) PostV2NmReportDownloadsExecute(r ApiPostV2NmReportDownloadsRequest) (*NmReportCreateReportResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *NmReportCreateReportResponse
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *NmReportCreateReportResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnalyticsAPIService.PostV2NmReportDownloads")
@@ -1838,8 +1865,8 @@ func (a *AnalyticsAPIService) PostV2NmReportDownloadsExecute(r ApiPostV2NmReport
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1849,8 +1876,8 @@ func (a *AnalyticsAPIService) PostV2NmReportDownloadsExecute(r ApiPostV2NmReport
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1860,8 +1887,8 @@ func (a *AnalyticsAPIService) PostV2NmReportDownloadsExecute(r ApiPostV2NmReport
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1871,8 +1898,8 @@ func (a *AnalyticsAPIService) PostV2NmReportDownloadsExecute(r ApiPostV2NmReport
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1882,8 +1909,8 @@ func (a *AnalyticsAPIService) PostV2NmReportDownloadsExecute(r ApiPostV2NmReport
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1901,8 +1928,8 @@ func (a *AnalyticsAPIService) PostV2NmReportDownloadsExecute(r ApiPostV2NmReport
 }
 
 type ApiPostV2NmReportDownloadsRetryRequest struct {
-	ctx                        context.Context
-	ApiService                 AnalyticsAPI
+	ctx context.Context
+	ApiService AnalyticsAPI
 	nmReportRetryReportRequest *NmReportRetryReportRequest
 }
 
@@ -1930,25 +1957,24 @@ PostV2NmReportDownloadsRetry Сгенерировать отчёт повтор�
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-nm-report-downloads-retry
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV2NmReportDownloadsRetryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2NmReportDownloadsRetryRequest
 */
 func (a *AnalyticsAPIService) PostV2NmReportDownloadsRetry(ctx context.Context) ApiPostV2NmReportDownloadsRetryRequest {
 	return ApiPostV2NmReportDownloadsRetryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return NmReportRetryReportResponse
+//  @return NmReportRetryReportResponse
 func (a *AnalyticsAPIService) PostV2NmReportDownloadsRetryExecute(r ApiPostV2NmReportDownloadsRetryRequest) (*NmReportRetryReportResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *NmReportRetryReportResponse
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *NmReportRetryReportResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnalyticsAPIService.PostV2NmReportDownloadsRetry")
@@ -2013,8 +2039,8 @@ func (a *AnalyticsAPIService) PostV2NmReportDownloadsRetryExecute(r ApiPostV2NmR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2024,8 +2050,8 @@ func (a *AnalyticsAPIService) PostV2NmReportDownloadsRetryExecute(r ApiPostV2NmR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2035,8 +2061,8 @@ func (a *AnalyticsAPIService) PostV2NmReportDownloadsRetryExecute(r ApiPostV2NmR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2046,8 +2072,8 @@ func (a *AnalyticsAPIService) PostV2NmReportDownloadsRetryExecute(r ApiPostV2NmR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2065,8 +2091,8 @@ func (a *AnalyticsAPIService) PostV2NmReportDownloadsRetryExecute(r ApiPostV2NmR
 }
 
 type ApiPostV2SearchReportProductOrdersRequest struct {
-	ctx               context.Context
-	ApiService        AnalyticsAPI
+	ctx context.Context
+	ApiService AnalyticsAPI
 	itemOrdersRequest *ItemOrdersRequest
 }
 
@@ -2089,7 +2115,7 @@ PostV2SearchReportProductOrders Заказы и позиции по поиско
 
 Данные отчёта обновляются 1 раз в 2 часа.
 
-# Можно получить отчёт максимум за последние 365 дней с момента выполнения запроса
+Можно получить отчёт максимум за последние 365 дней с момента выполнения запроса
 
 [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2101,25 +2127,24 @@ PostV2SearchReportProductOrders Заказы и позиции по поиско
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-product-orders
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV2SearchReportProductOrdersRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2SearchReportProductOrdersRequest
 */
 func (a *AnalyticsAPIService) PostV2SearchReportProductOrders(ctx context.Context) ApiPostV2SearchReportProductOrdersRequest {
 	return ApiPostV2SearchReportProductOrdersRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PostV2SearchReportProductOrdersResponse200
+//  @return PostV2SearchReportProductOrdersResponse200
 func (a *AnalyticsAPIService) PostV2SearchReportProductOrdersExecute(r ApiPostV2SearchReportProductOrdersRequest) (*PostV2SearchReportProductOrdersResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PostV2SearchReportProductOrdersResponse200
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV2SearchReportProductOrdersResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnalyticsAPIService.PostV2SearchReportProductOrders")
@@ -2184,8 +2209,8 @@ func (a *AnalyticsAPIService) PostV2SearchReportProductOrdersExecute(r ApiPostV2
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2195,8 +2220,8 @@ func (a *AnalyticsAPIService) PostV2SearchReportProductOrdersExecute(r ApiPostV2
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2206,8 +2231,8 @@ func (a *AnalyticsAPIService) PostV2SearchReportProductOrdersExecute(r ApiPostV2
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2217,8 +2242,8 @@ func (a *AnalyticsAPIService) PostV2SearchReportProductOrdersExecute(r ApiPostV2
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2228,8 +2253,8 @@ func (a *AnalyticsAPIService) PostV2SearchReportProductOrdersExecute(r ApiPostV2
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2247,8 +2272,8 @@ func (a *AnalyticsAPIService) PostV2SearchReportProductOrdersExecute(r ApiPostV2
 }
 
 type ApiPostV2SearchReportProductSearchTextsRequest struct {
-	ctx                    context.Context
-	ApiService             AnalyticsAPI
+	ctx context.Context
+	ApiService AnalyticsAPI
 	itemSearchTextsRequest *ItemSearchTextsRequest
 }
 
@@ -2282,25 +2307,24 @@ PostV2SearchReportProductSearchTexts Поисковые запросы по то
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-product-search-texts
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV2SearchReportProductSearchTextsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2SearchReportProductSearchTextsRequest
 */
 func (a *AnalyticsAPIService) PostV2SearchReportProductSearchTexts(ctx context.Context) ApiPostV2SearchReportProductSearchTextsRequest {
 	return ApiPostV2SearchReportProductSearchTextsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PostV2SearchReportProductSearchTextsResponse200
+//  @return PostV2SearchReportProductSearchTextsResponse200
 func (a *AnalyticsAPIService) PostV2SearchReportProductSearchTextsExecute(r ApiPostV2SearchReportProductSearchTextsRequest) (*PostV2SearchReportProductSearchTextsResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PostV2SearchReportProductSearchTextsResponse200
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV2SearchReportProductSearchTextsResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnalyticsAPIService.PostV2SearchReportProductSearchTexts")
@@ -2365,8 +2389,8 @@ func (a *AnalyticsAPIService) PostV2SearchReportProductSearchTextsExecute(r ApiP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2376,8 +2400,8 @@ func (a *AnalyticsAPIService) PostV2SearchReportProductSearchTextsExecute(r ApiP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2387,8 +2411,8 @@ func (a *AnalyticsAPIService) PostV2SearchReportProductSearchTextsExecute(r ApiP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2398,8 +2422,8 @@ func (a *AnalyticsAPIService) PostV2SearchReportProductSearchTextsExecute(r ApiP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2409,8 +2433,8 @@ func (a *AnalyticsAPIService) PostV2SearchReportProductSearchTextsExecute(r ApiP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2428,8 +2452,8 @@ func (a *AnalyticsAPIService) PostV2SearchReportProductSearchTextsExecute(r ApiP
 }
 
 type ApiPostV2SearchReportReportRequest struct {
-	ctx         context.Context
-	ApiService  AnalyticsAPI
+	ctx context.Context
+	ApiService AnalyticsAPI
 	mainRequest *MainRequest
 }
 
@@ -2469,25 +2493,24 @@ PostV2SearchReportReport Основная страница
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-report
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV2SearchReportReportRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2SearchReportReportRequest
 */
 func (a *AnalyticsAPIService) PostV2SearchReportReport(ctx context.Context) ApiPostV2SearchReportReportRequest {
 	return ApiPostV2SearchReportReportRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PostV2SearchReportReportResponse200
+//  @return PostV2SearchReportReportResponse200
 func (a *AnalyticsAPIService) PostV2SearchReportReportExecute(r ApiPostV2SearchReportReportRequest) (*PostV2SearchReportReportResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PostV2SearchReportReportResponse200
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV2SearchReportReportResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnalyticsAPIService.PostV2SearchReportReport")
@@ -2552,8 +2575,8 @@ func (a *AnalyticsAPIService) PostV2SearchReportReportExecute(r ApiPostV2SearchR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2563,8 +2586,8 @@ func (a *AnalyticsAPIService) PostV2SearchReportReportExecute(r ApiPostV2SearchR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2574,8 +2597,8 @@ func (a *AnalyticsAPIService) PostV2SearchReportReportExecute(r ApiPostV2SearchR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2585,8 +2608,8 @@ func (a *AnalyticsAPIService) PostV2SearchReportReportExecute(r ApiPostV2SearchR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2596,8 +2619,8 @@ func (a *AnalyticsAPIService) PostV2SearchReportReportExecute(r ApiPostV2SearchR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2615,8 +2638,8 @@ func (a *AnalyticsAPIService) PostV2SearchReportReportExecute(r ApiPostV2SearchR
 }
 
 type ApiPostV2SearchReportTableDetailsRequest struct {
-	ctx                 context.Context
-	ApiService          AnalyticsAPI
+	ctx context.Context
+	ApiService AnalyticsAPI
 	tableDetailsRequest *TableDetailsRequest
 }
 
@@ -2653,25 +2676,24 @@ PostV2SearchReportTableDetails Пагинация по товарам в гру�
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-table-details
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV2SearchReportTableDetailsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2SearchReportTableDetailsRequest
 */
 func (a *AnalyticsAPIService) PostV2SearchReportTableDetails(ctx context.Context) ApiPostV2SearchReportTableDetailsRequest {
 	return ApiPostV2SearchReportTableDetailsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PostV2SearchReportTableDetailsResponse200
+//  @return PostV2SearchReportTableDetailsResponse200
 func (a *AnalyticsAPIService) PostV2SearchReportTableDetailsExecute(r ApiPostV2SearchReportTableDetailsRequest) (*PostV2SearchReportTableDetailsResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PostV2SearchReportTableDetailsResponse200
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV2SearchReportTableDetailsResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnalyticsAPIService.PostV2SearchReportTableDetails")
@@ -2736,8 +2758,8 @@ func (a *AnalyticsAPIService) PostV2SearchReportTableDetailsExecute(r ApiPostV2S
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2747,8 +2769,8 @@ func (a *AnalyticsAPIService) PostV2SearchReportTableDetailsExecute(r ApiPostV2S
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2758,8 +2780,8 @@ func (a *AnalyticsAPIService) PostV2SearchReportTableDetailsExecute(r ApiPostV2S
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2769,8 +2791,8 @@ func (a *AnalyticsAPIService) PostV2SearchReportTableDetailsExecute(r ApiPostV2S
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2780,8 +2802,8 @@ func (a *AnalyticsAPIService) PostV2SearchReportTableDetailsExecute(r ApiPostV2S
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2799,8 +2821,8 @@ func (a *AnalyticsAPIService) PostV2SearchReportTableDetailsExecute(r ApiPostV2S
 }
 
 type ApiPostV2SearchReportTableGroupsRequest struct {
-	ctx               context.Context
-	ApiService        AnalyticsAPI
+	ctx context.Context
+	ApiService AnalyticsAPI
 	tableGroupRequest *TableGroupRequest
 }
 
@@ -2834,25 +2856,24 @@ PostV2SearchReportTableGroups Пагинация по группам
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-search-report-table-groups
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV2SearchReportTableGroupsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2SearchReportTableGroupsRequest
 */
 func (a *AnalyticsAPIService) PostV2SearchReportTableGroups(ctx context.Context) ApiPostV2SearchReportTableGroupsRequest {
 	return ApiPostV2SearchReportTableGroupsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PostV2SearchReportTableGroupsResponse200
+//  @return PostV2SearchReportTableGroupsResponse200
 func (a *AnalyticsAPIService) PostV2SearchReportTableGroupsExecute(r ApiPostV2SearchReportTableGroupsRequest) (*PostV2SearchReportTableGroupsResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PostV2SearchReportTableGroupsResponse200
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV2SearchReportTableGroupsResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnalyticsAPIService.PostV2SearchReportTableGroups")
@@ -2917,8 +2938,8 @@ func (a *AnalyticsAPIService) PostV2SearchReportTableGroupsExecute(r ApiPostV2Se
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2928,8 +2949,8 @@ func (a *AnalyticsAPIService) PostV2SearchReportTableGroupsExecute(r ApiPostV2Se
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2939,8 +2960,8 @@ func (a *AnalyticsAPIService) PostV2SearchReportTableGroupsExecute(r ApiPostV2Se
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2950,8 +2971,8 @@ func (a *AnalyticsAPIService) PostV2SearchReportTableGroupsExecute(r ApiPostV2Se
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2961,8 +2982,8 @@ func (a *AnalyticsAPIService) PostV2SearchReportTableGroupsExecute(r ApiPostV2Se
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2980,8 +3001,8 @@ func (a *AnalyticsAPIService) PostV2SearchReportTableGroupsExecute(r ApiPostV2Se
 }
 
 type ApiPostV2StocksReportOfficesRequest struct {
-	ctx                        context.Context
-	ApiService                 AnalyticsAPI
+	ctx context.Context
+	ApiService AnalyticsAPI
 	tableShippingOfficeRequest *TableShippingOfficeRequest
 }
 
@@ -2999,7 +3020,7 @@ PostV2StocksReportOffices Данные по складам
 
 Метод формирует набор данных об остатках по складам.
 
-Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `"regionName":"Свой склад"` и `"offices":[]`.
+Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с `"regionName":"Свой склад"` или `"regionName":"Свой склад СГТ"` и `"offices":[]`.
 
 Данные отчёта обновляются 1 раз в 2 часа.
 
@@ -3013,25 +3034,24 @@ PostV2StocksReportOffices Данные по складам
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV2StocksReportOfficesRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2StocksReportOfficesRequest
 */
 func (a *AnalyticsAPIService) PostV2StocksReportOffices(ctx context.Context) ApiPostV2StocksReportOfficesRequest {
 	return ApiPostV2StocksReportOfficesRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PostV2StocksReportOfficesResponse200
+//  @return PostV2StocksReportOfficesResponse200
 func (a *AnalyticsAPIService) PostV2StocksReportOfficesExecute(r ApiPostV2StocksReportOfficesRequest) (*PostV2StocksReportOfficesResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PostV2StocksReportOfficesResponse200
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV2StocksReportOfficesResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnalyticsAPIService.PostV2StocksReportOffices")
@@ -3096,8 +3116,8 @@ func (a *AnalyticsAPIService) PostV2StocksReportOfficesExecute(r ApiPostV2Stocks
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3107,8 +3127,8 @@ func (a *AnalyticsAPIService) PostV2StocksReportOfficesExecute(r ApiPostV2Stocks
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3118,8 +3138,8 @@ func (a *AnalyticsAPIService) PostV2StocksReportOfficesExecute(r ApiPostV2Stocks
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3129,8 +3149,8 @@ func (a *AnalyticsAPIService) PostV2StocksReportOfficesExecute(r ApiPostV2Stocks
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3140,8 +3160,8 @@ func (a *AnalyticsAPIService) PostV2StocksReportOfficesExecute(r ApiPostV2Stocks
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3159,8 +3179,8 @@ func (a *AnalyticsAPIService) PostV2StocksReportOfficesExecute(r ApiPostV2Stocks
 }
 
 type ApiPostV2StocksReportProductsGroupsRequest struct {
-	ctx                 context.Context
-	ApiService          AnalyticsAPI
+	ctx context.Context
+	ApiService AnalyticsAPI
 	tableGroupRequestSt *TableGroupRequestSt
 }
 
@@ -3192,25 +3212,24 @@ PostV2StocksReportProductsGroups Данные по группам
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-groups
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV2StocksReportProductsGroupsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2StocksReportProductsGroupsRequest
 */
 func (a *AnalyticsAPIService) PostV2StocksReportProductsGroups(ctx context.Context) ApiPostV2StocksReportProductsGroupsRequest {
 	return ApiPostV2StocksReportProductsGroupsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PostV2StocksReportProductsGroupsResponse200
+//  @return PostV2StocksReportProductsGroupsResponse200
 func (a *AnalyticsAPIService) PostV2StocksReportProductsGroupsExecute(r ApiPostV2StocksReportProductsGroupsRequest) (*PostV2StocksReportProductsGroupsResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PostV2StocksReportProductsGroupsResponse200
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV2StocksReportProductsGroupsResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnalyticsAPIService.PostV2StocksReportProductsGroups")
@@ -3275,8 +3294,8 @@ func (a *AnalyticsAPIService) PostV2StocksReportProductsGroupsExecute(r ApiPostV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3286,8 +3305,8 @@ func (a *AnalyticsAPIService) PostV2StocksReportProductsGroupsExecute(r ApiPostV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3297,8 +3316,8 @@ func (a *AnalyticsAPIService) PostV2StocksReportProductsGroupsExecute(r ApiPostV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3308,8 +3327,8 @@ func (a *AnalyticsAPIService) PostV2StocksReportProductsGroupsExecute(r ApiPostV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3319,8 +3338,8 @@ func (a *AnalyticsAPIService) PostV2StocksReportProductsGroupsExecute(r ApiPostV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3338,8 +3357,8 @@ func (a *AnalyticsAPIService) PostV2StocksReportProductsGroupsExecute(r ApiPostV
 }
 
 type ApiPostV2StocksReportProductsProductsRequest struct {
-	ctx              context.Context
-	ApiService       AnalyticsAPI
+	ctx context.Context
+	ApiService AnalyticsAPI
 	tableItemRequest *TableItemRequest
 }
 
@@ -3371,25 +3390,24 @@ PostV2StocksReportProductsProducts Данные по товарам
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-products
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV2StocksReportProductsProductsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2StocksReportProductsProductsRequest
 */
 func (a *AnalyticsAPIService) PostV2StocksReportProductsProducts(ctx context.Context) ApiPostV2StocksReportProductsProductsRequest {
 	return ApiPostV2StocksReportProductsProductsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PostV2StocksReportProductsProductsResponse200
+//  @return PostV2StocksReportProductsProductsResponse200
 func (a *AnalyticsAPIService) PostV2StocksReportProductsProductsExecute(r ApiPostV2StocksReportProductsProductsRequest) (*PostV2StocksReportProductsProductsResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PostV2StocksReportProductsProductsResponse200
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV2StocksReportProductsProductsResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnalyticsAPIService.PostV2StocksReportProductsProducts")
@@ -3454,8 +3472,8 @@ func (a *AnalyticsAPIService) PostV2StocksReportProductsProductsExecute(r ApiPos
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3465,8 +3483,8 @@ func (a *AnalyticsAPIService) PostV2StocksReportProductsProductsExecute(r ApiPos
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3476,8 +3494,8 @@ func (a *AnalyticsAPIService) PostV2StocksReportProductsProductsExecute(r ApiPos
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3487,8 +3505,8 @@ func (a *AnalyticsAPIService) PostV2StocksReportProductsProductsExecute(r ApiPos
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3498,8 +3516,8 @@ func (a *AnalyticsAPIService) PostV2StocksReportProductsProductsExecute(r ApiPos
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3517,8 +3535,8 @@ func (a *AnalyticsAPIService) PostV2StocksReportProductsProductsExecute(r ApiPos
 }
 
 type ApiPostV2StocksReportProductsSizesRequest struct {
-	ctx              context.Context
-	ApiService       AnalyticsAPI
+	ctx context.Context
+	ApiService AnalyticsAPI
 	tableSizeRequest *TableSizeRequest
 }
 
@@ -3542,7 +3560,7 @@ PostV2StocksReportProductsSizes Данные по размерам
 3. Товар не имеет размера и `"includeOffice":true`, тогда в ответе будет детализация по складам. Без данных об остатках по каждому из размеров.
 4. Товар не имеет размера и `"includeOffice":false`, тогда тело ответа будет пустым.
 Товар не имеет размера, если у него единственный размер с `"techSize":"0"`. В ответах метода получения данных по [товарам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts) у таких товаров `"hasSizes":false`.
-Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `"regionName":"Свой склад"` и `"officeName":""`.
+Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с `"regionName":"Свой склад"` или `"regionName":"Свой склад СГТ"` и `"officeName":""`.
 
 Данные отчёта обновляются 1 раз в 2 часа.
 
@@ -3556,25 +3574,24 @@ PostV2StocksReportProductsSizes Данные по размерам
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-sizes
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV2StocksReportProductsSizesRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2StocksReportProductsSizesRequest
 */
 func (a *AnalyticsAPIService) PostV2StocksReportProductsSizes(ctx context.Context) ApiPostV2StocksReportProductsSizesRequest {
 	return ApiPostV2StocksReportProductsSizesRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PostV2StocksReportProductsSizesResponse200
+//  @return PostV2StocksReportProductsSizesResponse200
 func (a *AnalyticsAPIService) PostV2StocksReportProductsSizesExecute(r ApiPostV2StocksReportProductsSizesRequest) (*PostV2StocksReportProductsSizesResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PostV2StocksReportProductsSizesResponse200
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV2StocksReportProductsSizesResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnalyticsAPIService.PostV2StocksReportProductsSizes")
@@ -3639,8 +3656,8 @@ func (a *AnalyticsAPIService) PostV2StocksReportProductsSizesExecute(r ApiPostV2
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3650,8 +3667,8 @@ func (a *AnalyticsAPIService) PostV2StocksReportProductsSizesExecute(r ApiPostV2
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3661,8 +3678,8 @@ func (a *AnalyticsAPIService) PostV2StocksReportProductsSizesExecute(r ApiPostV2
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3672,8 +3689,8 @@ func (a *AnalyticsAPIService) PostV2StocksReportProductsSizesExecute(r ApiPostV2
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3683,8 +3700,8 @@ func (a *AnalyticsAPIService) PostV2StocksReportProductsSizesExecute(r ApiPostV2
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3702,8 +3719,8 @@ func (a *AnalyticsAPIService) PostV2StocksReportProductsSizesExecute(r ApiPostV2
 }
 
 type ApiPostV3SalesFunnelGroupedHistoryRequest struct {
-	ctx                   context.Context
-	ApiService            AnalyticsAPI
+	ctx context.Context
+	ApiService AnalyticsAPI
 	groupedHistoryRequest *GroupedHistoryRequest
 }
 
@@ -3750,25 +3767,24 @@ PostV3SalesFunnelGroupedHistory Статистика групп карточек
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v3-sales-funnel-grouped-history
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3SalesFunnelGroupedHistoryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3SalesFunnelGroupedHistoryRequest
 */
 func (a *AnalyticsAPIService) PostV3SalesFunnelGroupedHistory(ctx context.Context) ApiPostV3SalesFunnelGroupedHistoryRequest {
 	return ApiPostV3SalesFunnelGroupedHistoryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PostV3SalesFunnelGroupedHistoryResponse200
+//  @return PostV3SalesFunnelGroupedHistoryResponse200
 func (a *AnalyticsAPIService) PostV3SalesFunnelGroupedHistoryExecute(r ApiPostV3SalesFunnelGroupedHistoryRequest) (*PostV3SalesFunnelGroupedHistoryResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PostV3SalesFunnelGroupedHistoryResponse200
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV3SalesFunnelGroupedHistoryResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnalyticsAPIService.PostV3SalesFunnelGroupedHistory")
@@ -3833,8 +3849,8 @@ func (a *AnalyticsAPIService) PostV3SalesFunnelGroupedHistoryExecute(r ApiPostV3
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3844,8 +3860,8 @@ func (a *AnalyticsAPIService) PostV3SalesFunnelGroupedHistoryExecute(r ApiPostV3
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3855,8 +3871,8 @@ func (a *AnalyticsAPIService) PostV3SalesFunnelGroupedHistoryExecute(r ApiPostV3
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3866,8 +3882,8 @@ func (a *AnalyticsAPIService) PostV3SalesFunnelGroupedHistoryExecute(r ApiPostV3
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3877,8 +3893,8 @@ func (a *AnalyticsAPIService) PostV3SalesFunnelGroupedHistoryExecute(r ApiPostV3
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3896,8 +3912,8 @@ func (a *AnalyticsAPIService) PostV3SalesFunnelGroupedHistoryExecute(r ApiPostV3
 }
 
 type ApiPostV3SalesFunnelProductsRequest struct {
-	ctx          context.Context
-	ApiService   AnalyticsAPI
+	ctx context.Context
+	ApiService AnalyticsAPI
 	itemsRequest *ItemsRequest
 }
 
@@ -3947,25 +3963,24 @@ PostV3SalesFunnelProducts Статистика карточек товаров �
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v3-sales-funnel-products
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3SalesFunnelProductsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3SalesFunnelProductsRequest
 */
 func (a *AnalyticsAPIService) PostV3SalesFunnelProducts(ctx context.Context) ApiPostV3SalesFunnelProductsRequest {
 	return ApiPostV3SalesFunnelProductsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PostV3SalesFunnelProductsResponse200
+//  @return PostV3SalesFunnelProductsResponse200
 func (a *AnalyticsAPIService) PostV3SalesFunnelProductsExecute(r ApiPostV3SalesFunnelProductsRequest) (*PostV3SalesFunnelProductsResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PostV3SalesFunnelProductsResponse200
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV3SalesFunnelProductsResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnalyticsAPIService.PostV3SalesFunnelProducts")
@@ -4030,8 +4045,8 @@ func (a *AnalyticsAPIService) PostV3SalesFunnelProductsExecute(r ApiPostV3SalesF
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4041,8 +4056,8 @@ func (a *AnalyticsAPIService) PostV3SalesFunnelProductsExecute(r ApiPostV3SalesF
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -4052,8 +4067,8 @@ func (a *AnalyticsAPIService) PostV3SalesFunnelProductsExecute(r ApiPostV3SalesF
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4063,8 +4078,8 @@ func (a *AnalyticsAPIService) PostV3SalesFunnelProductsExecute(r ApiPostV3SalesF
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4074,8 +4089,8 @@ func (a *AnalyticsAPIService) PostV3SalesFunnelProductsExecute(r ApiPostV3SalesF
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4093,8 +4108,8 @@ func (a *AnalyticsAPIService) PostV3SalesFunnelProductsExecute(r ApiPostV3SalesF
 }
 
 type ApiPostV3SalesFunnelProductsHistoryRequest struct {
-	ctx                context.Context
-	ApiService         AnalyticsAPI
+	ctx context.Context
+	ApiService AnalyticsAPI
 	itemHistoryRequest *ItemHistoryRequest
 }
 
@@ -4136,25 +4151,24 @@ PostV3SalesFunnelProductsHistory Статистика карточек това�
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-analytics-v3-sales-funnel-products-history
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3SalesFunnelProductsHistoryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3SalesFunnelProductsHistoryRequest
 */
 func (a *AnalyticsAPIService) PostV3SalesFunnelProductsHistory(ctx context.Context) ApiPostV3SalesFunnelProductsHistoryRequest {
 	return ApiPostV3SalesFunnelProductsHistoryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []PostV3SalesFunnelProductsHistoryResponse200Inner
+//  @return []PostV3SalesFunnelProductsHistoryResponse200Inner
 func (a *AnalyticsAPIService) PostV3SalesFunnelProductsHistoryExecute(r ApiPostV3SalesFunnelProductsHistoryRequest) ([]PostV3SalesFunnelProductsHistoryResponse200Inner, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []PostV3SalesFunnelProductsHistoryResponse200Inner
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []PostV3SalesFunnelProductsHistoryResponse200Inner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnalyticsAPIService.PostV3SalesFunnelProductsHistory")
@@ -4219,8 +4233,8 @@ func (a *AnalyticsAPIService) PostV3SalesFunnelProductsHistoryExecute(r ApiPostV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4230,8 +4244,8 @@ func (a *AnalyticsAPIService) PostV3SalesFunnelProductsHistoryExecute(r ApiPostV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -4241,8 +4255,8 @@ func (a *AnalyticsAPIService) PostV3SalesFunnelProductsHistoryExecute(r ApiPostV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4252,8 +4266,8 @@ func (a *AnalyticsAPIService) PostV3SalesFunnelProductsHistoryExecute(r ApiPostV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4263,8 +4277,8 @@ func (a *AnalyticsAPIService) PostV3SalesFunnelProductsHistoryExecute(r ApiPostV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

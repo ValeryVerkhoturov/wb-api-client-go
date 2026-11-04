@@ -20,10 +20,10 @@ var _ MappedNullable = &PositionInfo{}
 // PositionInfo Информация о позиции товара
 type PositionInfo struct {
 	Average *PositionInfoAverage `json:"average,omitempty"`
-	Median  *PositionInfoMedian  `json:"median,omitempty"`
+	Median *PositionInfoMedian `json:"median,omitempty"`
 	// Данные для чарта по средней и медианной позиции товара в результатах поиска
 	ChartItems []SearchReportPositionChartItem `json:"chartItems,omitempty"`
-	Clusters   *SearchReportPositionClusters   `json:"clusters,omitempty"`
+	Clusters *SearchReportPositionClusters `json:"clusters,omitempty"`
 }
 
 // NewPositionInfo instantiates a new PositionInfo object
@@ -172,7 +172,7 @@ func (o *PositionInfo) SetClusters(v SearchReportPositionClusters) {
 }
 
 func (o PositionInfo) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -231,3 +231,5 @@ func (v *NullablePositionInfo) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

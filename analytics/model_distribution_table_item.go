@@ -38,17 +38,17 @@ type DistributionTableItem struct {
 	// Отзыв закреплён
 	PinnedFeedback *bool `json:"pinnedFeedback,omitempty"`
 	// Рейтинг карточки товара
-	Rating         *float32                             `json:"rating,omitempty"`
+	Rating *float32 `json:"rating,omitempty"`
 	FeedbackRating *DistributionTableItemFeedbackRating `json:"feedbackRating,omitempty"`
-	FeedbackCount  *DistributionTableItemFeedbackCount  `json:"feedbackCount,omitempty"`
-	FiveStar       *DistributionTableItemFiveStar       `json:"fiveStar,omitempty"`
-	FourStar       *DistributionTableItemFourStar       `json:"fourStar,omitempty"`
-	ThreeStar      *DistributionTableItemThreeStar      `json:"threeStar,omitempty"`
-	TwoStar        *DistributionTableItemTwoStar        `json:"twoStar,omitempty"`
-	OneStar        *DistributionTableItemOneStar        `json:"oneStar,omitempty"`
+	FeedbackCount *DistributionTableItemFeedbackCount `json:"feedbackCount,omitempty"`
+	FiveStar *DistributionTableItemFiveStar `json:"fiveStar,omitempty"`
+	FourStar *DistributionTableItemFourStar `json:"fourStar,omitempty"`
+	ThreeStar *DistributionTableItemThreeStar `json:"threeStar,omitempty"`
+	TwoStar *DistributionTableItemTwoStar `json:"twoStar,omitempty"`
+	OneStar *DistributionTableItemOneStar `json:"oneStar,omitempty"`
 	// Отзывы, исключённые из рейтинга
 	Disqualified *int64 `json:"disqualified,omitempty"`
-	// Является ли товар скрытым из каталога:   - `true` — товар скрыт из каталога   - `false` — товар не скрыт из каталога
+	// Является ли товар скрытым из каталога:   - `true` — товар скрыт из каталога   - `false` — товар не скрыт из каталога 
 	IsShadowed *bool `json:"isShadowed,omitempty"`
 }
 
@@ -678,7 +678,7 @@ func (o *DistributionTableItem) SetIsShadowed(v bool) {
 }
 
 func (o DistributionTableItem) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -782,3 +782,5 @@ func (v *NullableDistributionTableItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

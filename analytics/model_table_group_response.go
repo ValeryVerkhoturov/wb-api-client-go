@@ -19,7 +19,7 @@ var _ MappedNullable = &TableGroupResponse{}
 
 // TableGroupResponse struct for TableGroupResponse
 type TableGroupResponse struct {
-	// Список групп товаров для таблицы
+	// Список групп товаров для таблицы 
 	Groups []TableGroupItem `json:"groups,omitempty"`
 	// Валюта отчёта
 	Currency *string `json:"currency,omitempty"`
@@ -107,7 +107,7 @@ func (o *TableGroupResponse) SetCurrency(v string) {
 }
 
 func (o TableGroupResponse) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,3 +160,5 @@ func (v *NullableTableGroupResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

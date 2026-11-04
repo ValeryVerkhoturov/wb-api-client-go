@@ -16,34 +16,35 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"os"
 	"strings"
+	"os"
 )
+
 
 type ItemsAPI interface {
 
 	/*
-			DeleteV2TagId Удаление ярлыка
+	DeleteV2TagId Удаление ярлыка
 
-			Метод удаляет ярлык из [списка ярлыков](https://dev.wildberries.ru/openapi/item-management#tag/labels/operation/getV2Tags) продавца.
+	Метод удаляет ярлык из [списка ярлыков](https://dev.wildberries.ru/openapi/item-management#tag/labels/operation/getV2Tags) продавца.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **Ярлыков**:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **Ярлыков**:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		---
+---
 
-		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/delete-content-v2-tag-id
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/delete-content-v2-tag-id
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@param id Числовой ID ярлыка
-			@return ApiDeleteV2TagIdRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id Числовой ID ярлыка
+	@return ApiDeleteV2TagIdRequest
 	*/
 	DeleteV2TagId(ctx context.Context, id int64) ApiDeleteV2TagIdRequest
 
@@ -52,27 +53,27 @@ type ItemsAPI interface {
 	DeleteV2TagIdExecute(r ApiDeleteV2TagIdRequest) (*ResponseContentError, *http.Response, error)
 
 	/*
-			DeleteV3StocksWarehouseId Удалить остатки товаров
+	DeleteV3StocksWarehouseId Удалить остатки товаров
 
-			Метод удаляет запись об остатках товаров продавца из [списка остатков](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory/operation/postV3StocksWarehouseId).
+	Метод удаляет запись об остатках товаров продавца из [списка остатков](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory/operation/postV3StocksWarehouseId).
 
-		**Действие необратимо**. Удаленный остаток будет необходимо загрузить повторно для возобновления продаж.
+**Действие необратимо**. Удаленный остаток будет необходимо загрузить повторно для возобновления продаж.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 10 запросов | 6 сек | 2 запроса |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 10 запросов | 6 сек | 2 запроса |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/delete-api-v3-stocks-warehouseid
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/delete-api-v3-stocks-warehouseid
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@param warehouseId ID склада продавца
-			@return ApiDeleteV3StocksWarehouseIdRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param warehouseId ID склада продавца
+	@return ApiDeleteV3StocksWarehouseIdRequest
 	*/
 	DeleteV3StocksWarehouseId(ctx context.Context, warehouseId int64) ApiDeleteV3StocksWarehouseIdRequest
 
@@ -80,25 +81,25 @@ type ItemsAPI interface {
 	DeleteV3StocksWarehouseIdExecute(r ApiDeleteV3StocksWarehouseIdRequest) (*http.Response, error)
 
 	/*
-			DeleteV3WarehousesWarehouseId Удалить склад продавца
+	DeleteV3WarehousesWarehouseId Удалить склад продавца
 
-			Метод удаляет [склад продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).
+	Метод удаляет [склад продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **складов продавца**:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 300 запросов | 200 мс | 20 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **складов продавца**:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/delete-api-v3-warehouses-warehouseid
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/delete-api-v3-warehouses-warehouseid
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@param warehouseId ID склада продавца
-			@return ApiDeleteV3WarehousesWarehouseIdRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param warehouseId ID склада продавца
+	@return ApiDeleteV3WarehousesWarehouseIdRequest
 	*/
 	DeleteV3WarehousesWarehouseId(ctx context.Context, warehouseId int64) ApiDeleteV3WarehousesWarehouseIdRequest
 
@@ -106,22 +107,22 @@ type ItemsAPI interface {
 	DeleteV3WarehousesWarehouseIdExecute(r ApiDeleteV3WarehousesWarehouseIdRequest) (*http.Response, error)
 
 	/*
-			GetV1Brands Бренды
+	GetV1Brands Бренды
 
-			Метод возвращает список брендов по ID предмета.
+	Метод возвращает список брендов по ID предмета.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов |
-		| Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов |
-		| Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов |
-		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов |
+| Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов |
+| Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-content-v1-brands
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-content-v1-brands
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV1BrandsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1BrandsRequest
 	*/
 	GetV1Brands(ctx context.Context) ApiGetV1BrandsRequest
 
@@ -130,28 +131,28 @@ type ItemsAPI interface {
 	GetV1BrandsExecute(r ApiGetV1BrandsRequest) (*BrandsResponse, *http.Response, error)
 
 	/*
-			GetV2BufferGoodsTask Детализация необработанной загрузки
+	GetV2BufferGoodsTask Детализация необработанной загрузки
 
-			Метод возвращает информацию о товарах и ошибках в товарах из загрузки в обработке.
+	Метод возвращает информацию о товарах и ошибках в товарах из загрузки в обработке.
 
-		Необработанная загрузка — это загрузка скидок в [календаре акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar). Такие скидки применятся к товарам только в момент старта акции.
+Необработанная загрузка — это загрузка скидок в [календаре акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar). Такие скидки применятся к товарам только в момент старта акции.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Цены и скидки**:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Цены и скидки**:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
 
-		---
+---
 
-		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-buffer-goods-task
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-buffer-goods-task
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV2BufferGoodsTaskRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV2BufferGoodsTaskRequest
 	*/
 	GetV2BufferGoodsTask(ctx context.Context) ApiGetV2BufferGoodsTaskRequest
 
@@ -160,28 +161,28 @@ type ItemsAPI interface {
 	GetV2BufferGoodsTaskExecute(r ApiGetV2BufferGoodsTaskRequest) (*GetV2BufferGoodsTask200Response, *http.Response, error)
 
 	/*
-			GetV2BufferTasks Состояние необработанной загрузки
+	GetV2BufferTasks Состояние необработанной загрузки
 
-			Метод возвращает информацию про загрузку скидок в обработке.
+	Метод возвращает информацию про загрузку скидок в обработке.
 
-		Необработанная загрузка — это загрузка скидок в [календаре акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar). Такие скидки применятся к товарам только в момент старта акции.
+Необработанная загрузка — это загрузка скидок в [календаре акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar). Такие скидки применятся к товарам только в момент старта акции.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Цены и скидки**:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Цены и скидки**:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
 
-		---
+---
 
-		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-buffer-tasks
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-buffer-tasks
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV2BufferTasksRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV2BufferTasksRequest
 	*/
 	GetV2BufferTasks(ctx context.Context) ApiGetV2BufferTasksRequest
 
@@ -190,34 +191,34 @@ type ItemsAPI interface {
 	GetV2BufferTasksExecute(r ApiGetV2BufferTasksRequest) (*GetV2BufferTasks200Response, *http.Response, error)
 
 	/*
-			GetV2CardsLimits Лимиты карточек товаров
+	GetV2CardsLimits Лимиты карточек товаров
 
-			Возвращает бесплатные и платные лимиты продавца на [создание карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload).
+	Возвращает бесплатные и платные лимиты продавца на [создание карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload).
 
-		Формула для получения количества карточек, которые можно создать:
-		> (`freeLimits` + `paidLimits`) - количество созданных карточек
-		Созданными считаются карточки, которые можно получить через методы [список карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList) и [список карточек товаров в корзине](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsTrash).
+Формула для получения количества карточек, которые можно создать:
+> (`freeLimits` + `paidLimits`) - количество созданных карточек
+Созданными считаются карточки, которые можно получить через методы [список карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList) и [список карточек товаров в корзине](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsTrash).
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов:
 
-		* [получения лимитов карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/getV2CardsLimits)
-		* [получения несозданных карточек товаров с ошибками](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList)
+* [получения лимитов карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/getV2CardsLimits)
+* [получения несозданных карточек товаров с ошибками](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList)
 
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		---
+---
 
-		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-cards-limits
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-cards-limits
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV2CardsLimitsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV2CardsLimitsRequest
 	*/
 	GetV2CardsLimits(ctx context.Context) ApiGetV2CardsLimitsRequest
 
@@ -226,26 +227,26 @@ type ItemsAPI interface {
 	GetV2CardsLimitsExecute(r ApiGetV2CardsLimitsRequest) (*GetV2CardsLimitsResponse200, *http.Response, error)
 
 	/*
-			GetV2DirectoryColors Цвет
+	GetV2DirectoryColors Цвет
 
-			Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Цвет`.
+	Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Цвет`.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **Характеристик**:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **Характеристик**:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		---
+---
 
-		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-colors
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-colors
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV2DirectoryColorsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV2DirectoryColorsRequest
 	*/
 	GetV2DirectoryColors(ctx context.Context) ApiGetV2DirectoryColorsRequest
 
@@ -254,31 +255,31 @@ type ItemsAPI interface {
 	GetV2DirectoryColorsExecute(r ApiGetV2DirectoryColorsRequest) (*GetV2DirectoryColorsResponse200, *http.Response, error)
 
 	/*
-			GetV2DirectoryCountries Страна производства
+	GetV2DirectoryCountries Страна производства
 
-			Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Страна производства`.
+	Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Страна производства`.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Контент**:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 100 запросов | 600 мс | 5 запросов |
-		Исключение — методы:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Контент**:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 100 запросов | 600 мс | 5 запросов |
+Исключение — методы:
 
-		* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
-		* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
-		* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
-		* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
-		* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
-		* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-countries
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-countries
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV2DirectoryCountriesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV2DirectoryCountriesRequest
 	*/
 	GetV2DirectoryCountries(ctx context.Context) ApiGetV2DirectoryCountriesRequest
 
@@ -287,26 +288,26 @@ type ItemsAPI interface {
 	GetV2DirectoryCountriesExecute(r ApiGetV2DirectoryCountriesRequest) (*GetV2DirectoryCountriesResponse200, *http.Response, error)
 
 	/*
-			GetV2DirectoryKinds Пол
+	GetV2DirectoryKinds Пол
 
-			Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Пол`.
+	Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Пол`.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **Характеристик**:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **Характеристик**:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		---
+---
 
-		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-kinds
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-kinds
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV2DirectoryKindsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV2DirectoryKindsRequest
 	*/
 	GetV2DirectoryKinds(ctx context.Context) ApiGetV2DirectoryKindsRequest
 
@@ -315,27 +316,27 @@ type ItemsAPI interface {
 	GetV2DirectoryKindsExecute(r ApiGetV2DirectoryKindsRequest) (*GetV2DirectoryKindsResponse200, *http.Response, error)
 
 	/*
-			GetV2DirectoryOkpd Код ОКПД2 предмета
+	GetV2DirectoryOkpd Код ОКПД2 предмета
 
-			Метод возвращает список кодов ОКПД2 по ID [предмета](https://dev.wildberries.ru/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) и фрагменту кода ОКПД2.
+	Метод возвращает список кодов ОКПД2 по ID [предмета](https://dev.wildberries.ru/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) и фрагменту кода ОКПД2.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Контент**:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 100 запросов | 600 мс | 5 запросов |
-		Исключение — методы:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Контент**:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 100 запросов | 600 мс | 5 запросов |
+Исключение — методы:
 
-		* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
-		* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
-		* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
-		* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
-		* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
-		* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-content-v2-directory-okpd
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-content-v2-directory-okpd
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV2DirectoryOkpdRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV2DirectoryOkpdRequest
 	*/
 	GetV2DirectoryOkpd(ctx context.Context) ApiGetV2DirectoryOkpdRequest
 
@@ -344,27 +345,27 @@ type ItemsAPI interface {
 	GetV2DirectoryOkpdExecute(r ApiGetV2DirectoryOkpdRequest) (*GetV2DirectoryOkpdResponse200, *http.Response, error)
 
 	/*
-			GetV2DirectoryOkpdAll Список кодов ОКПД2
+	GetV2DirectoryOkpdAll Список кодов ОКПД2
 
-			Метод возвращает справочный список всех кодов ОКПД2. Чтобы найти код по его фрагменту, укажите первые цифры кода через точку в параметре `search`.
+	Метод возвращает справочный список всех кодов ОКПД2. Чтобы найти код по его фрагменту, укажите первые цифры кода через точку в параметре `search`.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Контент**:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 100 запросов | 600 мс | 5 запросов |
-		Исключение — методы:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Контент**:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 100 запросов | 600 мс | 5 запросов |
+Исключение — методы:
 
-		* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
-		* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
-		* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
-		* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
-		* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
-		* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-content-v2-directory-okpd-all
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-content-v2-directory-okpd-all
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV2DirectoryOkpdAllRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV2DirectoryOkpdAllRequest
 	*/
 	GetV2DirectoryOkpdAll(ctx context.Context) ApiGetV2DirectoryOkpdAllRequest
 
@@ -373,26 +374,26 @@ type ItemsAPI interface {
 	GetV2DirectoryOkpdAllExecute(r ApiGetV2DirectoryOkpdAllRequest) (*GetV2DirectoryOkpdAllResponse200, *http.Response, error)
 
 	/*
-			GetV2DirectorySeasons Сезон
+	GetV2DirectorySeasons Сезон
 
-			Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Сезон`.
+	Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Сезон`.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **Характеристик**:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **Характеристик**:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		---
+---
 
-		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-seasons
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-seasons
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV2DirectorySeasonsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV2DirectorySeasonsRequest
 	*/
 	GetV2DirectorySeasons(ctx context.Context) ApiGetV2DirectorySeasonsRequest
 
@@ -401,31 +402,31 @@ type ItemsAPI interface {
 	GetV2DirectorySeasonsExecute(r ApiGetV2DirectorySeasonsRequest) (*GetV2DirectorySeasonsResponse200, *http.Response, error)
 
 	/*
-			GetV2DirectoryTnved Код ТН ВЭД предмета
+	GetV2DirectoryTnved Код ТН ВЭД предмета
 
-			Метод возвращает список кодов ТН ВЭД по ID [предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту кода ТН ВЭД.
+	Метод возвращает список кодов ТН ВЭД по ID [предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту кода ТН ВЭД.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Контент**:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 100 запросов | 600 мс | 5 запросов |
-		Исключение — методы:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Контент**:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 100 запросов | 600 мс | 5 запросов |
+Исключение — методы:
 
-		* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
-		* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
-		* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
-		* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
-		* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
-		* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-tnved
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-tnved
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV2DirectoryTnvedRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV2DirectoryTnvedRequest
 	*/
 	GetV2DirectoryTnved(ctx context.Context) ApiGetV2DirectoryTnvedRequest
 
@@ -434,31 +435,31 @@ type ItemsAPI interface {
 	GetV2DirectoryTnvedExecute(r ApiGetV2DirectoryTnvedRequest) (*GetV2DirectoryTnvedResponse200, *http.Response, error)
 
 	/*
-			GetV2DirectoryTnvedAll Список кодов ТН ВЭД
+	GetV2DirectoryTnvedAll Список кодов ТН ВЭД
 
-			Метод возвращает справочный список всех кодов ТН ВЭД. Чтобы найти код по его фрагменту, укажите первые цифры кода в параметре `search`.
+	Метод возвращает справочный список всех кодов ТН ВЭД. Чтобы найти код по его фрагменту, укажите первые цифры кода в параметре `search`.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Контент**:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 100 запросов | 600 мс | 5 запросов |
-		Исключение — методы:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Контент**:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 100 запросов | 600 мс | 5 запросов |
+Исключение — методы:
 
-		* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
-		* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
-		* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
-		* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
-		* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
-		* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-content-v2-directory-tnved-all
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-content-v2-directory-tnved-all
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV2DirectoryTnvedAllRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV2DirectoryTnvedAllRequest
 	*/
 	GetV2DirectoryTnvedAll(ctx context.Context) ApiGetV2DirectoryTnvedAllRequest
 
@@ -467,26 +468,26 @@ type ItemsAPI interface {
 	GetV2DirectoryTnvedAllExecute(r ApiGetV2DirectoryTnvedAllRequest) (*GetV2DirectoryTnvedAllResponse200, *http.Response, error)
 
 	/*
-			GetV2DirectoryVat Ставка НДС
+	GetV2DirectoryVat Ставка НДС
 
-			Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Ставка НДС`.
+	Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Ставка НДС`.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **Характеристик**:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **Характеристик**:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		---
+---
 
-		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-vat
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-vat
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV2DirectoryVatRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV2DirectoryVatRequest
 	*/
 	GetV2DirectoryVat(ctx context.Context) ApiGetV2DirectoryVatRequest
 
@@ -495,28 +496,28 @@ type ItemsAPI interface {
 	GetV2DirectoryVatExecute(r ApiGetV2DirectoryVatRequest) (*GetV2DirectoryVatResponse200, *http.Response, error)
 
 	/*
-			GetV2HistoryGoodsTask Детализация обработанной загрузки
+	GetV2HistoryGoodsTask Детализация обработанной загрузки
 
-			Метод возвращает информацию о товарах и об ошибках в товарах в обработанной загрузке.
+	Метод возвращает информацию о товарах и об ошибках в товарах в обработанной загрузке.
 
-		Обработанная загрузка — это загрузка цен и скидок для [товаров](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask), цен для [размеров товаров](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize) [скидок WB Клуба](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовых скидок для B2B-продаж](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).
+Обработанная загрузка — это загрузка цен и скидок для [товаров](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask), цен для [размеров товаров](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize) [скидок WB Клуба](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовых скидок для B2B-продаж](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Цены и скидки**:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Цены и скидки**:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
 
-		---
+---
 
-		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-history-goods-task
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-history-goods-task
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV2HistoryGoodsTaskRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV2HistoryGoodsTaskRequest
 	*/
 	GetV2HistoryGoodsTask(ctx context.Context) ApiGetV2HistoryGoodsTaskRequest
 
@@ -525,28 +526,28 @@ type ItemsAPI interface {
 	GetV2HistoryGoodsTaskExecute(r ApiGetV2HistoryGoodsTaskRequest) (*GetV2HistoryGoodsTask200Response, *http.Response, error)
 
 	/*
-			GetV2HistoryTasks Состояние обработанной загрузки
+	GetV2HistoryTasks Состояние обработанной загрузки
 
-			Метод возвращает информацию об обработанной загрузке цен и скидок.
+	Метод возвращает информацию об обработанной загрузке цен и скидок.
 
-		Обработанная загрузка — это загрузка цен и скидок для [товаров](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask), цен для [размеров товаров](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize), [скидок WB Клуба](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовых скидок для B2B-продаж](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).
+Обработанная загрузка — это загрузка цен и скидок для [товаров](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask), цен для [размеров товаров](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize), [скидок WB Клуба](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовых скидок для B2B-продаж](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Цены и скидки**:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Цены и скидки**:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
 
-		---
+---
 
-		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-history-tasks
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-history-tasks
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV2HistoryTasksRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV2HistoryTasksRequest
 	*/
 	GetV2HistoryTasks(ctx context.Context) ApiGetV2HistoryTasksRequest
 
@@ -555,34 +556,34 @@ type ItemsAPI interface {
 	GetV2HistoryTasksExecute(r ApiGetV2HistoryTasksRequest) (*GetV2HistoryTasks200Response, *http.Response, error)
 
 	/*
-			GetV2ListGoodsFilter Получить товары с ценами
+	GetV2ListGoodsFilter Получить товары с ценами
 
-			Метод возвращает информацию о товарах: цены, валюту, общие скидки, [скидки WB Клуба](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовые скидки для B2B-продаж](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).
+	Метод возвращает информацию о товарах: цены, валюту, общие скидки, [скидки WB Клуба](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовые скидки для B2B-продаж](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).
 
-		В одном запросе можно указать только один артикул.
+В одном запросе можно указать только один артикул.
 
-		Чтобы получить информацию обо всех товарах продавца, не указывая артикулы, установите `limit=1000`, в параметре `offset` установите смещение по количеству записей. Количество нужно рассчитать по формуле: `offset` плюс `limit` из предыдущего запроса. Повторяйте запрос, пока вы не получите ответ с пустым массивом.
+Чтобы получить информацию обо всех товарах продавца, не указывая артикулы, установите `limit=1000`, в параметре `offset` установите смещение по количеству записей. Количество нужно рассчитать по формуле: `offset` плюс `limit` из предыдущего запроса. Повторяйте запрос, пока вы не получите ответ с пустым массивом.
 
-		Используйте отдельные методы, чтобы получить информацию:
-		- о [нескольких товарах по артикулам](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2ListGoodsFilter)
-		- о [размерах товара](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm)
+Используйте отдельные методы, чтобы получить информацию:
+- о [нескольких товарах по артикулам](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2ListGoodsFilter)
+- о [размерах товара](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm)
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Цены и скидки**:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Цены и скидки**:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
 
-		---
+---
 
-		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-list-goods-filter
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-list-goods-filter
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV2ListGoodsFilterRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV2ListGoodsFilterRequest
 	*/
 	GetV2ListGoodsFilter(ctx context.Context) ApiGetV2ListGoodsFilterRequest
 
@@ -591,30 +592,30 @@ type ItemsAPI interface {
 	GetV2ListGoodsFilterExecute(r ApiGetV2ListGoodsFilterRequest) (*GetV2ListGoodsFilter200Response, *http.Response, error)
 
 	/*
-			GetV2ListGoodsSizeNm Получить размеры товара с ценами
+	GetV2ListGoodsSizeNm Получить размеры товара с ценами
 
-			Метод возвращает информацию обо всех размерах одного товара: цены, валюту, общие скидки и скидки для [WB Клуба](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount).
+	Метод возвращает информацию обо всех размерах одного товара: цены, валюту, общие скидки и скидки для [WB Клуба](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount).
 
-		Работает только для товаров из категорий, где можно устанавливать цены отдельно для разных размеров. Для таких товаров `"editableSizePrice":true`.
+Работает только для товаров из категорий, где можно устанавливать цены отдельно для разных размеров. Для таких товаров `"editableSizePrice":true`.
 
-		Чтобы получить информацию о самом товаре, используйте [отдельный метод](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter).
+Чтобы получить информацию о самом товаре, используйте [отдельный метод](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter).
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Цены и скидки**:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Цены и скидки**:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
 
-		---
+---
 
-		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-list-goods-size-nm
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-list-goods-size-nm
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV2ListGoodsSizeNmRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV2ListGoodsSizeNmRequest
 	*/
 	GetV2ListGoodsSizeNm(ctx context.Context) ApiGetV2ListGoodsSizeNmRequest
 
@@ -623,31 +624,31 @@ type ItemsAPI interface {
 	GetV2ListGoodsSizeNmExecute(r ApiGetV2ListGoodsSizeNmRequest) (*GetV2ListGoodsSizeNm200Response, *http.Response, error)
 
 	/*
-			GetV2ObjectAll Список предметов
+	GetV2ObjectAll Список предметов
 
-			Метод возвращает список названий [родительских категорий предметов](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll) и их предметов с ID. Например, у категории `Игрушки` будут предметы `Калейдоскопы`, `Куклы`, `Мячики`.
+	Метод возвращает список названий [родительских категорий предметов](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll) и их предметов с ID. Например, у категории `Игрушки` будут предметы `Калейдоскопы`, `Куклы`, `Мячики`.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Контент**:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 100 запросов | 600 мс | 5 запросов |
-		Исключение — методы:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Контент**:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 100 запросов | 600 мс | 5 запросов |
+Исключение — методы:
 
-		* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
-		* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
-		* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
-		* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
-		* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
-		* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-object-all
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-object-all
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV2ObjectAllRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV2ObjectAllRequest
 	*/
 	GetV2ObjectAll(ctx context.Context) ApiGetV2ObjectAllRequest
 
@@ -656,34 +657,34 @@ type ItemsAPI interface {
 	GetV2ObjectAllExecute(r ApiGetV2ObjectAllRequest) (*GetV2ObjectAllResponse200, *http.Response, error)
 
 	/*
-			GetV2ObjectCharcsSubjectId Характеристики предмета
+	GetV2ObjectCharcsSubjectId Характеристики предмета
 
-			Метод возвращает параметры характеристик предмета: названия, типы данных, единицы измерения и так далее. В запросе необходимо указать ID [предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll).
+	Метод возвращает параметры характеристик предмета: названия, типы данных, единицы измерения и так далее. В запросе необходимо указать ID [предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll).
 
-		Для получения значений характеристик [Цвет](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryColors), [Пол](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryKinds), [Страна производства](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryCountries), [Сезон](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectorySeasons), [Ставка НДС](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryVat) и [ТНВЭД-код](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryTnved) используйте отдельные методы
+Для получения значений характеристик [Цвет](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryColors), [Пол](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryKinds), [Страна производства](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryCountries), [Сезон](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectorySeasons), [Ставка НДС](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryVat) и [ТНВЭД-код](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryTnved) используйте отдельные методы
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Контент**:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 100 запросов | 600 мс | 5 запросов |
-		Исключение — методы:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Контент**:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 100 запросов | 600 мс | 5 запросов |
+Исключение — методы:
 
-		* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
-		* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
-		* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
-		* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
-		* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
-		* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-object-charcs-subjectid
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-object-charcs-subjectid
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@param subjectId ID предмета
-			@return ApiGetV2ObjectCharcsSubjectIdRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param subjectId ID предмета
+	@return ApiGetV2ObjectCharcsSubjectIdRequest
 	*/
 	GetV2ObjectCharcsSubjectId(ctx context.Context, subjectId int64) ApiGetV2ObjectCharcsSubjectIdRequest
 
@@ -692,31 +693,31 @@ type ItemsAPI interface {
 	GetV2ObjectCharcsSubjectIdExecute(r ApiGetV2ObjectCharcsSubjectIdRequest) (*GetV2ObjectCharcsSubjectIdResponse200, *http.Response, error)
 
 	/*
-			GetV2ObjectParentAll Родительские категории товаров
+	GetV2ObjectParentAll Родительские категории товаров
 
-			Метод возвращает названия и ID всех родительских категорий для [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems): например, `Электроника`, `Бытовая химия`, `Рукоделие`.
+	Метод возвращает названия и ID всех родительских категорий для [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems): например, `Электроника`, `Бытовая химия`, `Рукоделие`.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Контент**:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 100 запросов | 600 мс | 5 запросов |
-		Исключение — методы:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Контент**:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 100 запросов | 600 мс | 5 запросов |
+Исключение — методы:
 
-		* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
-		* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
-		* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
-		* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
-		* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
-		* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-object-parent-all
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-object-parent-all
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV2ObjectParentAllRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV2ObjectParentAllRequest
 	*/
 	GetV2ObjectParentAll(ctx context.Context) ApiGetV2ObjectParentAllRequest
 
@@ -725,34 +726,34 @@ type ItemsAPI interface {
 	GetV2ObjectParentAllExecute(r ApiGetV2ObjectParentAllRequest) (*GetV2ObjectParentAllResponse200, *http.Response, error)
 
 	/*
-			GetV2QuarantineGoods Получить товары в карантине
+	GetV2QuarantineGoods Получить товары в карантине
 
-			Метод возвращает информацию о товарах в карантине.
+	Метод возвращает информацию о товарах в карантине.
 
-		Если новая цена товара со скидкой будет меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1), товар попадёт в [карантин](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine) и будет продаваться по старой цене. Ошибка об этом будет в [детализации загрузки](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask).
+Если новая цена товара со скидкой будет меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1), товар попадёт в [карантин](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine) и будет продаваться по старой цене. Ошибка об этом будет в [детализации загрузки](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask).
 
-		Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine).
+Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine).
 
-		Для товаров с [поразмерной установкой цен](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize) карантин не применяется.
+Для товаров с [поразмерной установкой цен](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize) карантин не применяется.
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) товары автоматически удаляются из карантина через 3 дня.
+В [песочнице](https://dev.wildberries.ru/sandbox) товары автоматически удаляются из карантина через 3 дня.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Цены и скидки**:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Цены и скидки**:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
 
-		---
+---
 
-		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-quarantine-goods
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-quarantine-goods
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV2QuarantineGoodsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV2QuarantineGoodsRequest
 	*/
 	GetV2QuarantineGoods(ctx context.Context) ApiGetV2QuarantineGoodsRequest
 
@@ -761,26 +762,26 @@ type ItemsAPI interface {
 	GetV2QuarantineGoodsExecute(r ApiGetV2QuarantineGoodsRequest) (*GetV2QuarantineGoods200Response, *http.Response, error)
 
 	/*
-			GetV2Tags Список ярлыков
+	GetV2Tags Список ярлыков
 
-			Метод возвращает список и характеристики всех ярлыков продавца для группировки и фильтрации товаров.
+	Метод возвращает список и характеристики всех ярлыков продавца для группировки и фильтрации товаров.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **Ярлыков**:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **Ярлыков**:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		---
+---
 
-		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-tags
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-tags
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV2TagsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV2TagsRequest
 	*/
 	GetV2Tags(ctx context.Context) ApiGetV2TagsRequest
 
@@ -789,28 +790,28 @@ type ItemsAPI interface {
 	GetV2TagsExecute(r ApiGetV2TagsRequest) (*GetV2TagsResponse200, *http.Response, error)
 
 	/*
-			GetV3DbwWarehousesWarehouseIdContacts Список контактов
+	GetV3DbwWarehousesWarehouseIdContacts Список контактов
 
-			Метод возвращает список контактов, привязанных к [складу продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).
+	Метод возвращает список контактов, привязанных к [складу продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).
 
-		Только для складов с типом доставки `3` — Деливери WB ([DBW](https://dev.wildberries.ru/openapi/orders-dbw)).
+Только для складов с типом доставки `3` — Деливери WB ([DBW](https://dev.wildberries.ru/openapi/orders-dbw)).
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:
 
-		* получение и обновление списка контактов
-		* получение и удаление идентификаторов маркировки
-		* методы сборочных заданий
+* получение и обновление списка контактов
+* получение и удаление идентификаторов маркировки
+* методы сборочных заданий
 
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 300 запросов | 200 мс | 20 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v3-dbw-warehouses-warehouseid-contacts
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v3-dbw-warehouses-warehouseid-contacts
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@param warehouseId ID склада продавца
-			@return ApiGetV3DbwWarehousesWarehouseIdContactsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param warehouseId ID склада продавца
+	@return ApiGetV3DbwWarehousesWarehouseIdContactsRequest
 	*/
 	GetV3DbwWarehousesWarehouseIdContacts(ctx context.Context, warehouseId int64) ApiGetV3DbwWarehousesWarehouseIdContactsRequest
 
@@ -819,24 +820,24 @@ type ItemsAPI interface {
 	GetV3DbwWarehousesWarehouseIdContactsExecute(r ApiGetV3DbwWarehousesWarehouseIdContactsRequest) (*GetV3DbwWarehousesWarehouseIdContactsResponse200, *http.Response, error)
 
 	/*
-			GetV3Offices Получить список складов WB
+	GetV3Offices Получить список складов WB
 
-			Метод возвращает список складов WB для привязки к складу продавца при его [создании](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/postV3Warehouses) или [редактировании](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/putV3WarehousesWarehouseId).
+	Метод возвращает список складов WB для привязки к складу продавца при его [создании](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/postV3Warehouses) или [редактировании](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/putV3WarehousesWarehouseId).
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **складов продавца**:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 300 запросов | 200 мс | 20 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **складов продавца**:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v3-offices
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v3-offices
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV3OfficesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV3OfficesRequest
 	*/
 	GetV3Offices(ctx context.Context) ApiGetV3OfficesRequest
 
@@ -845,24 +846,24 @@ type ItemsAPI interface {
 	GetV3OfficesExecute(r ApiGetV3OfficesRequest) ([]Office, *http.Response, error)
 
 	/*
-			GetV3Warehouses Получить список складов продавца
+	GetV3Warehouses Получить список складов продавца
 
-			Метод возвращает список всех складов продавца. Может использоваться для работы с [остатками товаров](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory).
+	Метод возвращает список всех складов продавца. Может использоваться для работы с [остатками товаров](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory).
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **складов продавца**:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 300 запросов | 200 мс | 20 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **складов продавца**:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v3-warehouses
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v3-warehouses
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiGetV3WarehousesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV3WarehousesRequest
 	*/
 	GetV3Warehouses(ctx context.Context) ApiGetV3WarehousesRequest
 
@@ -871,29 +872,29 @@ type ItemsAPI interface {
 	GetV3WarehousesExecute(r ApiGetV3WarehousesRequest) ([]Warehouse, *http.Response, error)
 
 	/*
-			PatchV2TagId Изменение ярлыка
+	PatchV2TagId Изменение ярлыка
 
-			Метод заменяет данные ярлыка: имя и цвет.
+	Метод заменяет данные ярлыка: имя и цвет.
 
-		Новые данные можно получить в общем [списке](https://dev.wildberries.ru/openapi/item-management#tag/labels/operation/getV2Tags).
+Новые данные можно получить в общем [списке](https://dev.wildberries.ru/openapi/item-management#tag/labels/operation/getV2Tags).
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **Ярлыков**:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **Ярлыков**:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		---
+---
 
-		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/patch-content-v2-tag-id
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/patch-content-v2-tag-id
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@param id Числовой ID ярлыка
-			@return ApiPatchV2TagIdRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id Числовой ID ярлыка
+	@return ApiPatchV2TagIdRequest
 	*/
 	PatchV2TagId(ctx context.Context, id int64) ApiPatchV2TagIdRequest
 
@@ -902,23 +903,23 @@ type ItemsAPI interface {
 	PatchV2TagIdExecute(r ApiPatchV2TagIdRequest) (*ResponseContentError, *http.Response, error)
 
 	/*
-			PostV1RecommendationsList Список рекомендаций в карточках товаров
+	PostV1RecommendationsList Список рекомендаций в карточках товаров
 
-			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-		**Персональному** токену,
-		**Сервисному** токену
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Персональному** токену,
+**Сервисному** токену
 
-		Метод возвращает список [рекомендаций](https://seller.wildberries.ru/recommendations-v3) в карточках товаров.
+Метод возвращает список [рекомендаций](https://seller.wildberries.ru/recommendations-v3) в карточках товаров.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 100 запросов | 600 мс | 5 запросов |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 100 запросов | 600 мс | 5 запросов |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-content-v1-recommendations-list
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-content-v1-recommendations-list
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV1RecommendationsListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV1RecommendationsListRequest
 	*/
 	PostV1RecommendationsList(ctx context.Context) ApiPostV1RecommendationsListRequest
 
@@ -927,23 +928,23 @@ type ItemsAPI interface {
 	PostV1RecommendationsListExecute(r ApiPostV1RecommendationsListRequest) (*GetRecomRes, *http.Response, error)
 
 	/*
-			PostV1RecommendationsSet Установить рекомендации для товаров
+	PostV1RecommendationsSet Установить рекомендации для товаров
 
-			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-		**Персональному** токену,
-		**Сервисному** токену
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Персональному** токену,
+**Сервисному** токену
 
-		Метод обновляет, добавляет или удаляет [рекомендации](https://seller.wildberries.ru/recommendations-v3) для товаров.
+Метод обновляет, добавляет или удаляет [рекомендации](https://seller.wildberries.ru/recommendations-v3) для товаров.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 100 запросов | 600 мс | 5 запросов |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 100 запросов | 600 мс | 5 запросов |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-content-v1-recommendations-set
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-content-v1-recommendations-set
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV1RecommendationsSetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV1RecommendationsSetRequest
 	*/
 	PostV1RecommendationsSet(ctx context.Context) ApiPostV1RecommendationsSetRequest
 
@@ -952,26 +953,26 @@ type ItemsAPI interface {
 	PostV1RecommendationsSetExecute(r ApiPostV1RecommendationsSetRequest) (*SetRecomRes, *http.Response, error)
 
 	/*
-			PostV1UploadTaskB2bWholesale Установить оптовые скидки для B2B-продаж
+	PostV1UploadTaskB2bWholesale Установить оптовые скидки для B2B-продаж
 
-			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-		**Персональному** токену,
-		**Сервисному** токену
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Персональному** токену,
+**Сервисному** токену
 
-		Метод устанавливает [оптовые скидки для бизнеса](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-enable-wholesale-discounts-for-business)
+Метод устанавливает [оптовые скидки для бизнеса](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-enable-wholesale-discounts-for-business)
 
-		Получить информацию о процессе установки цен и скидок можно с помощью методов [состояния](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks) и [детализации](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask) обработанной загрузки.
+Получить информацию о процессе установки цен и скидок можно с помощью методов [состояния](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks) и [детализации](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask) обработанной загрузки.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Цены и скидки**:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Цены и скидки**:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-discounts-prices-v1-upload-task-b2b-wholesale
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-discounts-prices-v1-upload-task-b2b-wholesale
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV1UploadTaskB2bWholesaleRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV1UploadTaskB2bWholesaleRequest
 	*/
 	PostV1UploadTaskB2bWholesale(ctx context.Context) ApiPostV1UploadTaskB2bWholesaleRequest
 
@@ -980,31 +981,31 @@ type ItemsAPI interface {
 	PostV1UploadTaskB2bWholesaleExecute(r ApiPostV1UploadTaskB2bWholesaleRequest) (*PostV1UploadTaskB2bWholesale200Response, *http.Response, error)
 
 	/*
-			PostV2Barcodes Генерация баркодов
+	PostV2Barcodes Генерация баркодов
 
-			Метод генерирует массив уникальных баркодов для создания размера в [карточке товара](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload). Можно использовать, если у вас нет собственных баркодов.
+	Метод генерирует массив уникальных баркодов для создания размера в [карточке товара](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload). Можно использовать, если у вас нет собственных баркодов.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Контент**:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 100 запросов | 600 мс | 5 запросов |
-		Исключение — методы:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Контент**:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 100 запросов | 600 мс | 5 запросов |
+Исключение — методы:
 
-		* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
-		* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
-		* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
-		* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
-		* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
-		* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-barcodes
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-barcodes
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV2BarcodesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV2BarcodesRequest
 	*/
 	PostV2Barcodes(ctx context.Context) ApiPostV2BarcodesRequest
 
@@ -1013,29 +1014,29 @@ type ItemsAPI interface {
 	PostV2BarcodesExecute(r ApiPostV2BarcodesRequest) (*PostV2BarcodesResponse200, *http.Response, error)
 
 	/*
-			PostV2CardsDeleteTrash Перенос карточек товаров в корзину
+	PostV2CardsDeleteTrash Перенос карточек товаров в корзину
 
-			Метод переносит [карточки товаров в корзину](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsTrash). При этом карточки товаров не удаляются, их можно [восстановить](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover).
+	Метод переносит [карточки товаров в корзину](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsTrash). При этом карточки товаров не удаляются, их можно [восстановить](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover).
 
-		После переноса в корзину карточке товара присваивается новый `imtID` — ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
+После переноса в корзину карточке товара присваивается новый `imtID` — ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
 
-		Карточки товаров удаляются автоматически, если лежат в корзине больше 30 дней, и на них нет остатков. Очистка корзины происходит каждую ночь по московскому времени.
-		Карточки товаров можно удалить в любое время в [личном кабинете](https://seller.wildberries.ru/new-goods/basket-cards).
+Карточки товаров удаляются автоматически, если лежат в корзине больше 30 дней, и на них нет остатков. Очистка корзины происходит каждую ночь по московскому времени.
+Карточки товаров можно удалить в любое время в [личном кабинете](https://seller.wildberries.ru/new-goods/basket-cards).
 
-		Карточка будет продаваться, пока по ней есть остатки на складе, даже если её переместили в корзину. Чтобы полностью снять карточку с продажи, обнулите остатки.
+Карточка будет продаваться, пока по ней есть остатки на складе, даже если её переместили в корзину. Чтобы полностью снять карточку с продажи, обнулите остатки.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-delete-trash
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-delete-trash
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV2CardsDeleteTrashRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV2CardsDeleteTrashRequest
 	*/
 	PostV2CardsDeleteTrash(ctx context.Context) ApiPostV2CardsDeleteTrashRequest
 
@@ -1044,51 +1045,51 @@ type ItemsAPI interface {
 	PostV2CardsDeleteTrashExecute(r ApiPostV2CardsDeleteTrashRequest) (*PostV2CardsDeleteTrashResponse200, *http.Response, error)
 
 	/*
-			PostV2CardsErrorList Список несозданных карточек товаров с ошибками
+	PostV2CardsErrorList Список несозданных карточек товаров с ошибками
 
-			Метод возвращает список карточек товаров ([черновиков](https://seller.wildberries.ru/new-goods/error-cards)), при создании или редактировании которых произошли ошибки, с описанием этих ошибок.
+	Метод возвращает список карточек товаров ([черновиков](https://seller.wildberries.ru/new-goods/error-cards)), при создании или редактировании которых произошли ошибки, с описанием этих ошибок.
 
-		Данные в ответе возвращаются пакетами `batch`. Один пакет содержит:
-		- все ошибки по одному массиву `variants` одного запроса при [создании](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) карточек товаров
-		- все ошибки одного запроса при [создании с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) или [редактировании](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) карточек товаров
+Данные в ответе возвращаются пакетами `batch`. Один пакет содержит:
+- все ошибки по одному массиву `variants` одного запроса при [создании](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) карточек товаров
+- все ошибки одного запроса при [создании с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) или [редактировании](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) карточек товаров
 
-		Чтобы получить более 100 пакетов, используйте пагинацию:
-		1. Сделайте первый запрос:
+Чтобы получить более 100 пакетов, используйте пагинацию:
+1. Сделайте первый запрос:
 
-		```
-		        {
-		          "cursor": {
-		            "limit": 100
-		          },
-		          "order": {
-		            "ascending": true
-		          }
-		        }
-		```
+```
+        {
+          "cursor": {
+            "limit": 100
+          },
+          "order": {
+            "ascending": true
+          }
+        }
+```
 
-		2. Скопируйте `"updatedAt":"\*\*\*","batchUUID":"\*\*\*" `из `cursor` ответа и вставьте в `cursor` запроса.
-		3. Повторите запрос.
-		4. Повторяйте пункты 2 и 3, пока не получите в ответе `"next":false`. Это будет означать, что вы получили все пакеты.
+2. Скопируйте `"updatedAt":"\*\*\*","batchUUID":"\*\*\*" `из `cursor` ответа и вставьте в `cursor` запроса.
+3. Повторите запрос.
+4. Повторяйте пункты 2 и 3, пока не получите в ответе `"next":false`. Это будет означать, что вы получили все пакеты.
 
-		Чтобы удалить карточку товара из списка, сделайте ещё один запрос на создание, создание с присоединением или редактирование карточки товара с исправленными ошибками
+Чтобы удалить карточку товара из списка, сделайте ещё один запрос на создание, создание с присоединением или редактирование карточки товара с исправленными ошибками
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов:
 
-		* [получения лимитов карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/getV2CardsLimits)
-		* [получения несозданных карточек товаров с ошибками](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList)
+* [получения лимитов карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/getV2CardsLimits)
+* [получения несозданных карточек товаров с ошибками](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList)
 
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 10 запросов | 6 сек | 5 запросов |
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 10 запросов | 6 сек | 5 запросов |
 
-		---
+---
 
-		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-error-list
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-error-list
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV2CardsErrorListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV2CardsErrorListRequest
 	*/
 	PostV2CardsErrorList(ctx context.Context) ApiPostV2CardsErrorListRequest
 
@@ -1097,41 +1098,41 @@ type ItemsAPI interface {
 	PostV2CardsErrorListExecute(r ApiPostV2CardsErrorListRequest) (*ResponsePublicViewerPublicErrorsTableListV2, *http.Response, error)
 
 	/*
-			PostV2CardsMoveNm Объединение и разъединение карточек товаров
+	PostV2CardsMoveNm Объединение и разъединение карточек товаров
 
-			Метод [объединяет и разъединяет](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров. Карточки товаров являются объединёнными, если у них одинаковый `imtID`.
+	Метод [объединяет и разъединяет](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров. Карточки товаров являются объединёнными, если у них одинаковый `imtID`.
 
-		Для объединения карточек товаров сделайте запрос \*\*с указанием\*\* `imtID`. Можно объединять не более 30 карточек товаров.
-		Для разъединения карточек товаров сделайте запрос \*\*без указания\*\* `imtID`. Для разъединенных карточек будут сгенерированы новые `imtID`.
+Для объединения карточек товаров сделайте запрос \*\*с указанием\*\* `imtID`. Можно объединять не более 30 карточек товаров.
+Для разъединения карточек товаров сделайте запрос \*\*без указания\*\* `imtID`. Для разъединенных карточек будут сгенерированы новые `imtID`.
 
-		Если вы разъедините одновременно несколько карточек товаров, эти карточки объединятся в одну и получат новый `imtID`.
-		Чтобы присвоить каждой карточке товара уникальный `imtID`, необходимо передавать по одной карточке товара за запрос.
+Если вы разъедините одновременно несколько карточек товаров, эти карточки объединятся в одну и получат новый `imtID`.
+Чтобы присвоить каждой карточке товара уникальный `imtID`, необходимо передавать по одной карточке товара за запрос.
 
-		Максимальный размер запроса 10 Мб.
+Максимальный размер запроса 10 Мб.
 
-		Объединить можно карточки товаров только в рамках одного предмета
+Объединить можно карточки товаров только в рамках одного предмета
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Контент**:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 100 запросов | 600 мс | 5 запросов |
-		Исключение — методы:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Контент**:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 100 запросов | 600 мс | 5 запросов |
+Исключение — методы:
 
-		* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
-		* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
-		* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
-		* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
-		* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
-		* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-movenm
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-movenm
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV2CardsMoveNmRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV2CardsMoveNmRequest
 	*/
 	PostV2CardsMoveNm(ctx context.Context) ApiPostV2CardsMoveNmRequest
 
@@ -1140,24 +1141,24 @@ type ItemsAPI interface {
 	PostV2CardsMoveNmExecute(r ApiPostV2CardsMoveNmRequest) (*ResponseItemList, *http.Response, error)
 
 	/*
-			PostV2CardsRecover Восстановление карточек товаров из корзины
+	PostV2CardsRecover Восстановление карточек товаров из корзины
 
-			Метод восстанавливает [карточки товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsTrash).
+	Метод восстанавливает [карточки товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsTrash).
 
-		Карточка товара сохраняет тот же `imtID` — ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров — что был присвоен ей при [перемещении в корзину](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsDeleteTrash)
+Карточка товара сохраняет тот же `imtID` — ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров — что был присвоен ей при [перемещении в корзину](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsDeleteTrash)
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 3 запроса | 20 сек | 5 запросов |
-		| Сервисный | 1 мин | 3 запроса | 20 сек | 5 запросов |
-		| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 5 запросов |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 3 запроса | 20 сек | 5 запросов |
+| Сервисный | 1 мин | 3 запроса | 20 сек | 5 запросов |
+| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 5 запросов |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-recover
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-recover
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV2CardsRecoverRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV2CardsRecoverRequest
 	*/
 	PostV2CardsRecover(ctx context.Context) ApiPostV2CardsRecoverRequest
 
@@ -1166,52 +1167,52 @@ type ItemsAPI interface {
 	PostV2CardsRecoverExecute(r ApiPostV2CardsRecoverRequest) (*PostV2CardsRecoverResponse200, *http.Response, error)
 
 	/*
-			PostV2CardsUpdate Редактирование карточек товаров
+	PostV2CardsUpdate Редактирование карточек товаров
 
-			Метод обновляет данные карточек товаров. Также используйте его, чтобы добавлять новые размеры и документы.
+	Метод обновляет данные карточек товаров. Также используйте его, чтобы добавлять новые размеры и документы.
 
-		Карточка товара перезаписывается при обновлении. Поэтому в запросе нужно передать в том числе те параметры карточки, которые вы не собираетесь обновлять. Их значения можно получить в [списке карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList) и [списке карточек товаров в корзине](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsTrash).
+Карточка товара перезаписывается при обновлении. Поэтому в запросе нужно передать в том числе те параметры карточки, которые вы не собираетесь обновлять. Их значения можно получить в [списке карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList) и [списке карточек товаров в корзине](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsTrash).
 
-		При обновлении карточки объект **documents** также полностью перезаписывается. Передавайте в запросе данные всех документов, которые должны остаться в карточке, включая документы без изменений.
+При обновлении карточки объект **documents** также полностью перезаписывается. Передавайте в запросе данные всех документов, которые должны остаться в карточке, включая документы без изменений.
 
-		С помощью этого метода нельзя обновлять или удалять:
-		- баркоды размеров товара. Можно только добавить дополнительные баркоды
-		- параметры `photos`, `video` и `tags`
-		- цены товаров. Цену можно задать, только если вы добавляете новые размеры
-		При добавлении нового размера укажите его цену через параметр `price`. Если в запросе не указан `price`, цена размера будет `0` — в этом случае изменить её можно будет с помощью методов:
-		- [Установить цены и скидки](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask), если у [товара](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) `"editablePriceSize":false`
-		- [Установить цены для размеров](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize), если у [товара](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) `"editablePriceSize":true`
-		Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`.
+С помощью этого метода нельзя обновлять или удалять:
+- баркоды размеров товара. Можно только добавить дополнительные баркоды
+- параметры `photos`, `video` и `tags`
+- цены товаров. Цену можно задать, только если вы добавляете новые размеры
+При добавлении нового размера укажите его цену через параметр `price`. Если в запросе не указан `price`, цена размера будет `0` — в этом случае изменить её можно будет с помощью методов:
+- [Установить цены и скидки](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask), если у [товара](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) `"editablePriceSize":false`
+- [Установить цены для размеров](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize), если у [товара](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) `"editablePriceSize":true`
+Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`.
 
-		Одним запросом можно отредактировать максимум 3000 карточек товаров (`nmID`). Максимальный размер запроса 10 Мб.
-		Если ответ `Успешно` (`200`), но какие-то карточки не обновились, проверьте [список несозданных карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList).
-		Синхронизация данных с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены.
+Одним запросом можно отредактировать максимум 3000 карточек товаров (`nmID`). Максимальный размер запроса 10 Мб.
+Если ответ `Успешно` (`200`), но какие-то карточки не обновились, проверьте [список несозданных карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList).
+Синхронизация данных с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены.
 
-		Чтобы прикрепить документы к карточке товара, передайте данные документов в объекте запроса `documents`.
-		Чтобы внести изменения в прикрепленный к карточке документ, передайте `id` документа и его данные в объекте запроса `documents`. Получить `id` документа вы можете в [списке карточек товара](https://dev.wildberries.ru/item-management#tag/listings/operation/postV2GetCardsList).
-		После изменения документа или добавления нового документа карточка повторно отправляется на проверку.
+Чтобы прикрепить документы к карточке товара, передайте данные документов в объекте запроса `documents`.
+Чтобы внести изменения в прикрепленный к карточке документ, передайте `id` документа и его данные в объекте запроса `documents`. Получить `id` документа вы можете в [списке карточек товара](https://dev.wildberries.ru/item-management#tag/listings/operation/postV2GetCardsList).
+После изменения документа или добавления нового документа карточка повторно отправляется на проверку.
 
-		Проверка документов выполняется асинхронно и может занимать до 3 дней.
-		Вы можете изменить карточку снова до завершения текущей проверки. При этом проверка запустится повторно, а карточка сохранит текущий статус до завершения новой проверки.
-		Если карточка была доступна для продажи до обновления документа, она будет доступна и до получения нового результата проверки. Если карточка уже была заблокирована, то после обновления данных она останется заблокированной до получения положительного результата повторной проверки.
+Проверка документов выполняется асинхронно и может занимать до 3 дней.
+Вы можете изменить карточку снова до завершения текущей проверки. При этом проверка запустится повторно, а карточка сохранит текущий статус до завершения новой проверки.
+Если карточка была доступна для продажи до обновления документа, она будет доступна и до получения нового результата проверки. Если карточка уже была заблокирована, то после обновления данных она останется заблокированной до получения положительного результата повторной проверки.
 
-		Результаты проверки отображаются в [списке карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList), объект `documents`:
-		- результат по каждому документу в полях `verdict` объекта `items`. Если `verdict` не возвращается в ответе — проверка документа ещё не завершена
-		- итоговый общий результат по карточке в поле `overallVerdict`. При общей проверке карточки учитываются не только результаты проверки документов, но и другие данные. Например, наличие обязательной маркировки и сведения из внешних реестров. Если `overallVerdict` не возвращается в ответе — проверка карточки ещё не завершена
+Результаты проверки отображаются в [списке карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList), объект `documents`:
+- результат по каждому документу в полях `verdict` объекта `items`. Если `verdict` не возвращается в ответе — проверка документа ещё не завершена
+- итоговый общий результат по карточке в поле `overallVerdict`. При общей проверке карточки учитываются не только результаты проверки документов, но и другие данные. Например, наличие обязательной маркировки и сведения из внешних реестров. Если `overallVerdict` не возвращается в ответе — проверка карточки ещё не завершена
 
-		Типы документов, которые вы можете добавить для товара, указаны в [характеристиках предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId).
+Типы документов, которые вы можете добавить для товара, указаны в [характеристиках предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId).
 
-		При этом не все документы, которые вы можете добавить, обязательны и проходят проверку — вы самостоятельно определяете, какие разрешительные документы требуются для товара в соответствии с законодательством.
+При этом не все документы, которые вы можете добавить, обязательны и проходят проверку — вы самостоятельно определяете, какие разрешительные документы требуются для товара в соответствии с законодательством.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 10 запросов | 6 сек | 5 запросов |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 10 запросов | 6 сек | 5 запросов |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-update
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-update
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV2CardsUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV2CardsUpdateRequest
 	*/
 	PostV2CardsUpdate(ctx context.Context) ApiPostV2CardsUpdateRequest
 
@@ -1220,41 +1221,41 @@ type ItemsAPI interface {
 	PostV2CardsUpdateExecute(r ApiPostV2CardsUpdateRequest) (*ResponseItemList, *http.Response, error)
 
 	/*
-			PostV2CardsUpload Создание карточек товаров
+	PostV2CardsUpload Создание карточек товаров
 
-			Метод создаёт карточки товаров c указанием описаний и характеристик товаров.
+	Метод создаёт карточки товаров c указанием описаний и характеристик товаров.
 
-		Есть две формы запроса: для создания отдельных и объединённых карточек товаров
+Есть две формы запроса: для создания отдельных и объединённых карточек товаров
 
-		Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`.
+Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`.
 
-		Создание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены.
-		 В песочнице карточка товара создаётся сразу, без ожидания.
+Создание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены.
+ В песочнице карточка товара создаётся сразу, без ожидания.
 
-		Одним запросом можно создать максимум 100 отдельных карточек товаров или 100 групп [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров по 30 карточек в каждой. Максимальный размер запроса 10 Мб.
-		Если ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList).
+Одним запросом можно создать максимум 100 отдельных карточек товаров или 100 групп [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров по 30 карточек в каждой. Максимальный размер запроса 10 Мб.
+Если ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList).
 
-		Чтобы прикрепить документы к карточке товара, передайте данные документов в объекте запроса `documents`.
-		Чтобы подтвердить, что для товара не требуются документы, передайте `true` в параметре `excludeDocuments`.
+Чтобы прикрепить документы к карточке товара, передайте данные документов в объекте запроса `documents`.
+Чтобы подтвердить, что для товара не требуются документы, передайте `true` в параметре `excludeDocuments`.
 
-		Проверка документов выполняется асинхронно и может занимать до 3 дней. При изменении карточки или документа проверка запускается повторно.
-		Результаты проверки отображаются в [списке карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList), объект `documents`:
-		- результат по каждому документу в полях `verdict` объекта `items`. Если `verdict` не возвращается в ответе — проверка документа ещё не завершена
-		- итоговый общий результат по карточке в поле `overallVerdict`. При общей проверке карточки учитываются не только результаты проверки документов, но и другие данные. Например, наличие обязательной маркировки и сведения из внешних реестров. Если `overallVerdict` не возвращается в ответе — проверка карточки ещё не завершена
+Проверка документов выполняется асинхронно и может занимать до 3 дней. При изменении карточки или документа проверка запускается повторно.
+Результаты проверки отображаются в [списке карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList), объект `documents`:
+- результат по каждому документу в полях `verdict` объекта `items`. Если `verdict` не возвращается в ответе — проверка документа ещё не завершена
+- итоговый общий результат по карточке в поле `overallVerdict`. При общей проверке карточки учитываются не только результаты проверки документов, но и другие данные. Например, наличие обязательной маркировки и сведения из внешних реестров. Если `overallVerdict` не возвращается в ответе — проверка карточки ещё не завершена
 
-		Типы документов, которые вы можете добавить для товара, указаны в [характеристиках предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId).
+Типы документов, которые вы можете добавить для товара, указаны в [характеристиках предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId).
 
-		При этом не все документы, которые вы можете добавить, обязательны и проходят проверку — вы самостоятельно определяете, какие разрешительные документы требуются для товара в соответствии с законодательством.
+При этом не все документы, которые вы можете добавить, обязательны и проходят проверку — вы самостоятельно определяете, какие разрешительные документы требуются для товара в соответствии с законодательством.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 10 запросов | 6 сек | 5 запросов |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 10 запросов | 6 сек | 5 запросов |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-upload
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-upload
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV2CardsUploadRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV2CardsUploadRequest
 	*/
 	PostV2CardsUpload(ctx context.Context) ApiPostV2CardsUploadRequest
 
@@ -1263,38 +1264,38 @@ type ItemsAPI interface {
 	PostV2CardsUploadExecute(r ApiPostV2CardsUploadRequest) (*ResponseItemList, *http.Response, error)
 
 	/*
-			PostV2CardsUploadAdd Создание карточек товаров с присоединением
+	PostV2CardsUploadAdd Создание карточек товаров с присоединением
 
-			Метод создаёт карточки товаров, присоединяя их к существующим отдельным карточкам и группам [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. В одной группе объединённых карточек товаров может быть не более 30 карточек, соответственно, создать с присоединением можно не более 29 карточек товаров за один запрос.
-		Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`.
+	Метод создаёт карточки товаров, присоединяя их к существующим отдельным карточкам и группам [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. В одной группе объединённых карточек товаров может быть не более 30 карточек, соответственно, создать с присоединением можно не более 29 карточек товаров за один запрос.
+Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`.
 
-		Если ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList).
-		Создание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены.
-		В песочнице карточка товара создаётся сразу, без ожидания.
+Если ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList).
+Создание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены.
+В песочнице карточка товара создаётся сразу, без ожидания.
 
-		Чтобы прикрепить документы к карточке товара, передайте данные документов в объекте запроса `documents`.
-		Чтобы подтвердить, что для товара не требуются документы, передайте `true` в параметре `excludeDocuments`.
-		Проверка документов выполняется асинхронно и может занимать до 3 дней. При изменении карточки или документа проверка запускается повторно.
-		Результаты проверки отображаются в [списке карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList), объект `documents`:
-		- результат по каждому документу в полях `verdict` объекта `items`. Если `verdict` не возвращается в ответе — проверка документа ещё не завершена
-		- итоговый общий результат по карточке в поле `overallVerdict`. При общей проверке карточки учитываются не только результаты проверки документов, но и другие данные. Например, наличие обязательной маркировки и сведения из внешних реестров. Если `overallVerdict` не возвращается в ответе — проверка карточки ещё не завершена
+Чтобы прикрепить документы к карточке товара, передайте данные документов в объекте запроса `documents`.
+Чтобы подтвердить, что для товара не требуются документы, передайте `true` в параметре `excludeDocuments`.
+Проверка документов выполняется асинхронно и может занимать до 3 дней. При изменении карточки или документа проверка запускается повторно.
+Результаты проверки отображаются в [списке карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList), объект `documents`:
+- результат по каждому документу в полях `verdict` объекта `items`. Если `verdict` не возвращается в ответе — проверка документа ещё не завершена
+- итоговый общий результат по карточке в поле `overallVerdict`. При общей проверке карточки учитываются не только результаты проверки документов, но и другие данные. Например, наличие обязательной маркировки и сведения из внешних реестров. Если `overallVerdict` не возвращается в ответе — проверка карточки ещё не завершена
 
-		Типы документов, которые вы можете добавить для товара, указаны в [характеристиках предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId).
+Типы документов, которые вы можете добавить для товара, указаны в [характеристиках предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId).
 
-		При этом не все документы, которые вы можете добавить, обязательны и проходят проверку — вы самостоятельно определяете, какие разрешительные документы требуются для товара в соответствии с законодательством.
+При этом не все документы, которые вы можете добавить, обязательны и проходят проверку — вы самостоятельно определяете, какие разрешительные документы требуются для товара в соответствии с законодательством.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 10 запросов | 6 сек | 5 запросов |
-		| Сервисный | 1 мин | 10 запросов | 6 сек | 5 запросов |
-		| Базовый с секретом | 1 мин | 10 запросов | 6 сек | 5 запросов |
-		| Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 10 запросов | 6 сек | 5 запросов |
+| Сервисный | 1 мин | 10 запросов | 6 сек | 5 запросов |
+| Базовый с секретом | 1 мин | 10 запросов | 6 сек | 5 запросов |
+| Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-upload-add
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-upload-add
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV2CardsUploadAddRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV2CardsUploadAddRequest
 	*/
 	PostV2CardsUploadAdd(ctx context.Context) ApiPostV2CardsUploadAddRequest
 
@@ -1303,57 +1304,57 @@ type ItemsAPI interface {
 	PostV2CardsUploadAddExecute(r ApiPostV2CardsUploadAddRequest) (*ResponseItemList, *http.Response, error)
 
 	/*
-			PostV2GetCardsList Список карточек товаров
+	PostV2GetCardsList Список карточек товаров
 
-			Метод возвращает список созданных карточек товаров.
+	Метод возвращает список созданных карточек товаров.
 
-		В ответе метода не будет карточек, находящихся в корзине. Получить такие карточки можно через [отдельный метод](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsTrash)
+В ответе метода не будет карточек, находящихся в корзине. Получить такие карточки можно через [отдельный метод](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsTrash)
 
-		Чтобы получить \*\*больше 100\*\* карточек товаров, используйте пагинацию:
-		1. Сделайте первый запрос:
+Чтобы получить \*\*больше 100\*\* карточек товаров, используйте пагинацию:
+1. Сделайте первый запрос:
 
-		```
-		        {
-		          "settings": {
-		            "sort": {
-		              "ascending": true
-		            },
-		            "cursor": {
-		              "limit": 100
-		            },
-		            "filter": {
-		              "withPhoto": -1
-		            }
-		          }
-		        }
-		```
+```
+        {
+          "settings": {
+            "sort": {
+              "ascending": true
+            },
+            "cursor": {
+              "limit": 100
+            },
+            "filter": {
+              "withPhoto": -1
+            }
+          }
+        }
+```
 
-		Чтобы после выгрузки получать только новые или обновлённые карточки товаров, используйте сортировку по возрастанию: `"sort":{"ascending":true}`.
-		2. Скопируйте `"updatedAt":"\*\*\*","nmID":"\*\*\*"` из `cursor` ответа и вставьте в `cursor` запроса.
-		3. Повторите запрос.
-		4. Повторяйте пункты 2 и 3, пока значение `total` в ответе не станет меньше, чем значение `limit` в запросе. Это будет означать, что вы получили все карточки.
-		Чтобы получать только карточки товаров, которые были созданы или обновлены после предыдущей выгрузки данных:
-		1. Сохраните поля `"cursor":{"updatedAt":"\*\*\*","nmID":"\*\*\*"}` из последнего ответа предыдущей выгрузки. При выгрузке используйте сортировку по возрастанию: `"sort":{"ascending":true}`.
-		2. Укажите в первом запросе сохранённые поля `"cursor":{"updatedAt":"\*\*\*","nmID":"\*\*\*"}`. Продолжайте использовать сортировку по возрастанию.
-		3. Сохраните поля `"cursor":{"updatedAt":"\*\*\*","nmID":"\*\*\*"}` из последнего ответа текущей выгрузки.
+Чтобы после выгрузки получать только новые или обновлённые карточки товаров, используйте сортировку по возрастанию: `"sort":{"ascending":true}`.
+2. Скопируйте `"updatedAt":"\*\*\*","nmID":"\*\*\*"` из `cursor` ответа и вставьте в `cursor` запроса.
+3. Повторите запрос.
+4. Повторяйте пункты 2 и 3, пока значение `total` в ответе не станет меньше, чем значение `limit` в запросе. Это будет означать, что вы получили все карточки.
+Чтобы получать только карточки товаров, которые были созданы или обновлены после предыдущей выгрузки данных:
+1. Сохраните поля `"cursor":{"updatedAt":"\*\*\*","nmID":"\*\*\*"}` из последнего ответа предыдущей выгрузки. При выгрузке используйте сортировку по возрастанию: `"sort":{"ascending":true}`.
+2. Укажите в первом запросе сохранённые поля `"cursor":{"updatedAt":"\*\*\*","nmID":"\*\*\*"}`. Продолжайте использовать сортировку по возрастанию.
+3. Сохраните поля `"cursor":{"updatedAt":"\*\*\*","nmID":"\*\*\*"}` из последнего ответа текущей выгрузки.
 
-		В объекте `documents` метод возвращает:
-		- информацию о переданных документах — массив `items`
-		- результаты проверки по каждому документу — объект `verdict` в `items`. Если `verdict` не возвращается в ответе — проверка документа ещё не завершена
-		- результат проверки всей карточки — объект `overallVerdict`. Проверка всей карточки включает проверку не только документов, но и других данных. Например, наличия обязательной маркировки и сведений из внешних реестров. Если `overallVerdict` не возвращается в ответе — проверка карточки ещё не завершена
-		Проверки документов и карточки выполняются асинхронно и могут занимать до 3 дней.
-		Каждое изменение результата проверки обновляет дату и время изменения карточки в поле ответа `updatedAt`.
-		Чтобы получить новые результаты проверки, используйте выгрузку с пагинацией с сортировкой по возрастанию.
+В объекте `documents` метод возвращает:
+- информацию о переданных документах — массив `items`
+- результаты проверки по каждому документу — объект `verdict` в `items`. Если `verdict` не возвращается в ответе — проверка документа ещё не завершена
+- результат проверки всей карточки — объект `overallVerdict`. Проверка всей карточки включает проверку не только документов, но и других данных. Например, наличия обязательной маркировки и сведений из внешних реестров. Если `overallVerdict` не возвращается в ответе — проверка карточки ещё не завершена
+Проверки документов и карточки выполняются асинхронно и могут занимать до 3 дней.
+Каждое изменение результата проверки обновляет дату и время изменения карточки в поле ответа `updatedAt`.
+Чтобы получить новые результаты проверки, используйте выгрузку с пагинацией с сортировкой по возрастанию.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 100 запросов | 600 мс | 5 запросов |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 100 запросов | 600 мс | 5 запросов |
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-get-cards-list
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-get-cards-list
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV2GetCardsListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV2GetCardsListRequest
 	*/
 	PostV2GetCardsList(ctx context.Context) ApiPostV2GetCardsListRequest
 
@@ -1362,56 +1363,56 @@ type ItemsAPI interface {
 	PostV2GetCardsListExecute(r ApiPostV2GetCardsListRequest) (*PostV2GetCardsListResponse200, *http.Response, error)
 
 	/*
-			PostV2GetCardsTrash Список карточек товаров в корзине
+	PostV2GetCardsTrash Список карточек товаров в корзине
 
-			Метод возвращает список карточек товаров в корзине.
+	Метод возвращает список карточек товаров в корзине.
 
-		Чтобы получить \*\*больше 100\*\* карточек товаров, используйте пагинацию.
-		1. Сделайте первый запрос:
+Чтобы получить \*\*больше 100\*\* карточек товаров, используйте пагинацию.
+1. Сделайте первый запрос:
 
-		```
-		        {
-		          "settings": {
-		            "sort": {
-		              "ascending": true
-		            },
-		            "cursor": {
-		              "limit": 100
-		            }
-		          }
-		        }
-		```
+```
+        {
+          "settings": {
+            "sort": {
+              "ascending": true
+            },
+            "cursor": {
+              "limit": 100
+            }
+          }
+        }
+```
 
-		Чтобы получать только карточки товаров, которые были перенесены в корзину после выгрузки, используйте сортировку по возрастанию: `"sort":{"ascending":true}`.
-		2. Скопируйте `"trashedAt":"\*\*\*","nmID":\*\*\*` из `cursor` ответа и вставьте в `cursor` запроса.
-		3. Повторите запрос.
-		4. Повторяйте пункты 2 и 3, пока значение `total` в ответе не станет меньше, чем значение `limit` в запросе. Это будет означать, что вы получили все карточки.
-		Чтобы получать только карточки товаров, которые были перенесены в корзину после предыдущей выгрузки данных:
-		1. Сохраните поля `"cursor":{"trashedAt":"\*\*\*","nmID":\*\*\*}` из последнего ответа предыдущей выгрузки. При выгрузке используйте сортировку по возрастанию: `"sort":{"ascending":true}`.
-		2. Укажите в первом запросе сохранённые поля `"cursor":{"trashedAt":"\*\*\*","nmID":"\*\*\*"}`. Продолжайте использовать сортировку по возрастанию.
-		3. Сохраните поля `"cursor":{"trashedAt":"\*\*\*","nmID":\*\*\*}` из последнего ответа текущей выгрузки.
+Чтобы получать только карточки товаров, которые были перенесены в корзину после выгрузки, используйте сортировку по возрастанию: `"sort":{"ascending":true}`.
+2. Скопируйте `"trashedAt":"\*\*\*","nmID":\*\*\*` из `cursor` ответа и вставьте в `cursor` запроса.
+3. Повторите запрос.
+4. Повторяйте пункты 2 и 3, пока значение `total` в ответе не станет меньше, чем значение `limit` в запросе. Это будет означать, что вы получили все карточки.
+Чтобы получать только карточки товаров, которые были перенесены в корзину после предыдущей выгрузки данных:
+1. Сохраните поля `"cursor":{"trashedAt":"\*\*\*","nmID":\*\*\*}` из последнего ответа предыдущей выгрузки. При выгрузке используйте сортировку по возрастанию: `"sort":{"ascending":true}`.
+2. Укажите в первом запросе сохранённые поля `"cursor":{"trashedAt":"\*\*\*","nmID":"\*\*\*"}`. Продолжайте использовать сортировку по возрастанию.
+3. Сохраните поля `"cursor":{"trashedAt":"\*\*\*","nmID":\*\*\*}` из последнего ответа текущей выгрузки.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Контент**:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 100 запросов | 600 мс | 5 запросов |
-		Исключение — методы:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Контент**:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 100 запросов | 600 мс | 5 запросов |
+Исключение — методы:
 
-		* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
-		* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
-		* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
-		* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
-		* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
-		* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-get-cards-trash
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-get-cards-trash
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV2GetCardsTrashRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV2GetCardsTrashRequest
 	*/
 	PostV2GetCardsTrash(ctx context.Context) ApiPostV2GetCardsTrashRequest
 
@@ -1420,32 +1421,32 @@ type ItemsAPI interface {
 	PostV2GetCardsTrashExecute(r ApiPostV2GetCardsTrashRequest) (*PostV2GetCardsTrashResponse200, *http.Response, error)
 
 	/*
-			PostV2ListGoodsFilter Получить товары с ценами по артикулам
+	PostV2ListGoodsFilter Получить товары с ценами по артикулам
 
-			Метод возвращает информацию о товарах по их артикулам: цены, валюту, общие скидки, [скидки WB Клуба](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовые скидки для B2B-продаж](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).
+	Метод возвращает информацию о товарах по их артикулам: цены, валюту, общие скидки, [скидки WB Клуба](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовые скидки для B2B-продаж](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).
 
-		В одном запросе можно указать более одного артикула.
+В одном запросе можно указать более одного артикула.
 
-		Используйте отдельные методы, чтобы получить информацию:
-		- обо [всех товарах продавца, не указывая артикулы](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter)
-		- о [размерах товара](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm)
+Используйте отдельные методы, чтобы получить информацию:
+- обо [всех товарах продавца, не указывая артикулы](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter)
+- о [размерах товара](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm)
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Цены и скидки**:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Цены и скидки**:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
 
-		---
+---
 
-		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-list-goods-filter
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-list-goods-filter
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV2ListGoodsFilterRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV2ListGoodsFilterRequest
 	*/
 	PostV2ListGoodsFilter(ctx context.Context) ApiPostV2ListGoodsFilterRequest
 
@@ -1454,28 +1455,28 @@ type ItemsAPI interface {
 	PostV2ListGoodsFilterExecute(r ApiPostV2ListGoodsFilterRequest) (*GetV2ListGoodsFilter200Response, *http.Response, error)
 
 	/*
-			PostV2Tag Создание ярлыка
+	PostV2Tag Создание ярлыка
 
-			Метод добавляет один ярлык продавца. Можно создать максимум 15 ярлыков для одного продавца. Максимальная длина ярлыка — 15 символов.
+	Метод добавляет один ярлык продавца. Можно создать максимум 15 ярлыков для одного продавца. Максимальная длина ярлыка — 15 символов.
 
-		Созданный ярлык можно получить в общем [списке](https://dev.wildberries.ru/openapi/item-management#tag/labels/operation/getV2Tags).
+Созданный ярлык можно получить в общем [списке](https://dev.wildberries.ru/openapi/item-management#tag/labels/operation/getV2Tags).
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **Ярлыков**:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **Ярлыков**:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		---
+---
 
-		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-tag
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-tag
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV2TagRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV2TagRequest
 	*/
 	PostV2Tag(ctx context.Context) ApiPostV2TagRequest
 
@@ -1484,27 +1485,27 @@ type ItemsAPI interface {
 	PostV2TagExecute(r ApiPostV2TagRequest) (*ResponseContentError, *http.Response, error)
 
 	/*
-			PostV2TagNomenclatureLink Управление ярлыками в карточке товара
+	PostV2TagNomenclatureLink Управление ярлыками в карточке товара
 
-			Метод добавляет или снимает ярлык с карточки товара. К карточке можно добавить максимум 15 ярлыков.
-		При удалении ярлыка из карточки товара он не удаляется из [списка ярлыков](https://dev.wildberries.ru/openapi/item-management#tag/labels/operation/getV2Tags) продавца.
+	Метод добавляет или снимает ярлык с карточки товара. К карточке можно добавить максимум 15 ярлыков.
+При удалении ярлыка из карточки товара он не удаляется из [списка ярлыков](https://dev.wildberries.ru/openapi/item-management#tag/labels/operation/getV2Tags) продавца.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **Ярлыков**:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **Ярлыков**:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		---
+---
 
-		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-tag-nomenclature-link
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-tag-nomenclature-link
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV2TagNomenclatureLinkRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV2TagNomenclatureLinkRequest
 	*/
 	PostV2TagNomenclatureLink(ctx context.Context) ApiPostV2TagNomenclatureLinkRequest
 
@@ -1513,30 +1514,30 @@ type ItemsAPI interface {
 	PostV2TagNomenclatureLinkExecute(r ApiPostV2TagNomenclatureLinkRequest) (*ResponseContentError, *http.Response, error)
 
 	/*
-			PostV2UploadTask Установить цены и скидки
+	PostV2UploadTask Установить цены и скидки
 
-			Метод устанавливает цены и скидки для товаров.
+	Метод устанавливает цены и скидки для товаров.
 
-		Чтобы установить цены для размеров товара, используйте [отдельный метод](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize).
+Чтобы установить цены для размеров товара, используйте [отдельный метод](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize).
 
-		Получить информацию о процессе установки цен и скидок можно с помощью методов [состояния](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks) и [детализации](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask) обработанной загрузки.
+Получить информацию о процессе установки цен и скидок можно с помощью методов [состояния](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks) и [детализации](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask) обработанной загрузки.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Цены и скидки**:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Цены и скидки**:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
 
-		---
+---
 
-		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-upload-task
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-upload-task
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV2UploadTaskRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV2UploadTaskRequest
 	*/
 	PostV2UploadTask(ctx context.Context) ApiPostV2UploadTaskRequest
 
@@ -1545,28 +1546,28 @@ type ItemsAPI interface {
 	PostV2UploadTaskExecute(r ApiPostV2UploadTaskRequest) (*TaskCreated, *http.Response, error)
 
 	/*
-			PostV2UploadTaskClubDiscount Установить скидки WB Клуба
+	PostV2UploadTaskClubDiscount Установить скидки WB Клуба
 
-			Устанавливает скидки для товаров в рамках подписки [WB Клуб](https://seller.wildberries.ru/help-center/article/A-337).
+	Устанавливает скидки для товаров в рамках подписки [WB Клуб](https://seller.wildberries.ru/help-center/article/A-337).
 
-		Получить информацию о процессе установки цен и скидок можно с помощью методов [состояния](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks) и [детализации](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask) обработанной загрузки.
+Получить информацию о процессе установки цен и скидок можно с помощью методов [состояния](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks) и [детализации](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask) обработанной загрузки.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Цены и скидки**:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Цены и скидки**:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
 
-		---
+---
 
-		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-upload-task-club-discount
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-upload-task-club-discount
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV2UploadTaskClubDiscountRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV2UploadTaskClubDiscountRequest
 	*/
 	PostV2UploadTaskClubDiscount(ctx context.Context) ApiPostV2UploadTaskClubDiscountRequest
 
@@ -1575,30 +1576,30 @@ type ItemsAPI interface {
 	PostV2UploadTaskClubDiscountExecute(r ApiPostV2UploadTaskClubDiscountRequest) (*TaskCreated, *http.Response, error)
 
 	/*
-			PostV2UploadTaskSize Установить цены для размеров
+	PostV2UploadTaskSize Установить цены для размеров
 
-			Метод устанавливает цены отдельно для размеров товаров.
-		Работает только для товаров из категорий, где можно устанавливать цены отдельно для разных размеров. Для [таких товаров](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm) `"editableSizePrice":true`.
-		Чтобы установить цены и скидки для самих товаров, используйте [отдельный метод](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask).
+	Метод устанавливает цены отдельно для размеров товаров.
+Работает только для товаров из категорий, где можно устанавливать цены отдельно для разных размеров. Для [таких товаров](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm) `"editableSizePrice":true`.
+Чтобы установить цены и скидки для самих товаров, используйте [отдельный метод](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask).
 
-		Получить информацию о процессе установки цен и скидок можно с помощью методов [состояния](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks) и [детализации](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask) обработанной загрузки.
+Получить информацию о процессе установки цен и скидок можно с помощью методов [состояния](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks) и [детализации](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask) обработанной загрузки.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Цены и скидки**:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
-		| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Цены и скидки**:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
+| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
 
-		---
+---
 
-		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-upload-task-size
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-upload-task-size
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV2UploadTaskSizeRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV2UploadTaskSizeRequest
 	*/
 	PostV2UploadTaskSize(ctx context.Context) ApiPostV2UploadTaskSizeRequest
 
@@ -1607,36 +1608,36 @@ type ItemsAPI interface {
 	PostV2UploadTaskSizeExecute(r ApiPostV2UploadTaskSizeRequest) (*TaskCreated, *http.Response, error)
 
 	/*
-			PostV3MediaFile Загрузить медиафайл
+	PostV3MediaFile Загрузить медиафайл
 
-			Метод загружает и добавляет один медиафайл к карточке товара.
-		Требования к изображениям:
-		\* максимум изображений для одной карточки товара — 30
-		\* минимальное разрешение — 700x900 px
-		\* максимальный размер — 32 Мб
-		\* минимальное качество — 65%
-		\* форматы — JPG, PNG, BMP, GIF (статичные), WebP
-		Требования к видео:
-		\* максимум одно видео для одной карточки товара
-		\* максимальный размер — 50 Мб
-		\* форматы — MOV, MP4
+	Метод загружает и добавляет один медиафайл к карточке товара.
+Требования к изображениям:
+\* максимум изображений для одной карточки товара — 30
+\* минимальное разрешение — 700x900 px
+\* максимальный размер — 32 Мб
+\* минимальное качество — 65%
+\* форматы — JPG, PNG, BMP, GIF (статичные), WebP
+Требования к видео:
+\* максимум одно видео для одной карточки товара
+\* максимальный размер — 50 Мб
+\* форматы — MOV, MP4
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **Медиафайлов**:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **Медиафайлов**:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		---
+---
 
-		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v3-media-file
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v3-media-file
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV3MediaFileRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3MediaFileRequest
 	*/
 	PostV3MediaFile(ctx context.Context) ApiPostV3MediaFileRequest
 
@@ -1645,44 +1646,44 @@ type ItemsAPI interface {
 	PostV3MediaFileExecute(r ApiPostV3MediaFileRequest) (*PostV3MediaFileResponse200, *http.Response, error)
 
 	/*
-			PostV3MediaSave Загрузить медиафайлы по ссылкам
+	PostV3MediaSave Загрузить медиафайлы по ссылкам
 
-			Метод загружает набор медиафайлов в карточку товара через указание ссылок в запросе.
+	Метод загружает набор медиафайлов в карточку товара через указание ссылок в запросе.
 
-		Новые медиафайлы полностью заменяют старые. Чтобы добавить новые медиафайлы, укажите в запросе ссылки одновременно на новые и старые медиафайлы.
+Новые медиафайлы полностью заменяют старые. Чтобы добавить новые медиафайлы, укажите в запросе ссылки одновременно на новые и старые медиафайлы.
 
-		Требования к ссылкам:
-		\* для доступа к файлу по ссылке не нужна авторизация
-		\* ссылка ведёт прямо на файл. Убедитесь, что ссылка не ведёт на страницу предпросмотра или авторизации. Ссылка должна заканчиваться на имя файла с расширением — например, `/file\_name.jpg`. Если по ссылке открывается текстовая страница TXT или HTML, ссылка считается некорректной.
-		Помните, что некоторые хранилища не формируют прямые ссылки и поэтому не подходят для использования. К таким хранилищам относится, например, \*\*Google Drive\*\*, который формирует ссылки только на предпросмотр файла либо на служебные страницы.
-		Требования к изображениям:
-		\* максимум изображений для одной карточки товара — 30
-		\* минимальное разрешение — 700×900 px
-		\* максимальный размер — 32 Мб
-		\* минимальное качество — 65%
-		\* форматы — JPG, PNG, BMP, GIF (статичные), WebP
-		Требования к видео:
-		\* максимум одно видео для одной карточки товара
-		\* максимальный размер — 50 Мб
-		\* форматы — MOV, MP4
-		Если видео или хотя бы одно изображение в запросе не соответствует требованиям, то даже при успешном ответе (`200`) ни одно изображение/видео не загрузится.
+Требования к ссылкам:
+\* для доступа к файлу по ссылке не нужна авторизация
+\* ссылка ведёт прямо на файл. Убедитесь, что ссылка не ведёт на страницу предпросмотра или авторизации. Ссылка должна заканчиваться на имя файла с расширением — например, `/file\_name.jpg`. Если по ссылке открывается текстовая страница TXT или HTML, ссылка считается некорректной.
+Помните, что некоторые хранилища не формируют прямые ссылки и поэтому не подходят для использования. К таким хранилищам относится, например, \*\*Google Drive\*\*, который формирует ссылки только на предпросмотр файла либо на служебные страницы.
+Требования к изображениям:
+\* максимум изображений для одной карточки товара — 30
+\* минимальное разрешение — 700×900 px
+\* максимальный размер — 32 Мб
+\* минимальное качество — 65%
+\* форматы — JPG, PNG, BMP, GIF (статичные), WebP
+Требования к видео:
+\* максимум одно видео для одной карточки товара
+\* максимальный размер — 50 Мб
+\* форматы — MOV, MP4
+Если видео или хотя бы одно изображение в запросе не соответствует требованиям, то даже при успешном ответе (`200`) ни одно изображение/видео не загрузится.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **Медиафайлов**:
-		| Тип | Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- | --- |
-		| Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
-		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **Медиафайлов**:
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-		---
+---
 
-		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v3-media-save
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v3-media-save
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV3MediaSaveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3MediaSaveRequest
 	*/
 	PostV3MediaSave(ctx context.Context) ApiPostV3MediaSaveRequest
 
@@ -1691,25 +1692,25 @@ type ItemsAPI interface {
 	PostV3MediaSaveExecute(r ApiPostV3MediaSaveRequest) (*PostV3MediaSaveResponse200, *http.Response, error)
 
 	/*
-			PostV3StocksWarehouseId Получить остатки товаров
+	PostV3StocksWarehouseId Получить остатки товаров
 
-			Метод возвращает данные об остатках товаров на [складах продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses).
+	Метод возвращает данные об остатках товаров на [складах продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses).
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **остатков на складах продавца** кроме метода [удаления остатков](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory/operation/deleteV3StocksWarehouseId):
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 300 запросов | 200 мс | 20 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **остатков на складах продавца** кроме метода [удаления остатков](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory/operation/deleteV3StocksWarehouseId):
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v3-stocks-warehouseid
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v3-stocks-warehouseid
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@param warehouseId ID склада продавца
-			@return ApiPostV3StocksWarehouseIdRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param warehouseId ID склада продавца
+	@return ApiPostV3StocksWarehouseIdRequest
 	*/
 	PostV3StocksWarehouseId(ctx context.Context, warehouseId int64) ApiPostV3StocksWarehouseIdRequest
 
@@ -1718,24 +1719,24 @@ type ItemsAPI interface {
 	PostV3StocksWarehouseIdExecute(r ApiPostV3StocksWarehouseIdRequest) (*PostV3StocksWarehouseIdResponse200, *http.Response, error)
 
 	/*
-			PostV3Warehouses Создать склад продавца
+	PostV3Warehouses Создать склад продавца
 
-			Метод создаёт склад продавца для работы с [остатками товаров](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory), кроме сверхгабаритных (СГТ), по модели [FBS](https://dev.wildberries.ru/openapi/orders-fbs) (Fulfillment by Seller).
+	Метод создаёт склад продавца для работы с [остатками товаров](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory), кроме сверхгабаритных (СГТ), по модели [FBS](https://dev.wildberries.ru/openapi/orders-fbs) (Fulfillment by Seller).
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **складов продавца**:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 300 запросов | 200 мс | 20 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **складов продавца**:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v3-warehouses
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v3-warehouses
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostV3WarehousesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3WarehousesRequest
 	*/
 	PostV3Warehouses(ctx context.Context) ApiPostV3WarehousesRequest
 
@@ -1744,32 +1745,32 @@ type ItemsAPI interface {
 	PostV3WarehousesExecute(r ApiPostV3WarehousesRequest) (*PostV3WarehousesResponse201, *http.Response, error)
 
 	/*
-			PutV3DbwWarehousesWarehouseIdContacts Обновить список контактов
+	PutV3DbwWarehousesWarehouseIdContacts Обновить список контактов
 
-			Метод обновляет список контактов [склада продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).
+	Метод обновляет список контактов [склада продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).
 
-		Список контактов перезаписывается при обновлении. Поэтому в запросе нужно передать **все** параметры списка контактов, в том числе те, которые вы не собираетесь обновлять
+Список контактов перезаписывается при обновлении. Поэтому в запросе нужно передать **все** параметры списка контактов, в том числе те, которые вы не собираетесь обновлять
 
-		Только для складов с типом доставки `3` — Деливери WB ([DBW](https://dev.wildberries.ru/openapi/orders-dbw)).
+Только для складов с типом доставки `3` — Деливери WB ([DBW](https://dev.wildberries.ru/openapi/orders-dbw)).
 
-		К складу можно добавить максимум 5 контактов. Чтобы удалить контакты, отправьте пустой массив `contacts`.
+К складу можно добавить максимум 5 контактов. Чтобы удалить контакты, отправьте пустой массив `contacts`.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для следующих методов DBW:
 
-		* получение и обновление списка контактов
-		* получение и удаление идентификаторов маркировки
-		* методы сборочных заданий
+* получение и обновление списка контактов
+* получение и удаление идентификаторов маркировки
+* методы сборочных заданий
 
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 300 запросов | 200 мс | 20 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/put-api-v3-dbw-warehouses-warehouseid-contacts
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/put-api-v3-dbw-warehouses-warehouseid-contacts
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@param warehouseId ID склада продавца
-			@return ApiPutV3DbwWarehousesWarehouseIdContactsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param warehouseId ID склада продавца
+	@return ApiPutV3DbwWarehousesWarehouseIdContactsRequest
 	*/
 	PutV3DbwWarehousesWarehouseIdContacts(ctx context.Context, warehouseId int64) ApiPutV3DbwWarehousesWarehouseIdContactsRequest
 
@@ -1777,27 +1778,27 @@ type ItemsAPI interface {
 	PutV3DbwWarehousesWarehouseIdContactsExecute(r ApiPutV3DbwWarehousesWarehouseIdContactsRequest) (*http.Response, error)
 
 	/*
-			PutV3StocksWarehouseId Обновить остатки товаров
+	PutV3StocksWarehouseId Обновить остатки товаров
 
-			Метод обновляет количество остатков товаров продавца [в списке](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory/operation/postV3StocksWarehouseId).
+	Метод обновляет количество остатков товаров продавца [в списке](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory/operation/postV3StocksWarehouseId).
 
-		Названия параметров запроса не валидируются. При отправке некорректных названий вы получите успешный ответ (`204`), но остатки не обновятся.
+Названия параметров запроса не валидируются. При отправке некорректных названий вы получите успешный ответ (`204`), но остатки не обновятся.
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **остатков на складах продавца** кроме метода [удаления остатков](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory/operation/deleteV3StocksWarehouseId):
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 300 запросов | 200 мс | 20 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **остатков на складах продавца** кроме метода [удаления остатков](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory/operation/deleteV3StocksWarehouseId):
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/put-api-v3-stocks-warehouseid
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/put-api-v3-stocks-warehouseid
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@param warehouseId ID склада продавца
-			@return ApiPutV3StocksWarehouseIdRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param warehouseId ID склада продавца
+	@return ApiPutV3StocksWarehouseIdRequest
 	*/
 	PutV3StocksWarehouseId(ctx context.Context, warehouseId int64) ApiPutV3StocksWarehouseIdRequest
 
@@ -1805,25 +1806,25 @@ type ItemsAPI interface {
 	PutV3StocksWarehouseIdExecute(r ApiPutV3StocksWarehouseIdRequest) (*http.Response, error)
 
 	/*
-			PutV3WarehousesWarehouseId Обновить склад продавца
+	PutV3WarehousesWarehouseId Обновить склад продавца
 
-			Метод обновляет данные [склада продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses), кроме складов для сверхгабаритных товаров (СГТ, `"cargoType":2`).
+	Метод обновляет данные [склада продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses), кроме складов для сверхгабаритных товаров (СГТ, `"cargoType":2`).
 
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **складов продавца**:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 300 запросов | 200 мс | 20 запросов |
-		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов **складов продавца**:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
-		---
+---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/put-api-v3-warehouses-warehouseid
+Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/put-api-v3-warehouses-warehouseid
 
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@param warehouseId ID склада продавца
-			@return ApiPutV3WarehousesWarehouseIdRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param warehouseId ID склада продавца
+	@return ApiPutV3WarehousesWarehouseIdRequest
 	*/
 	PutV3WarehousesWarehouseId(ctx context.Context, warehouseId int64) ApiPutV3WarehousesWarehouseIdRequest
 
@@ -1835,9 +1836,9 @@ type ItemsAPI interface {
 type ItemsAPIService service
 
 type ApiDeleteV2TagIdRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ItemsAPI
-	id         int64
+	id int64
 }
 
 func (r ApiDeleteV2TagIdRequest) Execute() (*ResponseContentError, *http.Response, error) {
@@ -1863,27 +1864,26 @@ DeleteV2TagId Удаление ярлыка
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/delete-content-v2-tag-id
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id Числовой ID ярлыка
-	@return ApiDeleteV2TagIdRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id Числовой ID ярлыка
+ @return ApiDeleteV2TagIdRequest
 */
 func (a *ItemsAPIService) DeleteV2TagId(ctx context.Context, id int64) ApiDeleteV2TagIdRequest {
 	return ApiDeleteV2TagIdRequest{
 		ApiService: a,
-		ctx:        ctx,
-		id:         id,
+		ctx: ctx,
+		id: id,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ResponseContentError
+//  @return ResponseContentError
 func (a *ItemsAPIService) DeleteV2TagIdExecute(r ApiDeleteV2TagIdRequest) (*ResponseContentError, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ResponseContentError
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ResponseContentError
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.DeleteV2TagId")
@@ -1944,8 +1944,8 @@ func (a *ItemsAPIService) DeleteV2TagIdExecute(r ApiDeleteV2TagIdRequest) (*Resp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1955,8 +1955,8 @@ func (a *ItemsAPIService) DeleteV2TagIdExecute(r ApiDeleteV2TagIdRequest) (*Resp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1966,8 +1966,8 @@ func (a *ItemsAPIService) DeleteV2TagIdExecute(r ApiDeleteV2TagIdRequest) (*Resp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1977,8 +1977,8 @@ func (a *ItemsAPIService) DeleteV2TagIdExecute(r ApiDeleteV2TagIdRequest) (*Resp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1988,8 +1988,8 @@ func (a *ItemsAPIService) DeleteV2TagIdExecute(r ApiDeleteV2TagIdRequest) (*Resp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2007,9 +2007,9 @@ func (a *ItemsAPIService) DeleteV2TagIdExecute(r ApiDeleteV2TagIdRequest) (*Resp
 }
 
 type ApiDeleteV3StocksWarehouseIdRequest struct {
-	ctx                              context.Context
-	ApiService                       ItemsAPI
-	warehouseId                      int64
+	ctx context.Context
+	ApiService ItemsAPI
+	warehouseId int64
 	deleteV3StocksWarehouseIdRequest *DeleteV3StocksWarehouseIdRequest
 }
 
@@ -2041,14 +2041,14 @@ DeleteV3StocksWarehouseId Удалить остатки товаров
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/delete-api-v3-stocks-warehouseid
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param warehouseId ID склада продавца
-	@return ApiDeleteV3StocksWarehouseIdRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param warehouseId ID склада продавца
+ @return ApiDeleteV3StocksWarehouseIdRequest
 */
 func (a *ItemsAPIService) DeleteV3StocksWarehouseId(ctx context.Context, warehouseId int64) ApiDeleteV3StocksWarehouseIdRequest {
 	return ApiDeleteV3StocksWarehouseIdRequest{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		warehouseId: warehouseId,
 	}
 }
@@ -2056,9 +2056,9 @@ func (a *ItemsAPIService) DeleteV3StocksWarehouseId(ctx context.Context, warehou
 // Execute executes the request
 func (a *ItemsAPIService) DeleteV3StocksWarehouseIdExecute(r ApiDeleteV3StocksWarehouseIdRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.DeleteV3StocksWarehouseId")
@@ -2124,8 +2124,8 @@ func (a *ItemsAPIService) DeleteV3StocksWarehouseIdExecute(r ApiDeleteV3StocksWa
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2135,8 +2135,8 @@ func (a *ItemsAPIService) DeleteV3StocksWarehouseIdExecute(r ApiDeleteV3StocksWa
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2146,8 +2146,8 @@ func (a *ItemsAPIService) DeleteV3StocksWarehouseIdExecute(r ApiDeleteV3StocksWa
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2157,8 +2157,8 @@ func (a *ItemsAPIService) DeleteV3StocksWarehouseIdExecute(r ApiDeleteV3StocksWa
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2168,8 +2168,8 @@ func (a *ItemsAPIService) DeleteV3StocksWarehouseIdExecute(r ApiDeleteV3StocksWa
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2179,8 +2179,8 @@ func (a *ItemsAPIService) DeleteV3StocksWarehouseIdExecute(r ApiDeleteV3StocksWa
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2190,8 +2190,8 @@ func (a *ItemsAPIService) DeleteV3StocksWarehouseIdExecute(r ApiDeleteV3StocksWa
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -2200,8 +2200,8 @@ func (a *ItemsAPIService) DeleteV3StocksWarehouseIdExecute(r ApiDeleteV3StocksWa
 }
 
 type ApiDeleteV3WarehousesWarehouseIdRequest struct {
-	ctx         context.Context
-	ApiService  ItemsAPI
+	ctx context.Context
+	ApiService ItemsAPI
 	warehouseId int64
 }
 
@@ -2226,14 +2226,14 @@ DeleteV3WarehousesWarehouseId Удалить склад продавца
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/delete-api-v3-warehouses-warehouseid
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param warehouseId ID склада продавца
-	@return ApiDeleteV3WarehousesWarehouseIdRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param warehouseId ID склада продавца
+ @return ApiDeleteV3WarehousesWarehouseIdRequest
 */
 func (a *ItemsAPIService) DeleteV3WarehousesWarehouseId(ctx context.Context, warehouseId int64) ApiDeleteV3WarehousesWarehouseIdRequest {
 	return ApiDeleteV3WarehousesWarehouseIdRequest{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		warehouseId: warehouseId,
 	}
 }
@@ -2241,9 +2241,9 @@ func (a *ItemsAPIService) DeleteV3WarehousesWarehouseId(ctx context.Context, war
 // Execute executes the request
 func (a *ItemsAPIService) DeleteV3WarehousesWarehouseIdExecute(r ApiDeleteV3WarehousesWarehouseIdRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.DeleteV3WarehousesWarehouseId")
@@ -2304,8 +2304,8 @@ func (a *ItemsAPIService) DeleteV3WarehousesWarehouseIdExecute(r ApiDeleteV3Ware
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2315,8 +2315,8 @@ func (a *ItemsAPIService) DeleteV3WarehousesWarehouseIdExecute(r ApiDeleteV3Ware
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2326,8 +2326,8 @@ func (a *ItemsAPIService) DeleteV3WarehousesWarehouseIdExecute(r ApiDeleteV3Ware
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2337,8 +2337,8 @@ func (a *ItemsAPIService) DeleteV3WarehousesWarehouseIdExecute(r ApiDeleteV3Ware
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2348,8 +2348,8 @@ func (a *ItemsAPIService) DeleteV3WarehousesWarehouseIdExecute(r ApiDeleteV3Ware
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -2358,10 +2358,10 @@ func (a *ItemsAPIService) DeleteV3WarehousesWarehouseIdExecute(r ApiDeleteV3Ware
 }
 
 type ApiGetV1BrandsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ItemsAPI
-	subjectId  *int64
-	next       *int64
+	subjectId *int64
+	next *int64
 }
 
 // ID предмета
@@ -2395,25 +2395,24 @@ GetV1Brands Бренды
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-content-v1-brands
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1BrandsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1BrandsRequest
 */
 func (a *ItemsAPIService) GetV1Brands(ctx context.Context) ApiGetV1BrandsRequest {
 	return ApiGetV1BrandsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return BrandsResponse
+//  @return BrandsResponse
 func (a *ItemsAPIService) GetV1BrandsExecute(r ApiGetV1BrandsRequest) (*BrandsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *BrandsResponse
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *BrandsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.GetV1Brands")
@@ -2480,8 +2479,8 @@ func (a *ItemsAPIService) GetV1BrandsExecute(r ApiGetV1BrandsRequest) (*BrandsRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2491,8 +2490,8 @@ func (a *ItemsAPIService) GetV1BrandsExecute(r ApiGetV1BrandsRequest) (*BrandsRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2502,8 +2501,8 @@ func (a *ItemsAPIService) GetV1BrandsExecute(r ApiGetV1BrandsRequest) (*BrandsRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2513,8 +2512,8 @@ func (a *ItemsAPIService) GetV1BrandsExecute(r ApiGetV1BrandsRequest) (*BrandsRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2524,8 +2523,8 @@ func (a *ItemsAPIService) GetV1BrandsExecute(r ApiGetV1BrandsRequest) (*BrandsRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2543,11 +2542,11 @@ func (a *ItemsAPIService) GetV1BrandsExecute(r ApiGetV1BrandsRequest) (*BrandsRe
 }
 
 type ApiGetV2BufferGoodsTaskRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ItemsAPI
-	limit      *int32
-	uploadID   *int64
-	offset     *int32
+	limit *int32
+	uploadID *int64
+	offset *int32
 }
 
 // Сколько элементов вывести на одной странице (пагинация)
@@ -2593,25 +2592,24 @@ GetV2BufferGoodsTask Детализация необработанной заг�
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-buffer-goods-task
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV2BufferGoodsTaskRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV2BufferGoodsTaskRequest
 */
 func (a *ItemsAPIService) GetV2BufferGoodsTask(ctx context.Context) ApiGetV2BufferGoodsTaskRequest {
 	return ApiGetV2BufferGoodsTaskRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV2BufferGoodsTask200Response
+//  @return GetV2BufferGoodsTask200Response
 func (a *ItemsAPIService) GetV2BufferGoodsTaskExecute(r ApiGetV2BufferGoodsTaskRequest) (*GetV2BufferGoodsTask200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV2BufferGoodsTask200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV2BufferGoodsTask200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.GetV2BufferGoodsTask")
@@ -2685,8 +2683,8 @@ func (a *ItemsAPIService) GetV2BufferGoodsTaskExecute(r ApiGetV2BufferGoodsTaskR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2696,8 +2694,8 @@ func (a *ItemsAPIService) GetV2BufferGoodsTaskExecute(r ApiGetV2BufferGoodsTaskR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2707,8 +2705,8 @@ func (a *ItemsAPIService) GetV2BufferGoodsTaskExecute(r ApiGetV2BufferGoodsTaskR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2718,8 +2716,8 @@ func (a *ItemsAPIService) GetV2BufferGoodsTaskExecute(r ApiGetV2BufferGoodsTaskR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2737,9 +2735,9 @@ func (a *ItemsAPIService) GetV2BufferGoodsTaskExecute(r ApiGetV2BufferGoodsTaskR
 }
 
 type ApiGetV2BufferTasksRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ItemsAPI
-	uploadID   *int64
+	uploadID *int64
 }
 
 // ID загрузки
@@ -2773,25 +2771,24 @@ GetV2BufferTasks Состояние необработанной загрузк�
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-buffer-tasks
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV2BufferTasksRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV2BufferTasksRequest
 */
 func (a *ItemsAPIService) GetV2BufferTasks(ctx context.Context) ApiGetV2BufferTasksRequest {
 	return ApiGetV2BufferTasksRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV2BufferTasks200Response
+//  @return GetV2BufferTasks200Response
 func (a *ItemsAPIService) GetV2BufferTasksExecute(r ApiGetV2BufferTasksRequest) (*GetV2BufferTasks200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV2BufferTasks200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV2BufferTasks200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.GetV2BufferTasks")
@@ -2855,8 +2852,8 @@ func (a *ItemsAPIService) GetV2BufferTasksExecute(r ApiGetV2BufferTasksRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2866,8 +2863,8 @@ func (a *ItemsAPIService) GetV2BufferTasksExecute(r ApiGetV2BufferTasksRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2877,8 +2874,8 @@ func (a *ItemsAPIService) GetV2BufferTasksExecute(r ApiGetV2BufferTasksRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2888,8 +2885,8 @@ func (a *ItemsAPIService) GetV2BufferTasksExecute(r ApiGetV2BufferTasksRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2907,7 +2904,7 @@ func (a *ItemsAPIService) GetV2BufferTasksExecute(r ApiGetV2BufferTasksRequest) 
 }
 
 type ApiGetV2CardsLimitsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ItemsAPI
 }
 
@@ -2942,25 +2939,24 @@ GetV2CardsLimits Лимиты карточек товаров
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-cards-limits
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV2CardsLimitsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV2CardsLimitsRequest
 */
 func (a *ItemsAPIService) GetV2CardsLimits(ctx context.Context) ApiGetV2CardsLimitsRequest {
 	return ApiGetV2CardsLimitsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV2CardsLimitsResponse200
+//  @return GetV2CardsLimitsResponse200
 func (a *ItemsAPIService) GetV2CardsLimitsExecute(r ApiGetV2CardsLimitsRequest) (*GetV2CardsLimitsResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV2CardsLimitsResponse200
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV2CardsLimitsResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.GetV2CardsLimits")
@@ -3020,8 +3016,8 @@ func (a *ItemsAPIService) GetV2CardsLimitsExecute(r ApiGetV2CardsLimitsRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3031,8 +3027,8 @@ func (a *ItemsAPIService) GetV2CardsLimitsExecute(r ApiGetV2CardsLimitsRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3042,8 +3038,8 @@ func (a *ItemsAPIService) GetV2CardsLimitsExecute(r ApiGetV2CardsLimitsRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3061,12 +3057,12 @@ func (a *ItemsAPIService) GetV2CardsLimitsExecute(r ApiGetV2CardsLimitsRequest) 
 }
 
 type ApiGetV2DirectoryColorsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ItemsAPI
-	locale     *string
+	locale *string
 }
 
-// Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
+// Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
 func (r ApiGetV2DirectoryColorsRequest) Locale(locale string) ApiGetV2DirectoryColorsRequest {
 	r.locale = &locale
 	return r
@@ -3095,25 +3091,24 @@ GetV2DirectoryColors Цвет
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-colors
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV2DirectoryColorsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV2DirectoryColorsRequest
 */
 func (a *ItemsAPIService) GetV2DirectoryColors(ctx context.Context) ApiGetV2DirectoryColorsRequest {
 	return ApiGetV2DirectoryColorsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV2DirectoryColorsResponse200
+//  @return GetV2DirectoryColorsResponse200
 func (a *ItemsAPIService) GetV2DirectoryColorsExecute(r ApiGetV2DirectoryColorsRequest) (*GetV2DirectoryColorsResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV2DirectoryColorsResponse200
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV2DirectoryColorsResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.GetV2DirectoryColors")
@@ -3176,8 +3171,8 @@ func (a *ItemsAPIService) GetV2DirectoryColorsExecute(r ApiGetV2DirectoryColorsR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3187,8 +3182,8 @@ func (a *ItemsAPIService) GetV2DirectoryColorsExecute(r ApiGetV2DirectoryColorsR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3198,8 +3193,8 @@ func (a *ItemsAPIService) GetV2DirectoryColorsExecute(r ApiGetV2DirectoryColorsR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3209,8 +3204,8 @@ func (a *ItemsAPIService) GetV2DirectoryColorsExecute(r ApiGetV2DirectoryColorsR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3228,12 +3223,12 @@ func (a *ItemsAPIService) GetV2DirectoryColorsExecute(r ApiGetV2DirectoryColorsR
 }
 
 type ApiGetV2DirectoryCountriesRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ItemsAPI
-	locale     *string
+	locale *string
 }
 
-// Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
+// Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
 func (r ApiGetV2DirectoryCountriesRequest) Locale(locale string) ApiGetV2DirectoryCountriesRequest {
 	r.locale = &locale
 	return r
@@ -3267,25 +3262,24 @@ GetV2DirectoryCountries Страна производства
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-countries
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV2DirectoryCountriesRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV2DirectoryCountriesRequest
 */
 func (a *ItemsAPIService) GetV2DirectoryCountries(ctx context.Context) ApiGetV2DirectoryCountriesRequest {
 	return ApiGetV2DirectoryCountriesRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV2DirectoryCountriesResponse200
+//  @return GetV2DirectoryCountriesResponse200
 func (a *ItemsAPIService) GetV2DirectoryCountriesExecute(r ApiGetV2DirectoryCountriesRequest) (*GetV2DirectoryCountriesResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV2DirectoryCountriesResponse200
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV2DirectoryCountriesResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.GetV2DirectoryCountries")
@@ -3348,8 +3342,8 @@ func (a *ItemsAPIService) GetV2DirectoryCountriesExecute(r ApiGetV2DirectoryCoun
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3359,8 +3353,8 @@ func (a *ItemsAPIService) GetV2DirectoryCountriesExecute(r ApiGetV2DirectoryCoun
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3370,8 +3364,8 @@ func (a *ItemsAPIService) GetV2DirectoryCountriesExecute(r ApiGetV2DirectoryCoun
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3381,8 +3375,8 @@ func (a *ItemsAPIService) GetV2DirectoryCountriesExecute(r ApiGetV2DirectoryCoun
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3400,12 +3394,12 @@ func (a *ItemsAPIService) GetV2DirectoryCountriesExecute(r ApiGetV2DirectoryCoun
 }
 
 type ApiGetV2DirectoryKindsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ItemsAPI
-	locale     *string
+	locale *string
 }
 
-// Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
+// Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
 func (r ApiGetV2DirectoryKindsRequest) Locale(locale string) ApiGetV2DirectoryKindsRequest {
 	r.locale = &locale
 	return r
@@ -3434,25 +3428,24 @@ GetV2DirectoryKinds Пол
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-kinds
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV2DirectoryKindsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV2DirectoryKindsRequest
 */
 func (a *ItemsAPIService) GetV2DirectoryKinds(ctx context.Context) ApiGetV2DirectoryKindsRequest {
 	return ApiGetV2DirectoryKindsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV2DirectoryKindsResponse200
+//  @return GetV2DirectoryKindsResponse200
 func (a *ItemsAPIService) GetV2DirectoryKindsExecute(r ApiGetV2DirectoryKindsRequest) (*GetV2DirectoryKindsResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV2DirectoryKindsResponse200
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV2DirectoryKindsResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.GetV2DirectoryKinds")
@@ -3515,8 +3508,8 @@ func (a *ItemsAPIService) GetV2DirectoryKindsExecute(r ApiGetV2DirectoryKindsReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3526,8 +3519,8 @@ func (a *ItemsAPIService) GetV2DirectoryKindsExecute(r ApiGetV2DirectoryKindsReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3537,8 +3530,8 @@ func (a *ItemsAPIService) GetV2DirectoryKindsExecute(r ApiGetV2DirectoryKindsReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3548,8 +3541,8 @@ func (a *ItemsAPIService) GetV2DirectoryKindsExecute(r ApiGetV2DirectoryKindsReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3567,11 +3560,11 @@ func (a *ItemsAPIService) GetV2DirectoryKindsExecute(r ApiGetV2DirectoryKindsReq
 }
 
 type ApiGetV2DirectoryOkpdRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ItemsAPI
-	subjectId  *int64
-	search     *string
-	locale     *string
+	subjectId *int64
+	search *string
+	locale *string
 }
 
 // ID предмета
@@ -3586,7 +3579,7 @@ func (r ApiGetV2DirectoryOkpdRequest) Search(search string) ApiGetV2DirectoryOkp
 	return r
 }
 
-// Язык полей ответа:   - &#x60;ru&#x60; — русский
+// Язык полей ответа:   - &#x60;ru&#x60; — русский 
 func (r ApiGetV2DirectoryOkpdRequest) Locale(locale string) ApiGetV2DirectoryOkpdRequest {
 	r.locale = &locale
 	return r
@@ -3616,25 +3609,24 @@ GetV2DirectoryOkpd Код ОКПД2 предмета
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-content-v2-directory-okpd
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV2DirectoryOkpdRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV2DirectoryOkpdRequest
 */
 func (a *ItemsAPIService) GetV2DirectoryOkpd(ctx context.Context) ApiGetV2DirectoryOkpdRequest {
 	return ApiGetV2DirectoryOkpdRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV2DirectoryOkpdResponse200
+//  @return GetV2DirectoryOkpdResponse200
 func (a *ItemsAPIService) GetV2DirectoryOkpdExecute(r ApiGetV2DirectoryOkpdRequest) (*GetV2DirectoryOkpdResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV2DirectoryOkpdResponse200
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV2DirectoryOkpdResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.GetV2DirectoryOkpd")
@@ -3707,8 +3699,8 @@ func (a *ItemsAPIService) GetV2DirectoryOkpdExecute(r ApiGetV2DirectoryOkpdReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3718,8 +3710,8 @@ func (a *ItemsAPIService) GetV2DirectoryOkpdExecute(r ApiGetV2DirectoryOkpdReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3729,8 +3721,8 @@ func (a *ItemsAPIService) GetV2DirectoryOkpdExecute(r ApiGetV2DirectoryOkpdReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3740,8 +3732,8 @@ func (a *ItemsAPIService) GetV2DirectoryOkpdExecute(r ApiGetV2DirectoryOkpdReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3759,10 +3751,10 @@ func (a *ItemsAPIService) GetV2DirectoryOkpdExecute(r ApiGetV2DirectoryOkpdReque
 }
 
 type ApiGetV2DirectoryOkpdAllRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ItemsAPI
-	search     *float32
-	locale     *string
+	search *float32
+	locale *string
 }
 
 // Поиск по фрагменту кода ОКПД2. Укажите первые цифры кода через точку, чтобы найти код по этому фрагменту
@@ -3771,7 +3763,7 @@ func (r ApiGetV2DirectoryOkpdAllRequest) Search(search float32) ApiGetV2Director
 	return r
 }
 
-// Язык полей ответа:   - &#x60;ru&#x60; — русский
+// Язык полей ответа:   - &#x60;ru&#x60; — русский 
 func (r ApiGetV2DirectoryOkpdAllRequest) Locale(locale string) ApiGetV2DirectoryOkpdAllRequest {
 	r.locale = &locale
 	return r
@@ -3801,25 +3793,24 @@ GetV2DirectoryOkpdAll Список кодов ОКПД2
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-content-v2-directory-okpd-all
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV2DirectoryOkpdAllRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV2DirectoryOkpdAllRequest
 */
 func (a *ItemsAPIService) GetV2DirectoryOkpdAll(ctx context.Context) ApiGetV2DirectoryOkpdAllRequest {
 	return ApiGetV2DirectoryOkpdAllRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV2DirectoryOkpdAllResponse200
+//  @return GetV2DirectoryOkpdAllResponse200
 func (a *ItemsAPIService) GetV2DirectoryOkpdAllExecute(r ApiGetV2DirectoryOkpdAllRequest) (*GetV2DirectoryOkpdAllResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV2DirectoryOkpdAllResponse200
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV2DirectoryOkpdAllResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.GetV2DirectoryOkpdAll")
@@ -3888,8 +3879,8 @@ func (a *ItemsAPIService) GetV2DirectoryOkpdAllExecute(r ApiGetV2DirectoryOkpdAl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3899,8 +3890,8 @@ func (a *ItemsAPIService) GetV2DirectoryOkpdAllExecute(r ApiGetV2DirectoryOkpdAl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3910,8 +3901,8 @@ func (a *ItemsAPIService) GetV2DirectoryOkpdAllExecute(r ApiGetV2DirectoryOkpdAl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3921,8 +3912,8 @@ func (a *ItemsAPIService) GetV2DirectoryOkpdAllExecute(r ApiGetV2DirectoryOkpdAl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3940,12 +3931,12 @@ func (a *ItemsAPIService) GetV2DirectoryOkpdAllExecute(r ApiGetV2DirectoryOkpdAl
 }
 
 type ApiGetV2DirectorySeasonsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ItemsAPI
-	locale     *string
+	locale *string
 }
 
-// Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
+// Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
 func (r ApiGetV2DirectorySeasonsRequest) Locale(locale string) ApiGetV2DirectorySeasonsRequest {
 	r.locale = &locale
 	return r
@@ -3974,25 +3965,24 @@ GetV2DirectorySeasons Сезон
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-seasons
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV2DirectorySeasonsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV2DirectorySeasonsRequest
 */
 func (a *ItemsAPIService) GetV2DirectorySeasons(ctx context.Context) ApiGetV2DirectorySeasonsRequest {
 	return ApiGetV2DirectorySeasonsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV2DirectorySeasonsResponse200
+//  @return GetV2DirectorySeasonsResponse200
 func (a *ItemsAPIService) GetV2DirectorySeasonsExecute(r ApiGetV2DirectorySeasonsRequest) (*GetV2DirectorySeasonsResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV2DirectorySeasonsResponse200
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV2DirectorySeasonsResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.GetV2DirectorySeasons")
@@ -4055,8 +4045,8 @@ func (a *ItemsAPIService) GetV2DirectorySeasonsExecute(r ApiGetV2DirectorySeason
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4066,8 +4056,8 @@ func (a *ItemsAPIService) GetV2DirectorySeasonsExecute(r ApiGetV2DirectorySeason
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4077,8 +4067,8 @@ func (a *ItemsAPIService) GetV2DirectorySeasonsExecute(r ApiGetV2DirectorySeason
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4088,8 +4078,8 @@ func (a *ItemsAPIService) GetV2DirectorySeasonsExecute(r ApiGetV2DirectorySeason
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4107,11 +4097,11 @@ func (a *ItemsAPIService) GetV2DirectorySeasonsExecute(r ApiGetV2DirectorySeason
 }
 
 type ApiGetV2DirectoryTnvedRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ItemsAPI
-	subjectID  *int64
-	search     *int64
-	locale     *string
+	subjectID *int64
+	search *int64
+	locale *string
 }
 
 // ID предмета
@@ -4126,7 +4116,7 @@ func (r ApiGetV2DirectoryTnvedRequest) Search(search int64) ApiGetV2DirectoryTnv
 	return r
 }
 
-// Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
+// Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
 func (r ApiGetV2DirectoryTnvedRequest) Locale(locale string) ApiGetV2DirectoryTnvedRequest {
 	r.locale = &locale
 	return r
@@ -4160,25 +4150,24 @@ GetV2DirectoryTnved Код ТН ВЭД предмета
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-tnved
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV2DirectoryTnvedRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV2DirectoryTnvedRequest
 */
 func (a *ItemsAPIService) GetV2DirectoryTnved(ctx context.Context) ApiGetV2DirectoryTnvedRequest {
 	return ApiGetV2DirectoryTnvedRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV2DirectoryTnvedResponse200
+//  @return GetV2DirectoryTnvedResponse200
 func (a *ItemsAPIService) GetV2DirectoryTnvedExecute(r ApiGetV2DirectoryTnvedRequest) (*GetV2DirectoryTnvedResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV2DirectoryTnvedResponse200
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV2DirectoryTnvedResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.GetV2DirectoryTnved")
@@ -4248,8 +4237,8 @@ func (a *ItemsAPIService) GetV2DirectoryTnvedExecute(r ApiGetV2DirectoryTnvedReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4259,8 +4248,8 @@ func (a *ItemsAPIService) GetV2DirectoryTnvedExecute(r ApiGetV2DirectoryTnvedReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4270,8 +4259,8 @@ func (a *ItemsAPIService) GetV2DirectoryTnvedExecute(r ApiGetV2DirectoryTnvedReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4281,8 +4270,8 @@ func (a *ItemsAPIService) GetV2DirectoryTnvedExecute(r ApiGetV2DirectoryTnvedReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4300,10 +4289,10 @@ func (a *ItemsAPIService) GetV2DirectoryTnvedExecute(r ApiGetV2DirectoryTnvedReq
 }
 
 type ApiGetV2DirectoryTnvedAllRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ItemsAPI
-	search     *int64
-	locale     *string
+	search *int64
+	locale *string
 }
 
 // Поиск по первым цифрам кода ТН ВЭД. Укажите не более 10 символов
@@ -4312,7 +4301,7 @@ func (r ApiGetV2DirectoryTnvedAllRequest) Search(search int64) ApiGetV2Directory
 	return r
 }
 
-// Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский
+// Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский 
 func (r ApiGetV2DirectoryTnvedAllRequest) Locale(locale string) ApiGetV2DirectoryTnvedAllRequest {
 	r.locale = &locale
 	return r
@@ -4346,25 +4335,24 @@ GetV2DirectoryTnvedAll Список кодов ТН ВЭД
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-content-v2-directory-tnved-all
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV2DirectoryTnvedAllRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV2DirectoryTnvedAllRequest
 */
 func (a *ItemsAPIService) GetV2DirectoryTnvedAll(ctx context.Context) ApiGetV2DirectoryTnvedAllRequest {
 	return ApiGetV2DirectoryTnvedAllRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV2DirectoryTnvedAllResponse200
+//  @return GetV2DirectoryTnvedAllResponse200
 func (a *ItemsAPIService) GetV2DirectoryTnvedAllExecute(r ApiGetV2DirectoryTnvedAllRequest) (*GetV2DirectoryTnvedAllResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV2DirectoryTnvedAllResponse200
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV2DirectoryTnvedAllResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.GetV2DirectoryTnvedAll")
@@ -4433,8 +4421,8 @@ func (a *ItemsAPIService) GetV2DirectoryTnvedAllExecute(r ApiGetV2DirectoryTnved
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4444,8 +4432,8 @@ func (a *ItemsAPIService) GetV2DirectoryTnvedAllExecute(r ApiGetV2DirectoryTnved
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4455,8 +4443,8 @@ func (a *ItemsAPIService) GetV2DirectoryTnvedAllExecute(r ApiGetV2DirectoryTnved
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4466,8 +4454,8 @@ func (a *ItemsAPIService) GetV2DirectoryTnvedAllExecute(r ApiGetV2DirectoryTnved
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4485,12 +4473,12 @@ func (a *ItemsAPIService) GetV2DirectoryTnvedAllExecute(r ApiGetV2DirectoryTnved
 }
 
 type ApiGetV2DirectoryVatRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ItemsAPI
-	locale     *string
+	locale *string
 }
 
-// Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
+// Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
 func (r ApiGetV2DirectoryVatRequest) Locale(locale string) ApiGetV2DirectoryVatRequest {
 	r.locale = &locale
 	return r
@@ -4519,25 +4507,24 @@ GetV2DirectoryVat Ставка НДС
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-vat
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV2DirectoryVatRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV2DirectoryVatRequest
 */
 func (a *ItemsAPIService) GetV2DirectoryVat(ctx context.Context) ApiGetV2DirectoryVatRequest {
 	return ApiGetV2DirectoryVatRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV2DirectoryVatResponse200
+//  @return GetV2DirectoryVatResponse200
 func (a *ItemsAPIService) GetV2DirectoryVatExecute(r ApiGetV2DirectoryVatRequest) (*GetV2DirectoryVatResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV2DirectoryVatResponse200
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV2DirectoryVatResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.GetV2DirectoryVat")
@@ -4600,8 +4587,8 @@ func (a *ItemsAPIService) GetV2DirectoryVatExecute(r ApiGetV2DirectoryVatRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4611,8 +4598,8 @@ func (a *ItemsAPIService) GetV2DirectoryVatExecute(r ApiGetV2DirectoryVatRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4622,8 +4609,8 @@ func (a *ItemsAPIService) GetV2DirectoryVatExecute(r ApiGetV2DirectoryVatRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4633,8 +4620,8 @@ func (a *ItemsAPIService) GetV2DirectoryVatExecute(r ApiGetV2DirectoryVatRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4652,11 +4639,11 @@ func (a *ItemsAPIService) GetV2DirectoryVatExecute(r ApiGetV2DirectoryVatRequest
 }
 
 type ApiGetV2HistoryGoodsTaskRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ItemsAPI
-	limit      *int32
-	uploadID   *int64
-	offset     *int32
+	limit *int32
+	uploadID *int64
+	offset *int32
 }
 
 // Сколько элементов вывести на одной странице (пагинация)
@@ -4702,25 +4689,24 @@ GetV2HistoryGoodsTask Детализация обработанной загру
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-history-goods-task
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV2HistoryGoodsTaskRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV2HistoryGoodsTaskRequest
 */
 func (a *ItemsAPIService) GetV2HistoryGoodsTask(ctx context.Context) ApiGetV2HistoryGoodsTaskRequest {
 	return ApiGetV2HistoryGoodsTaskRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV2HistoryGoodsTask200Response
+//  @return GetV2HistoryGoodsTask200Response
 func (a *ItemsAPIService) GetV2HistoryGoodsTaskExecute(r ApiGetV2HistoryGoodsTaskRequest) (*GetV2HistoryGoodsTask200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV2HistoryGoodsTask200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV2HistoryGoodsTask200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.GetV2HistoryGoodsTask")
@@ -4794,8 +4780,8 @@ func (a *ItemsAPIService) GetV2HistoryGoodsTaskExecute(r ApiGetV2HistoryGoodsTas
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4805,8 +4791,8 @@ func (a *ItemsAPIService) GetV2HistoryGoodsTaskExecute(r ApiGetV2HistoryGoodsTas
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4816,8 +4802,8 @@ func (a *ItemsAPIService) GetV2HistoryGoodsTaskExecute(r ApiGetV2HistoryGoodsTas
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4827,8 +4813,8 @@ func (a *ItemsAPIService) GetV2HistoryGoodsTaskExecute(r ApiGetV2HistoryGoodsTas
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4846,9 +4832,9 @@ func (a *ItemsAPIService) GetV2HistoryGoodsTaskExecute(r ApiGetV2HistoryGoodsTas
 }
 
 type ApiGetV2HistoryTasksRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ItemsAPI
-	uploadID   *int64
+	uploadID *int64
 }
 
 // ID загрузки
@@ -4882,25 +4868,24 @@ GetV2HistoryTasks Состояние обработанной загрузки
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-history-tasks
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV2HistoryTasksRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV2HistoryTasksRequest
 */
 func (a *ItemsAPIService) GetV2HistoryTasks(ctx context.Context) ApiGetV2HistoryTasksRequest {
 	return ApiGetV2HistoryTasksRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV2HistoryTasks200Response
+//  @return GetV2HistoryTasks200Response
 func (a *ItemsAPIService) GetV2HistoryTasksExecute(r ApiGetV2HistoryTasksRequest) (*GetV2HistoryTasks200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV2HistoryTasks200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV2HistoryTasks200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.GetV2HistoryTasks")
@@ -4964,8 +4949,8 @@ func (a *ItemsAPIService) GetV2HistoryTasksExecute(r ApiGetV2HistoryTasksRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4975,8 +4960,8 @@ func (a *ItemsAPIService) GetV2HistoryTasksExecute(r ApiGetV2HistoryTasksRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4986,8 +4971,8 @@ func (a *ItemsAPIService) GetV2HistoryTasksExecute(r ApiGetV2HistoryTasksRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4997,8 +4982,8 @@ func (a *ItemsAPIService) GetV2HistoryTasksExecute(r ApiGetV2HistoryTasksRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5016,10 +5001,10 @@ func (a *ItemsAPIService) GetV2HistoryTasksExecute(r ApiGetV2HistoryTasksRequest
 }
 
 type ApiGetV2ListGoodsFilterRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ItemsAPI
-	limit      *int32
-	offset     *int32
+	limit *int32
+	offset *int32
 	filterNmID *int64
 }
 
@@ -5072,25 +5057,24 @@ GetV2ListGoodsFilter Получить товары с ценами
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-list-goods-filter
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV2ListGoodsFilterRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV2ListGoodsFilterRequest
 */
 func (a *ItemsAPIService) GetV2ListGoodsFilter(ctx context.Context) ApiGetV2ListGoodsFilterRequest {
 	return ApiGetV2ListGoodsFilterRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV2ListGoodsFilter200Response
+//  @return GetV2ListGoodsFilter200Response
 func (a *ItemsAPIService) GetV2ListGoodsFilterExecute(r ApiGetV2ListGoodsFilterRequest) (*GetV2ListGoodsFilter200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV2ListGoodsFilter200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV2ListGoodsFilter200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.GetV2ListGoodsFilter")
@@ -5163,8 +5147,8 @@ func (a *ItemsAPIService) GetV2ListGoodsFilterExecute(r ApiGetV2ListGoodsFilterR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5174,8 +5158,8 @@ func (a *ItemsAPIService) GetV2ListGoodsFilterExecute(r ApiGetV2ListGoodsFilterR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -5185,8 +5169,8 @@ func (a *ItemsAPIService) GetV2ListGoodsFilterExecute(r ApiGetV2ListGoodsFilterR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5196,8 +5180,8 @@ func (a *ItemsAPIService) GetV2ListGoodsFilterExecute(r ApiGetV2ListGoodsFilterR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5207,8 +5191,8 @@ func (a *ItemsAPIService) GetV2ListGoodsFilterExecute(r ApiGetV2ListGoodsFilterR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5226,11 +5210,11 @@ func (a *ItemsAPIService) GetV2ListGoodsFilterExecute(r ApiGetV2ListGoodsFilterR
 }
 
 type ApiGetV2ListGoodsSizeNmRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ItemsAPI
-	limit      *int32
-	nmID       *int64
-	offset     *int32
+	limit *int32
+	nmID *int64
+	offset *int32
 }
 
 // Сколько элементов вывести на одной странице (пагинация)
@@ -5278,25 +5262,24 @@ GetV2ListGoodsSizeNm Получить размеры товара с ценам�
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-list-goods-size-nm
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV2ListGoodsSizeNmRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV2ListGoodsSizeNmRequest
 */
 func (a *ItemsAPIService) GetV2ListGoodsSizeNm(ctx context.Context) ApiGetV2ListGoodsSizeNmRequest {
 	return ApiGetV2ListGoodsSizeNmRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV2ListGoodsSizeNm200Response
+//  @return GetV2ListGoodsSizeNm200Response
 func (a *ItemsAPIService) GetV2ListGoodsSizeNmExecute(r ApiGetV2ListGoodsSizeNmRequest) (*GetV2ListGoodsSizeNm200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV2ListGoodsSizeNm200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV2ListGoodsSizeNm200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.GetV2ListGoodsSizeNm")
@@ -5370,8 +5353,8 @@ func (a *ItemsAPIService) GetV2ListGoodsSizeNmExecute(r ApiGetV2ListGoodsSizeNmR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5381,8 +5364,8 @@ func (a *ItemsAPIService) GetV2ListGoodsSizeNmExecute(r ApiGetV2ListGoodsSizeNmR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -5392,8 +5375,8 @@ func (a *ItemsAPIService) GetV2ListGoodsSizeNmExecute(r ApiGetV2ListGoodsSizeNmR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5403,8 +5386,8 @@ func (a *ItemsAPIService) GetV2ListGoodsSizeNmExecute(r ApiGetV2ListGoodsSizeNmR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5414,8 +5397,8 @@ func (a *ItemsAPIService) GetV2ListGoodsSizeNmExecute(r ApiGetV2ListGoodsSizeNmR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5433,16 +5416,16 @@ func (a *ItemsAPIService) GetV2ListGoodsSizeNmExecute(r ApiGetV2ListGoodsSizeNmR
 }
 
 type ApiGetV2ObjectAllRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ItemsAPI
-	locale     *string
-	name       *string
-	limit      *int64
-	offset     *int64
-	parentID   *int64
+	locale *string
+	name *string
+	limit *int64
+	offset *int64
+	parentID *int64
 }
 
-// Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
+// Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
 func (r ApiGetV2ObjectAllRequest) Locale(locale string) ApiGetV2ObjectAllRequest {
 	r.locale = &locale
 	return r
@@ -5500,25 +5483,24 @@ GetV2ObjectAll Список предметов
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-object-all
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV2ObjectAllRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV2ObjectAllRequest
 */
 func (a *ItemsAPIService) GetV2ObjectAll(ctx context.Context) ApiGetV2ObjectAllRequest {
 	return ApiGetV2ObjectAllRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV2ObjectAllResponse200
+//  @return GetV2ObjectAllResponse200
 func (a *ItemsAPIService) GetV2ObjectAllExecute(r ApiGetV2ObjectAllRequest) (*GetV2ObjectAllResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV2ObjectAllResponse200
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV2ObjectAllResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.GetV2ObjectAll")
@@ -5599,8 +5581,8 @@ func (a *ItemsAPIService) GetV2ObjectAllExecute(r ApiGetV2ObjectAllRequest) (*Ge
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5610,8 +5592,8 @@ func (a *ItemsAPIService) GetV2ObjectAllExecute(r ApiGetV2ObjectAllRequest) (*Ge
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5621,8 +5603,8 @@ func (a *ItemsAPIService) GetV2ObjectAllExecute(r ApiGetV2ObjectAllRequest) (*Ge
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5640,13 +5622,13 @@ func (a *ItemsAPIService) GetV2ObjectAllExecute(r ApiGetV2ObjectAllRequest) (*Ge
 }
 
 type ApiGetV2ObjectCharcsSubjectIdRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ItemsAPI
-	subjectId  int64
-	locale     *string
+	subjectId int64
+	locale *string
 }
 
-// Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
+// Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
 func (r ApiGetV2ObjectCharcsSubjectIdRequest) Locale(locale string) ApiGetV2ObjectCharcsSubjectIdRequest {
 	r.locale = &locale
 	return r
@@ -5682,27 +5664,26 @@ GetV2ObjectCharcsSubjectId Характеристики предмета
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-object-charcs-subjectid
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param subjectId ID предмета
-	@return ApiGetV2ObjectCharcsSubjectIdRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param subjectId ID предмета
+ @return ApiGetV2ObjectCharcsSubjectIdRequest
 */
 func (a *ItemsAPIService) GetV2ObjectCharcsSubjectId(ctx context.Context, subjectId int64) ApiGetV2ObjectCharcsSubjectIdRequest {
 	return ApiGetV2ObjectCharcsSubjectIdRequest{
 		ApiService: a,
-		ctx:        ctx,
-		subjectId:  subjectId,
+		ctx: ctx,
+		subjectId: subjectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV2ObjectCharcsSubjectIdResponse200
+//  @return GetV2ObjectCharcsSubjectIdResponse200
 func (a *ItemsAPIService) GetV2ObjectCharcsSubjectIdExecute(r ApiGetV2ObjectCharcsSubjectIdRequest) (*GetV2ObjectCharcsSubjectIdResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV2ObjectCharcsSubjectIdResponse200
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV2ObjectCharcsSubjectIdResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.GetV2ObjectCharcsSubjectId")
@@ -5766,8 +5747,8 @@ func (a *ItemsAPIService) GetV2ObjectCharcsSubjectIdExecute(r ApiGetV2ObjectChar
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5777,8 +5758,8 @@ func (a *ItemsAPIService) GetV2ObjectCharcsSubjectIdExecute(r ApiGetV2ObjectChar
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5788,8 +5769,8 @@ func (a *ItemsAPIService) GetV2ObjectCharcsSubjectIdExecute(r ApiGetV2ObjectChar
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5799,8 +5780,8 @@ func (a *ItemsAPIService) GetV2ObjectCharcsSubjectIdExecute(r ApiGetV2ObjectChar
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5818,12 +5799,12 @@ func (a *ItemsAPIService) GetV2ObjectCharcsSubjectIdExecute(r ApiGetV2ObjectChar
 }
 
 type ApiGetV2ObjectParentAllRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ItemsAPI
-	locale     *string
+	locale *string
 }
 
-// Язык поля ответа &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
+// Язык поля ответа &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
 func (r ApiGetV2ObjectParentAllRequest) Locale(locale string) ApiGetV2ObjectParentAllRequest {
 	r.locale = &locale
 	return r
@@ -5857,25 +5838,24 @@ GetV2ObjectParentAll Родительские категории товаров
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-object-parent-all
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV2ObjectParentAllRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV2ObjectParentAllRequest
 */
 func (a *ItemsAPIService) GetV2ObjectParentAll(ctx context.Context) ApiGetV2ObjectParentAllRequest {
 	return ApiGetV2ObjectParentAllRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV2ObjectParentAllResponse200
+//  @return GetV2ObjectParentAllResponse200
 func (a *ItemsAPIService) GetV2ObjectParentAllExecute(r ApiGetV2ObjectParentAllRequest) (*GetV2ObjectParentAllResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV2ObjectParentAllResponse200
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV2ObjectParentAllResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.GetV2ObjectParentAll")
@@ -5938,8 +5918,8 @@ func (a *ItemsAPIService) GetV2ObjectParentAllExecute(r ApiGetV2ObjectParentAllR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5949,8 +5929,8 @@ func (a *ItemsAPIService) GetV2ObjectParentAllExecute(r ApiGetV2ObjectParentAllR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5960,8 +5940,8 @@ func (a *ItemsAPIService) GetV2ObjectParentAllExecute(r ApiGetV2ObjectParentAllR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5971,8 +5951,8 @@ func (a *ItemsAPIService) GetV2ObjectParentAllExecute(r ApiGetV2ObjectParentAllR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5990,10 +5970,10 @@ func (a *ItemsAPIService) GetV2ObjectParentAllExecute(r ApiGetV2ObjectParentAllR
 }
 
 type ApiGetV2QuarantineGoodsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ItemsAPI
-	limit      *int32
-	offset     *int32
+	limit *int32
+	offset *int32
 }
 
 // Сколько элементов вывести на одной странице (пагинация)
@@ -6039,25 +6019,24 @@ GetV2QuarantineGoods Получить товары в карантине
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-quarantine-goods
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV2QuarantineGoodsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV2QuarantineGoodsRequest
 */
 func (a *ItemsAPIService) GetV2QuarantineGoods(ctx context.Context) ApiGetV2QuarantineGoodsRequest {
 	return ApiGetV2QuarantineGoodsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV2QuarantineGoods200Response
+//  @return GetV2QuarantineGoods200Response
 func (a *ItemsAPIService) GetV2QuarantineGoodsExecute(r ApiGetV2QuarantineGoodsRequest) (*GetV2QuarantineGoods200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV2QuarantineGoods200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV2QuarantineGoods200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.GetV2QuarantineGoods")
@@ -6127,8 +6106,8 @@ func (a *ItemsAPIService) GetV2QuarantineGoodsExecute(r ApiGetV2QuarantineGoodsR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6138,8 +6117,8 @@ func (a *ItemsAPIService) GetV2QuarantineGoodsExecute(r ApiGetV2QuarantineGoodsR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -6149,8 +6128,8 @@ func (a *ItemsAPIService) GetV2QuarantineGoodsExecute(r ApiGetV2QuarantineGoodsR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6160,8 +6139,8 @@ func (a *ItemsAPIService) GetV2QuarantineGoodsExecute(r ApiGetV2QuarantineGoodsR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -6171,8 +6150,8 @@ func (a *ItemsAPIService) GetV2QuarantineGoodsExecute(r ApiGetV2QuarantineGoodsR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6182,8 +6161,8 @@ func (a *ItemsAPIService) GetV2QuarantineGoodsExecute(r ApiGetV2QuarantineGoodsR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6201,7 +6180,7 @@ func (a *ItemsAPIService) GetV2QuarantineGoodsExecute(r ApiGetV2QuarantineGoodsR
 }
 
 type ApiGetV2TagsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ItemsAPI
 }
 
@@ -6228,25 +6207,24 @@ GetV2Tags Список ярлыков
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-tags
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV2TagsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV2TagsRequest
 */
 func (a *ItemsAPIService) GetV2Tags(ctx context.Context) ApiGetV2TagsRequest {
 	return ApiGetV2TagsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV2TagsResponse200
+//  @return GetV2TagsResponse200
 func (a *ItemsAPIService) GetV2TagsExecute(r ApiGetV2TagsRequest) (*GetV2TagsResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV2TagsResponse200
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV2TagsResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.GetV2Tags")
@@ -6306,8 +6284,8 @@ func (a *ItemsAPIService) GetV2TagsExecute(r ApiGetV2TagsRequest) (*GetV2TagsRes
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -6317,8 +6295,8 @@ func (a *ItemsAPIService) GetV2TagsExecute(r ApiGetV2TagsRequest) (*GetV2TagsRes
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6328,8 +6306,8 @@ func (a *ItemsAPIService) GetV2TagsExecute(r ApiGetV2TagsRequest) (*GetV2TagsRes
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6339,8 +6317,8 @@ func (a *ItemsAPIService) GetV2TagsExecute(r ApiGetV2TagsRequest) (*GetV2TagsRes
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6358,8 +6336,8 @@ func (a *ItemsAPIService) GetV2TagsExecute(r ApiGetV2TagsRequest) (*GetV2TagsRes
 }
 
 type ApiGetV3DbwWarehousesWarehouseIdContactsRequest struct {
-	ctx         context.Context
-	ApiService  ItemsAPI
+	ctx context.Context
+	ApiService ItemsAPI
 	warehouseId int64
 }
 
@@ -6387,27 +6365,26 @@ GetV3DbwWarehousesWarehouseIdContacts Список контактов
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v3-dbw-warehouses-warehouseid-contacts
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param warehouseId ID склада продавца
-	@return ApiGetV3DbwWarehousesWarehouseIdContactsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param warehouseId ID склада продавца
+ @return ApiGetV3DbwWarehousesWarehouseIdContactsRequest
 */
 func (a *ItemsAPIService) GetV3DbwWarehousesWarehouseIdContacts(ctx context.Context, warehouseId int64) ApiGetV3DbwWarehousesWarehouseIdContactsRequest {
 	return ApiGetV3DbwWarehousesWarehouseIdContactsRequest{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		warehouseId: warehouseId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV3DbwWarehousesWarehouseIdContactsResponse200
+//  @return GetV3DbwWarehousesWarehouseIdContactsResponse200
 func (a *ItemsAPIService) GetV3DbwWarehousesWarehouseIdContactsExecute(r ApiGetV3DbwWarehousesWarehouseIdContactsRequest) (*GetV3DbwWarehousesWarehouseIdContactsResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV3DbwWarehousesWarehouseIdContactsResponse200
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV3DbwWarehousesWarehouseIdContactsResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.GetV3DbwWarehousesWarehouseIdContacts")
@@ -6468,8 +6445,8 @@ func (a *ItemsAPIService) GetV3DbwWarehousesWarehouseIdContactsExecute(r ApiGetV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6479,8 +6456,8 @@ func (a *ItemsAPIService) GetV3DbwWarehousesWarehouseIdContactsExecute(r ApiGetV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -6490,8 +6467,8 @@ func (a *ItemsAPIService) GetV3DbwWarehousesWarehouseIdContactsExecute(r ApiGetV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6501,8 +6478,8 @@ func (a *ItemsAPIService) GetV3DbwWarehousesWarehouseIdContactsExecute(r ApiGetV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6512,8 +6489,8 @@ func (a *ItemsAPIService) GetV3DbwWarehousesWarehouseIdContactsExecute(r ApiGetV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6531,7 +6508,7 @@ func (a *ItemsAPIService) GetV3DbwWarehousesWarehouseIdContactsExecute(r ApiGetV
 }
 
 type ApiGetV3OfficesRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ItemsAPI
 }
 
@@ -6556,25 +6533,24 @@ GetV3Offices Получить список складов WB
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v3-offices
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV3OfficesRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV3OfficesRequest
 */
 func (a *ItemsAPIService) GetV3Offices(ctx context.Context) ApiGetV3OfficesRequest {
 	return ApiGetV3OfficesRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Office
+//  @return []Office
 func (a *ItemsAPIService) GetV3OfficesExecute(r ApiGetV3OfficesRequest) ([]Office, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Office
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Office
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.GetV3Offices")
@@ -6634,8 +6610,19 @@ func (a *ItemsAPIService) GetV3OfficesExecute(r ApiGetV3OfficesRequest) ([]Offic
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV2Tags402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6645,8 +6632,8 @@ func (a *ItemsAPIService) GetV3OfficesExecute(r ApiGetV3OfficesRequest) ([]Offic
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6656,8 +6643,8 @@ func (a *ItemsAPIService) GetV3OfficesExecute(r ApiGetV3OfficesRequest) ([]Offic
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6675,7 +6662,7 @@ func (a *ItemsAPIService) GetV3OfficesExecute(r ApiGetV3OfficesRequest) ([]Offic
 }
 
 type ApiGetV3WarehousesRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService ItemsAPI
 }
 
@@ -6700,25 +6687,24 @@ GetV3Warehouses Получить список складов продавца
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v3-warehouses
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV3WarehousesRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV3WarehousesRequest
 */
 func (a *ItemsAPIService) GetV3Warehouses(ctx context.Context) ApiGetV3WarehousesRequest {
 	return ApiGetV3WarehousesRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return []Warehouse
+//  @return []Warehouse
 func (a *ItemsAPIService) GetV3WarehousesExecute(r ApiGetV3WarehousesRequest) ([]Warehouse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Warehouse
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Warehouse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.GetV3Warehouses")
@@ -6778,8 +6764,19 @@ func (a *ItemsAPIService) GetV3WarehousesExecute(r ApiGetV3WarehousesRequest) ([
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV2Tags402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6789,8 +6786,8 @@ func (a *ItemsAPIService) GetV3WarehousesExecute(r ApiGetV3WarehousesRequest) ([
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6800,8 +6797,8 @@ func (a *ItemsAPIService) GetV3WarehousesExecute(r ApiGetV3WarehousesRequest) ([
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6819,9 +6816,9 @@ func (a *ItemsAPIService) GetV3WarehousesExecute(r ApiGetV3WarehousesRequest) ([
 }
 
 type ApiPatchV2TagIdRequest struct {
-	ctx                 context.Context
-	ApiService          ItemsAPI
-	id                  int64
+	ctx context.Context
+	ApiService ItemsAPI
+	id int64
 	patchV2TagIdRequest *PatchV2TagIdRequest
 }
 
@@ -6855,27 +6852,26 @@ PatchV2TagId Изменение ярлыка
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/patch-content-v2-tag-id
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id Числовой ID ярлыка
-	@return ApiPatchV2TagIdRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id Числовой ID ярлыка
+ @return ApiPatchV2TagIdRequest
 */
 func (a *ItemsAPIService) PatchV2TagId(ctx context.Context, id int64) ApiPatchV2TagIdRequest {
 	return ApiPatchV2TagIdRequest{
 		ApiService: a,
-		ctx:        ctx,
-		id:         id,
+		ctx: ctx,
+		id: id,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ResponseContentError
+//  @return ResponseContentError
 func (a *ItemsAPIService) PatchV2TagIdExecute(r ApiPatchV2TagIdRequest) (*ResponseContentError, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPatch
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ResponseContentError
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ResponseContentError
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.PatchV2TagId")
@@ -6941,8 +6937,8 @@ func (a *ItemsAPIService) PatchV2TagIdExecute(r ApiPatchV2TagIdRequest) (*Respon
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6952,8 +6948,8 @@ func (a *ItemsAPIService) PatchV2TagIdExecute(r ApiPatchV2TagIdRequest) (*Respon
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -6963,8 +6959,8 @@ func (a *ItemsAPIService) PatchV2TagIdExecute(r ApiPatchV2TagIdRequest) (*Respon
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6974,8 +6970,8 @@ func (a *ItemsAPIService) PatchV2TagIdExecute(r ApiPatchV2TagIdRequest) (*Respon
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6985,8 +6981,8 @@ func (a *ItemsAPIService) PatchV2TagIdExecute(r ApiPatchV2TagIdRequest) (*Respon
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7004,8 +7000,8 @@ func (a *ItemsAPIService) PatchV2TagIdExecute(r ApiPatchV2TagIdRequest) (*Respon
 }
 
 type ApiPostV1RecommendationsListRequest struct {
-	ctx         context.Context
-	ApiService  ItemsAPI
+	ctx context.Context
+	ApiService ItemsAPI
 	getRecomReq *GetRecomReq
 }
 
@@ -7034,25 +7030,24 @@ PostV1RecommendationsList Список рекомендаций в карточ�
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-content-v1-recommendations-list
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV1RecommendationsListRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV1RecommendationsListRequest
 */
 func (a *ItemsAPIService) PostV1RecommendationsList(ctx context.Context) ApiPostV1RecommendationsListRequest {
 	return ApiPostV1RecommendationsListRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetRecomRes
+//  @return GetRecomRes
 func (a *ItemsAPIService) PostV1RecommendationsListExecute(r ApiPostV1RecommendationsListRequest) (*GetRecomRes, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetRecomRes
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetRecomRes
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.PostV1RecommendationsList")
@@ -7114,8 +7109,8 @@ func (a *ItemsAPIService) PostV1RecommendationsListExecute(r ApiPostV1Recommenda
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7125,8 +7120,19 @@ func (a *ItemsAPIService) PostV1RecommendationsListExecute(r ApiPostV1Recommenda
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV2Tags402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7136,8 +7142,8 @@ func (a *ItemsAPIService) PostV1RecommendationsListExecute(r ApiPostV1Recommenda
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7147,8 +7153,8 @@ func (a *ItemsAPIService) PostV1RecommendationsListExecute(r ApiPostV1Recommenda
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7166,8 +7172,8 @@ func (a *ItemsAPIService) PostV1RecommendationsListExecute(r ApiPostV1Recommenda
 }
 
 type ApiPostV1RecommendationsSetRequest struct {
-	ctx         context.Context
-	ApiService  ItemsAPI
+	ctx context.Context
+	ApiService ItemsAPI
 	setRecomReq *SetRecomReq
 }
 
@@ -7196,25 +7202,24 @@ PostV1RecommendationsSet Установить рекомендации для т
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-content-v1-recommendations-set
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV1RecommendationsSetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV1RecommendationsSetRequest
 */
 func (a *ItemsAPIService) PostV1RecommendationsSet(ctx context.Context) ApiPostV1RecommendationsSetRequest {
 	return ApiPostV1RecommendationsSetRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return SetRecomRes
+//  @return SetRecomRes
 func (a *ItemsAPIService) PostV1RecommendationsSetExecute(r ApiPostV1RecommendationsSetRequest) (*SetRecomRes, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *SetRecomRes
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *SetRecomRes
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.PostV1RecommendationsSet")
@@ -7279,8 +7284,8 @@ func (a *ItemsAPIService) PostV1RecommendationsSetExecute(r ApiPostV1Recommendat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7290,8 +7295,19 @@ func (a *ItemsAPIService) PostV1RecommendationsSetExecute(r ApiPostV1Recommendat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV2Tags402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7301,8 +7317,8 @@ func (a *ItemsAPIService) PostV1RecommendationsSetExecute(r ApiPostV1Recommendat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7312,8 +7328,8 @@ func (a *ItemsAPIService) PostV1RecommendationsSetExecute(r ApiPostV1Recommendat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7331,8 +7347,8 @@ func (a *ItemsAPIService) PostV1RecommendationsSetExecute(r ApiPostV1Recommendat
 }
 
 type ApiPostV1UploadTaskB2bWholesaleRequest struct {
-	ctx                                 context.Context
-	ApiService                          ItemsAPI
+	ctx context.Context
+	ApiService ItemsAPI
 	postV1UploadTaskB2bWholesaleRequest *PostV1UploadTaskB2bWholesaleRequest
 }
 
@@ -7365,25 +7381,24 @@ PostV1UploadTaskB2bWholesale Установить оптовые скидки д
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-discounts-prices-v1-upload-task-b2b-wholesale
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV1UploadTaskB2bWholesaleRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV1UploadTaskB2bWholesaleRequest
 */
 func (a *ItemsAPIService) PostV1UploadTaskB2bWholesale(ctx context.Context) ApiPostV1UploadTaskB2bWholesaleRequest {
 	return ApiPostV1UploadTaskB2bWholesaleRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PostV1UploadTaskB2bWholesale200Response
+//  @return PostV1UploadTaskB2bWholesale200Response
 func (a *ItemsAPIService) PostV1UploadTaskB2bWholesaleExecute(r ApiPostV1UploadTaskB2bWholesaleRequest) (*PostV1UploadTaskB2bWholesale200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PostV1UploadTaskB2bWholesale200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV1UploadTaskB2bWholesale200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.PostV1UploadTaskB2bWholesale")
@@ -7448,8 +7463,8 @@ func (a *ItemsAPIService) PostV1UploadTaskB2bWholesaleExecute(r ApiPostV1UploadT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7459,8 +7474,19 @@ func (a *ItemsAPIService) PostV1UploadTaskB2bWholesaleExecute(r ApiPostV1UploadT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV2Tags402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7470,8 +7496,8 @@ func (a *ItemsAPIService) PostV1UploadTaskB2bWholesaleExecute(r ApiPostV1UploadT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7481,8 +7507,8 @@ func (a *ItemsAPIService) PostV1UploadTaskB2bWholesaleExecute(r ApiPostV1UploadT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7500,8 +7526,8 @@ func (a *ItemsAPIService) PostV1UploadTaskB2bWholesaleExecute(r ApiPostV1UploadT
 }
 
 type ApiPostV2BarcodesRequest struct {
-	ctx                   context.Context
-	ApiService            ItemsAPI
+	ctx context.Context
+	ApiService ItemsAPI
 	postV2BarcodesRequest *PostV2BarcodesRequest
 }
 
@@ -7538,25 +7564,24 @@ PostV2Barcodes Генерация баркодов
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-barcodes
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV2BarcodesRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2BarcodesRequest
 */
 func (a *ItemsAPIService) PostV2Barcodes(ctx context.Context) ApiPostV2BarcodesRequest {
 	return ApiPostV2BarcodesRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PostV2BarcodesResponse200
+//  @return PostV2BarcodesResponse200
 func (a *ItemsAPIService) PostV2BarcodesExecute(r ApiPostV2BarcodesRequest) (*PostV2BarcodesResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PostV2BarcodesResponse200
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV2BarcodesResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.PostV2Barcodes")
@@ -7621,8 +7646,8 @@ func (a *ItemsAPIService) PostV2BarcodesExecute(r ApiPostV2BarcodesRequest) (*Po
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -7632,8 +7657,8 @@ func (a *ItemsAPIService) PostV2BarcodesExecute(r ApiPostV2BarcodesRequest) (*Po
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7643,8 +7668,8 @@ func (a *ItemsAPIService) PostV2BarcodesExecute(r ApiPostV2BarcodesRequest) (*Po
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7654,8 +7679,8 @@ func (a *ItemsAPIService) PostV2BarcodesExecute(r ApiPostV2BarcodesRequest) (*Po
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7673,8 +7698,8 @@ func (a *ItemsAPIService) PostV2BarcodesExecute(r ApiPostV2BarcodesRequest) (*Po
 }
 
 type ApiPostV2CardsDeleteTrashRequest struct {
-	ctx                           context.Context
-	ApiService                    ItemsAPI
+	ctx context.Context
+	ApiService ItemsAPI
 	postV2CardsDeleteTrashRequest *PostV2CardsDeleteTrashRequest
 }
 
@@ -7709,25 +7734,24 @@ PostV2CardsDeleteTrash Перенос карточек товаров в кор�
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-delete-trash
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV2CardsDeleteTrashRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2CardsDeleteTrashRequest
 */
 func (a *ItemsAPIService) PostV2CardsDeleteTrash(ctx context.Context) ApiPostV2CardsDeleteTrashRequest {
 	return ApiPostV2CardsDeleteTrashRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PostV2CardsDeleteTrashResponse200
+//  @return PostV2CardsDeleteTrashResponse200
 func (a *ItemsAPIService) PostV2CardsDeleteTrashExecute(r ApiPostV2CardsDeleteTrashRequest) (*PostV2CardsDeleteTrashResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PostV2CardsDeleteTrashResponse200
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV2CardsDeleteTrashResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.PostV2CardsDeleteTrash")
@@ -7792,8 +7816,8 @@ func (a *ItemsAPIService) PostV2CardsDeleteTrashExecute(r ApiPostV2CardsDeleteTr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7803,8 +7827,8 @@ func (a *ItemsAPIService) PostV2CardsDeleteTrashExecute(r ApiPostV2CardsDeleteTr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -7814,8 +7838,8 @@ func (a *ItemsAPIService) PostV2CardsDeleteTrashExecute(r ApiPostV2CardsDeleteTr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7825,8 +7849,8 @@ func (a *ItemsAPIService) PostV2CardsDeleteTrashExecute(r ApiPostV2CardsDeleteTr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7836,8 +7860,8 @@ func (a *ItemsAPIService) PostV2CardsDeleteTrashExecute(r ApiPostV2CardsDeleteTr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7855,10 +7879,10 @@ func (a *ItemsAPIService) PostV2CardsDeleteTrashExecute(r ApiPostV2CardsDeleteTr
 }
 
 type ApiPostV2CardsErrorListRequest struct {
-	ctx                                        context.Context
-	ApiService                                 ItemsAPI
+	ctx context.Context
+	ApiService ItemsAPI
 	requestPublicViewerPublicErrorsTableListV2 *RequestPublicViewerPublicErrorsTableListV2
-	locale                                     *string
+	locale *string
 }
 
 func (r ApiPostV2CardsErrorListRequest) RequestPublicViewerPublicErrorsTableListV2(requestPublicViewerPublicErrorsTableListV2 RequestPublicViewerPublicErrorsTableListV2) ApiPostV2CardsErrorListRequest {
@@ -7866,7 +7890,7 @@ func (r ApiPostV2CardsErrorListRequest) RequestPublicViewerPublicErrorsTableList
 	return r
 }
 
-// Язык названий предметов:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице
+// Язык названий предметов:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице 
 func (r ApiPostV2CardsErrorListRequest) Locale(locale string) ApiPostV2CardsErrorListRequest {
 	r.locale = &locale
 	return r
@@ -7889,23 +7913,21 @@ PostV2CardsErrorList Список несозданных карточек тов
 1. Сделайте первый запрос:
 
 ```
-
-	{
-	  "cursor": {
-	    "limit": 100
-	  },
-	  "order": {
-	    "ascending": true
-	  }
-	}
-
+        {
+          "cursor": {
+            "limit": 100
+          },
+          "order": {
+            "ascending": true
+          }
+        }
 ```
 
 2. Скопируйте `"updatedAt":"\*\*\*","batchUUID":"\*\*\*" `из `cursor` ответа и вставьте в `cursor` запроса.
 3. Повторите запрос.
 4. Повторяйте пункты 2 и 3, пока не получите в ответе `"next":false`. Это будет означать, что вы получили все пакеты.
 
-# Чтобы удалить карточку товара из списка, сделайте ещё один запрос на создание, создание с присоединением или редактирование карточки товара с исправленными ошибками
+Чтобы удалить карточку товара из списка, сделайте ещё один запрос на создание, создание с присоединением или редактирование карточки товара с исправленными ошибками
 
 [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов:
 
@@ -7922,25 +7944,24 @@ PostV2CardsErrorList Список несозданных карточек тов
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-error-list
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV2CardsErrorListRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2CardsErrorListRequest
 */
 func (a *ItemsAPIService) PostV2CardsErrorList(ctx context.Context) ApiPostV2CardsErrorListRequest {
 	return ApiPostV2CardsErrorListRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ResponsePublicViewerPublicErrorsTableListV2
+//  @return ResponsePublicViewerPublicErrorsTableListV2
 func (a *ItemsAPIService) PostV2CardsErrorListExecute(r ApiPostV2CardsErrorListRequest) (*ResponsePublicViewerPublicErrorsTableListV2, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ResponsePublicViewerPublicErrorsTableListV2
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ResponsePublicViewerPublicErrorsTableListV2
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.PostV2CardsErrorList")
@@ -8008,8 +8029,8 @@ func (a *ItemsAPIService) PostV2CardsErrorListExecute(r ApiPostV2CardsErrorListR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -8019,8 +8040,8 @@ func (a *ItemsAPIService) PostV2CardsErrorListExecute(r ApiPostV2CardsErrorListR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -8030,8 +8051,8 @@ func (a *ItemsAPIService) PostV2CardsErrorListExecute(r ApiPostV2CardsErrorListR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -8041,8 +8062,8 @@ func (a *ItemsAPIService) PostV2CardsErrorListExecute(r ApiPostV2CardsErrorListR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8060,8 +8081,8 @@ func (a *ItemsAPIService) PostV2CardsErrorListExecute(r ApiPostV2CardsErrorListR
 }
 
 type ApiPostV2CardsMoveNmRequest struct {
-	ctx                      context.Context
-	ApiService               ItemsAPI
+	ctx context.Context
+	ApiService ItemsAPI
 	postV2CardsMoveNmRequest *PostV2CardsMoveNmRequest
 }
 
@@ -8087,7 +8108,7 @@ PostV2CardsMoveNm Объединение и разъединение карто�
 
 Максимальный размер запроса 10 Мб.
 
-# Объединить можно карточки товаров только в рамках одного предмета
+Объединить можно карточки товаров только в рамках одного предмета
 
 [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Контент**:
 | Период | Лимит | Интервал | Всплеск |
@@ -8108,25 +8129,24 @@ PostV2CardsMoveNm Объединение и разъединение карто�
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-movenm
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV2CardsMoveNmRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2CardsMoveNmRequest
 */
 func (a *ItemsAPIService) PostV2CardsMoveNm(ctx context.Context) ApiPostV2CardsMoveNmRequest {
 	return ApiPostV2CardsMoveNmRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ResponseItemList
+//  @return ResponseItemList
 func (a *ItemsAPIService) PostV2CardsMoveNmExecute(r ApiPostV2CardsMoveNmRequest) (*ResponseItemList, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ResponseItemList
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ResponseItemList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.PostV2CardsMoveNm")
@@ -8188,8 +8208,8 @@ func (a *ItemsAPIService) PostV2CardsMoveNmExecute(r ApiPostV2CardsMoveNmRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -8199,8 +8219,8 @@ func (a *ItemsAPIService) PostV2CardsMoveNmExecute(r ApiPostV2CardsMoveNmRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -8210,8 +8230,8 @@ func (a *ItemsAPIService) PostV2CardsMoveNmExecute(r ApiPostV2CardsMoveNmRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -8221,8 +8241,8 @@ func (a *ItemsAPIService) PostV2CardsMoveNmExecute(r ApiPostV2CardsMoveNmRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 413 {
@@ -8232,8 +8252,8 @@ func (a *ItemsAPIService) PostV2CardsMoveNmExecute(r ApiPostV2CardsMoveNmRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -8243,8 +8263,8 @@ func (a *ItemsAPIService) PostV2CardsMoveNmExecute(r ApiPostV2CardsMoveNmRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8262,8 +8282,8 @@ func (a *ItemsAPIService) PostV2CardsMoveNmExecute(r ApiPostV2CardsMoveNmRequest
 }
 
 type ApiPostV2CardsRecoverRequest struct {
-	ctx                           context.Context
-	ApiService                    ItemsAPI
+	ctx context.Context
+	ApiService ItemsAPI
 	postV2CardsDeleteTrashRequest *PostV2CardsDeleteTrashRequest
 }
 
@@ -8293,25 +8313,24 @@ PostV2CardsRecover Восстановление карточек товаров 
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-recover
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV2CardsRecoverRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2CardsRecoverRequest
 */
 func (a *ItemsAPIService) PostV2CardsRecover(ctx context.Context) ApiPostV2CardsRecoverRequest {
 	return ApiPostV2CardsRecoverRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PostV2CardsRecoverResponse200
+//  @return PostV2CardsRecoverResponse200
 func (a *ItemsAPIService) PostV2CardsRecoverExecute(r ApiPostV2CardsRecoverRequest) (*PostV2CardsRecoverResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PostV2CardsRecoverResponse200
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV2CardsRecoverResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.PostV2CardsRecover")
@@ -8376,8 +8395,8 @@ func (a *ItemsAPIService) PostV2CardsRecoverExecute(r ApiPostV2CardsRecoverReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -8387,8 +8406,8 @@ func (a *ItemsAPIService) PostV2CardsRecoverExecute(r ApiPostV2CardsRecoverReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -8398,8 +8417,8 @@ func (a *ItemsAPIService) PostV2CardsRecoverExecute(r ApiPostV2CardsRecoverReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -8409,8 +8428,8 @@ func (a *ItemsAPIService) PostV2CardsRecoverExecute(r ApiPostV2CardsRecoverReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -8420,8 +8439,8 @@ func (a *ItemsAPIService) PostV2CardsRecoverExecute(r ApiPostV2CardsRecoverReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8439,8 +8458,8 @@ func (a *ItemsAPIService) PostV2CardsRecoverExecute(r ApiPostV2CardsRecoverReque
 }
 
 type ApiPostV2CardsUpdateRequest struct {
-	ctx                           context.Context
-	ApiService                    ItemsAPI
+	ctx context.Context
+	ApiService ItemsAPI
 	postV2CardsUpdateRequestInner *[]PostV2CardsUpdateRequestInner
 }
 
@@ -8498,25 +8517,24 @@ PostV2CardsUpdate Редактирование карточек товаров
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV2CardsUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2CardsUpdateRequest
 */
 func (a *ItemsAPIService) PostV2CardsUpdate(ctx context.Context) ApiPostV2CardsUpdateRequest {
 	return ApiPostV2CardsUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ResponseItemList
+//  @return ResponseItemList
 func (a *ItemsAPIService) PostV2CardsUpdateExecute(r ApiPostV2CardsUpdateRequest) (*ResponseItemList, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ResponseItemList
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ResponseItemList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.PostV2CardsUpdate")
@@ -8578,8 +8596,8 @@ func (a *ItemsAPIService) PostV2CardsUpdateExecute(r ApiPostV2CardsUpdateRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -8589,8 +8607,8 @@ func (a *ItemsAPIService) PostV2CardsUpdateExecute(r ApiPostV2CardsUpdateRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -8600,8 +8618,8 @@ func (a *ItemsAPIService) PostV2CardsUpdateExecute(r ApiPostV2CardsUpdateRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -8611,8 +8629,8 @@ func (a *ItemsAPIService) PostV2CardsUpdateExecute(r ApiPostV2CardsUpdateRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 413 {
@@ -8622,8 +8640,8 @@ func (a *ItemsAPIService) PostV2CardsUpdateExecute(r ApiPostV2CardsUpdateRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -8633,8 +8651,8 @@ func (a *ItemsAPIService) PostV2CardsUpdateExecute(r ApiPostV2CardsUpdateRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8652,8 +8670,8 @@ func (a *ItemsAPIService) PostV2CardsUpdateExecute(r ApiPostV2CardsUpdateRequest
 }
 
 type ApiPostV2CardsUploadRequest struct {
-	ctx                           context.Context
-	ApiService                    ItemsAPI
+	ctx context.Context
+	ApiService ItemsAPI
 	postV2CardsUploadRequestInner *[]PostV2CardsUploadRequestInner
 }
 
@@ -8676,8 +8694,7 @@ PostV2CardsUpload Создание карточек товаров
 Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`.
 
 Создание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены.
-
-	В песочнице карточка товара создаётся сразу, без ожидания.
+ В песочнице карточка товара создаётся сразу, без ожидания.
 
 Одним запросом можно создать максимум 100 отдельных карточек товаров или 100 групп [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров по 30 карточек в каждой. Максимальный размер запроса 10 Мб.
 Если ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList).
@@ -8701,25 +8718,24 @@ PostV2CardsUpload Создание карточек товаров
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-upload
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV2CardsUploadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2CardsUploadRequest
 */
 func (a *ItemsAPIService) PostV2CardsUpload(ctx context.Context) ApiPostV2CardsUploadRequest {
 	return ApiPostV2CardsUploadRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ResponseItemList
+//  @return ResponseItemList
 func (a *ItemsAPIService) PostV2CardsUploadExecute(r ApiPostV2CardsUploadRequest) (*ResponseItemList, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ResponseItemList
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ResponseItemList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.PostV2CardsUpload")
@@ -8781,8 +8797,8 @@ func (a *ItemsAPIService) PostV2CardsUploadExecute(r ApiPostV2CardsUploadRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -8792,8 +8808,8 @@ func (a *ItemsAPIService) PostV2CardsUploadExecute(r ApiPostV2CardsUploadRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -8803,8 +8819,8 @@ func (a *ItemsAPIService) PostV2CardsUploadExecute(r ApiPostV2CardsUploadRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -8814,8 +8830,8 @@ func (a *ItemsAPIService) PostV2CardsUploadExecute(r ApiPostV2CardsUploadRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 413 {
@@ -8825,8 +8841,8 @@ func (a *ItemsAPIService) PostV2CardsUploadExecute(r ApiPostV2CardsUploadRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -8836,8 +8852,8 @@ func (a *ItemsAPIService) PostV2CardsUploadExecute(r ApiPostV2CardsUploadRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8855,8 +8871,8 @@ func (a *ItemsAPIService) PostV2CardsUploadExecute(r ApiPostV2CardsUploadRequest
 }
 
 type ApiPostV2CardsUploadAddRequest struct {
-	ctx                         context.Context
-	ApiService                  ItemsAPI
+	ctx context.Context
+	ApiService ItemsAPI
 	postV2CardsUploadAddRequest *PostV2CardsUploadAddRequest
 }
 
@@ -8900,25 +8916,24 @@ PostV2CardsUploadAdd Создание карточек товаров с при�
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-upload-add
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV2CardsUploadAddRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2CardsUploadAddRequest
 */
 func (a *ItemsAPIService) PostV2CardsUploadAdd(ctx context.Context) ApiPostV2CardsUploadAddRequest {
 	return ApiPostV2CardsUploadAddRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ResponseItemList
+//  @return ResponseItemList
 func (a *ItemsAPIService) PostV2CardsUploadAddExecute(r ApiPostV2CardsUploadAddRequest) (*ResponseItemList, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ResponseItemList
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ResponseItemList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.PostV2CardsUploadAdd")
@@ -8980,8 +8995,8 @@ func (a *ItemsAPIService) PostV2CardsUploadAddExecute(r ApiPostV2CardsUploadAddR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -8991,8 +9006,8 @@ func (a *ItemsAPIService) PostV2CardsUploadAddExecute(r ApiPostV2CardsUploadAddR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -9002,8 +9017,8 @@ func (a *ItemsAPIService) PostV2CardsUploadAddExecute(r ApiPostV2CardsUploadAddR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -9013,8 +9028,8 @@ func (a *ItemsAPIService) PostV2CardsUploadAddExecute(r ApiPostV2CardsUploadAddR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 413 {
@@ -9024,8 +9039,8 @@ func (a *ItemsAPIService) PostV2CardsUploadAddExecute(r ApiPostV2CardsUploadAddR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -9035,8 +9050,8 @@ func (a *ItemsAPIService) PostV2CardsUploadAddExecute(r ApiPostV2CardsUploadAddR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -9054,10 +9069,10 @@ func (a *ItemsAPIService) PostV2CardsUploadAddExecute(r ApiPostV2CardsUploadAddR
 }
 
 type ApiPostV2GetCardsListRequest struct {
-	ctx                       context.Context
-	ApiService                ItemsAPI
+	ctx context.Context
+	ApiService ItemsAPI
 	postV2GetCardsListRequest *PostV2GetCardsListRequest
-	locale                    *string
+	locale *string
 }
 
 func (r ApiPostV2GetCardsListRequest) PostV2GetCardsListRequest(postV2GetCardsListRequest PostV2GetCardsListRequest) ApiPostV2GetCardsListRequest {
@@ -9065,7 +9080,7 @@ func (r ApiPostV2GetCardsListRequest) PostV2GetCardsListRequest(postV2GetCardsLi
 	return r
 }
 
-// Язык полей ответа &#x60;name&#x60;, &#x60;value&#x60; и &#x60;object&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
+// Язык полей ответа &#x60;name&#x60;, &#x60;value&#x60; и &#x60;object&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
 func (r ApiPostV2GetCardsListRequest) Locale(locale string) ApiPostV2GetCardsListRequest {
 	r.locale = &locale
 	return r
@@ -9086,21 +9101,19 @@ PostV2GetCardsList Список карточек товаров
 1. Сделайте первый запрос:
 
 ```
-
-	{
-	  "settings": {
-	    "sort": {
-	      "ascending": true
-	    },
-	    "cursor": {
-	      "limit": 100
-	    },
-	    "filter": {
-	      "withPhoto": -1
-	    }
-	  }
-	}
-
+        {
+          "settings": {
+            "sort": {
+              "ascending": true
+            },
+            "cursor": {
+              "limit": 100
+            },
+            "filter": {
+              "withPhoto": -1
+            }
+          }
+        }
 ```
 
 Чтобы после выгрузки получать только новые или обновлённые карточки товаров, используйте сортировку по возрастанию: `"sort":{"ascending":true}`.
@@ -9127,25 +9140,24 @@ PostV2GetCardsList Список карточек товаров
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-get-cards-list
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV2GetCardsListRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2GetCardsListRequest
 */
 func (a *ItemsAPIService) PostV2GetCardsList(ctx context.Context) ApiPostV2GetCardsListRequest {
 	return ApiPostV2GetCardsListRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PostV2GetCardsListResponse200
+//  @return PostV2GetCardsListResponse200
 func (a *ItemsAPIService) PostV2GetCardsListExecute(r ApiPostV2GetCardsListRequest) (*PostV2GetCardsListResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PostV2GetCardsListResponse200
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV2GetCardsListResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.PostV2GetCardsList")
@@ -9213,8 +9225,8 @@ func (a *ItemsAPIService) PostV2GetCardsListExecute(r ApiPostV2GetCardsListReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -9224,8 +9236,8 @@ func (a *ItemsAPIService) PostV2GetCardsListExecute(r ApiPostV2GetCardsListReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -9235,8 +9247,8 @@ func (a *ItemsAPIService) PostV2GetCardsListExecute(r ApiPostV2GetCardsListReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -9246,8 +9258,8 @@ func (a *ItemsAPIService) PostV2GetCardsListExecute(r ApiPostV2GetCardsListReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -9257,8 +9269,8 @@ func (a *ItemsAPIService) PostV2GetCardsListExecute(r ApiPostV2GetCardsListReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -9276,10 +9288,10 @@ func (a *ItemsAPIService) PostV2GetCardsListExecute(r ApiPostV2GetCardsListReque
 }
 
 type ApiPostV2GetCardsTrashRequest struct {
-	ctx                        context.Context
-	ApiService                 ItemsAPI
+	ctx context.Context
+	ApiService ItemsAPI
 	postV2GetCardsTrashRequest *PostV2GetCardsTrashRequest
-	locale                     *string
+	locale *string
 }
 
 func (r ApiPostV2GetCardsTrashRequest) PostV2GetCardsTrashRequest(postV2GetCardsTrashRequest PostV2GetCardsTrashRequest) ApiPostV2GetCardsTrashRequest {
@@ -9287,7 +9299,7 @@ func (r ApiPostV2GetCardsTrashRequest) PostV2GetCardsTrashRequest(postV2GetCards
 	return r
 }
 
-// Язык полей ответа &#x60;name&#x60;, &#x60;value&#x60; и &#x60;object&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
+// Язык полей ответа &#x60;name&#x60;, &#x60;value&#x60; и &#x60;object&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
 func (r ApiPostV2GetCardsTrashRequest) Locale(locale string) ApiPostV2GetCardsTrashRequest {
 	r.locale = &locale
 	return r
@@ -9306,18 +9318,16 @@ PostV2GetCardsTrash Список карточек товаров в корзин
 1. Сделайте первый запрос:
 
 ```
-
-	{
-	  "settings": {
-	    "sort": {
-	      "ascending": true
-	    },
-	    "cursor": {
-	      "limit": 100
-	    }
-	  }
-	}
-
+        {
+          "settings": {
+            "sort": {
+              "ascending": true
+            },
+            "cursor": {
+              "limit": 100
+            }
+          }
+        }
 ```
 
 Чтобы получать только карточки товаров, которые были перенесены в корзину после выгрузки, используйте сортировку по возрастанию: `"sort":{"ascending":true}`.
@@ -9348,25 +9358,24 @@ PostV2GetCardsTrash Список карточек товаров в корзин
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-get-cards-trash
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV2GetCardsTrashRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2GetCardsTrashRequest
 */
 func (a *ItemsAPIService) PostV2GetCardsTrash(ctx context.Context) ApiPostV2GetCardsTrashRequest {
 	return ApiPostV2GetCardsTrashRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PostV2GetCardsTrashResponse200
+//  @return PostV2GetCardsTrashResponse200
 func (a *ItemsAPIService) PostV2GetCardsTrashExecute(r ApiPostV2GetCardsTrashRequest) (*PostV2GetCardsTrashResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PostV2GetCardsTrashResponse200
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV2GetCardsTrashResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.PostV2GetCardsTrash")
@@ -9434,8 +9443,8 @@ func (a *ItemsAPIService) PostV2GetCardsTrashExecute(r ApiPostV2GetCardsTrashReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -9445,8 +9454,8 @@ func (a *ItemsAPIService) PostV2GetCardsTrashExecute(r ApiPostV2GetCardsTrashReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -9456,8 +9465,8 @@ func (a *ItemsAPIService) PostV2GetCardsTrashExecute(r ApiPostV2GetCardsTrashReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -9467,8 +9476,8 @@ func (a *ItemsAPIService) PostV2GetCardsTrashExecute(r ApiPostV2GetCardsTrashReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -9478,8 +9487,8 @@ func (a *ItemsAPIService) PostV2GetCardsTrashExecute(r ApiPostV2GetCardsTrashReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -9497,8 +9506,8 @@ func (a *ItemsAPIService) PostV2GetCardsTrashExecute(r ApiPostV2GetCardsTrashReq
 }
 
 type ApiPostV2ListGoodsFilterRequest struct {
-	ctx                          context.Context
-	ApiService                   ItemsAPI
+	ctx context.Context
+	ApiService ItemsAPI
 	postV2ListGoodsFilterRequest *PostV2ListGoodsFilterRequest
 }
 
@@ -9536,25 +9545,24 @@ PostV2ListGoodsFilter Получить товары с ценами по арт�
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-list-goods-filter
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV2ListGoodsFilterRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2ListGoodsFilterRequest
 */
 func (a *ItemsAPIService) PostV2ListGoodsFilter(ctx context.Context) ApiPostV2ListGoodsFilterRequest {
 	return ApiPostV2ListGoodsFilterRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetV2ListGoodsFilter200Response
+//  @return GetV2ListGoodsFilter200Response
 func (a *ItemsAPIService) PostV2ListGoodsFilterExecute(r ApiPostV2ListGoodsFilterRequest) (*GetV2ListGoodsFilter200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetV2ListGoodsFilter200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV2ListGoodsFilter200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.PostV2ListGoodsFilter")
@@ -9619,8 +9627,8 @@ func (a *ItemsAPIService) PostV2ListGoodsFilterExecute(r ApiPostV2ListGoodsFilte
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -9630,8 +9638,8 @@ func (a *ItemsAPIService) PostV2ListGoodsFilterExecute(r ApiPostV2ListGoodsFilte
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -9641,8 +9649,8 @@ func (a *ItemsAPIService) PostV2ListGoodsFilterExecute(r ApiPostV2ListGoodsFilte
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -9652,8 +9660,8 @@ func (a *ItemsAPIService) PostV2ListGoodsFilterExecute(r ApiPostV2ListGoodsFilte
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -9663,8 +9671,8 @@ func (a *ItemsAPIService) PostV2ListGoodsFilterExecute(r ApiPostV2ListGoodsFilte
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -9682,8 +9690,8 @@ func (a *ItemsAPIService) PostV2ListGoodsFilterExecute(r ApiPostV2ListGoodsFilte
 }
 
 type ApiPostV2TagRequest struct {
-	ctx              context.Context
-	ApiService       ItemsAPI
+	ctx context.Context
+	ApiService ItemsAPI
 	postV2TagRequest *PostV2TagRequest
 }
 
@@ -9717,25 +9725,24 @@ PostV2Tag Создание ярлыка
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-tag
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV2TagRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2TagRequest
 */
 func (a *ItemsAPIService) PostV2Tag(ctx context.Context) ApiPostV2TagRequest {
 	return ApiPostV2TagRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ResponseContentError
+//  @return ResponseContentError
 func (a *ItemsAPIService) PostV2TagExecute(r ApiPostV2TagRequest) (*ResponseContentError, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ResponseContentError
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ResponseContentError
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.PostV2Tag")
@@ -9800,8 +9807,8 @@ func (a *ItemsAPIService) PostV2TagExecute(r ApiPostV2TagRequest) (*ResponseCont
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -9811,8 +9818,8 @@ func (a *ItemsAPIService) PostV2TagExecute(r ApiPostV2TagRequest) (*ResponseCont
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -9822,8 +9829,8 @@ func (a *ItemsAPIService) PostV2TagExecute(r ApiPostV2TagRequest) (*ResponseCont
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -9833,8 +9840,8 @@ func (a *ItemsAPIService) PostV2TagExecute(r ApiPostV2TagRequest) (*ResponseCont
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -9844,8 +9851,8 @@ func (a *ItemsAPIService) PostV2TagExecute(r ApiPostV2TagRequest) (*ResponseCont
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -9863,8 +9870,8 @@ func (a *ItemsAPIService) PostV2TagExecute(r ApiPostV2TagRequest) (*ResponseCont
 }
 
 type ApiPostV2TagNomenclatureLinkRequest struct {
-	ctx                              context.Context
-	ApiService                       ItemsAPI
+	ctx context.Context
+	ApiService ItemsAPI
 	postV2TagNomenclatureLinkRequest *PostV2TagNomenclatureLinkRequest
 }
 
@@ -9897,25 +9904,24 @@ PostV2TagNomenclatureLink Управление ярлыками в карточ�
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-tag-nomenclature-link
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV2TagNomenclatureLinkRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2TagNomenclatureLinkRequest
 */
 func (a *ItemsAPIService) PostV2TagNomenclatureLink(ctx context.Context) ApiPostV2TagNomenclatureLinkRequest {
 	return ApiPostV2TagNomenclatureLinkRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ResponseContentError
+//  @return ResponseContentError
 func (a *ItemsAPIService) PostV2TagNomenclatureLinkExecute(r ApiPostV2TagNomenclatureLinkRequest) (*ResponseContentError, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ResponseContentError
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ResponseContentError
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.PostV2TagNomenclatureLink")
@@ -9980,8 +9986,8 @@ func (a *ItemsAPIService) PostV2TagNomenclatureLinkExecute(r ApiPostV2TagNomencl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -9991,8 +9997,8 @@ func (a *ItemsAPIService) PostV2TagNomenclatureLinkExecute(r ApiPostV2TagNomencl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -10002,8 +10008,8 @@ func (a *ItemsAPIService) PostV2TagNomenclatureLinkExecute(r ApiPostV2TagNomencl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -10013,8 +10019,8 @@ func (a *ItemsAPIService) PostV2TagNomenclatureLinkExecute(r ApiPostV2TagNomencl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -10024,8 +10030,8 @@ func (a *ItemsAPIService) PostV2TagNomenclatureLinkExecute(r ApiPostV2TagNomencl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -10043,8 +10049,8 @@ func (a *ItemsAPIService) PostV2TagNomenclatureLinkExecute(r ApiPostV2TagNomencl
 }
 
 type ApiPostV2UploadTaskRequest struct {
-	ctx                     context.Context
-	ApiService              ItemsAPI
+	ctx context.Context
+	ApiService ItemsAPI
 	postV2UploadTaskRequest *PostV2UploadTaskRequest
 }
 
@@ -10080,25 +10086,24 @@ PostV2UploadTask Установить цены и скидки
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-upload-task
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV2UploadTaskRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2UploadTaskRequest
 */
 func (a *ItemsAPIService) PostV2UploadTask(ctx context.Context) ApiPostV2UploadTaskRequest {
 	return ApiPostV2UploadTaskRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TaskCreated
+//  @return TaskCreated
 func (a *ItemsAPIService) PostV2UploadTaskExecute(r ApiPostV2UploadTaskRequest) (*TaskCreated, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TaskCreated
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TaskCreated
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.PostV2UploadTask")
@@ -10163,8 +10168,8 @@ func (a *ItemsAPIService) PostV2UploadTaskExecute(r ApiPostV2UploadTaskRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -10174,8 +10179,8 @@ func (a *ItemsAPIService) PostV2UploadTaskExecute(r ApiPostV2UploadTaskRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -10185,8 +10190,8 @@ func (a *ItemsAPIService) PostV2UploadTaskExecute(r ApiPostV2UploadTaskRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -10196,8 +10201,8 @@ func (a *ItemsAPIService) PostV2UploadTaskExecute(r ApiPostV2UploadTaskRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -10207,8 +10212,8 @@ func (a *ItemsAPIService) PostV2UploadTaskExecute(r ApiPostV2UploadTaskRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -10218,8 +10223,8 @@ func (a *ItemsAPIService) PostV2UploadTaskExecute(r ApiPostV2UploadTaskRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -10229,8 +10234,8 @@ func (a *ItemsAPIService) PostV2UploadTaskExecute(r ApiPostV2UploadTaskRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -10248,8 +10253,8 @@ func (a *ItemsAPIService) PostV2UploadTaskExecute(r ApiPostV2UploadTaskRequest) 
 }
 
 type ApiPostV2UploadTaskClubDiscountRequest struct {
-	ctx                                 context.Context
-	ApiService                          ItemsAPI
+	ctx context.Context
+	ApiService ItemsAPI
 	postV2UploadTaskClubDiscountRequest *PostV2UploadTaskClubDiscountRequest
 }
 
@@ -10283,25 +10288,24 @@ PostV2UploadTaskClubDiscount Установить скидки WB Клуба
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-upload-task-club-discount
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV2UploadTaskClubDiscountRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2UploadTaskClubDiscountRequest
 */
 func (a *ItemsAPIService) PostV2UploadTaskClubDiscount(ctx context.Context) ApiPostV2UploadTaskClubDiscountRequest {
 	return ApiPostV2UploadTaskClubDiscountRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TaskCreated
+//  @return TaskCreated
 func (a *ItemsAPIService) PostV2UploadTaskClubDiscountExecute(r ApiPostV2UploadTaskClubDiscountRequest) (*TaskCreated, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TaskCreated
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TaskCreated
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.PostV2UploadTaskClubDiscount")
@@ -10366,8 +10370,8 @@ func (a *ItemsAPIService) PostV2UploadTaskClubDiscountExecute(r ApiPostV2UploadT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -10377,8 +10381,8 @@ func (a *ItemsAPIService) PostV2UploadTaskClubDiscountExecute(r ApiPostV2UploadT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -10388,8 +10392,8 @@ func (a *ItemsAPIService) PostV2UploadTaskClubDiscountExecute(r ApiPostV2UploadT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -10399,8 +10403,8 @@ func (a *ItemsAPIService) PostV2UploadTaskClubDiscountExecute(r ApiPostV2UploadT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -10410,8 +10414,8 @@ func (a *ItemsAPIService) PostV2UploadTaskClubDiscountExecute(r ApiPostV2UploadT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -10421,8 +10425,8 @@ func (a *ItemsAPIService) PostV2UploadTaskClubDiscountExecute(r ApiPostV2UploadT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -10432,8 +10436,8 @@ func (a *ItemsAPIService) PostV2UploadTaskClubDiscountExecute(r ApiPostV2UploadT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -10451,8 +10455,8 @@ func (a *ItemsAPIService) PostV2UploadTaskClubDiscountExecute(r ApiPostV2UploadT
 }
 
 type ApiPostV2UploadTaskSizeRequest struct {
-	ctx                         context.Context
-	ApiService                  ItemsAPI
+	ctx context.Context
+	ApiService ItemsAPI
 	postV2UploadTaskSizeRequest *PostV2UploadTaskSizeRequest
 }
 
@@ -10488,25 +10492,24 @@ PostV2UploadTaskSize Установить цены для размеров
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-upload-task-size
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV2UploadTaskSizeRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2UploadTaskSizeRequest
 */
 func (a *ItemsAPIService) PostV2UploadTaskSize(ctx context.Context) ApiPostV2UploadTaskSizeRequest {
 	return ApiPostV2UploadTaskSizeRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TaskCreated
+//  @return TaskCreated
 func (a *ItemsAPIService) PostV2UploadTaskSizeExecute(r ApiPostV2UploadTaskSizeRequest) (*TaskCreated, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TaskCreated
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TaskCreated
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.PostV2UploadTaskSize")
@@ -10571,8 +10574,8 @@ func (a *ItemsAPIService) PostV2UploadTaskSizeExecute(r ApiPostV2UploadTaskSizeR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -10582,8 +10585,8 @@ func (a *ItemsAPIService) PostV2UploadTaskSizeExecute(r ApiPostV2UploadTaskSizeR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -10593,8 +10596,8 @@ func (a *ItemsAPIService) PostV2UploadTaskSizeExecute(r ApiPostV2UploadTaskSizeR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -10604,8 +10607,8 @@ func (a *ItemsAPIService) PostV2UploadTaskSizeExecute(r ApiPostV2UploadTaskSizeR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -10615,8 +10618,8 @@ func (a *ItemsAPIService) PostV2UploadTaskSizeExecute(r ApiPostV2UploadTaskSizeR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -10626,8 +10629,8 @@ func (a *ItemsAPIService) PostV2UploadTaskSizeExecute(r ApiPostV2UploadTaskSizeR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -10637,8 +10640,8 @@ func (a *ItemsAPIService) PostV2UploadTaskSizeExecute(r ApiPostV2UploadTaskSizeR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -10656,11 +10659,11 @@ func (a *ItemsAPIService) PostV2UploadTaskSizeExecute(r ApiPostV2UploadTaskSizeR
 }
 
 type ApiPostV3MediaFileRequest struct {
-	ctx          context.Context
-	ApiService   ItemsAPI
-	xNmId        *string
+	ctx context.Context
+	ApiService ItemsAPI
+	xNmId *string
 	xPhotoNumber *int64
-	uploadfile   *os.File
+	uploadfile *os.File
 }
 
 // Артикул WB
@@ -10669,7 +10672,7 @@ func (r ApiPostV3MediaFileRequest) XNmId(xNmId string) ApiPostV3MediaFileRequest
 	return r
 }
 
-// Номер медиафайла на загрузку, начинается с &#x60;1&#x60;. При загрузке видео всегда указывайте &#x60;1&#x60;.  Чтобы добавить изображение к уже загруженным, номер медиафайла должен быть больше количества уже загруженных медиафайлов.
+// Номер медиафайла на загрузку, начинается с &#x60;1&#x60;. При загрузке видео всегда указывайте &#x60;1&#x60;.  Чтобы добавить изображение к уже загруженным, номер медиафайла должен быть больше количества уже загруженных медиафайлов. 
 func (r ApiPostV3MediaFileRequest) XPhotoNumber(xPhotoNumber int64) ApiPostV3MediaFileRequest {
 	r.xPhotoNumber = &xPhotoNumber
 	return r
@@ -10713,25 +10716,24 @@ PostV3MediaFile Загрузить медиафайл
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v3-media-file
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3MediaFileRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3MediaFileRequest
 */
 func (a *ItemsAPIService) PostV3MediaFile(ctx context.Context) ApiPostV3MediaFileRequest {
 	return ApiPostV3MediaFileRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PostV3MediaFileResponse200
+//  @return PostV3MediaFileResponse200
 func (a *ItemsAPIService) PostV3MediaFileExecute(r ApiPostV3MediaFileRequest) (*PostV3MediaFileResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PostV3MediaFileResponse200
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV3MediaFileResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.PostV3MediaFile")
@@ -10771,8 +10773,8 @@ func (a *ItemsAPIService) PostV3MediaFileExecute(r ApiPostV3MediaFileRequest) (*
 	parameterAddToHeaderOrQuery(localVarHeaderParams, "X-Nm-Id", r.xNmId, "simple", "")
 	parameterAddToHeaderOrQuery(localVarHeaderParams, "X-Photo-Number", r.xPhotoNumber, "simple", "")
 	var uploadfileLocalVarFormFileName string
-	var uploadfileLocalVarFileName string
-	var uploadfileLocalVarFileBytes []byte
+	var uploadfileLocalVarFileName     string
+	var uploadfileLocalVarFileBytes    []byte
 
 	uploadfileLocalVarFormFileName = "uploadfile"
 	uploadfileLocalVarFile := r.uploadfile
@@ -10814,8 +10816,8 @@ func (a *ItemsAPIService) PostV3MediaFileExecute(r ApiPostV3MediaFileRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -10825,8 +10827,8 @@ func (a *ItemsAPIService) PostV3MediaFileExecute(r ApiPostV3MediaFileRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -10836,8 +10838,8 @@ func (a *ItemsAPIService) PostV3MediaFileExecute(r ApiPostV3MediaFileRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -10847,8 +10849,8 @@ func (a *ItemsAPIService) PostV3MediaFileExecute(r ApiPostV3MediaFileRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -10858,8 +10860,8 @@ func (a *ItemsAPIService) PostV3MediaFileExecute(r ApiPostV3MediaFileRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -10877,8 +10879,8 @@ func (a *ItemsAPIService) PostV3MediaFileExecute(r ApiPostV3MediaFileRequest) (*
 }
 
 type ApiPostV3MediaSaveRequest struct {
-	ctx                    context.Context
-	ApiService             ItemsAPI
+	ctx context.Context
+	ApiService ItemsAPI
 	postV3MediaSaveRequest *PostV3MediaSaveRequest
 }
 
@@ -10928,25 +10930,24 @@ PostV3MediaSave Загрузить медиафайлы по ссылкам
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v3-media-save
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3MediaSaveRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3MediaSaveRequest
 */
 func (a *ItemsAPIService) PostV3MediaSave(ctx context.Context) ApiPostV3MediaSaveRequest {
 	return ApiPostV3MediaSaveRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PostV3MediaSaveResponse200
+//  @return PostV3MediaSaveResponse200
 func (a *ItemsAPIService) PostV3MediaSaveExecute(r ApiPostV3MediaSaveRequest) (*PostV3MediaSaveResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PostV3MediaSaveResponse200
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV3MediaSaveResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.PostV3MediaSave")
@@ -11011,8 +11012,8 @@ func (a *ItemsAPIService) PostV3MediaSaveExecute(r ApiPostV3MediaSaveRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -11022,8 +11023,8 @@ func (a *ItemsAPIService) PostV3MediaSaveExecute(r ApiPostV3MediaSaveRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -11033,8 +11034,8 @@ func (a *ItemsAPIService) PostV3MediaSaveExecute(r ApiPostV3MediaSaveRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -11044,8 +11045,8 @@ func (a *ItemsAPIService) PostV3MediaSaveExecute(r ApiPostV3MediaSaveRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -11055,8 +11056,8 @@ func (a *ItemsAPIService) PostV3MediaSaveExecute(r ApiPostV3MediaSaveRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -11066,8 +11067,8 @@ func (a *ItemsAPIService) PostV3MediaSaveExecute(r ApiPostV3MediaSaveRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -11077,8 +11078,8 @@ func (a *ItemsAPIService) PostV3MediaSaveExecute(r ApiPostV3MediaSaveRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -11096,9 +11097,9 @@ func (a *ItemsAPIService) PostV3MediaSaveExecute(r ApiPostV3MediaSaveRequest) (*
 }
 
 type ApiPostV3StocksWarehouseIdRequest struct {
-	ctx                            context.Context
-	ApiService                     ItemsAPI
-	warehouseId                    int64
+	ctx context.Context
+	ApiService ItemsAPI
+	warehouseId int64
 	postV3StocksWarehouseIdRequest *PostV3StocksWarehouseIdRequest
 }
 
@@ -11128,27 +11129,26 @@ PostV3StocksWarehouseId Получить остатки товаров
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v3-stocks-warehouseid
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param warehouseId ID склада продавца
-	@return ApiPostV3StocksWarehouseIdRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param warehouseId ID склада продавца
+ @return ApiPostV3StocksWarehouseIdRequest
 */
 func (a *ItemsAPIService) PostV3StocksWarehouseId(ctx context.Context, warehouseId int64) ApiPostV3StocksWarehouseIdRequest {
 	return ApiPostV3StocksWarehouseIdRequest{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		warehouseId: warehouseId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PostV3StocksWarehouseIdResponse200
+//  @return PostV3StocksWarehouseIdResponse200
 func (a *ItemsAPIService) PostV3StocksWarehouseIdExecute(r ApiPostV3StocksWarehouseIdRequest) (*PostV3StocksWarehouseIdResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PostV3StocksWarehouseIdResponse200
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV3StocksWarehouseIdResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.PostV3StocksWarehouseId")
@@ -11214,8 +11214,8 @@ func (a *ItemsAPIService) PostV3StocksWarehouseIdExecute(r ApiPostV3StocksWareho
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -11225,8 +11225,8 @@ func (a *ItemsAPIService) PostV3StocksWarehouseIdExecute(r ApiPostV3StocksWareho
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -11236,8 +11236,8 @@ func (a *ItemsAPIService) PostV3StocksWarehouseIdExecute(r ApiPostV3StocksWareho
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -11247,8 +11247,8 @@ func (a *ItemsAPIService) PostV3StocksWarehouseIdExecute(r ApiPostV3StocksWareho
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -11258,8 +11258,8 @@ func (a *ItemsAPIService) PostV3StocksWarehouseIdExecute(r ApiPostV3StocksWareho
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -11269,8 +11269,8 @@ func (a *ItemsAPIService) PostV3StocksWarehouseIdExecute(r ApiPostV3StocksWareho
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -11288,8 +11288,8 @@ func (a *ItemsAPIService) PostV3StocksWarehouseIdExecute(r ApiPostV3StocksWareho
 }
 
 type ApiPostV3WarehousesRequest struct {
-	ctx                     context.Context
-	ApiService              ItemsAPI
+	ctx context.Context
+	ApiService ItemsAPI
 	postV3WarehousesRequest *PostV3WarehousesRequest
 }
 
@@ -11319,25 +11319,24 @@ PostV3Warehouses Создать склад продавца
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v3-warehouses
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3WarehousesRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3WarehousesRequest
 */
 func (a *ItemsAPIService) PostV3Warehouses(ctx context.Context) ApiPostV3WarehousesRequest {
 	return ApiPostV3WarehousesRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PostV3WarehousesResponse201
+//  @return PostV3WarehousesResponse201
 func (a *ItemsAPIService) PostV3WarehousesExecute(r ApiPostV3WarehousesRequest) (*PostV3WarehousesResponse201, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PostV3WarehousesResponse201
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV3WarehousesResponse201
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.PostV3Warehouses")
@@ -11402,8 +11401,8 @@ func (a *ItemsAPIService) PostV3WarehousesExecute(r ApiPostV3WarehousesRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -11413,8 +11412,8 @@ func (a *ItemsAPIService) PostV3WarehousesExecute(r ApiPostV3WarehousesRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -11424,8 +11423,8 @@ func (a *ItemsAPIService) PostV3WarehousesExecute(r ApiPostV3WarehousesRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -11435,8 +11434,8 @@ func (a *ItemsAPIService) PostV3WarehousesExecute(r ApiPostV3WarehousesRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -11446,8 +11445,8 @@ func (a *ItemsAPIService) PostV3WarehousesExecute(r ApiPostV3WarehousesRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -11457,8 +11456,8 @@ func (a *ItemsAPIService) PostV3WarehousesExecute(r ApiPostV3WarehousesRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -11468,8 +11467,8 @@ func (a *ItemsAPIService) PostV3WarehousesExecute(r ApiPostV3WarehousesRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -11487,9 +11486,9 @@ func (a *ItemsAPIService) PostV3WarehousesExecute(r ApiPostV3WarehousesRequest) 
 }
 
 type ApiPutV3DbwWarehousesWarehouseIdContactsRequest struct {
-	ctx                     context.Context
-	ApiService              ItemsAPI
-	warehouseId             int64
+	ctx context.Context
+	ApiService ItemsAPI
+	warehouseId int64
 	storeContactRequestBody *StoreContactRequestBody
 }
 
@@ -11526,14 +11525,14 @@ PutV3DbwWarehousesWarehouseIdContacts Обновить список контак
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/put-api-v3-dbw-warehouses-warehouseid-contacts
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param warehouseId ID склада продавца
-	@return ApiPutV3DbwWarehousesWarehouseIdContactsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param warehouseId ID склада продавца
+ @return ApiPutV3DbwWarehousesWarehouseIdContactsRequest
 */
 func (a *ItemsAPIService) PutV3DbwWarehousesWarehouseIdContacts(ctx context.Context, warehouseId int64) ApiPutV3DbwWarehousesWarehouseIdContactsRequest {
 	return ApiPutV3DbwWarehousesWarehouseIdContactsRequest{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		warehouseId: warehouseId,
 	}
 }
@@ -11541,9 +11540,9 @@ func (a *ItemsAPIService) PutV3DbwWarehousesWarehouseIdContacts(ctx context.Cont
 // Execute executes the request
 func (a *ItemsAPIService) PutV3DbwWarehousesWarehouseIdContactsExecute(r ApiPutV3DbwWarehousesWarehouseIdContactsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.PutV3DbwWarehousesWarehouseIdContacts")
@@ -11609,8 +11608,8 @@ func (a *ItemsAPIService) PutV3DbwWarehousesWarehouseIdContactsExecute(r ApiPutV
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -11620,8 +11619,8 @@ func (a *ItemsAPIService) PutV3DbwWarehousesWarehouseIdContactsExecute(r ApiPutV
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -11631,8 +11630,8 @@ func (a *ItemsAPIService) PutV3DbwWarehousesWarehouseIdContactsExecute(r ApiPutV
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -11642,8 +11641,8 @@ func (a *ItemsAPIService) PutV3DbwWarehousesWarehouseIdContactsExecute(r ApiPutV
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -11653,8 +11652,8 @@ func (a *ItemsAPIService) PutV3DbwWarehousesWarehouseIdContactsExecute(r ApiPutV
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -11663,9 +11662,9 @@ func (a *ItemsAPIService) PutV3DbwWarehousesWarehouseIdContactsExecute(r ApiPutV
 }
 
 type ApiPutV3StocksWarehouseIdRequest struct {
-	ctx                           context.Context
-	ApiService                    ItemsAPI
-	warehouseId                   int64
+	ctx context.Context
+	ApiService ItemsAPI
+	warehouseId int64
 	putV3StocksWarehouseIdRequest *PutV3StocksWarehouseIdRequest
 }
 
@@ -11697,14 +11696,14 @@ PutV3StocksWarehouseId Обновить остатки товаров
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/put-api-v3-stocks-warehouseid
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param warehouseId ID склада продавца
-	@return ApiPutV3StocksWarehouseIdRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param warehouseId ID склада продавца
+ @return ApiPutV3StocksWarehouseIdRequest
 */
 func (a *ItemsAPIService) PutV3StocksWarehouseId(ctx context.Context, warehouseId int64) ApiPutV3StocksWarehouseIdRequest {
 	return ApiPutV3StocksWarehouseIdRequest{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		warehouseId: warehouseId,
 	}
 }
@@ -11712,9 +11711,9 @@ func (a *ItemsAPIService) PutV3StocksWarehouseId(ctx context.Context, warehouseI
 // Execute executes the request
 func (a *ItemsAPIService) PutV3StocksWarehouseIdExecute(r ApiPutV3StocksWarehouseIdRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.PutV3StocksWarehouseId")
@@ -11777,8 +11776,8 @@ func (a *ItemsAPIService) PutV3StocksWarehouseIdExecute(r ApiPutV3StocksWarehous
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -11788,8 +11787,8 @@ func (a *ItemsAPIService) PutV3StocksWarehouseIdExecute(r ApiPutV3StocksWarehous
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -11799,8 +11798,8 @@ func (a *ItemsAPIService) PutV3StocksWarehouseIdExecute(r ApiPutV3StocksWarehous
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -11810,8 +11809,8 @@ func (a *ItemsAPIService) PutV3StocksWarehouseIdExecute(r ApiPutV3StocksWarehous
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -11821,8 +11820,8 @@ func (a *ItemsAPIService) PutV3StocksWarehouseIdExecute(r ApiPutV3StocksWarehous
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -11832,8 +11831,8 @@ func (a *ItemsAPIService) PutV3StocksWarehouseIdExecute(r ApiPutV3StocksWarehous
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -11843,8 +11842,8 @@ func (a *ItemsAPIService) PutV3StocksWarehouseIdExecute(r ApiPutV3StocksWarehous
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -11854,8 +11853,8 @@ func (a *ItemsAPIService) PutV3StocksWarehouseIdExecute(r ApiPutV3StocksWarehous
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -11864,9 +11863,9 @@ func (a *ItemsAPIService) PutV3StocksWarehouseIdExecute(r ApiPutV3StocksWarehous
 }
 
 type ApiPutV3WarehousesWarehouseIdRequest struct {
-	ctx                               context.Context
-	ApiService                        ItemsAPI
-	warehouseId                       int64
+	ctx context.Context
+	ApiService ItemsAPI
+	warehouseId int64
 	putV3WarehousesWarehouseIdRequest *PutV3WarehousesWarehouseIdRequest
 }
 
@@ -11896,14 +11895,14 @@ PutV3WarehousesWarehouseId Обновить склад продавца
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/put-api-v3-warehouses-warehouseid
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param warehouseId ID склада продавца
-	@return ApiPutV3WarehousesWarehouseIdRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param warehouseId ID склада продавца
+ @return ApiPutV3WarehousesWarehouseIdRequest
 */
 func (a *ItemsAPIService) PutV3WarehousesWarehouseId(ctx context.Context, warehouseId int64) ApiPutV3WarehousesWarehouseIdRequest {
 	return ApiPutV3WarehousesWarehouseIdRequest{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		warehouseId: warehouseId,
 	}
 }
@@ -11911,9 +11910,9 @@ func (a *ItemsAPIService) PutV3WarehousesWarehouseId(ctx context.Context, wareho
 // Execute executes the request
 func (a *ItemsAPIService) PutV3WarehousesWarehouseIdExecute(r ApiPutV3WarehousesWarehouseIdRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemsAPIService.PutV3WarehousesWarehouseId")
@@ -11979,8 +11978,8 @@ func (a *ItemsAPIService) PutV3WarehousesWarehouseIdExecute(r ApiPutV3Warehouses
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -11990,8 +11989,8 @@ func (a *ItemsAPIService) PutV3WarehousesWarehouseIdExecute(r ApiPutV3Warehouses
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -12001,8 +12000,8 @@ func (a *ItemsAPIService) PutV3WarehousesWarehouseIdExecute(r ApiPutV3Warehouses
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -12012,8 +12011,8 @@ func (a *ItemsAPIService) PutV3WarehousesWarehouseIdExecute(r ApiPutV3Warehouses
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -12023,8 +12022,8 @@ func (a *ItemsAPIService) PutV3WarehousesWarehouseIdExecute(r ApiPutV3Warehouses
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -12034,8 +12033,8 @@ func (a *ItemsAPIService) PutV3WarehousesWarehouseIdExecute(r ApiPutV3Warehouses
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -12045,8 +12044,8 @@ func (a *ItemsAPIService) PutV3WarehousesWarehouseIdExecute(r ApiPutV3Warehouses
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
