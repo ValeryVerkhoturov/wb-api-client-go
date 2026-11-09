@@ -222,6 +222,7 @@ func (o *GetRecomResDataInner) HasUpdatedAt() bool {
 func (o *GetRecomResDataInner) SetUpdatedAt(v string) {
 	o.UpdatedAt.Set(&v)
 }
+
 // SetUpdatedAtNil sets the value for UpdatedAt to be an explicit nil
 func (o *GetRecomResDataInner) SetUpdatedAtNil() {
 	o.UpdatedAt.Set(nil)
@@ -457,7 +458,7 @@ func (o *GetRecomResDataInner) SetRecomNms(v []int64) {
 }
 
 func (o GetRecomResDataInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -540,5 +541,3 @@ func (v *NullableGetRecomResDataInner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

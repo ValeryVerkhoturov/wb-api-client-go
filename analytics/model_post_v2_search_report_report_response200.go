@@ -72,7 +72,7 @@ func (o *PostV2SearchReportReportResponse200) SetData(v MainResponse) {
 }
 
 func (o PostV2SearchReportReportResponse200) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -122,5 +122,3 @@ func (v *NullablePostV2SearchReportReportResponse200) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

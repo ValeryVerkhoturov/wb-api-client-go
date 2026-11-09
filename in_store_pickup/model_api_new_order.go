@@ -21,9 +21,9 @@ var _ MappedNullable = &ApiNewOrder{}
 type ApiNewOrder struct {
 	// Планируемая дата доставки
 	Ddate *string `json:"ddate,omitempty"`
-	// Цена продавца в валюте продажи с учётом скидки продавца, без учёта скидки WB Клуба, умноженная на 100. Предоставляется в информационных целях 
+	// Цена продавца в валюте продажи с учётом скидки продавца, без учёта скидки WB Клуба, умноженная на 100. Предоставляется в информационных целях
 	SalePrice NullableInt64 `json:"salePrice,omitempty"`
-	// Список идентификаторов маркировки, доступных для сборочного задания 
+	// Список идентификаторов маркировки, доступных для сборочного задания
 	RequiredMeta []string `json:"requiredMeta,omitempty"`
 	// Артикул продавца
 	Article *string `json:"article,omitempty"`
@@ -31,41 +31,41 @@ type ApiNewOrder struct {
 	Rid *string `json:"rid,omitempty"`
 	// Дата и время создания сборочного задания
 	CreatedAt *string `json:"createdAt,omitempty"`
-	// Адрес магазина (склада продавца), на который поступило сборочное задание 
+	// Адрес магазина (склада продавца), на который поступило сборочное задание
 	WarehouseAddress *string `json:"warehouseAddress,omitempty"`
-	// Уникальный ID заказа покупателя 
+	// Уникальный ID заказа покупателя
 	OrderCode *string `json:"orderCode,omitempty"`
-	// Режим оплаты:   - `prepaid` — предоплатный   - `postpaid` — постоплатный   - `unknown` — неизвестный 
+	// Режим оплаты:   - `prepaid` — предоплатный   - `postpaid` — постоплатный   - `unknown` — неизвестный
 	PayMode *string `json:"payMode,omitempty"`
 	// Массив баркодов товара
 	Skus []string `json:"skus,omitempty"`
 	// ID сборочного задания
 	Id *int64 `json:"id,omitempty"`
-	// ID склада продавца, на который поступило сборочное задание 
+	// ID склада продавца, на который поступило сборочное задание
 	WarehouseId *int64 `json:"warehouseId,omitempty"`
 	// Артикул WB
 	NmId *int64 `json:"nmId,omitempty"`
 	// ID размера товара в системе WB
 	ChrtId *int64 `json:"chrtId,omitempty"`
-	// Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях 
+	// Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
 	Price *int64 `json:"price,omitempty"`
-	// Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100.  Код валюты продажи указан в поле `currencyCode`.  Предоставляется в информационных целях.  Используйте значение поля `finalPrice`, только если в ответе метода [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа указанного метода
+	// Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100.  Код валюты продажи указан в поле `currencyCode`.  Предоставляется в информационных целях.  Используйте значение поля `finalPrice`, только если в ответе метода получения [цены продавца и суммы к оплате](./in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа указанного метода
 	FinalPrice *int64 `json:"finalPrice,omitempty"`
 	// Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
 	ConvertedPrice *int64 `json:"convertedPrice,omitempty"`
-	// Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100.  Предоставляется в информационных целях.  Используйте значение поля `convertedFinalPrice`, только если в ответе метода [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `convertedOriginalFinalPrice` из ответа того же метода
+	// Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100.  Предоставляется в информационных целях.  Используйте значение поля `convertedFinalPrice`, только если в ответе метода получения [цены продавца и суммы к оплате](./in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `convertedOriginalFinalPrice` из ответа того же метода
 	ConvertedFinalPrice *int64 `json:"convertedFinalPrice,omitempty"`
 	// Код валюты продажи
 	CurrencyCode *int32 `json:"currencyCode,omitempty"`
 	// Код валюты страны продавца
 	ConvertedCurrencyCode *int32 `json:"convertedCurrencyCode,omitempty"`
-	// Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) 
+	// Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+)
 	CargoType *int64 `json:"cargoType,omitempty"`
-	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену 
+	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
 	IsZeroOrder *bool `json:"isZeroOrder,omitempty"`
-	// Указал ли покупатель, что ему требуется услуга шиномонтажа:   - `false` — нет, услуга шиномонтажа не требуется   - `true` — да, услуга шиномонтажа требуется 
-	TireService *bool `json:"tireService,omitempty"`
-	Options *ApiNewOrderOptions `json:"options,omitempty"`
+	// Указал ли покупатель, что ему требуется услуга шиномонтажа:   - `false` — нет, услуга шиномонтажа не требуется   - `true` — да, услуга шиномонтажа требуется
+	TireService *bool               `json:"tireService,omitempty"`
+	Options     *ApiNewOrderOptions `json:"options,omitempty"`
 }
 
 // NewApiNewOrder instantiates a new ApiNewOrder object
@@ -149,6 +149,7 @@ func (o *ApiNewOrder) HasSalePrice() bool {
 func (o *ApiNewOrder) SetSalePrice(v int64) {
 	o.SalePrice.Set(&v)
 }
+
 // SetSalePriceNil sets the value for SalePrice to be an explicit nil
 func (o *ApiNewOrder) SetSalePriceNil() {
 	o.SalePrice.Set(nil)
@@ -865,7 +866,7 @@ func (o *ApiNewOrder) SetOptions(v ApiNewOrderOptions) {
 }
 
 func (o ApiNewOrder) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -984,5 +985,3 @@ func (v *NullableApiNewOrder) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

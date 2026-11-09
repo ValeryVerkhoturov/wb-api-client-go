@@ -72,7 +72,7 @@ func (o *PatchV3FbsSettingsAutoreturnsItemsResponse200) SetResults(v []PatchV3Fb
 }
 
 func (o PatchV3FbsSettingsAutoreturnsItemsResponse200) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -122,5 +122,3 @@ func (v *NullablePatchV3FbsSettingsAutoreturnsItemsResponse200) UnmarshalJSON(sr
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

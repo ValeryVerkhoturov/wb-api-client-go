@@ -20,8 +20,11 @@ var _ MappedNullable = &PostV3MediaFileRequest{}
 
 // PostV3MediaFileRequest struct for PostV3MediaFileRequest
 type PostV3MediaFileRequest struct {
-	Uploadfile **os.File `json:"uploadfile,omitempty"`
+	Uploadfile           **os.File `json:"uploadfile,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _PostV3MediaFileRequest PostV3MediaFileRequest
 
 // NewPostV3MediaFileRequest instantiates a new PostV3MediaFileRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -73,7 +76,7 @@ func (o *PostV3MediaFileRequest) SetUploadfile(v *os.File) {
 }
 
 func (o PostV3MediaFileRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -85,7 +88,33 @@ func (o PostV3MediaFileRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Uploadfile) {
 		toSerialize["uploadfile"] = o.Uploadfile
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *PostV3MediaFileRequest) UnmarshalJSON(data []byte) (err error) {
+	varPostV3MediaFileRequest := _PostV3MediaFileRequest{}
+
+	err = json.Unmarshal(data, &varPostV3MediaFileRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = PostV3MediaFileRequest(varPostV3MediaFileRequest)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "uploadfile")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullablePostV3MediaFileRequest struct {
@@ -123,5 +152,3 @@ func (v *NullablePostV3MediaFileRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

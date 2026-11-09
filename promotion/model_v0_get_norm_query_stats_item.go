@@ -22,7 +22,7 @@ type V0GetNormQueryStatsItem struct {
 	// ID кампании
 	AdvertId *int64 `json:"advert_id,omitempty"`
 	// Артикул WB
-	NmId *int64 `json:"nm_id,omitempty"`
+	NmId  *int64                        `json:"nm_id,omitempty"`
 	Stats []V0GetNormQueryStatsItemStat `json:"stats,omitempty"`
 }
 
@@ -140,7 +140,7 @@ func (o *V0GetNormQueryStatsItem) SetStats(v []V0GetNormQueryStatsItemStat) {
 }
 
 func (o V0GetNormQueryStatsItem) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -196,5 +196,3 @@ func (v *NullableV0GetNormQueryStatsItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

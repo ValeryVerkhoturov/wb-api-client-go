@@ -19,31 +19,31 @@ var _ MappedNullable = &V3ArchiveOrder{}
 
 // V3ArchiveOrder Архивное сборочное задание
 type V3ArchiveOrder struct {
-	// Тип товара:   - `mgt` — малогабаритный товар (МГТ)   - `sgt` — сверхгабаритный товар (СГТ)   - `kgtPlus` — крупногабаритный товар (КГТ+) 
+	// Тип товара:   - `mgt` — малогабаритный товар (МГТ)   - `sgt` — сверхгабаритный товар (СГТ)   - `kgtPlus` — крупногабаритный товар (КГТ+)
 	CargoType *string `json:"cargoType,omitempty"`
 	// Код цвета для колеруемых товаров
 	ColorCode NullableString `json:"colorCode,omitempty"`
 	// Дата создания заказа
-	CreatedAt *string `json:"createdAt,omitempty"`
+	CreatedAt   *string                           `json:"createdAt,omitempty"`
 	CrossBorder NullableV3ArchiveOrderCrossBorder `json:"crossBorder,omitempty"`
-	// Тип сборочного задания:   - `local` — внутренняя поставка   - `crossBorder` — трансграничная поставка 
+	// Тип сборочного задания:   - `local` — внутренняя поставка   - `crossBorder` — трансграничная поставка
 	CrossBorderType *string `json:"crossBorderType,omitempty"`
 	// ID сборочного задания
 	Id *int64 `json:"id,omitempty"`
-	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком 
+	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком
 	IsZeroOrder *bool `json:"isZeroOrder,omitempty"`
 	// Детали маркировки
 	MetaDetails []V3ArchiveOrderMetaDetailsInner `json:"metaDetails,omitempty"`
-	Options *V3ArchiveOrderOptions `json:"options,omitempty"`
+	Options     *V3ArchiveOrderOptions           `json:"options,omitempty"`
 	// ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый `orderUid`
-	OrderUid *string `json:"orderUid,omitempty"`
+	OrderUid  *string                  `json:"orderUid,omitempty"`
 	PriceInfo *V3ArchiveOrderPriceInfo `json:"priceInfo,omitempty"`
-	Product *V3ArchiveOrderProduct `json:"product,omitempty"`
+	Product   *V3ArchiveOrderProduct   `json:"product,omitempty"`
 	// Уникальный ID заказа. Примечание: `rid` — это `srid` в ответах методов: - [Заявки покупателей на возврат](./customer-communication#tag/buyersReturns/operation/getV1Claims) - [Лента заказов](./analytics#tag/orderFeed/operation/postV1OrderFeed) - [Заказы](./reports#tag/mainReports/operation/getV1SupplierOrders) - [Продажи](./reports#tag/mainReports/operation/getV1SupplierSales) - [Отчёт о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport) - [Детализации к отчётам реализации по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId) - [Детализации к отчётам реализации за период](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed) - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId) - [Детализации к отчётам об издержках на приём платежей за период](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)
 	Rid *string `json:"rid,omitempty"`
 	// Цена приёмки заказа в копейках
-	ScanPrice NullableInt64 `json:"scanPrice,omitempty"`
-	Status *V3ArchiveOrderStatus `json:"status,omitempty"`
+	ScanPrice NullableInt64         `json:"scanPrice,omitempty"`
+	Status    *V3ArchiveOrderStatus `json:"status,omitempty"`
 	// ID стикера
 	StickerId *int64 `json:"stickerId,omitempty"`
 	// ID поставки
@@ -133,6 +133,7 @@ func (o *V3ArchiveOrder) HasColorCode() bool {
 func (o *V3ArchiveOrder) SetColorCode(v string) {
 	o.ColorCode.Set(&v)
 }
+
 // SetColorCodeNil sets the value for ColorCode to be an explicit nil
 func (o *V3ArchiveOrder) SetColorCodeNil() {
 	o.ColorCode.Set(nil)
@@ -207,6 +208,7 @@ func (o *V3ArchiveOrder) HasCrossBorder() bool {
 func (o *V3ArchiveOrder) SetCrossBorder(v V3ArchiveOrderCrossBorder) {
 	o.CrossBorder.Set(&v)
 }
+
 // SetCrossBorderNil sets the value for CrossBorder to be an explicit nil
 func (o *V3ArchiveOrder) SetCrossBorderNil() {
 	o.CrossBorder.Set(nil)
@@ -537,6 +539,7 @@ func (o *V3ArchiveOrder) HasScanPrice() bool {
 func (o *V3ArchiveOrder) SetScanPrice(v int64) {
 	o.ScanPrice.Set(&v)
 }
+
 // SetScanPriceNil sets the value for ScanPrice to be an explicit nil
 func (o *V3ArchiveOrder) SetScanPriceNil() {
 	o.ScanPrice.Set(nil)
@@ -643,6 +646,7 @@ func (o *V3ArchiveOrder) HasSupplyId() bool {
 func (o *V3ArchiveOrder) SetSupplyId(v string) {
 	o.SupplyId.Set(&v)
 }
+
 // SetSupplyIdNil sets the value for SupplyId to be an explicit nil
 func (o *V3ArchiveOrder) SetSupplyIdNil() {
 	o.SupplyId.Set(nil)
@@ -686,7 +690,7 @@ func (o *V3ArchiveOrder) SetWarehouseId(v int64) {
 }
 
 func (o V3ArchiveOrder) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -787,5 +791,3 @@ func (v *NullableV3ArchiveOrder) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

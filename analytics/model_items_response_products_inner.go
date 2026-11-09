@@ -19,7 +19,7 @@ var _ MappedNullable = &ItemsResponseProductsInner{}
 
 // ItemsResponseProductsInner struct for ItemsResponseProductsInner
 type ItemsResponseProductsInner struct {
-	Product *ItemsResponseProductsInnerProduct `json:"product,omitempty"`
+	Product   *ItemsResponseProductsInnerProduct   `json:"product,omitempty"`
 	Statistic *ItemsResponseProductsInnerStatistic `json:"statistic,omitempty"`
 }
 
@@ -105,7 +105,7 @@ func (o *ItemsResponseProductsInner) SetStatistic(v ItemsResponseProductsInnerSt
 }
 
 func (o ItemsResponseProductsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,5 +158,3 @@ func (v *NullableItemsResponseProductsInner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

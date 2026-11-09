@@ -20,8 +20,8 @@ var _ MappedNullable = &SupplySpotDataResponseSuppliesInner{}
 // SupplySpotDataResponseSuppliesInner struct for SupplySpotDataResponseSuppliesInner
 type SupplySpotDataResponseSuppliesInner struct {
 	// ID поставки
-	Id *string `json:"id,omitempty"`
-	Spot *SupplySpotDataResponseSuppliesInnerSpot `json:"spot,omitempty"`
+	Id    *string                                   `json:"id,omitempty"`
+	Spot  *SupplySpotDataResponseSuppliesInnerSpot  `json:"spot,omitempty"`
 	Error *SupplySpotDataResponseSuppliesInnerError `json:"error,omitempty"`
 }
 
@@ -139,7 +139,7 @@ func (o *SupplySpotDataResponseSuppliesInner) SetError(v SupplySpotDataResponseS
 }
 
 func (o SupplySpotDataResponseSuppliesInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,5 +195,3 @@ func (v *NullableSupplySpotDataResponseSuppliesInner) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

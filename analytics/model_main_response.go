@@ -19,10 +19,10 @@ var _ MappedNullable = &MainResponse{}
 
 // MainResponse struct for MainResponse
 type MainResponse struct {
-	CommonInfo *CommonInfo `json:"commonInfo,omitempty"`
-	PositionInfo *PositionInfo `json:"positionInfo,omitempty"`
+	CommonInfo     *CommonInfo     `json:"commonInfo,omitempty"`
+	PositionInfo   *PositionInfo   `json:"positionInfo,omitempty"`
 	VisibilityInfo *VisibilityInfo `json:"visibilityInfo,omitempty"`
-	// Список элементов таблицы 
+	// Список элементов таблицы
 	Groups []TableGroupItem `json:"groups,omitempty"`
 	// Валюта отчёта
 	Currency *string `json:"currency,omitempty"`
@@ -206,7 +206,7 @@ func (o *MainResponse) SetCurrency(v string) {
 }
 
 func (o MainResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -268,5 +268,3 @@ func (v *NullableMainResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

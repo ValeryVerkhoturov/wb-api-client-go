@@ -20,8 +20,8 @@ var _ MappedNullable = &ApiMetaSetResponses{}
 // ApiMetaSetResponses struct for ApiMetaSetResponses
 type ApiMetaSetResponses struct {
 	// Уникальный ID запроса
-	RequestId interface{} `json:"requestId,omitempty"`
-	Results []ApiMetaSetResponse `json:"results,omitempty"`
+	RequestId interface{}          `json:"requestId,omitempty"`
+	Results   []ApiMetaSetResponse `json:"results,omitempty"`
 }
 
 // NewApiMetaSetResponses instantiates a new ApiMetaSetResponses object
@@ -107,7 +107,7 @@ func (o *ApiMetaSetResponses) SetResults(v []ApiMetaSetResponse) {
 }
 
 func (o ApiMetaSetResponses) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,5 +160,3 @@ func (v *NullableApiMetaSetResponses) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

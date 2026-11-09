@@ -19,13 +19,13 @@ var _ MappedNullable = &PostV2GetCardsListRequestSettingsFilter{}
 
 // PostV2GetCardsListRequestSettingsFilter Параметры фильтрации
 type PostV2GetCardsListRequestSettingsFilter struct {
-	// Фильтр по фото:   * `-1` — любые карточки товаров   * `0` — любые карточки товаров   * `1` — только карточки с фото   * `2` — только карточки без фото 
+	// Фильтр по фото:   * `-1` — любые карточки товаров   * `0` — любые карточки товаров   * `1` — только карточки с фото   * `2` — только карточки без фото
 	WithPhoto *int64 `json:"withPhoto,omitempty"`
 	// Поиск по артикулу продавца, артикулу WB, баркоду
 	TextSearch *string `json:"textSearch,omitempty"`
 	// Поиск по ID ярлыков
 	TagIDs []int64 `json:"tagIDs,omitempty"`
-	// Фильтр по категории:   - `true` — только разрешённые   - `false` — все    Не используется в песочнице 
+	// Фильтр по категории:   - `true` — только разрешённые   - `false` — все    Не используется в песочнице
 	AllowedCategoriesOnly *bool `json:"allowedCategoriesOnly,omitempty"`
 	// Поиск по ID предметов
 	ObjectIDs []int64 `json:"objectIDs,omitempty"`
@@ -281,7 +281,7 @@ func (o *PostV2GetCardsListRequestSettingsFilter) SetImtID(v int64) {
 }
 
 func (o PostV2GetCardsListRequestSettingsFilter) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -349,5 +349,3 @@ func (v *NullablePostV2GetCardsListRequestSettingsFilter) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -311,7 +311,7 @@ func (o *AcquiringReportListRes) SetAcquiringFeeVatSum(v string) {
 }
 
 func (o AcquiringReportListRes) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -382,5 +382,3 @@ func (v *NullableAcquiringReportListRes) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

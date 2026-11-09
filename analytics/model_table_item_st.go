@@ -34,8 +34,8 @@ type TableItemSt struct {
 	// Ссылка на главное фото
 	MainPhoto *string `json:"mainPhoto,omitempty"`
 	// Является ли товар размерным. Неразмерный товар имеет единственный размер, с `\"techSize\":\"0\"`
-	HasSizes *bool `json:"hasSizes,omitempty"`
-	Metrics *TableItemStMetrics `json:"metrics,omitempty"`
+	HasSizes *bool               `json:"hasSizes,omitempty"`
+	Metrics  *TableItemStMetrics `json:"metrics,omitempty"`
 }
 
 // NewTableItemSt instantiates a new TableItemSt object
@@ -344,7 +344,7 @@ func (o *TableItemSt) SetMetrics(v TableItemStMetrics) {
 }
 
 func (o TableItemSt) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -418,5 +418,3 @@ func (v *NullableTableItemSt) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

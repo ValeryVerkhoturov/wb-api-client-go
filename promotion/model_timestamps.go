@@ -25,8 +25,6 @@ type Timestamps struct {
 	Updated *string `json:"updated,omitempty"`
 	// Время последнего запуска кампании
 	Started NullableString `json:"started,omitempty"`
-	// Время удаления кампании. Если кампания не удалена, время указывается в будущем
-	Deleted *string `json:"deleted,omitempty"`
 }
 
 // NewTimestamps instantiates a new Timestamps object
@@ -142,6 +140,7 @@ func (o *Timestamps) HasStarted() bool {
 func (o *Timestamps) SetStarted(v string) {
 	o.Started.Set(&v)
 }
+
 // SetStartedNil sets the value for Started to be an explicit nil
 func (o *Timestamps) SetStartedNil() {
 	o.Started.Set(nil)
@@ -152,40 +151,8 @@ func (o *Timestamps) UnsetStarted() {
 	o.Started.Unset()
 }
 
-// GetDeleted returns the Deleted field value if set, zero value otherwise.
-func (o *Timestamps) GetDeleted() string {
-	if o == nil || IsNil(o.Deleted) {
-		var ret string
-		return ret
-	}
-	return *o.Deleted
-}
-
-// GetDeletedOk returns a tuple with the Deleted field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Timestamps) GetDeletedOk() (*string, bool) {
-	if o == nil || IsNil(o.Deleted) {
-		return nil, false
-	}
-	return o.Deleted, true
-}
-
-// HasDeleted returns a boolean if a field has been set.
-func (o *Timestamps) HasDeleted() bool {
-	if o != nil && !IsNil(o.Deleted) {
-		return true
-	}
-
-	return false
-}
-
-// SetDeleted gets a reference to the given string and assigns it to the Deleted field.
-func (o *Timestamps) SetDeleted(v string) {
-	o.Deleted = &v
-}
-
 func (o Timestamps) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -202,9 +169,6 @@ func (o Timestamps) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Started.IsSet() {
 		toSerialize["started"] = o.Started.Get()
-	}
-	if !IsNil(o.Deleted) {
-		toSerialize["deleted"] = o.Deleted
 	}
 	return toSerialize, nil
 }
@@ -244,5 +208,3 @@ func (v *NullableTimestamps) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

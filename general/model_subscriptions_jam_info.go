@@ -19,11 +19,11 @@ var _ MappedNullable = &SubscriptionsJamInfo{}
 
 // SubscriptionsJamInfo Информация о подписке Джем
 type SubscriptionsJamInfo struct {
-	// Статус подписки:   - `active` — активна   - `inactive` — истекла или отменена 
+	// Статус подписки:   - `active` — активна   - `inactive` — истекла или отменена
 	State *string `json:"state,omitempty"`
-	// Источник подключения подписки:   - `constructor` — покупка через раздел **Конструктор тарифов**   - `jam` — покупка через раздел **Подписка «Джем»** 
+	// Источник подключения подписки:   - `constructor` — покупка через раздел **Конструктор тарифов**   - `jam` — покупка через раздел **Подписка «Джем»**
 	ActivationSource *string `json:"activationSource,omitempty"`
-	// Уровень подписки:   - `standard`   - `advanced`   - `premium` 
+	// Уровень подписки:   - `standard`   - `advanced`   - `premium`
 	Level *string `json:"level,omitempty"`
 	// Дата и время первой активации подписки. Не меняется при продлении или повторной активации
 	Since *string `json:"since,omitempty"`
@@ -209,7 +209,7 @@ func (o *SubscriptionsJamInfo) SetTill(v string) {
 }
 
 func (o SubscriptionsJamInfo) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -271,5 +271,3 @@ func (v *NullableSubscriptionsJamInfo) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

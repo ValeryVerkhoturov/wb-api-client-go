@@ -25,7 +25,7 @@ type OpenapiSellerLimitsResponseDataTariff struct {
 	Remaining *int64 `json:"remaining,omitempty"`
 	// Общий лимит закреплений
 	TotalLimit *int64 `json:"totalLimit,omitempty"`
-	// Количество закреплённых отзывов не ограничено:   - `true` — да   - `false` — нет 
+	// Количество закреплённых отзывов не ограничено:   - `true` — да   - `false` — нет
 	Unlimited *bool `json:"unlimited,omitempty"`
 	// Текущее количество закреплённых отзывов
 	Used *int64 `json:"used,omitempty"`
@@ -209,7 +209,7 @@ func (o *OpenapiSellerLimitsResponseDataTariff) SetUsed(v int64) {
 }
 
 func (o OpenapiSellerLimitsResponseDataTariff) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -271,5 +271,3 @@ func (v *NullableOpenapiSellerLimitsResponseDataTariff) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

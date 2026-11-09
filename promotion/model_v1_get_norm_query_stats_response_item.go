@@ -141,7 +141,7 @@ func (o *V1GetNormQueryStatsResponseItem) SetDailyStats(v []V1GetNormQueryStatsR
 }
 
 func (o V1GetNormQueryStatsResponseItem) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -197,5 +197,3 @@ func (v *NullableV1GetNormQueryStatsResponseItem) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

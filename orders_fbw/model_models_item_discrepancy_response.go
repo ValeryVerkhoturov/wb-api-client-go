@@ -25,7 +25,7 @@ type ModelsItemDiscrepancyResponse struct {
 	VideoUrl *string `json:"videoUrl,omitempty"`
 	// Дата и время видеофиксации расхождений в процессе приемки
 	VideoStartsAt *string `json:"videoStartsAt,omitempty"`
-	// Доступность видео:    - `false` — видео доступно    - `true` — видео недоступно 
+	// Доступность видео:    - `false` — видео доступно    - `true` — видео недоступно
 	VideoUnavailable *bool `json:"videoUnavailable,omitempty"`
 	// Товары поставки
 	Items []ModelsDiscrepancyResponseItem `json:"items,omitempty"`
@@ -209,7 +209,7 @@ func (o *ModelsItemDiscrepancyResponse) SetItems(v []ModelsDiscrepancyResponseIt
 }
 
 func (o ModelsItemDiscrepancyResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -271,5 +271,3 @@ func (v *NullableModelsItemDiscrepancyResponse) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

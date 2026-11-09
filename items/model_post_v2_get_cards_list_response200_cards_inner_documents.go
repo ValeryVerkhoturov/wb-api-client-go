@@ -20,9 +20,9 @@ var _ MappedNullable = &PostV2GetCardsListResponse200CardsInnerDocuments{}
 // PostV2GetCardsListResponse200CardsInnerDocuments Документы, прикреплённые к карточке товара. Результаты проверки каждого документа указаны в `items`. Результат проверки всей карточки товара указан в `overallVerdict`
 type PostV2GetCardsListResponse200CardsInnerDocuments struct {
 	// Список документов и результаты проверки каждого документа
-	Items []PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner `json:"items,omitempty"`
+	Items          []PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner    `json:"items,omitempty"`
 	OverallVerdict *PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict `json:"overallVerdict,omitempty"`
-	// Подтверждение продавца, что для товара не требуются разрешительные документы:   - `true` —  продавец подтверждает, что документы не требуются. Все значения, переданные в `documents`, будут заменены на пустые значения   - `false` —  продавец не подтверждает, что документы не требуются  Обязательность документов проверяется при создании и изменении карточки товара. Если для товара требуются документы и указано значение `true`, карточка не пройдёт проверку 
+	// Подтверждение продавца, что для товара не требуются разрешительные документы:   - `true` —  продавец подтверждает, что документы не требуются. Все значения, переданные в `documents`, будут заменены на пустые значения   - `false` —  продавец не подтверждает, что документы не требуются  Обязательность документов проверяется при создании и изменении карточки товара. Если для товара требуются документы и указано значение `true`, карточка не пройдёт проверку
 	ExcludeDocuments *bool `json:"excludeDocuments,omitempty"`
 }
 
@@ -140,7 +140,7 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocuments) SetExcludeDocuments(v
 }
 
 func (o PostV2GetCardsListResponse200CardsInnerDocuments) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -196,5 +196,3 @@ func (v *NullablePostV2GetCardsListResponse200CardsInnerDocuments) UnmarshalJSON
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

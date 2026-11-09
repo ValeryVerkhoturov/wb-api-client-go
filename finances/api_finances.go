@@ -19,26 +19,25 @@ import (
 	"strings"
 )
 
-
 type FinancesAPI interface {
 
 	/*
-	GetV1AccountBalance Получить баланс продавца
+			GetV1AccountBalance Получить баланс продавца
 
-	Метод возвращает данные виджета баланса на [главной странице](https://seller.wildberries.ru) портала продавцов.
+			Метод возвращает данные виджета баланса на [главной странице](https://seller.wildberries.ru) портала продавцов.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
-| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
-| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
-| Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
+		| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
+		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
+		| Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
 
-Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-account-balance
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-account-balance
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1AccountBalanceRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1AccountBalanceRequest
 	*/
 	GetV1AccountBalance(ctx context.Context) ApiGetV1AccountBalanceRequest
 
@@ -47,22 +46,22 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	GetV1AccountBalanceExecute(r ApiGetV1AccountBalanceRequest) (*GetV1AccountBalanceResponse200, *http.Response, error)
 
 	/*
-	GetV1DocumentsCategories Категории документов
+			GetV1DocumentsCategories Категории документов
 
-	Метод возвращает категории документов для получения [списка документов продавца](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsList).
+			Метод возвращает категории документов для получения [списка документов продавца](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsList).
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов |
-| Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов |
-| Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
-| Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов |
+		| Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов |
+		| Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
+		| Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
 
-Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-documents-categories
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-documents-categories
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1DocumentsCategoriesRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1DocumentsCategoriesRequest
 	*/
 	GetV1DocumentsCategories(ctx context.Context) ApiGetV1DocumentsCategoriesRequest
 
@@ -71,22 +70,22 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	GetV1DocumentsCategoriesExecute(r ApiGetV1DocumentsCategoriesRequest) (*GetCategories, *http.Response, error)
 
 	/*
-	GetV1DocumentsDownload Получить документ
+			GetV1DocumentsDownload Получить документ
 
-	Метод загружает один документ из [списка документов продавца](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsList).
+			Метод загружает один документ из [списка документов продавца](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsList).
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов |
-| Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов |
-| Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
-| Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов |
+		| Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов |
+		| Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
+		| Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
 
-Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-documents-download
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-documents-download
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1DocumentsDownloadRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1DocumentsDownloadRequest
 	*/
 	GetV1DocumentsDownload(ctx context.Context) ApiGetV1DocumentsDownloadRequest
 
@@ -95,22 +94,22 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	GetV1DocumentsDownloadExecute(r ApiGetV1DocumentsDownloadRequest) (*GetDoc, *http.Response, error)
 
 	/*
-	GetV1DocumentsList Список документов
+			GetV1DocumentsList Список документов
 
-	Метод возвращает список документов продавца. Вы можете получить [один](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsDownload) или [несколько](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents/operation/postV1DocumentsDownloadAll) документов из полученного списка.
+			Метод возвращает список документов продавца. Вы можете получить [один](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsDownload) или [несколько](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents/operation/postV1DocumentsDownloadAll) документов из полученного списка.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов |
-| Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов |
-| Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
-| Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов |
+		| Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов |
+		| Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
+		| Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
 
-Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-documents-list
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-documents-list
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1DocumentsListRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1DocumentsListRequest
 	*/
 	GetV1DocumentsList(ctx context.Context) ApiGetV1DocumentsListRequest
 
@@ -119,23 +118,23 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	GetV1DocumentsListExecute(r ApiGetV1DocumentsListRequest) (*GetList, *http.Response, error)
 
 	/*
-	PostV1AcquiringDetailed Детализации к отчётам об издержках на приём платежей за период
+			PostV1AcquiringDetailed Детализации к отчётам об издержках на приём платежей за период
 
-	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токену,
-**Сервисному** токену
+			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+		**Персональному** токену,
+		**Сервисному** токену
 
-Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) за указанный период.
+		Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) за указанный период.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 1 запрос | 1 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 1 запрос | 1 мин | 1 запрос |
 
-Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-acquiring-detailed
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-acquiring-detailed
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV1AcquiringDetailedRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV1AcquiringDetailedRequest
 	*/
 	PostV1AcquiringDetailed(ctx context.Context) ApiPostV1AcquiringDetailedRequest
 
@@ -144,24 +143,24 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	PostV1AcquiringDetailedExecute(r ApiPostV1AcquiringDetailedRequest) ([]AcquiringReportsDetailedRes, *http.Response, error)
 
 	/*
-	PostV1AcquiringDetailedReportId Детализации к отчётам об издержках на приём платежей по ID отчётов
+			PostV1AcquiringDetailedReportId Детализации к отчётам об издержках на приём платежей по ID отчётов
 
-	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токену,
-**Сервисному** токену
+			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+		**Персональному** токену,
+		**Сервисному** токену
 
-Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) по ID отчётов.
+		Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) по ID отчётов.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 1 запрос | 1 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 1 запрос | 1 мин | 1 запрос |
 
-Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-acquiring-detailed-reportid
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-acquiring-detailed-reportid
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param reportId ID отчёта
-	@return ApiPostV1AcquiringDetailedReportIdRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param reportId ID отчёта
+			@return ApiPostV1AcquiringDetailedReportIdRequest
 	*/
 	PostV1AcquiringDetailedReportId(ctx context.Context, reportId int64) ApiPostV1AcquiringDetailedReportIdRequest
 
@@ -170,23 +169,23 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	PostV1AcquiringDetailedReportIdExecute(r ApiPostV1AcquiringDetailedReportIdRequest) ([]AcquiringReportsDetailedRes, *http.Response, error)
 
 	/*
-	PostV1AcquiringList Список отчётов об издержках на приём платежей
+			PostV1AcquiringList Список отчётов об издержках на приём платежей
 
-	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токену,
-**Сервисному** токену
+			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+		**Персональному** токену,
+		**Сервисному** токену
 
-Метод возвращает список отчётов об издержках на приём платежей по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports).
+		Метод возвращает список отчётов об издержках на приём платежей по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports).
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 1 запрос | 1 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 1 запрос | 1 мин | 1 запрос |
 
-Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-acquiring-list
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-acquiring-list
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV1AcquiringListRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV1AcquiringListRequest
 	*/
 	PostV1AcquiringList(ctx context.Context) ApiPostV1AcquiringListRequest
 
@@ -195,22 +194,22 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	PostV1AcquiringListExecute(r ApiPostV1AcquiringListRequest) ([]AcquiringReportListRes, *http.Response, error)
 
 	/*
-	PostV1DocumentsDownloadAll Получить документы
+			PostV1DocumentsDownloadAll Получить документы
 
-	Метод загружает несколько документов из [списка документов продавца](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsList).
+			Метод загружает несколько документов из [списка документов продавца](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsList).
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 5 мин | 1 запрос | 5 мин | 5 запросов |
-| Сервисный | 5 мин | 1 запрос | 5 мин | 5 запросов |
-| Базовый с секретом | 5 мин | 1 запрос | 5 мин | 5 запросов |
-| Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 5 мин | 1 запрос | 5 мин | 5 запросов |
+		| Сервисный | 5 мин | 1 запрос | 5 мин | 5 запросов |
+		| Базовый с секретом | 5 мин | 1 запрос | 5 мин | 5 запросов |
+		| Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
 
-Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-v1-documents-download-all
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-v1-documents-download-all
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV1DocumentsDownloadAllRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV1DocumentsDownloadAllRequest
 	*/
 	PostV1DocumentsDownloadAll(ctx context.Context) ApiPostV1DocumentsDownloadAllRequest
 
@@ -219,26 +218,26 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	PostV1DocumentsDownloadAllExecute(r ApiPostV1DocumentsDownloadAllRequest) (*GetDocs, *http.Response, error)
 
 	/*
-	PostV1SalesReportsDetailed Детализации к отчётам реализации за период
+			PostV1SalesReportsDetailed Детализации к отчётам реализации за период
 
-	Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) за указанный период.
+			Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) за указанный период.
 
-Данные доступны с 29 января 2024 года.
+		Данные доступны с 29 января 2024 года.
 
-Вы можете выгрузить данные в [Google Таблицы](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3)
+		Вы можете выгрузить данные в [Google Таблицы](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3)
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
-| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
-| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
-| Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
+		| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
+		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
+		| Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |
 
-Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-sales-reports-detailed
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-sales-reports-detailed
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV1SalesReportsDetailedRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV1SalesReportsDetailedRequest
 	*/
 	PostV1SalesReportsDetailed(ctx context.Context) ApiPostV1SalesReportsDetailedRequest
 
@@ -247,26 +246,26 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	PostV1SalesReportsDetailedExecute(r ApiPostV1SalesReportsDetailedRequest) ([]SalesReportsDetailedRes, *http.Response, error)
 
 	/*
-	PostV1SalesReportsDetailedReportId Детализации к отчётам реализации по ID отчётов
+			PostV1SalesReportsDetailedReportId Детализации к отчётам реализации по ID отчётов
 
-	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токену,
-**Сервисному** токену
+			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+		**Персональному** токену,
+		**Сервисному** токену
 
-Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов.
+		Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов.
 
-Данные доступны с 29 января 2024 года.
+		Данные доступны с 29 января 2024 года.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 1 запрос | 1 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 1 запрос | 1 мин | 1 запрос |
 
-Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-sales-reports-detailed-reportid
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-sales-reports-detailed-reportid
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param reportId ID отчёта. Для ежедневных отчётов вместо стандартной десериализации рекомендуем использовать нестандартные библиотеки с поддержкой [BigInt](https://www.npmjs.com/package/json-bigint)
-	@return ApiPostV1SalesReportsDetailedReportIdRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param reportId ID отчёта. Для ежедневных отчётов вместо стандартной десериализации рекомендуем использовать нестандартные библиотеки с поддержкой [BigInt](https://www.npmjs.com/package/json-bigint)
+			@return ApiPostV1SalesReportsDetailedReportIdRequest
 	*/
 	PostV1SalesReportsDetailedReportId(ctx context.Context, reportId int64) ApiPostV1SalesReportsDetailedReportIdRequest
 
@@ -275,25 +274,25 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	PostV1SalesReportsDetailedReportIdExecute(r ApiPostV1SalesReportsDetailedReportIdRequest) ([]SalesReportsDetailedRes, *http.Response, error)
 
 	/*
-	PostV1SalesReportsList Список отчётов реализации
+			PostV1SalesReportsList Список отчётов реализации
 
-	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токену,
-**Сервисному** токену
+			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+		**Персональному** токену,
+		**Сервисному** токену
 
-Метод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements).
+		Метод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements).
 
-Данные доступны с 29 января 2024 года.
+		Данные доступны с 29 января 2024 года.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 1 запрос | 1 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 1 запрос | 1 мин | 1 запрос |
 
-Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-sales-reports-list
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-sales-reports-list
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV1SalesReportsListRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV1SalesReportsListRequest
 	*/
 	PostV1SalesReportsList(ctx context.Context) ApiPostV1SalesReportsListRequest
 
@@ -306,7 +305,7 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 type FinancesAPIService service
 
 type ApiGetV1AccountBalanceRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService FinancesAPI
 }
 
@@ -329,24 +328,25 @@ GetV1AccountBalance Получить баланс продавца
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-account-balance
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV1AccountBalanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1AccountBalanceRequest
 */
 func (a *FinancesAPIService) GetV1AccountBalance(ctx context.Context) ApiGetV1AccountBalanceRequest {
 	return ApiGetV1AccountBalanceRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetV1AccountBalanceResponse200
+//
+//	@return GetV1AccountBalanceResponse200
 func (a *FinancesAPIService) GetV1AccountBalanceExecute(r ApiGetV1AccountBalanceRequest) (*GetV1AccountBalanceResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetV1AccountBalanceResponse200
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetV1AccountBalanceResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FinancesAPIService.GetV1AccountBalance")
@@ -406,8 +406,8 @@ func (a *FinancesAPIService) GetV1AccountBalanceExecute(r ApiGetV1AccountBalance
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -417,8 +417,8 @@ func (a *FinancesAPIService) GetV1AccountBalanceExecute(r ApiGetV1AccountBalance
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -428,8 +428,8 @@ func (a *FinancesAPIService) GetV1AccountBalanceExecute(r ApiGetV1AccountBalance
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -439,8 +439,8 @@ func (a *FinancesAPIService) GetV1AccountBalanceExecute(r ApiGetV1AccountBalance
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -458,12 +458,12 @@ func (a *FinancesAPIService) GetV1AccountBalanceExecute(r ApiGetV1AccountBalance
 }
 
 type ApiGetV1DocumentsCategoriesRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService FinancesAPI
-	locale *string
+	locale     *string
 }
 
-// Язык поля &#x60;title&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский 
+// Язык поля &#x60;title&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский
 func (r ApiGetV1DocumentsCategoriesRequest) Locale(locale string) ApiGetV1DocumentsCategoriesRequest {
 	r.locale = &locale
 	return r
@@ -488,24 +488,25 @@ GetV1DocumentsCategories Категории документов
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-documents-categories
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV1DocumentsCategoriesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1DocumentsCategoriesRequest
 */
 func (a *FinancesAPIService) GetV1DocumentsCategories(ctx context.Context) ApiGetV1DocumentsCategoriesRequest {
 	return ApiGetV1DocumentsCategoriesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetCategories
+//
+//	@return GetCategories
 func (a *FinancesAPIService) GetV1DocumentsCategoriesExecute(r ApiGetV1DocumentsCategoriesRequest) (*GetCategories, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetCategories
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetCategories
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FinancesAPIService.GetV1DocumentsCategories")
@@ -571,8 +572,8 @@ func (a *FinancesAPIService) GetV1DocumentsCategoriesExecute(r ApiGetV1Documents
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -582,8 +583,8 @@ func (a *FinancesAPIService) GetV1DocumentsCategoriesExecute(r ApiGetV1Documents
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -593,8 +594,8 @@ func (a *FinancesAPIService) GetV1DocumentsCategoriesExecute(r ApiGetV1Documents
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -604,8 +605,8 @@ func (a *FinancesAPIService) GetV1DocumentsCategoriesExecute(r ApiGetV1Documents
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -623,10 +624,10 @@ func (a *FinancesAPIService) GetV1DocumentsCategoriesExecute(r ApiGetV1Documents
 }
 
 type ApiGetV1DocumentsDownloadRequest struct {
-	ctx context.Context
-	ApiService FinancesAPI
+	ctx         context.Context
+	ApiService  FinancesAPI
 	serviceName *string
-	extension *string
+	extension   *string
 }
 
 // Уникальный ID документа
@@ -660,24 +661,25 @@ GetV1DocumentsDownload Получить документ
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-documents-download
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV1DocumentsDownloadRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1DocumentsDownloadRequest
 */
 func (a *FinancesAPIService) GetV1DocumentsDownload(ctx context.Context) ApiGetV1DocumentsDownloadRequest {
 	return ApiGetV1DocumentsDownloadRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetDoc
+//
+//	@return GetDoc
 func (a *FinancesAPIService) GetV1DocumentsDownloadExecute(r ApiGetV1DocumentsDownloadRequest) (*GetDoc, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetDoc
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetDoc
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FinancesAPIService.GetV1DocumentsDownload")
@@ -745,8 +747,8 @@ func (a *FinancesAPIService) GetV1DocumentsDownloadExecute(r ApiGetV1DocumentsDo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -756,8 +758,8 @@ func (a *FinancesAPIService) GetV1DocumentsDownloadExecute(r ApiGetV1DocumentsDo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -767,8 +769,8 @@ func (a *FinancesAPIService) GetV1DocumentsDownloadExecute(r ApiGetV1DocumentsDo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -778,8 +780,8 @@ func (a *FinancesAPIService) GetV1DocumentsDownloadExecute(r ApiGetV1DocumentsDo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -789,8 +791,8 @@ func (a *FinancesAPIService) GetV1DocumentsDownloadExecute(r ApiGetV1DocumentsDo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -808,20 +810,20 @@ func (a *FinancesAPIService) GetV1DocumentsDownloadExecute(r ApiGetV1DocumentsDo
 }
 
 type ApiGetV1DocumentsListRequest struct {
-	ctx context.Context
-	ApiService FinancesAPI
-	locale *string
-	beginTime *string
-	endTime *string
-	sort *string
-	order *string
-	category *string
+	ctx         context.Context
+	ApiService  FinancesAPI
+	locale      *string
+	beginTime   *string
+	endTime     *string
+	sort        *string
+	order       *string
+	category    *string
 	serviceName *string
-	limit *int64
-	offset *int64
+	limit       *int64
+	offset      *int64
 }
 
-// Язык поля &#x60;category&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский 
+// Язык поля &#x60;category&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский
 func (r ApiGetV1DocumentsListRequest) Locale(locale string) ApiGetV1DocumentsListRequest {
 	r.locale = &locale
 	return r
@@ -839,13 +841,13 @@ func (r ApiGetV1DocumentsListRequest) EndTime(endTime string) ApiGetV1DocumentsL
 	return r
 }
 
-// Сортировка:   - &#x60;date&#x60; — по дате создания документа   - &#x60;category&#x60; — по категории (только при &#x60;locale&#x3D;ru&#x60;)  Только вместе с &#x60;order&#x60; 
+// Сортировка:   - &#x60;date&#x60; — по дате создания документа   - &#x60;category&#x60; — по категории (только при &#x60;locale&#x3D;ru&#x60;)  Только вместе с &#x60;order&#x60;
 func (r ApiGetV1DocumentsListRequest) Sort(sort string) ApiGetV1DocumentsListRequest {
 	r.sort = &sort
 	return r
 }
 
-// Сортировка:   - &#x60;desc&#x60; — по убыванию   - &#x60;asc&#x60; — по возрастанию  Только вместе с &#x60;sort&#x60; 
+// Сортировка:   - &#x60;desc&#x60; — по убыванию   - &#x60;asc&#x60; — по возрастанию  Только вместе с &#x60;sort&#x60;
 func (r ApiGetV1DocumentsListRequest) Order(order string) ApiGetV1DocumentsListRequest {
 	r.order = &order
 	return r
@@ -894,24 +896,25 @@ GetV1DocumentsList Список документов
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/get-api-v1-documents-list
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV1DocumentsListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1DocumentsListRequest
 */
 func (a *FinancesAPIService) GetV1DocumentsList(ctx context.Context) ApiGetV1DocumentsListRequest {
 	return ApiGetV1DocumentsListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetList
+//
+//	@return GetList
 func (a *FinancesAPIService) GetV1DocumentsListExecute(r ApiGetV1DocumentsListRequest) (*GetList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FinancesAPIService.GetV1DocumentsList")
@@ -1013,8 +1016,8 @@ func (a *FinancesAPIService) GetV1DocumentsListExecute(r ApiGetV1DocumentsListRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1024,8 +1027,8 @@ func (a *FinancesAPIService) GetV1DocumentsListExecute(r ApiGetV1DocumentsListRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1035,8 +1038,8 @@ func (a *FinancesAPIService) GetV1DocumentsListExecute(r ApiGetV1DocumentsListRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1046,8 +1049,8 @@ func (a *FinancesAPIService) GetV1DocumentsListExecute(r ApiGetV1DocumentsListRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1057,8 +1060,8 @@ func (a *FinancesAPIService) GetV1DocumentsListExecute(r ApiGetV1DocumentsListRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1076,8 +1079,8 @@ func (a *FinancesAPIService) GetV1DocumentsListExecute(r ApiGetV1DocumentsListRe
 }
 
 type ApiPostV1AcquiringDetailedRequest struct {
-	ctx context.Context
-	ApiService FinancesAPI
+	ctx                         context.Context
+	ApiService                  FinancesAPI
 	acquiringReportsDetailedReq *AcquiringReportsDetailedReq
 }
 
@@ -1106,24 +1109,25 @@ PostV1AcquiringDetailed Детализации к отчётам об издер
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-acquiring-detailed
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV1AcquiringDetailedRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV1AcquiringDetailedRequest
 */
 func (a *FinancesAPIService) PostV1AcquiringDetailed(ctx context.Context) ApiPostV1AcquiringDetailedRequest {
 	return ApiPostV1AcquiringDetailedRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []AcquiringReportsDetailedRes
+//
+//	@return []AcquiringReportsDetailedRes
 func (a *FinancesAPIService) PostV1AcquiringDetailedExecute(r ApiPostV1AcquiringDetailedRequest) ([]AcquiringReportsDetailedRes, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []AcquiringReportsDetailedRes
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []AcquiringReportsDetailedRes
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FinancesAPIService.PostV1AcquiringDetailed")
@@ -1188,8 +1192,8 @@ func (a *FinancesAPIService) PostV1AcquiringDetailedExecute(r ApiPostV1Acquiring
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1199,8 +1203,8 @@ func (a *FinancesAPIService) PostV1AcquiringDetailedExecute(r ApiPostV1Acquiring
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1210,8 +1214,8 @@ func (a *FinancesAPIService) PostV1AcquiringDetailedExecute(r ApiPostV1Acquiring
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1221,8 +1225,8 @@ func (a *FinancesAPIService) PostV1AcquiringDetailedExecute(r ApiPostV1Acquiring
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1232,8 +1236,8 @@ func (a *FinancesAPIService) PostV1AcquiringDetailedExecute(r ApiPostV1Acquiring
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1251,9 +1255,9 @@ func (a *FinancesAPIService) PostV1AcquiringDetailedExecute(r ApiPostV1Acquiring
 }
 
 type ApiPostV1AcquiringDetailedReportIdRequest struct {
-	ctx context.Context
-	ApiService FinancesAPI
-	reportId int64
+	ctx                                 context.Context
+	ApiService                          FinancesAPI
+	reportId                            int64
 	financialReportsDetailedReportIdReq *FinancialReportsDetailedReportIdReq
 }
 
@@ -1282,26 +1286,27 @@ PostV1AcquiringDetailedReportId Детализации к отчётам об и
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-acquiring-detailed-reportid
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param reportId ID отчёта
- @return ApiPostV1AcquiringDetailedReportIdRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param reportId ID отчёта
+	@return ApiPostV1AcquiringDetailedReportIdRequest
 */
 func (a *FinancesAPIService) PostV1AcquiringDetailedReportId(ctx context.Context, reportId int64) ApiPostV1AcquiringDetailedReportIdRequest {
 	return ApiPostV1AcquiringDetailedReportIdRequest{
 		ApiService: a,
-		ctx: ctx,
-		reportId: reportId,
+		ctx:        ctx,
+		reportId:   reportId,
 	}
 }
 
 // Execute executes the request
-//  @return []AcquiringReportsDetailedRes
+//
+//	@return []AcquiringReportsDetailedRes
 func (a *FinancesAPIService) PostV1AcquiringDetailedReportIdExecute(r ApiPostV1AcquiringDetailedReportIdRequest) ([]AcquiringReportsDetailedRes, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []AcquiringReportsDetailedRes
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []AcquiringReportsDetailedRes
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FinancesAPIService.PostV1AcquiringDetailedReportId")
@@ -1367,8 +1372,8 @@ func (a *FinancesAPIService) PostV1AcquiringDetailedReportIdExecute(r ApiPostV1A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1378,8 +1383,8 @@ func (a *FinancesAPIService) PostV1AcquiringDetailedReportIdExecute(r ApiPostV1A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1389,8 +1394,8 @@ func (a *FinancesAPIService) PostV1AcquiringDetailedReportIdExecute(r ApiPostV1A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1400,8 +1405,8 @@ func (a *FinancesAPIService) PostV1AcquiringDetailedReportIdExecute(r ApiPostV1A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1411,8 +1416,8 @@ func (a *FinancesAPIService) PostV1AcquiringDetailedReportIdExecute(r ApiPostV1A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1422,8 +1427,8 @@ func (a *FinancesAPIService) PostV1AcquiringDetailedReportIdExecute(r ApiPostV1A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1441,8 +1446,8 @@ func (a *FinancesAPIService) PostV1AcquiringDetailedReportIdExecute(r ApiPostV1A
 }
 
 type ApiPostV1AcquiringListRequest struct {
-	ctx context.Context
-	ApiService FinancesAPI
+	ctx                    context.Context
+	ApiService             FinancesAPI
 	acquiringReportListReq *AcquiringReportListReq
 }
 
@@ -1471,24 +1476,25 @@ PostV1AcquiringList Список отчётов об издержках на п�
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-acquiring-list
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV1AcquiringListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV1AcquiringListRequest
 */
 func (a *FinancesAPIService) PostV1AcquiringList(ctx context.Context) ApiPostV1AcquiringListRequest {
 	return ApiPostV1AcquiringListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []AcquiringReportListRes
+//
+//	@return []AcquiringReportListRes
 func (a *FinancesAPIService) PostV1AcquiringListExecute(r ApiPostV1AcquiringListRequest) ([]AcquiringReportListRes, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []AcquiringReportListRes
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []AcquiringReportListRes
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FinancesAPIService.PostV1AcquiringList")
@@ -1553,8 +1559,8 @@ func (a *FinancesAPIService) PostV1AcquiringListExecute(r ApiPostV1AcquiringList
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1564,8 +1570,8 @@ func (a *FinancesAPIService) PostV1AcquiringListExecute(r ApiPostV1AcquiringList
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1575,8 +1581,8 @@ func (a *FinancesAPIService) PostV1AcquiringListExecute(r ApiPostV1AcquiringList
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1586,8 +1592,8 @@ func (a *FinancesAPIService) PostV1AcquiringListExecute(r ApiPostV1AcquiringList
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1605,8 +1611,8 @@ func (a *FinancesAPIService) PostV1AcquiringListExecute(r ApiPostV1AcquiringList
 }
 
 type ApiPostV1DocumentsDownloadAllRequest struct {
-	ctx context.Context
-	ApiService FinancesAPI
+	ctx             context.Context
+	ApiService      FinancesAPI
 	requestDownload *RequestDownload
 }
 
@@ -1634,24 +1640,25 @@ PostV1DocumentsDownloadAll Получить документы
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-v1-documents-download-all
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV1DocumentsDownloadAllRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV1DocumentsDownloadAllRequest
 */
 func (a *FinancesAPIService) PostV1DocumentsDownloadAll(ctx context.Context) ApiPostV1DocumentsDownloadAllRequest {
 	return ApiPostV1DocumentsDownloadAllRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetDocs
+//
+//	@return GetDocs
 func (a *FinancesAPIService) PostV1DocumentsDownloadAllExecute(r ApiPostV1DocumentsDownloadAllRequest) (*GetDocs, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetDocs
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetDocs
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FinancesAPIService.PostV1DocumentsDownloadAll")
@@ -1713,8 +1720,8 @@ func (a *FinancesAPIService) PostV1DocumentsDownloadAllExecute(r ApiPostV1Docume
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1724,8 +1731,8 @@ func (a *FinancesAPIService) PostV1DocumentsDownloadAllExecute(r ApiPostV1Docume
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1735,8 +1742,8 @@ func (a *FinancesAPIService) PostV1DocumentsDownloadAllExecute(r ApiPostV1Docume
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1746,8 +1753,8 @@ func (a *FinancesAPIService) PostV1DocumentsDownloadAllExecute(r ApiPostV1Docume
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1757,8 +1764,8 @@ func (a *FinancesAPIService) PostV1DocumentsDownloadAllExecute(r ApiPostV1Docume
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1776,8 +1783,8 @@ func (a *FinancesAPIService) PostV1DocumentsDownloadAllExecute(r ApiPostV1Docume
 }
 
 type ApiPostV1SalesReportsDetailedRequest struct {
-	ctx context.Context
-	ApiService FinancesAPI
+	ctx                     context.Context
+	ApiService              FinancesAPI
 	salesReportsDetailedReq *SalesReportsDetailedReq
 }
 
@@ -1809,24 +1816,25 @@ PostV1SalesReportsDetailed Детализации к отчётам реализ
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-sales-reports-detailed
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV1SalesReportsDetailedRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV1SalesReportsDetailedRequest
 */
 func (a *FinancesAPIService) PostV1SalesReportsDetailed(ctx context.Context) ApiPostV1SalesReportsDetailedRequest {
 	return ApiPostV1SalesReportsDetailedRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []SalesReportsDetailedRes
+//
+//	@return []SalesReportsDetailedRes
 func (a *FinancesAPIService) PostV1SalesReportsDetailedExecute(r ApiPostV1SalesReportsDetailedRequest) ([]SalesReportsDetailedRes, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []SalesReportsDetailedRes
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []SalesReportsDetailedRes
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FinancesAPIService.PostV1SalesReportsDetailed")
@@ -1891,8 +1899,8 @@ func (a *FinancesAPIService) PostV1SalesReportsDetailedExecute(r ApiPostV1SalesR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1902,8 +1910,8 @@ func (a *FinancesAPIService) PostV1SalesReportsDetailedExecute(r ApiPostV1SalesR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1913,8 +1921,8 @@ func (a *FinancesAPIService) PostV1SalesReportsDetailedExecute(r ApiPostV1SalesR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1924,8 +1932,8 @@ func (a *FinancesAPIService) PostV1SalesReportsDetailedExecute(r ApiPostV1SalesR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1935,8 +1943,8 @@ func (a *FinancesAPIService) PostV1SalesReportsDetailedExecute(r ApiPostV1SalesR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1954,9 +1962,9 @@ func (a *FinancesAPIService) PostV1SalesReportsDetailedExecute(r ApiPostV1SalesR
 }
 
 type ApiPostV1SalesReportsDetailedReportIdRequest struct {
-	ctx context.Context
-	ApiService FinancesAPI
-	reportId int64
+	ctx                                 context.Context
+	ApiService                          FinancesAPI
+	reportId                            int64
 	financialReportsDetailedReportIdReq *FinancialReportsDetailedReportIdReq
 }
 
@@ -1987,26 +1995,27 @@ PostV1SalesReportsDetailedReportId Детализации к отчётам ре
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-sales-reports-detailed-reportid
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param reportId ID отчёта. Для ежедневных отчётов вместо стандартной десериализации рекомендуем использовать нестандартные библиотеки с поддержкой [BigInt](https://www.npmjs.com/package/json-bigint)
- @return ApiPostV1SalesReportsDetailedReportIdRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param reportId ID отчёта. Для ежедневных отчётов вместо стандартной десериализации рекомендуем использовать нестандартные библиотеки с поддержкой [BigInt](https://www.npmjs.com/package/json-bigint)
+	@return ApiPostV1SalesReportsDetailedReportIdRequest
 */
 func (a *FinancesAPIService) PostV1SalesReportsDetailedReportId(ctx context.Context, reportId int64) ApiPostV1SalesReportsDetailedReportIdRequest {
 	return ApiPostV1SalesReportsDetailedReportIdRequest{
 		ApiService: a,
-		ctx: ctx,
-		reportId: reportId,
+		ctx:        ctx,
+		reportId:   reportId,
 	}
 }
 
 // Execute executes the request
-//  @return []SalesReportsDetailedRes
+//
+//	@return []SalesReportsDetailedRes
 func (a *FinancesAPIService) PostV1SalesReportsDetailedReportIdExecute(r ApiPostV1SalesReportsDetailedReportIdRequest) ([]SalesReportsDetailedRes, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []SalesReportsDetailedRes
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []SalesReportsDetailedRes
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FinancesAPIService.PostV1SalesReportsDetailedReportId")
@@ -2072,8 +2081,8 @@ func (a *FinancesAPIService) PostV1SalesReportsDetailedReportIdExecute(r ApiPost
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2083,8 +2092,8 @@ func (a *FinancesAPIService) PostV1SalesReportsDetailedReportIdExecute(r ApiPost
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2094,8 +2103,8 @@ func (a *FinancesAPIService) PostV1SalesReportsDetailedReportIdExecute(r ApiPost
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2105,8 +2114,8 @@ func (a *FinancesAPIService) PostV1SalesReportsDetailedReportIdExecute(r ApiPost
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2116,8 +2125,8 @@ func (a *FinancesAPIService) PostV1SalesReportsDetailedReportIdExecute(r ApiPost
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2127,8 +2136,8 @@ func (a *FinancesAPIService) PostV1SalesReportsDetailedReportIdExecute(r ApiPost
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2146,8 +2155,8 @@ func (a *FinancesAPIService) PostV1SalesReportsDetailedReportIdExecute(r ApiPost
 }
 
 type ApiPostV1SalesReportsListRequest struct {
-	ctx context.Context
-	ApiService FinancesAPI
+	ctx                context.Context
+	ApiService         FinancesAPI
 	salesReportListReq *SalesReportListReq
 }
 
@@ -2178,24 +2187,25 @@ PostV1SalesReportsList Список отчётов реализации
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/finances/post-api-finance-v1-sales-reports-list
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV1SalesReportsListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV1SalesReportsListRequest
 */
 func (a *FinancesAPIService) PostV1SalesReportsList(ctx context.Context) ApiPostV1SalesReportsListRequest {
 	return ApiPostV1SalesReportsListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []SalesReportListRes
+//
+//	@return []SalesReportListRes
 func (a *FinancesAPIService) PostV1SalesReportsListExecute(r ApiPostV1SalesReportsListRequest) ([]SalesReportListRes, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []SalesReportListRes
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []SalesReportListRes
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FinancesAPIService.PostV1SalesReportsList")
@@ -2260,8 +2270,8 @@ func (a *FinancesAPIService) PostV1SalesReportsListExecute(r ApiPostV1SalesRepor
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2271,8 +2281,8 @@ func (a *FinancesAPIService) PostV1SalesReportsListExecute(r ApiPostV1SalesRepor
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2282,8 +2292,8 @@ func (a *FinancesAPIService) PostV1SalesReportsListExecute(r ApiPostV1SalesRepor
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2293,8 +2303,8 @@ func (a *FinancesAPIService) PostV1SalesReportsListExecute(r ApiPostV1SalesRepor
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

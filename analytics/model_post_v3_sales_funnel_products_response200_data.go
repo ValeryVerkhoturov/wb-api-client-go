@@ -107,7 +107,7 @@ func (o *PostV3SalesFunnelProductsResponse200Data) SetCurrency(v string) {
 }
 
 func (o PostV3SalesFunnelProductsResponse200Data) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,5 +160,3 @@ func (v *NullablePostV3SalesFunnelProductsResponse200Data) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

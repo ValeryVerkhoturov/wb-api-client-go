@@ -19,8 +19,8 @@ var _ MappedNullable = &ItemsResponseProductsInnerStatistic{}
 
 // ItemsResponseProductsInnerStatistic struct for ItemsResponseProductsInnerStatistic
 type ItemsResponseProductsInnerStatistic struct {
-	Selected *StatisticsSelected `json:"selected,omitempty"`
-	Past *StatisticsPast `json:"past,omitempty"`
+	Selected   *StatisticsSelected   `json:"selected,omitempty"`
+	Past       *StatisticsPast       `json:"past,omitempty"`
 	Comparison *StatisticsComparison `json:"comparison,omitempty"`
 }
 
@@ -138,7 +138,7 @@ func (o *ItemsResponseProductsInnerStatistic) SetComparison(v StatisticsComparis
 }
 
 func (o ItemsResponseProductsInnerStatistic) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -194,5 +194,3 @@ func (v *NullableItemsResponseProductsInnerStatistic) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -11,7 +11,9 @@ API version: ordersfbw
 package orders_fbw
 
 import (
+	"bytes"
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ModelsSupplyAcceptedMoreThanYearAgo type satisfies the MappedNullable interface at compile time
@@ -20,23 +22,30 @@ var _ MappedNullable = &ModelsSupplyAcceptedMoreThanYearAgo{}
 // ModelsSupplyAcceptedMoreThanYearAgo struct for ModelsSupplyAcceptedMoreThanYearAgo
 type ModelsSupplyAcceptedMoreThanYearAgo struct {
 	// HTTP-статус код
-	Status *int64 `json:"status,omitempty"`
+	Status int64 `json:"status"`
 	// Краткое описание ошибки
-	Title *string `json:"title,omitempty"`
+	Title string `json:"title"`
 	// Подробное описание ошибки
-	Detail *string `json:"detail,omitempty"`
+	Detail string `json:"detail"`
 	// ID запроса
-	RequestId *string `json:"requestId,omitempty"`
+	RequestId string `json:"requestId"`
 	// Сервис, в котором произошла ошибка
-	Origin *string `json:"origin,omitempty"`
+	Origin string `json:"origin"`
 }
+
+type _ModelsSupplyAcceptedMoreThanYearAgo ModelsSupplyAcceptedMoreThanYearAgo
 
 // NewModelsSupplyAcceptedMoreThanYearAgo instantiates a new ModelsSupplyAcceptedMoreThanYearAgo object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelsSupplyAcceptedMoreThanYearAgo() *ModelsSupplyAcceptedMoreThanYearAgo {
+func NewModelsSupplyAcceptedMoreThanYearAgo(status int64, title string, detail string, requestId string, origin string) *ModelsSupplyAcceptedMoreThanYearAgo {
 	this := ModelsSupplyAcceptedMoreThanYearAgo{}
+	this.Status = status
+	this.Title = title
+	this.Detail = detail
+	this.RequestId = requestId
+	this.Origin = origin
 	return &this
 }
 
@@ -48,168 +57,128 @@ func NewModelsSupplyAcceptedMoreThanYearAgoWithDefaults() *ModelsSupplyAcceptedM
 	return &this
 }
 
-// GetStatus returns the Status field value if set, zero value otherwise.
+// GetStatus returns the Status field value
 func (o *ModelsSupplyAcceptedMoreThanYearAgo) GetStatus() int64 {
-	if o == nil || IsNil(o.Status) {
+	if o == nil {
 		var ret int64
 		return ret
 	}
-	return *o.Status
+
+	return o.Status
 }
 
-// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
+// GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
 func (o *ModelsSupplyAcceptedMoreThanYearAgo) GetStatusOk() (*int64, bool) {
-	if o == nil || IsNil(o.Status) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Status, true
+	return &o.Status, true
 }
 
-// HasStatus returns a boolean if a field has been set.
-func (o *ModelsSupplyAcceptedMoreThanYearAgo) HasStatus() bool {
-	if o != nil && !IsNil(o.Status) {
-		return true
-	}
-
-	return false
-}
-
-// SetStatus gets a reference to the given int64 and assigns it to the Status field.
+// SetStatus sets field value
 func (o *ModelsSupplyAcceptedMoreThanYearAgo) SetStatus(v int64) {
-	o.Status = &v
+	o.Status = v
 }
 
-// GetTitle returns the Title field value if set, zero value otherwise.
+// GetTitle returns the Title field value
 func (o *ModelsSupplyAcceptedMoreThanYearAgo) GetTitle() string {
-	if o == nil || IsNil(o.Title) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Title
+
+	return o.Title
 }
 
-// GetTitleOk returns a tuple with the Title field value if set, nil otherwise
+// GetTitleOk returns a tuple with the Title field value
 // and a boolean to check if the value has been set.
 func (o *ModelsSupplyAcceptedMoreThanYearAgo) GetTitleOk() (*string, bool) {
-	if o == nil || IsNil(o.Title) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Title, true
+	return &o.Title, true
 }
 
-// HasTitle returns a boolean if a field has been set.
-func (o *ModelsSupplyAcceptedMoreThanYearAgo) HasTitle() bool {
-	if o != nil && !IsNil(o.Title) {
-		return true
-	}
-
-	return false
-}
-
-// SetTitle gets a reference to the given string and assigns it to the Title field.
+// SetTitle sets field value
 func (o *ModelsSupplyAcceptedMoreThanYearAgo) SetTitle(v string) {
-	o.Title = &v
+	o.Title = v
 }
 
-// GetDetail returns the Detail field value if set, zero value otherwise.
+// GetDetail returns the Detail field value
 func (o *ModelsSupplyAcceptedMoreThanYearAgo) GetDetail() string {
-	if o == nil || IsNil(o.Detail) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Detail
+
+	return o.Detail
 }
 
-// GetDetailOk returns a tuple with the Detail field value if set, nil otherwise
+// GetDetailOk returns a tuple with the Detail field value
 // and a boolean to check if the value has been set.
 func (o *ModelsSupplyAcceptedMoreThanYearAgo) GetDetailOk() (*string, bool) {
-	if o == nil || IsNil(o.Detail) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Detail, true
+	return &o.Detail, true
 }
 
-// HasDetail returns a boolean if a field has been set.
-func (o *ModelsSupplyAcceptedMoreThanYearAgo) HasDetail() bool {
-	if o != nil && !IsNil(o.Detail) {
-		return true
-	}
-
-	return false
-}
-
-// SetDetail gets a reference to the given string and assigns it to the Detail field.
+// SetDetail sets field value
 func (o *ModelsSupplyAcceptedMoreThanYearAgo) SetDetail(v string) {
-	o.Detail = &v
+	o.Detail = v
 }
 
-// GetRequestId returns the RequestId field value if set, zero value otherwise.
+// GetRequestId returns the RequestId field value
 func (o *ModelsSupplyAcceptedMoreThanYearAgo) GetRequestId() string {
-	if o == nil || IsNil(o.RequestId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.RequestId
+
+	return o.RequestId
 }
 
-// GetRequestIdOk returns a tuple with the RequestId field value if set, nil otherwise
+// GetRequestIdOk returns a tuple with the RequestId field value
 // and a boolean to check if the value has been set.
 func (o *ModelsSupplyAcceptedMoreThanYearAgo) GetRequestIdOk() (*string, bool) {
-	if o == nil || IsNil(o.RequestId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.RequestId, true
+	return &o.RequestId, true
 }
 
-// HasRequestId returns a boolean if a field has been set.
-func (o *ModelsSupplyAcceptedMoreThanYearAgo) HasRequestId() bool {
-	if o != nil && !IsNil(o.RequestId) {
-		return true
-	}
-
-	return false
-}
-
-// SetRequestId gets a reference to the given string and assigns it to the RequestId field.
+// SetRequestId sets field value
 func (o *ModelsSupplyAcceptedMoreThanYearAgo) SetRequestId(v string) {
-	o.RequestId = &v
+	o.RequestId = v
 }
 
-// GetOrigin returns the Origin field value if set, zero value otherwise.
+// GetOrigin returns the Origin field value
 func (o *ModelsSupplyAcceptedMoreThanYearAgo) GetOrigin() string {
-	if o == nil || IsNil(o.Origin) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Origin
+
+	return o.Origin
 }
 
-// GetOriginOk returns a tuple with the Origin field value if set, nil otherwise
+// GetOriginOk returns a tuple with the Origin field value
 // and a boolean to check if the value has been set.
 func (o *ModelsSupplyAcceptedMoreThanYearAgo) GetOriginOk() (*string, bool) {
-	if o == nil || IsNil(o.Origin) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Origin, true
+	return &o.Origin, true
 }
 
-// HasOrigin returns a boolean if a field has been set.
-func (o *ModelsSupplyAcceptedMoreThanYearAgo) HasOrigin() bool {
-	if o != nil && !IsNil(o.Origin) {
-		return true
-	}
-
-	return false
-}
-
-// SetOrigin gets a reference to the given string and assigns it to the Origin field.
+// SetOrigin sets field value
 func (o *ModelsSupplyAcceptedMoreThanYearAgo) SetOrigin(v string) {
-	o.Origin = &v
+	o.Origin = v
 }
 
 func (o ModelsSupplyAcceptedMoreThanYearAgo) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -218,22 +187,53 @@ func (o ModelsSupplyAcceptedMoreThanYearAgo) MarshalJSON() ([]byte, error) {
 
 func (o ModelsSupplyAcceptedMoreThanYearAgo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Status) {
-		toSerialize["status"] = o.Status
-	}
-	if !IsNil(o.Title) {
-		toSerialize["title"] = o.Title
-	}
-	if !IsNil(o.Detail) {
-		toSerialize["detail"] = o.Detail
-	}
-	if !IsNil(o.RequestId) {
-		toSerialize["requestId"] = o.RequestId
-	}
-	if !IsNil(o.Origin) {
-		toSerialize["origin"] = o.Origin
-	}
+	toSerialize["status"] = o.Status
+	toSerialize["title"] = o.Title
+	toSerialize["detail"] = o.Detail
+	toSerialize["requestId"] = o.RequestId
+	toSerialize["origin"] = o.Origin
 	return toSerialize, nil
+}
+
+func (o *ModelsSupplyAcceptedMoreThanYearAgo) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"status",
+		"title",
+		"detail",
+		"requestId",
+		"origin",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelsSupplyAcceptedMoreThanYearAgo := _ModelsSupplyAcceptedMoreThanYearAgo{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varModelsSupplyAcceptedMoreThanYearAgo)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelsSupplyAcceptedMoreThanYearAgo(varModelsSupplyAcceptedMoreThanYearAgo)
+
+	return err
 }
 
 type NullableModelsSupplyAcceptedMoreThanYearAgo struct {
@@ -271,5 +271,3 @@ func (v *NullableModelsSupplyAcceptedMoreThanYearAgo) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

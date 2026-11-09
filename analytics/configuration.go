@@ -65,9 +65,9 @@ type ServerVariable struct {
 
 // ServerConfiguration stores the information about a server
 type ServerConfiguration struct {
-	URL string
+	URL         string
 	Description string
-	Variables map[string]ServerVariable
+	Variables   map[string]ServerVariable
 }
 
 // ServerConfigurations stores multiple ServerConfiguration items
@@ -76,11 +76,11 @@ type ServerConfigurations []ServerConfiguration
 // Configuration stores the configuration of the API client
 type Configuration struct {
 	AccessToken      *secrecy.SecretString `json:"-"`
-	Host             string            `json:"host,omitempty"`
-	Scheme           string            `json:"scheme,omitempty"`
-	DefaultHeader    map[string]string `json:"defaultHeader,omitempty"`
-	UserAgent        string            `json:"userAgent,omitempty"`
-	Debug            bool              `json:"debug,omitempty"`
+	Host             string                `json:"host,omitempty"`
+	Scheme           string                `json:"scheme,omitempty"`
+	DefaultHeader    map[string]string     `json:"defaultHeader,omitempty"`
+	UserAgent        string                `json:"userAgent,omitempty"`
+	Debug            bool                  `json:"debug,omitempty"`
 	Servers          ServerConfigurations
 	OperationServers map[string]ServerConfigurations
 	HTTPClient       *http.Client
@@ -89,133 +89,133 @@ type Configuration struct {
 // NewConfiguration returns a new Configuration object
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
-		DefaultHeader:    make(map[string]string),
-		UserAgent:        "ValeryVerkhoturov/wb-api-client/go",
-		Debug:            false,
-		Servers:          ServerConfigurations{
+		DefaultHeader: make(map[string]string),
+		UserAgent:     "ValeryVerkhoturov/wb-api-client/go",
+		Debug:         false,
+		Servers: ServerConfigurations{
 			{
-				URL: "",
+				URL:         "",
 				Description: "No description provided",
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{
 			"AnalyticsAPIService.GetV2NmReportDownloads": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"AnalyticsAPIService.GetV2NmReportDownloadsFileDownloadId": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"AnalyticsAPIService.PostV1OrderFeed": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"AnalyticsAPIService.PostV1StocksReportSellerWarehouses": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"AnalyticsAPIService.PostV1StocksReportWbWarehouses": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"AnalyticsAPIService.PostV2ItemRating": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"AnalyticsAPIService.PostV2NmReportDownloads": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"AnalyticsAPIService.PostV2NmReportDownloadsRetry": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"AnalyticsAPIService.PostV2SearchReportProductOrders": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"AnalyticsAPIService.PostV2SearchReportProductSearchTexts": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"AnalyticsAPIService.PostV2SearchReportReport": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"AnalyticsAPIService.PostV2SearchReportTableDetails": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"AnalyticsAPIService.PostV2SearchReportTableGroups": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"AnalyticsAPIService.PostV2StocksReportOffices": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"AnalyticsAPIService.PostV2StocksReportProductsGroups": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"AnalyticsAPIService.PostV2StocksReportProductsProducts": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"AnalyticsAPIService.PostV2StocksReportProductsSizes": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"AnalyticsAPIService.PostV3SalesFunnelGroupedHistory": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"AnalyticsAPIService.PostV3SalesFunnelProducts": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"AnalyticsAPIService.PostV3SalesFunnelProductsHistory": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},

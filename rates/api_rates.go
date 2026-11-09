@@ -18,26 +18,25 @@ import (
 	"net/url"
 )
 
-
 type RatesAPI interface {
 
 	/*
-	GetV1AcceptanceCoefficients Тарифы на поставку
+			GetV1AcceptanceCoefficients Тарифы на поставку
 
-	Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
+			Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов |
-| Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов |
-| Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов |
-| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов |
+		| Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов |
+		| Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов |
+		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/rates/get-api-tariffs-v1-acceptance-coefficients
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/rates/get-api-tariffs-v1-acceptance-coefficients
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1AcceptanceCoefficientsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1AcceptanceCoefficientsRequest
 	*/
 	GetV1AcceptanceCoefficients(ctx context.Context) ApiGetV1AcceptanceCoefficientsRequest
 
@@ -46,27 +45,27 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	GetV1AcceptanceCoefficientsExecute(r ApiGetV1AcceptanceCoefficientsRequest) ([]ModelsAcceptanceCoefficient, *http.Response, error)
 
 	/*
-	GetV1TariffsBox Тарифы для коробов
+			GetV1TariffsBox Тарифы для коробов
 
-	Для остатков товаров, которые поставляются на склад в коробах, метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories) на:
-- доставку со склада или пункта приёма до покупателя
-- доставку от покупателя до пункта приёма
-- хранение на складе WB
+			Для остатков товаров, которые поставляются на склад в коробах, метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories) на:
+		- доставку со склада или пункта приёма до покупателя
+		- доставку от покупателя до пункта приёма
+		- хранение на складе WB
 
-Тарифы для коробов совпадают с тарифами для **Суперсейфа**
+		Тарифы для коробов совпадают с тарифами для **Суперсейфа**
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов |
-| Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов |
-| Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов |
-| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов |
+		| Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов |
+		| Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов |
+		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/rates/get-api-v1-tariffs-box
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/rates/get-api-v1-tariffs-box
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1TariffsBoxRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1TariffsBoxRequest
 	*/
 	GetV1TariffsBox(ctx context.Context) ApiGetV1TariffsBoxRequest
 
@@ -75,22 +74,22 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	GetV1TariffsBoxExecute(r ApiGetV1TariffsBoxRequest) (*RatesBoxResponse, *http.Response, error)
 
 	/*
-	GetV1TariffsCommission Комиссия по категориям товаров
+			GetV1TariffsCommission Комиссия по категориям товаров
 
-	Метод возвращает данные о [комиссии](https://seller.wildberries.ru/dynamic-product-categories/commission) WB по [родительским категориям товаров](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll) согласно модели продаж.
+			Метод возвращает данные о [комиссии](https://seller.wildberries.ru/dynamic-product-categories/commission) WB по [родительским категориям товаров](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll) согласно модели продаж.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 мин | 1 запрос | 1 мин | 2 запроса |
-| Сервисный | 1 мин | 1 запрос | 1 мин | 2 запроса |
-| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 2 запроса |
-| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 мин | 1 запрос | 1 мин | 2 запроса |
+		| Сервисный | 1 мин | 1 запрос | 1 мин | 2 запроса |
+		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 2 запроса |
+		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/rates/get-api-v1-tariffs-commission
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/rates/get-api-v1-tariffs-commission
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1TariffsCommissionRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1TariffsCommissionRequest
 	*/
 	GetV1TariffsCommission(ctx context.Context) ApiGetV1TariffsCommissionRequest
 
@@ -99,27 +98,27 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	GetV1TariffsCommissionExecute(r ApiGetV1TariffsCommissionRequest) (*GetV1TariffsCommission200Response, *http.Response, error)
 
 	/*
-	GetV1TariffsPallet Тарифы для монопаллет
+			GetV1TariffsPallet Тарифы для монопаллет
 
-	Для товаров, которые поставляются на склад WB на монопаллетах, метод возвращает [стоимость](https://seller.wildberries.ru/dynamic-product-categories):
-- доставки со склада до покупателя
-- доставки от покупателя до склада
-- хранения на складе WB
+			Для товаров, которые поставляются на склад WB на монопаллетах, метод возвращает [стоимость](https://seller.wildberries.ru/dynamic-product-categories):
+		- доставки со склада до покупателя
+		- доставки от покупателя до склада
+		- хранения на складе WB
 
-Тарифы для монопаллет совпадают с тарифами для **Поштучных паллет**
+		Тарифы для монопаллет совпадают с тарифами для **Поштучных паллет**
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов |
-| Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов |
-| Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов |
-| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов |
+		| Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов |
+		| Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов |
+		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/rates/get-api-v1-tariffs-pallet
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/rates/get-api-v1-tariffs-pallet
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1TariffsPalletRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1TariffsPalletRequest
 	*/
 	GetV1TariffsPallet(ctx context.Context) ApiGetV1TariffsPalletRequest
 
@@ -128,24 +127,24 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	GetV1TariffsPalletExecute(r ApiGetV1TariffsPalletRequest) (*RatesPalletResponse, *http.Response, error)
 
 	/*
-	GetV1TariffsReturn Тарифы на возврат
+			GetV1TariffsReturn Тарифы на возврат
 
-	Метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories/return-cost):
-- на перевозку товаров со склада WB или из пункта приёма до продавца
-- на обратную перевозку возвратов, которые не забрал продавец
+			Метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories/return-cost):
+		- на перевозку товаров со склада WB или из пункта приёма до продавца
+		- на обратную перевозку возвратов, которые не забрал продавец
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов |
-| Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов |
-| Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов |
-| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов |
+		| Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов |
+		| Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов |
+		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/rates/get-api-v1-tariffs-return
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/rates/get-api-v1-tariffs-return
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1TariffsReturnRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1TariffsReturnRequest
 	*/
 	GetV1TariffsReturn(ctx context.Context) ApiGetV1TariffsReturnRequest
 
@@ -158,8 +157,8 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 type RatesAPIService service
 
 type ApiGetV1AcceptanceCoefficientsRequest struct {
-	ctx context.Context
-	ApiService RatesAPI
+	ctx          context.Context
+	ApiService   RatesAPI
 	warehouseIDs *string
 }
 
@@ -188,24 +187,25 @@ GetV1AcceptanceCoefficients Тарифы на поставку
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/rates/get-api-tariffs-v1-acceptance-coefficients
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV1AcceptanceCoefficientsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1AcceptanceCoefficientsRequest
 */
 func (a *RatesAPIService) GetV1AcceptanceCoefficients(ctx context.Context) ApiGetV1AcceptanceCoefficientsRequest {
 	return ApiGetV1AcceptanceCoefficientsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []ModelsAcceptanceCoefficient
+//
+//	@return []ModelsAcceptanceCoefficient
 func (a *RatesAPIService) GetV1AcceptanceCoefficientsExecute(r ApiGetV1AcceptanceCoefficientsRequest) ([]ModelsAcceptanceCoefficient, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []ModelsAcceptanceCoefficient
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []ModelsAcceptanceCoefficient
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RatesAPIService.GetV1AcceptanceCoefficients")
@@ -268,8 +268,8 @@ func (a *RatesAPIService) GetV1AcceptanceCoefficientsExecute(r ApiGetV1Acceptanc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -279,8 +279,8 @@ func (a *RatesAPIService) GetV1AcceptanceCoefficientsExecute(r ApiGetV1Acceptanc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -290,8 +290,8 @@ func (a *RatesAPIService) GetV1AcceptanceCoefficientsExecute(r ApiGetV1Acceptanc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -301,8 +301,8 @@ func (a *RatesAPIService) GetV1AcceptanceCoefficientsExecute(r ApiGetV1Acceptanc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -320,9 +320,9 @@ func (a *RatesAPIService) GetV1AcceptanceCoefficientsExecute(r ApiGetV1Acceptanc
 }
 
 type ApiGetV1TariffsBoxRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService RatesAPI
-	date *string
+	date       *string
 }
 
 // Дата в формате ГГГГ-ММ-ДД
@@ -355,24 +355,25 @@ GetV1TariffsBox Тарифы для коробов
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/rates/get-api-v1-tariffs-box
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV1TariffsBoxRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1TariffsBoxRequest
 */
 func (a *RatesAPIService) GetV1TariffsBox(ctx context.Context) ApiGetV1TariffsBoxRequest {
 	return ApiGetV1TariffsBoxRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return RatesBoxResponse
+//
+//	@return RatesBoxResponse
 func (a *RatesAPIService) GetV1TariffsBoxExecute(r ApiGetV1TariffsBoxRequest) (*RatesBoxResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *RatesBoxResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *RatesBoxResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RatesAPIService.GetV1TariffsBox")
@@ -436,8 +437,8 @@ func (a *RatesAPIService) GetV1TariffsBoxExecute(r ApiGetV1TariffsBoxRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -447,8 +448,8 @@ func (a *RatesAPIService) GetV1TariffsBoxExecute(r ApiGetV1TariffsBoxRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -458,8 +459,8 @@ func (a *RatesAPIService) GetV1TariffsBoxExecute(r ApiGetV1TariffsBoxRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -469,8 +470,8 @@ func (a *RatesAPIService) GetV1TariffsBoxExecute(r ApiGetV1TariffsBoxRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -488,12 +489,12 @@ func (a *RatesAPIService) GetV1TariffsBoxExecute(r ApiGetV1TariffsBoxRequest) (*
 }
 
 type ApiGetV1TariffsCommissionRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService RatesAPI
-	locale *string
+	locale     *string
 }
 
-// Язык полей ответа &#x60;parentName&#x60; и &#x60;subjectName&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский 
+// Язык полей ответа &#x60;parentName&#x60; и &#x60;subjectName&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский
 func (r ApiGetV1TariffsCommissionRequest) Locale(locale string) ApiGetV1TariffsCommissionRequest {
 	r.locale = &locale
 	return r
@@ -518,24 +519,25 @@ GetV1TariffsCommission Комиссия по категориям товаров
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/rates/get-api-v1-tariffs-commission
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV1TariffsCommissionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1TariffsCommissionRequest
 */
 func (a *RatesAPIService) GetV1TariffsCommission(ctx context.Context) ApiGetV1TariffsCommissionRequest {
 	return ApiGetV1TariffsCommissionRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetV1TariffsCommission200Response
+//
+//	@return GetV1TariffsCommission200Response
 func (a *RatesAPIService) GetV1TariffsCommissionExecute(r ApiGetV1TariffsCommissionRequest) (*GetV1TariffsCommission200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetV1TariffsCommission200Response
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetV1TariffsCommission200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RatesAPIService.GetV1TariffsCommission")
@@ -598,8 +600,8 @@ func (a *RatesAPIService) GetV1TariffsCommissionExecute(r ApiGetV1TariffsCommiss
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -609,8 +611,8 @@ func (a *RatesAPIService) GetV1TariffsCommissionExecute(r ApiGetV1TariffsCommiss
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -620,8 +622,8 @@ func (a *RatesAPIService) GetV1TariffsCommissionExecute(r ApiGetV1TariffsCommiss
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -631,8 +633,8 @@ func (a *RatesAPIService) GetV1TariffsCommissionExecute(r ApiGetV1TariffsCommiss
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -650,9 +652,9 @@ func (a *RatesAPIService) GetV1TariffsCommissionExecute(r ApiGetV1TariffsCommiss
 }
 
 type ApiGetV1TariffsPalletRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService RatesAPI
-	date *string
+	date       *string
 }
 
 // Дата в формате ГГГГ-ММ-ДД
@@ -685,24 +687,25 @@ GetV1TariffsPallet Тарифы для монопаллет
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/rates/get-api-v1-tariffs-pallet
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV1TariffsPalletRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1TariffsPalletRequest
 */
 func (a *RatesAPIService) GetV1TariffsPallet(ctx context.Context) ApiGetV1TariffsPalletRequest {
 	return ApiGetV1TariffsPalletRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return RatesPalletResponse
+//
+//	@return RatesPalletResponse
 func (a *RatesAPIService) GetV1TariffsPalletExecute(r ApiGetV1TariffsPalletRequest) (*RatesPalletResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *RatesPalletResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *RatesPalletResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RatesAPIService.GetV1TariffsPallet")
@@ -766,8 +769,8 @@ func (a *RatesAPIService) GetV1TariffsPalletExecute(r ApiGetV1TariffsPalletReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -777,8 +780,8 @@ func (a *RatesAPIService) GetV1TariffsPalletExecute(r ApiGetV1TariffsPalletReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -788,8 +791,8 @@ func (a *RatesAPIService) GetV1TariffsPalletExecute(r ApiGetV1TariffsPalletReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -799,8 +802,8 @@ func (a *RatesAPIService) GetV1TariffsPalletExecute(r ApiGetV1TariffsPalletReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -818,9 +821,9 @@ func (a *RatesAPIService) GetV1TariffsPalletExecute(r ApiGetV1TariffsPalletReque
 }
 
 type ApiGetV1TariffsReturnRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService RatesAPI
-	date *string
+	date       *string
 }
 
 // Дата в формате ГГГГ-ММ-ДД
@@ -850,24 +853,25 @@ GetV1TariffsReturn Тарифы на возврат
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/rates/get-api-v1-tariffs-return
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV1TariffsReturnRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1TariffsReturnRequest
 */
 func (a *RatesAPIService) GetV1TariffsReturn(ctx context.Context) ApiGetV1TariffsReturnRequest {
 	return ApiGetV1TariffsReturnRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ReturnRatesResponse
+//
+//	@return ReturnRatesResponse
 func (a *RatesAPIService) GetV1TariffsReturnExecute(r ApiGetV1TariffsReturnRequest) (*ReturnRatesResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ReturnRatesResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ReturnRatesResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RatesAPIService.GetV1TariffsReturn")
@@ -931,8 +935,8 @@ func (a *RatesAPIService) GetV1TariffsReturnExecute(r ApiGetV1TariffsReturnReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -942,8 +946,8 @@ func (a *RatesAPIService) GetV1TariffsReturnExecute(r ApiGetV1TariffsReturnReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -953,8 +957,8 @@ func (a *RatesAPIService) GetV1TariffsReturnExecute(r ApiGetV1TariffsReturnReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -964,8 +968,8 @@ func (a *RatesAPIService) GetV1TariffsReturnExecute(r ApiGetV1TariffsReturnReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

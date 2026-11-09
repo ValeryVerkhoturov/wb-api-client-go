@@ -21,11 +21,11 @@ var _ MappedNullable = &Supply{}
 type Supply struct {
 	// ID поставки
 	Id *string `json:"id,omitempty"`
-	// Признак B2B-продажи:   - `true` — B2B-продажа   - `false` — не B2B-продажа   - `null` — признак отсутствует, сборочные задания не добавлены к поставке 
+	// Признак B2B-продажи:   - `true` — B2B-продажа   - `false` — не B2B-продажа   - `null` — признак отсутствует, сборочные задания не добавлены к поставке
 	IsB2b NullableBool `json:"isB2b,omitempty"`
-	// Можно ли отгрузить заказ на ПВЗ:   - `false` — нет   - `true` — да 
+	// Можно ли отгрузить заказ на ПВЗ:   - `false` — нет   - `true` — да
 	IsPickupPointShipmentAllowed *bool `json:"isPickupPointShipmentAllowed,omitempty"`
-	// Флаг закрытия поставки:   - `true` — закрыта   - `false` — открыта 
+	// Флаг закрытия поставки:   - `true` — закрыта   - `false` — открыта
 	Done *bool `json:"done,omitempty"`
 	// Дата создания поставки (RFC3339)
 	CreatedAt *string `json:"createdAt,omitempty"`
@@ -35,9 +35,9 @@ type Supply struct {
 	ScanDt NullableString `json:"scanDt,omitempty"`
 	// Наименование поставки
 	Name *string `json:"name,omitempty"`
-	// Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) 
+	// Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+)
 	CargoType *int64 `json:"cargoType,omitempty"`
-	// Тип поставки:   - `0` — внутренняя поставка   - `1` — трансграничная поставка   - `null` — значение отсутствует 
+	// Тип поставки:   - `0` — внутренняя поставка   - `1` — трансграничная поставка   - `null` — значение отсутствует
 	CrossBorderType NullableInt32 `json:"crossBorderType,omitempty"`
 	// ID склада хранения сборочных заданий в поставке. Если `null`, склад не указан
 	DestinationOfficeId NullableInt64 `json:"destinationOfficeId,omitempty"`
@@ -47,11 +47,11 @@ type Supply struct {
 	ShippingDt NullableString `json:"shippingDt,omitempty"`
 	// ID пункта отгрузки. Можно получить в методе получения [пунктов отгрузки поставок](./orders-fbs#tag/fbsSupplies/operation/getV3FbsShippingPoints)
 	ShippingPointId NullableInt64 `json:"shippingPointId,omitempty"`
-	// Способ доставки до пункта отгрузки:   - `selfShipping` — доставка силами продавца   - `transportCompany` — доставка через транспортную компанию 
+	// Способ доставки до пункта отгрузки:   - `selfShipping` — доставка силами продавца   - `transportCompany` — доставка через транспортную компанию
 	ShippingType NullableString `json:"shippingType,omitempty"`
 	// ID ЭТрН — электронной транспортной накладной
 	WaybillUuid NullableString `json:"waybillUuid,omitempty"`
-	// Доступен ли СПОТ для этой поставки:   - `true` — да. Используйте метод [получения данных СПОТ](./orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList)   - `false` — нет 
+	// Доступен ли СПОТ для этой поставки:   - `true` — да. Используйте метод [получения данных СПОТ](./orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList)   - `false` — нет
 	SpotAvailable *bool `json:"spotAvailable,omitempty"`
 }
 
@@ -136,6 +136,7 @@ func (o *Supply) HasIsB2b() bool {
 func (o *Supply) SetIsB2b(v bool) {
 	o.IsB2b.Set(&v)
 }
+
 // SetIsB2bNil sets the value for IsB2b to be an explicit nil
 func (o *Supply) SetIsB2bNil() {
 	o.IsB2b.Set(nil)
@@ -274,6 +275,7 @@ func (o *Supply) HasClosedAt() bool {
 func (o *Supply) SetClosedAt(v string) {
 	o.ClosedAt.Set(&v)
 }
+
 // SetClosedAtNil sets the value for ClosedAt to be an explicit nil
 func (o *Supply) SetClosedAtNil() {
 	o.ClosedAt.Set(nil)
@@ -316,6 +318,7 @@ func (o *Supply) HasScanDt() bool {
 func (o *Supply) SetScanDt(v string) {
 	o.ScanDt.Set(&v)
 }
+
 // SetScanDtNil sets the value for ScanDt to be an explicit nil
 func (o *Supply) SetScanDtNil() {
 	o.ScanDt.Set(nil)
@@ -422,6 +425,7 @@ func (o *Supply) HasCrossBorderType() bool {
 func (o *Supply) SetCrossBorderType(v int32) {
 	o.CrossBorderType.Set(&v)
 }
+
 // SetCrossBorderTypeNil sets the value for CrossBorderType to be an explicit nil
 func (o *Supply) SetCrossBorderTypeNil() {
 	o.CrossBorderType.Set(nil)
@@ -464,6 +468,7 @@ func (o *Supply) HasDestinationOfficeId() bool {
 func (o *Supply) SetDestinationOfficeId(v int64) {
 	o.DestinationOfficeId.Set(&v)
 }
+
 // SetDestinationOfficeIdNil sets the value for DestinationOfficeId to be an explicit nil
 func (o *Supply) SetDestinationOfficeIdNil() {
 	o.DestinationOfficeId.Set(nil)
@@ -538,6 +543,7 @@ func (o *Supply) HasShippingDt() bool {
 func (o *Supply) SetShippingDt(v string) {
 	o.ShippingDt.Set(&v)
 }
+
 // SetShippingDtNil sets the value for ShippingDt to be an explicit nil
 func (o *Supply) SetShippingDtNil() {
 	o.ShippingDt.Set(nil)
@@ -580,6 +586,7 @@ func (o *Supply) HasShippingPointId() bool {
 func (o *Supply) SetShippingPointId(v int64) {
 	o.ShippingPointId.Set(&v)
 }
+
 // SetShippingPointIdNil sets the value for ShippingPointId to be an explicit nil
 func (o *Supply) SetShippingPointIdNil() {
 	o.ShippingPointId.Set(nil)
@@ -622,6 +629,7 @@ func (o *Supply) HasShippingType() bool {
 func (o *Supply) SetShippingType(v string) {
 	o.ShippingType.Set(&v)
 }
+
 // SetShippingTypeNil sets the value for ShippingType to be an explicit nil
 func (o *Supply) SetShippingTypeNil() {
 	o.ShippingType.Set(nil)
@@ -664,6 +672,7 @@ func (o *Supply) HasWaybillUuid() bool {
 func (o *Supply) SetWaybillUuid(v string) {
 	o.WaybillUuid.Set(&v)
 }
+
 // SetWaybillUuidNil sets the value for WaybillUuid to be an explicit nil
 func (o *Supply) SetWaybillUuidNil() {
 	o.WaybillUuid.Set(nil)
@@ -707,7 +716,7 @@ func (o *Supply) SetSpotAvailable(v bool) {
 }
 
 func (o Supply) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -805,5 +814,3 @@ func (v *NullableSupply) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

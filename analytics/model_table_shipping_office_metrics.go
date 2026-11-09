@@ -22,7 +22,7 @@ type TableShippingOfficeMetrics struct {
 	// Остатки на текущий день, шт.
 	StockCount *int64 `json:"stockCount,omitempty"`
 	// Остатки на текущий день, сумма
-	StockSum *int64 `json:"stockSum,omitempty"`
+	StockSum *int64                      `json:"stockSum,omitempty"`
 	SaleRate *TableCommonMetricsSaleRate `json:"saleRate,omitempty"`
 	// В пути к клиенту, шт.
 	ToClientCount *int64 `json:"toClientCount,omitempty"`
@@ -208,7 +208,7 @@ func (o *TableShippingOfficeMetrics) SetFromClientCount(v int64) {
 }
 
 func (o TableShippingOfficeMetrics) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -270,5 +270,3 @@ func (v *NullableTableShippingOfficeMetrics) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

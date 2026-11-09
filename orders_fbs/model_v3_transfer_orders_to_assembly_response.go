@@ -72,7 +72,7 @@ func (o *V3TransferOrdersToAssemblyResponse) SetTransferredOrders(v []V3Transfer
 }
 
 func (o V3TransferOrdersToAssemblyResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -122,5 +122,3 @@ func (v *NullableV3TransferOrdersToAssemblyResponse) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

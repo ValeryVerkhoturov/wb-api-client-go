@@ -21,7 +21,7 @@ var _ MappedNullable = &SellerTaskMetadataBuffer{}
 type SellerTaskMetadataBuffer struct {
 	// ID загрузки
 	UploadID *int64 `json:"uploadID,omitempty"`
-	// Статус загрузки: `1` — в обработке 
+	// Статус загрузки: `1` — в обработке
 	Status *int64 `json:"status,omitempty"`
 	// Дата и время, когда загрузка создана
 	UploadDate *string `json:"uploadDate,omitempty"`
@@ -243,7 +243,7 @@ func (o *SellerTaskMetadataBuffer) SetSuccessGoodsNumber(v int64) {
 }
 
 func (o SellerTaskMetadataBuffer) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -308,5 +308,3 @@ func (v *NullableSellerTaskMetadataBuffer) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

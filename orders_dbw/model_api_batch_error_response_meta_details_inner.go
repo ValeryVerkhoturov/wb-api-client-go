@@ -23,7 +23,7 @@ type ApiBatchErrorResponseMetaDetailsInner struct {
 	Key *string `json:"key,omitempty"`
 	// Значение идентификатора маркировки
 	Value NullableString `json:"value,omitempty"`
-	// Статус проверки: - `sgtin`   - `sgtinInvalidFormat` — Неверный формат маркировки   - `sgtinNotFound` — Маркировка не найдена в [Честном знаке](https://chestnyznak.ru)   - `sgtinEmitted` —  Маркировка эмитирована   - `sgtinApplied` — Не пройдена процедура Ввод в оборот   - `sgtinWrittenOff` — Списан   - `sgtinRetired` — Выбыл   - `sgtinWithdrawn` — Выбыл   - `sgtinDisaggregation` — Расформирован   - `sgtinDisaggregated` — Расформирован   - `sgtinAppliedNotPaid` — Не оплачен   - `pending` — Маркировка на проверке 
+	// Статус проверки: - `sgtin`   - `sgtinInvalidFormat` — Неверный формат маркировки   - `sgtinNotFound` — Маркировка не найдена в [Честном знаке](https://chestnyznak.ru)   - `sgtinEmitted` —  Маркировка эмитирована   - `sgtinApplied` — Не пройдена процедура Ввод в оборот   - `sgtinWrittenOff` — Списан   - `sgtinRetired` — Выбыл   - `sgtinWithdrawn` — Выбыл   - `sgtinDisaggregation` — Расформирован   - `sgtinDisaggregated` — Расформирован   - `sgtinAppliedNotPaid` — Не оплачен   - `pending` — Маркировка на проверке
 	Decision *string `json:"decision,omitempty"`
 }
 
@@ -108,6 +108,7 @@ func (o *ApiBatchErrorResponseMetaDetailsInner) HasValue() bool {
 func (o *ApiBatchErrorResponseMetaDetailsInner) SetValue(v string) {
 	o.Value.Set(&v)
 }
+
 // SetValueNil sets the value for Value to be an explicit nil
 func (o *ApiBatchErrorResponseMetaDetailsInner) SetValueNil() {
 	o.Value.Set(nil)
@@ -151,7 +152,7 @@ func (o *ApiBatchErrorResponseMetaDetailsInner) SetDecision(v string) {
 }
 
 func (o ApiBatchErrorResponseMetaDetailsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -207,5 +208,3 @@ func (v *NullableApiBatchErrorResponseMetaDetailsInner) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

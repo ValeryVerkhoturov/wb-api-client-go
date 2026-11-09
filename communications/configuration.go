@@ -65,9 +65,9 @@ type ServerVariable struct {
 
 // ServerConfiguration stores the information about a server
 type ServerConfiguration struct {
-	URL string
+	URL         string
 	Description string
-	Variables map[string]ServerVariable
+	Variables   map[string]ServerVariable
 }
 
 // ServerConfigurations stores multiple ServerConfiguration items
@@ -76,11 +76,11 @@ type ServerConfigurations []ServerConfiguration
 // Configuration stores the configuration of the API client
 type Configuration struct {
 	AccessToken      *secrecy.SecretString `json:"-"`
-	Host             string            `json:"host,omitempty"`
-	Scheme           string            `json:"scheme,omitempty"`
-	DefaultHeader    map[string]string `json:"defaultHeader,omitempty"`
-	UserAgent        string            `json:"userAgent,omitempty"`
-	Debug            bool              `json:"debug,omitempty"`
+	Host             string                `json:"host,omitempty"`
+	Scheme           string                `json:"scheme,omitempty"`
+	DefaultHeader    map[string]string     `json:"defaultHeader,omitempty"`
+	UserAgent        string                `json:"userAgent,omitempty"`
+	Debug            bool                  `json:"debug,omitempty"`
 	Servers          ServerConfigurations
 	OperationServers map[string]ServerConfigurations
 	HTTPClient       *http.Client
@@ -89,219 +89,219 @@ type Configuration struct {
 // NewConfiguration returns a new Configuration object
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
-		DefaultHeader:    make(map[string]string),
-		UserAgent:        "ValeryVerkhoturov/wb-api-client/go",
-		Debug:            false,
-		Servers:          ServerConfigurations{
+		DefaultHeader: make(map[string]string),
+		UserAgent:     "ValeryVerkhoturov/wb-api-client/go",
+		Debug:         false,
+		Servers: ServerConfigurations{
 			{
-				URL: "",
+				URL:         "",
 				Description: "No description provided",
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{
 			"CommunicationsAPIService.DeleteV1Pins": {
 				{
-					URL: "https://feedbacks-api.wildberries.ru",
+					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"CommunicationsAPIService.GetV1Claims": {
 				{
-					URL: "https://returns-api.wildberries.ru",
+					URL:         "https://returns-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"CommunicationsAPIService.GetV1Feedback": {
 				{
-					URL: "https://feedbacks-api.wildberries.ru",
+					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					URL:         "https://feedbacks-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"CommunicationsAPIService.GetV1Feedbacks": {
 				{
-					URL: "https://feedbacks-api.wildberries.ru",
+					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					URL:         "https://feedbacks-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"CommunicationsAPIService.GetV1FeedbacksArchive": {
 				{
-					URL: "https://feedbacks-api.wildberries.ru",
+					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					URL:         "https://feedbacks-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"CommunicationsAPIService.GetV1FeedbacksCount": {
 				{
-					URL: "https://feedbacks-api.wildberries.ru",
+					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					URL:         "https://feedbacks-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"CommunicationsAPIService.GetV1FeedbacksCountUnanswered": {
 				{
-					URL: "https://feedbacks-api.wildberries.ru",
+					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					URL:         "https://feedbacks-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"CommunicationsAPIService.GetV1NewFeedbacksQuestions": {
 				{
-					URL: "https://feedbacks-api.wildberries.ru",
+					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					URL:         "https://feedbacks-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"CommunicationsAPIService.GetV1Pins": {
 				{
-					URL: "https://feedbacks-api.wildberries.ru",
+					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"CommunicationsAPIService.GetV1PinsCount": {
 				{
-					URL: "https://feedbacks-api.wildberries.ru",
+					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"CommunicationsAPIService.GetV1PinsLimits": {
 				{
-					URL: "https://feedbacks-api.wildberries.ru",
+					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"CommunicationsAPIService.GetV1Question": {
 				{
-					URL: "https://feedbacks-api.wildberries.ru",
+					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					URL:         "https://feedbacks-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"CommunicationsAPIService.GetV1Questions": {
 				{
-					URL: "https://feedbacks-api.wildberries.ru",
+					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					URL:         "https://feedbacks-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"CommunicationsAPIService.GetV1QuestionsCount": {
 				{
-					URL: "https://feedbacks-api.wildberries.ru",
+					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					URL:         "https://feedbacks-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"CommunicationsAPIService.GetV1QuestionsCountUnanswered": {
 				{
-					URL: "https://feedbacks-api.wildberries.ru",
+					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					URL:         "https://feedbacks-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"CommunicationsAPIService.GetV1SellerChats": {
 				{
-					URL: "https://buyer-chat-api.wildberries.ru",
+					URL:         "https://buyer-chat-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"CommunicationsAPIService.GetV1SellerDownloadId": {
 				{
-					URL: "https://buyer-chat-api.wildberries.ru",
+					URL:         "https://buyer-chat-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"CommunicationsAPIService.GetV1SellerEvents": {
 				{
-					URL: "https://buyer-chat-api.wildberries.ru",
+					URL:         "https://buyer-chat-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"CommunicationsAPIService.PatchV1Claim": {
 				{
-					URL: "https://returns-api.wildberries.ru",
+					URL:         "https://returns-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"CommunicationsAPIService.PatchV1FeedbacksAnswer": {
 				{
-					URL: "https://feedbacks-api.wildberries.ru",
+					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					URL:         "https://feedbacks-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"CommunicationsAPIService.PatchV1Questions": {
 				{
-					URL: "https://feedbacks-api.wildberries.ru",
+					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					URL:         "https://feedbacks-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"CommunicationsAPIService.PostV1FeedbacksAnswer": {
 				{
-					URL: "https://feedbacks-api.wildberries.ru",
+					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					URL:         "https://feedbacks-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"CommunicationsAPIService.PostV1FeedbacksOrderReturn": {
 				{
-					URL: "https://feedbacks-api.wildberries.ru",
+					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					URL:         "https://feedbacks-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"CommunicationsAPIService.PostV1Pins": {
 				{
-					URL: "https://feedbacks-api.wildberries.ru",
+					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"CommunicationsAPIService.PostV1SellerMessage": {
 				{
-					URL: "https://buyer-chat-api.wildberries.ru",
+					URL:         "https://buyer-chat-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},

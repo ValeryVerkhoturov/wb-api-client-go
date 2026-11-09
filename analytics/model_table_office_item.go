@@ -19,11 +19,11 @@ var _ MappedNullable = &TableOfficeItem{}
 
 // TableOfficeItem Данные по складу
 type TableOfficeItem struct {
-	// [Страна отгрузки](https://dev.wildberries.ru/release-notes?id=605) 
+	// [Страна отгрузки](https://dev.wildberries.ru/release-notes?id=605)
 	RegionName *string `json:"regionName,omitempty"`
-	// [ID склада](https://dev.wildberries.ru/release-notes?id=605) 
+	// [ID склада](https://dev.wildberries.ru/release-notes?id=605)
 	OfficeID *int64 `json:"officeID,omitempty"`
-	// [Название склада](https://dev.wildberries.ru/release-notes?id=605) 
+	// [Название склада](https://dev.wildberries.ru/release-notes?id=605)
 	OfficeName *string `json:"officeName,omitempty"`
 	// Метрики склада
 	Metrics *TableCommonMetrics `json:"metrics,omitempty"`
@@ -175,7 +175,7 @@ func (o *TableOfficeItem) SetMetrics(v TableCommonMetrics) {
 }
 
 func (o TableOfficeItem) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -234,5 +234,3 @@ func (v *NullableTableOfficeItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

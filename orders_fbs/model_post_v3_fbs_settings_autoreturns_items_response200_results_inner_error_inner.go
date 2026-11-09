@@ -21,7 +21,7 @@ var _ MappedNullable = &PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
 type PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner struct {
 	// Код ошибки
 	Code *int64 `json:"code,omitempty"`
-	// Дополнительная информация об ошибке 
+	// Дополнительная информация об ошибке
 	Detail *string `json:"detail,omitempty"`
 }
 
@@ -107,7 +107,7 @@ func (o *PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner) Set
 }
 
 func (o PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,5 +160,3 @@ func (v *NullablePostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorIn
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

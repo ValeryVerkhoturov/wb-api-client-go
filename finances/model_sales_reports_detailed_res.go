@@ -29,7 +29,7 @@ type SalesReportsDetailedRes struct {
 	CreateDate *string `json:"createDate,omitempty"`
 	// Валюта отчёта
 	Currency *string `json:"currency,omitempty"`
-	// Тип отчёта:   - `1` — основной   - `2` — по выкупам 
+	// Тип отчёта:   - `1` — основной   - `2` — по выкупам
 	ReportType *int64 `json:"reportType,omitempty"`
 	// ID строки
 	RrdId *int64 `json:"rrdId,omitempty"`
@@ -3303,7 +3303,7 @@ func (o *SalesReportsDetailedRes) SetSrid(v string) {
 }
 
 func (o SalesReportsDetailedRes) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -3638,5 +3638,3 @@ func (v *NullableSalesReportsDetailedRes) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

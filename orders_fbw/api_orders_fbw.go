@@ -19,28 +19,27 @@ import (
 	"strings"
 )
 
-
 type OrdersFbwAPI interface {
 
 	/*
-	DeleteV1DraftsDraftId Удалить черновик
+			DeleteV1DraftsDraftId Удалить черновик
 
-	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токену,
-**Сервисному** токену
+			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+		**Персональному** токену,
+		**Сервисному** токену
 
-Метод удаляет черновик поставки по его ID.
+		Метод удаляет черновик поставки по его ID.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 30 запросов | 2 сек | 10 запросов |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 30 запросов | 2 сек | 10 запросов |
 
-Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/delete-api-supplies-v1-drafts-draftid
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/delete-api-supplies-v1-drafts-draftid
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param draftId ID черновика
-	@return ApiDeleteV1DraftsDraftIdRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param draftId ID черновика
+			@return ApiDeleteV1DraftsDraftIdRequest
 	*/
 	DeleteV1DraftsDraftId(ctx context.Context, draftId string) ApiDeleteV1DraftsDraftIdRequest
 
@@ -48,26 +47,26 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	DeleteV1DraftsDraftIdExecute(r ApiDeleteV1DraftsDraftIdRequest) (*http.Response, error)
 
 	/*
-	DeleteV1DraftsDraftIdItems Удалить товары из черновика
+			DeleteV1DraftsDraftIdItems Удалить товары из черновика
 
-	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токену,
-**Сервисному** токену
+			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+		**Персональному** токену,
+		**Сервисному** токену
 
-Метод удаляет товары из черновика поставки по списку баркодов.
+		Метод удаляет товары из черновика поставки по списку баркодов.
 
-Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.
+		Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 30 запросов | 2 сек | 10 запросов |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 30 запросов | 2 сек | 10 запросов |
 
-Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/delete-api-supplies-v1-drafts-draftid-items
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/delete-api-supplies-v1-drafts-draftid-items
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param draftId ID черновика
-	@return ApiDeleteV1DraftsDraftIdItemsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param draftId ID черновика
+			@return ApiDeleteV1DraftsDraftIdItemsRequest
 	*/
 	DeleteV1DraftsDraftIdItems(ctx context.Context, draftId string) ApiDeleteV1DraftsDraftIdItemsRequest
 
@@ -76,23 +75,23 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	DeleteV1DraftsDraftIdItemsExecute(r ApiDeleteV1DraftsDraftIdItemsRequest) (*ModelsDraftDeleteItemsErrorResponse, *http.Response, error)
 
 	/*
-	GetV1Drafts Список черновиков
+			GetV1Drafts Список черновиков
 
-	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токену,
-**Сервисному** токену
+			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+		**Персональному** токену,
+		**Сервисному** токену
 
-Метод возвращает список черновиков поставок.
+		Метод возвращает список черновиков поставок.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 30 запросов | 2 сек | 10 запросов |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 30 запросов | 2 сек | 10 запросов |
 
-Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-drafts
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-drafts
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1DraftsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1DraftsRequest
 	*/
 	GetV1Drafts(ctx context.Context) ApiGetV1DraftsRequest
 
@@ -101,24 +100,24 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	GetV1DraftsExecute(r ApiGetV1DraftsRequest) (*ModelsListDraftsResponse, *http.Response, error)
 
 	/*
-	GetV1DraftsDraftIdItems Список товаров в черновике
+			GetV1DraftsDraftIdItems Список товаров в черновике
 
-	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токену,
-**Сервисному** токену
+			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+		**Персональному** токену,
+		**Сервисному** токену
 
-Метод возвращает список товаров черновика.
+		Метод возвращает список товаров черновика.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 30 запросов | 2 сек | 10 запросов |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 30 запросов | 2 сек | 10 запросов |
 
-Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-drafts-draftid-items
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-drafts-draftid-items
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param draftId ID черновика
-	@return ApiGetV1DraftsDraftIdItemsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param draftId ID черновика
+			@return ApiGetV1DraftsDraftIdItemsRequest
 	*/
 	GetV1DraftsDraftIdItems(ctx context.Context, draftId string) ApiGetV1DraftsDraftIdItemsRequest
 
@@ -127,23 +126,23 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	GetV1DraftsDraftIdItemsExecute(r ApiGetV1DraftsDraftIdItemsRequest) (*ModelsListDraftItemsResponse, *http.Response, error)
 
 	/*
-	GetV1SuppliesId Детали поставки
+			GetV1SuppliesId Детали поставки
 
-	Метод возвращает детали поставки по ID.
+			Метод возвращает детали поставки по ID.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов |
-| Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов |
-| Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов |
-| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов |
+		| Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов |
+		| Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов |
+		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param iD ID поставки или заказа
-	@return ApiGetV1SuppliesIdRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param iD ID поставки или заказа
+			@return ApiGetV1SuppliesIdRequest
 	*/
 	GetV1SuppliesId(ctx context.Context, iD int64) ApiGetV1SuppliesIdRequest
 
@@ -152,23 +151,23 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	GetV1SuppliesIdExecute(r ApiGetV1SuppliesIdRequest) (*ModelsSupplyDetails, *http.Response, error)
 
 	/*
-	GetV1SuppliesIdGoods Товары поставки
+			GetV1SuppliesIdGoods Товары поставки
 
-	Метод возвращает информацию о товарах в поставке.
+			Метод возвращает информацию о товарах в поставке.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов |
-| Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов |
-| Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов |
-| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов |
+		| Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов |
+		| Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов |
+		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id-goods
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id-goods
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param iD ID поставки или заказа
-	@return ApiGetV1SuppliesIdGoodsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param iD ID поставки или заказа
+			@return ApiGetV1SuppliesIdGoodsRequest
 	*/
 	GetV1SuppliesIdGoods(ctx context.Context, iD int64) ApiGetV1SuppliesIdGoodsRequest
 
@@ -177,23 +176,23 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	GetV1SuppliesIdGoodsExecute(r ApiGetV1SuppliesIdGoodsRequest) ([]ModelsGoodInSupply, *http.Response, error)
 
 	/*
-	GetV1SuppliesIdPackage Упаковка поставки
+			GetV1SuppliesIdPackage Упаковка поставки
 
-	Метод возвращает информацию об упаковке поставки.
+			Метод возвращает информацию об упаковке поставки.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов |
-| Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов |
-| Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов |
-| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов |
+		| Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов |
+		| Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов |
+		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id-package
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id-package
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param iD ID поставки
-	@return ApiGetV1SuppliesIdPackageRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param iD ID поставки
+			@return ApiGetV1SuppliesIdPackageRequest
 	*/
 	GetV1SuppliesIdPackage(ctx context.Context, iD int64) ApiGetV1SuppliesIdPackageRequest
 
@@ -202,45 +201,45 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	GetV1SuppliesIdPackageExecute(r ApiGetV1SuppliesIdPackageRequest) ([]ModelsBox, *http.Response, error)
 
 	/*
-	GetV1SuppliesSupplyIdDiscrepanciesQuantity Расхождения в поставке
+			GetV1SuppliesSupplyIdDiscrepanciesQuantity Расхождения в поставке
 
-	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токену,
-**Сервисному** токену
+			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+		**Персональному** токену,
+		**Сервисному** токену
 
-Метод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке.
+		Метод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке.
 
-Для поставок принятых не позднее года назад.
+		Для поставок принятых не позднее года назад.
 
-\*\*Типы расхождений:\*\*
+		\*\*Типы расхождений:\*\*
 
-Расхождение в большую сторону:
+		Расхождение в большую сторону:
 
-1. Избыток товара с заявленным баркодом:
-- `"discrepancyType": "surplus"`
-- `"discrepancyLabel": "surplus"`
-2. Избыток товара с несоответствующим заявленному баркодом:
-- `"discrepancyType": "surplus"`
-- `"discrepancyLabel": "re-sorting"`
-Расхождение в меньшую сторону:
+		1. Избыток товара с заявленным баркодом:
+		- `"discrepancyType": "surplus"`
+		- `"discrepancyLabel": "surplus"`
+		2. Избыток товара с несоответствующим заявленному баркодом:
+		- `"discrepancyType": "surplus"`
+		- `"discrepancyLabel": "re-sorting"`
+		Расхождение в меньшую сторону:
 
-1. Не хватает товара:
-- `"discrepancyType": "shortage"`
-- `"discrepancyLabel": "shortage"`
-2. Некоторые баркоды не соответствуют заявленным:
-- `"discrepancyType": "shortage"`
-- `"discrepancyLabel": "re-sorting"`
+		1. Не хватает товара:
+		- `"discrepancyType": "shortage"`
+		- `"discrepancyLabel": "shortage"`
+		2. Некоторые баркоды не соответствуют заявленным:
+		- `"discrepancyType": "shortage"`
+		- `"discrepancyLabel": "re-sorting"`
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 1 запрос | 1 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 1 запрос | 1 мин | 1 запрос |
 
-Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-discrepancies-supplyid
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-discrepancies-supplyid
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param supplyId ID поставки
-	@return ApiGetV1SuppliesSupplyIdDiscrepanciesQuantityRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param supplyId ID поставки
+			@return ApiGetV1SuppliesSupplyIdDiscrepanciesQuantityRequest
 	*/
 	GetV1SuppliesSupplyIdDiscrepanciesQuantity(ctx context.Context, supplyId int32) ApiGetV1SuppliesSupplyIdDiscrepanciesQuantityRequest
 
@@ -249,22 +248,22 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	GetV1SuppliesSupplyIdDiscrepanciesQuantityExecute(r ApiGetV1SuppliesSupplyIdDiscrepanciesQuantityRequest) ([]ModelsItemDiscrepancyResponse, *http.Response, error)
 
 	/*
-	GetV1TransitTariffs Транзитные направления
+			GetV1TransitTariffs Транзитные направления
 
-	Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
+			Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов |
-| Сервисный | 1 мин | 6 запросов | 10 сек | 10 запросов |
-| Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10 запросов |
-| Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов |
+		| Сервисный | 1 мин | 6 запросов | 10 сек | 10 запросов |
+		| Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10 запросов |
+		| Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |
 
-Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-transit-tariffs
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-transit-tariffs
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1TransitTariffsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1TransitTariffsRequest
 	*/
 	GetV1TransitTariffs(ctx context.Context) ApiGetV1TransitTariffsRequest
 
@@ -273,22 +272,22 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	GetV1TransitTariffsExecute(r ApiGetV1TransitTariffsRequest) ([]ModelsTransitTariff, *http.Response, error)
 
 	/*
-	GetV1Warehouses Список складов
+			GetV1Warehouses Список складов
 
-	Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
+			Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов |
-| Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов |
-| Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов |
-| Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов |
+		| Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов |
+		| Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов |
+		| Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |
 
-Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-warehouses
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-warehouses
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1WarehousesRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1WarehousesRequest
 	*/
 	GetV1Warehouses(ctx context.Context) ApiGetV1WarehousesRequest
 
@@ -297,22 +296,22 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	GetV1WarehousesExecute(r ApiGetV1WarehousesRequest) ([]ModelsWarehousesResultItems, *http.Response, error)
 
 	/*
-	PostV1AcceptanceOptions Опции приёмки
+			PostV1AcceptanceOptions Опции приёмки
 
-	Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
+			Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов |
-| Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов |
-| Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов |
-| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов |
+		| Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов |
+		| Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов |
+		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-v1-acceptance-options
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-v1-acceptance-options
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV1AcceptanceOptionsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV1AcceptanceOptionsRequest
 	*/
 	PostV1AcceptanceOptions(ctx context.Context) ApiPostV1AcceptanceOptionsRequest
 
@@ -321,23 +320,23 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	PostV1AcceptanceOptionsExecute(r ApiPostV1AcceptanceOptionsRequest) (*ModelsOptionsResultModel, *http.Response, error)
 
 	/*
-	PostV1Drafts Создать черновик
+			PostV1Drafts Создать черновик
 
-	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токену,
-**Сервисному** токену
+			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+		**Персональному** токену,
+		**Сервисному** токену
 
-Метод создаёт пустой черновик поставки.
+		Метод создаёт пустой черновик поставки.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 30 запросов | 2 сек | 10 запросов |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 30 запросов | 2 сек | 10 запросов |
 
-Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-supplies-v1-drafts
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-supplies-v1-drafts
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV1DraftsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV1DraftsRequest
 	*/
 	PostV1Drafts(ctx context.Context) ApiPostV1DraftsRequest
 
@@ -346,28 +345,28 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	PostV1DraftsExecute(r ApiPostV1DraftsRequest) (*ModelsDraftCreateResponse, *http.Response, error)
 
 	/*
-	PostV1DraftsDraftIdItems Добавить товары в черновик
+			PostV1DraftsDraftIdItems Добавить товары в черновик
 
-	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токену,
-**Сервисному** токену
+			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+		**Персональному** токену,
+		**Сервисному** токену
 
-Метод добавляет товары в черновик поставки.
+		Метод добавляет товары в черновик поставки.
 
-Метод работает по принципу атомарности:
-- если все баркоды прошли валидацию успешно, то все товары добавятся в черновик. В ответе вернётся `{"results":[]}`
-- если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов
+		Метод работает по принципу атомарности:
+		- если все баркоды прошли валидацию успешно, то все товары добавятся в черновик. В ответе вернётся `{"results":[]}`
+		- если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 30 запросов | 2 сек | 10 запросов |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 30 запросов | 2 сек | 10 запросов |
 
-Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-supplies-v1-drafts-draftid-items
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-supplies-v1-drafts-draftid-items
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param draftId ID черновика
-	@return ApiPostV1DraftsDraftIdItemsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param draftId ID черновика
+			@return ApiPostV1DraftsDraftIdItemsRequest
 	*/
 	PostV1DraftsDraftIdItems(ctx context.Context, draftId string) ApiPostV1DraftsDraftIdItemsRequest
 
@@ -376,22 +375,22 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 	PostV1DraftsDraftIdItemsExecute(r ApiPostV1DraftsDraftIdItemsRequest) (*ModelsDraftAddItemsErrorResponse, *http.Response, error)
 
 	/*
-	PostV1Supplies Список поставок
+			PostV1Supplies Список поставок
 
-	Метод возвращает список поставок, по умолчанию — последние 1000 поставок.
+			Метод возвращает список поставок, по умолчанию — последние 1000 поставок.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов |
-| Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов |
-| Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов |
-| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов |
+		| Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов |
+		| Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов |
+		| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-v1-supplies
+		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-v1-supplies
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV1SuppliesRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV1SuppliesRequest
 	*/
 	PostV1Supplies(ctx context.Context) ApiPostV1SuppliesRequest
 
@@ -404,9 +403,9 @@ Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/ap
 type OrdersFbwAPIService service
 
 type ApiDeleteV1DraftsDraftIdRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService OrdersFbwAPI
-	draftId string
+	draftId    string
 }
 
 func (r ApiDeleteV1DraftsDraftIdRequest) Execute() (*http.Response, error) {
@@ -429,24 +428,24 @@ DeleteV1DraftsDraftId Удалить черновик
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/delete-api-supplies-v1-drafts-draftid
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param draftId ID черновика
- @return ApiDeleteV1DraftsDraftIdRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param draftId ID черновика
+	@return ApiDeleteV1DraftsDraftIdRequest
 */
 func (a *OrdersFbwAPIService) DeleteV1DraftsDraftId(ctx context.Context, draftId string) ApiDeleteV1DraftsDraftIdRequest {
 	return ApiDeleteV1DraftsDraftIdRequest{
 		ApiService: a,
-		ctx: ctx,
-		draftId: draftId,
+		ctx:        ctx,
+		draftId:    draftId,
 	}
 }
 
 // Execute executes the request
 func (a *OrdersFbwAPIService) DeleteV1DraftsDraftIdExecute(r ApiDeleteV1DraftsDraftIdRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersFbwAPIService.DeleteV1DraftsDraftId")
@@ -507,8 +506,8 @@ func (a *OrdersFbwAPIService) DeleteV1DraftsDraftIdExecute(r ApiDeleteV1DraftsDr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -518,8 +517,8 @@ func (a *OrdersFbwAPIService) DeleteV1DraftsDraftIdExecute(r ApiDeleteV1DraftsDr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -529,19 +528,19 @@ func (a *OrdersFbwAPIService) DeleteV1DraftsDraftIdExecute(r ApiDeleteV1DraftsDr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostV1AcceptanceOptions403Response
+			var v Response4XX
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -551,8 +550,8 @@ func (a *OrdersFbwAPIService) DeleteV1DraftsDraftIdExecute(r ApiDeleteV1DraftsDr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -562,8 +561,8 @@ func (a *OrdersFbwAPIService) DeleteV1DraftsDraftIdExecute(r ApiDeleteV1DraftsDr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -572,9 +571,9 @@ func (a *OrdersFbwAPIService) DeleteV1DraftsDraftIdExecute(r ApiDeleteV1DraftsDr
 }
 
 type ApiDeleteV1DraftsDraftIdItemsRequest struct {
-	ctx context.Context
-	ApiService OrdersFbwAPI
-	draftId string
+	ctx                           context.Context
+	ApiService                    OrdersFbwAPI
+	draftId                       string
 	modelsDraftDeleteitemsRequest *ModelsDraftDeleteitemsRequest
 }
 
@@ -605,26 +604,27 @@ DeleteV1DraftsDraftIdItems Удалить товары из черновика
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/delete-api-supplies-v1-drafts-draftid-items
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param draftId ID черновика
- @return ApiDeleteV1DraftsDraftIdItemsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param draftId ID черновика
+	@return ApiDeleteV1DraftsDraftIdItemsRequest
 */
 func (a *OrdersFbwAPIService) DeleteV1DraftsDraftIdItems(ctx context.Context, draftId string) ApiDeleteV1DraftsDraftIdItemsRequest {
 	return ApiDeleteV1DraftsDraftIdItemsRequest{
 		ApiService: a,
-		ctx: ctx,
-		draftId: draftId,
+		ctx:        ctx,
+		draftId:    draftId,
 	}
 }
 
 // Execute executes the request
-//  @return ModelsDraftDeleteItemsErrorResponse
+//
+//	@return ModelsDraftDeleteItemsErrorResponse
 func (a *OrdersFbwAPIService) DeleteV1DraftsDraftIdItemsExecute(r ApiDeleteV1DraftsDraftIdItemsRequest) (*ModelsDraftDeleteItemsErrorResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ModelsDraftDeleteItemsErrorResponse
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ModelsDraftDeleteItemsErrorResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersFbwAPIService.DeleteV1DraftsDraftIdItems")
@@ -690,8 +690,8 @@ func (a *OrdersFbwAPIService) DeleteV1DraftsDraftIdItemsExecute(r ApiDeleteV1Dra
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -701,8 +701,8 @@ func (a *OrdersFbwAPIService) DeleteV1DraftsDraftIdItemsExecute(r ApiDeleteV1Dra
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -712,19 +712,19 @@ func (a *OrdersFbwAPIService) DeleteV1DraftsDraftIdItemsExecute(r ApiDeleteV1Dra
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostV1AcceptanceOptions403Response
+			var v Response4XX
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -734,8 +734,8 @@ func (a *OrdersFbwAPIService) DeleteV1DraftsDraftIdItemsExecute(r ApiDeleteV1Dra
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -745,8 +745,8 @@ func (a *OrdersFbwAPIService) DeleteV1DraftsDraftIdItemsExecute(r ApiDeleteV1Dra
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -764,12 +764,12 @@ func (a *OrdersFbwAPIService) DeleteV1DraftsDraftIdItemsExecute(r ApiDeleteV1Dra
 }
 
 type ApiGetV1DraftsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService OrdersFbwAPI
-	limit *int64
-	offset *int64
-	sort *string
-	order *string
+	limit      *int64
+	offset     *int64
+	sort       *string
+	order      *string
 }
 
 // Количество черновиков в ответе
@@ -784,13 +784,13 @@ func (r ApiGetV1DraftsRequest) Offset(offset int64) ApiGetV1DraftsRequest {
 	return r
 }
 
-// Сортировка:   - &#x60;createdDt&#x60; — по дате создания черновика   - &#x60;updatedDt&#x60; — по дате обновления черновика 
+// Сортировка:   - &#x60;createdDt&#x60; — по дате создания черновика   - &#x60;updatedDt&#x60; — по дате обновления черновика
 func (r ApiGetV1DraftsRequest) Sort(sort string) ApiGetV1DraftsRequest {
 	r.sort = &sort
 	return r
 }
 
-// Порядок выдачи:   - &#x60;desc&#x60; — по убыванию   - &#x60;asc&#x60; — по возрастанию 
+// Порядок выдачи:   - &#x60;desc&#x60; — по убыванию   - &#x60;asc&#x60; — по возрастанию
 func (r ApiGetV1DraftsRequest) Order(order string) ApiGetV1DraftsRequest {
 	r.order = &order
 	return r
@@ -816,24 +816,25 @@ GetV1Drafts Список черновиков
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-drafts
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV1DraftsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1DraftsRequest
 */
 func (a *OrdersFbwAPIService) GetV1Drafts(ctx context.Context) ApiGetV1DraftsRequest {
 	return ApiGetV1DraftsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ModelsListDraftsResponse
+//
+//	@return ModelsListDraftsResponse
 func (a *OrdersFbwAPIService) GetV1DraftsExecute(r ApiGetV1DraftsRequest) (*ModelsListDraftsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ModelsListDraftsResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ModelsListDraftsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersFbwAPIService.GetV1Drafts")
@@ -917,8 +918,8 @@ func (a *OrdersFbwAPIService) GetV1DraftsExecute(r ApiGetV1DraftsRequest) (*Mode
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -928,8 +929,8 @@ func (a *OrdersFbwAPIService) GetV1DraftsExecute(r ApiGetV1DraftsRequest) (*Mode
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -939,19 +940,19 @@ func (a *OrdersFbwAPIService) GetV1DraftsExecute(r ApiGetV1DraftsRequest) (*Mode
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostV1AcceptanceOptions403Response
+			var v Response4XX
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -961,8 +962,8 @@ func (a *OrdersFbwAPIService) GetV1DraftsExecute(r ApiGetV1DraftsRequest) (*Mode
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -980,9 +981,9 @@ func (a *OrdersFbwAPIService) GetV1DraftsExecute(r ApiGetV1DraftsRequest) (*Mode
 }
 
 type ApiGetV1DraftsDraftIdItemsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService OrdersFbwAPI
-	draftId string
+	draftId    string
 }
 
 func (r ApiGetV1DraftsDraftIdItemsRequest) Execute() (*ModelsListDraftItemsResponse, *http.Response, error) {
@@ -1005,26 +1006,27 @@ GetV1DraftsDraftIdItems Список товаров в черновике
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-drafts-draftid-items
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param draftId ID черновика
- @return ApiGetV1DraftsDraftIdItemsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param draftId ID черновика
+	@return ApiGetV1DraftsDraftIdItemsRequest
 */
 func (a *OrdersFbwAPIService) GetV1DraftsDraftIdItems(ctx context.Context, draftId string) ApiGetV1DraftsDraftIdItemsRequest {
 	return ApiGetV1DraftsDraftIdItemsRequest{
 		ApiService: a,
-		ctx: ctx,
-		draftId: draftId,
+		ctx:        ctx,
+		draftId:    draftId,
 	}
 }
 
 // Execute executes the request
-//  @return ModelsListDraftItemsResponse
+//
+//	@return ModelsListDraftItemsResponse
 func (a *OrdersFbwAPIService) GetV1DraftsDraftIdItemsExecute(r ApiGetV1DraftsDraftIdItemsRequest) (*ModelsListDraftItemsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ModelsListDraftItemsResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ModelsListDraftItemsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersFbwAPIService.GetV1DraftsDraftIdItems")
@@ -1085,8 +1087,8 @@ func (a *OrdersFbwAPIService) GetV1DraftsDraftIdItemsExecute(r ApiGetV1DraftsDra
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1096,8 +1098,8 @@ func (a *OrdersFbwAPIService) GetV1DraftsDraftIdItemsExecute(r ApiGetV1DraftsDra
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1107,19 +1109,19 @@ func (a *OrdersFbwAPIService) GetV1DraftsDraftIdItemsExecute(r ApiGetV1DraftsDra
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostV1AcceptanceOptions403Response
+			var v Response4XX
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1129,8 +1131,8 @@ func (a *OrdersFbwAPIService) GetV1DraftsDraftIdItemsExecute(r ApiGetV1DraftsDra
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1140,8 +1142,8 @@ func (a *OrdersFbwAPIService) GetV1DraftsDraftIdItemsExecute(r ApiGetV1DraftsDra
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1159,13 +1161,13 @@ func (a *OrdersFbwAPIService) GetV1DraftsDraftIdItemsExecute(r ApiGetV1DraftsDra
 }
 
 type ApiGetV1SuppliesIdRequest struct {
-	ctx context.Context
-	ApiService OrdersFbwAPI
-	iD int64
+	ctx          context.Context
+	ApiService   OrdersFbwAPI
+	iD           int64
 	isPreorderID *bool
 }
 
-// Поиск по:   - &#x60;true&#x60; — ID заказа, если в &#x60;ID&#x60; передаёте ID заказа   - &#x60;false&#x60; — ID поставки, если в &#x60;ID&#x60; передаёте ID поставки 
+// Поиск по:   - &#x60;true&#x60; — ID заказа, если в &#x60;ID&#x60; передаёте ID заказа   - &#x60;false&#x60; — ID поставки, если в &#x60;ID&#x60; передаёте ID поставки
 func (r ApiGetV1SuppliesIdRequest) IsPreorderID(isPreorderID bool) ApiGetV1SuppliesIdRequest {
 	r.isPreorderID = &isPreorderID
 	return r
@@ -1190,26 +1192,27 @@ GetV1SuppliesId Детали поставки
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param iD ID поставки или заказа
- @return ApiGetV1SuppliesIdRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param iD ID поставки или заказа
+	@return ApiGetV1SuppliesIdRequest
 */
 func (a *OrdersFbwAPIService) GetV1SuppliesId(ctx context.Context, iD int64) ApiGetV1SuppliesIdRequest {
 	return ApiGetV1SuppliesIdRequest{
 		ApiService: a,
-		ctx: ctx,
-		iD: iD,
+		ctx:        ctx,
+		iD:         iD,
 	}
 }
 
 // Execute executes the request
-//  @return ModelsSupplyDetails
+//
+//	@return ModelsSupplyDetails
 func (a *OrdersFbwAPIService) GetV1SuppliesIdExecute(r ApiGetV1SuppliesIdRequest) (*ModelsSupplyDetails, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ModelsSupplyDetails
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ModelsSupplyDetails
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersFbwAPIService.GetV1SuppliesId")
@@ -1276,8 +1279,8 @@ func (a *OrdersFbwAPIService) GetV1SuppliesIdExecute(r ApiGetV1SuppliesIdRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1287,8 +1290,8 @@ func (a *OrdersFbwAPIService) GetV1SuppliesIdExecute(r ApiGetV1SuppliesIdRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1298,8 +1301,8 @@ func (a *OrdersFbwAPIService) GetV1SuppliesIdExecute(r ApiGetV1SuppliesIdRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1309,8 +1312,8 @@ func (a *OrdersFbwAPIService) GetV1SuppliesIdExecute(r ApiGetV1SuppliesIdRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1320,8 +1323,8 @@ func (a *OrdersFbwAPIService) GetV1SuppliesIdExecute(r ApiGetV1SuppliesIdRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1331,8 +1334,8 @@ func (a *OrdersFbwAPIService) GetV1SuppliesIdExecute(r ApiGetV1SuppliesIdRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1350,11 +1353,11 @@ func (a *OrdersFbwAPIService) GetV1SuppliesIdExecute(r ApiGetV1SuppliesIdRequest
 }
 
 type ApiGetV1SuppliesIdGoodsRequest struct {
-	ctx context.Context
-	ApiService OrdersFbwAPI
-	iD int64
-	limit *int64
-	offset *int64
+	ctx          context.Context
+	ApiService   OrdersFbwAPI
+	iD           int64
+	limit        *int64
+	offset       *int64
 	isPreorderID *bool
 }
 
@@ -1370,7 +1373,7 @@ func (r ApiGetV1SuppliesIdGoodsRequest) Offset(offset int64) ApiGetV1SuppliesIdG
 	return r
 }
 
-// Поиск по:   - &#x60;true&#x60; — ID заказа, если в &#x60;ID&#x60; передаёте ID заказа   - &#x60;false&#x60; — ID поставки, если в &#x60;ID&#x60; передаёте ID поставки 
+// Поиск по:   - &#x60;true&#x60; — ID заказа, если в &#x60;ID&#x60; передаёте ID заказа   - &#x60;false&#x60; — ID поставки, если в &#x60;ID&#x60; передаёте ID поставки
 func (r ApiGetV1SuppliesIdGoodsRequest) IsPreorderID(isPreorderID bool) ApiGetV1SuppliesIdGoodsRequest {
 	r.isPreorderID = &isPreorderID
 	return r
@@ -1395,26 +1398,27 @@ GetV1SuppliesIdGoods Товары поставки
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id-goods
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param iD ID поставки или заказа
- @return ApiGetV1SuppliesIdGoodsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param iD ID поставки или заказа
+	@return ApiGetV1SuppliesIdGoodsRequest
 */
 func (a *OrdersFbwAPIService) GetV1SuppliesIdGoods(ctx context.Context, iD int64) ApiGetV1SuppliesIdGoodsRequest {
 	return ApiGetV1SuppliesIdGoodsRequest{
 		ApiService: a,
-		ctx: ctx,
-		iD: iD,
+		ctx:        ctx,
+		iD:         iD,
 	}
 }
 
 // Execute executes the request
-//  @return []ModelsGoodInSupply
+//
+//	@return []ModelsGoodInSupply
 func (a *OrdersFbwAPIService) GetV1SuppliesIdGoodsExecute(r ApiGetV1SuppliesIdGoodsRequest) ([]ModelsGoodInSupply, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []ModelsGoodInSupply
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []ModelsGoodInSupply
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersFbwAPIService.GetV1SuppliesIdGoods")
@@ -1493,8 +1497,8 @@ func (a *OrdersFbwAPIService) GetV1SuppliesIdGoodsExecute(r ApiGetV1SuppliesIdGo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1504,8 +1508,8 @@ func (a *OrdersFbwAPIService) GetV1SuppliesIdGoodsExecute(r ApiGetV1SuppliesIdGo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1515,8 +1519,8 @@ func (a *OrdersFbwAPIService) GetV1SuppliesIdGoodsExecute(r ApiGetV1SuppliesIdGo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1526,8 +1530,8 @@ func (a *OrdersFbwAPIService) GetV1SuppliesIdGoodsExecute(r ApiGetV1SuppliesIdGo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1537,8 +1541,8 @@ func (a *OrdersFbwAPIService) GetV1SuppliesIdGoodsExecute(r ApiGetV1SuppliesIdGo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1556,9 +1560,9 @@ func (a *OrdersFbwAPIService) GetV1SuppliesIdGoodsExecute(r ApiGetV1SuppliesIdGo
 }
 
 type ApiGetV1SuppliesIdPackageRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService OrdersFbwAPI
-	iD int64
+	iD         int64
 }
 
 func (r ApiGetV1SuppliesIdPackageRequest) Execute() ([]ModelsBox, *http.Response, error) {
@@ -1580,26 +1584,27 @@ GetV1SuppliesIdPackage Упаковка поставки
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-supplies-id-package
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param iD ID поставки
- @return ApiGetV1SuppliesIdPackageRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param iD ID поставки
+	@return ApiGetV1SuppliesIdPackageRequest
 */
 func (a *OrdersFbwAPIService) GetV1SuppliesIdPackage(ctx context.Context, iD int64) ApiGetV1SuppliesIdPackageRequest {
 	return ApiGetV1SuppliesIdPackageRequest{
 		ApiService: a,
-		ctx: ctx,
-		iD: iD,
+		ctx:        ctx,
+		iD:         iD,
 	}
 }
 
 // Execute executes the request
-//  @return []ModelsBox
+//
+//	@return []ModelsBox
 func (a *OrdersFbwAPIService) GetV1SuppliesIdPackageExecute(r ApiGetV1SuppliesIdPackageRequest) ([]ModelsBox, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []ModelsBox
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []ModelsBox
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersFbwAPIService.GetV1SuppliesIdPackage")
@@ -1660,8 +1665,8 @@ func (a *OrdersFbwAPIService) GetV1SuppliesIdPackageExecute(r ApiGetV1SuppliesId
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1671,8 +1676,8 @@ func (a *OrdersFbwAPIService) GetV1SuppliesIdPackageExecute(r ApiGetV1SuppliesId
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1682,8 +1687,8 @@ func (a *OrdersFbwAPIService) GetV1SuppliesIdPackageExecute(r ApiGetV1SuppliesId
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1693,8 +1698,8 @@ func (a *OrdersFbwAPIService) GetV1SuppliesIdPackageExecute(r ApiGetV1SuppliesId
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1704,8 +1709,8 @@ func (a *OrdersFbwAPIService) GetV1SuppliesIdPackageExecute(r ApiGetV1SuppliesId
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1723,9 +1728,9 @@ func (a *OrdersFbwAPIService) GetV1SuppliesIdPackageExecute(r ApiGetV1SuppliesId
 }
 
 type ApiGetV1SuppliesSupplyIdDiscrepanciesQuantityRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService OrdersFbwAPI
-	supplyId int32
+	supplyId   int32
 }
 
 func (r ApiGetV1SuppliesSupplyIdDiscrepanciesQuantityRequest) Execute() ([]ModelsItemDiscrepancyResponse, *http.Response, error) {
@@ -1769,26 +1774,27 @@ GetV1SuppliesSupplyIdDiscrepanciesQuantity Расхождения в поста�
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-supplies-v1-discrepancies-supplyid
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param supplyId ID поставки
- @return ApiGetV1SuppliesSupplyIdDiscrepanciesQuantityRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param supplyId ID поставки
+	@return ApiGetV1SuppliesSupplyIdDiscrepanciesQuantityRequest
 */
 func (a *OrdersFbwAPIService) GetV1SuppliesSupplyIdDiscrepanciesQuantity(ctx context.Context, supplyId int32) ApiGetV1SuppliesSupplyIdDiscrepanciesQuantityRequest {
 	return ApiGetV1SuppliesSupplyIdDiscrepanciesQuantityRequest{
 		ApiService: a,
-		ctx: ctx,
-		supplyId: supplyId,
+		ctx:        ctx,
+		supplyId:   supplyId,
 	}
 }
 
 // Execute executes the request
-//  @return []ModelsItemDiscrepancyResponse
+//
+//	@return []ModelsItemDiscrepancyResponse
 func (a *OrdersFbwAPIService) GetV1SuppliesSupplyIdDiscrepanciesQuantityExecute(r ApiGetV1SuppliesSupplyIdDiscrepanciesQuantityRequest) ([]ModelsItemDiscrepancyResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []ModelsItemDiscrepancyResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []ModelsItemDiscrepancyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersFbwAPIService.GetV1SuppliesSupplyIdDiscrepanciesQuantity")
@@ -1849,8 +1855,8 @@ func (a *OrdersFbwAPIService) GetV1SuppliesSupplyIdDiscrepanciesQuantityExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1860,19 +1866,19 @@ func (a *OrdersFbwAPIService) GetV1SuppliesSupplyIdDiscrepanciesQuantityExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ModelsSupplyAcceptedMoreThanYearAgo
+			var v Response4XX
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1882,8 +1888,8 @@ func (a *OrdersFbwAPIService) GetV1SuppliesSupplyIdDiscrepanciesQuantityExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1893,8 +1899,8 @@ func (a *OrdersFbwAPIService) GetV1SuppliesSupplyIdDiscrepanciesQuantityExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1912,7 +1918,7 @@ func (a *OrdersFbwAPIService) GetV1SuppliesSupplyIdDiscrepanciesQuantityExecute(
 }
 
 type ApiGetV1TransitTariffsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService OrdersFbwAPI
 }
 
@@ -1935,24 +1941,25 @@ GetV1TransitTariffs Транзитные направления
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-transit-tariffs
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV1TransitTariffsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1TransitTariffsRequest
 */
 func (a *OrdersFbwAPIService) GetV1TransitTariffs(ctx context.Context) ApiGetV1TransitTariffsRequest {
 	return ApiGetV1TransitTariffsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []ModelsTransitTariff
+//
+//	@return []ModelsTransitTariff
 func (a *OrdersFbwAPIService) GetV1TransitTariffsExecute(r ApiGetV1TransitTariffsRequest) ([]ModelsTransitTariff, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []ModelsTransitTariff
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []ModelsTransitTariff
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersFbwAPIService.GetV1TransitTariffs")
@@ -2012,8 +2019,8 @@ func (a *OrdersFbwAPIService) GetV1TransitTariffsExecute(r ApiGetV1TransitTariff
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2023,8 +2030,8 @@ func (a *OrdersFbwAPIService) GetV1TransitTariffsExecute(r ApiGetV1TransitTariff
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2034,8 +2041,8 @@ func (a *OrdersFbwAPIService) GetV1TransitTariffsExecute(r ApiGetV1TransitTariff
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2045,8 +2052,8 @@ func (a *OrdersFbwAPIService) GetV1TransitTariffsExecute(r ApiGetV1TransitTariff
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2064,7 +2071,7 @@ func (a *OrdersFbwAPIService) GetV1TransitTariffsExecute(r ApiGetV1TransitTariff
 }
 
 type ApiGetV1WarehousesRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService OrdersFbwAPI
 }
 
@@ -2087,24 +2094,25 @@ GetV1Warehouses Список складов
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/get-api-v1-warehouses
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV1WarehousesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1WarehousesRequest
 */
 func (a *OrdersFbwAPIService) GetV1Warehouses(ctx context.Context) ApiGetV1WarehousesRequest {
 	return ApiGetV1WarehousesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []ModelsWarehousesResultItems
+//
+//	@return []ModelsWarehousesResultItems
 func (a *OrdersFbwAPIService) GetV1WarehousesExecute(r ApiGetV1WarehousesRequest) ([]ModelsWarehousesResultItems, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []ModelsWarehousesResultItems
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []ModelsWarehousesResultItems
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersFbwAPIService.GetV1Warehouses")
@@ -2164,8 +2172,8 @@ func (a *OrdersFbwAPIService) GetV1WarehousesExecute(r ApiGetV1WarehousesRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2175,8 +2183,8 @@ func (a *OrdersFbwAPIService) GetV1WarehousesExecute(r ApiGetV1WarehousesRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2186,8 +2194,8 @@ func (a *OrdersFbwAPIService) GetV1WarehousesExecute(r ApiGetV1WarehousesRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2197,8 +2205,8 @@ func (a *OrdersFbwAPIService) GetV1WarehousesExecute(r ApiGetV1WarehousesRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2216,9 +2224,9 @@ func (a *OrdersFbwAPIService) GetV1WarehousesExecute(r ApiGetV1WarehousesRequest
 }
 
 type ApiPostV1AcceptanceOptionsRequest struct {
-	ctx context.Context
-	ApiService OrdersFbwAPI
-	modelsGood *[]ModelsGood
+	ctx         context.Context
+	ApiService  OrdersFbwAPI
+	modelsGood  *[]ModelsGood
 	warehouseID *int64
 }
 
@@ -2252,24 +2260,25 @@ PostV1AcceptanceOptions Опции приёмки
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-v1-acceptance-options
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV1AcceptanceOptionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV1AcceptanceOptionsRequest
 */
 func (a *OrdersFbwAPIService) PostV1AcceptanceOptions(ctx context.Context) ApiPostV1AcceptanceOptionsRequest {
 	return ApiPostV1AcceptanceOptionsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ModelsOptionsResultModel
+//
+//	@return ModelsOptionsResultModel
 func (a *OrdersFbwAPIService) PostV1AcceptanceOptionsExecute(r ApiPostV1AcceptanceOptionsRequest) (*ModelsOptionsResultModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ModelsOptionsResultModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ModelsOptionsResultModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersFbwAPIService.PostV1AcceptanceOptions")
@@ -2340,8 +2349,8 @@ func (a *OrdersFbwAPIService) PostV1AcceptanceOptionsExecute(r ApiPostV1Acceptan
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2351,8 +2360,8 @@ func (a *OrdersFbwAPIService) PostV1AcceptanceOptionsExecute(r ApiPostV1Acceptan
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2362,8 +2371,8 @@ func (a *OrdersFbwAPIService) PostV1AcceptanceOptionsExecute(r ApiPostV1Acceptan
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2373,8 +2382,8 @@ func (a *OrdersFbwAPIService) PostV1AcceptanceOptionsExecute(r ApiPostV1Acceptan
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2384,8 +2393,8 @@ func (a *OrdersFbwAPIService) PostV1AcceptanceOptionsExecute(r ApiPostV1Acceptan
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2403,7 +2412,7 @@ func (a *OrdersFbwAPIService) PostV1AcceptanceOptionsExecute(r ApiPostV1Acceptan
 }
 
 type ApiPostV1DraftsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService OrdersFbwAPI
 }
 
@@ -2427,24 +2436,25 @@ PostV1Drafts Создать черновик
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-supplies-v1-drafts
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV1DraftsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV1DraftsRequest
 */
 func (a *OrdersFbwAPIService) PostV1Drafts(ctx context.Context) ApiPostV1DraftsRequest {
 	return ApiPostV1DraftsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ModelsDraftCreateResponse
+//
+//	@return ModelsDraftCreateResponse
 func (a *OrdersFbwAPIService) PostV1DraftsExecute(r ApiPostV1DraftsRequest) (*ModelsDraftCreateResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ModelsDraftCreateResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ModelsDraftCreateResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersFbwAPIService.PostV1Drafts")
@@ -2504,8 +2514,8 @@ func (a *OrdersFbwAPIService) PostV1DraftsExecute(r ApiPostV1DraftsRequest) (*Mo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2515,19 +2525,19 @@ func (a *OrdersFbwAPIService) PostV1DraftsExecute(r ApiPostV1DraftsRequest) (*Mo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostV1AcceptanceOptions403Response
+			var v Response4XX
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2537,8 +2547,8 @@ func (a *OrdersFbwAPIService) PostV1DraftsExecute(r ApiPostV1DraftsRequest) (*Mo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2556,9 +2566,9 @@ func (a *OrdersFbwAPIService) PostV1DraftsExecute(r ApiPostV1DraftsRequest) (*Mo
 }
 
 type ApiPostV1DraftsDraftIdItemsRequest struct {
-	ctx context.Context
-	ApiService OrdersFbwAPI
-	draftId string
+	ctx                        context.Context
+	ApiService                 OrdersFbwAPI
+	draftId                    string
 	modelsDraftAdditemsRequest *ModelsDraftAdditemsRequest
 }
 
@@ -2591,26 +2601,27 @@ PostV1DraftsDraftIdItems Добавить товары в черновик
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-supplies-v1-drafts-draftid-items
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param draftId ID черновика
- @return ApiPostV1DraftsDraftIdItemsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param draftId ID черновика
+	@return ApiPostV1DraftsDraftIdItemsRequest
 */
 func (a *OrdersFbwAPIService) PostV1DraftsDraftIdItems(ctx context.Context, draftId string) ApiPostV1DraftsDraftIdItemsRequest {
 	return ApiPostV1DraftsDraftIdItemsRequest{
 		ApiService: a,
-		ctx: ctx,
-		draftId: draftId,
+		ctx:        ctx,
+		draftId:    draftId,
 	}
 }
 
 // Execute executes the request
-//  @return ModelsDraftAddItemsErrorResponse
+//
+//	@return ModelsDraftAddItemsErrorResponse
 func (a *OrdersFbwAPIService) PostV1DraftsDraftIdItemsExecute(r ApiPostV1DraftsDraftIdItemsRequest) (*ModelsDraftAddItemsErrorResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ModelsDraftAddItemsErrorResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ModelsDraftAddItemsErrorResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersFbwAPIService.PostV1DraftsDraftIdItems")
@@ -2676,8 +2687,8 @@ func (a *OrdersFbwAPIService) PostV1DraftsDraftIdItemsExecute(r ApiPostV1DraftsD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2687,8 +2698,8 @@ func (a *OrdersFbwAPIService) PostV1DraftsDraftIdItemsExecute(r ApiPostV1DraftsD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2698,19 +2709,19 @@ func (a *OrdersFbwAPIService) PostV1DraftsDraftIdItemsExecute(r ApiPostV1DraftsD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostV1AcceptanceOptions403Response
+			var v Response4XX
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2720,8 +2731,8 @@ func (a *OrdersFbwAPIService) PostV1DraftsDraftIdItemsExecute(r ApiPostV1DraftsD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2731,8 +2742,8 @@ func (a *OrdersFbwAPIService) PostV1DraftsDraftIdItemsExecute(r ApiPostV1DraftsD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2750,11 +2761,11 @@ func (a *OrdersFbwAPIService) PostV1DraftsDraftIdItemsExecute(r ApiPostV1DraftsD
 }
 
 type ApiPostV1SuppliesRequest struct {
-	ctx context.Context
-	ApiService OrdersFbwAPI
+	ctx                          context.Context
+	ApiService                   OrdersFbwAPI
 	modelsSuppliesFiltersRequest *ModelsSuppliesFiltersRequest
-	limit *int64
-	offset *int64
+	limit                        *int64
+	offset                       *int64
 }
 
 func (r ApiPostV1SuppliesRequest) ModelsSuppliesFiltersRequest(modelsSuppliesFiltersRequest ModelsSuppliesFiltersRequest) ApiPostV1SuppliesRequest {
@@ -2793,24 +2804,25 @@ PostV1Supplies Список поставок
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbw/post-api-v1-supplies
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV1SuppliesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV1SuppliesRequest
 */
 func (a *OrdersFbwAPIService) PostV1Supplies(ctx context.Context) ApiPostV1SuppliesRequest {
 	return ApiPostV1SuppliesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []ModelsSupply
+//
+//	@return []ModelsSupply
 func (a *OrdersFbwAPIService) PostV1SuppliesExecute(r ApiPostV1SuppliesRequest) ([]ModelsSupply, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []ModelsSupply
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []ModelsSupply
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersFbwAPIService.PostV1Supplies")
@@ -2887,8 +2899,8 @@ func (a *OrdersFbwAPIService) PostV1SuppliesExecute(r ApiPostV1SuppliesRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2898,8 +2910,8 @@ func (a *OrdersFbwAPIService) PostV1SuppliesExecute(r ApiPostV1SuppliesRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2909,8 +2921,8 @@ func (a *OrdersFbwAPIService) PostV1SuppliesExecute(r ApiPostV1SuppliesRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2920,8 +2932,8 @@ func (a *OrdersFbwAPIService) PostV1SuppliesExecute(r ApiPostV1SuppliesRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2931,8 +2943,8 @@ func (a *OrdersFbwAPIService) PostV1SuppliesExecute(r ApiPostV1SuppliesRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

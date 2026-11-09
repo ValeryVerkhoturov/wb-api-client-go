@@ -19,7 +19,7 @@ var _ MappedNullable = &SetRecomRes{}
 
 // SetRecomRes struct for SetRecomRes
 type SetRecomRes struct {
-	// Есть ли ошибки:   - `false` — ошибок нет. Запрос полностью успешен   - `true` — ошибки есть 
+	// Есть ли ошибки:   - `false` — ошибок нет. Запрос полностью успешен   - `true` — ошибки есть
 	IsError *bool `json:"isError,omitempty"`
 	// Ошибки. При `\"isError\":true`
 	Errors []SetRecomResErrorsInner `json:"errors,omitempty"`
@@ -107,7 +107,7 @@ func (o *SetRecomRes) SetErrors(v []SetRecomResErrorsInner) {
 }
 
 func (o SetRecomRes) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,5 +160,3 @@ func (v *NullableSetRecomRes) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

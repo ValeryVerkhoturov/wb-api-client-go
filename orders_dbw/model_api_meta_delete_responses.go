@@ -20,8 +20,8 @@ var _ MappedNullable = &ApiMetaDeleteResponses{}
 // ApiMetaDeleteResponses struct for ApiMetaDeleteResponses
 type ApiMetaDeleteResponses struct {
 	// Уникальный ID запроса. Отображается для ответов с ошибками
-	RequestId *string `json:"requestId,omitempty"`
-	Results []ApiMetaDeleteResponsesResultsInner `json:"results,omitempty"`
+	RequestId *string                              `json:"requestId,omitempty"`
+	Results   []ApiMetaDeleteResponsesResultsInner `json:"results,omitempty"`
 }
 
 // NewApiMetaDeleteResponses instantiates a new ApiMetaDeleteResponses object
@@ -106,7 +106,7 @@ func (o *ApiMetaDeleteResponses) SetResults(v []ApiMetaDeleteResponsesResultsInn
 }
 
 func (o ApiMetaDeleteResponses) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -159,5 +159,3 @@ func (v *NullableApiMetaDeleteResponses) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

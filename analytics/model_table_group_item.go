@@ -17,7 +17,7 @@ import (
 // checks if the TableGroupItem type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &TableGroupItem{}
 
-// TableGroupItem К группе товаров относятся все карточки, подходящие хотя бы по одному из параметров:   - `subjectName` — название предмета   - `brandName` — бренд   - `tagName` — название ярлыка 
+// TableGroupItem К группе товаров относятся все карточки, подходящие хотя бы по одному из параметров:   - `subjectName` — название предмета   - `brandName` — бренд   - `tagName` — название ярлыка
 type TableGroupItem struct {
 	// Название предмета
 	SubjectName *string `json:"subjectName,omitempty"`
@@ -28,7 +28,7 @@ type TableGroupItem struct {
 	// Название ярлыка
 	TagName *string `json:"tagName,omitempty"`
 	// ID ярлыка
-	TagId *int64 `json:"tagId,omitempty"`
+	TagId   *int64                 `json:"tagId,omitempty"`
 	Metrics *TableGroupItemMetrics `json:"metrics,omitempty"`
 	// Массив товаров группы
 	Items []TableItem `json:"items,omitempty"`
@@ -276,7 +276,7 @@ func (o *TableGroupItem) SetItems(v []TableItem) {
 }
 
 func (o TableGroupItem) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -344,5 +344,3 @@ func (v *NullableTableGroupItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

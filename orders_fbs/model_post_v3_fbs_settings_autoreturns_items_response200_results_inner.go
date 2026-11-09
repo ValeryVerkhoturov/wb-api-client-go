@@ -19,13 +19,13 @@ var _ MappedNullable = &PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
 
 // PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner struct for PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
 type PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner struct {
-	// - `true` — настройки автовозврата товара успешно получены 
+	// - `true` — настройки автовозврата товара успешно получены
 	Success *bool `json:"success,omitempty"`
 	// ID размера товара в системе WB
 	ChrtId *int64 `json:"chrtId,omitempty"`
-	// Куда будет возвращён товар:   - `auto` — место возврата определяется автоматически   - `byWarehouse` — на склад WB   - `byPickupPoint` — на пункт выдачи заказов   - `byCourier` — продавцу курьером. Всегда для товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ 
+	// Куда будет возвращён товар:   - `auto` — место возврата определяется автоматически   - `byWarehouse` — на склад WB   - `byPickupPoint` — на пункт выдачи заказов   - `byCourier` — продавцу курьером. Всегда для товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
 	Type *string `json:"type,omitempty"`
-	// - `true` — настройки автовозврата товара можно изменить 
+	// - `true` — настройки автовозврата товара можно изменить
 	Changeable *bool `json:"changeable,omitempty"`
 	// Детали ошибки
 	Error []PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner `json:"error,omitempty"`
@@ -209,7 +209,7 @@ func (o *PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) SetError(v []
 }
 
 func (o PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -271,5 +271,3 @@ func (v *NullablePostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) Unmar
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -17,7 +17,7 @@ import (
 // checks if the AdvertBidsKopecks type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &AdvertBidsKopecks{}
 
-// AdvertBidsKopecks Ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) 
+// AdvertBidsKopecks Ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 type AdvertBidsKopecks struct {
 	// Ставка в поиске
 	Search *int64 `json:"search,omitempty"`
@@ -107,7 +107,7 @@ func (o *AdvertBidsKopecks) SetRecommendations(v int64) {
 }
 
 func (o AdvertBidsKopecks) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,5 +160,3 @@ func (v *NullableAdvertBidsKopecks) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

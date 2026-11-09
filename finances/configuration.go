@@ -65,9 +65,9 @@ type ServerVariable struct {
 
 // ServerConfiguration stores the information about a server
 type ServerConfiguration struct {
-	URL string
+	URL         string
 	Description string
-	Variables map[string]ServerVariable
+	Variables   map[string]ServerVariable
 }
 
 // ServerConfigurations stores multiple ServerConfiguration items
@@ -76,11 +76,11 @@ type ServerConfigurations []ServerConfiguration
 // Configuration stores the configuration of the API client
 type Configuration struct {
 	AccessToken      *secrecy.SecretString `json:"-"`
-	Host             string            `json:"host,omitempty"`
-	Scheme           string            `json:"scheme,omitempty"`
-	DefaultHeader    map[string]string `json:"defaultHeader,omitempty"`
-	UserAgent        string            `json:"userAgent,omitempty"`
-	Debug            bool              `json:"debug,omitempty"`
+	Host             string                `json:"host,omitempty"`
+	Scheme           string                `json:"scheme,omitempty"`
+	DefaultHeader    map[string]string     `json:"defaultHeader,omitempty"`
+	UserAgent        string                `json:"userAgent,omitempty"`
+	Debug            bool                  `json:"debug,omitempty"`
 	Servers          ServerConfigurations
 	OperationServers map[string]ServerConfigurations
 	HTTPClient       *http.Client
@@ -89,79 +89,79 @@ type Configuration struct {
 // NewConfiguration returns a new Configuration object
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
-		DefaultHeader:    make(map[string]string),
-		UserAgent:        "ValeryVerkhoturov/wb-api-client/go",
-		Debug:            false,
-		Servers:          ServerConfigurations{
+		DefaultHeader: make(map[string]string),
+		UserAgent:     "ValeryVerkhoturov/wb-api-client/go",
+		Debug:         false,
+		Servers: ServerConfigurations{
 			{
-				URL: "",
+				URL:         "",
 				Description: "No description provided",
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{
 			"FinancesAPIService.GetV1AccountBalance": {
 				{
-					URL: "https://finance-api.wildberries.ru",
+					URL:         "https://finance-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"FinancesAPIService.GetV1DocumentsCategories": {
 				{
-					URL: "https://documents-api.wildberries.ru",
+					URL:         "https://documents-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"FinancesAPIService.GetV1DocumentsDownload": {
 				{
-					URL: "https://documents-api.wildberries.ru",
+					URL:         "https://documents-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"FinancesAPIService.GetV1DocumentsList": {
 				{
-					URL: "https://documents-api.wildberries.ru",
+					URL:         "https://documents-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"FinancesAPIService.PostV1AcquiringDetailed": {
 				{
-					URL: "https://finance-api.wildberries.ru",
+					URL:         "https://finance-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"FinancesAPIService.PostV1AcquiringDetailedReportId": {
 				{
-					URL: "https://finance-api.wildberries.ru",
+					URL:         "https://finance-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"FinancesAPIService.PostV1AcquiringList": {
 				{
-					URL: "https://finance-api.wildberries.ru",
+					URL:         "https://finance-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"FinancesAPIService.PostV1DocumentsDownloadAll": {
 				{
-					URL: "https://documents-api.wildberries.ru",
+					URL:         "https://documents-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"FinancesAPIService.PostV1SalesReportsDetailed": {
 				{
-					URL: "https://finance-api.wildberries.ru",
+					URL:         "https://finance-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"FinancesAPIService.PostV1SalesReportsDetailedReportId": {
 				{
-					URL: "https://finance-api.wildberries.ru",
+					URL:         "https://finance-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"FinancesAPIService.PostV1SalesReportsList": {
 				{
-					URL: "https://finance-api.wildberries.ru",
+					URL:         "https://finance-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},

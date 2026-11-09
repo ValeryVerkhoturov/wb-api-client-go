@@ -19,9 +19,9 @@ var _ MappedNullable = &PostV2CardsUploadRequestInnerVariantsInnerDocuments{}
 
 // PostV2CardsUploadRequestInnerVariantsInnerDocuments Разрешительные документы карточки товара
 type PostV2CardsUploadRequestInnerVariantsInnerDocuments struct {
-	// Список разрешительных документов и их данные. Тип документа `type` обязателен для каждого документа 
+	// Список разрешительных документов и их данные. Тип документа `type` обязателен для каждого документа
 	Items []DocumentsRequest `json:"items,omitempty"`
-	// Подтверждение продавца, что для товара не требуются разрешительные документы:   - `true` —  продавец подтверждает, что документы не требуются. Все значения, переданные в `documents`, будут заменены на пустые значения   - `false` —  продавец не подтверждает, что документы не требуются  Обязательность документов проверяется при создании и изменении карточки товара. Если для товара требуются документы и указано значение `true`, карточка не пройдёт проверку 
+	// Подтверждение продавца, что для товара не требуются разрешительные документы:   - `true` —  продавец подтверждает, что документы не требуются. Все значения, переданные в `documents`, будут заменены на пустые значения   - `false` —  продавец не подтверждает, что документы не требуются  Обязательность документов проверяется при создании и изменении карточки товара. Если для товара требуются документы и указано значение `true`, карточка не пройдёт проверку
 	ExcludeDocuments *bool `json:"excludeDocuments,omitempty"`
 }
 
@@ -111,7 +111,7 @@ func (o *PostV2CardsUploadRequestInnerVariantsInnerDocuments) SetExcludeDocument
 }
 
 func (o PostV2CardsUploadRequestInnerVariantsInnerDocuments) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -164,5 +164,3 @@ func (v *NullablePostV2CardsUploadRequestInnerVariantsInnerDocuments) UnmarshalJ
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

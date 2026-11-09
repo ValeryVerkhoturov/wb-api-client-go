@@ -19,9 +19,9 @@ var _ MappedNullable = &AdvertSettingsPlacements{}
 
 // AdvertSettingsPlacements Места размещения
 type AdvertSettingsPlacements struct {
-	// Размещение в поиске:   - `false` — отключено   - `true` — включено 
+	// Размещение в поиске:   - `false` — отключено   - `true` — включено
 	Search *bool `json:"search,omitempty"`
-	// Размещение в рекомендациях:   - `false` — отключено   - `true` — включено 
+	// Размещение в рекомендациях:   - `false` — отключено   - `true` — включено
 	Recommendations *bool `json:"recommendations,omitempty"`
 }
 
@@ -107,7 +107,7 @@ func (o *AdvertSettingsPlacements) SetRecommendations(v bool) {
 }
 
 func (o AdvertSettingsPlacements) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,5 +160,3 @@ func (v *NullableAdvertSettingsPlacements) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

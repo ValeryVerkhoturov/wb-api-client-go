@@ -549,7 +549,7 @@ func (o *GetV1Deductions200ResponseDataReportsInner) SetPhotoUrls(v []string) {
 }
 
 func (o GetV1Deductions200ResponseDataReportsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -641,5 +641,3 @@ func (v *NullableGetV1Deductions200ResponseDataReportsInner) UnmarshalJSON(src [
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

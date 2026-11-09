@@ -19,9 +19,9 @@ var _ MappedNullable = &TableShippingOfficeItemOfficesInner{}
 
 // TableShippingOfficeItemOfficesInner struct for TableShippingOfficeItemOfficesInner
 type TableShippingOfficeItemOfficesInner struct {
-	// [ID склада](https://dev.wildberries.ru/release-notes?id=605) 
+	// [ID склада](https://dev.wildberries.ru/release-notes?id=605)
 	OfficeID *int64 `json:"officeID,omitempty"`
-	// [Название склада](https://dev.wildberries.ru/release-notes?id=605) 
+	// [Название склада](https://dev.wildberries.ru/release-notes?id=605)
 	OfficeName *string `json:"officeName,omitempty"`
 	// Метрики по складу
 	Metrics *TableShippingOfficeMetrics `json:"metrics,omitempty"`
@@ -141,7 +141,7 @@ func (o *TableShippingOfficeItemOfficesInner) SetMetrics(v TableShippingOfficeMe
 }
 
 func (o TableShippingOfficeItemOfficesInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -197,5 +197,3 @@ func (v *NullableTableShippingOfficeItemOfficesInner) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

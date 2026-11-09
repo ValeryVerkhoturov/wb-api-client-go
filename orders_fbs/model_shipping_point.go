@@ -27,17 +27,17 @@ type ShippingPoint struct {
 	Address *string `json:"address,omitempty"`
 	// Населённый пункт
 	City *string `json:"city,omitempty"`
-	// Тип пункта отгрузки:   - `sc` — сортировочный центр   - `sw` — склад   - `pp` — ПВЗ 
+	// Тип пункта отгрузки:   - `sc` — сортировочный центр   - `sw` — склад   - `pp` — ПВЗ
 	OfficeType *string `json:"officeType,omitempty"`
-	// Типы товаров, которые принимает пункт отгрузки:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) 
+	// Типы товаров, которые принимает пункт отгрузки:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+)
 	CargoTypes []int64 `json:"cargoTypes,omitempty"`
 	// Широта
 	Latitude *float32 `json:"latitude,omitempty"`
 	// Долгота
 	Longitude *float32 `json:"longitude,omitempty"`
-	// Услуга **Фулфилмент в СЦ** для поставки по модели FBS:   - `true` — доступна   - `false` — недоступна 
+	// Услуга **Фулфилмент в СЦ** для поставки по модели FBS:   - `true` — доступна   - `false` — недоступна
 	Fulfillment *bool `json:"fulfillment,omitempty"`
-	// Доступен ли пункт для отгрузки поставки:   - `true` — доступен   - `false` — недоступен. Возвращается для ПВЗ, если ПВЗ перегружен в планируемую дату отгрузки 
+	// Доступен ли пункт для отгрузки поставки:   - `true` — доступен   - `false` — недоступен. Возвращается для ПВЗ, если ПВЗ перегружен в планируемую дату отгрузки
 	Available *bool `json:"available,omitempty"`
 }
 
@@ -379,7 +379,7 @@ func (o *ShippingPoint) SetAvailable(v bool) {
 }
 
 func (o ShippingPoint) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -456,5 +456,3 @@ func (v *NullableShippingPoint) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

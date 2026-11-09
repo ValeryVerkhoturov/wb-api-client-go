@@ -19,9 +19,9 @@ var _ MappedNullable = &PostV2GetCardsListResponse200CardsInnerDocumentsOverallV
 
 // PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict Общий результат проверки всей карточки товара. Возвращается, когда проверка завершена. Результаты проверок отдельных документов и общий результат карточки могут различаться. Например, карточка может пройти проверку, если обязательный документ прошёл проверку, а дополнительный документ не прошёл
 type PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict struct {
-	// - `true` — карточка товара проверена - `false` — карточка товара не проверена 
+	// - `true` — карточка товара проверена - `false` — карточка товара не проверена
 	IsFullyChecked *bool `json:"isFullyChecked,omitempty"`
-	// Результат проверки карточки товара:   - `1` — проверка пройдена   - `2` — проверка не пройдена 
+	// Результат проверки карточки товара:   - `1` — проверка пройдена   - `2` — проверка не пройдена
 	Status *int64 `json:"status,omitempty"`
 	// Ошибка при проверке, возвращается для `status: 2`. Указывается только 1 причина. Если карточка не прошла проверку по нескольким причинам, то после исправления первой причины, вернётся следующая. Возможные значения: - `tnved\\_missing` — Не указан код ТН ВЭД - `supplier\\_inn\\_missing` — Не указан ИНН - `supplier\\_not\\_registered` — Поставщик не найден в реестре - `supplier\\_inactive` — Ошибка в статусе поставщика, проверьте его в реестре - `product\\_group\\_not\\_registered` — Добавлена неверная товарная группа в системе маркировки - `kiz\\_required` — Этот товар нельзя продавать в России без кода маркировки Честного Знака - `kiz\\_certificate\\_missing` — Нет подтверждения, что на товар нанесена необходимая маркировка
 	Reason NullableString `json:"reason,omitempty"`
@@ -142,6 +142,7 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict) HasReas
 func (o *PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict) SetReason(v string) {
 	o.Reason.Set(&v)
 }
+
 // SetReasonNil sets the value for Reason to be an explicit nil
 func (o *PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict) SetReasonNil() {
 	o.Reason.Set(nil)
@@ -185,7 +186,7 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict) SetCrea
 }
 
 func (o PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -244,5 +245,3 @@ func (v *NullablePostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

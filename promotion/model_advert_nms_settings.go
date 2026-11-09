@@ -20,7 +20,7 @@ var _ MappedNullable = &AdvertNMsSettings{}
 // AdvertNMsSettings struct for AdvertNMsSettings
 type AdvertNMsSettings struct {
 	BidsKopecks *AdvertBidsKopecks `json:"bids_kopecks,omitempty"`
-	Subject *AdvertSubcategory `json:"subject,omitempty"`
+	Subject     *AdvertSubcategory `json:"subject,omitempty"`
 	// Артикул WB
 	NmId *int64 `json:"nm_id,omitempty"`
 }
@@ -139,7 +139,7 @@ func (o *AdvertNMsSettings) SetNmId(v int64) {
 }
 
 func (o AdvertNMsSettings) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,5 +195,3 @@ func (v *NullableAdvertNMsSettings) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

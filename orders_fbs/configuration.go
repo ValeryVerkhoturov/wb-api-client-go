@@ -65,9 +65,9 @@ type ServerVariable struct {
 
 // ServerConfiguration stores the information about a server
 type ServerConfiguration struct {
-	URL string
+	URL         string
 	Description string
-	Variables map[string]ServerVariable
+	Variables   map[string]ServerVariable
 }
 
 // ServerConfigurations stores multiple ServerConfiguration items
@@ -76,11 +76,11 @@ type ServerConfigurations []ServerConfiguration
 // Configuration stores the configuration of the API client
 type Configuration struct {
 	AccessToken      *secrecy.SecretString `json:"-"`
-	Host             string            `json:"host,omitempty"`
-	Scheme           string            `json:"scheme,omitempty"`
-	DefaultHeader    map[string]string `json:"defaultHeader,omitempty"`
-	UserAgent        string            `json:"userAgent,omitempty"`
-	Debug            bool              `json:"debug,omitempty"`
+	Host             string                `json:"host,omitempty"`
+	Scheme           string                `json:"scheme,omitempty"`
+	DefaultHeader    map[string]string     `json:"defaultHeader,omitempty"`
+	UserAgent        string                `json:"userAgent,omitempty"`
+	Debug            bool                  `json:"debug,omitempty"`
 	Servers          ServerConfigurations
 	OperationServers map[string]ServerConfigurations
 	HTTPClient       *http.Client
@@ -89,433 +89,433 @@ type Configuration struct {
 // NewConfiguration returns a new Configuration object
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
-		DefaultHeader:    make(map[string]string),
-		UserAgent:        "ValeryVerkhoturov/wb-api-client/go",
-		Debug:            false,
-		Servers:          ServerConfigurations{
+		DefaultHeader: make(map[string]string),
+		UserAgent:     "ValeryVerkhoturov/wb-api-client/go",
+		Debug:         false,
+		Servers: ServerConfigurations{
 			{
-				URL: "",
+				URL:         "",
 				Description: "No description provided",
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{
 			"OrdersFbsAPIService.DeleteV3OrdersOrderIdMeta": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"OrdersFbsAPIService.DeleteV3PassesPassId": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"OrdersFbsAPIService.DeleteV3SuppliesSupplyId": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"OrdersFbsAPIService.DeleteV3SuppliesSupplyIdTrbx": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"OrdersFbsAPIService.GetV3FbsDictionariesCountriesOksm": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"OrdersFbsAPIService.GetV3FbsOrdersArchive": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"OrdersFbsAPIService.GetV3FbsSettingsAutoreturns": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 			},
 			"OrdersFbsAPIService.GetV3FbsSettingsAutoreturnsSubcategoriesRestricted": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 			},
 			"OrdersFbsAPIService.GetV3FbsShippingPoints": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"OrdersFbsAPIService.GetV3FbsSuppliesSupplyIdShippingPoints": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"OrdersFbsAPIService.GetV3FbsSuppliesSupplyIdStickersSpot": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"OrdersFbsAPIService.GetV3Orders": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"OrdersFbsAPIService.GetV3OrdersNew": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"OrdersFbsAPIService.GetV3Passes": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"OrdersFbsAPIService.GetV3PassesOffices": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"OrdersFbsAPIService.GetV3Supplies": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"OrdersFbsAPIService.GetV3SuppliesOrdersReshipment": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"OrdersFbsAPIService.GetV3SuppliesSupplyId": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"OrdersFbsAPIService.GetV3SuppliesSupplyIdBarcode": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"OrdersFbsAPIService.GetV3SuppliesSupplyIdOrderIds": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"OrdersFbsAPIService.GetV3SuppliesSupplyIdTrbx": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"OrdersFbsAPIService.PatchV3FbsSettingsAutoreturns": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 			},
 			"OrdersFbsAPIService.PatchV3FbsSettingsAutoreturnsItems": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 			},
 			"OrdersFbsAPIService.PatchV3FbsSuppliesShippingMethod": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"OrdersFbsAPIService.PatchV3FbsSuppliesSupplyIdOrdersTransfer": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 			},
 			"OrdersFbsAPIService.PatchV3OrdersOrderIdCancel": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"OrdersFbsAPIService.PatchV3SuppliesSupplyIdDeliver": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"OrdersFbsAPIService.PatchV3SuppliesSupplyIdOrders": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"OrdersFbsAPIService.PostV3FbsSettingsAutoreturnsItems": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 			},
 			"OrdersFbsAPIService.PostV3FbsSuppliesSpotList": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"OrdersFbsAPIService.PostV3OrdersClient": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"OrdersFbsAPIService.PostV3OrdersMeta": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"OrdersFbsAPIService.PostV3OrdersStatus": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"OrdersFbsAPIService.PostV3OrdersStatusHistory": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"OrdersFbsAPIService.PostV3OrdersStickers": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"OrdersFbsAPIService.PostV3OrdersStickersCrossBorder": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"OrdersFbsAPIService.PostV3Passes": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"OrdersFbsAPIService.PostV3Supplies": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"OrdersFbsAPIService.PostV3SuppliesSupplyIdTrbx": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"OrdersFbsAPIService.PostV3SuppliesSupplyIdTrbxStickers": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"OrdersFbsAPIService.PutV3FbsSuppliesSupplyIdSpot": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"OrdersFbsAPIService.PutV3OrdersOrderIdMetaCustomsDeclaration": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"OrdersFbsAPIService.PutV3OrdersOrderIdMetaExpiration": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"OrdersFbsAPIService.PutV3OrdersOrderIdMetaGtin": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"OrdersFbsAPIService.PutV3OrdersOrderIdMetaImei": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"OrdersFbsAPIService.PutV3OrdersOrderIdMetaSgtin": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"OrdersFbsAPIService.PutV3OrdersOrderIdMetaUin": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"OrdersFbsAPIService.PutV3PassesPassId": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},

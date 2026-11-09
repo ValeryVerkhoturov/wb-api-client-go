@@ -175,7 +175,7 @@ func (o *GetV2NmReportDownloadsResponse400) SetOrigin(v string) {
 }
 
 func (o GetV2NmReportDownloadsResponse400) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -234,5 +234,3 @@ func (v *NullableGetV2NmReportDownloadsResponse400) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

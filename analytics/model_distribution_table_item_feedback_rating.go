@@ -140,6 +140,7 @@ func (o *DistributionTableItemFeedbackRating) HasPercentile() bool {
 func (o *DistributionTableItemFeedbackRating) SetPercentile(v float32) {
 	o.Percentile.Set(&v)
 }
+
 // SetPercentileNil sets the value for Percentile to be an explicit nil
 func (o *DistributionTableItemFeedbackRating) SetPercentileNil() {
 	o.Percentile.Set(nil)
@@ -151,7 +152,7 @@ func (o *DistributionTableItemFeedbackRating) UnsetPercentile() {
 }
 
 func (o DistributionTableItemFeedbackRating) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -207,5 +208,3 @@ func (v *NullableDistributionTableItemFeedbackRating) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

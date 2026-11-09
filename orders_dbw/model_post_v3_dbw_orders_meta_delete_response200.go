@@ -20,8 +20,8 @@ var _ MappedNullable = &PostV3DbwOrdersMetaDeleteResponse200{}
 // PostV3DbwOrdersMetaDeleteResponse200 struct for PostV3DbwOrdersMetaDeleteResponse200
 type PostV3DbwOrdersMetaDeleteResponse200 struct {
 	// Уникальный ID запроса. Отображается для ответов с ошибками
-	RequestId *string `json:"requestId,omitempty"`
-	Results []ApiMetaDeleteResponsesResultsInner `json:"results,omitempty"`
+	RequestId *string                              `json:"requestId,omitempty"`
+	Results   []ApiMetaDeleteResponsesResultsInner `json:"results,omitempty"`
 }
 
 // NewPostV3DbwOrdersMetaDeleteResponse200 instantiates a new PostV3DbwOrdersMetaDeleteResponse200 object
@@ -106,7 +106,7 @@ func (o *PostV3DbwOrdersMetaDeleteResponse200) SetResults(v []ApiMetaDeleteRespo
 }
 
 func (o PostV3DbwOrdersMetaDeleteResponse200) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -159,5 +159,3 @@ func (v *NullablePostV3DbwOrdersMetaDeleteResponse200) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

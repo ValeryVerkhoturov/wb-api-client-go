@@ -17,11 +17,11 @@ import (
 // checks if the UpdatedSuppliesShippingMethodError type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &UpdatedSuppliesShippingMethodError{}
 
-// UpdatedSuppliesShippingMethodError Ошибка обработки запроса для поставки. Возможные варианты ошибок:   - `400 IncorrectRequestBody`:     - некорректный ID поставки     - место отгрузки не найдено     - склад назначения находится не в РФ     - неизвестный `shippingType`     - дата не соответствует формату `YYYY-MM-DD`   - `400 FulfillmentRequired` — в месте отгрузки недоступна услуга **Фулфилмент в СЦ**   - `404 NotFound` — поставка не найдена   - `409 SupplyAlreadyScanned` — поставка или её короба уже отсканированы в пункте отгрузки   - `409 InvalidShippingDt` — некорректная дата отгрузки поставки 
+// UpdatedSuppliesShippingMethodError Ошибка обработки запроса для поставки. Возможные варианты ошибок:   - `400 IncorrectRequestBody`:     - некорректный ID поставки     - место отгрузки не найдено     - склад назначения находится не в РФ     - неизвестный `shippingType`     - дата не соответствует формату `YYYY-MM-DD`   - `400 FulfillmentRequired` — в месте отгрузки недоступна услуга **Фулфилмент в СЦ**   - `404 NotFound` — поставка не найдена   - `409 SupplyAlreadyScanned` — поставка или её короба уже отсканированы в пункте отгрузки   - `409 InvalidShippingDt` — некорректная дата отгрузки поставки
 type UpdatedSuppliesShippingMethodError struct {
 	// Код ошибки
 	Code *int64 `json:"code,omitempty"`
-	// Дополнительная информация об ошибке 
+	// Дополнительная информация об ошибке
 	Detail *string `json:"detail,omitempty"`
 }
 
@@ -107,7 +107,7 @@ func (o *UpdatedSuppliesShippingMethodError) SetDetail(v string) {
 }
 
 func (o UpdatedSuppliesShippingMethodError) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,5 +160,3 @@ func (v *NullableUpdatedSuppliesShippingMethodError) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

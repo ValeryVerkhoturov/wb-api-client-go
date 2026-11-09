@@ -20,9 +20,9 @@ var _ MappedNullable = &OrderDBS{}
 // OrderDBS struct for OrderDBS
 type OrderDBS struct {
 	Address NullableOrderDBSAddress `json:"address,omitempty"`
-	// Тип доставки:   - `dbs` — доставка силами продавца   - `dbsPickupPoint` — доставка силами продавца в ПВЗ   - `edbs` — экспресс-доставка силами продавца 
-	DeliveryType *string `json:"deliveryType,omitempty"`
-	Options *OrderNewDBSOptions `json:"options,omitempty"`
+	// Тип доставки:   - `dbs` — доставка силами продавца   - `dbsPickupPoint` — доставка силами продавца в ПВЗ   - `edbs` — экспресс-доставка силами продавца
+	DeliveryType *string             `json:"deliveryType,omitempty"`
+	Options      *OrderNewDBSOptions `json:"options,omitempty"`
 	// ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый `orderUID`
 	OrderUid *string `json:"orderUid,omitempty"`
 	// ID группы сборочных заданий.  Объединяет сборочные задания, поступившие на один склад (`warehouseId`) в рамках одной транзакции покупателя (`orderUid`)
@@ -59,11 +59,11 @@ type OrderDBS struct {
 	ConvertedFinalPrice *int64 `json:"convertedFinalPrice,omitempty"`
 	// Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100.  Код валюты продажи указан в поле `currencyCode`.  Предоставляется в информационных целях.  Используйте значение поля `finalPrice`, только если в ответе метода получения [цен продавца и сумм к оплате](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа того же метода
 	FinalPrice *int64 `json:"finalPrice,omitempty"`
-	// Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) 
+	// Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+)
 	CargoType *int64 `json:"cargoType,omitempty"`
 	// Комментарий покупателя
 	Comment *string `json:"comment,omitempty"`
-	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену 
+	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
 	IsZeroOrder *bool `json:"isZeroOrder,omitempty"`
 	// ID стикера. Отображается только для заказов в ПВЗ
 	WbStickerId *int64 `json:"wbStickerId,omitempty"`
@@ -118,6 +118,7 @@ func (o *OrderDBS) HasAddress() bool {
 func (o *OrderDBS) SetAddress(v OrderDBSAddress) {
 	o.Address.Set(&v)
 }
+
 // SetAddressNil sets the value for Address to be an explicit nil
 func (o *OrderDBS) SetAddressNil() {
 	o.Address.Set(nil)
@@ -577,6 +578,7 @@ func (o *OrderDBS) HasScanPrice() bool {
 func (o *OrderDBS) SetScanPrice(v int64) {
 	o.ScanPrice.Set(&v)
 }
+
 // SetScanPriceNil sets the value for ScanPrice to be an explicit nil
 func (o *OrderDBS) SetScanPriceNil() {
 	o.ScanPrice.Set(nil)
@@ -908,7 +910,7 @@ func (o *OrderDBS) SetWbStickerId(v int64) {
 }
 
 func (o OrderDBS) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1030,5 +1032,3 @@ func (v *NullableOrderDBS) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

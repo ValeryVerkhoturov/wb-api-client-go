@@ -141,7 +141,7 @@ func (o *PostV3OrdersStatusHistoryResponse200OrdersInner) SetOrderID(v int64) {
 }
 
 func (o PostV3OrdersStatusHistoryResponse200OrdersInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -197,5 +197,3 @@ func (v *NullablePostV3OrdersStatusHistoryResponse200OrdersInner) UnmarshalJSON(
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -27,9 +27,9 @@ type V2GetConfigResponse struct {
 	CpmStep *int64 `json:"cpmStep,omitempty"`
 	// Шаг ставки в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) для кампаний CPC
 	CpcStep *int64 `json:"cpcStep,omitempty"`
-	// Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).  Например, минимальная сумма пополнения бюджета при `\"minTopUp\": 10000` и `\"currency\": \"UZS\"` — 100 узбекских сум 
+	// Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).  Например, минимальная сумма пополнения бюджета при `\"minTopUp\": 10000` и `\"currency\": \"UZS\"` — 100 узбекских сум
 	MinTopUp *int64 `json:"minTopUp,omitempty"`
-	// Минимально допустимый размер дневного лимита, вне зависимости от ставок кампании. Указывается в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) 
+	// Минимально допустимый размер дневного лимита, вне зависимости от ставок кампании. Указывается в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	MinDailyLimit *int64 `json:"minDailyLimit,omitempty"`
 }
 
@@ -243,7 +243,7 @@ func (o *V2GetConfigResponse) SetMinDailyLimit(v int64) {
 }
 
 func (o V2GetConfigResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -308,5 +308,3 @@ func (v *NullableV2GetConfigResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

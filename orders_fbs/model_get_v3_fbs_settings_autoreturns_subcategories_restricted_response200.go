@@ -74,6 +74,7 @@ func (o *GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200) HasNext(
 func (o *GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200) SetNext(v int64) {
 	o.Next.Set(&v)
 }
+
 // SetNextNil sets the value for Next to be an explicit nil
 func (o *GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200) SetNextNil() {
 	o.Next.Set(nil)
@@ -117,7 +118,7 @@ func (o *GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200) SetData(
 }
 
 func (o GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -170,5 +171,3 @@ func (v *NullableGetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

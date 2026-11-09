@@ -20,7 +20,7 @@ var _ MappedNullable = &V1GetNormQueryStatsResponseItemDailyStat{}
 // V1GetNormQueryStatsResponseItemDailyStat struct for V1GetNormQueryStatsResponseItemDailyStat
 type V1GetNormQueryStatsResponseItemDailyStat struct {
 	// Дата
-	Date *string `json:"date,omitempty"`
+	Date *string                              `json:"date,omitempty"`
 	Stat *V1GetNormQueryStatsResponseItemStat `json:"stat,omitempty"`
 }
 
@@ -106,7 +106,7 @@ func (o *V1GetNormQueryStatsResponseItemDailyStat) SetStat(v V1GetNormQueryStats
 }
 
 func (o V1GetNormQueryStatsResponseItemDailyStat) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -159,5 +159,3 @@ func (v *NullableV1GetNormQueryStatsResponseItemDailyStat) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -65,9 +65,9 @@ type ServerVariable struct {
 
 // ServerConfiguration stores the information about a server
 type ServerConfiguration struct {
-	URL string
+	URL         string
 	Description string
-	Variables map[string]ServerVariable
+	Variables   map[string]ServerVariable
 }
 
 // ServerConfigurations stores multiple ServerConfiguration items
@@ -76,11 +76,11 @@ type ServerConfigurations []ServerConfiguration
 // Configuration stores the configuration of the API client
 type Configuration struct {
 	AccessToken      *secrecy.SecretString `json:"-"`
-	Host             string            `json:"host,omitempty"`
-	Scheme           string            `json:"scheme,omitempty"`
-	DefaultHeader    map[string]string `json:"defaultHeader,omitempty"`
-	UserAgent        string            `json:"userAgent,omitempty"`
-	Debug            bool              `json:"debug,omitempty"`
+	Host             string                `json:"host,omitempty"`
+	Scheme           string                `json:"scheme,omitempty"`
+	DefaultHeader    map[string]string     `json:"defaultHeader,omitempty"`
+	UserAgent        string                `json:"userAgent,omitempty"`
+	Debug            bool                  `json:"debug,omitempty"`
 	Servers          ServerConfigurations
 	OperationServers map[string]ServerConfigurations
 	HTTPClient       *http.Client
@@ -89,207 +89,207 @@ type Configuration struct {
 // NewConfiguration returns a new Configuration object
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
-		DefaultHeader:    make(map[string]string),
-		UserAgent:        "ValeryVerkhoturov/wb-api-client/go",
-		Debug:            false,
-		Servers:          ServerConfigurations{
+		DefaultHeader: make(map[string]string),
+		UserAgent:     "ValeryVerkhoturov/wb-api-client/go",
+		Debug:         false,
+		Servers: ServerConfigurations{
 			{
-				URL: "",
+				URL:         "",
 				Description: "No description provided",
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{
 			"DbsAPIService.GetV3DbsOrders": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DbsAPIService.GetV3DbsOrdersNew": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DbsAPIService.PostV3DbsGroupsInfo": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DbsAPIService.PostV3DbsOrdersB2bInfo": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DbsAPIService.PostV3DbsOrdersClient": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DbsAPIService.PostV3DbsOrdersDeliveryDate": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DbsAPIService.PostV3DbsOrdersFinalPrice": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DbsAPIService.PostV3DbsOrdersMetaCustomsDeclaration": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DbsAPIService.PostV3DbsOrdersMetaDelete": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DbsAPIService.PostV3DbsOrdersMetaDetails": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DbsAPIService.PostV3DbsOrdersMetaGtin": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DbsAPIService.PostV3DbsOrdersMetaImei": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DbsAPIService.PostV3DbsOrdersMetaSgtin": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DbsAPIService.PostV3DbsOrdersMetaUin": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DbsAPIService.PostV3DbsOrdersStatusCancel": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DbsAPIService.PostV3DbsOrdersStatusConfirm": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DbsAPIService.PostV3DbsOrdersStatusDeliver": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DbsAPIService.PostV3DbsOrdersStatusInfo": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DbsAPIService.PostV3DbsOrdersStatusReceive": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DbsAPIService.PostV3DbsOrdersStatusReject": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DbsAPIService.PostV3DbsOrdersStickers": {
 				{
-					URL: "https://marketplace-api.wildberries.ru",
+					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},

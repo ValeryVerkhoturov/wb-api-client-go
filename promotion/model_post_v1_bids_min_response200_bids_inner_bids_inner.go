@@ -20,9 +20,9 @@ var _ MappedNullable = &PostV1BidsMinResponse200BidsInnerBidsInner{}
 // PostV1BidsMinResponse200BidsInnerBidsInner struct for PostV1BidsMinResponse200BidsInnerBidsInner
 type PostV1BidsMinResponse200BidsInnerBidsInner struct {
 	// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
-	Currency *string `json:"currency,omitempty"`
-	Type *PlacementType `json:"type,omitempty"`
-	// Минимальная ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) 
+	Currency *string        `json:"currency,omitempty"`
+	Type     *PlacementType `json:"type,omitempty"`
+	// Минимальная ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Value *int64 `json:"value,omitempty"`
 }
 
@@ -140,7 +140,7 @@ func (o *PostV1BidsMinResponse200BidsInnerBidsInner) SetValue(v int64) {
 }
 
 func (o PostV1BidsMinResponse200BidsInnerBidsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -196,5 +196,3 @@ func (v *NullablePostV1BidsMinResponse200BidsInnerBidsInner) UnmarshalJSON(src [
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

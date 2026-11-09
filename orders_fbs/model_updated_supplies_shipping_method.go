@@ -140,7 +140,7 @@ func (o *UpdatedSuppliesShippingMethod) SetSupplyId(v string) {
 }
 
 func (o UpdatedSuppliesShippingMethod) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -196,5 +196,3 @@ func (v *NullableUpdatedSuppliesShippingMethod) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

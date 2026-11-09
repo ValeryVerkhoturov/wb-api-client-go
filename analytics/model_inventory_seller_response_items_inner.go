@@ -243,7 +243,7 @@ func (o *InventorySellerResponseItemsInner) SetQuantity(v int64) {
 }
 
 func (o InventorySellerResponseItemsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -308,5 +308,3 @@ func (v *NullableInventorySellerResponseItemsInner) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

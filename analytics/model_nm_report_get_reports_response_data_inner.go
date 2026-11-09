@@ -23,7 +23,7 @@ type NmReportGetReportsResponseDataInner struct {
 	Id *string `json:"id,omitempty"`
 	// Дата и время завершения генерации
 	CreatedAt *string `json:"createdAt,omitempty"`
-	// Статус отчёта:  * `WAITING` — в очереди на обработку * `PROCESSING` — генерируется * `SUCCESS —` готов * `RETRY` — ожидает повторной обработки * `FAILED` — не получилось сгенерировать, сгенерируйте повторно 
+	// Статус отчёта:  * `WAITING` — в очереди на обработку * `PROCESSING` — генерируется * `SUCCESS —` готов * `RETRY` — ожидает повторной обработки * `FAILED` — не получилось сгенерировать, сгенерируйте повторно
 	Status *string `json:"status,omitempty"`
 	// Название отчёта
 	Name *string `json:"name,omitempty"`
@@ -277,7 +277,7 @@ func (o *NmReportGetReportsResponseDataInner) SetEndDate(v string) {
 }
 
 func (o NmReportGetReportsResponseDataInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -345,5 +345,3 @@ func (v *NullableNmReportGetReportsResponseDataInner) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
