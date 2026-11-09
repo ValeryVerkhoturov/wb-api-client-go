@@ -1,6 +1,6 @@
 module github.com/ValeryVerkhoturov/wb-api-client-go
 
-go 1.21
+go 1.23.0
 
 require (
 	github.com/negrel/secrecy v0.7.0
