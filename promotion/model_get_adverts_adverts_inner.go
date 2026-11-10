@@ -30,8 +30,8 @@ type GetAdvertsAdvertsInner struct {
 	Settings     *AdvertSettings                     `json:"settings,omitempty"`
 	Restrictions *GetAdvertsAdvertsInnerRestrictions `json:"restrictions,omitempty"`
 	// Статус кампании: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе
-	Status     *int64      `json:"status,omitempty"`
-	Timestamps *Timestamps `json:"timestamps,omitempty"`
+	Status     *int64        `json:"status,omitempty"`
+	Timestamps *TimestampsV2 `json:"timestamps,omitempty"`
 }
 
 // NewGetAdvertsAdvertsInner instantiates a new GetAdvertsAdvertsInner object
@@ -277,9 +277,9 @@ func (o *GetAdvertsAdvertsInner) SetStatus(v int64) {
 }
 
 // GetTimestamps returns the Timestamps field value if set, zero value otherwise.
-func (o *GetAdvertsAdvertsInner) GetTimestamps() Timestamps {
+func (o *GetAdvertsAdvertsInner) GetTimestamps() TimestampsV2 {
 	if o == nil || IsNil(o.Timestamps) {
-		var ret Timestamps
+		var ret TimestampsV2
 		return ret
 	}
 	return *o.Timestamps
@@ -287,7 +287,7 @@ func (o *GetAdvertsAdvertsInner) GetTimestamps() Timestamps {
 
 // GetTimestampsOk returns a tuple with the Timestamps field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetAdvertsAdvertsInner) GetTimestampsOk() (*Timestamps, bool) {
+func (o *GetAdvertsAdvertsInner) GetTimestampsOk() (*TimestampsV2, bool) {
 	if o == nil || IsNil(o.Timestamps) {
 		return nil, false
 	}
@@ -303,8 +303,8 @@ func (o *GetAdvertsAdvertsInner) HasTimestamps() bool {
 	return false
 }
 
-// SetTimestamps gets a reference to the given Timestamps and assigns it to the Timestamps field.
-func (o *GetAdvertsAdvertsInner) SetTimestamps(v Timestamps) {
+// SetTimestamps gets a reference to the given TimestampsV2 and assigns it to the Timestamps field.
+func (o *GetAdvertsAdvertsInner) SetTimestamps(v TimestampsV2) {
 	o.Timestamps = &v
 }
 

@@ -20,7 +20,7 @@ var _ MappedNullable = &V3GetAdverts{}
 // V3GetAdverts struct for V3GetAdverts
 type V3GetAdverts struct {
 	// ID кампании
-	Id *int64 `json:"id,omitempty"`
+	AdvertId *int64 `json:"advertId,omitempty"`
 	// Статус кампании: - `4` — готова к запуску - `7` — завершена - `9` — активна - `11` — на паузе
 	Status     *int64            `json:"status,omitempty"`
 	Timestamps *Timestamps       `json:"timestamps,omitempty"`
@@ -49,36 +49,36 @@ func NewV3GetAdvertsWithDefaults() *V3GetAdverts {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
-func (o *V3GetAdverts) GetId() int64 {
-	if o == nil || IsNil(o.Id) {
+// GetAdvertId returns the AdvertId field value if set, zero value otherwise.
+func (o *V3GetAdverts) GetAdvertId() int64 {
+	if o == nil || IsNil(o.AdvertId) {
 		var ret int64
 		return ret
 	}
-	return *o.Id
+	return *o.AdvertId
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetAdvertIdOk returns a tuple with the AdvertId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V3GetAdverts) GetIdOk() (*int64, bool) {
-	if o == nil || IsNil(o.Id) {
+func (o *V3GetAdverts) GetAdvertIdOk() (*int64, bool) {
+	if o == nil || IsNil(o.AdvertId) {
 		return nil, false
 	}
-	return o.Id, true
+	return o.AdvertId, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *V3GetAdverts) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
+// HasAdvertId returns a boolean if a field has been set.
+func (o *V3GetAdverts) HasAdvertId() bool {
+	if o != nil && !IsNil(o.AdvertId) {
 		return true
 	}
 
 	return false
 }
 
-// SetId gets a reference to the given int64 and assigns it to the Id field.
-func (o *V3GetAdverts) SetId(v int64) {
-	o.Id = &v
+// SetAdvertId gets a reference to the given int64 and assigns it to the AdvertId field.
+func (o *V3GetAdverts) SetAdvertId(v int64) {
+	o.AdvertId = &v
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
@@ -283,8 +283,8 @@ func (o V3GetAdverts) MarshalJSON() ([]byte, error) {
 
 func (o V3GetAdverts) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
+	if !IsNil(o.AdvertId) {
+		toSerialize["advertId"] = o.AdvertId
 	}
 	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status

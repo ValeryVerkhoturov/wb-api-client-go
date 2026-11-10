@@ -22,8 +22,8 @@ type V3AdvertSettings struct {
 	// Тип оплаты: - `cpm` — за показы - `cpc` — за клик
 	PaymentType *string `json:"paymentType,omitempty"`
 	// Название кампании
-	Name       *string       `json:"name,omitempty"`
-	Placements *V3Placements `json:"placements,omitempty"`
+	Name       *string        `json:"name,omitempty"`
+	Placements []V3Placements `json:"placements,omitempty"`
 }
 
 // NewV3AdvertSettings instantiates a new V3AdvertSettings object
@@ -108,17 +108,17 @@ func (o *V3AdvertSettings) SetName(v string) {
 }
 
 // GetPlacements returns the Placements field value if set, zero value otherwise.
-func (o *V3AdvertSettings) GetPlacements() V3Placements {
+func (o *V3AdvertSettings) GetPlacements() []V3Placements {
 	if o == nil || IsNil(o.Placements) {
-		var ret V3Placements
+		var ret []V3Placements
 		return ret
 	}
-	return *o.Placements
+	return o.Placements
 }
 
 // GetPlacementsOk returns a tuple with the Placements field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V3AdvertSettings) GetPlacementsOk() (*V3Placements, bool) {
+func (o *V3AdvertSettings) GetPlacementsOk() ([]V3Placements, bool) {
 	if o == nil || IsNil(o.Placements) {
 		return nil, false
 	}
@@ -134,9 +134,9 @@ func (o *V3AdvertSettings) HasPlacements() bool {
 	return false
 }
 
-// SetPlacements gets a reference to the given V3Placements and assigns it to the Placements field.
-func (o *V3AdvertSettings) SetPlacements(v V3Placements) {
-	o.Placements = &v
+// SetPlacements gets a reference to the given []V3Placements and assigns it to the Placements field.
+func (o *V3AdvertSettings) SetPlacements(v []V3Placements) {
+	o.Placements = v
 }
 
 func (o V3AdvertSettings) MarshalJSON() ([]byte, error) {

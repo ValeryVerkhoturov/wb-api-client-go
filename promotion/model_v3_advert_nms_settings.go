@@ -20,9 +20,10 @@ var _ MappedNullable = &V3AdvertNMsSettings{}
 // V3AdvertNMsSettings struct for V3AdvertNMsSettings
 type V3AdvertNMsSettings struct {
 	// Артикул WB
-	NmId    *int64               `json:"nmId,omitempty"`
-	Subject *V3AdvertSubject     `json:"subject,omitempty"`
-	Bids    *V3AdvertBidsKopecks `json:"bids,omitempty"`
+	NmId    *int64           `json:"nmId,omitempty"`
+	Subject *V3AdvertSubject `json:"subject,omitempty"`
+	// Ставки
+	Bids []V3AdvertBidsKopecks `json:"bids,omitempty"`
 }
 
 // NewV3AdvertNMsSettings instantiates a new V3AdvertNMsSettings object
@@ -107,17 +108,17 @@ func (o *V3AdvertNMsSettings) SetSubject(v V3AdvertSubject) {
 }
 
 // GetBids returns the Bids field value if set, zero value otherwise.
-func (o *V3AdvertNMsSettings) GetBids() V3AdvertBidsKopecks {
+func (o *V3AdvertNMsSettings) GetBids() []V3AdvertBidsKopecks {
 	if o == nil || IsNil(o.Bids) {
-		var ret V3AdvertBidsKopecks
+		var ret []V3AdvertBidsKopecks
 		return ret
 	}
-	return *o.Bids
+	return o.Bids
 }
 
 // GetBidsOk returns a tuple with the Bids field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V3AdvertNMsSettings) GetBidsOk() (*V3AdvertBidsKopecks, bool) {
+func (o *V3AdvertNMsSettings) GetBidsOk() ([]V3AdvertBidsKopecks, bool) {
 	if o == nil || IsNil(o.Bids) {
 		return nil, false
 	}
@@ -133,9 +134,9 @@ func (o *V3AdvertNMsSettings) HasBids() bool {
 	return false
 }
 
-// SetBids gets a reference to the given V3AdvertBidsKopecks and assigns it to the Bids field.
-func (o *V3AdvertNMsSettings) SetBids(v V3AdvertBidsKopecks) {
-	o.Bids = &v
+// SetBids gets a reference to the given []V3AdvertBidsKopecks and assigns it to the Bids field.
+func (o *V3AdvertNMsSettings) SetBids(v []V3AdvertBidsKopecks) {
+	o.Bids = v
 }
 
 func (o V3AdvertNMsSettings) MarshalJSON() ([]byte, error) {

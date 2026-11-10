@@ -19,10 +19,9 @@ var _ MappedNullable = &V3AdvertBidsKopecks{}
 
 // V3AdvertBidsKopecks struct for V3AdvertBidsKopecks
 type V3AdvertBidsKopecks struct {
-	// Ставка в поиске
-	Search *int64 `json:"search,omitempty"`
-	// Ставка в рекомендациях
-	Recommendations *int64 `json:"recommendations,omitempty"`
+	Type *V3Placements `json:"type,omitempty"`
+	// Ставка
+	Value *int64 `json:"value,omitempty"`
 }
 
 // NewV3AdvertBidsKopecks instantiates a new V3AdvertBidsKopecks object
@@ -42,68 +41,68 @@ func NewV3AdvertBidsKopecksWithDefaults() *V3AdvertBidsKopecks {
 	return &this
 }
 
-// GetSearch returns the Search field value if set, zero value otherwise.
-func (o *V3AdvertBidsKopecks) GetSearch() int64 {
-	if o == nil || IsNil(o.Search) {
-		var ret int64
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *V3AdvertBidsKopecks) GetType() V3Placements {
+	if o == nil || IsNil(o.Type) {
+		var ret V3Placements
 		return ret
 	}
-	return *o.Search
+	return *o.Type
 }
 
-// GetSearchOk returns a tuple with the Search field value if set, nil otherwise
+// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V3AdvertBidsKopecks) GetSearchOk() (*int64, bool) {
-	if o == nil || IsNil(o.Search) {
+func (o *V3AdvertBidsKopecks) GetTypeOk() (*V3Placements, bool) {
+	if o == nil || IsNil(o.Type) {
 		return nil, false
 	}
-	return o.Search, true
+	return o.Type, true
 }
 
-// HasSearch returns a boolean if a field has been set.
-func (o *V3AdvertBidsKopecks) HasSearch() bool {
-	if o != nil && !IsNil(o.Search) {
+// HasType returns a boolean if a field has been set.
+func (o *V3AdvertBidsKopecks) HasType() bool {
+	if o != nil && !IsNil(o.Type) {
 		return true
 	}
 
 	return false
 }
 
-// SetSearch gets a reference to the given int64 and assigns it to the Search field.
-func (o *V3AdvertBidsKopecks) SetSearch(v int64) {
-	o.Search = &v
+// SetType gets a reference to the given V3Placements and assigns it to the Type field.
+func (o *V3AdvertBidsKopecks) SetType(v V3Placements) {
+	o.Type = &v
 }
 
-// GetRecommendations returns the Recommendations field value if set, zero value otherwise.
-func (o *V3AdvertBidsKopecks) GetRecommendations() int64 {
-	if o == nil || IsNil(o.Recommendations) {
+// GetValue returns the Value field value if set, zero value otherwise.
+func (o *V3AdvertBidsKopecks) GetValue() int64 {
+	if o == nil || IsNil(o.Value) {
 		var ret int64
 		return ret
 	}
-	return *o.Recommendations
+	return *o.Value
 }
 
-// GetRecommendationsOk returns a tuple with the Recommendations field value if set, nil otherwise
+// GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V3AdvertBidsKopecks) GetRecommendationsOk() (*int64, bool) {
-	if o == nil || IsNil(o.Recommendations) {
+func (o *V3AdvertBidsKopecks) GetValueOk() (*int64, bool) {
+	if o == nil || IsNil(o.Value) {
 		return nil, false
 	}
-	return o.Recommendations, true
+	return o.Value, true
 }
 
-// HasRecommendations returns a boolean if a field has been set.
-func (o *V3AdvertBidsKopecks) HasRecommendations() bool {
-	if o != nil && !IsNil(o.Recommendations) {
+// HasValue returns a boolean if a field has been set.
+func (o *V3AdvertBidsKopecks) HasValue() bool {
+	if o != nil && !IsNil(o.Value) {
 		return true
 	}
 
 	return false
 }
 
-// SetRecommendations gets a reference to the given int64 and assigns it to the Recommendations field.
-func (o *V3AdvertBidsKopecks) SetRecommendations(v int64) {
-	o.Recommendations = &v
+// SetValue gets a reference to the given int64 and assigns it to the Value field.
+func (o *V3AdvertBidsKopecks) SetValue(v int64) {
+	o.Value = &v
 }
 
 func (o V3AdvertBidsKopecks) MarshalJSON() ([]byte, error) {
@@ -116,11 +115,11 @@ func (o V3AdvertBidsKopecks) MarshalJSON() ([]byte, error) {
 
 func (o V3AdvertBidsKopecks) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Search) {
-		toSerialize["search"] = o.Search
+	if !IsNil(o.Type) {
+		toSerialize["type"] = o.Type
 	}
-	if !IsNil(o.Recommendations) {
-		toSerialize["recommendations"] = o.Recommendations
+	if !IsNil(o.Value) {
+		toSerialize["value"] = o.Value
 	}
 	return toSerialize, nil
 }

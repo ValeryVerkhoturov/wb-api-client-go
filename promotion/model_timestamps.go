@@ -25,6 +25,8 @@ type Timestamps struct {
 	Updated *string `json:"updated,omitempty"`
 	// Время последнего запуска кампании
 	Started NullableString `json:"started,omitempty"`
+	// Время завершения кампании
+	Ended NullableString `json:"ended,omitempty"`
 }
 
 // NewTimestamps instantiates a new Timestamps object
@@ -151,6 +153,49 @@ func (o *Timestamps) UnsetStarted() {
 	o.Started.Unset()
 }
 
+// GetEnded returns the Ended field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Timestamps) GetEnded() string {
+	if o == nil || IsNil(o.Ended.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Ended.Get()
+}
+
+// GetEndedOk returns a tuple with the Ended field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Timestamps) GetEndedOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Ended.Get(), o.Ended.IsSet()
+}
+
+// HasEnded returns a boolean if a field has been set.
+func (o *Timestamps) HasEnded() bool {
+	if o != nil && o.Ended.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetEnded gets a reference to the given NullableString and assigns it to the Ended field.
+func (o *Timestamps) SetEnded(v string) {
+	o.Ended.Set(&v)
+}
+
+// SetEndedNil sets the value for Ended to be an explicit nil
+func (o *Timestamps) SetEndedNil() {
+	o.Ended.Set(nil)
+}
+
+// UnsetEnded ensures that no value is present for Ended, not even an explicit nil
+func (o *Timestamps) UnsetEnded() {
+	o.Ended.Unset()
+}
+
 func (o Timestamps) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -169,6 +214,9 @@ func (o Timestamps) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Started.IsSet() {
 		toSerialize["started"] = o.Started.Get()
+	}
+	if o.Ended.IsSet() {
+		toSerialize["ended"] = o.Ended.Get()
 	}
 	return toSerialize, nil
 }

@@ -12,117 +12,67 @@ package promotion
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
-// checks if the V3Placements type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &V3Placements{}
+// V3Placements Место размещения кампании: - `search` - поиск - `recommendations` - рекомендации - `combined` - поиск и рекомендации с единой ставкой
+type V3Placements string
 
-// V3Placements struct for V3Placements
-type V3Placements struct {
-	// Размещение в поиске:   - `false` — выключено   - `true` — включено
-	Search *bool `json:"search,omitempty"`
-	// Размещение в рекомендациях:   - `false` — выключено   - `true` — включено
-	Recommendations *bool `json:"recommendations,omitempty"`
+// List of V3Placements
+const (
+	SEARCH          V3Placements = "search"
+	RECOMMENDATIONS V3Placements = "recommendations"
+	COMBINED        V3Placements = "combined"
+)
+
+// All allowed values of V3Placements enum
+var AllowedV3PlacementsEnumValues = []V3Placements{
+	"search",
+	"recommendations",
+	"combined",
 }
 
-// NewV3Placements instantiates a new V3Placements object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewV3Placements() *V3Placements {
-	this := V3Placements{}
-	return &this
-}
-
-// NewV3PlacementsWithDefaults instantiates a new V3Placements object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewV3PlacementsWithDefaults() *V3Placements {
-	this := V3Placements{}
-	return &this
-}
-
-// GetSearch returns the Search field value if set, zero value otherwise.
-func (o *V3Placements) GetSearch() bool {
-	if o == nil || IsNil(o.Search) {
-		var ret bool
-		return ret
-	}
-	return *o.Search
-}
-
-// GetSearchOk returns a tuple with the Search field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *V3Placements) GetSearchOk() (*bool, bool) {
-	if o == nil || IsNil(o.Search) {
-		return nil, false
-	}
-	return o.Search, true
-}
-
-// HasSearch returns a boolean if a field has been set.
-func (o *V3Placements) HasSearch() bool {
-	if o != nil && !IsNil(o.Search) {
-		return true
-	}
-
-	return false
-}
-
-// SetSearch gets a reference to the given bool and assigns it to the Search field.
-func (o *V3Placements) SetSearch(v bool) {
-	o.Search = &v
-}
-
-// GetRecommendations returns the Recommendations field value if set, zero value otherwise.
-func (o *V3Placements) GetRecommendations() bool {
-	if o == nil || IsNil(o.Recommendations) {
-		var ret bool
-		return ret
-	}
-	return *o.Recommendations
-}
-
-// GetRecommendationsOk returns a tuple with the Recommendations field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *V3Placements) GetRecommendationsOk() (*bool, bool) {
-	if o == nil || IsNil(o.Recommendations) {
-		return nil, false
-	}
-	return o.Recommendations, true
-}
-
-// HasRecommendations returns a boolean if a field has been set.
-func (o *V3Placements) HasRecommendations() bool {
-	if o != nil && !IsNil(o.Recommendations) {
-		return true
-	}
-
-	return false
-}
-
-// SetRecommendations gets a reference to the given bool and assigns it to the Recommendations field.
-func (o *V3Placements) SetRecommendations(v bool) {
-	o.Recommendations = &v
-}
-
-func (o V3Placements) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+func (v *V3Placements) UnmarshalJSON(src []byte) error {
+	var value string
+	err := json.Unmarshal(src, &value)
 	if err != nil {
-		return []byte{}, err
+		return err
 	}
-	return json.Marshal(toSerialize)
+	enumTypeValue := V3Placements(value)
+	for _, existing := range AllowedV3PlacementsEnumValues {
+		if existing == enumTypeValue {
+			*v = enumTypeValue
+			return nil
+		}
+	}
+
+	return fmt.Errorf("%+v is not a valid V3Placements", value)
 }
 
-func (o V3Placements) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Search) {
-		toSerialize["search"] = o.Search
+// NewV3PlacementsFromValue returns a pointer to a valid V3Placements
+// for the value passed as argument, or an error if the value passed is not allowed by the enum
+func NewV3PlacementsFromValue(v string) (*V3Placements, error) {
+	ev := V3Placements(v)
+	if ev.IsValid() {
+		return &ev, nil
+	} else {
+		return nil, fmt.Errorf("invalid value '%v' for V3Placements: valid values are %v", v, AllowedV3PlacementsEnumValues)
 	}
-	if !IsNil(o.Recommendations) {
-		toSerialize["recommendations"] = o.Recommendations
+}
+
+// IsValid return true if the value is valid for the enum, false otherwise
+func (v V3Placements) IsValid() bool {
+	for _, existing := range AllowedV3PlacementsEnumValues {
+		if existing == v {
+			return true
+		}
 	}
-	return toSerialize, nil
+	return false
+}
+
+// Ptr returns reference to V3Placements value
+func (v V3Placements) Ptr() *V3Placements {
+	return &v
 }
 
 type NullableV3Placements struct {
