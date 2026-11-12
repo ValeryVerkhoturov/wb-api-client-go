@@ -153,12 +153,6 @@ func NewConfiguration() *Configuration {
 					Description: "No description provided",
 				},
 			},
-			"ReportsAPIService.GetV1AnalyticsRegionSale": {
-				{
-					URL:         "https://seller-analytics-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
 			"ReportsAPIService.GetV1Deductions": {
 				{
 					URL:         "https://seller-analytics-api.wildberries.ru",

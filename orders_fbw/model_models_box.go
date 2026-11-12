@@ -19,8 +19,10 @@ var _ MappedNullable = &ModelsBox{}
 
 // ModelsBox struct for ModelsBox
 type ModelsBox struct {
-	// Штрих-код упаковки
+	// Закодированное значение стикера упаковки
 	PackageCode *string `json:"packageCode,omitempty"`
+	// ID стикера упаковки
+	PackageId *string `json:"packageId,omitempty"`
 	// Суммарное количество товара в упаковке, шт
 	Quantity *int64 `json:"quantity,omitempty"`
 	// Список упакованных товаров
@@ -74,6 +76,38 @@ func (o *ModelsBox) HasPackageCode() bool {
 // SetPackageCode gets a reference to the given string and assigns it to the PackageCode field.
 func (o *ModelsBox) SetPackageCode(v string) {
 	o.PackageCode = &v
+}
+
+// GetPackageId returns the PackageId field value if set, zero value otherwise.
+func (o *ModelsBox) GetPackageId() string {
+	if o == nil || IsNil(o.PackageId) {
+		var ret string
+		return ret
+	}
+	return *o.PackageId
+}
+
+// GetPackageIdOk returns a tuple with the PackageId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelsBox) GetPackageIdOk() (*string, bool) {
+	if o == nil || IsNil(o.PackageId) {
+		return nil, false
+	}
+	return o.PackageId, true
+}
+
+// HasPackageId returns a boolean if a field has been set.
+func (o *ModelsBox) HasPackageId() bool {
+	if o != nil && !IsNil(o.PackageId) {
+		return true
+	}
+
+	return false
+}
+
+// SetPackageId gets a reference to the given string and assigns it to the PackageId field.
+func (o *ModelsBox) SetPackageId(v string) {
+	o.PackageId = &v
 }
 
 // GetQuantity returns the Quantity field value if set, zero value otherwise.
@@ -152,6 +186,9 @@ func (o ModelsBox) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.PackageCode) {
 		toSerialize["packageCode"] = o.PackageCode
+	}
+	if !IsNil(o.PackageId) {
+		toSerialize["packageId"] = o.PackageId
 	}
 	if !IsNil(o.Quantity) {
 		toSerialize["quantity"] = o.Quantity
