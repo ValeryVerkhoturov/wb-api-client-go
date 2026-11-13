@@ -84,6 +84,10 @@ type CommunicationsAPI interface {
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+		---
+
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
+
 		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedback
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -114,6 +118,10 @@ type CommunicationsAPI interface {
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+		---
+
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
+
 		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -143,6 +151,10 @@ type CommunicationsAPI interface {
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+		---
+
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
+
 		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-archive
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -170,6 +182,10 @@ type CommunicationsAPI interface {
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+		---
+
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
+
 		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-count
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -195,6 +211,10 @@ type CommunicationsAPI interface {
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+		---
+
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
+
 		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-count-unanswered
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -218,6 +238,10 @@ type CommunicationsAPI interface {
 		| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+		---
+
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
 
 		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-new-feedbacks-questions
 
@@ -317,6 +341,10 @@ type CommunicationsAPI interface {
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+		---
+
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
+
 		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-question
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -346,6 +374,10 @@ type CommunicationsAPI interface {
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+		---
+
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
+
 		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -370,6 +402,10 @@ type CommunicationsAPI interface {
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+		---
+
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
+
 		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions-count
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -393,6 +429,10 @@ type CommunicationsAPI interface {
 		| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+		---
+
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
 
 		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions-count-unanswered
 
@@ -521,6 +561,10 @@ type CommunicationsAPI interface {
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+		---
+
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
+
 		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/patch-api-v1-feedbacks-answer
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -551,6 +595,10 @@ type CommunicationsAPI interface {
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+		---
+
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
+
 		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/patch-api-v1-questions
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -577,6 +625,10 @@ type CommunicationsAPI interface {
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+		---
+
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
+
 		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-v1-feedbacks-answer
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -601,6 +653,10 @@ type CommunicationsAPI interface {
 		| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+		---
+
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
 
 		Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-v1-feedbacks-order-return
 
@@ -1098,6 +1154,10 @@ GetV1Feedback Получить отзыв по ID
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+---
+
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
+
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedback
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1321,6 +1381,10 @@ GetV1Feedbacks Список отзывов
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+---
+
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
+
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1542,6 +1606,10 @@ GetV1FeedbacksArchive Список архивных отзывов
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+---
+
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
+
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-archive
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1755,6 +1823,10 @@ GetV1FeedbacksCount Количество отзывов
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+---
+
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
+
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-count
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1930,6 +2002,10 @@ GetV1FeedbacksCountUnanswered Необработанные отзывы
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+---
+
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
+
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-count-unanswered
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2082,6 +2158,10 @@ GetV1NewFeedbacksQuestions Непросмотренные отзывы и воп
 | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+---
+
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-new-feedbacks-questions
 
@@ -2889,6 +2969,10 @@ GetV1Question Получить вопрос по ID
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+---
+
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
+
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-question
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -3111,6 +3195,10 @@ GetV1Questions Список вопросов
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+---
+
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
+
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -3320,6 +3408,10 @@ GetV1QuestionsCount Количество вопросов
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+---
+
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
+
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions-count
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -3495,6 +3587,10 @@ GetV1QuestionsCountUnanswered Неотвеченные вопросы
 | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+---
+
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions-count-unanswered
 
@@ -4332,6 +4428,10 @@ ID отзыва не валидируется. Если в запросе вы �
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+---
+
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
+
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/patch-api-v1-feedbacks-answer
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -4487,6 +4587,10 @@ PatchV1Questions Работа с вопросами
 | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+---
+
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/patch-api-v1-questions
 
@@ -4684,6 +4788,10 @@ ID отзыва не валидируется. Если в запросе вы �
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+---
+
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
+
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-v1-feedbacks-answer
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -4845,6 +4953,10 @@ PostV1FeedbacksOrderReturn Возврат товара по ID отзыва
 | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+---
+
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
 
 Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-v1-feedbacks-order-return
 
