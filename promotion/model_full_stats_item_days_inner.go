@@ -21,9 +21,9 @@ var _ MappedNullable = &FullStatsItemDaysInner{}
 type FullStatsItemDaysInner struct {
 	// Блок информации о платформе
 	Apps []FullStatsItemDaysInnerAppsInner `json:"apps,omitempty"`
-	// Количество добавлений товаров в корзину
+	// Сколько раз товар добавили в корзину
 	Atbs *int64 `json:"atbs,omitempty"`
-	// Отмены, шт.
+	// Количество отмен
 	Canceled *int64 `json:"canceled,omitempty"`
 	// Дата, за которую представлены данные
 	Date *string `json:"date,omitempty"`
@@ -33,7 +33,7 @@ type FullStatsItemDaysInner struct {
 	Cpc *float32 `json:"cpc,omitempty"`
 	// CR (conversion rate) — отношение количества заказов к общему количеству посещений кампании
 	Cr *float32 `json:"cr,omitempty"`
-	// CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
+	// Кликабельность — отношение числа кликов к количеству показов, %
 	Ctr *float32 `json:"ctr,omitempty"`
 	// Количество заказов
 	Orders *int64 `json:"orders,omitempty"`

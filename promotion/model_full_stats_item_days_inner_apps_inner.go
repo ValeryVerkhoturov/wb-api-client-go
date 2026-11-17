@@ -21,17 +21,17 @@ var _ MappedNullable = &FullStatsItemDaysInnerAppsInner{}
 type FullStatsItemDaysInnerAppsInner struct {
 	// Тип платформы:   - `1` — сайт   - `32` — Android   - `64` — IOS
 	AppType *int64 `json:"appType,omitempty"`
-	// Количество добавлений товаров в корзину
+	// Сколько раз товар добавили в корзину
 	Atbs *int64 `json:"atbs,omitempty"`
-	// Отмены, шт.
+	// Количество отмен
 	Canceled *int64 `json:"canceled,omitempty"`
 	// Количество кликов
 	Clicks *int64 `json:"clicks,omitempty"`
 	// Средняя стоимость клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Cpc *float32 `json:"cpc,omitempty"`
-	// CR (conversion rate) — отношение количества заказов к общему количеству кликов
+	// Отношение количества заказов к общему количеству кликов
 	Cr *float32 `json:"cr,omitempty"`
-	// CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
+	// Кликабельность — отношение числа кликов к количеству показов, %
 	Ctr *float32 `json:"ctr,omitempty"`
 	// Блок статистики по артикулам WB
 	Nms []FullStatsItemDaysInnerAppsInnerNmsInner `json:"nms,omitempty"`

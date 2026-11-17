@@ -129,6 +129,12 @@ func NewConfiguration() *Configuration {
 					Description: "No description provided",
 				},
 			},
+			"PromotionAPIService.GetV0Positions": {
+				{
+					URL:         "https://advert-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
 			"PromotionAPIService.GetV0Start": {
 				{
 					URL:         "https://advert-api.wildberries.ru",
@@ -232,6 +238,12 @@ func NewConfiguration() *Configuration {
 				},
 			},
 			"PromotionAPIService.GetV3Fullstats": {
+				{
+					URL:         "https://advert-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"PromotionAPIService.GetV4Fullstats": {
 				{
 					URL:         "https://advert-api.wildberries.ru",
 					Description: "No description provided",

@@ -43,7 +43,7 @@ type StatsBlok2 struct {
 	DateTo *string `json:"date_to,omitempty"`
 	// Родительская категория предмета
 	SubjectName *string `json:"subject_name,omitempty"`
-	// Количество добавлений товаров в корзину
+	// Сколько раз товар добавили в корзину
 	Atbs *int64 `json:"atbs,omitempty"`
 	// Количество заказов
 	Orders *int64 `json:"orders,omitempty"`

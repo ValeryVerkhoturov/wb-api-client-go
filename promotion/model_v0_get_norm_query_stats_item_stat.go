@@ -25,7 +25,7 @@ type V0GetNormQueryStatsItemStat struct {
 	Views NullableInt64 `json:"views,omitempty"`
 	// Количество кликов
 	Clicks *int64 `json:"clicks,omitempty"`
-	// Количество добавлений товаров в корзину
+	// Сколько раз товар добавили в корзину
 	Atbs *int64 `json:"atbs,omitempty"`
 	// Количество заказов
 	Orders *int64 `json:"orders,omitempty"`

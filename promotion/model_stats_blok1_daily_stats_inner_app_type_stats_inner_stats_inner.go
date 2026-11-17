@@ -23,7 +23,7 @@ type StatsBlok1DailyStatsInnerAppTypeStatsInnerStatsInner struct {
 	Views *int64 `json:"views,omitempty"`
 	// Количество кликов
 	Clicks *int64 `json:"clicks,omitempty"`
-	// Количество добавлений товаров в корзину
+	// Сколько раз товар добавили в корзину
 	Atbs *int64 `json:"atbs,omitempty"`
 	// CTR (click-through rate) — показатель кликабельности, отношение числа кликов к количеству показов в рамках медиакампании
 	Ctr *float32 `json:"ctr,omitempty"`
