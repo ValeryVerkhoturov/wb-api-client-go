@@ -165,12 +165,6 @@ func NewConfiguration() *Configuration {
 					Description: "No description provided",
 				},
 			},
-			"PromotionAPIService.GetV1Budget": {
-				{
-					URL:         "https://advert-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
 			"PromotionAPIService.GetV1CalendarPromotions": {
 				{
 					URL:         "https://dp-calendar-api.wildberries.ru",

@@ -139,12 +139,6 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"OrdersFbsAPIService.GetV3FbsDictionariesCountriesOksm": {
-				{
-					URL:         "https://marketplace-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
 			"OrdersFbsAPIService.GetV3FbsOrdersArchive": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
@@ -163,19 +157,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Prod** ",
 				},
 			},
-			"OrdersFbsAPIService.GetV3FbsShippingPoints": {
-				{
-					URL:         "https://marketplace-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
 			"OrdersFbsAPIService.GetV3FbsSuppliesSupplyIdShippingPoints": {
-				{
-					URL:         "https://marketplace-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
-			"OrdersFbsAPIService.GetV3FbsSuppliesSupplyIdStickersSpot": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
@@ -341,12 +323,6 @@ func NewConfiguration() *Configuration {
 					Description: "**Prod** ",
 				},
 			},
-			"OrdersFbsAPIService.PostV3FbsSuppliesSpotList": {
-				{
-					URL:         "https://marketplace-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
 			"OrdersFbsAPIService.PostV3OrdersClient": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
@@ -441,12 +417,6 @@ func NewConfiguration() *Configuration {
 				{
 					URL:         "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
-				},
-			},
-			"OrdersFbsAPIService.PutV3FbsSuppliesSupplyIdSpot": {
-				{
-					URL:         "https://marketplace-api.wildberries.ru",
-					Description: "No description provided",
 				},
 			},
 			"OrdersFbsAPIService.PutV3OrdersOrderIdMetaCustomsDeclaration": {
