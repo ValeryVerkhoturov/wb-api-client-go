@@ -16,7 +16,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/negrel/secrecy"
+	"github.com/ValeryVerkhoturov/wb-api-client-go/internal/secrecy"
 )
 
 // contextKeys are used to identify the type of value in the context.

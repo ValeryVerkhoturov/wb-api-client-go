@@ -10,7 +10,7 @@ go get github.com/ValeryVerkhoturov/wb-api-client-go@latest
 
 ## Authentication
 
-Every module accepts the same WB bearer JWT. The token is stored in a redacting wrapper — [`secrecy.SecretString`](https://github.com/negrel/secrecy) — so it does not leak under logs / `fmt.Printf` unless you explicitly ask for the raw value with `.ExposeSecret()`.
+Every module accepts the same WB bearer JWT. The token is stored in a redacting wrapper — an internal `SecretString` type — so it does not leak under logs / `fmt.Printf` unless you explicitly ask for the raw value with `.ExposeSecret()`.
 
 ```go
 import wbitems "github.com/ValeryVerkhoturov/wb-api-client-go/items"
