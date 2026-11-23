@@ -5,7 +5,7 @@ Auto-generated Go client for the [Wildberries Seller API](https://dev.wildberrie
 ## Install
 
 ```bash
-go get github.com/ValeryVerkhoturov/wb-api-client-go@latest
+go get github.com/ValeryVerkhoturov/wb-api-client-go/v2@latest
 ```
 
 ## Authentication
@@ -13,7 +13,7 @@ go get github.com/ValeryVerkhoturov/wb-api-client-go@latest
 Every module accepts the same WB bearer JWT. The token is stored in a redacting wrapper — an internal `SecretString` type — so it does not leak under logs / `fmt.Printf` unless you explicitly ask for the raw value with `.ExposeSecret()`.
 
 ```go
-import wbitems "github.com/ValeryVerkhoturov/wb-api-client-go/items"
+import wbitems "github.com/ValeryVerkhoturov/wb-api-client-go/v2/items"
 
 cfg := wbitems.NewConfiguration()
 cfg.SetAccessToken("<your WB JWT>")
@@ -22,7 +22,7 @@ client := wbitems.NewAPIClient(cfg)
 
 ## Modules
 
-Each row below is a sub-module you can import independently. Import path is `github.com/ValeryVerkhoturov/wb-api-client-go/<slug>`.
+Each row below is a sub-module you can import independently. Import path is `github.com/ValeryVerkhoturov/wb-api-client-go/v2/<slug>`.
 
 | Slug | Category | APIs |
 |---|---|---|
@@ -62,7 +62,7 @@ Each row below is a sub-module you can import independently. Import path is `git
 **APIs:** `GeneralAPI`
 
 ```go
-import wbgeneral "github.com/ValeryVerkhoturov/wb-api-client-go/general"
+import wbgeneral "github.com/ValeryVerkhoturov/wb-api-client-go/v2/general"
 
 cfg := wbgeneral.NewConfiguration()
 cfg.SetAccessToken("<your WB JWT>")
@@ -88,7 +88,7 @@ client := wbgeneral.NewAPIClient(cfg)
 **APIs:** `ItemsAPI`
 
 ```go
-import wbitems "github.com/ValeryVerkhoturov/wb-api-client-go/items"
+import wbitems "github.com/ValeryVerkhoturov/wb-api-client-go/v2/items"
 
 cfg := wbitems.NewConfiguration()
 cfg.SetAccessToken("<your WB JWT>")
@@ -113,7 +113,7 @@ client := wbitems.NewAPIClient(cfg)
 **APIs:** `OrdersFbsAPI`
 
 ```go
-import wborders_fbs "github.com/ValeryVerkhoturov/wb-api-client-go/orders_fbs"
+import wborders_fbs "github.com/ValeryVerkhoturov/wb-api-client-go/v2/orders_fbs"
 
 cfg := wborders_fbs.NewConfiguration()
 cfg.SetAccessToken("<your WB JWT>")
@@ -133,7 +133,7 @@ client := wborders_fbs.NewAPIClient(cfg)
 **APIs:** `OrdersDbwAPI`
 
 ```go
-import wborders_dbw "github.com/ValeryVerkhoturov/wb-api-client-go/orders_dbw"
+import wborders_dbw "github.com/ValeryVerkhoturov/wb-api-client-go/v2/orders_dbw"
 
 cfg := wborders_dbw.NewConfiguration()
 cfg.SetAccessToken("<your WB JWT>")
@@ -153,7 +153,7 @@ client := wborders_dbw.NewAPIClient(cfg)
 **APIs:** `DbsAPI`
 
 ```go
-import wbdbs "github.com/ValeryVerkhoturov/wb-api-client-go/dbs"
+import wbdbs "github.com/ValeryVerkhoturov/wb-api-client-go/v2/dbs"
 
 cfg := wbdbs.NewConfiguration()
 cfg.SetAccessToken("<your WB JWT>")
@@ -171,7 +171,7 @@ client := wbdbs.NewAPIClient(cfg)
 **APIs:** `InStorePickupAPI`
 
 ```go
-import wbin_store_pickup "github.com/ValeryVerkhoturov/wb-api-client-go/in_store_pickup"
+import wbin_store_pickup "github.com/ValeryVerkhoturov/wb-api-client-go/v2/in_store_pickup"
 
 cfg := wbin_store_pickup.NewConfiguration()
 cfg.SetAccessToken("<your WB JWT>")
@@ -192,7 +192,7 @@ client := wbin_store_pickup.NewAPIClient(cfg)
 **APIs:** `OrdersFbwAPI`
 
 ```go
-import wborders_fbw "github.com/ValeryVerkhoturov/wb-api-client-go/orders_fbw"
+import wborders_fbw "github.com/ValeryVerkhoturov/wb-api-client-go/v2/orders_fbw"
 
 cfg := wborders_fbw.NewConfiguration()
 cfg.SetAccessToken("<your WB JWT>")
@@ -216,7 +216,7 @@ client := wborders_fbw.NewAPIClient(cfg)
 **APIs:** `PromotionAPI`
 
 ```go
-import wbpromotion "github.com/ValeryVerkhoturov/wb-api-client-go/promotion"
+import wbpromotion "github.com/ValeryVerkhoturov/wb-api-client-go/v2/promotion"
 
 cfg := wbpromotion.NewConfiguration()
 cfg.SetAccessToken("<your WB JWT>")
@@ -241,7 +241,7 @@ client := wbpromotion.NewAPIClient(cfg)
 **APIs:** `CommunicationsAPI`
 
 ```go
-import wbcommunications "github.com/ValeryVerkhoturov/wb-api-client-go/communications"
+import wbcommunications "github.com/ValeryVerkhoturov/wb-api-client-go/v2/communications"
 
 cfg := wbcommunications.NewConfiguration()
 cfg.SetAccessToken("<your WB JWT>")
@@ -263,7 +263,7 @@ client := wbcommunications.NewAPIClient(cfg)
 **APIs:** `RatesAPI`
 
 ```go
-import wbrates "github.com/ValeryVerkhoturov/wb-api-client-go/rates"
+import wbrates "github.com/ValeryVerkhoturov/wb-api-client-go/v2/rates"
 
 cfg := wbrates.NewConfiguration()
 cfg.SetAccessToken("<your WB JWT>")
@@ -287,7 +287,7 @@ client := wbrates.NewAPIClient(cfg)
 **APIs:** `AnalyticsAPI`
 
 ```go
-import wbanalytics "github.com/ValeryVerkhoturov/wb-api-client-go/analytics"
+import wbanalytics "github.com/ValeryVerkhoturov/wb-api-client-go/v2/analytics"
 
 cfg := wbanalytics.NewConfiguration()
 cfg.SetAccessToken("<your WB JWT>")
@@ -313,7 +313,7 @@ client := wbanalytics.NewAPIClient(cfg)
 **APIs:** `ReportsAPI`
 
 ```go
-import wbreports "github.com/ValeryVerkhoturov/wb-api-client-go/reports"
+import wbreports "github.com/ValeryVerkhoturov/wb-api-client-go/v2/reports"
 
 cfg := wbreports.NewConfiguration()
 cfg.SetAccessToken("<your WB JWT>")
@@ -331,7 +331,7 @@ client := wbreports.NewAPIClient(cfg)
 **APIs:** `FinancesAPI`
 
 ```go
-import wbfinances "github.com/ValeryVerkhoturov/wb-api-client-go/finances"
+import wbfinances "github.com/ValeryVerkhoturov/wb-api-client-go/v2/finances"
 
 cfg := wbfinances.NewConfiguration()
 cfg.SetAccessToken("<your WB JWT>")
