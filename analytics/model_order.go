@@ -29,13 +29,13 @@ type Order struct {
 	CreatedAt *string `json:"createdAt,omitempty"`
 	// Дата и время текущего статуса. При `\"status\":\"created\"` возвращается значение поля `createdAt`
 	UpdatedAt *string `json:"updatedAt,omitempty"`
-	// [Статус заказа](https://seller.wildberries.ru/instructions/ru/ru/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c):   - `created` — оформлен   - `buyout` — продан   - `cancel` — отменён   - `return` — возвращён   - `returnDefective` — возвращён по причине брака
+	// [Статус заказа](https://seller.wildberries.ru/instructions/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c):   - `created` — оформлен   - `buyout` — продан   - `cancel` — отменён   - `return` — возвращён   - `returnDefective` — возвращён по причине брака
 	Status *string `json:"status,omitempty"`
-	// [Тип отмены](https://seller.wildberries.ru/instructions/ru/ru/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c) (при `\"status\":\"cancel\"`):   - `app` — отказ до получения   - `receipt` — отказ при получении   - `expire` — истёк срок получения   - `other` — иное
+	// [Тип отмены](https://seller.wildberries.ru/instructions/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c) (при `\"status\":\"cancel\"`):   - `app` — отказ до получения   - `receipt` — отказ при получении   - `expire` — истёк срок получения   - `other` — иное
 	CancelType *string `json:"cancelType,omitempty"`
-	// Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`
+	// Название склада. Для складов WB в России может быть только `Склад WB РФ` или `Склад WB СГТ РФ`
 	WarehouseName *string `json:"warehouseName,omitempty"`
-	// Федеральный округ склада. Если склад не в России, возвращается страна. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `\"\"`
+	// Регион отгрузки. Если склад принадлежит WB или продавцу не в России, возвращается страна
 	WarehouseRegion *string `json:"warehouseRegion,omitempty"`
 	// Тип склада:   - `true` — склад продавца   - `false` — склад WB
 	IsMp *bool `json:"isMp,omitempty"`

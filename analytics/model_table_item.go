@@ -33,7 +33,7 @@ type TableItem struct {
 	MainPhoto *string `json:"mainPhoto,omitempty"`
 	// Находится ли товар в продвижении в Поисковой выдаче
 	IsAdvertised *bool `json:"isAdvertised,omitempty"`
-	// Искали ли товар по подменному артикулу. Поле будет в ответе при наличии в запросе `includeSubstitutedSKUs` и/или `includeSearchTexts`
+	// Искали ли товар по подменному артикулу
 	IsSubstitutedSKU *bool `json:"isSubstitutedSKU,omitempty"`
 	// Есть ли рейтинг у карточки товара
 	IsCardRated *bool `json:"isCardRated,omitempty"`

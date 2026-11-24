@@ -19,7 +19,7 @@ var _ MappedNullable = &OrderNew{}
 
 // OrderNew struct for OrderNew
 type OrderNew struct {
-	Address NullableOrderAddress `json:"address,omitempty"`
+	Address NullableOrderNewAddress `json:"address,omitempty"`
 	// Планируемая дата доставки заказа покупателю. Поле отображается для сборочных заданий со сверхгабаритными товарами `СГТ`, `cargoType: 2`
 	Ddate *string `json:"ddate,omitempty"`
 	// Дата, когда [нужно отгрузить](https://seller.wildberries.ru/instructions/ru/ru/material/packing-and-delivery-of-oversized-items-in-fbs) сверхгабаритный товар (СГТ) на склад. Часовой пояс — UTC+3. Поле отображается для сборочных заданий со сверхгабаритными товарами `СГТ`, `cargoType: 2`
@@ -101,9 +101,9 @@ func NewOrderNewWithDefaults() *OrderNew {
 }
 
 // GetAddress returns the Address field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *OrderNew) GetAddress() OrderAddress {
+func (o *OrderNew) GetAddress() OrderNewAddress {
 	if o == nil || IsNil(o.Address.Get()) {
-		var ret OrderAddress
+		var ret OrderNewAddress
 		return ret
 	}
 	return *o.Address.Get()
@@ -112,7 +112,7 @@ func (o *OrderNew) GetAddress() OrderAddress {
 // GetAddressOk returns a tuple with the Address field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *OrderNew) GetAddressOk() (*OrderAddress, bool) {
+func (o *OrderNew) GetAddressOk() (*OrderNewAddress, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -128,8 +128,8 @@ func (o *OrderNew) HasAddress() bool {
 	return false
 }
 
-// SetAddress gets a reference to the given NullableOrderAddress and assigns it to the Address field.
-func (o *OrderNew) SetAddress(v OrderAddress) {
+// SetAddress gets a reference to the given NullableOrderNewAddress and assigns it to the Address field.
+func (o *OrderNew) SetAddress(v OrderNewAddress) {
 	o.Address.Set(&v)
 }
 

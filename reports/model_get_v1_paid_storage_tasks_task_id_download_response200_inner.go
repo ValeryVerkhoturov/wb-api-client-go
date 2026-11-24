@@ -19,7 +19,7 @@ var _ MappedNullable = &GetV1PaidStorageTasksTaskIdDownloadResponse200Inner{}
 
 // GetV1PaidStorageTasksTaskIdDownloadResponse200Inner struct for GetV1PaidStorageTasksTaskIdDownloadResponse200Inner
 type GetV1PaidStorageTasksTaskIdDownloadResponse200Inner struct {
-	// Дата, за которую был расчёт или перерасчёт
+	// Дата расчёта или перерасчёта
 	Date *string `json:"date,omitempty"`
 	// Коэффициент логистики и хранения. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`
 	LogWarehouseCoef *float32 `json:"logWarehouseCoef,omitempty"`
