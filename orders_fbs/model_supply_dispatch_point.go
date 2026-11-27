@@ -14,11 +14,11 @@ import (
 	"encoding/json"
 )
 
-// checks if the SupplyShippingPoint type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &SupplyShippingPoint{}
+// checks if the SupplyDispatchPoint type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &SupplyDispatchPoint{}
 
-// SupplyShippingPoint Данные пункта отгрузки
-type SupplyShippingPoint struct {
+// SupplyDispatchPoint Данные пункта отгрузки
+type SupplyDispatchPoint struct {
 	// ID пункта отгрузки
 	Id *int64 `json:"id,omitempty"`
 	// Название
@@ -39,25 +39,25 @@ type SupplyShippingPoint struct {
 	Available *bool `json:"available,omitempty"`
 }
 
-// NewSupplyShippingPoint instantiates a new SupplyShippingPoint object
+// NewSupplyDispatchPoint instantiates a new SupplyDispatchPoint object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSupplyShippingPoint() *SupplyShippingPoint {
-	this := SupplyShippingPoint{}
+func NewSupplyDispatchPoint() *SupplyDispatchPoint {
+	this := SupplyDispatchPoint{}
 	return &this
 }
 
-// NewSupplyShippingPointWithDefaults instantiates a new SupplyShippingPoint object
+// NewSupplyDispatchPointWithDefaults instantiates a new SupplyDispatchPoint object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewSupplyShippingPointWithDefaults() *SupplyShippingPoint {
-	this := SupplyShippingPoint{}
+func NewSupplyDispatchPointWithDefaults() *SupplyDispatchPoint {
+	this := SupplyDispatchPoint{}
 	return &this
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *SupplyShippingPoint) GetId() int64 {
+func (o *SupplyDispatchPoint) GetId() int64 {
 	if o == nil || IsNil(o.Id) {
 		var ret int64
 		return ret
@@ -67,7 +67,7 @@ func (o *SupplyShippingPoint) GetId() int64 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SupplyShippingPoint) GetIdOk() (*int64, bool) {
+func (o *SupplyDispatchPoint) GetIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -75,7 +75,7 @@ func (o *SupplyShippingPoint) GetIdOk() (*int64, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *SupplyShippingPoint) HasId() bool {
+func (o *SupplyDispatchPoint) HasId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -84,12 +84,12 @@ func (o *SupplyShippingPoint) HasId() bool {
 }
 
 // SetId gets a reference to the given int64 and assigns it to the Id field.
-func (o *SupplyShippingPoint) SetId(v int64) {
+func (o *SupplyDispatchPoint) SetId(v int64) {
 	o.Id = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
-func (o *SupplyShippingPoint) GetName() string {
+func (o *SupplyDispatchPoint) GetName() string {
 	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
@@ -99,7 +99,7 @@ func (o *SupplyShippingPoint) GetName() string {
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SupplyShippingPoint) GetNameOk() (*string, bool) {
+func (o *SupplyDispatchPoint) GetNameOk() (*string, bool) {
 	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
@@ -107,7 +107,7 @@ func (o *SupplyShippingPoint) GetNameOk() (*string, bool) {
 }
 
 // HasName returns a boolean if a field has been set.
-func (o *SupplyShippingPoint) HasName() bool {
+func (o *SupplyDispatchPoint) HasName() bool {
 	if o != nil && !IsNil(o.Name) {
 		return true
 	}
@@ -116,12 +116,12 @@ func (o *SupplyShippingPoint) HasName() bool {
 }
 
 // SetName gets a reference to the given string and assigns it to the Name field.
-func (o *SupplyShippingPoint) SetName(v string) {
+func (o *SupplyDispatchPoint) SetName(v string) {
 	o.Name = &v
 }
 
 // GetAddress returns the Address field value if set, zero value otherwise.
-func (o *SupplyShippingPoint) GetAddress() string {
+func (o *SupplyDispatchPoint) GetAddress() string {
 	if o == nil || IsNil(o.Address) {
 		var ret string
 		return ret
@@ -131,7 +131,7 @@ func (o *SupplyShippingPoint) GetAddress() string {
 
 // GetAddressOk returns a tuple with the Address field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SupplyShippingPoint) GetAddressOk() (*string, bool) {
+func (o *SupplyDispatchPoint) GetAddressOk() (*string, bool) {
 	if o == nil || IsNil(o.Address) {
 		return nil, false
 	}
@@ -139,7 +139,7 @@ func (o *SupplyShippingPoint) GetAddressOk() (*string, bool) {
 }
 
 // HasAddress returns a boolean if a field has been set.
-func (o *SupplyShippingPoint) HasAddress() bool {
+func (o *SupplyDispatchPoint) HasAddress() bool {
 	if o != nil && !IsNil(o.Address) {
 		return true
 	}
@@ -148,12 +148,12 @@ func (o *SupplyShippingPoint) HasAddress() bool {
 }
 
 // SetAddress gets a reference to the given string and assigns it to the Address field.
-func (o *SupplyShippingPoint) SetAddress(v string) {
+func (o *SupplyDispatchPoint) SetAddress(v string) {
 	o.Address = &v
 }
 
 // GetCity returns the City field value if set, zero value otherwise.
-func (o *SupplyShippingPoint) GetCity() string {
+func (o *SupplyDispatchPoint) GetCity() string {
 	if o == nil || IsNil(o.City) {
 		var ret string
 		return ret
@@ -163,7 +163,7 @@ func (o *SupplyShippingPoint) GetCity() string {
 
 // GetCityOk returns a tuple with the City field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SupplyShippingPoint) GetCityOk() (*string, bool) {
+func (o *SupplyDispatchPoint) GetCityOk() (*string, bool) {
 	if o == nil || IsNil(o.City) {
 		return nil, false
 	}
@@ -171,7 +171,7 @@ func (o *SupplyShippingPoint) GetCityOk() (*string, bool) {
 }
 
 // HasCity returns a boolean if a field has been set.
-func (o *SupplyShippingPoint) HasCity() bool {
+func (o *SupplyDispatchPoint) HasCity() bool {
 	if o != nil && !IsNil(o.City) {
 		return true
 	}
@@ -180,12 +180,12 @@ func (o *SupplyShippingPoint) HasCity() bool {
 }
 
 // SetCity gets a reference to the given string and assigns it to the City field.
-func (o *SupplyShippingPoint) SetCity(v string) {
+func (o *SupplyDispatchPoint) SetCity(v string) {
 	o.City = &v
 }
 
 // GetOfficeType returns the OfficeType field value if set, zero value otherwise.
-func (o *SupplyShippingPoint) GetOfficeType() string {
+func (o *SupplyDispatchPoint) GetOfficeType() string {
 	if o == nil || IsNil(o.OfficeType) {
 		var ret string
 		return ret
@@ -195,7 +195,7 @@ func (o *SupplyShippingPoint) GetOfficeType() string {
 
 // GetOfficeTypeOk returns a tuple with the OfficeType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SupplyShippingPoint) GetOfficeTypeOk() (*string, bool) {
+func (o *SupplyDispatchPoint) GetOfficeTypeOk() (*string, bool) {
 	if o == nil || IsNil(o.OfficeType) {
 		return nil, false
 	}
@@ -203,7 +203,7 @@ func (o *SupplyShippingPoint) GetOfficeTypeOk() (*string, bool) {
 }
 
 // HasOfficeType returns a boolean if a field has been set.
-func (o *SupplyShippingPoint) HasOfficeType() bool {
+func (o *SupplyDispatchPoint) HasOfficeType() bool {
 	if o != nil && !IsNil(o.OfficeType) {
 		return true
 	}
@@ -212,12 +212,12 @@ func (o *SupplyShippingPoint) HasOfficeType() bool {
 }
 
 // SetOfficeType gets a reference to the given string and assigns it to the OfficeType field.
-func (o *SupplyShippingPoint) SetOfficeType(v string) {
+func (o *SupplyDispatchPoint) SetOfficeType(v string) {
 	o.OfficeType = &v
 }
 
 // GetLatitude returns the Latitude field value if set, zero value otherwise.
-func (o *SupplyShippingPoint) GetLatitude() float32 {
+func (o *SupplyDispatchPoint) GetLatitude() float32 {
 	if o == nil || IsNil(o.Latitude) {
 		var ret float32
 		return ret
@@ -227,7 +227,7 @@ func (o *SupplyShippingPoint) GetLatitude() float32 {
 
 // GetLatitudeOk returns a tuple with the Latitude field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SupplyShippingPoint) GetLatitudeOk() (*float32, bool) {
+func (o *SupplyDispatchPoint) GetLatitudeOk() (*float32, bool) {
 	if o == nil || IsNil(o.Latitude) {
 		return nil, false
 	}
@@ -235,7 +235,7 @@ func (o *SupplyShippingPoint) GetLatitudeOk() (*float32, bool) {
 }
 
 // HasLatitude returns a boolean if a field has been set.
-func (o *SupplyShippingPoint) HasLatitude() bool {
+func (o *SupplyDispatchPoint) HasLatitude() bool {
 	if o != nil && !IsNil(o.Latitude) {
 		return true
 	}
@@ -244,12 +244,12 @@ func (o *SupplyShippingPoint) HasLatitude() bool {
 }
 
 // SetLatitude gets a reference to the given float32 and assigns it to the Latitude field.
-func (o *SupplyShippingPoint) SetLatitude(v float32) {
+func (o *SupplyDispatchPoint) SetLatitude(v float32) {
 	o.Latitude = &v
 }
 
 // GetLongitude returns the Longitude field value if set, zero value otherwise.
-func (o *SupplyShippingPoint) GetLongitude() float32 {
+func (o *SupplyDispatchPoint) GetLongitude() float32 {
 	if o == nil || IsNil(o.Longitude) {
 		var ret float32
 		return ret
@@ -259,7 +259,7 @@ func (o *SupplyShippingPoint) GetLongitude() float32 {
 
 // GetLongitudeOk returns a tuple with the Longitude field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SupplyShippingPoint) GetLongitudeOk() (*float32, bool) {
+func (o *SupplyDispatchPoint) GetLongitudeOk() (*float32, bool) {
 	if o == nil || IsNil(o.Longitude) {
 		return nil, false
 	}
@@ -267,7 +267,7 @@ func (o *SupplyShippingPoint) GetLongitudeOk() (*float32, bool) {
 }
 
 // HasLongitude returns a boolean if a field has been set.
-func (o *SupplyShippingPoint) HasLongitude() bool {
+func (o *SupplyDispatchPoint) HasLongitude() bool {
 	if o != nil && !IsNil(o.Longitude) {
 		return true
 	}
@@ -276,12 +276,12 @@ func (o *SupplyShippingPoint) HasLongitude() bool {
 }
 
 // SetLongitude gets a reference to the given float32 and assigns it to the Longitude field.
-func (o *SupplyShippingPoint) SetLongitude(v float32) {
+func (o *SupplyDispatchPoint) SetLongitude(v float32) {
 	o.Longitude = &v
 }
 
 // GetFulfillment returns the Fulfillment field value if set, zero value otherwise.
-func (o *SupplyShippingPoint) GetFulfillment() bool {
+func (o *SupplyDispatchPoint) GetFulfillment() bool {
 	if o == nil || IsNil(o.Fulfillment) {
 		var ret bool
 		return ret
@@ -291,7 +291,7 @@ func (o *SupplyShippingPoint) GetFulfillment() bool {
 
 // GetFulfillmentOk returns a tuple with the Fulfillment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SupplyShippingPoint) GetFulfillmentOk() (*bool, bool) {
+func (o *SupplyDispatchPoint) GetFulfillmentOk() (*bool, bool) {
 	if o == nil || IsNil(o.Fulfillment) {
 		return nil, false
 	}
@@ -299,7 +299,7 @@ func (o *SupplyShippingPoint) GetFulfillmentOk() (*bool, bool) {
 }
 
 // HasFulfillment returns a boolean if a field has been set.
-func (o *SupplyShippingPoint) HasFulfillment() bool {
+func (o *SupplyDispatchPoint) HasFulfillment() bool {
 	if o != nil && !IsNil(o.Fulfillment) {
 		return true
 	}
@@ -308,12 +308,12 @@ func (o *SupplyShippingPoint) HasFulfillment() bool {
 }
 
 // SetFulfillment gets a reference to the given bool and assigns it to the Fulfillment field.
-func (o *SupplyShippingPoint) SetFulfillment(v bool) {
+func (o *SupplyDispatchPoint) SetFulfillment(v bool) {
 	o.Fulfillment = &v
 }
 
 // GetAvailable returns the Available field value if set, zero value otherwise.
-func (o *SupplyShippingPoint) GetAvailable() bool {
+func (o *SupplyDispatchPoint) GetAvailable() bool {
 	if o == nil || IsNil(o.Available) {
 		var ret bool
 		return ret
@@ -323,7 +323,7 @@ func (o *SupplyShippingPoint) GetAvailable() bool {
 
 // GetAvailableOk returns a tuple with the Available field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SupplyShippingPoint) GetAvailableOk() (*bool, bool) {
+func (o *SupplyDispatchPoint) GetAvailableOk() (*bool, bool) {
 	if o == nil || IsNil(o.Available) {
 		return nil, false
 	}
@@ -331,7 +331,7 @@ func (o *SupplyShippingPoint) GetAvailableOk() (*bool, bool) {
 }
 
 // HasAvailable returns a boolean if a field has been set.
-func (o *SupplyShippingPoint) HasAvailable() bool {
+func (o *SupplyDispatchPoint) HasAvailable() bool {
 	if o != nil && !IsNil(o.Available) {
 		return true
 	}
@@ -340,11 +340,11 @@ func (o *SupplyShippingPoint) HasAvailable() bool {
 }
 
 // SetAvailable gets a reference to the given bool and assigns it to the Available field.
-func (o *SupplyShippingPoint) SetAvailable(v bool) {
+func (o *SupplyDispatchPoint) SetAvailable(v bool) {
 	o.Available = &v
 }
 
-func (o SupplyShippingPoint) MarshalJSON() ([]byte, error) {
+func (o SupplyDispatchPoint) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -352,7 +352,7 @@ func (o SupplyShippingPoint) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o SupplyShippingPoint) ToMap() (map[string]interface{}, error) {
+func (o SupplyDispatchPoint) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
@@ -384,38 +384,38 @@ func (o SupplyShippingPoint) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableSupplyShippingPoint struct {
-	value *SupplyShippingPoint
+type NullableSupplyDispatchPoint struct {
+	value *SupplyDispatchPoint
 	isSet bool
 }
 
-func (v NullableSupplyShippingPoint) Get() *SupplyShippingPoint {
+func (v NullableSupplyDispatchPoint) Get() *SupplyDispatchPoint {
 	return v.value
 }
 
-func (v *NullableSupplyShippingPoint) Set(val *SupplyShippingPoint) {
+func (v *NullableSupplyDispatchPoint) Set(val *SupplyDispatchPoint) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableSupplyShippingPoint) IsSet() bool {
+func (v NullableSupplyDispatchPoint) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableSupplyShippingPoint) Unset() {
+func (v *NullableSupplyDispatchPoint) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableSupplyShippingPoint(val *SupplyShippingPoint) *NullableSupplyShippingPoint {
-	return &NullableSupplyShippingPoint{value: val, isSet: true}
+func NewNullableSupplyDispatchPoint(val *SupplyDispatchPoint) *NullableSupplyDispatchPoint {
+	return &NullableSupplyDispatchPoint{value: val, isSet: true}
 }
 
-func (v NullableSupplyShippingPoint) MarshalJSON() ([]byte, error) {
+func (v NullableSupplyDispatchPoint) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableSupplyShippingPoint) UnmarshalJSON(src []byte) error {
+func (v *NullableSupplyDispatchPoint) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

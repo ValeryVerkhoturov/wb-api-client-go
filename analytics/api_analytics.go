@@ -3012,11 +3012,11 @@ func (a *AnalyticsAPIService) PostV2SearchReportTableGroupsExecute(r ApiPostV2Se
 type ApiPostV2StocksReportOfficesRequest struct {
 	ctx                        context.Context
 	ApiService                 AnalyticsAPI
-	tableShippingOfficeRequest *TableShippingOfficeRequest
+	tableDispatchOfficeRequest *TableDispatchOfficeRequest
 }
 
-func (r ApiPostV2StocksReportOfficesRequest) TableShippingOfficeRequest(tableShippingOfficeRequest TableShippingOfficeRequest) ApiPostV2StocksReportOfficesRequest {
-	r.tableShippingOfficeRequest = &tableShippingOfficeRequest
+func (r ApiPostV2StocksReportOfficesRequest) TableDispatchOfficeRequest(tableDispatchOfficeRequest TableDispatchOfficeRequest) ApiPostV2StocksReportOfficesRequest {
+	r.tableDispatchOfficeRequest = &tableDispatchOfficeRequest
 	return r
 }
 
@@ -3074,8 +3074,8 @@ func (a *AnalyticsAPIService) PostV2StocksReportOfficesExecute(r ApiPostV2Stocks
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.tableShippingOfficeRequest == nil {
-		return localVarReturnValue, nil, reportError("tableShippingOfficeRequest is required and must be specified")
+	if r.tableDispatchOfficeRequest == nil {
+		return localVarReturnValue, nil, reportError("tableDispatchOfficeRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -3096,7 +3096,7 @@ func (a *AnalyticsAPIService) PostV2StocksReportOfficesExecute(r ApiPostV2Stocks
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.tableShippingOfficeRequest
+	localVarPostBody = r.tableDispatchOfficeRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

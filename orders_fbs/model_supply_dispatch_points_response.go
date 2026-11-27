@@ -14,36 +14,36 @@ import (
 	"encoding/json"
 )
 
-// checks if the SupplyShippingPointsResponse type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &SupplyShippingPointsResponse{}
+// checks if the SupplyDispatchPointsResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &SupplyDispatchPointsResponse{}
 
-// SupplyShippingPointsResponse struct for SupplyShippingPointsResponse
-type SupplyShippingPointsResponse struct {
+// SupplyDispatchPointsResponse struct for SupplyDispatchPointsResponse
+type SupplyDispatchPointsResponse struct {
 	// Список пунктов отгрузки для указанной поставки
-	ShippingPoints []SupplyShippingPoint `json:"shippingPoints,omitempty"`
+	ShippingPoints []SupplyDispatchPoint `json:"shippingPoints,omitempty"`
 }
 
-// NewSupplyShippingPointsResponse instantiates a new SupplyShippingPointsResponse object
+// NewSupplyDispatchPointsResponse instantiates a new SupplyDispatchPointsResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSupplyShippingPointsResponse() *SupplyShippingPointsResponse {
-	this := SupplyShippingPointsResponse{}
+func NewSupplyDispatchPointsResponse() *SupplyDispatchPointsResponse {
+	this := SupplyDispatchPointsResponse{}
 	return &this
 }
 
-// NewSupplyShippingPointsResponseWithDefaults instantiates a new SupplyShippingPointsResponse object
+// NewSupplyDispatchPointsResponseWithDefaults instantiates a new SupplyDispatchPointsResponse object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewSupplyShippingPointsResponseWithDefaults() *SupplyShippingPointsResponse {
-	this := SupplyShippingPointsResponse{}
+func NewSupplyDispatchPointsResponseWithDefaults() *SupplyDispatchPointsResponse {
+	this := SupplyDispatchPointsResponse{}
 	return &this
 }
 
 // GetShippingPoints returns the ShippingPoints field value if set, zero value otherwise.
-func (o *SupplyShippingPointsResponse) GetShippingPoints() []SupplyShippingPoint {
+func (o *SupplyDispatchPointsResponse) GetShippingPoints() []SupplyDispatchPoint {
 	if o == nil || IsNil(o.ShippingPoints) {
-		var ret []SupplyShippingPoint
+		var ret []SupplyDispatchPoint
 		return ret
 	}
 	return o.ShippingPoints
@@ -51,7 +51,7 @@ func (o *SupplyShippingPointsResponse) GetShippingPoints() []SupplyShippingPoint
 
 // GetShippingPointsOk returns a tuple with the ShippingPoints field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SupplyShippingPointsResponse) GetShippingPointsOk() ([]SupplyShippingPoint, bool) {
+func (o *SupplyDispatchPointsResponse) GetShippingPointsOk() ([]SupplyDispatchPoint, bool) {
 	if o == nil || IsNil(o.ShippingPoints) {
 		return nil, false
 	}
@@ -59,7 +59,7 @@ func (o *SupplyShippingPointsResponse) GetShippingPointsOk() ([]SupplyShippingPo
 }
 
 // HasShippingPoints returns a boolean if a field has been set.
-func (o *SupplyShippingPointsResponse) HasShippingPoints() bool {
+func (o *SupplyDispatchPointsResponse) HasShippingPoints() bool {
 	if o != nil && !IsNil(o.ShippingPoints) {
 		return true
 	}
@@ -67,12 +67,12 @@ func (o *SupplyShippingPointsResponse) HasShippingPoints() bool {
 	return false
 }
 
-// SetShippingPoints gets a reference to the given []SupplyShippingPoint and assigns it to the ShippingPoints field.
-func (o *SupplyShippingPointsResponse) SetShippingPoints(v []SupplyShippingPoint) {
+// SetShippingPoints gets a reference to the given []SupplyDispatchPoint and assigns it to the ShippingPoints field.
+func (o *SupplyDispatchPointsResponse) SetShippingPoints(v []SupplyDispatchPoint) {
 	o.ShippingPoints = v
 }
 
-func (o SupplyShippingPointsResponse) MarshalJSON() ([]byte, error) {
+func (o SupplyDispatchPointsResponse) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -80,7 +80,7 @@ func (o SupplyShippingPointsResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o SupplyShippingPointsResponse) ToMap() (map[string]interface{}, error) {
+func (o SupplyDispatchPointsResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.ShippingPoints) {
 		toSerialize["shippingPoints"] = o.ShippingPoints
@@ -88,38 +88,38 @@ func (o SupplyShippingPointsResponse) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableSupplyShippingPointsResponse struct {
-	value *SupplyShippingPointsResponse
+type NullableSupplyDispatchPointsResponse struct {
+	value *SupplyDispatchPointsResponse
 	isSet bool
 }
 
-func (v NullableSupplyShippingPointsResponse) Get() *SupplyShippingPointsResponse {
+func (v NullableSupplyDispatchPointsResponse) Get() *SupplyDispatchPointsResponse {
 	return v.value
 }
 
-func (v *NullableSupplyShippingPointsResponse) Set(val *SupplyShippingPointsResponse) {
+func (v *NullableSupplyDispatchPointsResponse) Set(val *SupplyDispatchPointsResponse) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableSupplyShippingPointsResponse) IsSet() bool {
+func (v NullableSupplyDispatchPointsResponse) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableSupplyShippingPointsResponse) Unset() {
+func (v *NullableSupplyDispatchPointsResponse) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableSupplyShippingPointsResponse(val *SupplyShippingPointsResponse) *NullableSupplyShippingPointsResponse {
-	return &NullableSupplyShippingPointsResponse{value: val, isSet: true}
+func NewNullableSupplyDispatchPointsResponse(val *SupplyDispatchPointsResponse) *NullableSupplyDispatchPointsResponse {
+	return &NullableSupplyDispatchPointsResponse{value: val, isSet: true}
 }
 
-func (v NullableSupplyShippingPointsResponse) MarshalJSON() ([]byte, error) {
+func (v NullableSupplyDispatchPointsResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableSupplyShippingPointsResponse) UnmarshalJSON(src []byte) error {
+func (v *NullableSupplyDispatchPointsResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

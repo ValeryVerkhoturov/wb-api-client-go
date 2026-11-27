@@ -14,11 +14,11 @@ import (
 	"encoding/json"
 )
 
-// checks if the TableShippingOfficeMetrics type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &TableShippingOfficeMetrics{}
+// checks if the TableDispatchOfficeMetrics type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &TableDispatchOfficeMetrics{}
 
-// TableShippingOfficeMetrics Общие метрики по регионам/складам отгрузки
-type TableShippingOfficeMetrics struct {
+// TableDispatchOfficeMetrics Общие метрики по регионам/складам отгрузки
+type TableDispatchOfficeMetrics struct {
 	// Остатки на текущий день, шт.
 	StockCount *int64 `json:"stockCount,omitempty"`
 	// Остатки на текущий день, сумма
@@ -30,25 +30,25 @@ type TableShippingOfficeMetrics struct {
 	FromClientCount *int64 `json:"fromClientCount,omitempty"`
 }
 
-// NewTableShippingOfficeMetrics instantiates a new TableShippingOfficeMetrics object
+// NewTableDispatchOfficeMetrics instantiates a new TableDispatchOfficeMetrics object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableShippingOfficeMetrics() *TableShippingOfficeMetrics {
-	this := TableShippingOfficeMetrics{}
+func NewTableDispatchOfficeMetrics() *TableDispatchOfficeMetrics {
+	this := TableDispatchOfficeMetrics{}
 	return &this
 }
 
-// NewTableShippingOfficeMetricsWithDefaults instantiates a new TableShippingOfficeMetrics object
+// NewTableDispatchOfficeMetricsWithDefaults instantiates a new TableDispatchOfficeMetrics object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewTableShippingOfficeMetricsWithDefaults() *TableShippingOfficeMetrics {
-	this := TableShippingOfficeMetrics{}
+func NewTableDispatchOfficeMetricsWithDefaults() *TableDispatchOfficeMetrics {
+	this := TableDispatchOfficeMetrics{}
 	return &this
 }
 
 // GetStockCount returns the StockCount field value if set, zero value otherwise.
-func (o *TableShippingOfficeMetrics) GetStockCount() int64 {
+func (o *TableDispatchOfficeMetrics) GetStockCount() int64 {
 	if o == nil || IsNil(o.StockCount) {
 		var ret int64
 		return ret
@@ -58,7 +58,7 @@ func (o *TableShippingOfficeMetrics) GetStockCount() int64 {
 
 // GetStockCountOk returns a tuple with the StockCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableShippingOfficeMetrics) GetStockCountOk() (*int64, bool) {
+func (o *TableDispatchOfficeMetrics) GetStockCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.StockCount) {
 		return nil, false
 	}
@@ -66,7 +66,7 @@ func (o *TableShippingOfficeMetrics) GetStockCountOk() (*int64, bool) {
 }
 
 // HasStockCount returns a boolean if a field has been set.
-func (o *TableShippingOfficeMetrics) HasStockCount() bool {
+func (o *TableDispatchOfficeMetrics) HasStockCount() bool {
 	if o != nil && !IsNil(o.StockCount) {
 		return true
 	}
@@ -75,12 +75,12 @@ func (o *TableShippingOfficeMetrics) HasStockCount() bool {
 }
 
 // SetStockCount gets a reference to the given int64 and assigns it to the StockCount field.
-func (o *TableShippingOfficeMetrics) SetStockCount(v int64) {
+func (o *TableDispatchOfficeMetrics) SetStockCount(v int64) {
 	o.StockCount = &v
 }
 
 // GetStockSum returns the StockSum field value if set, zero value otherwise.
-func (o *TableShippingOfficeMetrics) GetStockSum() int64 {
+func (o *TableDispatchOfficeMetrics) GetStockSum() int64 {
 	if o == nil || IsNil(o.StockSum) {
 		var ret int64
 		return ret
@@ -90,7 +90,7 @@ func (o *TableShippingOfficeMetrics) GetStockSum() int64 {
 
 // GetStockSumOk returns a tuple with the StockSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableShippingOfficeMetrics) GetStockSumOk() (*int64, bool) {
+func (o *TableDispatchOfficeMetrics) GetStockSumOk() (*int64, bool) {
 	if o == nil || IsNil(o.StockSum) {
 		return nil, false
 	}
@@ -98,7 +98,7 @@ func (o *TableShippingOfficeMetrics) GetStockSumOk() (*int64, bool) {
 }
 
 // HasStockSum returns a boolean if a field has been set.
-func (o *TableShippingOfficeMetrics) HasStockSum() bool {
+func (o *TableDispatchOfficeMetrics) HasStockSum() bool {
 	if o != nil && !IsNil(o.StockSum) {
 		return true
 	}
@@ -107,12 +107,12 @@ func (o *TableShippingOfficeMetrics) HasStockSum() bool {
 }
 
 // SetStockSum gets a reference to the given int64 and assigns it to the StockSum field.
-func (o *TableShippingOfficeMetrics) SetStockSum(v int64) {
+func (o *TableDispatchOfficeMetrics) SetStockSum(v int64) {
 	o.StockSum = &v
 }
 
 // GetSaleRate returns the SaleRate field value if set, zero value otherwise.
-func (o *TableShippingOfficeMetrics) GetSaleRate() TableCommonMetricsSaleRate {
+func (o *TableDispatchOfficeMetrics) GetSaleRate() TableCommonMetricsSaleRate {
 	if o == nil || IsNil(o.SaleRate) {
 		var ret TableCommonMetricsSaleRate
 		return ret
@@ -122,7 +122,7 @@ func (o *TableShippingOfficeMetrics) GetSaleRate() TableCommonMetricsSaleRate {
 
 // GetSaleRateOk returns a tuple with the SaleRate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableShippingOfficeMetrics) GetSaleRateOk() (*TableCommonMetricsSaleRate, bool) {
+func (o *TableDispatchOfficeMetrics) GetSaleRateOk() (*TableCommonMetricsSaleRate, bool) {
 	if o == nil || IsNil(o.SaleRate) {
 		return nil, false
 	}
@@ -130,7 +130,7 @@ func (o *TableShippingOfficeMetrics) GetSaleRateOk() (*TableCommonMetricsSaleRat
 }
 
 // HasSaleRate returns a boolean if a field has been set.
-func (o *TableShippingOfficeMetrics) HasSaleRate() bool {
+func (o *TableDispatchOfficeMetrics) HasSaleRate() bool {
 	if o != nil && !IsNil(o.SaleRate) {
 		return true
 	}
@@ -139,12 +139,12 @@ func (o *TableShippingOfficeMetrics) HasSaleRate() bool {
 }
 
 // SetSaleRate gets a reference to the given TableCommonMetricsSaleRate and assigns it to the SaleRate field.
-func (o *TableShippingOfficeMetrics) SetSaleRate(v TableCommonMetricsSaleRate) {
+func (o *TableDispatchOfficeMetrics) SetSaleRate(v TableCommonMetricsSaleRate) {
 	o.SaleRate = &v
 }
 
 // GetToClientCount returns the ToClientCount field value if set, zero value otherwise.
-func (o *TableShippingOfficeMetrics) GetToClientCount() int64 {
+func (o *TableDispatchOfficeMetrics) GetToClientCount() int64 {
 	if o == nil || IsNil(o.ToClientCount) {
 		var ret int64
 		return ret
@@ -154,7 +154,7 @@ func (o *TableShippingOfficeMetrics) GetToClientCount() int64 {
 
 // GetToClientCountOk returns a tuple with the ToClientCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableShippingOfficeMetrics) GetToClientCountOk() (*int64, bool) {
+func (o *TableDispatchOfficeMetrics) GetToClientCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.ToClientCount) {
 		return nil, false
 	}
@@ -162,7 +162,7 @@ func (o *TableShippingOfficeMetrics) GetToClientCountOk() (*int64, bool) {
 }
 
 // HasToClientCount returns a boolean if a field has been set.
-func (o *TableShippingOfficeMetrics) HasToClientCount() bool {
+func (o *TableDispatchOfficeMetrics) HasToClientCount() bool {
 	if o != nil && !IsNil(o.ToClientCount) {
 		return true
 	}
@@ -171,12 +171,12 @@ func (o *TableShippingOfficeMetrics) HasToClientCount() bool {
 }
 
 // SetToClientCount gets a reference to the given int64 and assigns it to the ToClientCount field.
-func (o *TableShippingOfficeMetrics) SetToClientCount(v int64) {
+func (o *TableDispatchOfficeMetrics) SetToClientCount(v int64) {
 	o.ToClientCount = &v
 }
 
 // GetFromClientCount returns the FromClientCount field value if set, zero value otherwise.
-func (o *TableShippingOfficeMetrics) GetFromClientCount() int64 {
+func (o *TableDispatchOfficeMetrics) GetFromClientCount() int64 {
 	if o == nil || IsNil(o.FromClientCount) {
 		var ret int64
 		return ret
@@ -186,7 +186,7 @@ func (o *TableShippingOfficeMetrics) GetFromClientCount() int64 {
 
 // GetFromClientCountOk returns a tuple with the FromClientCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableShippingOfficeMetrics) GetFromClientCountOk() (*int64, bool) {
+func (o *TableDispatchOfficeMetrics) GetFromClientCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.FromClientCount) {
 		return nil, false
 	}
@@ -194,7 +194,7 @@ func (o *TableShippingOfficeMetrics) GetFromClientCountOk() (*int64, bool) {
 }
 
 // HasFromClientCount returns a boolean if a field has been set.
-func (o *TableShippingOfficeMetrics) HasFromClientCount() bool {
+func (o *TableDispatchOfficeMetrics) HasFromClientCount() bool {
 	if o != nil && !IsNil(o.FromClientCount) {
 		return true
 	}
@@ -203,11 +203,11 @@ func (o *TableShippingOfficeMetrics) HasFromClientCount() bool {
 }
 
 // SetFromClientCount gets a reference to the given int64 and assigns it to the FromClientCount field.
-func (o *TableShippingOfficeMetrics) SetFromClientCount(v int64) {
+func (o *TableDispatchOfficeMetrics) SetFromClientCount(v int64) {
 	o.FromClientCount = &v
 }
 
-func (o TableShippingOfficeMetrics) MarshalJSON() ([]byte, error) {
+func (o TableDispatchOfficeMetrics) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -215,7 +215,7 @@ func (o TableShippingOfficeMetrics) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o TableShippingOfficeMetrics) ToMap() (map[string]interface{}, error) {
+func (o TableDispatchOfficeMetrics) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.StockCount) {
 		toSerialize["stockCount"] = o.StockCount
@@ -235,38 +235,38 @@ func (o TableShippingOfficeMetrics) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableTableShippingOfficeMetrics struct {
-	value *TableShippingOfficeMetrics
+type NullableTableDispatchOfficeMetrics struct {
+	value *TableDispatchOfficeMetrics
 	isSet bool
 }
 
-func (v NullableTableShippingOfficeMetrics) Get() *TableShippingOfficeMetrics {
+func (v NullableTableDispatchOfficeMetrics) Get() *TableDispatchOfficeMetrics {
 	return v.value
 }
 
-func (v *NullableTableShippingOfficeMetrics) Set(val *TableShippingOfficeMetrics) {
+func (v *NullableTableDispatchOfficeMetrics) Set(val *TableDispatchOfficeMetrics) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableTableShippingOfficeMetrics) IsSet() bool {
+func (v NullableTableDispatchOfficeMetrics) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableTableShippingOfficeMetrics) Unset() {
+func (v *NullableTableDispatchOfficeMetrics) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableTableShippingOfficeMetrics(val *TableShippingOfficeMetrics) *NullableTableShippingOfficeMetrics {
-	return &NullableTableShippingOfficeMetrics{value: val, isSet: true}
+func NewNullableTableDispatchOfficeMetrics(val *TableDispatchOfficeMetrics) *NullableTableDispatchOfficeMetrics {
+	return &NullableTableDispatchOfficeMetrics{value: val, isSet: true}
 }
 
-func (v NullableTableShippingOfficeMetrics) MarshalJSON() ([]byte, error) {
+func (v NullableTableDispatchOfficeMetrics) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableTableShippingOfficeMetrics) UnmarshalJSON(src []byte) error {
+func (v *NullableTableDispatchOfficeMetrics) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

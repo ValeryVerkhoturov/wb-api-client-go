@@ -234,8 +234,8 @@ type OrdersFbsAPI interface {
 	GetV3FbsSuppliesSupplyIdShippingPoints(ctx context.Context, supplyId string) ApiGetV3FbsSuppliesSupplyIdShippingPointsRequest
 
 	// GetV3FbsSuppliesSupplyIdShippingPointsExecute executes the request
-	//  @return SupplyShippingPointsResponse
-	GetV3FbsSuppliesSupplyIdShippingPointsExecute(r ApiGetV3FbsSuppliesSupplyIdShippingPointsRequest) (*SupplyShippingPointsResponse, *http.Response, error)
+	//  @return SupplyDispatchPointsResponse
+	GetV3FbsSuppliesSupplyIdShippingPointsExecute(r ApiGetV3FbsSuppliesSupplyIdShippingPointsRequest) (*SupplyDispatchPointsResponse, *http.Response, error)
 
 	/*
 			GetV3Orders Получить информацию о сборочных заданиях
@@ -599,8 +599,8 @@ type OrdersFbsAPI interface {
 	PatchV3FbsSuppliesShippingMethod(ctx context.Context) ApiPatchV3FbsSuppliesShippingMethodRequest
 
 	// PatchV3FbsSuppliesShippingMethodExecute executes the request
-	//  @return UpdateSuppliesShippingMethodResponse
-	PatchV3FbsSuppliesShippingMethodExecute(r ApiPatchV3FbsSuppliesShippingMethodRequest) (*UpdateSuppliesShippingMethodResponse, *http.Response, error)
+	//  @return UpdateSuppliesDispatchMethodResponse
+	PatchV3FbsSuppliesShippingMethodExecute(r ApiPatchV3FbsSuppliesShippingMethodRequest) (*UpdateSuppliesDispatchMethodResponse, *http.Response, error)
 
 	/*
 			PatchV3FbsSuppliesSupplyIdOrdersTransfer Перевести сборочные задания из доставки на сборку
@@ -2610,7 +2610,7 @@ func (r ApiGetV3FbsSuppliesSupplyIdShippingPointsRequest) ShippingDt(shippingDt 
 	return r
 }
 
-func (r ApiGetV3FbsSuppliesSupplyIdShippingPointsRequest) Execute() (*SupplyShippingPointsResponse, *http.Response, error) {
+func (r ApiGetV3FbsSuppliesSupplyIdShippingPointsRequest) Execute() (*SupplyDispatchPointsResponse, *http.Response, error) {
 	return r.ApiService.GetV3FbsSuppliesSupplyIdShippingPointsExecute(r)
 }
 
@@ -2642,13 +2642,13 @@ func (a *OrdersFbsAPIService) GetV3FbsSuppliesSupplyIdShippingPoints(ctx context
 
 // Execute executes the request
 //
-//	@return SupplyShippingPointsResponse
-func (a *OrdersFbsAPIService) GetV3FbsSuppliesSupplyIdShippingPointsExecute(r ApiGetV3FbsSuppliesSupplyIdShippingPointsRequest) (*SupplyShippingPointsResponse, *http.Response, error) {
+//	@return SupplyDispatchPointsResponse
+func (a *OrdersFbsAPIService) GetV3FbsSuppliesSupplyIdShippingPointsExecute(r ApiGetV3FbsSuppliesSupplyIdShippingPointsRequest) (*SupplyDispatchPointsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
 		formFiles           []formFile
-		localVarReturnValue *SupplyShippingPointsResponse
+		localVarReturnValue *SupplyDispatchPointsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersFbsAPIService.GetV3FbsSuppliesSupplyIdShippingPoints")
@@ -4947,7 +4947,7 @@ func (r ApiPatchV3FbsSuppliesShippingMethodRequest) PatchV3FbsSuppliesShippingMe
 	return r
 }
 
-func (r ApiPatchV3FbsSuppliesShippingMethodRequest) Execute() (*UpdateSuppliesShippingMethodResponse, *http.Response, error) {
+func (r ApiPatchV3FbsSuppliesShippingMethodRequest) Execute() (*UpdateSuppliesDispatchMethodResponse, *http.Response, error) {
 	return r.ApiService.PatchV3FbsSuppliesShippingMethodExecute(r)
 }
 
@@ -4982,13 +4982,13 @@ func (a *OrdersFbsAPIService) PatchV3FbsSuppliesShippingMethod(ctx context.Conte
 
 // Execute executes the request
 //
-//	@return UpdateSuppliesShippingMethodResponse
-func (a *OrdersFbsAPIService) PatchV3FbsSuppliesShippingMethodExecute(r ApiPatchV3FbsSuppliesShippingMethodRequest) (*UpdateSuppliesShippingMethodResponse, *http.Response, error) {
+//	@return UpdateSuppliesDispatchMethodResponse
+func (a *OrdersFbsAPIService) PatchV3FbsSuppliesShippingMethodExecute(r ApiPatchV3FbsSuppliesShippingMethodRequest) (*UpdateSuppliesDispatchMethodResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPatch
 		localVarPostBody    interface{}
 		formFiles           []formFile
-		localVarReturnValue *UpdateSuppliesShippingMethodResponse
+		localVarReturnValue *UpdateSuppliesDispatchMethodResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersFbsAPIService.PatchV3FbsSuppliesShippingMethod")

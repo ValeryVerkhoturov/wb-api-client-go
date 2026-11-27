@@ -19,7 +19,7 @@ var _ MappedNullable = &PostV2StocksReportOfficesResponse200{}
 
 // PostV2StocksReportOfficesResponse200 struct for PostV2StocksReportOfficesResponse200
 type PostV2StocksReportOfficesResponse200 struct {
-	Data *TableShippingOfficeResponse `json:"data,omitempty"`
+	Data *TableDispatchOfficeResponse `json:"data,omitempty"`
 }
 
 // NewPostV2StocksReportOfficesResponse200 instantiates a new PostV2StocksReportOfficesResponse200 object
@@ -40,9 +40,9 @@ func NewPostV2StocksReportOfficesResponse200WithDefaults() *PostV2StocksReportOf
 }
 
 // GetData returns the Data field value if set, zero value otherwise.
-func (o *PostV2StocksReportOfficesResponse200) GetData() TableShippingOfficeResponse {
+func (o *PostV2StocksReportOfficesResponse200) GetData() TableDispatchOfficeResponse {
 	if o == nil || IsNil(o.Data) {
-		var ret TableShippingOfficeResponse
+		var ret TableDispatchOfficeResponse
 		return ret
 	}
 	return *o.Data
@@ -50,7 +50,7 @@ func (o *PostV2StocksReportOfficesResponse200) GetData() TableShippingOfficeResp
 
 // GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2StocksReportOfficesResponse200) GetDataOk() (*TableShippingOfficeResponse, bool) {
+func (o *PostV2StocksReportOfficesResponse200) GetDataOk() (*TableDispatchOfficeResponse, bool) {
 	if o == nil || IsNil(o.Data) {
 		return nil, false
 	}
@@ -66,8 +66,8 @@ func (o *PostV2StocksReportOfficesResponse200) HasData() bool {
 	return false
 }
 
-// SetData gets a reference to the given TableShippingOfficeResponse and assigns it to the Data field.
-func (o *PostV2StocksReportOfficesResponse200) SetData(v TableShippingOfficeResponse) {
+// SetData gets a reference to the given TableDispatchOfficeResponse and assigns it to the Data field.
+func (o *PostV2StocksReportOfficesResponse200) SetData(v TableDispatchOfficeResponse) {
 	o.Data = &v
 }
 

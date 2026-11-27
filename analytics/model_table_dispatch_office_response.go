@@ -14,38 +14,38 @@ import (
 	"encoding/json"
 )
 
-// checks if the TableShippingOfficeResponse type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &TableShippingOfficeResponse{}
+// checks if the TableDispatchOfficeResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &TableDispatchOfficeResponse{}
 
-// TableShippingOfficeResponse struct for TableShippingOfficeResponse
-type TableShippingOfficeResponse struct {
+// TableDispatchOfficeResponse struct for TableDispatchOfficeResponse
+type TableDispatchOfficeResponse struct {
 	// Множество данных по регионам отгрузки
-	Regions []TableShippingOfficeItem `json:"regions,omitempty"`
+	Regions []TableDispatchOfficeItem `json:"regions,omitempty"`
 	// Валюта отчёта
 	Currency *string `json:"currency,omitempty"`
 }
 
-// NewTableShippingOfficeResponse instantiates a new TableShippingOfficeResponse object
+// NewTableDispatchOfficeResponse instantiates a new TableDispatchOfficeResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableShippingOfficeResponse() *TableShippingOfficeResponse {
-	this := TableShippingOfficeResponse{}
+func NewTableDispatchOfficeResponse() *TableDispatchOfficeResponse {
+	this := TableDispatchOfficeResponse{}
 	return &this
 }
 
-// NewTableShippingOfficeResponseWithDefaults instantiates a new TableShippingOfficeResponse object
+// NewTableDispatchOfficeResponseWithDefaults instantiates a new TableDispatchOfficeResponse object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewTableShippingOfficeResponseWithDefaults() *TableShippingOfficeResponse {
-	this := TableShippingOfficeResponse{}
+func NewTableDispatchOfficeResponseWithDefaults() *TableDispatchOfficeResponse {
+	this := TableDispatchOfficeResponse{}
 	return &this
 }
 
 // GetRegions returns the Regions field value if set, zero value otherwise.
-func (o *TableShippingOfficeResponse) GetRegions() []TableShippingOfficeItem {
+func (o *TableDispatchOfficeResponse) GetRegions() []TableDispatchOfficeItem {
 	if o == nil || IsNil(o.Regions) {
-		var ret []TableShippingOfficeItem
+		var ret []TableDispatchOfficeItem
 		return ret
 	}
 	return o.Regions
@@ -53,7 +53,7 @@ func (o *TableShippingOfficeResponse) GetRegions() []TableShippingOfficeItem {
 
 // GetRegionsOk returns a tuple with the Regions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableShippingOfficeResponse) GetRegionsOk() ([]TableShippingOfficeItem, bool) {
+func (o *TableDispatchOfficeResponse) GetRegionsOk() ([]TableDispatchOfficeItem, bool) {
 	if o == nil || IsNil(o.Regions) {
 		return nil, false
 	}
@@ -61,7 +61,7 @@ func (o *TableShippingOfficeResponse) GetRegionsOk() ([]TableShippingOfficeItem,
 }
 
 // HasRegions returns a boolean if a field has been set.
-func (o *TableShippingOfficeResponse) HasRegions() bool {
+func (o *TableDispatchOfficeResponse) HasRegions() bool {
 	if o != nil && !IsNil(o.Regions) {
 		return true
 	}
@@ -69,13 +69,13 @@ func (o *TableShippingOfficeResponse) HasRegions() bool {
 	return false
 }
 
-// SetRegions gets a reference to the given []TableShippingOfficeItem and assigns it to the Regions field.
-func (o *TableShippingOfficeResponse) SetRegions(v []TableShippingOfficeItem) {
+// SetRegions gets a reference to the given []TableDispatchOfficeItem and assigns it to the Regions field.
+func (o *TableDispatchOfficeResponse) SetRegions(v []TableDispatchOfficeItem) {
 	o.Regions = v
 }
 
 // GetCurrency returns the Currency field value if set, zero value otherwise.
-func (o *TableShippingOfficeResponse) GetCurrency() string {
+func (o *TableDispatchOfficeResponse) GetCurrency() string {
 	if o == nil || IsNil(o.Currency) {
 		var ret string
 		return ret
@@ -85,7 +85,7 @@ func (o *TableShippingOfficeResponse) GetCurrency() string {
 
 // GetCurrencyOk returns a tuple with the Currency field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableShippingOfficeResponse) GetCurrencyOk() (*string, bool) {
+func (o *TableDispatchOfficeResponse) GetCurrencyOk() (*string, bool) {
 	if o == nil || IsNil(o.Currency) {
 		return nil, false
 	}
@@ -93,7 +93,7 @@ func (o *TableShippingOfficeResponse) GetCurrencyOk() (*string, bool) {
 }
 
 // HasCurrency returns a boolean if a field has been set.
-func (o *TableShippingOfficeResponse) HasCurrency() bool {
+func (o *TableDispatchOfficeResponse) HasCurrency() bool {
 	if o != nil && !IsNil(o.Currency) {
 		return true
 	}
@@ -102,11 +102,11 @@ func (o *TableShippingOfficeResponse) HasCurrency() bool {
 }
 
 // SetCurrency gets a reference to the given string and assigns it to the Currency field.
-func (o *TableShippingOfficeResponse) SetCurrency(v string) {
+func (o *TableDispatchOfficeResponse) SetCurrency(v string) {
 	o.Currency = &v
 }
 
-func (o TableShippingOfficeResponse) MarshalJSON() ([]byte, error) {
+func (o TableDispatchOfficeResponse) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -114,7 +114,7 @@ func (o TableShippingOfficeResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o TableShippingOfficeResponse) ToMap() (map[string]interface{}, error) {
+func (o TableDispatchOfficeResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Regions) {
 		toSerialize["regions"] = o.Regions
@@ -125,38 +125,38 @@ func (o TableShippingOfficeResponse) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableTableShippingOfficeResponse struct {
-	value *TableShippingOfficeResponse
+type NullableTableDispatchOfficeResponse struct {
+	value *TableDispatchOfficeResponse
 	isSet bool
 }
 
-func (v NullableTableShippingOfficeResponse) Get() *TableShippingOfficeResponse {
+func (v NullableTableDispatchOfficeResponse) Get() *TableDispatchOfficeResponse {
 	return v.value
 }
 
-func (v *NullableTableShippingOfficeResponse) Set(val *TableShippingOfficeResponse) {
+func (v *NullableTableDispatchOfficeResponse) Set(val *TableDispatchOfficeResponse) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableTableShippingOfficeResponse) IsSet() bool {
+func (v NullableTableDispatchOfficeResponse) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableTableShippingOfficeResponse) Unset() {
+func (v *NullableTableDispatchOfficeResponse) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableTableShippingOfficeResponse(val *TableShippingOfficeResponse) *NullableTableShippingOfficeResponse {
-	return &NullableTableShippingOfficeResponse{value: val, isSet: true}
+func NewNullableTableDispatchOfficeResponse(val *TableDispatchOfficeResponse) *NullableTableDispatchOfficeResponse {
+	return &NullableTableDispatchOfficeResponse{value: val, isSet: true}
 }
 
-func (v NullableTableShippingOfficeResponse) MarshalJSON() ([]byte, error) {
+func (v NullableTableDispatchOfficeResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableTableShippingOfficeResponse) UnmarshalJSON(src []byte) error {
+func (v *NullableTableDispatchOfficeResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

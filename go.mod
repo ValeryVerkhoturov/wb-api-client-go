@@ -1,4 +1,4 @@
-module github.com/ValeryVerkhoturov/wb-api-client-go/v3
+module github.com/ValeryVerkhoturov/wb-api-client-go/v4
 
 go 1.21
 

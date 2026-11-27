@@ -14,35 +14,35 @@ import (
 	"encoding/json"
 )
 
-// checks if the UpdateSuppliesShippingMethodResponse type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &UpdateSuppliesShippingMethodResponse{}
+// checks if the UpdateSuppliesDispatchMethodResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &UpdateSuppliesDispatchMethodResponse{}
 
-// UpdateSuppliesShippingMethodResponse struct for UpdateSuppliesShippingMethodResponse
-type UpdateSuppliesShippingMethodResponse struct {
-	Results []UpdatedSuppliesShippingMethod `json:"results,omitempty"`
+// UpdateSuppliesDispatchMethodResponse struct for UpdateSuppliesDispatchMethodResponse
+type UpdateSuppliesDispatchMethodResponse struct {
+	Results []UpdatedSuppliesDispatchMethod `json:"results,omitempty"`
 }
 
-// NewUpdateSuppliesShippingMethodResponse instantiates a new UpdateSuppliesShippingMethodResponse object
+// NewUpdateSuppliesDispatchMethodResponse instantiates a new UpdateSuppliesDispatchMethodResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUpdateSuppliesShippingMethodResponse() *UpdateSuppliesShippingMethodResponse {
-	this := UpdateSuppliesShippingMethodResponse{}
+func NewUpdateSuppliesDispatchMethodResponse() *UpdateSuppliesDispatchMethodResponse {
+	this := UpdateSuppliesDispatchMethodResponse{}
 	return &this
 }
 
-// NewUpdateSuppliesShippingMethodResponseWithDefaults instantiates a new UpdateSuppliesShippingMethodResponse object
+// NewUpdateSuppliesDispatchMethodResponseWithDefaults instantiates a new UpdateSuppliesDispatchMethodResponse object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewUpdateSuppliesShippingMethodResponseWithDefaults() *UpdateSuppliesShippingMethodResponse {
-	this := UpdateSuppliesShippingMethodResponse{}
+func NewUpdateSuppliesDispatchMethodResponseWithDefaults() *UpdateSuppliesDispatchMethodResponse {
+	this := UpdateSuppliesDispatchMethodResponse{}
 	return &this
 }
 
 // GetResults returns the Results field value if set, zero value otherwise.
-func (o *UpdateSuppliesShippingMethodResponse) GetResults() []UpdatedSuppliesShippingMethod {
+func (o *UpdateSuppliesDispatchMethodResponse) GetResults() []UpdatedSuppliesDispatchMethod {
 	if o == nil || IsNil(o.Results) {
-		var ret []UpdatedSuppliesShippingMethod
+		var ret []UpdatedSuppliesDispatchMethod
 		return ret
 	}
 	return o.Results
@@ -50,7 +50,7 @@ func (o *UpdateSuppliesShippingMethodResponse) GetResults() []UpdatedSuppliesShi
 
 // GetResultsOk returns a tuple with the Results field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UpdateSuppliesShippingMethodResponse) GetResultsOk() ([]UpdatedSuppliesShippingMethod, bool) {
+func (o *UpdateSuppliesDispatchMethodResponse) GetResultsOk() ([]UpdatedSuppliesDispatchMethod, bool) {
 	if o == nil || IsNil(o.Results) {
 		return nil, false
 	}
@@ -58,7 +58,7 @@ func (o *UpdateSuppliesShippingMethodResponse) GetResultsOk() ([]UpdatedSupplies
 }
 
 // HasResults returns a boolean if a field has been set.
-func (o *UpdateSuppliesShippingMethodResponse) HasResults() bool {
+func (o *UpdateSuppliesDispatchMethodResponse) HasResults() bool {
 	if o != nil && !IsNil(o.Results) {
 		return true
 	}
@@ -66,12 +66,12 @@ func (o *UpdateSuppliesShippingMethodResponse) HasResults() bool {
 	return false
 }
 
-// SetResults gets a reference to the given []UpdatedSuppliesShippingMethod and assigns it to the Results field.
-func (o *UpdateSuppliesShippingMethodResponse) SetResults(v []UpdatedSuppliesShippingMethod) {
+// SetResults gets a reference to the given []UpdatedSuppliesDispatchMethod and assigns it to the Results field.
+func (o *UpdateSuppliesDispatchMethodResponse) SetResults(v []UpdatedSuppliesDispatchMethod) {
 	o.Results = v
 }
 
-func (o UpdateSuppliesShippingMethodResponse) MarshalJSON() ([]byte, error) {
+func (o UpdateSuppliesDispatchMethodResponse) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -79,7 +79,7 @@ func (o UpdateSuppliesShippingMethodResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o UpdateSuppliesShippingMethodResponse) ToMap() (map[string]interface{}, error) {
+func (o UpdateSuppliesDispatchMethodResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Results) {
 		toSerialize["results"] = o.Results
@@ -87,38 +87,38 @@ func (o UpdateSuppliesShippingMethodResponse) ToMap() (map[string]interface{}, e
 	return toSerialize, nil
 }
 
-type NullableUpdateSuppliesShippingMethodResponse struct {
-	value *UpdateSuppliesShippingMethodResponse
+type NullableUpdateSuppliesDispatchMethodResponse struct {
+	value *UpdateSuppliesDispatchMethodResponse
 	isSet bool
 }
 
-func (v NullableUpdateSuppliesShippingMethodResponse) Get() *UpdateSuppliesShippingMethodResponse {
+func (v NullableUpdateSuppliesDispatchMethodResponse) Get() *UpdateSuppliesDispatchMethodResponse {
 	return v.value
 }
 
-func (v *NullableUpdateSuppliesShippingMethodResponse) Set(val *UpdateSuppliesShippingMethodResponse) {
+func (v *NullableUpdateSuppliesDispatchMethodResponse) Set(val *UpdateSuppliesDispatchMethodResponse) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableUpdateSuppliesShippingMethodResponse) IsSet() bool {
+func (v NullableUpdateSuppliesDispatchMethodResponse) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableUpdateSuppliesShippingMethodResponse) Unset() {
+func (v *NullableUpdateSuppliesDispatchMethodResponse) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableUpdateSuppliesShippingMethodResponse(val *UpdateSuppliesShippingMethodResponse) *NullableUpdateSuppliesShippingMethodResponse {
-	return &NullableUpdateSuppliesShippingMethodResponse{value: val, isSet: true}
+func NewNullableUpdateSuppliesDispatchMethodResponse(val *UpdateSuppliesDispatchMethodResponse) *NullableUpdateSuppliesDispatchMethodResponse {
+	return &NullableUpdateSuppliesDispatchMethodResponse{value: val, isSet: true}
 }
 
-func (v NullableUpdateSuppliesShippingMethodResponse) MarshalJSON() ([]byte, error) {
+func (v NullableUpdateSuppliesDispatchMethodResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableUpdateSuppliesShippingMethodResponse) UnmarshalJSON(src []byte) error {
+func (v *NullableUpdateSuppliesDispatchMethodResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

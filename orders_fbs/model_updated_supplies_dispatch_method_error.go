@@ -14,36 +14,36 @@ import (
 	"encoding/json"
 )
 
-// checks if the UpdatedSuppliesShippingMethodError type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &UpdatedSuppliesShippingMethodError{}
+// checks if the UpdatedSuppliesDispatchMethodError type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &UpdatedSuppliesDispatchMethodError{}
 
-// UpdatedSuppliesShippingMethodError Ошибка обработки запроса для поставки. Возможные варианты ошибок:   - `400 IncorrectRequestBody`:     - некорректный ID поставки     - место отгрузки не найдено     - склад назначения находится не в РФ     - неизвестный `shippingType`     - дата не соответствует формату `YYYY-MM-DD`   - `400 FulfillmentRequired` — в месте отгрузки недоступна услуга **Фулфилмент в СЦ**   - `404 NotFound` — поставка не найдена   - `409 SupplyAlreadyScanned` — поставка или её короба уже отсканированы в пункте отгрузки   - `409 InvalidShippingDt` — некорректная дата отгрузки поставки
-type UpdatedSuppliesShippingMethodError struct {
+// UpdatedSuppliesDispatchMethodError Ошибка обработки запроса для поставки. Возможные варианты ошибок:   - `400 IncorrectRequestBody`:     - некорректный ID поставки     - место отгрузки не найдено     - склад назначения находится не в РФ     - неизвестный `shippingType`     - дата не соответствует формату `YYYY-MM-DD`   - `400 FulfillmentRequired` — в месте отгрузки недоступна услуга **Фулфилмент в СЦ**   - `404 NotFound` — поставка не найдена   - `409 SupplyAlreadyScanned` — поставка или её короба уже отсканированы в пункте отгрузки   - `409 InvalidShippingDt` — некорректная дата отгрузки поставки
+type UpdatedSuppliesDispatchMethodError struct {
 	// Код ошибки
 	Code *int64 `json:"code,omitempty"`
 	// Дополнительная информация об ошибке
 	Detail *string `json:"detail,omitempty"`
 }
 
-// NewUpdatedSuppliesShippingMethodError instantiates a new UpdatedSuppliesShippingMethodError object
+// NewUpdatedSuppliesDispatchMethodError instantiates a new UpdatedSuppliesDispatchMethodError object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUpdatedSuppliesShippingMethodError() *UpdatedSuppliesShippingMethodError {
-	this := UpdatedSuppliesShippingMethodError{}
+func NewUpdatedSuppliesDispatchMethodError() *UpdatedSuppliesDispatchMethodError {
+	this := UpdatedSuppliesDispatchMethodError{}
 	return &this
 }
 
-// NewUpdatedSuppliesShippingMethodErrorWithDefaults instantiates a new UpdatedSuppliesShippingMethodError object
+// NewUpdatedSuppliesDispatchMethodErrorWithDefaults instantiates a new UpdatedSuppliesDispatchMethodError object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewUpdatedSuppliesShippingMethodErrorWithDefaults() *UpdatedSuppliesShippingMethodError {
-	this := UpdatedSuppliesShippingMethodError{}
+func NewUpdatedSuppliesDispatchMethodErrorWithDefaults() *UpdatedSuppliesDispatchMethodError {
+	this := UpdatedSuppliesDispatchMethodError{}
 	return &this
 }
 
 // GetCode returns the Code field value if set, zero value otherwise.
-func (o *UpdatedSuppliesShippingMethodError) GetCode() int64 {
+func (o *UpdatedSuppliesDispatchMethodError) GetCode() int64 {
 	if o == nil || IsNil(o.Code) {
 		var ret int64
 		return ret
@@ -53,7 +53,7 @@ func (o *UpdatedSuppliesShippingMethodError) GetCode() int64 {
 
 // GetCodeOk returns a tuple with the Code field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UpdatedSuppliesShippingMethodError) GetCodeOk() (*int64, bool) {
+func (o *UpdatedSuppliesDispatchMethodError) GetCodeOk() (*int64, bool) {
 	if o == nil || IsNil(o.Code) {
 		return nil, false
 	}
@@ -61,7 +61,7 @@ func (o *UpdatedSuppliesShippingMethodError) GetCodeOk() (*int64, bool) {
 }
 
 // HasCode returns a boolean if a field has been set.
-func (o *UpdatedSuppliesShippingMethodError) HasCode() bool {
+func (o *UpdatedSuppliesDispatchMethodError) HasCode() bool {
 	if o != nil && !IsNil(o.Code) {
 		return true
 	}
@@ -70,12 +70,12 @@ func (o *UpdatedSuppliesShippingMethodError) HasCode() bool {
 }
 
 // SetCode gets a reference to the given int64 and assigns it to the Code field.
-func (o *UpdatedSuppliesShippingMethodError) SetCode(v int64) {
+func (o *UpdatedSuppliesDispatchMethodError) SetCode(v int64) {
 	o.Code = &v
 }
 
 // GetDetail returns the Detail field value if set, zero value otherwise.
-func (o *UpdatedSuppliesShippingMethodError) GetDetail() string {
+func (o *UpdatedSuppliesDispatchMethodError) GetDetail() string {
 	if o == nil || IsNil(o.Detail) {
 		var ret string
 		return ret
@@ -85,7 +85,7 @@ func (o *UpdatedSuppliesShippingMethodError) GetDetail() string {
 
 // GetDetailOk returns a tuple with the Detail field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UpdatedSuppliesShippingMethodError) GetDetailOk() (*string, bool) {
+func (o *UpdatedSuppliesDispatchMethodError) GetDetailOk() (*string, bool) {
 	if o == nil || IsNil(o.Detail) {
 		return nil, false
 	}
@@ -93,7 +93,7 @@ func (o *UpdatedSuppliesShippingMethodError) GetDetailOk() (*string, bool) {
 }
 
 // HasDetail returns a boolean if a field has been set.
-func (o *UpdatedSuppliesShippingMethodError) HasDetail() bool {
+func (o *UpdatedSuppliesDispatchMethodError) HasDetail() bool {
 	if o != nil && !IsNil(o.Detail) {
 		return true
 	}
@@ -102,11 +102,11 @@ func (o *UpdatedSuppliesShippingMethodError) HasDetail() bool {
 }
 
 // SetDetail gets a reference to the given string and assigns it to the Detail field.
-func (o *UpdatedSuppliesShippingMethodError) SetDetail(v string) {
+func (o *UpdatedSuppliesDispatchMethodError) SetDetail(v string) {
 	o.Detail = &v
 }
 
-func (o UpdatedSuppliesShippingMethodError) MarshalJSON() ([]byte, error) {
+func (o UpdatedSuppliesDispatchMethodError) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -114,7 +114,7 @@ func (o UpdatedSuppliesShippingMethodError) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o UpdatedSuppliesShippingMethodError) ToMap() (map[string]interface{}, error) {
+func (o UpdatedSuppliesDispatchMethodError) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Code) {
 		toSerialize["code"] = o.Code
@@ -125,38 +125,38 @@ func (o UpdatedSuppliesShippingMethodError) ToMap() (map[string]interface{}, err
 	return toSerialize, nil
 }
 
-type NullableUpdatedSuppliesShippingMethodError struct {
-	value *UpdatedSuppliesShippingMethodError
+type NullableUpdatedSuppliesDispatchMethodError struct {
+	value *UpdatedSuppliesDispatchMethodError
 	isSet bool
 }
 
-func (v NullableUpdatedSuppliesShippingMethodError) Get() *UpdatedSuppliesShippingMethodError {
+func (v NullableUpdatedSuppliesDispatchMethodError) Get() *UpdatedSuppliesDispatchMethodError {
 	return v.value
 }
 
-func (v *NullableUpdatedSuppliesShippingMethodError) Set(val *UpdatedSuppliesShippingMethodError) {
+func (v *NullableUpdatedSuppliesDispatchMethodError) Set(val *UpdatedSuppliesDispatchMethodError) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableUpdatedSuppliesShippingMethodError) IsSet() bool {
+func (v NullableUpdatedSuppliesDispatchMethodError) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableUpdatedSuppliesShippingMethodError) Unset() {
+func (v *NullableUpdatedSuppliesDispatchMethodError) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableUpdatedSuppliesShippingMethodError(val *UpdatedSuppliesShippingMethodError) *NullableUpdatedSuppliesShippingMethodError {
-	return &NullableUpdatedSuppliesShippingMethodError{value: val, isSet: true}
+func NewNullableUpdatedSuppliesDispatchMethodError(val *UpdatedSuppliesDispatchMethodError) *NullableUpdatedSuppliesDispatchMethodError {
+	return &NullableUpdatedSuppliesDispatchMethodError{value: val, isSet: true}
 }
 
-func (v NullableUpdatedSuppliesShippingMethodError) MarshalJSON() ([]byte, error) {
+func (v NullableUpdatedSuppliesDispatchMethodError) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableUpdatedSuppliesShippingMethodError) UnmarshalJSON(src []byte) error {
+func (v *NullableUpdatedSuppliesDispatchMethodError) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

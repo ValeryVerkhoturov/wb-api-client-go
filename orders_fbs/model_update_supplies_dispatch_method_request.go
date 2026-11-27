@@ -16,36 +16,36 @@ import (
 	"fmt"
 )
 
-// checks if the UpdateSuppliesShippingMethodRequest type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &UpdateSuppliesShippingMethodRequest{}
+// checks if the UpdateSuppliesDispatchMethodRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &UpdateSuppliesDispatchMethodRequest{}
 
-// UpdateSuppliesShippingMethodRequest struct for UpdateSuppliesShippingMethodRequest
-type UpdateSuppliesShippingMethodRequest struct {
+// UpdateSuppliesDispatchMethodRequest struct for UpdateSuppliesDispatchMethodRequest
+type UpdateSuppliesDispatchMethodRequest struct {
 	Data []UpdateSupplyShippingMethod `json:"data"`
 }
 
-type _UpdateSuppliesShippingMethodRequest UpdateSuppliesShippingMethodRequest
+type _UpdateSuppliesDispatchMethodRequest UpdateSuppliesDispatchMethodRequest
 
-// NewUpdateSuppliesShippingMethodRequest instantiates a new UpdateSuppliesShippingMethodRequest object
+// NewUpdateSuppliesDispatchMethodRequest instantiates a new UpdateSuppliesDispatchMethodRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUpdateSuppliesShippingMethodRequest(data []UpdateSupplyShippingMethod) *UpdateSuppliesShippingMethodRequest {
-	this := UpdateSuppliesShippingMethodRequest{}
+func NewUpdateSuppliesDispatchMethodRequest(data []UpdateSupplyShippingMethod) *UpdateSuppliesDispatchMethodRequest {
+	this := UpdateSuppliesDispatchMethodRequest{}
 	this.Data = data
 	return &this
 }
 
-// NewUpdateSuppliesShippingMethodRequestWithDefaults instantiates a new UpdateSuppliesShippingMethodRequest object
+// NewUpdateSuppliesDispatchMethodRequestWithDefaults instantiates a new UpdateSuppliesDispatchMethodRequest object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewUpdateSuppliesShippingMethodRequestWithDefaults() *UpdateSuppliesShippingMethodRequest {
-	this := UpdateSuppliesShippingMethodRequest{}
+func NewUpdateSuppliesDispatchMethodRequestWithDefaults() *UpdateSuppliesDispatchMethodRequest {
+	this := UpdateSuppliesDispatchMethodRequest{}
 	return &this
 }
 
 // GetData returns the Data field value
-func (o *UpdateSuppliesShippingMethodRequest) GetData() []UpdateSupplyShippingMethod {
+func (o *UpdateSuppliesDispatchMethodRequest) GetData() []UpdateSupplyShippingMethod {
 	if o == nil {
 		var ret []UpdateSupplyShippingMethod
 		return ret
@@ -56,7 +56,7 @@ func (o *UpdateSuppliesShippingMethodRequest) GetData() []UpdateSupplyShippingMe
 
 // GetDataOk returns a tuple with the Data field value
 // and a boolean to check if the value has been set.
-func (o *UpdateSuppliesShippingMethodRequest) GetDataOk() ([]UpdateSupplyShippingMethod, bool) {
+func (o *UpdateSuppliesDispatchMethodRequest) GetDataOk() ([]UpdateSupplyShippingMethod, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -64,11 +64,11 @@ func (o *UpdateSuppliesShippingMethodRequest) GetDataOk() ([]UpdateSupplyShippin
 }
 
 // SetData sets field value
-func (o *UpdateSuppliesShippingMethodRequest) SetData(v []UpdateSupplyShippingMethod) {
+func (o *UpdateSuppliesDispatchMethodRequest) SetData(v []UpdateSupplyShippingMethod) {
 	o.Data = v
 }
 
-func (o UpdateSuppliesShippingMethodRequest) MarshalJSON() ([]byte, error) {
+func (o UpdateSuppliesDispatchMethodRequest) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -76,13 +76,13 @@ func (o UpdateSuppliesShippingMethodRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o UpdateSuppliesShippingMethodRequest) ToMap() (map[string]interface{}, error) {
+func (o UpdateSuppliesDispatchMethodRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["data"] = o.Data
 	return toSerialize, nil
 }
 
-func (o *UpdateSuppliesShippingMethodRequest) UnmarshalJSON(data []byte) (err error) {
+func (o *UpdateSuppliesDispatchMethodRequest) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -104,53 +104,53 @@ func (o *UpdateSuppliesShippingMethodRequest) UnmarshalJSON(data []byte) (err er
 		}
 	}
 
-	varUpdateSuppliesShippingMethodRequest := _UpdateSuppliesShippingMethodRequest{}
+	varUpdateSuppliesDispatchMethodRequest := _UpdateSuppliesDispatchMethodRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varUpdateSuppliesShippingMethodRequest)
+	err = decoder.Decode(&varUpdateSuppliesDispatchMethodRequest)
 
 	if err != nil {
 		return err
 	}
 
-	*o = UpdateSuppliesShippingMethodRequest(varUpdateSuppliesShippingMethodRequest)
+	*o = UpdateSuppliesDispatchMethodRequest(varUpdateSuppliesDispatchMethodRequest)
 
 	return err
 }
 
-type NullableUpdateSuppliesShippingMethodRequest struct {
-	value *UpdateSuppliesShippingMethodRequest
+type NullableUpdateSuppliesDispatchMethodRequest struct {
+	value *UpdateSuppliesDispatchMethodRequest
 	isSet bool
 }
 
-func (v NullableUpdateSuppliesShippingMethodRequest) Get() *UpdateSuppliesShippingMethodRequest {
+func (v NullableUpdateSuppliesDispatchMethodRequest) Get() *UpdateSuppliesDispatchMethodRequest {
 	return v.value
 }
 
-func (v *NullableUpdateSuppliesShippingMethodRequest) Set(val *UpdateSuppliesShippingMethodRequest) {
+func (v *NullableUpdateSuppliesDispatchMethodRequest) Set(val *UpdateSuppliesDispatchMethodRequest) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableUpdateSuppliesShippingMethodRequest) IsSet() bool {
+func (v NullableUpdateSuppliesDispatchMethodRequest) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableUpdateSuppliesShippingMethodRequest) Unset() {
+func (v *NullableUpdateSuppliesDispatchMethodRequest) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableUpdateSuppliesShippingMethodRequest(val *UpdateSuppliesShippingMethodRequest) *NullableUpdateSuppliesShippingMethodRequest {
-	return &NullableUpdateSuppliesShippingMethodRequest{value: val, isSet: true}
+func NewNullableUpdateSuppliesDispatchMethodRequest(val *UpdateSuppliesDispatchMethodRequest) *NullableUpdateSuppliesDispatchMethodRequest {
+	return &NullableUpdateSuppliesDispatchMethodRequest{value: val, isSet: true}
 }
 
-func (v NullableUpdateSuppliesShippingMethodRequest) MarshalJSON() ([]byte, error) {
+func (v NullableUpdateSuppliesDispatchMethodRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableUpdateSuppliesShippingMethodRequest) UnmarshalJSON(src []byte) error {
+func (v *NullableUpdateSuppliesDispatchMethodRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

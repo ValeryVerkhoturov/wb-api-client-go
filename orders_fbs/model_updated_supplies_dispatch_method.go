@@ -14,39 +14,39 @@ import (
 	"encoding/json"
 )
 
-// checks if the UpdatedSuppliesShippingMethod type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &UpdatedSuppliesShippingMethod{}
+// checks if the UpdatedSuppliesDispatchMethod type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &UpdatedSuppliesDispatchMethod{}
 
-// UpdatedSuppliesShippingMethod Результат обработки запроса для одной поставки
-type UpdatedSuppliesShippingMethod struct {
-	Error *UpdatedSuppliesShippingMethodError `json:"error,omitempty"`
+// UpdatedSuppliesDispatchMethod Результат обработки запроса для одной поставки
+type UpdatedSuppliesDispatchMethod struct {
+	Error *UpdatedSuppliesDispatchMethodError `json:"error,omitempty"`
 	// Успешна ли обработка запроса для данной поставки. Может быть только `true`
 	Success *bool `json:"success,omitempty"`
 	// ID поставки
 	SupplyId *string `json:"supplyId,omitempty"`
 }
 
-// NewUpdatedSuppliesShippingMethod instantiates a new UpdatedSuppliesShippingMethod object
+// NewUpdatedSuppliesDispatchMethod instantiates a new UpdatedSuppliesDispatchMethod object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUpdatedSuppliesShippingMethod() *UpdatedSuppliesShippingMethod {
-	this := UpdatedSuppliesShippingMethod{}
+func NewUpdatedSuppliesDispatchMethod() *UpdatedSuppliesDispatchMethod {
+	this := UpdatedSuppliesDispatchMethod{}
 	return &this
 }
 
-// NewUpdatedSuppliesShippingMethodWithDefaults instantiates a new UpdatedSuppliesShippingMethod object
+// NewUpdatedSuppliesDispatchMethodWithDefaults instantiates a new UpdatedSuppliesDispatchMethod object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewUpdatedSuppliesShippingMethodWithDefaults() *UpdatedSuppliesShippingMethod {
-	this := UpdatedSuppliesShippingMethod{}
+func NewUpdatedSuppliesDispatchMethodWithDefaults() *UpdatedSuppliesDispatchMethod {
+	this := UpdatedSuppliesDispatchMethod{}
 	return &this
 }
 
 // GetError returns the Error field value if set, zero value otherwise.
-func (o *UpdatedSuppliesShippingMethod) GetError() UpdatedSuppliesShippingMethodError {
+func (o *UpdatedSuppliesDispatchMethod) GetError() UpdatedSuppliesDispatchMethodError {
 	if o == nil || IsNil(o.Error) {
-		var ret UpdatedSuppliesShippingMethodError
+		var ret UpdatedSuppliesDispatchMethodError
 		return ret
 	}
 	return *o.Error
@@ -54,7 +54,7 @@ func (o *UpdatedSuppliesShippingMethod) GetError() UpdatedSuppliesShippingMethod
 
 // GetErrorOk returns a tuple with the Error field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UpdatedSuppliesShippingMethod) GetErrorOk() (*UpdatedSuppliesShippingMethodError, bool) {
+func (o *UpdatedSuppliesDispatchMethod) GetErrorOk() (*UpdatedSuppliesDispatchMethodError, bool) {
 	if o == nil || IsNil(o.Error) {
 		return nil, false
 	}
@@ -62,7 +62,7 @@ func (o *UpdatedSuppliesShippingMethod) GetErrorOk() (*UpdatedSuppliesShippingMe
 }
 
 // HasError returns a boolean if a field has been set.
-func (o *UpdatedSuppliesShippingMethod) HasError() bool {
+func (o *UpdatedSuppliesDispatchMethod) HasError() bool {
 	if o != nil && !IsNil(o.Error) {
 		return true
 	}
@@ -70,13 +70,13 @@ func (o *UpdatedSuppliesShippingMethod) HasError() bool {
 	return false
 }
 
-// SetError gets a reference to the given UpdatedSuppliesShippingMethodError and assigns it to the Error field.
-func (o *UpdatedSuppliesShippingMethod) SetError(v UpdatedSuppliesShippingMethodError) {
+// SetError gets a reference to the given UpdatedSuppliesDispatchMethodError and assigns it to the Error field.
+func (o *UpdatedSuppliesDispatchMethod) SetError(v UpdatedSuppliesDispatchMethodError) {
 	o.Error = &v
 }
 
 // GetSuccess returns the Success field value if set, zero value otherwise.
-func (o *UpdatedSuppliesShippingMethod) GetSuccess() bool {
+func (o *UpdatedSuppliesDispatchMethod) GetSuccess() bool {
 	if o == nil || IsNil(o.Success) {
 		var ret bool
 		return ret
@@ -86,7 +86,7 @@ func (o *UpdatedSuppliesShippingMethod) GetSuccess() bool {
 
 // GetSuccessOk returns a tuple with the Success field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UpdatedSuppliesShippingMethod) GetSuccessOk() (*bool, bool) {
+func (o *UpdatedSuppliesDispatchMethod) GetSuccessOk() (*bool, bool) {
 	if o == nil || IsNil(o.Success) {
 		return nil, false
 	}
@@ -94,7 +94,7 @@ func (o *UpdatedSuppliesShippingMethod) GetSuccessOk() (*bool, bool) {
 }
 
 // HasSuccess returns a boolean if a field has been set.
-func (o *UpdatedSuppliesShippingMethod) HasSuccess() bool {
+func (o *UpdatedSuppliesDispatchMethod) HasSuccess() bool {
 	if o != nil && !IsNil(o.Success) {
 		return true
 	}
@@ -103,12 +103,12 @@ func (o *UpdatedSuppliesShippingMethod) HasSuccess() bool {
 }
 
 // SetSuccess gets a reference to the given bool and assigns it to the Success field.
-func (o *UpdatedSuppliesShippingMethod) SetSuccess(v bool) {
+func (o *UpdatedSuppliesDispatchMethod) SetSuccess(v bool) {
 	o.Success = &v
 }
 
 // GetSupplyId returns the SupplyId field value if set, zero value otherwise.
-func (o *UpdatedSuppliesShippingMethod) GetSupplyId() string {
+func (o *UpdatedSuppliesDispatchMethod) GetSupplyId() string {
 	if o == nil || IsNil(o.SupplyId) {
 		var ret string
 		return ret
@@ -118,7 +118,7 @@ func (o *UpdatedSuppliesShippingMethod) GetSupplyId() string {
 
 // GetSupplyIdOk returns a tuple with the SupplyId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UpdatedSuppliesShippingMethod) GetSupplyIdOk() (*string, bool) {
+func (o *UpdatedSuppliesDispatchMethod) GetSupplyIdOk() (*string, bool) {
 	if o == nil || IsNil(o.SupplyId) {
 		return nil, false
 	}
@@ -126,7 +126,7 @@ func (o *UpdatedSuppliesShippingMethod) GetSupplyIdOk() (*string, bool) {
 }
 
 // HasSupplyId returns a boolean if a field has been set.
-func (o *UpdatedSuppliesShippingMethod) HasSupplyId() bool {
+func (o *UpdatedSuppliesDispatchMethod) HasSupplyId() bool {
 	if o != nil && !IsNil(o.SupplyId) {
 		return true
 	}
@@ -135,11 +135,11 @@ func (o *UpdatedSuppliesShippingMethod) HasSupplyId() bool {
 }
 
 // SetSupplyId gets a reference to the given string and assigns it to the SupplyId field.
-func (o *UpdatedSuppliesShippingMethod) SetSupplyId(v string) {
+func (o *UpdatedSuppliesDispatchMethod) SetSupplyId(v string) {
 	o.SupplyId = &v
 }
 
-func (o UpdatedSuppliesShippingMethod) MarshalJSON() ([]byte, error) {
+func (o UpdatedSuppliesDispatchMethod) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -147,7 +147,7 @@ func (o UpdatedSuppliesShippingMethod) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o UpdatedSuppliesShippingMethod) ToMap() (map[string]interface{}, error) {
+func (o UpdatedSuppliesDispatchMethod) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Error) {
 		toSerialize["error"] = o.Error
@@ -161,38 +161,38 @@ func (o UpdatedSuppliesShippingMethod) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableUpdatedSuppliesShippingMethod struct {
-	value *UpdatedSuppliesShippingMethod
+type NullableUpdatedSuppliesDispatchMethod struct {
+	value *UpdatedSuppliesDispatchMethod
 	isSet bool
 }
 
-func (v NullableUpdatedSuppliesShippingMethod) Get() *UpdatedSuppliesShippingMethod {
+func (v NullableUpdatedSuppliesDispatchMethod) Get() *UpdatedSuppliesDispatchMethod {
 	return v.value
 }
 
-func (v *NullableUpdatedSuppliesShippingMethod) Set(val *UpdatedSuppliesShippingMethod) {
+func (v *NullableUpdatedSuppliesDispatchMethod) Set(val *UpdatedSuppliesDispatchMethod) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableUpdatedSuppliesShippingMethod) IsSet() bool {
+func (v NullableUpdatedSuppliesDispatchMethod) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableUpdatedSuppliesShippingMethod) Unset() {
+func (v *NullableUpdatedSuppliesDispatchMethod) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableUpdatedSuppliesShippingMethod(val *UpdatedSuppliesShippingMethod) *NullableUpdatedSuppliesShippingMethod {
-	return &NullableUpdatedSuppliesShippingMethod{value: val, isSet: true}
+func NewNullableUpdatedSuppliesDispatchMethod(val *UpdatedSuppliesDispatchMethod) *NullableUpdatedSuppliesDispatchMethod {
+	return &NullableUpdatedSuppliesDispatchMethod{value: val, isSet: true}
 }
 
-func (v NullableUpdatedSuppliesShippingMethod) MarshalJSON() ([]byte, error) {
+func (v NullableUpdatedSuppliesDispatchMethod) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableUpdatedSuppliesShippingMethod) UnmarshalJSON(src []byte) error {
+func (v *NullableUpdatedSuppliesDispatchMethod) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

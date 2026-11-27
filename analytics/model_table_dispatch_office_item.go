@@ -14,38 +14,38 @@ import (
 	"encoding/json"
 )
 
-// checks if the TableShippingOfficeItem type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &TableShippingOfficeItem{}
+// checks if the TableDispatchOfficeItem type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &TableDispatchOfficeItem{}
 
-// TableShippingOfficeItem Данные по региону отгрузки
-type TableShippingOfficeItem struct {
+// TableDispatchOfficeItem Данные по региону отгрузки
+type TableDispatchOfficeItem struct {
 	// [Страна отгрузки](https://dev.wildberries.ru/release-notes?id=605)
 	RegionName *string `json:"regionName,omitempty"`
 	// Метрики по региону
-	Metrics *TableShippingOfficeMetrics `json:"metrics,omitempty"`
+	Metrics *TableDispatchOfficeMetrics `json:"metrics,omitempty"`
 	// [Данные по складам](https://dev.wildberries.ru/release-notes?id=605)
-	Offices []TableShippingOfficeItemOfficesInner `json:"offices,omitempty"`
+	Offices []TableDispatchOfficeItemOfficesInner `json:"offices,omitempty"`
 }
 
-// NewTableShippingOfficeItem instantiates a new TableShippingOfficeItem object
+// NewTableDispatchOfficeItem instantiates a new TableDispatchOfficeItem object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableShippingOfficeItem() *TableShippingOfficeItem {
-	this := TableShippingOfficeItem{}
+func NewTableDispatchOfficeItem() *TableDispatchOfficeItem {
+	this := TableDispatchOfficeItem{}
 	return &this
 }
 
-// NewTableShippingOfficeItemWithDefaults instantiates a new TableShippingOfficeItem object
+// NewTableDispatchOfficeItemWithDefaults instantiates a new TableDispatchOfficeItem object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewTableShippingOfficeItemWithDefaults() *TableShippingOfficeItem {
-	this := TableShippingOfficeItem{}
+func NewTableDispatchOfficeItemWithDefaults() *TableDispatchOfficeItem {
+	this := TableDispatchOfficeItem{}
 	return &this
 }
 
 // GetRegionName returns the RegionName field value if set, zero value otherwise.
-func (o *TableShippingOfficeItem) GetRegionName() string {
+func (o *TableDispatchOfficeItem) GetRegionName() string {
 	if o == nil || IsNil(o.RegionName) {
 		var ret string
 		return ret
@@ -55,7 +55,7 @@ func (o *TableShippingOfficeItem) GetRegionName() string {
 
 // GetRegionNameOk returns a tuple with the RegionName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableShippingOfficeItem) GetRegionNameOk() (*string, bool) {
+func (o *TableDispatchOfficeItem) GetRegionNameOk() (*string, bool) {
 	if o == nil || IsNil(o.RegionName) {
 		return nil, false
 	}
@@ -63,7 +63,7 @@ func (o *TableShippingOfficeItem) GetRegionNameOk() (*string, bool) {
 }
 
 // HasRegionName returns a boolean if a field has been set.
-func (o *TableShippingOfficeItem) HasRegionName() bool {
+func (o *TableDispatchOfficeItem) HasRegionName() bool {
 	if o != nil && !IsNil(o.RegionName) {
 		return true
 	}
@@ -72,14 +72,14 @@ func (o *TableShippingOfficeItem) HasRegionName() bool {
 }
 
 // SetRegionName gets a reference to the given string and assigns it to the RegionName field.
-func (o *TableShippingOfficeItem) SetRegionName(v string) {
+func (o *TableDispatchOfficeItem) SetRegionName(v string) {
 	o.RegionName = &v
 }
 
 // GetMetrics returns the Metrics field value if set, zero value otherwise.
-func (o *TableShippingOfficeItem) GetMetrics() TableShippingOfficeMetrics {
+func (o *TableDispatchOfficeItem) GetMetrics() TableDispatchOfficeMetrics {
 	if o == nil || IsNil(o.Metrics) {
-		var ret TableShippingOfficeMetrics
+		var ret TableDispatchOfficeMetrics
 		return ret
 	}
 	return *o.Metrics
@@ -87,7 +87,7 @@ func (o *TableShippingOfficeItem) GetMetrics() TableShippingOfficeMetrics {
 
 // GetMetricsOk returns a tuple with the Metrics field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableShippingOfficeItem) GetMetricsOk() (*TableShippingOfficeMetrics, bool) {
+func (o *TableDispatchOfficeItem) GetMetricsOk() (*TableDispatchOfficeMetrics, bool) {
 	if o == nil || IsNil(o.Metrics) {
 		return nil, false
 	}
@@ -95,7 +95,7 @@ func (o *TableShippingOfficeItem) GetMetricsOk() (*TableShippingOfficeMetrics, b
 }
 
 // HasMetrics returns a boolean if a field has been set.
-func (o *TableShippingOfficeItem) HasMetrics() bool {
+func (o *TableDispatchOfficeItem) HasMetrics() bool {
 	if o != nil && !IsNil(o.Metrics) {
 		return true
 	}
@@ -103,15 +103,15 @@ func (o *TableShippingOfficeItem) HasMetrics() bool {
 	return false
 }
 
-// SetMetrics gets a reference to the given TableShippingOfficeMetrics and assigns it to the Metrics field.
-func (o *TableShippingOfficeItem) SetMetrics(v TableShippingOfficeMetrics) {
+// SetMetrics gets a reference to the given TableDispatchOfficeMetrics and assigns it to the Metrics field.
+func (o *TableDispatchOfficeItem) SetMetrics(v TableDispatchOfficeMetrics) {
 	o.Metrics = &v
 }
 
 // GetOffices returns the Offices field value if set, zero value otherwise.
-func (o *TableShippingOfficeItem) GetOffices() []TableShippingOfficeItemOfficesInner {
+func (o *TableDispatchOfficeItem) GetOffices() []TableDispatchOfficeItemOfficesInner {
 	if o == nil || IsNil(o.Offices) {
-		var ret []TableShippingOfficeItemOfficesInner
+		var ret []TableDispatchOfficeItemOfficesInner
 		return ret
 	}
 	return o.Offices
@@ -119,7 +119,7 @@ func (o *TableShippingOfficeItem) GetOffices() []TableShippingOfficeItemOfficesI
 
 // GetOfficesOk returns a tuple with the Offices field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TableShippingOfficeItem) GetOfficesOk() ([]TableShippingOfficeItemOfficesInner, bool) {
+func (o *TableDispatchOfficeItem) GetOfficesOk() ([]TableDispatchOfficeItemOfficesInner, bool) {
 	if o == nil || IsNil(o.Offices) {
 		return nil, false
 	}
@@ -127,7 +127,7 @@ func (o *TableShippingOfficeItem) GetOfficesOk() ([]TableShippingOfficeItemOffic
 }
 
 // HasOffices returns a boolean if a field has been set.
-func (o *TableShippingOfficeItem) HasOffices() bool {
+func (o *TableDispatchOfficeItem) HasOffices() bool {
 	if o != nil && !IsNil(o.Offices) {
 		return true
 	}
@@ -135,12 +135,12 @@ func (o *TableShippingOfficeItem) HasOffices() bool {
 	return false
 }
 
-// SetOffices gets a reference to the given []TableShippingOfficeItemOfficesInner and assigns it to the Offices field.
-func (o *TableShippingOfficeItem) SetOffices(v []TableShippingOfficeItemOfficesInner) {
+// SetOffices gets a reference to the given []TableDispatchOfficeItemOfficesInner and assigns it to the Offices field.
+func (o *TableDispatchOfficeItem) SetOffices(v []TableDispatchOfficeItemOfficesInner) {
 	o.Offices = v
 }
 
-func (o TableShippingOfficeItem) MarshalJSON() ([]byte, error) {
+func (o TableDispatchOfficeItem) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -148,7 +148,7 @@ func (o TableShippingOfficeItem) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o TableShippingOfficeItem) ToMap() (map[string]interface{}, error) {
+func (o TableDispatchOfficeItem) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.RegionName) {
 		toSerialize["regionName"] = o.RegionName
@@ -162,38 +162,38 @@ func (o TableShippingOfficeItem) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableTableShippingOfficeItem struct {
-	value *TableShippingOfficeItem
+type NullableTableDispatchOfficeItem struct {
+	value *TableDispatchOfficeItem
 	isSet bool
 }
 
-func (v NullableTableShippingOfficeItem) Get() *TableShippingOfficeItem {
+func (v NullableTableDispatchOfficeItem) Get() *TableDispatchOfficeItem {
 	return v.value
 }
 
-func (v *NullableTableShippingOfficeItem) Set(val *TableShippingOfficeItem) {
+func (v *NullableTableDispatchOfficeItem) Set(val *TableDispatchOfficeItem) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableTableShippingOfficeItem) IsSet() bool {
+func (v NullableTableDispatchOfficeItem) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableTableShippingOfficeItem) Unset() {
+func (v *NullableTableDispatchOfficeItem) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableTableShippingOfficeItem(val *TableShippingOfficeItem) *NullableTableShippingOfficeItem {
-	return &NullableTableShippingOfficeItem{value: val, isSet: true}
+func NewNullableTableDispatchOfficeItem(val *TableDispatchOfficeItem) *NullableTableDispatchOfficeItem {
+	return &NullableTableDispatchOfficeItem{value: val, isSet: true}
 }
 
-func (v NullableTableShippingOfficeItem) MarshalJSON() ([]byte, error) {
+func (v NullableTableDispatchOfficeItem) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableTableShippingOfficeItem) UnmarshalJSON(src []byte) error {
+func (v *NullableTableDispatchOfficeItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

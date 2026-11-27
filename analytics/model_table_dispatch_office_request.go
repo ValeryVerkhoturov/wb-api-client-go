@@ -16,11 +16,11 @@ import (
 	"fmt"
 )
 
-// checks if the CommonShippingOfficeFilters type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &CommonShippingOfficeFilters{}
+// checks if the TableDispatchOfficeRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &TableDispatchOfficeRequest{}
 
-// CommonShippingOfficeFilters Общие фильтры по регионам отгрузки
-type CommonShippingOfficeFilters struct {
+// TableDispatchOfficeRequest struct for TableDispatchOfficeRequest
+type TableDispatchOfficeRequest struct {
 	// Список артикулов WB для фильтрации
 	NmIDs []int64 `json:"nmIDs,omitempty"`
 	// Список ID предметов для фильтрации
@@ -35,30 +35,30 @@ type CommonShippingOfficeFilters struct {
 	SkipDeletedNm bool `json:"skipDeletedNm"`
 }
 
-type _CommonShippingOfficeFilters CommonShippingOfficeFilters
+type _TableDispatchOfficeRequest TableDispatchOfficeRequest
 
-// NewCommonShippingOfficeFilters instantiates a new CommonShippingOfficeFilters object
+// NewTableDispatchOfficeRequest instantiates a new TableDispatchOfficeRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommonShippingOfficeFilters(currentPeriod PeriodInv, stockType StockType, skipDeletedNm bool) *CommonShippingOfficeFilters {
-	this := CommonShippingOfficeFilters{}
+func NewTableDispatchOfficeRequest(currentPeriod PeriodInv, stockType StockType, skipDeletedNm bool) *TableDispatchOfficeRequest {
+	this := TableDispatchOfficeRequest{}
 	this.CurrentPeriod = currentPeriod
 	this.StockType = stockType
 	this.SkipDeletedNm = skipDeletedNm
 	return &this
 }
 
-// NewCommonShippingOfficeFiltersWithDefaults instantiates a new CommonShippingOfficeFilters object
+// NewTableDispatchOfficeRequestWithDefaults instantiates a new TableDispatchOfficeRequest object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewCommonShippingOfficeFiltersWithDefaults() *CommonShippingOfficeFilters {
-	this := CommonShippingOfficeFilters{}
+func NewTableDispatchOfficeRequestWithDefaults() *TableDispatchOfficeRequest {
+	this := TableDispatchOfficeRequest{}
 	return &this
 }
 
 // GetNmIDs returns the NmIDs field value if set, zero value otherwise.
-func (o *CommonShippingOfficeFilters) GetNmIDs() []int64 {
+func (o *TableDispatchOfficeRequest) GetNmIDs() []int64 {
 	if o == nil || IsNil(o.NmIDs) {
 		var ret []int64
 		return ret
@@ -68,7 +68,7 @@ func (o *CommonShippingOfficeFilters) GetNmIDs() []int64 {
 
 // GetNmIDsOk returns a tuple with the NmIDs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CommonShippingOfficeFilters) GetNmIDsOk() ([]int64, bool) {
+func (o *TableDispatchOfficeRequest) GetNmIDsOk() ([]int64, bool) {
 	if o == nil || IsNil(o.NmIDs) {
 		return nil, false
 	}
@@ -76,7 +76,7 @@ func (o *CommonShippingOfficeFilters) GetNmIDsOk() ([]int64, bool) {
 }
 
 // HasNmIDs returns a boolean if a field has been set.
-func (o *CommonShippingOfficeFilters) HasNmIDs() bool {
+func (o *TableDispatchOfficeRequest) HasNmIDs() bool {
 	if o != nil && !IsNil(o.NmIDs) {
 		return true
 	}
@@ -85,12 +85,12 @@ func (o *CommonShippingOfficeFilters) HasNmIDs() bool {
 }
 
 // SetNmIDs gets a reference to the given []int64 and assigns it to the NmIDs field.
-func (o *CommonShippingOfficeFilters) SetNmIDs(v []int64) {
+func (o *TableDispatchOfficeRequest) SetNmIDs(v []int64) {
 	o.NmIDs = v
 }
 
 // GetSubjectIDs returns the SubjectIDs field value if set, zero value otherwise.
-func (o *CommonShippingOfficeFilters) GetSubjectIDs() []int32 {
+func (o *TableDispatchOfficeRequest) GetSubjectIDs() []int32 {
 	if o == nil || IsNil(o.SubjectIDs) {
 		var ret []int32
 		return ret
@@ -100,7 +100,7 @@ func (o *CommonShippingOfficeFilters) GetSubjectIDs() []int32 {
 
 // GetSubjectIDsOk returns a tuple with the SubjectIDs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CommonShippingOfficeFilters) GetSubjectIDsOk() ([]int32, bool) {
+func (o *TableDispatchOfficeRequest) GetSubjectIDsOk() ([]int32, bool) {
 	if o == nil || IsNil(o.SubjectIDs) {
 		return nil, false
 	}
@@ -108,7 +108,7 @@ func (o *CommonShippingOfficeFilters) GetSubjectIDsOk() ([]int32, bool) {
 }
 
 // HasSubjectIDs returns a boolean if a field has been set.
-func (o *CommonShippingOfficeFilters) HasSubjectIDs() bool {
+func (o *TableDispatchOfficeRequest) HasSubjectIDs() bool {
 	if o != nil && !IsNil(o.SubjectIDs) {
 		return true
 	}
@@ -117,12 +117,12 @@ func (o *CommonShippingOfficeFilters) HasSubjectIDs() bool {
 }
 
 // SetSubjectIDs gets a reference to the given []int32 and assigns it to the SubjectIDs field.
-func (o *CommonShippingOfficeFilters) SetSubjectIDs(v []int32) {
+func (o *TableDispatchOfficeRequest) SetSubjectIDs(v []int32) {
 	o.SubjectIDs = v
 }
 
 // GetBrandNames returns the BrandNames field value if set, zero value otherwise.
-func (o *CommonShippingOfficeFilters) GetBrandNames() []string {
+func (o *TableDispatchOfficeRequest) GetBrandNames() []string {
 	if o == nil || IsNil(o.BrandNames) {
 		var ret []string
 		return ret
@@ -132,7 +132,7 @@ func (o *CommonShippingOfficeFilters) GetBrandNames() []string {
 
 // GetBrandNamesOk returns a tuple with the BrandNames field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CommonShippingOfficeFilters) GetBrandNamesOk() ([]string, bool) {
+func (o *TableDispatchOfficeRequest) GetBrandNamesOk() ([]string, bool) {
 	if o == nil || IsNil(o.BrandNames) {
 		return nil, false
 	}
@@ -140,7 +140,7 @@ func (o *CommonShippingOfficeFilters) GetBrandNamesOk() ([]string, bool) {
 }
 
 // HasBrandNames returns a boolean if a field has been set.
-func (o *CommonShippingOfficeFilters) HasBrandNames() bool {
+func (o *TableDispatchOfficeRequest) HasBrandNames() bool {
 	if o != nil && !IsNil(o.BrandNames) {
 		return true
 	}
@@ -149,12 +149,12 @@ func (o *CommonShippingOfficeFilters) HasBrandNames() bool {
 }
 
 // SetBrandNames gets a reference to the given []string and assigns it to the BrandNames field.
-func (o *CommonShippingOfficeFilters) SetBrandNames(v []string) {
+func (o *TableDispatchOfficeRequest) SetBrandNames(v []string) {
 	o.BrandNames = v
 }
 
 // GetTagIDs returns the TagIDs field value if set, zero value otherwise.
-func (o *CommonShippingOfficeFilters) GetTagIDs() []int64 {
+func (o *TableDispatchOfficeRequest) GetTagIDs() []int64 {
 	if o == nil || IsNil(o.TagIDs) {
 		var ret []int64
 		return ret
@@ -164,7 +164,7 @@ func (o *CommonShippingOfficeFilters) GetTagIDs() []int64 {
 
 // GetTagIDsOk returns a tuple with the TagIDs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CommonShippingOfficeFilters) GetTagIDsOk() ([]int64, bool) {
+func (o *TableDispatchOfficeRequest) GetTagIDsOk() ([]int64, bool) {
 	if o == nil || IsNil(o.TagIDs) {
 		return nil, false
 	}
@@ -172,7 +172,7 @@ func (o *CommonShippingOfficeFilters) GetTagIDsOk() ([]int64, bool) {
 }
 
 // HasTagIDs returns a boolean if a field has been set.
-func (o *CommonShippingOfficeFilters) HasTagIDs() bool {
+func (o *TableDispatchOfficeRequest) HasTagIDs() bool {
 	if o != nil && !IsNil(o.TagIDs) {
 		return true
 	}
@@ -181,12 +181,12 @@ func (o *CommonShippingOfficeFilters) HasTagIDs() bool {
 }
 
 // SetTagIDs gets a reference to the given []int64 and assigns it to the TagIDs field.
-func (o *CommonShippingOfficeFilters) SetTagIDs(v []int64) {
+func (o *TableDispatchOfficeRequest) SetTagIDs(v []int64) {
 	o.TagIDs = v
 }
 
 // GetCurrentPeriod returns the CurrentPeriod field value
-func (o *CommonShippingOfficeFilters) GetCurrentPeriod() PeriodInv {
+func (o *TableDispatchOfficeRequest) GetCurrentPeriod() PeriodInv {
 	if o == nil {
 		var ret PeriodInv
 		return ret
@@ -197,7 +197,7 @@ func (o *CommonShippingOfficeFilters) GetCurrentPeriod() PeriodInv {
 
 // GetCurrentPeriodOk returns a tuple with the CurrentPeriod field value
 // and a boolean to check if the value has been set.
-func (o *CommonShippingOfficeFilters) GetCurrentPeriodOk() (*PeriodInv, bool) {
+func (o *TableDispatchOfficeRequest) GetCurrentPeriodOk() (*PeriodInv, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -205,12 +205,12 @@ func (o *CommonShippingOfficeFilters) GetCurrentPeriodOk() (*PeriodInv, bool) {
 }
 
 // SetCurrentPeriod sets field value
-func (o *CommonShippingOfficeFilters) SetCurrentPeriod(v PeriodInv) {
+func (o *TableDispatchOfficeRequest) SetCurrentPeriod(v PeriodInv) {
 	o.CurrentPeriod = v
 }
 
 // GetStockType returns the StockType field value
-func (o *CommonShippingOfficeFilters) GetStockType() StockType {
+func (o *TableDispatchOfficeRequest) GetStockType() StockType {
 	if o == nil {
 		var ret StockType
 		return ret
@@ -221,7 +221,7 @@ func (o *CommonShippingOfficeFilters) GetStockType() StockType {
 
 // GetStockTypeOk returns a tuple with the StockType field value
 // and a boolean to check if the value has been set.
-func (o *CommonShippingOfficeFilters) GetStockTypeOk() (*StockType, bool) {
+func (o *TableDispatchOfficeRequest) GetStockTypeOk() (*StockType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -229,12 +229,12 @@ func (o *CommonShippingOfficeFilters) GetStockTypeOk() (*StockType, bool) {
 }
 
 // SetStockType sets field value
-func (o *CommonShippingOfficeFilters) SetStockType(v StockType) {
+func (o *TableDispatchOfficeRequest) SetStockType(v StockType) {
 	o.StockType = v
 }
 
 // GetSkipDeletedNm returns the SkipDeletedNm field value
-func (o *CommonShippingOfficeFilters) GetSkipDeletedNm() bool {
+func (o *TableDispatchOfficeRequest) GetSkipDeletedNm() bool {
 	if o == nil {
 		var ret bool
 		return ret
@@ -245,7 +245,7 @@ func (o *CommonShippingOfficeFilters) GetSkipDeletedNm() bool {
 
 // GetSkipDeletedNmOk returns a tuple with the SkipDeletedNm field value
 // and a boolean to check if the value has been set.
-func (o *CommonShippingOfficeFilters) GetSkipDeletedNmOk() (*bool, bool) {
+func (o *TableDispatchOfficeRequest) GetSkipDeletedNmOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -253,11 +253,11 @@ func (o *CommonShippingOfficeFilters) GetSkipDeletedNmOk() (*bool, bool) {
 }
 
 // SetSkipDeletedNm sets field value
-func (o *CommonShippingOfficeFilters) SetSkipDeletedNm(v bool) {
+func (o *TableDispatchOfficeRequest) SetSkipDeletedNm(v bool) {
 	o.SkipDeletedNm = v
 }
 
-func (o CommonShippingOfficeFilters) MarshalJSON() ([]byte, error) {
+func (o TableDispatchOfficeRequest) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -265,7 +265,7 @@ func (o CommonShippingOfficeFilters) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o CommonShippingOfficeFilters) ToMap() (map[string]interface{}, error) {
+func (o TableDispatchOfficeRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.NmIDs) {
 		toSerialize["nmIDs"] = o.NmIDs
@@ -285,7 +285,7 @@ func (o CommonShippingOfficeFilters) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *CommonShippingOfficeFilters) UnmarshalJSON(data []byte) (err error) {
+func (o *TableDispatchOfficeRequest) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -309,53 +309,53 @@ func (o *CommonShippingOfficeFilters) UnmarshalJSON(data []byte) (err error) {
 		}
 	}
 
-	varCommonShippingOfficeFilters := _CommonShippingOfficeFilters{}
+	varTableDispatchOfficeRequest := _TableDispatchOfficeRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCommonShippingOfficeFilters)
+	err = decoder.Decode(&varTableDispatchOfficeRequest)
 
 	if err != nil {
 		return err
 	}
 
-	*o = CommonShippingOfficeFilters(varCommonShippingOfficeFilters)
+	*o = TableDispatchOfficeRequest(varTableDispatchOfficeRequest)
 
 	return err
 }
 
-type NullableCommonShippingOfficeFilters struct {
-	value *CommonShippingOfficeFilters
+type NullableTableDispatchOfficeRequest struct {
+	value *TableDispatchOfficeRequest
 	isSet bool
 }
 
-func (v NullableCommonShippingOfficeFilters) Get() *CommonShippingOfficeFilters {
+func (v NullableTableDispatchOfficeRequest) Get() *TableDispatchOfficeRequest {
 	return v.value
 }
 
-func (v *NullableCommonShippingOfficeFilters) Set(val *CommonShippingOfficeFilters) {
+func (v *NullableTableDispatchOfficeRequest) Set(val *TableDispatchOfficeRequest) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableCommonShippingOfficeFilters) IsSet() bool {
+func (v NullableTableDispatchOfficeRequest) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableCommonShippingOfficeFilters) Unset() {
+func (v *NullableTableDispatchOfficeRequest) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableCommonShippingOfficeFilters(val *CommonShippingOfficeFilters) *NullableCommonShippingOfficeFilters {
-	return &NullableCommonShippingOfficeFilters{value: val, isSet: true}
+func NewNullableTableDispatchOfficeRequest(val *TableDispatchOfficeRequest) *NullableTableDispatchOfficeRequest {
+	return &NullableTableDispatchOfficeRequest{value: val, isSet: true}
 }
 
-func (v NullableCommonShippingOfficeFilters) MarshalJSON() ([]byte, error) {
+func (v NullableTableDispatchOfficeRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableCommonShippingOfficeFilters) UnmarshalJSON(src []byte) error {
+func (v *NullableTableDispatchOfficeRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
